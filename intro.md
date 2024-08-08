@@ -1,4 +1,6 @@
-# Machine Learning
+# Machine Learning (template)
+
+(this is a template for now with sample text)
 
 ## Welcome
 

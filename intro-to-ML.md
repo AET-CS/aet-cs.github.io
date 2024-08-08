@@ -1,3 +1,5 @@
+![header graphic](ml-header.webp)
+
 # Machine Learning (template)
 
 (this is a template for now with sample text)

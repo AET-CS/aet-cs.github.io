@@ -33,9 +33,16 @@ In this course, we will cover a wide range of topics, including:
 
 ## Single Lessons
 
-- [**Mushrooms**](lessons/mushroom.html)
+- **[Mushrooms](lessons/mushroom.html)**
 
 ## Resources
+
+- **[Research](background.md)** a collection of news and journal articles featuring computer science
+
+## Topic Outlines
+- **[Semester One](outline-01.md)** topic outline for classical machine learning techniques
+- **[Semester Two](outline-02.md)** topic outline
+for deep learning techniques
 
 ### Books
 

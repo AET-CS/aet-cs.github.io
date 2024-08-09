@@ -31,6 +31,10 @@ In this course, we will cover a wide range of topics, including:
 | Day 2 | Linear Regression         | [Homework 2](#)           |
 | Day 3 | Classification Techniques | [Homework 3](#)           |
 
+## Single Lessons
+
+- [**Mushrooms**](lessons/mushroom.html)
+
 ## Resources
 
 ### Books

@@ -17,4 +17,4 @@ research.
 
 7. **[The New Stack](https://thenewstack.io/)**: Focuses on cloud-native computing, open-source software, and the development of modern applications, with current and relevant articles discussing the intersection of industry practices and research.
 
-8. **[Quanta Magazine (Computing section)](https://www.quantamagazine.org/computing/)**: Covers the latest developments in mathematics, theoretical physics, and computer science, known for its clear and engaging explanations of complex topics.
+8. **[Quanta Magazine (Computing section)](https://www.quantamagazine.org/computer-science/)**: Covers the latest developments in mathematics, theoretical physics, and computer science, known for its clear and engaging explanations of complex topics.

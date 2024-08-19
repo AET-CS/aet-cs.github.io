@@ -1,3 +1,3 @@
 Hello.
 
-[Dr. White's ML Class](intro-to-ML.md)
+[Dr. White's ML Class](white/intro-to-ML.md)

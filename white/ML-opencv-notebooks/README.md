@@ -1,8 +1,11 @@
-# Machine Learning for OpenCV
+# Machine Learning for OpenCV (Modified for AET)
 
 [![Google group](https://img.shields.io/badge/Google-Discussion%20group-lightgrey.svg)](https://groups.google.com/d/forum/machine-learning-for-opencv)
 [![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.833523.svg)](https://doi.org/10.5281/zenodo.833523)
 
+(Note this content was updated in 08/2024 to run in python 3.11.9 with up-to-date version of the ML libraries. Chapters 1-8 are updated so far.)
+
+---
 This is the Jupyter notebook version of the following book:
 
 <img src="https://images-na.ssl-images-amazon.com/images/I/41CKBKW8y4L.jpg" width="200" align="left" style="padding: 1px; border: 1px solid black; margin-right: 5px"/> <br/>
@@ -127,7 +130,7 @@ There are at least two ways you can run the code:
 - **deprecated** Using [Binder](https://mybinder.org/v2/gh/mbeyeler/opencv-machine-learning/master) (no installation required).
 - Using Jupyter Notebook on your local machine.
 
-The code in this book was tested with Python 3.5, although Python 3.6 and 2.7 should work as well. 
+The code in this book was tested with Python 3.5, although Python 3.6 and 2.7 should work as well.
 
 
 ### Using Binder
@@ -158,12 +161,12 @@ In short:
    $ git clone https://github.com/YourUsername/opencv-machine-learning
    $ cd opencv-machine-learning
    ```
-   
+
    - Add the following to your remotes:
    ```
    $ git remote add upstream https://github.com/mbeyeler/opencv-machine-learning
    ```
-   
+
 3. Add Conda-Forge to your trusted channels (to simplify installation of OpenCV on Windows platforms):
 
    ```
@@ -204,8 +207,8 @@ In short:
    The README file has a table of contents.
    Else navigate to the `notebooks` folder, click on the notebook of your choice,
    and select `Kernel > Restart & Run All` from the top menu.
-   
-   
+
+
 ## Getting the latest code
 
 If you followed the instructions above and:

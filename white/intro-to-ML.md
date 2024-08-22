@@ -35,6 +35,9 @@ and your classmates.
 Most of your classwork/homework will be centered on writing python scripts to analyze datasets.
 Some projects will be short that you can do in 20-30 minutes. Some will take much longer. Additionally we will have research-related activites like described above, sprinkled throughout the course.
 
+### Class Calendar
+
+- **[Assignments here](calendar.md)**
 
 ## Resources
 

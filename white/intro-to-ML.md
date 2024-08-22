@@ -44,7 +44,8 @@ Some projects will be short that you can do in 20-30 minutes. Some will take muc
 
 ### Class Related
 - **[Machine Learning for OpenCV Textbook Online](https://github.com/AET-CS/opencv-machine-learning/tree/master)** a forked github repo with lessons on ML we will use in class
-- **[Class Datasets](https://github.com/AET-CS/ML-datasets)
+- **[Class Datasets](https://github.com/AET-CS/ML-datasets)** this repo will contain datasets that we use in class. You should clone it using `git` and periodically update your local copy (we'll learn how to do this in class but you should install `git` if you haven't already.)
+
 ### Research Related
 - **[Research](background.md)** a collection of news and journal articles featuring computer science
 

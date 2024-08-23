@@ -1,4 +1,4 @@
-![header graphic](cs2-5.webp)
+![header graphic](cs10.webp)
 
 # AP Computer Science 10 and Data Structures
 
@@ -47,4 +47,4 @@ Most of your classwork and homework will involve coding exercises and projects. 
 - **[Codecademy](https://www.codecademy.com/)**: Interactive coding lessons (Java and more).
 
 ## Navigation
-  * Go to [course list](../index.md)
+  * Go to [course list](../../index.md)

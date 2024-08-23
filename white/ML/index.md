@@ -69,4 +69,4 @@ for deep learning techniques
 - **[ArXiv](https://arxiv.org/)**: Access the latest research papers in AI and ML.
 
 ## Navigation
-  * Go to [course list](../index.md)
+  * Go to [course list](../../index.md)

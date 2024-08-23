@@ -46,5 +46,10 @@ Most of your classwork and homework will involve coding exercises and projects. 
 - **[GeeksforGeeks](https://www.geeksforgeeks.org/)**: Tutorials and problems on various computer science topics.
 - **[Codecademy](https://www.codecademy.com/)**: Interactive coding lessons (Java and more).
 
+### AP Classroom
+- Course Join Code: 2LXYW6.
+- Do not sign up for the exam. You will take it at your home school
+- Test Date May 7th, A day, AM
+
 ## Navigation
   * Go to [course list](../../index.md)

@@ -1,11 +1,14 @@
 # Day 1 Coding Challenges
 
+Please read through the following coding challenges and select *one* to work on in a group. Your group should brainstorm and make a plan to solve the problem. Write down the plan in English and show it to me in class.
 
+*Homework*: In class I asked you to optionally have at least one group member try to code up your solution at home and bring it in. If you weren't able to solve your problem, we'll talk about it in class. (And to be clear, I do not expect you to "turn this in" for a gade. I just want to have something to talk about in class :-)
 
 ## Reverse Integer
 
 Given an unsigned 32-bit integer x, return x with its digits reversed. Do *not* use string operations.
 
+(People asked what a 32 bit integer is. An unsigned 32-bit integer is simply a number that you can write using 32 binary bits. So the smallest is 00000...0 and the largest is 11111.....1. That's 32 ones, and it equals $2^{32}-1$)
 ```
 Example 1:
 

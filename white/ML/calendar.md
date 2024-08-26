@@ -1,6 +1,5 @@
 # Teaching Calendar
 
 
-| Day   |   Date   | Lecture Topic            | Homework                        |
-|-------|----------|--------------------------|---------------------------------|
-| Day 1 | Aug 22, 2024 |Introduction to Class    | [HW1](lessons/hw01.md)           |
+- 8/22/2024. Introduction to class. See [more details](lessons/hw01.md)
+- 8/26/2024. Didn't It Rain? [Exploring data](lessons/hw02.md)

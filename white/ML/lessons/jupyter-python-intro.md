@@ -10,7 +10,7 @@ When a cell is selected you can do cell operations by typing single letters such
 - `C` copy the cell to the clipboard
 - `V` paste the cell on the clipboard
 - `D` delete the cell
-- `C` convert a cell to markdown style
+- `M` convert a cell to markdown style
 - `Y` convert a markdown cell back to Input style
 
 You can also drag a selected cell around the notebook with the mouse. You should also get familiar with the menu bar and toolbars. There are several useful operations hidden there. For example, *rerun all cells* is handy as is *Clear Outputs of all cells*

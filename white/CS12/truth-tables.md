@@ -27,11 +27,13 @@ Output:
 [F, F, F, F] T
 ```
 
-The *input* will consist of the following: up to 5 variables from the set "A B C D E", negation "!", and java symbols for and "&&" and or "||", parenthesis and whitespace.
+```
+The *input* will consist of the following: up to 5 variables from the set "A B C D E", negation "!", and java symbols for and  and or "||", parenthesis and whitespace.
 
 The output will be a truth table with the appropriate number of rows and values for the variables in alphabetical order. (You can assume that no variable are missing, for example "A && D" is not valid input). The final column of the output will be the truth value for the input expressions given the values found in the row.
 
 You will be given code that can evaluate expressions such as "true && !(false || true)". You will provide the remainder of the code for the project, which is divided into several parts.
+```
 
 ## Part 1 : Decimal to Binary
 
@@ -89,9 +91,11 @@ This part is more open ended, but now you have all the pieces. Your goal is to p
 
 Test your code on the following expressions, and make up some of your own
 
+```
 - A && B && C && D
 - A && (!B || !C) || D
 - D && (!D || C || B) && A || C
+```
 
 *Structuring hint* it might be nice to have a method that takes input as the input expression (string) and an integer, and output T or F depending on whether the row corresponding to that integer is true or false.
 

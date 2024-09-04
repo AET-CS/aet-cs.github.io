@@ -8,4 +8,4 @@
 
 - 8/29/24: ~~Go over coding challenge problems in class~~. Begin lesson on boolean algebra and truth tables. Work through the problems on the [Boolean Algebra Worksheet](./boolean.pdf). **HW** Finish boolean worksheet (doesn't need to be typed). Do the circuit simulation online if you can figure out the website! If not, we'll look at it next class.
 
-- 9/4/24 (Wednesday): Go over 4 coding challenge problems in class. Review Boolean Algebra homework. New coding project: [Truth Tables](./truth-tables.md)
+- 9/4/24 (Wednesday): Go over 4 coding challenge problems in class. Review Boolean Algebra homework. DeMorgan's Laws. New coding project: [Truth Tables](./truth-tables.md) You will need [this parser](../code/BooleanExpressionParser.java) to complete part 4.

@@ -115,3 +115,20 @@ Test your code on the following expressions, and make up some of your own
 		x = "F";
 	}
 ```
+## Bonus Extension: 3-SAT
+
+A 3-SAT boolean expression is an expression like
+```
+(x || y || !z) && (!x || !w || z) && (!y || !a || c)
+```
+
+which is a series of size-3 *disjunctions* connected by boolean `and`. A disjunction is a series of variables, possibly negated, connected by boolean `or`. The **3-SAT problem** asks whether it is possible to set each variable to either `true` or `false` so that the entire expression evaluates to `true`. If such a setting exists, the expression is said to be *satisfiable*.
+
+The purpose of this bonus lab is to approximate the fraction of 3-SAT expressions, of a given size, that are satisfiable. The input will be two parameters: the number of variables and the number of disjunctions. You will generate some number of expressions randomly and solve each one for satisfiability, if possible. Then report the fraction of the test cases that were satisfiable.
+
+```
+Input: 2 integers, num_vars and num_disjunctions
+       3 <= num_vars <= 26
+       1 <= num_disjunctions <= 100
+
+Output: A real number 0<r<1.

@@ -99,8 +99,18 @@ Test your code on the following expressions, and make up some of your own
 
 *Structuring hint* it might be nice to have a method that takes input as the input expression (string) and an integer, and output T or F depending on whether the row corresponding to that integer is true or false.
 
-*Java trick* The ternary operator is very handy in this lab
+### Calling my code
 
+Download and save my parser in the same folder as your code. You do *not* need to edit my file. But in your java file you can say
+
+
+```java
+boolean result = BooleanExpressionParser.parseBooleanExpression(expression);
+```
+to get the value of a string expression.
+
+
+### *Java trick* The ternary operator is very handy in this lab
 ```java
 	int y = 10;
 	String x;

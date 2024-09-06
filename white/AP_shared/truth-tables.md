@@ -117,7 +117,7 @@ Test your code on the following expressions, and make up some of your own
 ```
 
 ## Test Cases
-
+```
 - !(A && B) || (A && !B) || (C && !D && !A)
 - FFFFTTTTTTTTTTTT (from the top down)
 
@@ -126,7 +126,7 @@ Test your code on the following expressions, and make up some of your own
 
 - (A && B || !C) || (!D)
 - TTTTFTTTFTTTFTTT
-
+```
 ## Bonus Extension: 3-SAT
 
 A 3-SAT boolean expression is an expression like

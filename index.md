@@ -1,3 +1,8 @@
+---
+layout: defaults
+title: "AETCS Page"
+---
+
 # AET Computer Science Department
 
 ## Dr. White's Classes

@@ -27,13 +27,13 @@ Output:
 [F, F, F, F] T
 ```
 
-```
-The *input* will consist of the following: up to 5 variables from the set "A B C D E", negation "!", and java symbols for and  and or "||", parenthesis and whitespace.
 
-The output will be a truth table with the appropriate number of rows and values for the variables in alphabetical order. (You can assume that no variable are missing, for example "A && D" is not valid input). The final column of the output will be the truth value for the input expressions given the values found in the row.
+The *input* will consist of the following: up to 5 variables from the set "A B C D E", negation "!", and java symbols for and  and or "\|\|", parenthesis and whitespace.
 
-You will be given code that can evaluate expressions such as "true && !(false || true)". You will provide the remainder of the code for the project, which is divided into several parts.
-```
+The output will be a truth table with the appropriate number of rows and values for the variables in alphabetical order. (You can assume that no variable are missing, for example "A \&\& D" is not valid input). The final column of the output will be the truth value for the input expressions given the values found in the row.
+
+You will be given code that can evaluate expressions such as "true \&\& !(false \|\| true)". You will provide the remainder of the code for the project, which is divided into several parts.
+
 
 ## Part 1 : Decimal to Binary
 

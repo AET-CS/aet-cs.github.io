@@ -1,5 +1,4 @@
 ---
-layout: defaults
 title: "AETCS Page"
 ---
 

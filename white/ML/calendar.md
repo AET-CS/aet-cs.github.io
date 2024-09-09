@@ -11,3 +11,6 @@
 	- Then find your own dataset somewhere and perform a linear regression on it. In both cases use the LR algorithm you coded already; do not use built-in linear regression tools, please. Make your data analysis into a nice, brief write-up (emphasis on brief) and turn it in before class ends (as a jupyter notebook).
 	- Classwork: Discuss some recent *money list* ideas
 	- HW: Finish classwork, any other old notebooks that aren't done yet
+- 9/9/2024 (Monday) Unit Topic: Matrices in Python and Numpy. Today we will code up standard algorithms for performing matrix arithmetic operations using Python lists. Please download and modify [this matrix notebook](./lessons/Matrices-student.ipynb) ([pdf](./lessons/Matrices-student.pdf)) and ftp it to the pi when you're finished. The next notebook on Gaussian elimination will be provided later.
+- 9/11/2024 (Wednesday) Plan: Gaussian elimination, on paper and using numpy. Intro to numpy arrays and operations.
+- 9/13/2024 (Friday) Plan: Regression analysis of error terms in Gaussian elimination lab. Log-log regression.

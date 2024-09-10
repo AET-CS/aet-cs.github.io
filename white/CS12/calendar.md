@@ -9,3 +9,5 @@
 	* [Filezilla link](https://filezilla-project.org/download.php?show_all=1)
 
 - 9/4/24 (Wednesday): Go over 4 coding challenge problems in class. Review Boolean Algebra homework. DeMorgan's Laws. New coding project: [Truth Tables](../AP_shared/truth-tables.md) You will need [this parser](../code/BooleanExpressionParser.java) to complete part 4.
+
+- 9/6/24 (Friday): Continue working on Truth Tables in class.

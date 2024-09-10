@@ -12,5 +12,5 @@
 
 - 9/6/24 (Friday): Continue working on Truth Tables in class.
 
-- 9/10/24 (Tuesday): Finish and turn in Truth Tables. Work on [Credit Card](../AP_shared/Credit%20Card%20Validation.pdf) In class work on [Coding Bat Arrays 2](https://codingbat.com/java/Array-2) or [Coding Bat Arrays 3](https://codingbat.com/java/Array-2)
-  - test case (!D || !A) && (!B || C || !C)
+- 9/10/24 (Tuesday): Finish and turn in Truth Tables. Work on [Credit Card](../AP_shared/Credit_Card_Validation.pdf) In class work on [Coding Bat Arrays 2](https://codingbat.com/java/Array-2) or [Coding Bat Arrays 3](https://codingbat.com/java/Array-2)
+  - test case `(!D || !A) && (!B || C || !C)`

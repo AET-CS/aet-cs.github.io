@@ -10,4 +10,4 @@
 
 - 9/4/24 (Wednesday): Go over 4 coding challenge problems in class. Review Boolean Algebra homework. DeMorgan's Laws. New coding project: [Truth Tables](../AP_shared/truth-tables.md) You will need [this parser](../code/BooleanExpressionParser.java) to complete part 4.
 
-- 9/6/24 (Friday): Continue working on Truth Tables in class.
+- 9/10/24 (Tuesday): Finish and turn in Truth Tables. Work on [Credit Card](../AP_shared/Credit%20Card%20Validation.pdf) In class work on [Coding Bat Arrays 2](https://codingbat.com/java/Array-2) or [Coding Bat Arrays 3](https://codingbat.com/java/Array-2)

@@ -12,5 +12,9 @@
 	- Classwork: Discuss some recent *money list* ideas
 	- HW: Finish classwork, any other old notebooks that aren't done yet
 - 9/9/2024 (Monday) Unit Topic: Matrices in Python and Numpy. Today we will code up standard algorithms for performing matrix arithmetic operations using Python lists. Please download and modify [this matrix notebook](./lessons/Matrices-student.ipynb) ([pdf](./lessons/Matrices-student.pdf)) and ftp it to the pi when you're finished. The next notebook on Gaussian elimination will be provided later.
-- 9/11/2024 (Wednesday) Plan: Gaussian elimination, on paper and using numpy. Intro to numpy arrays and operations.
+- 9/11/2024 (Wednesday)  Gaussian elimination, on paper and using numpy.
+	- [Intro to numpy arrays and operations](./lessons/Intro_to_Matrices_in_NumPy.ipynb) ([html](./lessons/Intro_to_Matrices_in_NumPy.html)).
+	- [Matrix indices warmup](./lessons/Matrices_Index_Warmup-Student.ipynb) ([html](./lessons/Matrices_Index_Warmup-Student.html))
+	- [Gaussian Elimination notebook](./lessons/Gaussian_Elimination-student.ipynb) ([pdf](./lessons/Gaussian_Elimination-student.pdf)). You'll need [this picture](./lessons/error-scatterplot.png) to display the Gaussian notebook properly, in the same folder. (only turn in this notebook when you finish Friday)
 - 9/13/2024 (Friday) Plan: Regression analysis of error terms in Gaussian elimination lab. Log-log regression.
+	- Extensions (optional): TBD

@@ -21,4 +21,6 @@
 	- Extensions (optional):
 		- [Strassen Multiplication](./lessons/Strassen-Lab.pdf)
 		- [Gaussian Biography](./lessons/Gauss.pdf)
-		- Matrix inversion (tbd -- I have some ideas here but not sure...)
+		- [Matrix inversion](./lessons/inverse.pdf)
+		- Custom idea (propose something!)
+		- Note: the value of the extension is always its *uniqueness*. If everybody in class turns in essentially the same solution for an optional assignment, its value degrades to zero. These are a chance to explore something interesting and to be original and creative!

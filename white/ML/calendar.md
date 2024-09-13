@@ -16,5 +16,6 @@
 	- [Intro to numpy arrays and operations](./lessons/Intro_to_Matrices_in_NumPy.ipynb) ([html](./lessons/Intro_to_Matrices_in_NumPy.html)).
 	- [Matrix indices warmup](./lessons/Matrices_Index_Warmup-Student.ipynb) ([html](./lessons/Matrices_Index_Warmup-Student.html))
 	- [Gaussian Elimination notebook](./lessons/Gaussian_Elimination-student.ipynb) ([pdf](./lessons/Gaussian_Elimination-student.pdf)). You'll need [this picture](./lessons/error-scatterplot.png) to display the Gaussian notebook properly, in the same folder. (only turn in this notebook when you finish Friday)
-- 9/13/2024 (Friday) Plan: Regression analysis of error terms in Gaussian elimination lab. Log-log regression.
-	- Extensions (optional): TBD
+- 9/13/2024 (Friday) Complete regression analysis of error terms in Gaussian Elimination lab. Log-log regression.
+	- Turn in Matrix lab and Gauss lab today please
+	- Extensions (optional): [Strassen Multiplication](./lessons/Strassen-Lab.pdf)

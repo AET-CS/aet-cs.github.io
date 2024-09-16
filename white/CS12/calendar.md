@@ -13,4 +13,4 @@
 - 9/10/24 (Tuesday): Finish and turn in Truth Tables. Work on [Credit Card](../AP_shared/Credit_Card_Validation.pdf) In class work on [Coding Bat Arrays 2](https://codingbat.com/java/Array-2) or [Coding Bat Arrays 3](https://codingbat.com/java/Array-2)
 	- test case `(!D || !A) && (!B || C || !C)`
 - 9/12/24(Thursday) Benchmark practice AP test in class
-- 9/16/24(Monday) Array practice. Review classes. In class do CodingBat array level 2 problems. Class design for a dog, cat, animal set of classes. Turn in Truth Table or Credit Card today if finished. *Show me* truth table if you didn't already and it's done.
+- 9/16/24(Monday) Array practice. Review classes. In class do CodingBat array level 2 problems. Class design for a dog, cat, animal set of classes. Turn in Truth Table or Credit Card today if finished. *Show me* truth table if you didn't already and it's done. Quiz Friday!!

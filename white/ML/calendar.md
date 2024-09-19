@@ -26,7 +26,12 @@
 		- Note: the value of the extension is always its *uniqueness*. If everybody in class turns in essentially the same solution for an optional assignment, its value degrades to zero. These are a chance to explore something interesting and to be original and creative!
 - 9/17/2024. Fire. A literal fire.
 - 9/19/2024 (Thursday) Still closed for [fire](https://www.youtube.com/watch?v=XchwE9zVdnw). But there *is* homework
-	- Please read an article about recent results in CS, and come to class read to talk about it. [More information is here](./lessons/reading.md)
+	- Please read an article about recent results in CS, and come to class ready to talk about it. [More information is here](./lessons/reading.md)
+	- Finish all old labs and extensions and turn them in next class. I don't want to spend class time working on them anymore. Please email or send a Remind if you have any questions!
+	- I'll probably go over some/most/all labs and extensions next class.
+
+## Future Dates
+
 - 9/23/2024 (Monday, Plan) Closing thoughts on Gaussian Elimination, Matrix Inversion. Gaussian Biography presentation (???). Class activity: Work on [Running Time Analysis lab](./lessons/Running_Time_Analysis.ipynb), in which running times of 4 different matrix multiply algorithms are considered. Discussion of pandas topics such as filtering and manipulating data and plotting using pandas.plot.
 	- No new HW
 	- If you are interested in the [C++ matrix code](./lessons/matrices.cpp) check it out, along with an example of using `pybind11` to call it from python.

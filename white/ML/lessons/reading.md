@@ -17,4 +17,4 @@ I know that this kind of self-directed reading is one of the very best ways to g
 to learn more about a field and to find new problems to solve. I also hope that your brief presentations to the class will help inspire the rest of the class. We'll all hear about
 a dozen different new results in computer science. It should be lots of fun!
 
-Specifically for next week, please select one article from the links about and be ready to tell us about it on probably Monday. All the links are good, but the [first one](https://cacm.acm.org/) (Communications of the ACM) might be the best one-stop-shop. It depends on what you like, though.
+Specifically for next week, please select one article from the links above and be ready to tell us about it on probably Monday. All the links are good, but the [first one](https://cacm.acm.org/) (Communications of the ACM) might be the best one-stop-shop. It depends on what you like, though.

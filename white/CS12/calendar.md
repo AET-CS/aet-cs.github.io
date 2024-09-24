@@ -14,3 +14,8 @@
 	- test case `(!D || !A) && (!B || C || !C)`
 - 9/12/24(Thursday) Benchmark practice AP test in class
 - 9/16/24(Monday) Array practice. Review classes. In class do CodingBat array level 2 problems. Class design for a dog, cat, animal set of classes. Turn in Truth Table or Credit Card today if finished. *Show me* truth table if you didn't already and it's done. Quiz Friday!!
+- 9/18/24 (Wednesday) No school!
+- 9/20/24 (Friday) No school!
+- 9/24/24 (Tuesday) School! But Dr. White is out today. There is a quiz review on AP Classroom. It's set up as a test, but it will not be graded as a test. It's just for review. Also the FRQ questions might not work (like on the benchmark) so please feel free to do those on paper or in another app. You do not need to turn in the FRQ. Please work through review today; feel free to collaborate. I'll push the quiz again to next Monday so we can have some face time Thursday before. We'll also start our next lab Thursday.
+    - Quiz topics: Booleans, conditionals, simplifying boolean expressions, basic arithmetic, order of precedence, doubles and ints, div and mod, tracing for loops, simple arrays, writing class definitions, constructors, getters and setters, class methods, toString methods. This should all be review from last year and related to our classwork.
+    - HW: Review for quiz

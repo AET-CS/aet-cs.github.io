@@ -21,10 +21,4 @@
 - 9/24/24 (Tuesday) School! But Dr. White is out today. There is a quiz review on AP Classroom [there's also a pdf here](../AP_shared/Quiz_Review_1.pdf). It's set up as a test, but it will not be graded as a test. It's just for review. Also the FRQ questions might not work (like on the benchmark) so please feel free to do those on paper or in another app. You do not need to turn in the FRQ. Please work through review today; feel free to collaborate. I'll push the quiz again to next Monday so we can have some face time Thursday before. We'll also start our next lab Thursday.
     - Quiz topics: Booleans, conditionals, simplifying boolean expressions, basic arithmetic, order of precedence, doubles and ints, div and mod, tracing for loops, simple arrays, writing class definitions, constructors, getters and setters, class methods, toString methods. This should all be review from last year and related to our classwork.
     - HW: Review for quiz
-- 9/26/24 (Thursday) Answers to [quiz review posted here](../AP_shared/Review_1_key.pdf). Quiz next class. Will consist of MC and FRQ questions. Be sure you can write loops/conditionals/classes from scratch.
-**Please install Schoology Lockdown Browser** if you haven't already!
-- 9/30/24 (Monday) Quiz today! After quiz you may begin [Pig latin lab](../AP_shared/PigLatin.pdf). Create one java file PigLatin.java with a main method to preform the transformations. For now stop at STEP 2 (parsing a file).
-
-**Note: Schoology is updated with what you have submitted in class. Anything "blank" is missing. Please turn in any missing work on Wednesday. Also if Truth Table 15pts is blank you need to show it to me in person so we can discuss your answer. Thanks!**
-
-- 10/2/24 (Wednesday) PSAT day. Please check SCHOOLOGY for your room assignments and seat number. Report to 2312 first for attendance.
+9/26/24 (Thursday) Answers to [quiz review posted here](../AP_shared/Review_1_key.pdf). Quiz next class.

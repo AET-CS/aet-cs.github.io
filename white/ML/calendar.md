@@ -33,7 +33,7 @@
 	- Class activity: Work on [Running Time Analysis lab](./lessons/Running_Time_Analysis.ipynb), ([html](./lessons/Running_Time_Analysis.html)) in which running times of 4 different matrix multiply algorithms are considered. Discussion of pandas topics such as filtering and manipulating data and plotting using pandas.plot.
 	- No new HW
 	- If you are interested in the [C++ matrix code](./lessons/matrices.cpp) check it out, along with an example of using `pybind11` to call it from python.
-- 9/25/2024 (Wednesday) Finish [Running Time Analysis lab](./lessons/Running_Time_Analysis.ipynb), ([html](./lessons/Running_Time_Analysis.html)). Talk about confidence intervals on regression coefficients. (Probably) introduce new lab with matplotlib.
+- 9/25/2024 (Wednesday) Finish [Running Time Analysis lab](./lessons/Running_Time_Analysis.ipynb), ([html](./lessons/Running_Time_Analysis.html)). Talk about confidence intervals on regression coefficients. Introduce new lab on data ingesting and visualization with the [HOBO data lab](./lessons/Hobo%20Student.ipynb) ([html](./lessons/Hobo%20Student.html))
 
 ----------------------------
 

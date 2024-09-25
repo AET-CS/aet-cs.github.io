@@ -34,3 +34,5 @@
 	- No new HW
 	- If you are interested in the [C++ matrix code](./lessons/matrices.cpp) check it out, along with an example of using `pybind11` to call it from python.
 - 9/25/2024 (Wednesday) Finish [Running Time Analysis lab](./lessons/Running_Time_Analysis.ipynb), ([html](./lessons/Running_Time_Analysis.html)). Talk about confidence intervals on regression coefficients. (Probably) introduce new lab with matplotlib.
+----------------------------
+### See the [list of assignments](./assignments.md) so far

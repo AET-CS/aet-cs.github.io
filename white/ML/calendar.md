@@ -29,9 +29,8 @@
 	- Please read an article about recent results in CS, and come to class ready to talk about it. [More information is here](./lessons/reading.md)
 	- Finish all old labs and extensions and turn them in next class. I don't want to spend class time working on them anymore. Please email or send a Remind if you have any questions!
 	- I'll probably go over some/most/all labs and extensions next class.
-
-## Future Dates
-
-- 9/23/2024 (Monday, Plan) Closing thoughts on Gaussian Elimination, Matrix Inversion. Gaussian Biography presentation (???). Class activity: Work on [Running Time Analysis lab](./lessons/Running_Time_Analysis.ipynb), in which running times of 4 different matrix multiply algorithms are considered. Discussion of pandas topics such as filtering and manipulating data and plotting using pandas.plot.
+- 9/23/2024 (Monday) Closing thoughts on Gaussian Elimination, Matrix Inversion. Gaussian Biography presentation (awesome, Kyle)
+	- Class activity: Work on [Running Time Analysis lab](./lessons/Running_Time_Analysis.ipynb), ([html](./lessons/Running_Time_Analysis.html)) in which running times of 4 different matrix multiply algorithms are considered. Discussion of pandas topics such as filtering and manipulating data and plotting using pandas.plot.
 	- No new HW
 	- If you are interested in the [C++ matrix code](./lessons/matrices.cpp) check it out, along with an example of using `pybind11` to call it from python.
+- 9/25/2024 (Wednesday) Finish [Running Time Analysis lab](./lessons/Running_Time_Analysis.ipynb), ([html](./lessons/Running_Time_Analysis.html)). Talk about confidence intervals on regression coefficients. (Probably) introduce new lab with matplotlib.

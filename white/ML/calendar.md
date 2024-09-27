@@ -33,8 +33,11 @@
 	- Class activity: Work on [Running Time Analysis lab](./lessons/Running_Time_Analysis.ipynb), ([html](./lessons/Running_Time_Analysis.html)) in which running times of 4 different matrix multiply algorithms are considered. Discussion of pandas topics such as filtering and manipulating data and plotting using pandas.plot.
 	- No new HW
 	- If you are interested in the [C++ matrix code](./lessons/matrices.cpp) check it out, along with an example of using `pybind11` to call it from python.
-- 9/25/2024 (Wednesday) Finish [Running Time Analysis lab](./lessons/Running_Time_Analysis.ipynb), ([html](./lessons/Running_Time_Analysis.html)). Talk about confidence intervals on regression coefficients. Introduce new lab on data ingesting and visualization with the [HOBO data lab](./lessons/Hobo_Student.ipynb) ([html](./lessons/Hobo_Student.html))
-
+- 9/25/2024 (Wednesday) Finish [Running Time Analysis lab](./lessons/Running_Time_Analysis.ipynb), ([html](./lessons/Running_Time_Analysis.html)). ~~Talk about confidence intervals on regression coefficients~~. Introduce new lab on data ingesting and visualization with the [HOBO data lab](./lessons/Hobo_Student.ipynb) ([html](./lessons/Hobo_Student.html))
+- 9/27/2024 (Friday) Turn in Running Time Analysis (I think everybody finished?) Work in class on your part (1,2 or 3) of the HOBO data lab. I do want to go over Running Time Analysis results and confidence intervals (new topic).
+- Classwork: HOBO lab, hopefully finish your part
+- Homework: Finish HOBO if needed, prepare some Money List ideas for next class
+- Next class will be short for PSAT. I have a short group activity planned for our brief time together so if you know you won't be here, please let us know in advance if possible. Thanks!
 ----------------------------
 
 ### See the [list of assignments](./assignments.md) so far

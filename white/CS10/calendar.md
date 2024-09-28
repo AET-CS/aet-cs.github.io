@@ -21,4 +21,5 @@
 - 9/24/24 (Tuesday) School! But Dr. White is out today. There is a quiz review on AP Classroom [there's also a pdf here](../AP_shared/Quiz_Review_1.pdf). It's set up as a test, but it will not be graded as a test. It's just for review. Also the FRQ questions might not work (like on the benchmark) so please feel free to do those on paper or in another app. You do not need to turn in the FRQ. Please work through review today; feel free to collaborate. I'll push the quiz again to next Monday so we can have some face time Thursday before. We'll also start our next lab Thursday.
     - Quiz topics: Booleans, conditionals, simplifying boolean expressions, basic arithmetic, order of precedence, doubles and ints, div and mod, tracing for loops, simple arrays, writing class definitions, constructors, getters and setters, class methods, toString methods. This should all be review from last year and related to our classwork.
     - HW: Review for quiz
-9/26/24 (Thursday) Answers to [quiz review posted here](../AP_shared/Review_1_key.pdf). Quiz next class.
+- 9/26/24 (Thursday) Answers to [quiz review posted here](../AP_shared/Review_1_key.pdf). Quiz next class. Will consist of MC and FRQ questions. Be sure you can write loops/conditionals/classes from scratch.
+**Please install Schoology Lockdown Browser** if you haven't already!

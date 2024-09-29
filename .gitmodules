@@ -1,0 +1,3 @@
+[submodule "white/private"]
+	path = white/private
+	url = git@github.com:paderevski/aet-private

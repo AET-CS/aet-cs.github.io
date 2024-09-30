@@ -21,4 +21,6 @@
     - HW: Review for quiz
 - 9/26/24 (Thursday) Answers to [quiz review posted here](../AP_shared/Review_1_key.pdf). Quiz next class. Will consist of MC and FRQ questions. Be sure you can write loops/conditionals/classes from scratch.
 **Please install Schoology Lockdown Browser** if you haven't already!
-- 9/30/24 (Monday) Quiz today! After quiz you may begin [Pig latin lab](../AP_shared/PigLatin.pdf). Create one java file PigLatin.java with a main method to preform the transformations. For now stop at STEP 2 (parsing a file).
+- 9/30/24 (Monday) Quiz today! After quiz you may begin [Pig latin lab](../AP_shared/PigLatin.pdf). Create one java file PigLatin.java with a main method to preform the transformations. For now stop at STEP 2 (parsing a file). [this is NOT HW yet unless you want it to be] **Please check schoology** for completion grades and upload anything you haven't already (I know many of you added stuff at the end of class today that I still need to update).
+- 10/2 (Wednesday) PSAT -- nothing planned for today!
+- 10/4 (Friday) No school

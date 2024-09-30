@@ -38,6 +38,9 @@
 - Classwork: HOBO lab, hopefully finish your part
 - Homework: Finish HOBO if needed, prepare some Money List ideas for next class
 - Next class will be short for PSAT. I have a short group activity planned for our brief time together so if you know you won't be here, please let us know in advance if possible. Thanks!
-----------------------------
 
+**Grades are partially updated. I gave points for labs that have been turned in (1/1) or not turned in (0.5/1). Soon I'll add more points for correctness. If you're missing something (or if I'm wrong) let's get it fixed next class**
+
+- 10/1/2024 (Tuesday) PSAT day followed by a short class. We will get into groups and select articles for our next informal report. Details to come in class. If time allows we'll check in on the HOBO project.
+-------------------------------
 ### See the [list of assignments](./assignments.md) so far

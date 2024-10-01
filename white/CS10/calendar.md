@@ -24,4 +24,7 @@
 - 9/26/24 (Thursday) Answers to [quiz review posted here](../AP_shared/Review_1_key.pdf). Quiz next class. Will consist of MC and FRQ questions. Be sure you can write loops/conditionals/classes from scratch.
 **Please install Schoology Lockdown Browser** if you haven't already!
 - 9/30/24 (Monday) Quiz today! After quiz you may begin [Pig latin lab](../AP_shared/PigLatin.pdf). Create one java file PigLatin.java with a main method to preform the transformations. For now stop at STEP 2 (parsing a file).
+
+**Note: Schoology is updated with what you have submitted in class. Anything "blank" is missing. Please turn in any missing work on Wednesday. Also if Truth Table 15pts is blank you need to show it to me in person so we can discuss your answer. Thanks!**
+
 - 10/2/24 (Wednesday) PSAT day. Please check SCHOOLOGY for your room assignments and seat number. Report to 2312 first for attendance.

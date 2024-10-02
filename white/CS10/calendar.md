@@ -27,4 +27,10 @@
 
 **Note: Schoology is updated with what you have submitted in class. Anything "blank" is missing. Please turn in any missing work on Wednesday. Also if Truth Table 15pts is blank you need to show it to me in person so we can discuss your answer. Thanks!**
 
-- 10/2/24 (Wednesday) PSAT day. Please check SCHOOLOGY for your room assignments and seat number. Report to 2312 first for attendance.
+- 10/2/24 (Wednesday) PSAT day. Please check SCHOOLOGY for your room assignments and seat number. Report to 2312 first for attendance. In class, we have a few quick things
+	- Read about [strings](../AP_shared/strings.md)
+	- Read about [scanners](../AP_shared/scanners.md)
+	- Turn in any missing work! (if you need to show me TruthTables, use [this test case](../AP_shared/truth-check.md))
+	- Next class: Show me Credit Card
+	- Classwork: write [helper classes for PigLatin](../AP_shared/pig-helper.md)
+	- Current Project: Pig Latin parts 1 and 2 (there is no shell code file provided)

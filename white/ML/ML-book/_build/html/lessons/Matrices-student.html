@@ -1,0 +1,853 @@
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="../" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>10. Linear Algebra and Python Lists &#8212; Machine Learning for Research</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../_static/styles/theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="../_static/styles/bootstrap.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+
+  
+  <link href="../_static/vendor/fontawesome/6.5.2/css/all.min.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=fa44fd50" />
+    <link rel="stylesheet" type="text/css" href="../_static/styles/sphinx-book-theme.css?v=a3416100" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css?v=13237357" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css?v=be8a1c11" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css?v=4fa983c6" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-design.min.css?v=95c83b7e" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b" />
+<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b" />
+  <script src="../_static/vendor/fontawesome/6.5.2/js/all.min.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+    <script src="../_static/documentation_options.js?v=9eb32ce0"></script>
+    <script src="../_static/doctools.js?v=9a2dae69"></script>
+    <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="../_static/copybutton.js?v=f281be69"></script>
+    <script src="../_static/scripts/sphinx-book-theme.js?v=887ef09a"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../_static/togglebutton.js?v=4a39c7ea"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="../_static/design-tabs.js?v=f930bc37"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script async="async" src="../_static/sphinx-thebe.js?v=c100c467"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'lessons/Matrices-student';</script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="11. Introduction to Matrices in NumPy" href="Intro_to_Matrices_in_NumPy.html" />
+    <link rel="prev" title="9. Correlation Coefficient" href="Correlation_Coefficient.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-primary-sidebar-checkbox"/>
+  <label class="overlay overlay-primary" for="pst-primary-sidebar-checkbox"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-secondary-sidebar-checkbox"/>
+  <label class="overlay overlay-secondary" for="pst-secondary-sidebar-checkbox"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="../intro.html">
+  
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="../_static/logo.png" class="logo__image only-light" alt="Machine Learning for Research - Home"/>
+    <script>document.write(`<img src="../_static/logo.png" class="logo__image only-dark" alt="Machine Learning for Research - Home"/>`);</script>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item">
+
+ <script>
+ document.write(`
+   <button class="btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <span class="search-button__default-text">Search</span>
+    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+   </button>
+ `);
+ </script></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="../intro.html">
+                    Welcome to your Jupyter Book
+                </a>
+            </li>
+        </ul>
+        <p aria-level="2" class="caption" role="heading"><span class="caption-text">Setup</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="hw01.html">1. Homework 01</a></li>
+<li class="toctree-l1"><a class="reference internal" href="hw02.html">2. Exploring data</a></li>
+<li class="toctree-l1"><a class="reference internal" href="wsl.html">3. Fixing WSL</a></li>
+<li class="toctree-l1"><a class="reference internal" href="cw03.html">4. August 28</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Measures of Closeness</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="Bayes_Theorem_Student.html">5. Bayes’ Theorem</a></li>
+<li class="toctree-l1"><a class="reference internal" href="jupyter-python-intro.html">6. Quick Jupyter Intro and Python Loops</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Linear_regression_derivation.html">7. Linear Regression</a></li>
+<li class="toctree-l1"><a class="reference internal" href="least-squares-01.html">8. Linear Least Squares</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Correlation_Coefficient.html">9. Correlation Coefficient</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Linear Algebra in Python</span></p>
+<ul class="current nav bd-sidenav">
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">10. Linear Algebra and Python Lists</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Intro_to_Matrices_in_NumPy.html">11. Introduction to Matrices in NumPy</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Matrices_Index_Warmup-Student.html">12. Matrix indices warmup</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Gaussian_Elimination-student.html">13. Gaussian Elimination</a></li>
+<li class="toctree-l1"><a class="reference internal" href="LogLogRegression.html">14. Log-Log Regression</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Strassen-Lab.html">15. Strassen’s Algorithm (Optional Extension)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Gauss.html">16. Gauss Presentation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="inversion.html">17. Matrix Inversion</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Running_Time_Analysis.html">18. Running Time Analysis</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Next Steps</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="reading.html">19. Reading for Research</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Hobo_Student.html">20. Hobo Data, Student Version</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ML_Book_Club.html">21. ML Book Club</a></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><button class="sidebar-toggle primary-toggle btn btn-sm" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</button></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="../_sources/lessons/Matrices-student.ipynb" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.ipynb</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="theme-switch fa-solid fa-sun fa-lg" data-mode="light"></i>
+    <i class="theme-switch fa-solid fa-moon fa-lg" data-mode="dark"></i>
+    <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"></i>
+  </button>
+`);
+</script>
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm pst-navbar-icon search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+  </button>
+`);
+</script>
+<button class="sidebar-toggle secondary-toggle btn btn-sm" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</button>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>Linear Algebra and Python Lists</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#dot-product-of-two-vectors">10.1. Dot product of two vectors</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#cross-product-of-two-vectors">10.2. Cross Product of two vectors</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#vector-magnitude">10.3. Vector magnitude</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#angle-between-vectors">10.4. Angle between vectors</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#matrix-operations">10.5. Matrix Operations</a></li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section class="tex2jax_ignore mathjax_ignore" id="linear-algebra-and-python-lists">
+<h1><span class="section-number">10. </span>Linear Algebra and Python Lists<a class="headerlink" href="#linear-algebra-and-python-lists" title="Link to this heading">#</a></h1>
+<p>This notebook will review some important concepts in linear algebra while helping you practice working with lists and nested lists in Python. You will provide code cells as needed to complete the sections below. Testing code is provided for you to help check that your methods perform as expected.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">from</span> <span class="nn">matplotlib</span> <span class="kn">import</span> <span class="n">pyplot</span> <span class="k">as</span> <span class="n">plt</span>
+<span class="kn">import</span> <span class="nn">math</span>
+</pre></div>
+</div>
+</div>
+</div>
+<section id="dot-product-of-two-vectors">
+<h2><span class="section-number">10.1. </span>Dot product of two vectors<a class="headerlink" href="#dot-product-of-two-vectors" title="Link to this heading">#</a></h2>
+<p><span class="math notranslate nohighlight">\(\vec{a} \cdot \vec{b} = \sum_i a_ib_i\)</span> is the dot product (or inner product) between <span class="math notranslate nohighlight">\(\vec{a}\)</span> and <span class="math notranslate nohighlight">\(\vec{b}\)</span>. Write a python function <code class="docutils literal notranslate"><span class="pre">dot_product(a,b)</span></code> that returns a dot product of two input python lists (do not use numpy arrays yet). If the input types do not match, raise a ValueError.</p>
+<div class="cell tag_solution docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">## Your code goes here. Insert cells as needed.</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>The following cells will check your dot_product method for correctness and for catching errors.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">assert</span><span class="p">(</span><span class="n">dot_product</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span><span class="mi">3</span><span class="p">],[</span><span class="mi">2</span><span class="p">,</span><span class="mi">6</span><span class="p">])</span><span class="o">==</span><span class="mi">20</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
+<span class="ne">NameError</span><span class="g g-Whitespace">                                 </span>Traceback (most recent call last)
+<span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">3</span><span class="p">],</span> <span class="n">line</span> <span class="mi">1</span>
+<span class="ne">----&gt; </span><span class="mi">1</span> <span class="k">assert</span><span class="p">(</span><span class="n">dot_product</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span><span class="mi">3</span><span class="p">],[</span><span class="mi">2</span><span class="p">,</span><span class="mi">6</span><span class="p">])</span><span class="o">==</span><span class="mi">20</span><span class="p">)</span>
+
+<span class="ne">NameError</span>: name &#39;dot_product&#39; is not defined
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">try</span><span class="p">:</span>
+    <span class="n">dot_product</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">],[</span><span class="mi">4</span><span class="p">,</span><span class="mi">5</span><span class="p">])</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Shouldn&#39;t get here&quot;</span><span class="p">)</span>
+<span class="k">except</span> <span class="ne">ValueError</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Size mismatched caught&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="cross-product-of-two-vectors">
+<h2><span class="section-number">10.2. </span>Cross Product of two vectors<a class="headerlink" href="#cross-product-of-two-vectors" title="Link to this heading">#</a></h2>
+<p>Given two real 3-vectors <strong>a</strong> and <strong>b</strong>:</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+\mathbf{A} = \begin{pmatrix} a_1 \\ a_2 \\ a_3 \end{pmatrix}, \quad
+\mathbf{B} = \begin{pmatrix} b_1 \\ b_2 \\ b_3 \end{pmatrix}
+\end{split}\]</div>
+<p>The cross product of <strong>a</strong> and <strong>b</strong> is a new vector <strong>C</strong> defined as:</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+\mathbf{C} = \mathbf{A} \times \mathbf{B} = \begin{pmatrix}
+a_2 b_3 - a_3 b_2 \\
+a_3 b_1 - a_1 b_3 \\
+a_1 b_2 - a_2 b_1
+\end{pmatrix}
+\end{split}\]</div>
+<p>This resulting vector <strong>C</strong> is orthogonal (perpendicular) to both <strong>a</strong> and <strong>b</strong>, and its magnitude is equal to the area of the parallelogram formed by <strong>a</strong> and <strong>b</strong>.</p>
+<p>The direction of <strong>C</strong> is determined by the right-hand rule.</p>
+<p>The cross product of <strong>a</strong> and <strong>b</strong> can be expressed as the determinant of a 3x3 matrix:</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+\mathbf{a} \times \mathbf{b} = \begin{vmatrix}
+\mathbf{i} &amp; \mathbf{j} &amp; \mathbf{k} \\
+a_1 &amp; a_2 &amp; a_3 \\
+b_1 &amp; b_2 &amp; b_3
+\end{vmatrix}
+\end{split}\]</div>
+<p>Where <strong>i</strong>, <strong>j</strong>, and <strong>k</strong> are the unit vectors along the x, y, and z axes, respectively.</p>
+<p>To compute the determinant, expand along the first row (using cofactor expansion):</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+\mathbf{a} \times \mathbf{b} =
+\mathbf{i} \begin{vmatrix} a_2 &amp; a_3 \\ b_2 &amp; b_3 \end{vmatrix} -
+\mathbf{j} \begin{vmatrix} a_1 &amp; a_3 \\ b_1 &amp; b_3 \end{vmatrix} +
+\mathbf{k} \begin{vmatrix} a_1 &amp; a_2 \\ b_1 &amp; b_2 \end{vmatrix}
+\end{split}\]</div>
+<p>Each of these 2x2 determinants is computed as follows:</p>
+<ul class="simple">
+<li><p>For the <strong>i</strong> component:
+$<span class="math notranslate nohighlight">\(
+\mathbf{i} \cdot \left( a_2 b_3 - a_3 b_2 \right)
+\)</span>$</p></li>
+<li><p>For the <strong>j</strong> component (note the negative sign):
+$<span class="math notranslate nohighlight">\( 
+-\mathbf{j} \cdot \left( a_1 b_3 - a_3 b_1 \right)
+\)</span>$</p></li>
+<li><p>For the <strong>k</strong> component:
+$<span class="math notranslate nohighlight">\(
+\mathbf{k} \cdot \left( a_1 b_2 - a_2 b_1 \right)
+\)</span>$</p></li>
+</ul>
+<p>Thus, the cross product is:</p>
+<div class="math notranslate nohighlight">
+\[
+\mathbf{a} \times \mathbf{b} = \left( a_2 b_3 - a_3 b_2 \right) \mathbf{i} - \left( a_1 b_3 - a_3 b_1 \right) \mathbf{j} + \left( a_1 b_2 - a_2 b_1 \right) \mathbf{k}
+\]</div>
+<p>Or, written in vector form:</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+\mathbf{a} \times \mathbf{b} = \begin{pmatrix}
+a_2 b_3 - a_3 b_2 \\
+a_3 b_1 - a_1 b_3 \\
+a_1 b_2 - a_2 b_1
+\end{pmatrix}
+\end{split}\]</div>
+<p>This is the cross product of the vectors <strong>a</strong> and <strong>b</strong>, derived from the determinant of a 3x3 matrix.</p>
+<p>Write a python method which returns the cross product of 2 3D vectors, and throws an error in case of invalid input</p>
+<div class="cell tag_solution docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">## Your code goes here. Insert cells as needed.</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>These cells will check your method</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">assert</span><span class="p">(</span><span class="n">cross_product</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">2</span><span class="p">],[</span><span class="mi">5</span><span class="p">,</span><span class="mi">7</span><span class="p">,</span><span class="mi">2</span><span class="p">])</span><span class="o">==</span><span class="p">[</span><span class="o">-</span><span class="mi">8</span><span class="p">,</span><span class="mi">8</span><span class="p">,</span><span class="o">-</span><span class="mi">8</span><span class="p">])</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">try</span><span class="p">:</span>
+    <span class="n">cross_product</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">],[</span><span class="mi">4</span><span class="p">,</span><span class="mi">5</span><span class="p">])</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Shouldn&#39;t get here&quot;</span><span class="p">)</span>
+<span class="k">except</span> <span class="ne">ValueError</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Size mismatched caught&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="vector-magnitude">
+<h2><span class="section-number">10.3. </span>Vector magnitude<a class="headerlink" href="#vector-magnitude" title="Link to this heading">#</a></h2>
+<p>The magnitude, or length, of a vector is defined as</p>
+<p><span class="math notranslate nohighlight">\(||\vec{x} || = \sqrt{\vec{x} \cdot \vec{x}} = \sqrt{x_0^2 + x_1^2 + \cdots + x_{n-1}^2}\)</span>. Notice the exponent on each element is <span class="math notranslate nohighlight">\(2\)</span> and the radical exponent is <span class="math notranslate nohighlight">\(\frac12\)</span>. This is an <span class="math notranslate nohighlight">\(L_2\)</span> norm. If we compute the value <span class="math notranslate nohighlight">\(\sqrt[3]{x_0^3 + x_1^3 + \cdots + x_{n-1}^3}\)</span>, this is an <span class="math notranslate nohighlight">\(L_3\)</span> norm. The sum of absolute values <span class="math notranslate nohighlight">\(|x_1| + |x_2| + \cdots + |x_n|\)</span> is called the <span class="math notranslate nohighlight">\(L_1\)</span> norm. All of these are <span class="math notranslate nohighlight">\(p\)</span>-norms, with the <span class="math notranslate nohighlight">\(p=2\)</span> being the most familiar, and the <span class="math notranslate nohighlight">\(p=1\)</span> norm being useful in several settings.</p>
+<p>Write a python method <code class="docutils literal notranslate"><span class="pre">norm(a)</span></code> which returns the 2-norm (length) of a vector, by calling <code class="docutils literal notranslate"><span class="pre">dot_product</span></code>. Then write <code class="docutils literal notranslate"><span class="pre">p_norm(a,p)</span></code> which evaluates the <span class="math notranslate nohighlight">\(p\)</span>-norm for any integer <span class="math notranslate nohighlight">\(p \geq 1\)</span> and throws an error if needed.</p>
+<div class="cell tag_solution docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">## Your code goes here. Insert cells as needed.</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>This cell will check your method</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">assert</span><span class="p">(</span><span class="n">norm</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="o">-</span><span class="mi">1</span><span class="p">])</span><span class="o">==</span><span class="mi">2</span><span class="p">)</span>
+<span class="k">assert</span><span class="p">(</span><span class="n">norm</span><span class="p">([</span><span class="mi">0</span><span class="p">])</span><span class="o">==</span><span class="mi">0</span><span class="p">)</span>
+<span class="k">assert</span><span class="p">(</span><span class="n">norm</span><span class="p">([</span><span class="mi">30</span><span class="p">,</span><span class="mi">40</span><span class="p">,</span><span class="mi">50</span><span class="p">])</span><span class="o">==</span><span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="mi">5000</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell tag_solution docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">## Your code goes here. Insert cells as needed.</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>These cells will check your <code class="docutils literal notranslate"><span class="pre">p_norm</span></code></p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">assert</span><span class="p">(</span><span class="n">p_norm</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span><span class="mi">0</span><span class="p">],</span><span class="mi">1</span><span class="p">)</span><span class="o">==</span><span class="mi">2</span><span class="p">)</span>
+<span class="k">assert</span><span class="p">(</span><span class="n">p_norm</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="o">-</span><span class="mi">1</span><span class="p">],</span><span class="mi">2</span><span class="p">)</span><span class="o">==</span><span class="mi">2</span><span class="p">)</span>
+<span class="k">assert</span><span class="p">(</span><span class="n">p_norm</span><span class="p">([</span><span class="mi">2</span><span class="p">,</span><span class="o">-</span><span class="mi">2</span><span class="p">,</span><span class="mi">4</span><span class="p">,</span><span class="o">-</span><span class="mi">4</span><span class="p">],</span><span class="mi">3</span><span class="p">)</span><span class="o">==</span><span class="mi">0</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">try</span><span class="p">:</span>
+    <span class="n">p_norm</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">],</span><span class="mf">0.5</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Shouldn&#39;t get here&quot;</span><span class="p">)</span>
+<span class="k">except</span> <span class="ne">ValueError</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Invalid p caught&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="angle-between-vectors">
+<h2><span class="section-number">10.4. </span>Angle between vectors<a class="headerlink" href="#angle-between-vectors" title="Link to this heading">#</a></h2>
+<p>A very important result from linear algebra used in machine learning relates the angle between two vectors. You will derive this yourself. Given <strong>a</strong> and <strong>b</strong>, you can form a triangle where the vectors share the same tail. The vector forming the third side is the vector <strong>a-b</strong>. Find the length of this third side in terms of <strong>a</strong> and <strong>b</strong>. Hint: use the law of cosines. Hint: dot product distributes like ‘times’</p>
+<p>Using your result write a function <code class="docutils literal notranslate"><span class="pre">angle_between</span></code> that returns the smallest angle between two vectors <strong>a</strong> and <strong>b</strong>. Make sure your result is in the range <span class="math notranslate nohighlight">\([0,\pi]\)</span></p>
+<div class="cell tag_solution docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">## Your code goes here. Insert cells as needed.</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">assert</span><span class="p">(</span><span class="nb">abs</span><span class="p">(</span><span class="n">angle_between</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">],[</span><span class="mi">1</span><span class="p">,</span><span class="mi">0</span><span class="p">])</span><span class="o">-</span><span class="n">math</span><span class="o">.</span><span class="n">pi</span><span class="o">/</span><span class="mi">4</span><span class="p">)</span><span class="o">&lt;</span><span class="mf">1e-9</span><span class="p">)</span>
+<span class="k">assert</span><span class="p">(</span><span class="nb">abs</span><span class="p">(</span><span class="n">angle_between</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span><span class="mi">0</span><span class="p">],[</span><span class="mi">1</span><span class="p">,</span><span class="mi">0</span><span class="p">]))</span><span class="o">&lt;</span><span class="mf">1e-9</span><span class="p">)</span>
+<span class="k">assert</span><span class="p">(</span><span class="nb">abs</span><span class="p">(</span><span class="n">angle_between</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span><span class="mi">0</span><span class="p">],[</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">])</span><span class="o">-</span><span class="n">math</span><span class="o">.</span><span class="n">pi</span><span class="o">/</span><span class="mi">2</span><span class="p">)</span><span class="o">&lt;</span><span class="mf">1e-9</span><span class="p">)</span>
+<span class="k">assert</span><span class="p">(</span><span class="nb">abs</span><span class="p">(</span><span class="n">angle_between</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">4</span><span class="p">],[</span><span class="o">-</span><span class="mi">4</span><span class="p">,</span><span class="o">-</span><span class="mi">3</span><span class="p">,</span><span class="o">-</span><span class="mi">2</span><span class="p">,</span><span class="o">-</span><span class="mi">1</span><span class="p">])</span><span class="o">-</span><span class="mf">2.300523983021863</span><span class="p">)</span><span class="o">&lt;</span><span class="mf">1e-9</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">try</span><span class="p">:</span>
+    <span class="n">angle_between</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">],[</span><span class="mi">4</span><span class="p">,</span><span class="mi">5</span><span class="p">])</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Shouldn&#39;t get here&quot;</span><span class="p">)</span>
+<span class="k">except</span> <span class="ne">ValueError</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Size mismatch caught&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="matrix-operations">
+<h2><span class="section-number">10.5. </span>Matrix Operations<a class="headerlink" href="#matrix-operations" title="Link to this heading">#</a></h2>
+<p>Matrix addition and subtraction are componentwise and require matrices of the same size: <span class="math notranslate nohighlight">\(m_{ij} = a_{ij} + b_{ij}\)</span> or  <span class="math notranslate nohighlight">\(m_{ij} = a_{ij} - b_{ij}\)</span></p>
+<p>Matrix multiplication involves one entire row and one entire column of each matrix to determine an entry in the product. It can be written as</p>
+<div class="math notranslate nohighlight">
+\[m_{ij} = a_{ik}b^{kj}\]</div>
+<p>Where we are using <em>Einstein notation</em>. Each repeated index (here <span class="math notranslate nohighlight">\(k\)</span>) is an index of summation. Thus</p>
+<div class="math notranslate nohighlight">
+\[a_{ik}b^{kj} = \sum_{k=1}^m a_{ik}b_{kj}\]</div>
+<p>Matrix multiplication requires an <span class="math notranslate nohighlight">\((m_1 \times n_1)\)</span> matrix multiplied on the right by an <span class="math notranslate nohighlight">\((m_2 \times n_2)\)</span> matrix where <span class="math notranslate nohighlight">\(n_1 = m_2\)</span>. The result is an <span class="math notranslate nohighlight">\((m_1 \times n_2)\)</span> matrix.</p>
+<p>Write three methods: <code class="docutils literal notranslate"><span class="pre">mat_add</span></code>, <code class="docutils literal notranslate"><span class="pre">mat_sub</span></code>, <code class="docutils literal notranslate"><span class="pre">mat_mul</span></code>. You should throw an error
+if dimensions do not match. You should store all matrices as 2D lists in python, i.e. lists of lists. The <span class="math notranslate nohighlight">\(i,j\)</span> element is referenced by <code class="docutils literal notranslate"><span class="pre">M[i][j]</span></code>, both starting at 0.</p>
+<div class="cell tag_solution docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">## Your code goes here. Insert cells as needed.</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">A</span><span class="o">=</span><span class="p">[[</span><span class="mi">1</span><span class="p">]]</span>
+<span class="n">B</span><span class="o">=</span><span class="p">[[</span><span class="mi">2</span><span class="p">]]</span>
+<span class="k">assert</span><span class="p">(</span><span class="n">mat_add</span><span class="p">(</span><span class="n">A</span><span class="p">,</span><span class="n">B</span><span class="p">)</span><span class="o">==</span><span class="p">[[</span><span class="mi">3</span><span class="p">]])</span>
+
+<span class="n">A</span><span class="o">=</span><span class="p">[[</span><span class="o">-</span><span class="mi">4</span><span class="p">,</span><span class="mi">3</span><span class="p">],[</span><span class="mi">1</span><span class="p">,</span><span class="o">-</span><span class="mi">10</span><span class="p">]]</span>
+<span class="n">B</span><span class="o">=</span><span class="p">[[</span><span class="mi">2</span><span class="p">,</span><span class="o">-</span><span class="mi">5</span><span class="p">],[</span><span class="o">-</span><span class="mi">9</span><span class="p">,</span><span class="mi">1</span><span class="p">]]</span>
+<span class="k">assert</span><span class="p">(</span><span class="n">mat_add</span><span class="p">(</span><span class="n">A</span><span class="p">,</span><span class="n">B</span><span class="p">)</span><span class="o">==</span><span class="p">[[</span><span class="o">-</span><span class="mi">2</span><span class="p">,</span><span class="o">-</span><span class="mi">2</span><span class="p">],</span> <span class="p">[</span><span class="o">-</span><span class="mi">8</span><span class="p">,</span><span class="o">-</span><span class="mi">9</span><span class="p">]])</span>
+<span class="k">assert</span><span class="p">(</span><span class="n">mat_add</span><span class="p">(</span><span class="n">B</span><span class="p">,</span><span class="n">A</span><span class="p">)</span><span class="o">==</span><span class="p">[[</span><span class="o">-</span><span class="mi">2</span><span class="p">,</span><span class="o">-</span><span class="mi">2</span><span class="p">],[</span><span class="o">-</span><span class="mi">8</span><span class="p">,</span><span class="o">-</span><span class="mi">9</span><span class="p">]])</span>
+
+<span class="n">A</span> <span class="o">=</span> <span class="p">[[</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">],[</span><span class="mi">5</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="o">-</span><span class="mi">1</span><span class="p">],[</span><span class="mi">6</span><span class="p">,</span><span class="mi">5</span><span class="p">,</span><span class="mi">2</span><span class="p">]]</span>
+<span class="n">B</span> <span class="o">=</span> <span class="p">[[</span><span class="mi">4</span><span class="p">,</span><span class="o">-</span><span class="mi">2</span><span class="p">,</span><span class="mi">2</span><span class="p">],[</span><span class="mi">2</span><span class="p">,</span><span class="mi">4</span><span class="p">,</span><span class="mi">3</span><span class="p">],[</span><span class="mi">6</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">2</span><span class="p">]]</span>
+<span class="k">assert</span><span class="p">(</span><span class="n">mat_add</span><span class="p">(</span><span class="n">A</span><span class="p">,</span><span class="n">B</span><span class="p">)</span><span class="o">==</span><span class="p">[[</span><span class="mi">5</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">5</span><span class="p">],[</span><span class="mi">7</span><span class="p">,</span><span class="mi">7</span><span class="p">,</span><span class="mi">2</span><span class="p">],[</span><span class="mi">12</span><span class="p">,</span><span class="mi">7</span><span class="p">,</span><span class="mi">4</span><span class="p">]])</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">try</span><span class="p">:</span>
+    <span class="n">mat_add</span><span class="p">([[</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">],[</span><span class="mi">4</span><span class="p">,</span><span class="mi">5</span><span class="p">,</span><span class="mi">6</span><span class="p">]],[[</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">],[</span><span class="mi">3</span><span class="p">,</span><span class="mi">4</span><span class="p">]])</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Shouldn&#39;t get here&quot;</span><span class="p">)</span>
+<span class="k">except</span> <span class="ne">ValueError</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Size mismatch caught&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell tag_solution docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">## Your code goes here. Insert cells as needed.</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">A</span><span class="o">=</span><span class="p">[[</span><span class="mi">1</span><span class="p">]]</span>
+<span class="n">B</span><span class="o">=</span><span class="p">[[</span><span class="mi">2</span><span class="p">]]</span>
+<span class="k">assert</span><span class="p">(</span><span class="n">mat_transpose</span><span class="p">(</span><span class="n">mat_transpose</span><span class="p">(</span><span class="n">A</span><span class="p">))</span><span class="o">==</span><span class="n">A</span><span class="p">)</span>
+<span class="k">assert</span><span class="p">(</span><span class="n">mat_transpose</span><span class="p">(</span><span class="n">mat_transpose</span><span class="p">(</span><span class="n">B</span><span class="p">))</span><span class="o">==</span><span class="n">B</span><span class="p">)</span>
+
+<span class="n">A</span><span class="o">=</span><span class="p">[[</span><span class="o">-</span><span class="mi">4</span><span class="p">,</span><span class="mi">3</span><span class="p">],[</span><span class="mi">1</span><span class="p">,</span><span class="o">-</span><span class="mi">10</span><span class="p">]]</span>
+<span class="n">B</span><span class="o">=</span><span class="p">[[</span><span class="mi">2</span><span class="p">,</span><span class="o">-</span><span class="mi">5</span><span class="p">],[</span><span class="o">-</span><span class="mi">9</span><span class="p">,</span><span class="mi">1</span><span class="p">]]</span>
+<span class="k">assert</span><span class="p">(</span><span class="n">mat_transpose</span><span class="p">(</span><span class="n">mat_transpose</span><span class="p">(</span><span class="n">A</span><span class="p">))</span><span class="o">==</span><span class="n">A</span><span class="p">)</span>
+<span class="k">assert</span><span class="p">(</span><span class="n">mat_transpose</span><span class="p">(</span><span class="n">mat_transpose</span><span class="p">(</span><span class="n">B</span><span class="p">))</span><span class="o">==</span><span class="n">B</span><span class="p">)</span>
+
+<span class="n">A</span> <span class="o">=</span> <span class="p">[[</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">],[</span><span class="mi">5</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="o">-</span><span class="mi">1</span><span class="p">],[</span><span class="mi">6</span><span class="p">,</span><span class="mi">5</span><span class="p">,</span><span class="mi">2</span><span class="p">]]</span>
+<span class="n">B</span> <span class="o">=</span> <span class="p">[[</span><span class="mi">4</span><span class="p">,</span><span class="o">-</span><span class="mi">2</span><span class="p">,</span><span class="mi">2</span><span class="p">],[</span><span class="mi">2</span><span class="p">,</span><span class="mi">4</span><span class="p">,</span><span class="mi">3</span><span class="p">],[</span><span class="mi">6</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">2</span><span class="p">]]</span>
+<span class="k">assert</span><span class="p">(</span><span class="n">mat_transpose</span><span class="p">(</span><span class="n">mat_transpose</span><span class="p">(</span><span class="n">A</span><span class="p">))</span><span class="o">==</span><span class="n">A</span><span class="p">)</span>
+<span class="k">assert</span><span class="p">(</span><span class="n">mat_transpose</span><span class="p">(</span><span class="n">mat_transpose</span><span class="p">(</span><span class="n">B</span><span class="p">))</span><span class="o">==</span><span class="n">B</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell tag_solution docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">## Your code goes here. Insert cells as needed.</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">A</span><span class="o">=</span><span class="p">[[</span><span class="mi">1</span><span class="p">]]</span>
+<span class="n">B</span><span class="o">=</span><span class="p">[[</span><span class="mi">2</span><span class="p">]]</span>
+<span class="k">assert</span><span class="p">(</span><span class="n">mat_mul</span><span class="p">(</span><span class="n">A</span><span class="p">,</span><span class="n">B</span><span class="p">)</span><span class="o">==</span><span class="p">[[</span><span class="mi">2</span><span class="p">]])</span>
+
+<span class="n">A</span><span class="o">=</span><span class="p">[[</span><span class="o">-</span><span class="mi">4</span><span class="p">,</span><span class="mi">3</span><span class="p">],[</span><span class="mi">1</span><span class="p">,</span><span class="o">-</span><span class="mi">10</span><span class="p">]]</span>
+<span class="n">B</span><span class="o">=</span><span class="p">[[</span><span class="mi">2</span><span class="p">,</span><span class="o">-</span><span class="mi">5</span><span class="p">],[</span><span class="o">-</span><span class="mi">9</span><span class="p">,</span><span class="mi">1</span><span class="p">]]</span>
+<span class="k">assert</span><span class="p">(</span><span class="n">mat_mul</span><span class="p">(</span><span class="n">A</span><span class="p">,</span><span class="n">B</span><span class="p">)</span><span class="o">==</span><span class="p">[[</span><span class="o">-</span><span class="mi">35</span><span class="p">,</span> <span class="mi">23</span><span class="p">],</span> <span class="p">[</span><span class="mi">92</span><span class="p">,</span> <span class="o">-</span><span class="mi">15</span><span class="p">]])</span>
+<span class="k">assert</span><span class="p">(</span><span class="n">mat_mul</span><span class="p">(</span><span class="n">B</span><span class="p">,</span><span class="n">A</span><span class="p">)</span><span class="o">==</span><span class="p">[[</span><span class="o">-</span><span class="mi">13</span><span class="p">,</span> <span class="mi">56</span><span class="p">],</span> <span class="p">[</span><span class="mi">37</span><span class="p">,</span> <span class="o">-</span><span class="mi">37</span><span class="p">]])</span>
+
+<span class="n">A</span> <span class="o">=</span> <span class="p">[[</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">],[</span><span class="mi">5</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="o">-</span><span class="mi">1</span><span class="p">],[</span><span class="mi">6</span><span class="p">,</span><span class="mi">5</span><span class="p">,</span><span class="mi">2</span><span class="p">],[</span><span class="o">-</span><span class="mi">10</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">]]</span>
+<span class="n">B</span> <span class="o">=</span> <span class="p">[[</span><span class="mi">4</span><span class="p">,</span><span class="o">-</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">2</span><span class="p">],[</span><span class="mi">2</span><span class="p">,</span><span class="mi">4</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="o">-</span><span class="mi">1</span><span class="p">],[</span><span class="mi">6</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">2</span><span class="p">]]</span>
+<span class="n">C</span> <span class="o">=</span> <span class="p">[[</span><span class="mi">2</span><span class="p">,</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span><span class="o">-</span><span class="mi">3</span><span class="p">,</span><span class="mi">4</span><span class="p">],[</span><span class="mi">3</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="o">-</span><span class="mi">2</span><span class="p">],[</span><span class="mi">2</span><span class="p">,</span><span class="o">-</span><span class="mi">3</span><span class="p">,</span><span class="mi">7</span><span class="p">,</span><span class="o">-</span><span class="mi">9</span><span class="p">]]</span>
+
+<span class="k">assert</span><span class="p">(</span><span class="n">mat_mul</span><span class="p">(</span><span class="n">A</span><span class="p">,</span><span class="n">B</span><span class="p">)</span><span class="o">==</span><span class="p">[[</span><span class="mi">26</span><span class="p">,</span> <span class="mi">15</span><span class="p">,</span> <span class="mi">15</span><span class="p">,</span> <span class="mi">6</span><span class="p">],</span> <span class="p">[</span><span class="mi">20</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="mi">22</span><span class="p">,</span> <span class="mi">5</span><span class="p">],</span> <span class="p">[</span><span class="mi">46</span><span class="p">,</span> <span class="mi">14</span><span class="p">,</span> <span class="mi">37</span><span class="p">,</span> <span class="mi">11</span><span class="p">],</span> <span class="p">[</span><span class="o">-</span><span class="mi">18</span><span class="p">,</span> <span class="mi">37</span><span class="p">,</span> <span class="o">-</span><span class="mi">18</span><span class="p">,</span> <span class="o">-</span><span class="mi">16</span><span class="p">]])</span>
+
+<span class="k">assert</span><span class="p">(</span><span class="n">mat_transpose</span><span class="p">(</span><span class="n">mat_mul</span><span class="p">(</span><span class="n">A</span><span class="p">,</span><span class="n">B</span><span class="p">))</span> <span class="o">==</span> <span class="n">mat_mul</span><span class="p">(</span><span class="n">mat_transpose</span><span class="p">(</span><span class="n">B</span><span class="p">),</span><span class="n">mat_transpose</span><span class="p">(</span><span class="n">A</span><span class="p">)))</span>
+<span class="k">assert</span><span class="p">(</span><span class="n">mat_add</span><span class="p">(</span><span class="n">mat_mul</span><span class="p">(</span><span class="n">A</span><span class="p">,</span><span class="n">B</span><span class="p">),</span><span class="n">mat_mul</span><span class="p">(</span><span class="n">A</span><span class="p">,</span><span class="n">C</span><span class="p">))</span> <span class="o">==</span> <span class="n">mat_mul</span><span class="p">(</span><span class="n">A</span><span class="p">,</span> <span class="n">mat_add</span><span class="p">(</span><span class="n">B</span><span class="p">,</span><span class="n">C</span><span class="p">)))</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">try</span><span class="p">:</span>
+    <span class="n">mat_mul</span><span class="p">(</span><span class="n">mat_transpose</span><span class="p">(</span><span class="n">C</span><span class="p">),</span><span class="n">A</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Shouldn&#39;t get here&quot;</span><span class="p">)</span>
+<span class="k">except</span> <span class="ne">ValueError</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Matrix incompatibility caught&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            name: "python3",
+            path: "./lessons"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="Correlation_Coefficient.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title"><span class="section-number">9. </span>Correlation Coefficient</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="Intro_to_Matrices_in_NumPy.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title"><span class="section-number">11. </span>Introduction to Matrices in NumPy</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#dot-product-of-two-vectors">10.1. Dot product of two vectors</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#cross-product-of-two-vectors">10.2. Cross Product of two vectors</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#vector-magnitude">10.3. Vector magnitude</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#angle-between-vectors">10.4. Angle between vectors</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#matrix-operations">10.5. Matrix Operations</a></li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By Patrick White
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+
+  <p class="copyright">
+    
+      © Copyright 2023.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b"></script>
+<script src="../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>

@@ -1,0 +1,41 @@
+# Table of contents
+# Learn more at https://jupyterbook.org/customize/toc.html
+
+format: jb-book
+root: intro
+options:
+  numbers: True
+parts:
+- caption: Setup
+  numbered: true
+  chapters:
+  - file: lessons/hw01
+  - file: lessons/hw02
+  - file: lessons/wsl
+  - file: lessons/cw03
+- caption: Measures of Closeness
+  numbered: true
+  chapters:
+  - file: lessons/Bayes_Theorem_Student.ipynb
+  - file: lessons/jupyter-python-intro
+  - file: lessons/Linear_regression_derivation
+  - file: lessons/least-squares-01.ipynb
+  - file: lessons/Correlation_Coefficient
+- caption: Linear Algebra in Python
+  numbered: true
+  chapters:
+  - file: lessons/Matrices-student
+  - file: lessons/Intro_to_Matrices_in_NumPy
+  - file: lessons/Matrices_Index_Warmup-Student
+  - file: lessons/Gaussian_Elimination-student
+  - file: lessons/LogLogRegression
+  - file: lessons/Strassen-Lab
+  - file: lessons/Gauss
+  - file: lessons/inversion
+  - file: lessons/Running_Time_Analysis
+- caption: Next Steps
+  numbered: True
+  chapters:
+  - file: lessons/reading
+  - file: lessons/Hobo_Student
+  - file: lessons/ML_Book_Club

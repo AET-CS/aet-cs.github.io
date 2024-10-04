@@ -1,0 +1,2180 @@
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="../" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>Cloudy Days in Leesburg &#8212; Machine Learning for Research</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../_static/styles/theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="../_static/styles/bootstrap.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+
+  
+  <link href="../_static/vendor/fontawesome/6.5.2/css/all.min.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=fa44fd50" />
+    <link rel="stylesheet" type="text/css" href="../_static/styles/sphinx-book-theme.css?v=a3416100" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css?v=13237357" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css?v=be8a1c11" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css?v=4fa983c6" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-design.min.css?v=95c83b7e" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b" />
+<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b" />
+  <script src="../_static/vendor/fontawesome/6.5.2/js/all.min.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+    <script src="../_static/documentation_options.js?v=9eb32ce0"></script>
+    <script src="../_static/doctools.js?v=9a2dae69"></script>
+    <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="../_static/copybutton.js?v=f281be69"></script>
+    <script src="../_static/scripts/sphinx-book-theme.js?v=887ef09a"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../_static/togglebutton.js?v=4a39c7ea"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="../_static/design-tabs.js?v=f930bc37"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script async="async" src="../_static/sphinx-thebe.js?v=c100c467"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'lessons/weather-teacher';</script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-primary-sidebar-checkbox"/>
+  <label class="overlay overlay-primary" for="pst-primary-sidebar-checkbox"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-secondary-sidebar-checkbox"/>
+  <label class="overlay overlay-secondary" for="pst-secondary-sidebar-checkbox"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+        
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="../intro.html">
+  
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="../_static/logo.png" class="logo__image only-light" alt="Machine Learning for Research - Home"/>
+    <script>document.write(`<img src="../_static/logo.png" class="logo__image only-dark" alt="Machine Learning for Research - Home"/>`);</script>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item">
+
+ <script>
+ document.write(`
+   <button class="btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <span class="search-button__default-text">Search</span>
+    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+   </button>
+ `);
+ </script></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="../intro.html">
+                    Welcome to your Jupyter Book
+                </a>
+            </li>
+        </ul>
+        <p aria-level="2" class="caption" role="heading"><span class="caption-text">Setup</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="hw01.html">1. Homework 01</a></li>
+<li class="toctree-l1"><a class="reference internal" href="hw02.html">2. Exploring data</a></li>
+<li class="toctree-l1"><a class="reference internal" href="wsl.html">3. Fixing WSL</a></li>
+<li class="toctree-l1"><a class="reference internal" href="cw03.html">4. August 28</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Measures of Closeness</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="Bayes_Theorem_Student.html">5. Bayes’ Theorem</a></li>
+<li class="toctree-l1"><a class="reference internal" href="jupyter-python-intro.html">6. Quick Jupyter Intro and Python Loops</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Linear_regression_derivation.html">7. Linear Regression</a></li>
+<li class="toctree-l1"><a class="reference internal" href="least-squares-01.html">8. Linear Least Squares</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Correlation_Coefficient.html">9. Correlation Coefficient</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Linear Algebra in Python</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="Matrices-student.html">10. Linear Algebra and Python Lists</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Intro_to_Matrices_in_NumPy.html">11. Introduction to Matrices in NumPy</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Matrices_Index_Warmup-Student.html">12. Matrix indices warmup</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Gaussian_Elimination-student.html">13. Gaussian Elimination</a></li>
+<li class="toctree-l1"><a class="reference internal" href="LogLogRegression.html">14. Log-Log Regression</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Strassen-Lab.html">15. Strassen’s Algorithm (Optional Extension)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Gauss.html">16. Gauss Presentation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="inversion.html">17. Matrix Inversion</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Running_Time_Analysis.html">18. Running Time Analysis</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Next Steps</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="reading.html">19. Reading for Research</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Hobo_Student.html">20. Hobo Data, Student Version</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ML_Book_Club.html">21. ML Book Club</a></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><button class="sidebar-toggle primary-toggle btn btn-sm" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</button></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="../_sources/lessons/weather-teacher.ipynb" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.ipynb</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="theme-switch fa-solid fa-sun fa-lg" data-mode="light"></i>
+    <i class="theme-switch fa-solid fa-moon fa-lg" data-mode="dark"></i>
+    <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"></i>
+  </button>
+`);
+</script>
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm pst-navbar-icon search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+  </button>
+`);
+</script>
+
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>Cloudy Days in Leesburg</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+<span class="kn">import</span> <span class="nn">pytz</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Read the data file</span>
+<span class="n">weather_data_path</span> <span class="o">=</span> <span class="s1">&#39;../data/weather-daylight.csv&#39;</span>
+<span class="n">weather_data</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="n">weather_data_path</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Calculate total precipitation (p01i) for each day of the week</span>
+<span class="n">total_p01i_per_day_et</span> <span class="o">=</span> <span class="n">weather_data</span><span class="o">.</span><span class="n">groupby</span><span class="p">(</span><span class="s1">&#39;Day Of Week ET&#39;</span><span class="p">)[</span><span class="s1">&#39;p01i&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">sum</span><span class="p">()</span>
+
+<span class="c1"># Calculate percentage of OVC and CLR days</span>
+<span class="n">percentage_ovc_days_et</span> <span class="o">=</span> <span class="p">(</span><span class="n">weather_data</span><span class="p">[</span><span class="n">weather_data</span><span class="p">[</span><span class="s1">&#39;skyc1&#39;</span><span class="p">]</span> <span class="o">==</span> <span class="s1">&#39;OVC&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">groupby</span><span class="p">(</span><span class="s1">&#39;Day Of Week ET&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">size</span><span class="p">()</span> <span class="o">/</span> <span class="n">weather_data</span><span class="o">.</span><span class="n">groupby</span><span class="p">(</span><span class="s1">&#39;Day Of Week ET&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">size</span><span class="p">())</span> <span class="o">*</span> <span class="mi">100</span>
+<span class="n">percentage_clr_days_et</span> <span class="o">=</span> <span class="p">(</span><span class="n">weather_data</span><span class="p">[</span><span class="n">weather_data</span><span class="p">[</span><span class="s1">&#39;skyc1&#39;</span><span class="p">]</span> <span class="o">==</span> <span class="s1">&#39;CLR&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">groupby</span><span class="p">(</span><span class="s1">&#39;Day Of Week ET&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">size</span><span class="p">()</span> <span class="o">/</span> <span class="n">weather_data</span><span class="o">.</span><span class="n">groupby</span><span class="p">(</span><span class="s1">&#39;Day Of Week ET&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">size</span><span class="p">())</span> <span class="o">*</span> <span class="mi">100</span>
+
+<span class="c1"># Calculate total number of rows (observations) for each day of the week</span>
+<span class="n">total_rows_per_day_et</span> <span class="o">=</span> <span class="n">weather_data</span><span class="o">.</span><span class="n">groupby</span><span class="p">(</span><span class="s1">&#39;Day Of Week ET&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">size</span><span class="p">()</span>
+
+<span class="c1"># Combine all the data into one DataFrame</span>
+<span class="n">combined_et_df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">({</span>
+    <span class="s1">&#39;Day Of Week ET&#39;</span><span class="p">:</span> <span class="n">total_rows_per_day_et</span><span class="o">.</span><span class="n">index</span><span class="p">,</span>
+    <span class="s1">&#39;Total Number of Rows ET&#39;</span><span class="p">:</span> <span class="n">total_rows_per_day_et</span><span class="o">.</span><span class="n">values</span><span class="p">,</span>
+    <span class="s1">&#39;Total p01i ET&#39;</span><span class="p">:</span> <span class="n">total_p01i_per_day_et</span><span class="o">.</span><span class="n">values</span><span class="p">,</span>
+    <span class="s1">&#39;Percentage of OVC Days ET&#39;</span><span class="p">:</span> <span class="n">percentage_ovc_days_et</span><span class="o">.</span><span class="n">values</span><span class="p">,</span>
+    <span class="s1">&#39;Percentage of CLR Days ET&#39;</span><span class="p">:</span> <span class="n">percentage_clr_days_et</span><span class="o">.</span><span class="n">values</span>
+<span class="p">})</span>
+
+<span class="c1"># Print the final table</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">combined_et_df</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>   Day Of Week ET  Total Number of Rows ET  Total p01i ET  \
+0               0                      852           0.30   
+1               1                      848           5.15   
+2               2                      850           0.67   
+3               3                      841           0.41   
+4               4                      883           0.58   
+5               5                      886           7.28   
+6               6                      857           0.16   
+
+   Percentage of OVC Days ET  Percentage of CLR Days ET  
+0                  20.539906                  45.187793  
+1                  28.655660                  42.688679  
+2                  28.235294                  50.705882  
+3                  14.863258                  61.355529  
+4                  15.175538                  55.379388  
+5                  26.523702                  38.487585  
+6                  25.437573                  38.389732  
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">weather_data</span><span class="o">.</span><span class="n">groupby</span><span class="p">(</span><span class="s1">&#39;Day Of Week ET&#39;</span><span class="p">)[</span><span class="s1">&#39;p01i&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">sum</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Day Of Week ET
+0    0.30
+1    5.15
+2    0.67
+3    0.41
+4    0.58
+5    7.28
+6    0.16
+Name: p01i, dtype: float64
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">!</span>pip<span class="w"> </span>install<span class="w"> </span>astral
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Requirement already satisfied: astral in /home/pewhite/github/aet-cs/aet-cs.github.io/white/ML/env/lib/python3.11/site-packages (3.2)
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span><span class=" -Color -Color-Bold">[</span><span class=" -Color -Color-Blue">notice</span><span class=" -Color -Color-Bold">]</span> A new release of pip is available: <span class=" -Color -Color-Red">24.0</span> -&gt; <span class=" -Color -Color-Green">24.2</span>
+<span class=" -Color -Color-Bold">[</span><span class=" -Color -Color-Blue">notice</span><span class=" -Color -Color-Bold">]</span> To update, run: <span class=" -Color -Color-Green">pip install --upgrade pip</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">astral.sun</span> <span class="kn">import</span> <span class="n">sun</span>
+<span class="kn">from</span> <span class="nn">astral</span> <span class="kn">import</span> <span class="n">LocationInfo</span>
+<span class="kn">from</span> <span class="nn">datetime</span> <span class="kn">import</span> <span class="n">date</span>
+
+<span class="c1"># Specify the location (Washington, DC in this example)</span>
+<span class="n">city</span> <span class="o">=</span> <span class="n">LocationInfo</span><span class="p">(</span><span class="s2">&quot;Washington&quot;</span><span class="p">,</span> <span class="s2">&quot;USA&quot;</span><span class="p">,</span> <span class="s2">&quot;US/Eastern&quot;</span><span class="p">,</span> <span class="mf">38.9072</span><span class="p">,</span> <span class="o">-</span><span class="mf">77.0369</span><span class="p">)</span>
+
+<span class="c1"># Choose a date</span>
+<span class="n">s</span> <span class="o">=</span> <span class="n">sun</span><span class="p">(</span><span class="n">city</span><span class="o">.</span><span class="n">observer</span><span class="p">,</span> <span class="n">date</span><span class="o">=</span><span class="n">date</span><span class="p">(</span><span class="mi">2023</span><span class="p">,</span> <span class="mi">9</span><span class="p">,</span> <span class="mi">1</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">s</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>{&#39;dawn&#39;: datetime.datetime(2023, 9, 1, 10, 9, 15, 556890, tzinfo=datetime.timezone.utc),
+ &#39;sunrise&#39;: datetime.datetime(2023, 9, 1, 10, 37, 7, 576681, tzinfo=datetime.timezone.utc),
+ &#39;noon&#39;: datetime.datetime(2023, 9, 1, 17, 8, 24, tzinfo=datetime.timezone.utc),
+ &#39;sunset&#39;: datetime.datetime(2023, 9, 1, 23, 38, 34, 757806, tzinfo=datetime.timezone.utc),
+ &#39;dusk&#39;: datetime.datetime(2023, 9, 1, 0, 7, 56, 829374, tzinfo=datetime.timezone.utc)}
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">t</span><span class="o">=</span><span class="n">weather_data</span><span class="p">[</span><span class="s1">&#39;valid&#39;</span><span class="p">][</span><span class="mi">1000</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Define a function to calculate sunrise for a single row</span>
+<span class="k">def</span> <span class="nf">calculate_sunrise</span><span class="p">(</span><span class="n">row</span><span class="p">):</span>
+    <span class="c1"># Extract the date from the &#39;valid&#39; column (assuming it&#39;s already in datetime format)</span>
+    <span class="n">valid_date</span> <span class="o">=</span> <span class="n">row</span><span class="p">[</span><span class="s1">&#39;valid&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">date</span><span class="p">()</span>
+    <span class="c1"># Calculate sunrise using the astral library</span>
+    <span class="n">s</span> <span class="o">=</span> <span class="n">sun</span><span class="p">(</span><span class="n">city</span><span class="o">.</span><span class="n">observer</span><span class="p">,</span> <span class="n">date</span><span class="o">=</span><span class="n">valid_date</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">s</span><span class="p">[</span><span class="s1">&#39;sunrise&#39;</span><span class="p">]</span>
+
+<span class="k">def</span> <span class="nf">calculate_sunset</span><span class="p">(</span><span class="n">row</span><span class="p">):</span>
+    <span class="c1"># Extract the date from the &#39;valid&#39; column (assuming it&#39;s already in datetime format)</span>
+    <span class="n">valid_date</span> <span class="o">=</span> <span class="n">row</span><span class="p">[</span><span class="s1">&#39;valid&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">date</span><span class="p">()</span>
+    <span class="c1"># Calculate sunrise using the astral library</span>
+    <span class="n">s</span> <span class="o">=</span> <span class="n">sun</span><span class="p">(</span><span class="n">city</span><span class="o">.</span><span class="n">observer</span><span class="p">,</span> <span class="n">date</span><span class="o">=</span><span class="n">valid_date</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">s</span><span class="p">[</span><span class="s1">&#39;sunset&#39;</span><span class="p">]</span>
+
+<span class="k">def</span> <span class="nf">calculate_daylight</span><span class="p">(</span><span class="n">row</span><span class="p">):</span>
+    <span class="n">valid_date</span> <span class="o">=</span> <span class="n">row</span><span class="p">[</span><span class="s1">&#39;valid&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">date</span><span class="p">()</span>
+    <span class="n">s</span> <span class="o">=</span> <span class="n">sun</span><span class="p">(</span><span class="n">city</span><span class="o">.</span><span class="n">observer</span><span class="p">,</span> <span class="n">date</span> <span class="o">=</span> <span class="n">valid_date</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">s</span><span class="p">[</span><span class="s1">&#39;sunset&#39;</span><span class="p">]</span><span class="o">&gt;</span><span class="n">row</span><span class="p">[</span><span class="s1">&#39;valid&#39;</span><span class="p">]</span><span class="o">&gt;</span><span class="n">s</span><span class="p">[</span><span class="s1">&#39;sunrise&#39;</span><span class="p">]</span>
+
+<span class="c1"># Apply the function to each row of the DataFrame</span>
+<span class="c1"># Note: If &#39;valid&#39; is not in the datetime format, you&#39;ll need to convert it first</span>
+<span class="n">weather_data</span><span class="p">[</span><span class="s1">&#39;sunrise&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">weather_data</span><span class="o">.</span><span class="n">apply</span><span class="p">(</span><span class="n">calculate_sunrise</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+<span class="n">weather_data</span><span class="p">[</span><span class="s1">&#39;sunset&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">weather_data</span><span class="o">.</span><span class="n">apply</span><span class="p">(</span><span class="n">calculate_sunset</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+<span class="n">weather_data</span><span class="p">[</span><span class="s1">&#39;daylight&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">weather_data</span><span class="o">.</span><span class="n">apply</span><span class="p">(</span><span class="n">calculate_daylight</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
+<span class="ne">AttributeError</span><span class="g g-Whitespace">                            </span>Traceback (most recent call last)
+<span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">9</span><span class="p">],</span> <span class="n">line</span> <span class="mi">23</span>
+<span class="g g-Whitespace">     </span><span class="mi">19</span>     <span class="k">return</span> <span class="n">s</span><span class="p">[</span><span class="s1">&#39;sunset&#39;</span><span class="p">]</span><span class="o">&gt;</span><span class="n">row</span><span class="p">[</span><span class="s1">&#39;valid&#39;</span><span class="p">]</span><span class="o">&gt;</span><span class="n">s</span><span class="p">[</span><span class="s1">&#39;sunrise&#39;</span><span class="p">]</span>
+<span class="g g-Whitespace">     </span><span class="mi">21</span> <span class="c1"># Apply the function to each row of the DataFrame</span>
+<span class="g g-Whitespace">     </span><span class="mi">22</span> <span class="c1"># Note: If &#39;valid&#39; is not in the datetime format, you&#39;ll need to convert it first</span>
+<span class="ne">---&gt; </span><span class="mi">23</span> <span class="n">weather_data</span><span class="p">[</span><span class="s1">&#39;sunrise&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">weather_data</span><span class="o">.</span><span class="n">apply</span><span class="p">(</span><span class="n">calculate_sunrise</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+<span class="g g-Whitespace">     </span><span class="mi">24</span> <span class="n">weather_data</span><span class="p">[</span><span class="s1">&#39;sunset&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">weather_data</span><span class="o">.</span><span class="n">apply</span><span class="p">(</span><span class="n">calculate_sunset</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+<span class="g g-Whitespace">     </span><span class="mi">25</span> <span class="n">weather_data</span><span class="p">[</span><span class="s1">&#39;daylight&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">weather_data</span><span class="o">.</span><span class="n">apply</span><span class="p">(</span><span class="n">calculate_daylight</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+
+<span class="nn">File ~/github/aet-cs/aet-cs.github.io/white/ML/env/lib/python3.11/site-packages/pandas/core/frame.py:10374,</span> in <span class="ni">DataFrame.apply</span><span class="nt">(self, func, axis, raw, result_type, args, by_row, engine, engine_kwargs, **kwargs)</span>
+<span class="g g-Whitespace">  </span><span class="mi">10360</span> <span class="kn">from</span> <span class="nn">pandas.core.apply</span> <span class="kn">import</span> <span class="n">frame_apply</span>
+<span class="g g-Whitespace">  </span><span class="mi">10362</span> <span class="n">op</span> <span class="o">=</span> <span class="n">frame_apply</span><span class="p">(</span>
+<span class="g g-Whitespace">  </span><span class="mi">10363</span>     <span class="bp">self</span><span class="p">,</span>
+<span class="g g-Whitespace">  </span><span class="mi">10364</span>     <span class="n">func</span><span class="o">=</span><span class="n">func</span><span class="p">,</span>
+   <span class="p">(</span><span class="o">...</span><span class="p">)</span>
+<span class="g g-Whitespace">  </span><span class="mi">10372</span>     <span class="n">kwargs</span><span class="o">=</span><span class="n">kwargs</span><span class="p">,</span>
+<span class="g g-Whitespace">  </span><span class="mi">10373</span> <span class="p">)</span>
+<span class="ne">&gt; </span><span class="mi">10374</span> <span class="k">return</span> <span class="n">op</span><span class="o">.</span><span class="n">apply</span><span class="p">()</span><span class="o">.</span><span class="n">__finalize__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">method</span><span class="o">=</span><span class="s2">&quot;apply&quot;</span><span class="p">)</span>
+
+<span class="nn">File ~/github/aet-cs/aet-cs.github.io/white/ML/env/lib/python3.11/site-packages/pandas/core/apply.py:916,</span> in <span class="ni">FrameApply.apply</span><span class="nt">(self)</span>
+<span class="g g-Whitespace">    </span><span class="mi">913</span> <span class="k">elif</span> <span class="bp">self</span><span class="o">.</span><span class="n">raw</span><span class="p">:</span>
+<span class="g g-Whitespace">    </span><span class="mi">914</span>     <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">apply_raw</span><span class="p">(</span><span class="n">engine</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">engine</span><span class="p">,</span> <span class="n">engine_kwargs</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">engine_kwargs</span><span class="p">)</span>
+<span class="ne">--&gt; </span><span class="mi">916</span> <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">apply_standard</span><span class="p">()</span>
+
+<span class="nn">File ~/github/aet-cs/aet-cs.github.io/white/ML/env/lib/python3.11/site-packages/pandas/core/apply.py:1063,</span> in <span class="ni">FrameApply.apply_standard</span><span class="nt">(self)</span>
+<span class="g g-Whitespace">   </span><span class="mi">1061</span> <span class="k">def</span> <span class="nf">apply_standard</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<span class="g g-Whitespace">   </span><span class="mi">1062</span>     <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">engine</span> <span class="o">==</span> <span class="s2">&quot;python&quot;</span><span class="p">:</span>
+<span class="ne">-&gt; </span><span class="mi">1063</span>         <span class="n">results</span><span class="p">,</span> <span class="n">res_index</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">apply_series_generator</span><span class="p">()</span>
+<span class="g g-Whitespace">   </span><span class="mi">1064</span>     <span class="k">else</span><span class="p">:</span>
+<span class="g g-Whitespace">   </span><span class="mi">1065</span>         <span class="n">results</span><span class="p">,</span> <span class="n">res_index</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">apply_series_numba</span><span class="p">()</span>
+
+<span class="nn">File ~/github/aet-cs/aet-cs.github.io/white/ML/env/lib/python3.11/site-packages/pandas/core/apply.py:1081,</span> in <span class="ni">FrameApply.apply_series_generator</span><span class="nt">(self)</span>
+<span class="g g-Whitespace">   </span><span class="mi">1078</span> <span class="k">with</span> <span class="n">option_context</span><span class="p">(</span><span class="s2">&quot;mode.chained_assignment&quot;</span><span class="p">,</span> <span class="kc">None</span><span class="p">):</span>
+<span class="g g-Whitespace">   </span><span class="mi">1079</span>     <span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="n">v</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">series_gen</span><span class="p">):</span>
+<span class="g g-Whitespace">   </span><span class="mi">1080</span>         <span class="c1"># ignore SettingWithCopy here in case the user mutates</span>
+<span class="ne">-&gt; </span><span class="mi">1081</span>         <span class="n">results</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">func</span><span class="p">(</span><span class="n">v</span><span class="p">,</span> <span class="o">*</span><span class="bp">self</span><span class="o">.</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="bp">self</span><span class="o">.</span><span class="n">kwargs</span><span class="p">)</span>
+<span class="g g-Whitespace">   </span><span class="mi">1082</span>         <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">results</span><span class="p">[</span><span class="n">i</span><span class="p">],</span> <span class="n">ABCSeries</span><span class="p">):</span>
+<span class="g g-Whitespace">   </span><span class="mi">1083</span>             <span class="c1"># If we have a view on v, we need to make a copy because</span>
+<span class="g g-Whitespace">   </span><span class="mi">1084</span>             <span class="c1">#  series_generator will swap out the underlying data</span>
+<span class="g g-Whitespace">   </span><span class="mi">1085</span>             <span class="n">results</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="n">results</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">.</span><span class="n">copy</span><span class="p">(</span><span class="n">deep</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+
+<span class="nn">Cell In[9], line 4,</span> in <span class="ni">calculate_sunrise</span><span class="nt">(row)</span>
+<span class="g g-Whitespace">      </span><span class="mi">2</span> <span class="k">def</span> <span class="nf">calculate_sunrise</span><span class="p">(</span><span class="n">row</span><span class="p">):</span>
+<span class="g g-Whitespace">      </span><span class="mi">3</span>     <span class="c1"># Extract the date from the &#39;valid&#39; column (assuming it&#39;s already in datetime format)</span>
+<span class="ne">----&gt; </span><span class="mi">4</span>     <span class="n">valid_date</span> <span class="o">=</span> <span class="n">row</span><span class="p">[</span><span class="s1">&#39;valid&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">date</span><span class="p">()</span>
+<span class="g g-Whitespace">      </span><span class="mi">5</span>     <span class="c1"># Calculate sunrise using the astral library</span>
+<span class="g g-Whitespace">      </span><span class="mi">6</span>     <span class="n">s</span> <span class="o">=</span> <span class="n">sun</span><span class="p">(</span><span class="n">city</span><span class="o">.</span><span class="n">observer</span><span class="p">,</span> <span class="n">date</span><span class="o">=</span><span class="n">valid_date</span><span class="p">)</span>
+
+<span class="ne">AttributeError</span>: &#39;str&#39; object has no attribute &#39;date&#39;
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">weather_data</span><span class="p">[</span><span class="s1">&#39;daylight&#39;</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">new_data</span> <span class="o">=</span> <span class="n">weather_data</span><span class="p">[</span><span class="n">weather_data</span><span class="p">[</span><span class="s1">&#39;daylight&#39;</span><span class="p">]]</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">new_data</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">new_data</span><span class="o">.</span><span class="n">to_csv</span><span class="p">(</span><span class="s1">&#39;weather-daylight.csv&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Recalculate the necessary components based on the &#39;Day Of Week ET&#39; column from the new dataset with daylight information</span>
+
+<span class="c1"># Total precipitation (p01i) for each day of the week</span>
+<span class="n">total_p01i_per_day_et_new</span> <span class="o">=</span> <span class="n">new_data</span><span class="o">.</span><span class="n">groupby</span><span class="p">(</span><span class="s1">&#39;Day Of Week ET&#39;</span><span class="p">)[</span><span class="s1">&#39;p01i&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">sum</span><span class="p">()</span>
+
+<span class="c1"># Percentage of OVC and CLR days</span>
+<span class="n">percentage_ovc_days_et_new</span> <span class="o">=</span> <span class="p">(</span><span class="n">new_data</span><span class="p">[(</span><span class="n">new_data</span><span class="p">[</span><span class="s1">&#39;skyc1&#39;</span><span class="p">]</span> <span class="o">==</span> <span class="s1">&#39;OVC&#39;</span><span class="p">)</span> <span class="o">|</span> <span class="p">(</span><span class="n">new_data</span><span class="p">[</span><span class="s1">&#39;skyc2&#39;</span><span class="p">]</span> <span class="o">==</span> <span class="s1">&#39;OVC&#39;</span><span class="p">)</span> <span class="o">|</span> <span class="p">(</span><span class="n">new_data</span><span class="p">[</span><span class="s1">&#39;skyc3&#39;</span><span class="p">]</span> <span class="o">==</span> <span class="s1">&#39;OVC&#39;</span><span class="p">)]</span><span class="o">.</span><span class="n">groupby</span><span class="p">(</span><span class="s1">&#39;Day Of Week ET&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">size</span><span class="p">()</span> <span class="o">/</span> <span class="n">new_data</span><span class="o">.</span><span class="n">groupby</span><span class="p">(</span><span class="s1">&#39;Day Of Week ET&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">size</span><span class="p">())</span> <span class="o">*</span> <span class="mi">100</span>
+<span class="n">percentage_clr_days_et_new</span> <span class="o">=</span> <span class="p">(</span><span class="n">new_data</span><span class="p">[</span><span class="n">new_data</span><span class="p">[</span><span class="s1">&#39;skyc1&#39;</span><span class="p">]</span> <span class="o">==</span> <span class="s1">&#39;CLR&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">groupby</span><span class="p">(</span><span class="s1">&#39;Day Of Week ET&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">size</span><span class="p">()</span> <span class="o">/</span> <span class="n">new_data</span><span class="o">.</span><span class="n">groupby</span><span class="p">(</span><span class="s1">&#39;Day Of Week ET&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">size</span><span class="p">())</span> <span class="o">*</span> <span class="mi">100</span>
+
+<span class="c1"># Total number of rows (observations) for each day of the week</span>
+<span class="n">total_rows_per_day_et_new</span> <span class="o">=</span> <span class="n">new_data</span><span class="o">.</span><span class="n">groupby</span><span class="p">(</span><span class="s1">&#39;Day Of Week ET&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">size</span><span class="p">()</span>
+
+<span class="c1"># Combine all the data into one DataFrame</span>
+<span class="n">combined_et_df_new</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">({</span>
+    <span class="s1">&#39;Day Of Week ET&#39;</span><span class="p">:</span> <span class="n">total_rows_per_day_et_new</span><span class="o">.</span><span class="n">index</span><span class="p">,</span>
+    <span class="s1">&#39;Total Number of Rows ET&#39;</span><span class="p">:</span> <span class="n">total_rows_per_day_et_new</span><span class="o">.</span><span class="n">values</span><span class="p">,</span>
+    <span class="s1">&#39;Total p01i ET&#39;</span><span class="p">:</span> <span class="n">total_p01i_per_day_et_new</span><span class="o">.</span><span class="n">values</span><span class="p">,</span>
+    <span class="s1">&#39;Percentage of OVC Days ET&#39;</span><span class="p">:</span> <span class="n">percentage_ovc_days_et_new</span><span class="o">.</span><span class="n">values</span><span class="p">,</span>
+    <span class="s1">&#39;Percentage of CLR Days ET&#39;</span><span class="p">:</span> <span class="n">percentage_clr_days_et_new</span><span class="o">.</span><span class="n">values</span>
+<span class="p">})</span>
+
+<span class="n">combined_et_df_new</span>
+</pre></div>
+</div>
+</div>
+</div>
+<section class="tex2jax_ignore mathjax_ignore" id="cloudy-days-in-leesburg">
+<h1>Cloudy Days in Leesburg<a class="headerlink" href="#cloudy-days-in-leesburg" title="Link to this heading">#</a></h1>
+<p>Analyze Weather data</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s1">&#39;../data/weather-daylight.csv&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>id1</th>
+      <th>id2</th>
+      <th>station</th>
+      <th>valid</th>
+      <th>tmpf</th>
+      <th>dwpf</th>
+      <th>relh</th>
+      <th>drct</th>
+      <th>sknt</th>
+      <th>p01i</th>
+      <th>...</th>
+      <th>peak_wind_drct</th>
+      <th>peak_wind_time</th>
+      <th>feel</th>
+      <th>metar</th>
+      <th>snowdepth</th>
+      <th>valid_ET</th>
+      <th>Day Of Week ET</th>
+      <th>sunrise</th>
+      <th>sunset</th>
+      <th>daylight</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>0</td>
+      <td>32</td>
+      <td>JYO</td>
+      <td>2023-09-01 10:55:00+00:00</td>
+      <td>59.0</td>
+      <td>50.0</td>
+      <td>72.01</td>
+      <td>20.0</td>
+      <td>5.0</td>
+      <td>0.00</td>
+      <td>...</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>59.00</td>
+      <td>KJYO 011055Z AUTO 02005KT 10SM CLR 15/10 A3026...</td>
+      <td>NaN</td>
+      <td>2023-09-01 06:55:00-04:00</td>
+      <td>4</td>
+      <td>2023-09-01 10:37:07.576681+00:00</td>
+      <td>2023-09-01 23:38:34.757806+00:00</td>
+      <td>True</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>1</td>
+      <td>33</td>
+      <td>JYO</td>
+      <td>2023-09-01 11:15:00+00:00</td>
+      <td>59.0</td>
+      <td>50.0</td>
+      <td>72.01</td>
+      <td>20.0</td>
+      <td>6.0</td>
+      <td>0.00</td>
+      <td>...</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>59.00</td>
+      <td>KJYO 011115Z AUTO 02006KT 10SM CLR 15/10 A3027...</td>
+      <td>NaN</td>
+      <td>2023-09-01 07:15:00-04:00</td>
+      <td>4</td>
+      <td>2023-09-01 10:37:07.576681+00:00</td>
+      <td>2023-09-01 23:38:34.757806+00:00</td>
+      <td>True</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>2</td>
+      <td>34</td>
+      <td>JYO</td>
+      <td>2023-09-01 11:35:00+00:00</td>
+      <td>59.0</td>
+      <td>50.0</td>
+      <td>72.01</td>
+      <td>20.0</td>
+      <td>6.0</td>
+      <td>0.00</td>
+      <td>...</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>59.00</td>
+      <td>KJYO 011135Z AUTO 02006KT 10SM CLR 15/10 A3028...</td>
+      <td>NaN</td>
+      <td>2023-09-01 07:35:00-04:00</td>
+      <td>4</td>
+      <td>2023-09-01 10:37:07.576681+00:00</td>
+      <td>2023-09-01 23:38:34.757806+00:00</td>
+      <td>True</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>3</td>
+      <td>35</td>
+      <td>JYO</td>
+      <td>2023-09-01 11:55:00+00:00</td>
+      <td>60.8</td>
+      <td>51.8</td>
+      <td>72.20</td>
+      <td>30.0</td>
+      <td>7.0</td>
+      <td>0.00</td>
+      <td>...</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>60.80</td>
+      <td>KJYO 011155Z AUTO 03007KT 10SM CLR 16/11 A3029...</td>
+      <td>NaN</td>
+      <td>2023-09-01 07:55:00-04:00</td>
+      <td>4</td>
+      <td>2023-09-01 10:37:07.576681+00:00</td>
+      <td>2023-09-01 23:38:34.757806+00:00</td>
+      <td>True</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>4</td>
+      <td>36</td>
+      <td>JYO</td>
+      <td>2023-09-01 12:15:00+00:00</td>
+      <td>62.6</td>
+      <td>51.8</td>
+      <td>67.75</td>
+      <td>30.0</td>
+      <td>8.0</td>
+      <td>0.00</td>
+      <td>...</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>62.60</td>
+      <td>KJYO 011215Z AUTO 03008KT 10SM CLR 17/11 A3029...</td>
+      <td>NaN</td>
+      <td>2023-09-01 08:15:00-04:00</td>
+      <td>4</td>
+      <td>2023-09-01 10:37:07.576681+00:00</td>
+      <td>2023-09-01 23:38:34.757806+00:00</td>
+      <td>True</td>
+    </tr>
+    <tr>
+      <th>...</th>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+    </tr>
+    <tr>
+      <th>6012</th>
+      <td>6012</td>
+      <td>13576</td>
+      <td>JYO</td>
+      <td>2024-03-09 21:35:00+00:00</td>
+      <td>44.6</td>
+      <td>44.6</td>
+      <td>100.00</td>
+      <td>350.0</td>
+      <td>9.0</td>
+      <td>0.03</td>
+      <td>...</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>39.18</td>
+      <td>KJYO 092135Z AUTO 35009KT 1 3/4SM -RA BKN004 O...</td>
+      <td>NaN</td>
+      <td>2024-03-09 16:35:00-05:00</td>
+      <td>5</td>
+      <td>2024-03-09 11:28:03.012997+00:00</td>
+      <td>2024-03-09 23:09:29.702861+00:00</td>
+      <td>True</td>
+    </tr>
+    <tr>
+      <th>6013</th>
+      <td>6013</td>
+      <td>13577</td>
+      <td>JYO</td>
+      <td>2024-03-09 21:55:00+00:00</td>
+      <td>44.6</td>
+      <td>44.6</td>
+      <td>100.00</td>
+      <td>10.0</td>
+      <td>7.0</td>
+      <td>0.05</td>
+      <td>...</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>40.14</td>
+      <td>KJYO 092155Z AUTO 01007KT 1 3/4SM -RA OVC004 0...</td>
+      <td>NaN</td>
+      <td>2024-03-09 16:55:00-05:00</td>
+      <td>5</td>
+      <td>2024-03-09 11:28:03.012997+00:00</td>
+      <td>2024-03-09 23:09:29.702861+00:00</td>
+      <td>True</td>
+    </tr>
+    <tr>
+      <th>6014</th>
+      <td>6014</td>
+      <td>13578</td>
+      <td>JYO</td>
+      <td>2024-03-09 22:15:00+00:00</td>
+      <td>44.6</td>
+      <td>44.6</td>
+      <td>100.00</td>
+      <td>360.0</td>
+      <td>8.0</td>
+      <td>0.02</td>
+      <td>...</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>39.63</td>
+      <td>KJYO 092215Z AUTO 36008KT 1 1/2SM -VCTSRA OVC0...</td>
+      <td>NaN</td>
+      <td>2024-03-09 17:15:00-05:00</td>
+      <td>5</td>
+      <td>2024-03-09 11:28:03.012997+00:00</td>
+      <td>2024-03-09 23:09:29.702861+00:00</td>
+      <td>True</td>
+    </tr>
+    <tr>
+      <th>6015</th>
+      <td>6015</td>
+      <td>13579</td>
+      <td>JYO</td>
+      <td>2024-03-09 22:35:00+00:00</td>
+      <td>44.6</td>
+      <td>44.6</td>
+      <td>100.00</td>
+      <td>340.0</td>
+      <td>11.0</td>
+      <td>0.13</td>
+      <td>...</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>38.39</td>
+      <td>KJYO 092235Z AUTO 34011KT 2 1/2SM +TSRA BKN004...</td>
+      <td>NaN</td>
+      <td>2024-03-09 17:35:00-05:00</td>
+      <td>5</td>
+      <td>2024-03-09 11:28:03.012997+00:00</td>
+      <td>2024-03-09 23:09:29.702861+00:00</td>
+      <td>True</td>
+    </tr>
+    <tr>
+      <th>6016</th>
+      <td>6016</td>
+      <td>13580</td>
+      <td>JYO</td>
+      <td>2024-03-09 22:55:00+00:00</td>
+      <td>44.6</td>
+      <td>44.6</td>
+      <td>100.00</td>
+      <td>320.0</td>
+      <td>12.0</td>
+      <td>0.20</td>
+      <td>...</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>38.04</td>
+      <td>KJYO 092255Z AUTO 32012G17KT 5SM TSRA BKN006 O...</td>
+      <td>NaN</td>
+      <td>2024-03-09 17:55:00-05:00</td>
+      <td>5</td>
+      <td>2024-03-09 11:28:03.012997+00:00</td>
+      <td>2024-03-09 23:09:29.702861+00:00</td>
+      <td>True</td>
+    </tr>
+  </tbody>
+</table>
+<p>6017 rows × 37 columns</p>
+</div></div></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span><span class="o">.</span><span class="n">describe</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>id1</th>
+      <th>id2</th>
+      <th>tmpf</th>
+      <th>dwpf</th>
+      <th>relh</th>
+      <th>drct</th>
+      <th>sknt</th>
+      <th>p01i</th>
+      <th>alti</th>
+      <th>mslp</th>
+      <th>...</th>
+      <th>skyl4</th>
+      <th>ice_accretion_1hr</th>
+      <th>ice_accretion_3hr</th>
+      <th>ice_accretion_6hr</th>
+      <th>peak_wind_gust</th>
+      <th>peak_wind_drct</th>
+      <th>peak_wind_time</th>
+      <th>feel</th>
+      <th>snowdepth</th>
+      <th>Day Of Week ET</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>count</th>
+      <td>6017.000000</td>
+      <td>6017.000000</td>
+      <td>5705.000000</td>
+      <td>5705.000000</td>
+      <td>5705.000000</td>
+      <td>6008.000000</td>
+      <td>6008.000000</td>
+      <td>6017.000000</td>
+      <td>6011.000000</td>
+      <td>0.0</td>
+      <td>...</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>5703.000000</td>
+      <td>0.0</td>
+      <td>6017.000000</td>
+    </tr>
+    <tr>
+      <th>mean</th>
+      <td>3008.000000</td>
+      <td>6612.157554</td>
+      <td>53.963786</td>
+      <td>42.250692</td>
+      <td>67.665832</td>
+      <td>165.269640</td>
+      <td>5.953395</td>
+      <td>0.002418</td>
+      <td>30.082078</td>
+      <td>NaN</td>
+      <td>...</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>52.289523</td>
+      <td>NaN</td>
+      <td>3.020608</td>
+    </tr>
+    <tr>
+      <th>std</th>
+      <td>1737.102616</td>
+      <td>4065.241617</td>
+      <td>15.380499</td>
+      <td>14.652600</td>
+      <td>20.595358</td>
+      <td>137.476461</td>
+      <td>4.963944</td>
+      <td>0.024501</td>
+      <td>0.235834</td>
+      <td>NaN</td>
+      <td>...</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>17.685820</td>
+      <td>NaN</td>
+      <td>1.999312</td>
+    </tr>
+    <tr>
+      <th>min</th>
+      <td>0.000000</td>
+      <td>32.000000</td>
+      <td>12.200000</td>
+      <td>5.000000</td>
+      <td>22.810000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>29.320000</td>
+      <td>NaN</td>
+      <td>...</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>2.880000</td>
+      <td>NaN</td>
+      <td>0.000000</td>
+    </tr>
+    <tr>
+      <th>25%</th>
+      <td>1504.000000</td>
+      <td>2943.000000</td>
+      <td>42.800000</td>
+      <td>32.000000</td>
+      <td>51.610000</td>
+      <td>10.000000</td>
+      <td>3.000000</td>
+      <td>0.000000</td>
+      <td>29.920000</td>
+      <td>NaN</td>
+      <td>...</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>38.940000</td>
+      <td>NaN</td>
+      <td>1.000000</td>
+    </tr>
+    <tr>
+      <th>50%</th>
+      <td>3008.000000</td>
+      <td>6432.000000</td>
+      <td>51.800000</td>
+      <td>41.000000</td>
+      <td>64.230000</td>
+      <td>180.000000</td>
+      <td>5.000000</td>
+      <td>0.000000</td>
+      <td>30.080000</td>
+      <td>NaN</td>
+      <td>...</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>51.800000</td>
+      <td>NaN</td>
+      <td>3.000000</td>
+    </tr>
+    <tr>
+      <th>75%</th>
+      <td>4512.000000</td>
+      <td>10234.000000</td>
+      <td>64.400000</td>
+      <td>53.600000</td>
+      <td>86.490000</td>
+      <td>310.000000</td>
+      <td>9.000000</td>
+      <td>0.000000</td>
+      <td>30.230000</td>
+      <td>NaN</td>
+      <td>...</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>64.400000</td>
+      <td>NaN</td>
+      <td>5.000000</td>
+    </tr>
+    <tr>
+      <th>max</th>
+      <td>6016.000000</td>
+      <td>13580.000000</td>
+      <td>96.800000</td>
+      <td>73.400000</td>
+      <td>100.000000</td>
+      <td>360.000000</td>
+      <td>28.000000</td>
+      <td>0.950000</td>
+      <td>30.760000</td>
+      <td>NaN</td>
+      <td>...</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>102.010000</td>
+      <td>NaN</td>
+      <td>6.000000</td>
+    </tr>
+  </tbody>
+</table>
+<p>8 rows × 26 columns</p>
+</div></div></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span><span class="o">.</span><span class="n">shape</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>(6017, 37)
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span><span class="p">[</span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;snowdepth&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">isna</span><span class="p">()]</span><span class="o">.</span><span class="n">shape</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>(6017, 37)
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;skyc1&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">value_counts</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>skyc1
+CLR    2853
+OVC    1370
+SCT    1128
+BKN     656
+VV        2
+Name: count, dtype: int64
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="mi">30</span><span class="p">:</span><span class="mi">50</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>id1</th>
+      <th>id2</th>
+      <th>station</th>
+      <th>valid</th>
+      <th>tmpf</th>
+      <th>dwpf</th>
+      <th>relh</th>
+      <th>drct</th>
+      <th>sknt</th>
+      <th>p01i</th>
+      <th>...</th>
+      <th>peak_wind_drct</th>
+      <th>peak_wind_time</th>
+      <th>feel</th>
+      <th>metar</th>
+      <th>snowdepth</th>
+      <th>valid_ET</th>
+      <th>Day Of Week ET</th>
+      <th>sunrise</th>
+      <th>sunset</th>
+      <th>daylight</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>30</th>
+      <td>30</td>
+      <td>62</td>
+      <td>JYO</td>
+      <td>2023-09-01 20:55:00+00:00</td>
+      <td>80.6</td>
+      <td>51.8</td>
+      <td>36.79</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>...</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>80.08</td>
+      <td>KJYO 012055Z AUTO 00000KT 10SM CLR 27/11 A3025...</td>
+      <td>NaN</td>
+      <td>2023-09-01 16:55:00-04:00</td>
+      <td>4</td>
+      <td>2023-09-01 10:37:07.576681+00:00</td>
+      <td>2023-09-01 23:38:34.757806+00:00</td>
+      <td>True</td>
+    </tr>
+    <tr>
+      <th>31</th>
+      <td>31</td>
+      <td>63</td>
+      <td>JYO</td>
+      <td>2023-09-01 21:15:00+00:00</td>
+      <td>80.6</td>
+      <td>50.0</td>
+      <td>34.41</td>
+      <td>140.0</td>
+      <td>6.0</td>
+      <td>0.0</td>
+      <td>...</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>79.88</td>
+      <td>KJYO 012115Z AUTO 14006KT 10SM CLR 27/10 A3024...</td>
+      <td>NaN</td>
+      <td>2023-09-01 17:15:00-04:00</td>
+      <td>4</td>
+      <td>2023-09-01 10:37:07.576681+00:00</td>
+      <td>2023-09-01 23:38:34.757806+00:00</td>
+      <td>True</td>
+    </tr>
+    <tr>
+      <th>32</th>
+      <td>32</td>
+      <td>64</td>
+      <td>JYO</td>
+      <td>2023-09-01 21:35:00+00:00</td>
+      <td>80.6</td>
+      <td>51.8</td>
+      <td>36.79</td>
+      <td>120.0</td>
+      <td>5.0</td>
+      <td>0.0</td>
+      <td>...</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>80.08</td>
+      <td>KJYO 012135Z AUTO 12005KT 10SM CLR 27/11 A3024...</td>
+      <td>NaN</td>
+      <td>2023-09-01 17:35:00-04:00</td>
+      <td>4</td>
+      <td>2023-09-01 10:37:07.576681+00:00</td>
+      <td>2023-09-01 23:38:34.757806+00:00</td>
+      <td>True</td>
+    </tr>
+    <tr>
+      <th>33</th>
+      <td>33</td>
+      <td>65</td>
+      <td>JYO</td>
+      <td>2023-09-01 21:55:00+00:00</td>
+      <td>80.6</td>
+      <td>50.0</td>
+      <td>34.41</td>
+      <td>70.0</td>
+      <td>4.0</td>
+      <td>0.0</td>
+      <td>...</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>79.88</td>
+      <td>KJYO 012155Z AUTO 07004KT 10SM CLR 27/10 A3024...</td>
+      <td>NaN</td>
+      <td>2023-09-01 17:55:00-04:00</td>
+      <td>4</td>
+      <td>2023-09-01 10:37:07.576681+00:00</td>
+      <td>2023-09-01 23:38:34.757806+00:00</td>
+      <td>True</td>
+    </tr>
+    <tr>
+      <th>34</th>
+      <td>34</td>
+      <td>66</td>
+      <td>JYO</td>
+      <td>2023-09-01 22:15:00+00:00</td>
+      <td>78.8</td>
+      <td>51.8</td>
+      <td>39.02</td>
+      <td>150.0</td>
+      <td>5.0</td>
+      <td>0.0</td>
+      <td>...</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>78.80</td>
+      <td>KJYO 012215Z AUTO 15005KT 10SM CLR 26/11 A3024...</td>
+      <td>NaN</td>
+      <td>2023-09-01 18:15:00-04:00</td>
+      <td>4</td>
+      <td>2023-09-01 10:37:07.576681+00:00</td>
+      <td>2023-09-01 23:38:34.757806+00:00</td>
+      <td>True</td>
+    </tr>
+    <tr>
+      <th>35</th>
+      <td>35</td>
+      <td>67</td>
+      <td>JYO</td>
+      <td>2023-09-01 22:35:00+00:00</td>
+      <td>78.8</td>
+      <td>50.0</td>
+      <td>36.51</td>
+      <td>130.0</td>
+      <td>3.0</td>
+      <td>0.0</td>
+      <td>...</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>78.80</td>
+      <td>KJYO 012235Z AUTO 13003KT 10SM CLR 26/10 A3024...</td>
+      <td>NaN</td>
+      <td>2023-09-01 18:35:00-04:00</td>
+      <td>4</td>
+      <td>2023-09-01 10:37:07.576681+00:00</td>
+      <td>2023-09-01 23:38:34.757806+00:00</td>
+      <td>True</td>
+    </tr>
+    <tr>
+      <th>36</th>
+      <td>36</td>
+      <td>68</td>
+      <td>JYO</td>
+      <td>2023-09-01 22:55:00+00:00</td>
+      <td>78.8</td>
+      <td>51.8</td>
+      <td>39.02</td>
+      <td>100.0</td>
+      <td>3.0</td>
+      <td>0.0</td>
+      <td>...</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>78.80</td>
+      <td>KJYO 012255Z AUTO 10003KT 10SM CLR 26/11 A3024...</td>
+      <td>NaN</td>
+      <td>2023-09-01 18:55:00-04:00</td>
+      <td>4</td>
+      <td>2023-09-01 10:37:07.576681+00:00</td>
+      <td>2023-09-01 23:38:34.757806+00:00</td>
+      <td>True</td>
+    </tr>
+    <tr>
+      <th>37</th>
+      <td>37</td>
+      <td>69</td>
+      <td>JYO</td>
+      <td>2023-09-01 23:15:00+00:00</td>
+      <td>78.8</td>
+      <td>51.8</td>
+      <td>39.02</td>
+      <td>120.0</td>
+      <td>5.0</td>
+      <td>0.0</td>
+      <td>...</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>78.80</td>
+      <td>KJYO 012315Z AUTO 12005KT 10SM CLR 26/11 A3023...</td>
+      <td>NaN</td>
+      <td>2023-09-01 19:15:00-04:00</td>
+      <td>4</td>
+      <td>2023-09-01 10:37:07.576681+00:00</td>
+      <td>2023-09-01 23:38:34.757806+00:00</td>
+      <td>True</td>
+    </tr>
+    <tr>
+      <th>38</th>
+      <td>38</td>
+      <td>70</td>
+      <td>JYO</td>
+      <td>2023-09-01 23:35:00+00:00</td>
+      <td>77.0</td>
+      <td>51.8</td>
+      <td>41.42</td>
+      <td>100.0</td>
+      <td>3.0</td>
+      <td>0.0</td>
+      <td>...</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>77.00</td>
+      <td>KJYO 012335Z AUTO 10003KT 10SM CLR 25/11 A3024...</td>
+      <td>NaN</td>
+      <td>2023-09-01 19:35:00-04:00</td>
+      <td>4</td>
+      <td>2023-09-01 10:37:07.576681+00:00</td>
+      <td>2023-09-01 23:38:34.757806+00:00</td>
+      <td>True</td>
+    </tr>
+    <tr>
+      <th>39</th>
+      <td>39</td>
+      <td>104</td>
+      <td>JYO</td>
+      <td>2023-09-02 10:55:00+00:00</td>
+      <td>55.4</td>
+      <td>53.6</td>
+      <td>93.65</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>...</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>55.40</td>
+      <td>KJYO 021055Z AUTO 00000KT 10SM CLR 13/12 A3026...</td>
+      <td>NaN</td>
+      <td>2023-09-02 06:55:00-04:00</td>
+      <td>5</td>
+      <td>2023-09-02 10:38:01.238896+00:00</td>
+      <td>2023-09-02 23:37:02.770575+00:00</td>
+      <td>True</td>
+    </tr>
+    <tr>
+      <th>40</th>
+      <td>40</td>
+      <td>105</td>
+      <td>JYO</td>
+      <td>2023-09-02 11:15:00+00:00</td>
+      <td>53.6</td>
+      <td>53.6</td>
+      <td>100.00</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>...</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>53.60</td>
+      <td>KJYO 021115Z AUTO 00000KT 10SM CLR 12/12 A3026...</td>
+      <td>NaN</td>
+      <td>2023-09-02 07:15:00-04:00</td>
+      <td>5</td>
+      <td>2023-09-02 10:38:01.238896+00:00</td>
+      <td>2023-09-02 23:37:02.770575+00:00</td>
+      <td>True</td>
+    </tr>
+    <tr>
+      <th>41</th>
+      <td>41</td>
+      <td>106</td>
+      <td>JYO</td>
+      <td>2023-09-02 11:35:00+00:00</td>
+      <td>55.4</td>
+      <td>53.6</td>
+      <td>93.65</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>...</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>55.40</td>
+      <td>KJYO 021135Z AUTO 00000KT 10SM CLR 13/12 A3027...</td>
+      <td>NaN</td>
+      <td>2023-09-02 07:35:00-04:00</td>
+      <td>5</td>
+      <td>2023-09-02 10:38:01.238896+00:00</td>
+      <td>2023-09-02 23:37:02.770575+00:00</td>
+      <td>True</td>
+    </tr>
+    <tr>
+      <th>42</th>
+      <td>42</td>
+      <td>107</td>
+      <td>JYO</td>
+      <td>2023-09-02 11:55:00+00:00</td>
+      <td>59.0</td>
+      <td>55.4</td>
+      <td>87.83</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>...</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>59.00</td>
+      <td>KJYO 021155Z AUTO 00000KT 10SM CLR 15/13 A3027...</td>
+      <td>NaN</td>
+      <td>2023-09-02 07:55:00-04:00</td>
+      <td>5</td>
+      <td>2023-09-02 10:38:01.238896+00:00</td>
+      <td>2023-09-02 23:37:02.770575+00:00</td>
+      <td>True</td>
+    </tr>
+    <tr>
+      <th>43</th>
+      <td>43</td>
+      <td>108</td>
+      <td>JYO</td>
+      <td>2023-09-02 12:15:00+00:00</td>
+      <td>60.8</td>
+      <td>55.4</td>
+      <td>82.37</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>...</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>60.80</td>
+      <td>KJYO 021215Z AUTO 00000KT 10SM CLR 16/13 A3027...</td>
+      <td>NaN</td>
+      <td>2023-09-02 08:15:00-04:00</td>
+      <td>5</td>
+      <td>2023-09-02 10:38:01.238896+00:00</td>
+      <td>2023-09-02 23:37:02.770575+00:00</td>
+      <td>True</td>
+    </tr>
+    <tr>
+      <th>44</th>
+      <td>44</td>
+      <td>109</td>
+      <td>JYO</td>
+      <td>2023-09-02 12:35:00+00:00</td>
+      <td>62.6</td>
+      <td>57.2</td>
+      <td>82.50</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>...</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>62.60</td>
+      <td>KJYO 021235Z AUTO 00000KT 10SM CLR 17/14 A3027...</td>
+      <td>NaN</td>
+      <td>2023-09-02 08:35:00-04:00</td>
+      <td>5</td>
+      <td>2023-09-02 10:38:01.238896+00:00</td>
+      <td>2023-09-02 23:37:02.770575+00:00</td>
+      <td>True</td>
+    </tr>
+    <tr>
+      <th>45</th>
+      <td>45</td>
+      <td>110</td>
+      <td>JYO</td>
+      <td>2023-09-02 12:55:00+00:00</td>
+      <td>64.4</td>
+      <td>57.2</td>
+      <td>77.45</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>...</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>64.40</td>
+      <td>KJYO 021255Z AUTO 00000KT 10SM CLR 18/14 A3027...</td>
+      <td>NaN</td>
+      <td>2023-09-02 08:55:00-04:00</td>
+      <td>5</td>
+      <td>2023-09-02 10:38:01.238896+00:00</td>
+      <td>2023-09-02 23:37:02.770575+00:00</td>
+      <td>True</td>
+    </tr>
+    <tr>
+      <th>46</th>
+      <td>46</td>
+      <td>111</td>
+      <td>JYO</td>
+      <td>2023-09-02 13:15:00+00:00</td>
+      <td>64.4</td>
+      <td>57.2</td>
+      <td>77.45</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>...</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>64.40</td>
+      <td>KJYO 021315Z AUTO 00000KT 10SM CLR 18/14 A3026...</td>
+      <td>NaN</td>
+      <td>2023-09-02 09:15:00-04:00</td>
+      <td>5</td>
+      <td>2023-09-02 10:38:01.238896+00:00</td>
+      <td>2023-09-02 23:37:02.770575+00:00</td>
+      <td>True</td>
+    </tr>
+    <tr>
+      <th>47</th>
+      <td>47</td>
+      <td>112</td>
+      <td>JYO</td>
+      <td>2023-09-02 13:35:00+00:00</td>
+      <td>68.0</td>
+      <td>59.0</td>
+      <td>72.92</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>...</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>68.00</td>
+      <td>KJYO 021335Z AUTO 00000KT 10SM CLR 20/15 A3026...</td>
+      <td>NaN</td>
+      <td>2023-09-02 09:35:00-04:00</td>
+      <td>5</td>
+      <td>2023-09-02 10:38:01.238896+00:00</td>
+      <td>2023-09-02 23:37:02.770575+00:00</td>
+      <td>True</td>
+    </tr>
+    <tr>
+      <th>48</th>
+      <td>48</td>
+      <td>113</td>
+      <td>JYO</td>
+      <td>2023-09-02 13:55:00+00:00</td>
+      <td>69.8</td>
+      <td>59.0</td>
+      <td>68.55</td>
+      <td>170.0</td>
+      <td>4.0</td>
+      <td>0.0</td>
+      <td>...</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>69.80</td>
+      <td>KJYO 021355Z AUTO 17004KT 10SM CLR 21/15 A3026...</td>
+      <td>NaN</td>
+      <td>2023-09-02 09:55:00-04:00</td>
+      <td>5</td>
+      <td>2023-09-02 10:38:01.238896+00:00</td>
+      <td>2023-09-02 23:37:02.770575+00:00</td>
+      <td>True</td>
+    </tr>
+    <tr>
+      <th>49</th>
+      <td>49</td>
+      <td>114</td>
+      <td>JYO</td>
+      <td>2023-09-02 14:15:00+00:00</td>
+      <td>71.6</td>
+      <td>59.0</td>
+      <td>64.48</td>
+      <td>250.0</td>
+      <td>3.0</td>
+      <td>0.0</td>
+      <td>...</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>71.60</td>
+      <td>KJYO 021415Z AUTO 25003KT 10SM CLR 22/15 A3026...</td>
+      <td>NaN</td>
+      <td>2023-09-02 10:15:00-04:00</td>
+      <td>5</td>
+      <td>2023-09-02 10:38:01.238896+00:00</td>
+      <td>2023-09-02 23:37:02.770575+00:00</td>
+      <td>True</td>
+    </tr>
+    <tr>
+      <th>50</th>
+      <td>50</td>
+      <td>115</td>
+      <td>JYO</td>
+      <td>2023-09-02 14:35:00+00:00</td>
+      <td>71.6</td>
+      <td>59.0</td>
+      <td>64.48</td>
+      <td>250.0</td>
+      <td>3.0</td>
+      <td>0.0</td>
+      <td>...</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>71.60</td>
+      <td>KJYO 021435Z AUTO 25003KT 10SM CLR 22/15 A3026...</td>
+      <td>NaN</td>
+      <td>2023-09-02 10:35:00-04:00</td>
+      <td>5</td>
+      <td>2023-09-02 10:38:01.238896+00:00</td>
+      <td>2023-09-02 23:37:02.770575+00:00</td>
+      <td>True</td>
+    </tr>
+  </tbody>
+</table>
+<p>21 rows × 37 columns</p>
+</div></div></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span><span class="p">[(</span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;skyc1&#39;</span><span class="p">]</span><span class="o">==</span><span class="s1">&#39;CLR&#39;</span><span class="p">)]</span><span class="o">.</span><span class="n">shape</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>(2853, 37)
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span><span class="p">[(</span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;skyc1&#39;</span><span class="p">]</span><span class="o">==</span><span class="s1">&#39;CLR&#39;</span><span class="p">)</span> <span class="o">&amp;</span> <span class="p">(</span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;p01i&#39;</span><span class="p">]</span><span class="o">&gt;</span><span class="mi">0</span><span class="p">)]</span><span class="o">.</span><span class="n">shape</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>(16, 37)
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span><span class="p">[</span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;p01i&#39;</span><span class="p">]</span><span class="o">&gt;</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">/</span> <span class="n">df</span><span class="p">[</span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;p01i&#39;</span><span class="p">]</span><span class="o">&gt;=</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.038557420641515704
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">for</span> <span class="n">c</span> <span class="ow">in</span> <span class="p">[</span><span class="s1">&#39;skyc1&#39;</span><span class="p">,</span> <span class="s1">&#39;skyc2&#39;</span><span class="p">,</span> <span class="s1">&#39;skyc3&#39;</span><span class="p">,</span> <span class="s1">&#39;skyc4&#39;</span><span class="p">]:</span>
+	<span class="nb">print</span><span class="p">(</span><span class="n">c</span><span class="p">,</span><span class="n">df</span><span class="p">[</span><span class="n">df</span><span class="p">[</span><span class="n">c</span><span class="p">]</span><span class="o">.</span><span class="n">isna</span><span class="p">()]</span><span class="o">.</span><span class="n">shape</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>skyc1 (8, 37)
+skyc2 (5017, 37)
+skyc3 (5692, 37)
+skyc4 (6017, 37)
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span><span class="p">[(</span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;skyc1&#39;</span><span class="p">]</span> <span class="o">!=</span> <span class="n">df</span><span class="p">[</span><span class="s1">&#39;skyc2&#39;</span><span class="p">])</span> <span class="o">&amp;</span> <span class="p">(</span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;skyc1&#39;</span><span class="p">]</span><span class="o">==</span><span class="s1">&#39;CLR&#39;</span><span class="p">)][[</span><span class="s1">&#39;skyc1&#39;</span><span class="p">,</span><span class="s1">&#39;skyc2&#39;</span><span class="p">]]</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>skyc1</th>
+      <th>skyc2</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>CLR</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>CLR</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>CLR</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>CLR</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>CLR</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>...</th>
+      <td>...</td>
+      <td>...</td>
+    </tr>
+    <tr>
+      <th>5976</th>
+      <td>CLR</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>5978</th>
+      <td>CLR</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>5979</th>
+      <td>CLR</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>5980</th>
+      <td>CLR</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>5981</th>
+      <td>CLR</td>
+      <td>NaN</td>
+    </tr>
+  </tbody>
+</table>
+<p>2853 rows × 2 columns</p>
+</div></div></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span><span class="p">[(</span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;skyc1&#39;</span><span class="p">]</span> <span class="o">!=</span> <span class="n">df</span><span class="p">[</span><span class="s1">&#39;skyc2&#39;</span><span class="p">])][[</span><span class="s1">&#39;skyc1&#39;</span><span class="p">,</span><span class="s1">&#39;skyc2&#39;</span><span class="p">]]</span><span class="o">.</span><span class="n">value_counts</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>skyc1  skyc2
+BKN    OVC      225
+SCT    BKN      214
+       OVC      207
+Name: count, dtype: int64
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">total_p01i_per_day_et_new</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">groupby</span><span class="p">(</span><span class="s1">&#39;Day Of Week ET&#39;</span><span class="p">)[</span><span class="s1">&#39;p01i&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">sum</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">total_p01i_per_day_et_new</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Day Of Week ET
+0    0.30
+1    5.15
+2    0.67
+3    0.41
+4    0.58
+5    7.28
+6    0.16
+Name: p01i, dtype: float64
+</pre></div>
+</div>
+</div>
+</div>
+<p>We would like to count the number of clear observations per day. We can do this with a <code class="docutils literal notranslate"><span class="pre">groupby</span></code> followed by a <code class="docutils literal notranslate"><span class="pre">size()</span></code> function</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span><span class="p">[</span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;skyc1&#39;</span><span class="p">]</span> <span class="o">==</span> <span class="s1">&#39;CLR&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">groupby</span><span class="p">(</span><span class="s1">&#39;Day Of Week ET&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">size</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Day Of Week ET
+0    385
+1    362
+2    431
+3    516
+4    489
+5    341
+6    329
+dtype: int64
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span><span class="p">[</span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;skyc1&#39;</span><span class="p">]</span> <span class="o">==</span> <span class="s1">&#39;CLR&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">groupby</span><span class="p">(</span><span class="s1">&#39;Day Of Week ET&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">size</span><span class="p">()</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">kind</span><span class="o">=</span><span class="s2">&quot;bar&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;Axes: xlabel=&#39;Day Of Week ET&#39;&gt;
+</pre></div>
+</div>
+<img alt="../_images/ed638fddf67d1f86ed7928be10fb35448294bc1b63972d1f489a851923b1dcb3.png" src="../_images/ed638fddf67d1f86ed7928be10fb35448294bc1b63972d1f489a851923b1dcb3.png" />
+</div>
+</div>
+<p>Does every day have the same number of recorded observations?</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span><span class="o">.</span><span class="n">groupby</span><span class="p">(</span><span class="s1">&#39;Day Of Week ET&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">size</span><span class="p">()</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">kind</span><span class="o">=</span><span class="s2">&quot;bar&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;Axes: xlabel=&#39;Day Of Week ET&#39;&gt;
+</pre></div>
+</div>
+<img alt="../_images/199b90ac37cbca5ede8799f779a27b5abb727f3edc873f41ecf3eeef1e0b3808.png" src="../_images/199b90ac37cbca5ede8799f779a27b5abb727f3edc873f41ecf3eeef1e0b3808.png" />
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">percentage_clr_days_et_new</span> <span class="o">=</span> <span class="p">(</span><span class="n">df</span><span class="p">[</span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;skyc1&#39;</span><span class="p">]</span> <span class="o">==</span> <span class="s1">&#39;CLR&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">groupby</span><span class="p">(</span><span class="s1">&#39;Day Of Week ET&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">size</span><span class="p">()</span> <span class="o">/</span> <span class="n">df</span><span class="o">.</span><span class="n">groupby</span><span class="p">(</span><span class="s1">&#39;Day Of Week ET&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">size</span><span class="p">())</span> <span class="o">*</span> <span class="mi">100</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">percentage_clr_days_et_new</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Day Of Week ET
+0    45.187793
+1    42.688679
+2    50.705882
+3    61.355529
+4    55.379388
+5    38.487585
+6    38.389732
+dtype: float64
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">percentage_clr_days_et_new</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">kind</span><span class="o">=</span><span class="s1">&#39;bar&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;Axes: xlabel=&#39;Day Of Week ET&#39;&gt;
+</pre></div>
+</div>
+<img alt="../_images/51ea09ee1ef875fc96cc0dfc5d140690b7cb8036b3f90510f17d379c6cc5558f.png" src="../_images/51ea09ee1ef875fc96cc0dfc5d140690b7cb8036b3f90510f17d379c6cc5558f.png" />
+</div>
+</div>
+<p>Conclusions? BTW what is day 5 and 6? How else could you define a good/bad day? What ways could you change the question to make your desired outcome more likely? Is this statistically significant?</p>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            name: "python3",
+            path: "./lessons"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By Patrick White
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+
+  <p class="copyright">
+    
+      © Copyright 2023.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b"></script>
+<script src="../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>

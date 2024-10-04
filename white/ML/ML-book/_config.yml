@@ -1,0 +1,51 @@
+# Book settings
+# Learn more at https://jupyterbook.org/customize/config.html
+
+title: Machine Learning for Research
+author: Patrick White
+logo: logo.png
+
+execute:
+  execute_notebooks: auto  # This tells Jupyter Book when to execute notebooks ("auto" executes only if output is missing)
+  timeout: 300             # Set a timeout (in seconds) for each notebook execution
+
+
+# Define the name of the latex output file for PDF builds
+latex:
+  latex_documents:
+    targetname: book.tex
+
+# Add a bibtex file so that we can create citations
+bibtex_bibfiles:
+  - references.bib
+
+# Information about where the book exists on the web
+repository:
+  url: https://github.com/executablebooks/jupyter-book  # Online location of your book
+  path_to_book: docs  # Optional path to your book, relative to the repository root
+  branch: master  # Which branch of the repository should be used when creating links (optional)
+
+# Add GitHub buttons to your book
+# See https://jupyterbook.org/customize/config.html#add-a-link-to-your-repository
+# html:
+#  use_issues_button: true
+#  use_repository_button: true
+
+html:
+  theme: sphinx_book_theme  # Ensures you are using the default theme
+  theme_options:
+    logo_only: True  # Use the logo as the only element in the header
+    repository_url: https://github.com/your-repo  # Add GitHub link in the header
+    repository_branch: main
+    use_fullscreen_button: True  # Add a fullscreen button in the header
+    launch_buttons:              # Add buttons to launch interactive tools
+      binderhub_url: https://mybinder.org
+    color_primary: '#007ACC'     # Custom primary color
+    color_accent: '#FF5722'      # Custom accent color
+    home_page_in_toc: True       # Include home page in the table of contents
+    show_navbar_depth: 2         # Show 2 levels of navigation in the sidebar
+    show_toc_level: 1            # Show 1 level in the table of contents
+
+exclude_patterns:
+  - "**/convert/**"
+  - "**/mushroom.ipynb"

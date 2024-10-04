@@ -1,0 +1,100 @@
+\xpginauxfiletrue 
+\selectlanguage *{english}
+\contentsline {part}{I\hspace {1em}Setup}{3}{part.1}%
+\contentsline {chapter}{\numberline {1}Homework 01}{5}{chapter.1}%
+\contentsline {section}{\numberline {1.1}Set up dev environment}{5}{section.1.1}%
+\contentsline {subsection}{\numberline {1.1.1}Optional (last resort)}{6}{subsection.1.1.1}%
+\contentsline {section}{\numberline {1.2}Raspberry Pi Project}{6}{section.1.2}%
+\contentsline {section}{\numberline {1.3}The Money List}{6}{section.1.3}%
+\contentsline {chapter}{\numberline {2}Exploring data}{7}{chapter.2}%
+\contentsline {section}{\numberline {2.1}Look at It! LOOK at IT!}{7}{section.2.1}%
+\contentsline {section}{\numberline {2.2}Analyse it}{7}{section.2.2}%
+\contentsline {section}{\numberline {2.3}Jupyter Notebook}{8}{section.2.3}%
+\contentsline {section}{\numberline {2.4}Homework}{8}{section.2.4}%
+\contentsline {chapter}{\numberline {3}Fixing WSL}{9}{chapter.3}%
+\contentsline {chapter}{\numberline {4}August 28}{11}{chapter.4}%
+\contentsline {part}{II\hspace {1em}Measures of Closeness}{13}{part.2}%
+\contentsline {chapter}{\numberline {5}Bayes’ Theorem}{15}{chapter.5}%
+\contentsline {section}{\numberline {5.1}Exercise 1: Plot a Venn Diagram}{15}{section.5.1}%
+\contentsline {section}{\numberline {5.2}Exercise 2: Compute Bayes’ Probabilities}{15}{section.5.2}%
+\contentsline {section}{\numberline {5.3}Exercise 3: Plot}{16}{section.5.3}%
+\contentsline {section}{\numberline {5.4}Exercise 4: Beautify plots}{17}{section.5.4}%
+\contentsline {chapter}{\numberline {6}Quick Jupyter Intro and Python Loops}{19}{chapter.6}%
+\contentsline {section}{\numberline {6.1}Python Loops}{19}{section.6.1}%
+\contentsline {section}{\numberline {6.2}Python Lists}{20}{section.6.2}%
+\contentsline {section}{\numberline {6.3}Comprehensions}{20}{section.6.3}%
+\contentsline {chapter}{\numberline {7}Linear Regression}{23}{chapter.7}%
+\contentsline {section}{\numberline {7.1}Interpretation as a ratio of variances}{24}{section.7.1}%
+\contentsline {chapter}{\numberline {8}Linear Least Squares}{25}{chapter.8}%
+\contentsline {section}{\numberline {8.1}An aside about numpy matrices}{26}{section.8.1}%
+\contentsline {subsection}{\numberline {8.1.1}Practice with matrices}{27}{subsection.8.1.1}%
+\contentsline {section}{\numberline {8.2}Linear Least Squares Regression}{27}{section.8.2}%
+\contentsline {section}{\numberline {8.3}Least squares function}{28}{section.8.3}%
+\contentsline {section}{\numberline {8.4}Application}{28}{section.8.4}%
+\contentsline {chapter}{\numberline {9}Correlation Coefficient}{29}{chapter.9}%
+\contentsline {section}{\numberline {9.1}Pearson’s Correlation Coefficient}{29}{section.9.1}%
+\contentsline {section}{\numberline {9.2}r=0}{30}{section.9.2}%
+\contentsline {part}{III\hspace {1em}Linear Algebra in Python}{31}{part.3}%
+\contentsline {chapter}{\numberline {10}Linear Algebra and Python Lists}{33}{chapter.10}%
+\contentsline {section}{\numberline {10.1}Dot product of two vectors}{33}{section.10.1}%
+\contentsline {section}{\numberline {10.2}Cross Product of two vectors}{34}{section.10.2}%
+\contentsline {section}{\numberline {10.3}Vector magnitude}{35}{section.10.3}%
+\contentsline {section}{\numberline {10.4}Angle between vectors}{35}{section.10.4}%
+\contentsline {section}{\numberline {10.5}Matrix Operations}{36}{section.10.5}%
+\contentsline {chapter}{\numberline {11}Introduction to Matrices in NumPy}{39}{chapter.11}%
+\contentsline {section}{\numberline {11.1}1. Creating Matrices}{39}{section.11.1}%
+\contentsline {subsection}{\numberline {11.1.1}a. Creating a Matrix from a List of Lists}{39}{subsection.11.1.1}%
+\contentsline {subsection}{\numberline {11.1.2}b. Creating Matrices with Built\sphinxhyphen {}in Functions}{40}{subsection.11.1.2}%
+\contentsline {section}{\numberline {11.2}2. Accessing Elements}{40}{section.11.2}%
+\contentsline {subsection}{\numberline {11.2.1}a. Accessing Individual Elements}{40}{subsection.11.2.1}%
+\contentsline {subsection}{\numberline {11.2.2}b. Accessing Rows and Columns}{41}{subsection.11.2.2}%
+\contentsline {subsection}{\numberline {11.2.3}c. Modifying parts of a matrix}{41}{subsection.11.2.3}%
+\contentsline {subsection}{\numberline {11.2.4}d. Matrix references}{41}{subsection.11.2.4}%
+\contentsline {section}{\numberline {11.3}3. Basic Matrix Operations}{41}{section.11.3}%
+\contentsline {subsection}{\numberline {11.3.1}a. Matrix Addition and Subtraction}{42}{subsection.11.3.1}%
+\contentsline {subsection}{\numberline {11.3.2}b. Matrix Multiplication}{42}{subsection.11.3.2}%
+\contentsline {subsection}{\numberline {11.3.3}c. Transpose of a Matrix}{42}{subsection.11.3.3}%
+\contentsline {subsection}{\numberline {11.3.4}d. Determinant and Inverse}{43}{subsection.11.3.4}%
+\contentsline {section}{\numberline {11.4}4. Extracting Rows and Columns}{43}{section.11.4}%
+\contentsline {subsection}{\numberline {11.4.1}a. Extracting Rows}{43}{subsection.11.4.1}%
+\contentsline {subsection}{\numberline {11.4.2}b. Extracting Columns}{43}{subsection.11.4.2}%
+\contentsline {subsection}{\numberline {11.4.3}c. Extracting Submatrices}{43}{subsection.11.4.3}%
+\contentsline {section}{\numberline {11.5}5. Row and Column Operations}{44}{section.11.5}%
+\contentsline {subsection}{\numberline {11.5.1}a. Sum, Mean, and Other Operations on Rows/Columns}{44}{subsection.11.5.1}%
+\contentsline {subsection}{\numberline {11.5.2}b. Adding Rows/Columns}{44}{subsection.11.5.2}%
+\contentsline {subsection}{\numberline {11.5.3}c. Deleting Rows/Columns}{44}{subsection.11.5.3}%
+\contentsline {subsection}{\numberline {11.5.4}d. Replacing Rows/Columns}{45}{subsection.11.5.4}%
+\contentsline {chapter}{\numberline {12}Matrix indices warmup}{47}{chapter.12}%
+\contentsline {section}{\numberline {12.1}First, About python \sphinxstyleliteralintitle {\sphinxupquote {range(a,b)}}}{47}{section.12.1}%
+\contentsline {section}{\numberline {12.2}Now for the matrix challenge}{47}{section.12.2}%
+\contentsline {chapter}{\numberline {13}Gaussian Elimination}{49}{chapter.13}%
+\contentsline {section}{\numberline {13.1}Step 1: Write the Augmented Matrix}{49}{section.13.1}%
+\contentsline {section}{\numberline {13.2}Step 2: Apply Row Operations to Achieve RREF}{49}{section.13.2}%
+\contentsline {section}{\numberline {13.3}Step 3: Extract the solution}{50}{section.13.3}%
+\contentsline {section}{\numberline {13.4}Coding}{50}{section.13.4}%
+\contentsline {section}{\numberline {13.5}Measuring Error}{51}{section.13.5}%
+\contentsline {subsection}{\numberline {13.5.1}Approach}{51}{subsection.13.5.1}%
+\contentsline {section}{\numberline {13.6}Regression}{52}{section.13.6}%
+\contentsline {subsection}{\numberline {13.6.1}A regression problem and a solution}{53}{subsection.13.6.1}%
+\contentsline {chapter}{\numberline {14}Log\sphinxhyphen {}Log Regression}{55}{chapter.14}%
+\contentsline {section}{\numberline {14.1}Regular Linear Regression}{55}{section.14.1}%
+\contentsline {section}{\numberline {14.2}Exponential Regression}{56}{section.14.2}%
+\contentsline {section}{\numberline {14.3}Log\sphinxhyphen {}Log Regression}{58}{section.14.3}%
+\contentsline {chapter}{\numberline {15}Strassen’s Algorithm (Optional Extension)}{61}{chapter.15}%
+\contentsline {section}{\numberline {15.1}Goal}{61}{section.15.1}%
+\contentsline {section}{\numberline {15.2}Details}{61}{section.15.2}%
+\contentsline {section}{\numberline {15.3}Results}{62}{section.15.3}%
+\contentsline {chapter}{\numberline {16}Gauss Presentation}{63}{chapter.16}%
+\contentsline {chapter}{\numberline {17}Matrix Inversion}{65}{chapter.17}%
+\contentsline {chapter}{\numberline {18}Running Time Analysis}{67}{chapter.18}%
+\contentsline {section}{\numberline {18.1}Pandas filtering tricks}{68}{section.18.1}%
+\contentsline {section}{\numberline {18.2}Analysis}{70}{section.18.2}%
+\contentsline {part}{IV\hspace {1em}Next Steps}{71}{part.4}%
+\contentsline {chapter}{\numberline {19}Reading for Research}{73}{chapter.19}%
+\contentsline {chapter}{\numberline {20}Hobo Data, Student Version}{75}{chapter.20}%
+\contentsline {section}{\numberline {20.1}Part 1: Extracting Coordinates}{75}{section.20.1}%
+\contentsline {subsection}{\numberline {20.1.1}Machine Learning – KMeans}{76}{subsection.20.1.1}%
+\contentsline {section}{\numberline {20.2}Part 2: Ingesting Data}{77}{section.20.2}%
+\contentsline {section}{\numberline {20.3}Part 3: Visualization}{77}{section.20.3}%
+\contentsline {chapter}{\numberline {21}ML Book Club}{79}{chapter.21}%
+\xpginauxfilefalse 

@@ -42,3 +42,5 @@
 **Grades are partially updated. I gave points for labs that have been turned in (1/1) or not turned in (0.5/1). Soon I'll add more points for correctness. If you're missing something (or if I'm wrong) let's get it fixed next class**
 
 - 10/1/2024 (Tuesday) PSAT day followed by a short class. We will get into groups and select articles for our next informal report. [Details here](./lessons/ML_Book_Club.md).
+- 10/3/2024 (Thursday) Holiday
+- 10/7/2024 (Monday) Look at the [Mushroom Dataset](./lessons/mushroom_student.ipynb)

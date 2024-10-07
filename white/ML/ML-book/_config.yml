@@ -4,6 +4,7 @@
 title: Machine Learning for Research
 author: Patrick White
 logo: logo.png
+name: Machine Learning for Research
 
 execute:
   execute_notebooks: auto  # This tells Jupyter Book when to execute notebooks ("auto" executes only if output is missing)
@@ -31,8 +32,11 @@ repository:
 #  use_issues_button: true
 #  use_repository_button: true
 
+sphinx:
+  config:
+    html_theme: sphinx_rtd_theme
+
 html:
-  theme: sphinx_book_theme  # Ensures you are using the default theme
   theme_options:
     logo_only: True  # Use the logo as the only element in the header
     repository_url: https://github.com/your-repo  # Add GitHub link in the header
@@ -49,3 +53,4 @@ html:
 exclude_patterns:
   - "**/convert/**"
   - "**/mushroom.ipynb"
+  - "data/*"

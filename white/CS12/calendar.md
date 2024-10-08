@@ -24,7 +24,7 @@
 - 9/30/24 (Monday) Quiz today! After quiz you may begin [Pig latin lab](../AP_shared/PigLatin.pdf). Create one java file PigLatin.java with a main method to preform the transformations. For now stop at STEP 2 (parsing a file). [this is NOT HW yet unless you want it to be] **Please check schoology** for completion grades and upload anything you haven't already (I know many of you added stuff at the end of class today that I still need to update).
 - 10/2/24 (Wednesday) PSAT -- nothing planned for today!
 - 10/4/24 (Friday) No school
-- 10/9/24 (Wednesday) Strings and Scanners: PigLatin project
+- 10/9/24 (Wednesday) Strings and Scanners: [Pig latin lab](../AP_shared/PigLatin.pdf)
 	- Read about [strings](../AP_shared/strings.md)
 	- Read about [scanners](../AP_shared/scanners.md)
 	- Turn in any missing work! (if you need to show me TruthTables, use [this test case](../AP_shared/true-check.md))

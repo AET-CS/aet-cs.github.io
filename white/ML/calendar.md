@@ -44,3 +44,11 @@
 - 10/1/2024 (Tuesday) PSAT day followed by a short class. We will get into groups and select articles for our next informal report. [Details here](./lessons/ML_Book_Club.md).
 - 10/3/2024 (Thursday) Holiday
 - 10/7/2024 (Monday) Look at the [Mushroom Dataset](./lessons/mushroom_student.ipynb)
+  - classwork: find a dataset and model it using 'mushroom' as a guide
+  - homework: finish what you started in class if you're not happy with it!
+  - homework: we will do book club (article club) next class. be ready to discuss in groups
+  - HOBO: submit what you have on HOBO -- I have some ideas to make this into a bigger project but we'll put it on the backburner for a bit and bring it back soon. Each of the 3 groups has made great progress!
+
+**Upcoming**
+- 10/9/2024 (Wed) Plan to do book clubs and a proper treatment of multi-linear regression
+- 10/11/2023 (Fri) More linear regression -- subset selection, regularization, feature engineering

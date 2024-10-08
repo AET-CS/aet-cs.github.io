@@ -22,5 +22,17 @@
 - 9/26/24 (Thursday) Answers to [quiz review posted here](../AP_shared/Review_1_key.pdf). Quiz next class. Will consist of MC and FRQ questions. Be sure you can write loops/conditionals/classes from scratch.
 **Please install Schoology Lockdown Browser** if you haven't already!
 - 9/30/24 (Monday) Quiz today! After quiz you may begin [Pig latin lab](../AP_shared/PigLatin.pdf). Create one java file PigLatin.java with a main method to preform the transformations. For now stop at STEP 2 (parsing a file). [this is NOT HW yet unless you want it to be] **Please check schoology** for completion grades and upload anything you haven't already (I know many of you added stuff at the end of class today that I still need to update).
-- 10/2 (Wednesday) PSAT -- nothing planned for today!
-- 10/4 (Friday) No school
+- 10/2/24 (Wednesday) PSAT -- nothing planned for today!
+- 10/4/24 (Friday) No school
+- 10/9/24 (Wednesday) Strings and Scanners: PigLatin project
+	- Read about [strings](../AP_shared/strings.md)
+	- Read about [scanners](../AP_shared/scanners.md)
+	- Turn in any missing work! (if you need to show me TruthTables, use [this test case](../AP_shared/true-check.md))
+	- Next class: Show me Credit Card
+	- Classwork: write [helper classes for PigLatin](../AP_shared/pig-helper.md)
+	- Today in class everyone will finish part 1 of PigLatin, using my helper methods. Your code will
+		- Read in a file "pig-latin-in.txt" with one word per line
+		- Convert all words to pig latin
+		- Write each word out to a new file "pig-latin-out.txt"
+		- Name your file PigLatin1.java and upload it to the raspberry pi today!
+		- Go on to parts 2/3 if you finish. 2 is required. 3 will be the optional bonus for an A+.

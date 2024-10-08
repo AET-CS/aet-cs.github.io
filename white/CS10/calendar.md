@@ -34,3 +34,12 @@
 	- Next class: Show me Credit Card
 	- Classwork: write [helper classes for PigLatin](../AP_shared/pig-helper.md)
 	- Current Project: Pig Latin parts 1 and 2 (there is no shell code file provided)
+- 10/8/24 (Tuesday) Strings and Scanners: PigLatin
+	- Read about strings and scanners (see last class)
+	- Be prepared to show me credit card running on your laptop. Pick any test case you want.
+	- Today in class everyone will finish part 1 of PigLatin, using my helper methods. Your code will
+		- Read in a file "pig-latin-in.txt" with one word per line
+		- Convert all words to pig latin
+		- Write each word out to a new file "pig-latin-out.txt"
+		- Name your file PigLatin1.java and upload it to the raspberry pi today!
+		- Go on to parts 2/3 if you finish. 2 is required. 3 will be the optional bonus for an A+.

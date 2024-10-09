@@ -47,8 +47,6 @@
   - classwork: find a dataset and model it using 'mushroom' as a guide
   - homework: finish what you started in class if you're not happy with it!
   - homework: we will do book club (article club) next class. be ready to discuss in groups
-  - HOBO: submit what you have on HOBO -- I have some ideas to make this into a bigger project but we'll put it on the backburner for a bit and bring it back soon. Each of the 3 groups has made great progress!
-
-**Upcoming**
-- 10/9/2024 (Wed) Plan to do book clubs and a proper treatment of multi-linear regression
+  - HOBO: submit what you have on HOBO -- I have some ideas to make this into a bigger project but we'll put it on the back-burner for a bit and bring it back soon. Each of the 3 groups has made great progress!
+- 10/9/2024 (Wed) Plan to do book clubs and a proper treatment of multi-linear regression. Classwork: [Linear Regression](./lessons/Life_Expectancy_Student.ipynb). Source for 10 good datasets for [Linear Regression](https://www.telusdigital.com/insights/ai-data/article/10-open-datasets-for-linear-regression)
 - 10/11/2023 (Fri) More linear regression -- subset selection, regularization, feature engineering

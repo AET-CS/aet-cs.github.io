@@ -9,9 +9,3 @@ question
 yes
 rhyme
 try
-bonus
-Jefferson
-what?
-Why?
-"hello"
-"Hello!"

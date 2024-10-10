@@ -24,7 +24,7 @@
 - 9/30/24 (Monday) Quiz today! After quiz you may begin [Pig latin lab](../AP_shared/PigLatin.pdf). Create one java file PigLatin.java with a main method to preform the transformations. For now stop at STEP 2 (parsing a file). [this is NOT HW yet unless you want it to be] **Please check schoology** for completion grades and upload anything you haven't already (I know many of you added stuff at the end of class today that I still need to update).
 - 10/2/24 (Wednesday) PSAT -- nothing planned for today!
 - 10/4/24 (Friday) No school
-- 10/9/24 (Wednesday) Strings and Scanners: [Pig latin lab](../AP_shared/PigLatin.pdf)
+- 10/8/24 (Tuesday) Strings and Scanners: [Pig latin lab](../AP_shared/PigLatin.pdf)
 	- Read about [strings](../AP_shared/strings.md)
 	- Read about [scanners](../AP_shared/scanners.md)
 	- Turn in any missing work! (if you need to show me TruthTables, use [this test case](../AP_shared/true-check.md))
@@ -36,3 +36,10 @@
 		- Write each word out to a new file "pig-latin-out.txt"
 		- Name your file PigLatin1.java and upload it to the raspberry pi today!
 		- Go on to parts 2/3 if you finish. 2 is required. 3 will be the optional bonus for an A+.
+- 10/10/24 (Thursday) Finish [Pig latin lab](../AP_shared/PigLatin-2024.pdf). The clarified assignment is
+	- Step 1
+	- Step 2
+	- Step 3
+	- Step 4 is optional
+	- Due at end of class
+	- [File for testing](../AP_shared/PigLatin.txt)

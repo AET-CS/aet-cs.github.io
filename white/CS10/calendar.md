@@ -38,8 +38,15 @@
 	- Read about strings and scanners (see last class)
 	- Be prepared to show me credit card running on your laptop. Pick any test case you want.
 	- Today in class everyone will finish part 1 of PigLatin, using my helper methods. Your code will
-		- Read in a file "pig-latin-in.txt" with one word per line
+		- Read in a file "PigLatin.txt" with one word per line
 		- Convert all words to pig latin
-		- Write each word out to a new file "pig-latin-out.txt"
-		- Name your file PigLatin1.java and upload it to the raspberry pi today!
+		- Write each word out to a new file "PigLatinOut.txt"
+		- Name your file "PigLatin.java" and upload it to the raspberry pi today!
 		- Go on to parts 2/3 if you finish. 2 is required. 3 will be the optional bonus for an A+.
+- 10/10/24 (Thursday) Finish Pig Latin. The clarified assignment is
+	- Part 1 Step 1
+	- Part 1 Step 2
+	- Part 1 Step 3 is OPTIONAL/BONUS
+	- Part 2 is required (read file)
+	- Due at end of class
+	- File for testing coming soon.

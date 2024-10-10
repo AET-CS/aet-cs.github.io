@@ -49,4 +49,4 @@
 	- Part 1 Step 3 is OPTIONAL/BONUS
 	- Part 2 is required (read file)
 	- Due at end of class
-	- [File for testing](../AP_shared/PigLatin.txt)
+	- [File for testing](../AP_shared/PigLatin.txt) and [Bonus File](../AP_shared/PigLatinBonus.txt)

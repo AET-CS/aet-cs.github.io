@@ -42,4 +42,4 @@
 	- Step 3
 	- Step 4 is optional
 	- Due at end of class
-	- [File for testing](../AP_shared/PigLatin.txt)
+	- [File for testing](../AP_shared/PigLatin.txt) and [Bonus File](../AP_shared/PigLatinBonus.txt)

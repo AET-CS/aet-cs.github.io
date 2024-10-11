@@ -49,4 +49,8 @@
   - homework: we will do book club (article club) next class. be ready to discuss in groups
   - HOBO: submit what you have on HOBO -- I have some ideas to make this into a bigger project but we'll put it on the back-burner for a bit and bring it back soon. Each of the 3 groups has made great progress!
 - 10/9/2024 (Wed) Plan to do book clubs and a proper treatment of multi-linear regression. Classwork: [Linear Regression](./lessons/Life_Expectancy_Student.ipynb). Source for 10 good datasets for [Linear Regression](https://www.telusdigital.com/insights/ai-data/article/10-open-datasets-for-linear-regression)
-- 10/11/2023 (Fri) More linear regression -- subset selection, regularization, feature engineering
+- 10/11/2023 (Fri) More linear regression -- feature selection, regularization,  normalization. We learn about ridge regression and lasso regression which are enhancements to regular linear regression.
+	- In-class warmup over optimization
+	- Look at [this desmos graph](https://www.desmos.com/calculator/gqyuvs3iea) for a class activity
+	- Work through [Life Expectancy 2](./lessons/Life_Part_2_Student.ipynb) notebook
+	- Due next week: your own notebook on linear regression. Use all or most of the techniques from class to discuss and analyze a dataset.

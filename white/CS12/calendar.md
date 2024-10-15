@@ -43,3 +43,7 @@
 	- Step 4 is optional
 	- Due at end of class
 	- [File for testing](../AP_shared/PigLatin.txt) and [Bonus File](../AP_shared/PigLatinBonus.txt)
+- 10/15/24 (Tuesday) Strings review and practice.
+	- do 5 CodingBat String level 1
+	- take practice quiz on AP classroom "String Practice"
+	- Read [bad solution to PigLatin](../AP_shared/badpig.md) and figure out what each line does.

@@ -45,5 +45,6 @@
 	- [File for testing](../AP_shared/PigLatin.txt) and [Bonus File](../AP_shared/PigLatinBonus.txt)
 - 10/15/24 (Tuesday) Strings review and practice.
 	- do 5 CodingBat String level 1
-	- take practice quiz on AP classroom "String Practice"
+	- take practice quiz on AP classroom "String MC Practice"
 	- Read [bad solution to PigLatin](../AP_shared/badpig.md) and figure out what each line does.
+	- Join Juice Mind Class [with this join code](https://play.juicemind.com/joinTeam/ITiQApa9wPwnXKmabxJA)

@@ -3,7 +3,7 @@
 
 title: Machine Learning for Research
 author: Patrick White
-logo: logo.png
+logo: ML-logo-1.webp
 name: Machine Learning for Research
 
 execute:
@@ -34,7 +34,7 @@ repository:
 
 sphinx:
   config:
-    html_theme: sphinx_rtd_theme
+    html_theme: default
 
 html:
   theme_options:

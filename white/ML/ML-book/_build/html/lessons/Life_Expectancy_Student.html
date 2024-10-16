@@ -1,0 +1,1465 @@
+<!DOCTYPE html>
+
+<html lang="en" data-content_root="../">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>22. Life Expectancy &#8212; Machine Learning for Research</title>
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=fa44fd50" />
+    <link rel="stylesheet" type="text/css" href="../_static/classic.css?v=def86cc0" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css?v=13237357" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css?v=be8a1c11" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css?v=4fa983c6" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-design.min.css?v=95c83b7e" />
+    
+    <script src="../_static/documentation_options.js?v=9eb32ce0"></script>
+    <script src="../_static/doctools.js?v=9a2dae69"></script>
+    <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="../_static/copybutton.js?v=f281be69"></script>
+    <script src="../_static/scripts/sphinx-book-theme.js?v=887ef09a"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../_static/togglebutton.js?v=4a39c7ea"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="../_static/design-tabs.js?v=f930bc37"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script async="async" src="../_static/sphinx-thebe.js?v=c100c467"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="24. Life Expectancy – Normalization, Regularization, Feature Selection" href="Life_Part_2.html" />
+    <link rel="prev" title="21. ML Book Club" href="ML_Book_Club.html" /> 
+  </head><body>
+    <div class="related" role="navigation" aria-label="Related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="Life_Part_2.html" title="24. Life Expectancy – Normalization, Regularization, Feature Selection"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="ML_Book_Club.html" title="21. ML Book Club"
+             accesskey="P">previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="../intro.html">Machine Learning for Research</a> &#187;</li>
+        <li class="nav-item nav-item-this"><a href=""><span class="section-number">22. </span>Life Expectancy</a></li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <section class="tex2jax_ignore mathjax_ignore" id="life-expectancy">
+<h1><span class="section-number">22. </span>Life Expectancy<a class="headerlink" href="#life-expectancy" title="Link to this heading">¶</a></h1>
+<p>We are going to take a quick tour of machine learning by working on an example dataset. The mushroom dataset
+categorizes mushrooms as ‘poisonous’ or ‘edible’ and collects several descriptive properties of each mushroom example.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+<span class="kn">import</span> <span class="nn">os</span>
+<span class="kn">from</span> <span class="nn">sklearn.linear_model</span> <span class="kn">import</span> <span class="n">LinearRegression</span>
+<span class="kn">from</span> <span class="nn">sklearn.metrics</span> <span class="kn">import</span> <span class="n">r2_score</span>
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+<span class="kn">import</span> <span class="nn">seaborn</span> <span class="k">as</span> <span class="nn">sns</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">pd</span><span class="o">.</span><span class="n">options</span><span class="o">.</span><span class="n">display</span><span class="o">.</span><span class="n">max_rows</span> <span class="o">=</span> <span class="mi">20</span>  <span class="c1"># Shows 20 rows</span>
+<span class="n">pd</span><span class="o">.</span><span class="n">options</span><span class="o">.</span><span class="n">display</span><span class="o">.</span><span class="n">max_columns</span> <span class="o">=</span> <span class="kc">None</span>  <span class="c1"># Shows All columns</span>
+</pre></div>
+</div>
+</div>
+</div>
+<section id="loading-the-dataset">
+<h2><span class="section-number">22.1. </span>Loading the dataset<a class="headerlink" href="#loading-the-dataset" title="Link to this heading">¶</a></h2>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># These lines would load the data locally</span>
+<span class="n">data_root</span> <span class="o">=</span> <span class="s2">&quot;./&quot;</span>
+<span class="n">filename</span> <span class="o">=</span> <span class="s2">&quot;Life_Expectancy_Data.csv&quot;</span>
+<span class="n">filepath</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">data_root</span><span class="p">,</span> <span class="n">filename</span><span class="p">)</span>
+
+<span class="c1"># We&#39;ll fetch it directly from the web</span>
+<span class="c1"># data_url = &quot;https://aet-cs.github.io/white/ML/lessons/Life_Expectancy_Data.csv&quot;</span>
+<span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="n">filepath</span><span class="p">)</span>
+<span class="n">df</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>Country</th>
+      <th>Year</th>
+      <th>Status</th>
+      <th>Life expectancy</th>
+      <th>Adult Mortality</th>
+      <th>infant deaths</th>
+      <th>Alcohol</th>
+      <th>percentage expenditure</th>
+      <th>Hepatitis B</th>
+      <th>Measles</th>
+      <th>BMI</th>
+      <th>under-five deaths</th>
+      <th>Polio</th>
+      <th>Total expenditure</th>
+      <th>Diphtheria</th>
+      <th>HIV/AIDS</th>
+      <th>GDP</th>
+      <th>Population</th>
+      <th>thinness 1-19 years</th>
+      <th>thinness 5-9 years</th>
+      <th>Income composition of resources</th>
+      <th>Schooling</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>Afghanistan</td>
+      <td>2015</td>
+      <td>Developing</td>
+      <td>65.0</td>
+      <td>263.0</td>
+      <td>62</td>
+      <td>0.01</td>
+      <td>71.279624</td>
+      <td>65.0</td>
+      <td>1154</td>
+      <td>19.1</td>
+      <td>83</td>
+      <td>6.0</td>
+      <td>8.16</td>
+      <td>65.0</td>
+      <td>0.1</td>
+      <td>584.259210</td>
+      <td>33736494.0</td>
+      <td>17.2</td>
+      <td>17.3</td>
+      <td>0.479</td>
+      <td>10.1</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>Afghanistan</td>
+      <td>2014</td>
+      <td>Developing</td>
+      <td>59.9</td>
+      <td>271.0</td>
+      <td>64</td>
+      <td>0.01</td>
+      <td>73.523582</td>
+      <td>62.0</td>
+      <td>492</td>
+      <td>18.6</td>
+      <td>86</td>
+      <td>58.0</td>
+      <td>8.18</td>
+      <td>62.0</td>
+      <td>0.1</td>
+      <td>612.696514</td>
+      <td>327582.0</td>
+      <td>17.5</td>
+      <td>17.5</td>
+      <td>0.476</td>
+      <td>10.0</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>Afghanistan</td>
+      <td>2013</td>
+      <td>Developing</td>
+      <td>59.9</td>
+      <td>268.0</td>
+      <td>66</td>
+      <td>0.01</td>
+      <td>73.219243</td>
+      <td>64.0</td>
+      <td>430</td>
+      <td>18.1</td>
+      <td>89</td>
+      <td>62.0</td>
+      <td>8.13</td>
+      <td>64.0</td>
+      <td>0.1</td>
+      <td>631.744976</td>
+      <td>31731688.0</td>
+      <td>17.7</td>
+      <td>17.7</td>
+      <td>0.470</td>
+      <td>9.9</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>Afghanistan</td>
+      <td>2012</td>
+      <td>Developing</td>
+      <td>59.5</td>
+      <td>272.0</td>
+      <td>69</td>
+      <td>0.01</td>
+      <td>78.184215</td>
+      <td>67.0</td>
+      <td>2787</td>
+      <td>17.6</td>
+      <td>93</td>
+      <td>67.0</td>
+      <td>8.52</td>
+      <td>67.0</td>
+      <td>0.1</td>
+      <td>669.959000</td>
+      <td>3696958.0</td>
+      <td>17.9</td>
+      <td>18.0</td>
+      <td>0.463</td>
+      <td>9.8</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>Afghanistan</td>
+      <td>2011</td>
+      <td>Developing</td>
+      <td>59.2</td>
+      <td>275.0</td>
+      <td>71</td>
+      <td>0.01</td>
+      <td>7.097109</td>
+      <td>68.0</td>
+      <td>3013</td>
+      <td>17.2</td>
+      <td>97</td>
+      <td>68.0</td>
+      <td>7.87</td>
+      <td>68.0</td>
+      <td>0.1</td>
+      <td>63.537231</td>
+      <td>2978599.0</td>
+      <td>18.2</td>
+      <td>18.2</td>
+      <td>0.454</td>
+      <td>9.5</td>
+    </tr>
+    <tr>
+      <th>...</th>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+    </tr>
+    <tr>
+      <th>2933</th>
+      <td>Zimbabwe</td>
+      <td>2004</td>
+      <td>Developing</td>
+      <td>44.3</td>
+      <td>723.0</td>
+      <td>27</td>
+      <td>4.36</td>
+      <td>0.000000</td>
+      <td>68.0</td>
+      <td>31</td>
+      <td>27.1</td>
+      <td>42</td>
+      <td>67.0</td>
+      <td>7.13</td>
+      <td>65.0</td>
+      <td>33.6</td>
+      <td>454.366654</td>
+      <td>12777511.0</td>
+      <td>9.4</td>
+      <td>9.4</td>
+      <td>0.407</td>
+      <td>9.2</td>
+    </tr>
+    <tr>
+      <th>2934</th>
+      <td>Zimbabwe</td>
+      <td>2003</td>
+      <td>Developing</td>
+      <td>44.5</td>
+      <td>715.0</td>
+      <td>26</td>
+      <td>4.06</td>
+      <td>0.000000</td>
+      <td>7.0</td>
+      <td>998</td>
+      <td>26.7</td>
+      <td>41</td>
+      <td>7.0</td>
+      <td>6.52</td>
+      <td>68.0</td>
+      <td>36.7</td>
+      <td>453.351155</td>
+      <td>12633897.0</td>
+      <td>9.8</td>
+      <td>9.9</td>
+      <td>0.418</td>
+      <td>9.5</td>
+    </tr>
+    <tr>
+      <th>2935</th>
+      <td>Zimbabwe</td>
+      <td>2002</td>
+      <td>Developing</td>
+      <td>44.8</td>
+      <td>73.0</td>
+      <td>25</td>
+      <td>4.43</td>
+      <td>0.000000</td>
+      <td>73.0</td>
+      <td>304</td>
+      <td>26.3</td>
+      <td>40</td>
+      <td>73.0</td>
+      <td>6.53</td>
+      <td>71.0</td>
+      <td>39.8</td>
+      <td>57.348340</td>
+      <td>125525.0</td>
+      <td>1.2</td>
+      <td>1.3</td>
+      <td>0.427</td>
+      <td>10.0</td>
+    </tr>
+    <tr>
+      <th>2936</th>
+      <td>Zimbabwe</td>
+      <td>2001</td>
+      <td>Developing</td>
+      <td>45.3</td>
+      <td>686.0</td>
+      <td>25</td>
+      <td>1.72</td>
+      <td>0.000000</td>
+      <td>76.0</td>
+      <td>529</td>
+      <td>25.9</td>
+      <td>39</td>
+      <td>76.0</td>
+      <td>6.16</td>
+      <td>75.0</td>
+      <td>42.1</td>
+      <td>548.587312</td>
+      <td>12366165.0</td>
+      <td>1.6</td>
+      <td>1.7</td>
+      <td>0.427</td>
+      <td>9.8</td>
+    </tr>
+    <tr>
+      <th>2937</th>
+      <td>Zimbabwe</td>
+      <td>2000</td>
+      <td>Developing</td>
+      <td>46.0</td>
+      <td>665.0</td>
+      <td>24</td>
+      <td>1.68</td>
+      <td>0.000000</td>
+      <td>79.0</td>
+      <td>1483</td>
+      <td>25.5</td>
+      <td>39</td>
+      <td>78.0</td>
+      <td>7.10</td>
+      <td>78.0</td>
+      <td>43.5</td>
+      <td>547.358878</td>
+      <td>12222251.0</td>
+      <td>11.0</td>
+      <td>11.2</td>
+      <td>0.434</td>
+      <td>9.8</td>
+    </tr>
+  </tbody>
+</table>
+<p>2938 rows × 22 columns</p>
+</div></div></div>
+</div>
+<p><code class="docutils literal notranslate"><span class="pre">describe</span></code> gives a quick overview of each feature</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span><span class="o">.</span><span class="n">describe</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>Year</th>
+      <th>Life expectancy</th>
+      <th>Adult Mortality</th>
+      <th>infant deaths</th>
+      <th>Alcohol</th>
+      <th>percentage expenditure</th>
+      <th>Hepatitis B</th>
+      <th>Measles</th>
+      <th>BMI</th>
+      <th>under-five deaths</th>
+      <th>Polio</th>
+      <th>Total expenditure</th>
+      <th>Diphtheria</th>
+      <th>HIV/AIDS</th>
+      <th>GDP</th>
+      <th>Population</th>
+      <th>thinness 1-19 years</th>
+      <th>thinness 5-9 years</th>
+      <th>Income composition of resources</th>
+      <th>Schooling</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>count</th>
+      <td>2938.000000</td>
+      <td>2928.000000</td>
+      <td>2928.000000</td>
+      <td>2938.000000</td>
+      <td>2744.000000</td>
+      <td>2938.000000</td>
+      <td>2385.000000</td>
+      <td>2938.000000</td>
+      <td>2904.000000</td>
+      <td>2938.000000</td>
+      <td>2919.000000</td>
+      <td>2712.00000</td>
+      <td>2919.000000</td>
+      <td>2938.000000</td>
+      <td>2490.000000</td>
+      <td>2.286000e+03</td>
+      <td>2904.000000</td>
+      <td>2904.000000</td>
+      <td>2771.000000</td>
+      <td>2775.000000</td>
+    </tr>
+    <tr>
+      <th>mean</th>
+      <td>2007.518720</td>
+      <td>69.224932</td>
+      <td>164.796448</td>
+      <td>30.303948</td>
+      <td>4.602861</td>
+      <td>738.251295</td>
+      <td>80.940461</td>
+      <td>2419.592240</td>
+      <td>38.321247</td>
+      <td>42.035739</td>
+      <td>82.550188</td>
+      <td>5.93819</td>
+      <td>82.324084</td>
+      <td>1.742103</td>
+      <td>7483.158469</td>
+      <td>1.275338e+07</td>
+      <td>4.839704</td>
+      <td>4.870317</td>
+      <td>0.627551</td>
+      <td>11.992793</td>
+    </tr>
+    <tr>
+      <th>std</th>
+      <td>4.613841</td>
+      <td>9.523867</td>
+      <td>124.292079</td>
+      <td>117.926501</td>
+      <td>4.052413</td>
+      <td>1987.914858</td>
+      <td>25.070016</td>
+      <td>11467.272489</td>
+      <td>20.044034</td>
+      <td>160.445548</td>
+      <td>23.428046</td>
+      <td>2.49832</td>
+      <td>23.716912</td>
+      <td>5.077785</td>
+      <td>14270.169342</td>
+      <td>6.101210e+07</td>
+      <td>4.420195</td>
+      <td>4.508882</td>
+      <td>0.210904</td>
+      <td>3.358920</td>
+    </tr>
+    <tr>
+      <th>min</th>
+      <td>2000.000000</td>
+      <td>36.300000</td>
+      <td>1.000000</td>
+      <td>0.000000</td>
+      <td>0.010000</td>
+      <td>0.000000</td>
+      <td>1.000000</td>
+      <td>0.000000</td>
+      <td>1.000000</td>
+      <td>0.000000</td>
+      <td>3.000000</td>
+      <td>0.37000</td>
+      <td>2.000000</td>
+      <td>0.100000</td>
+      <td>1.681350</td>
+      <td>3.400000e+01</td>
+      <td>0.100000</td>
+      <td>0.100000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+    </tr>
+    <tr>
+      <th>25%</th>
+      <td>2004.000000</td>
+      <td>63.100000</td>
+      <td>74.000000</td>
+      <td>0.000000</td>
+      <td>0.877500</td>
+      <td>4.685343</td>
+      <td>77.000000</td>
+      <td>0.000000</td>
+      <td>19.300000</td>
+      <td>0.000000</td>
+      <td>78.000000</td>
+      <td>4.26000</td>
+      <td>78.000000</td>
+      <td>0.100000</td>
+      <td>463.935626</td>
+      <td>1.957932e+05</td>
+      <td>1.600000</td>
+      <td>1.500000</td>
+      <td>0.493000</td>
+      <td>10.100000</td>
+    </tr>
+    <tr>
+      <th>50%</th>
+      <td>2008.000000</td>
+      <td>72.100000</td>
+      <td>144.000000</td>
+      <td>3.000000</td>
+      <td>3.755000</td>
+      <td>64.912906</td>
+      <td>92.000000</td>
+      <td>17.000000</td>
+      <td>43.500000</td>
+      <td>4.000000</td>
+      <td>93.000000</td>
+      <td>5.75500</td>
+      <td>93.000000</td>
+      <td>0.100000</td>
+      <td>1766.947595</td>
+      <td>1.386542e+06</td>
+      <td>3.300000</td>
+      <td>3.300000</td>
+      <td>0.677000</td>
+      <td>12.300000</td>
+    </tr>
+    <tr>
+      <th>75%</th>
+      <td>2012.000000</td>
+      <td>75.700000</td>
+      <td>228.000000</td>
+      <td>22.000000</td>
+      <td>7.702500</td>
+      <td>441.534144</td>
+      <td>97.000000</td>
+      <td>360.250000</td>
+      <td>56.200000</td>
+      <td>28.000000</td>
+      <td>97.000000</td>
+      <td>7.49250</td>
+      <td>97.000000</td>
+      <td>0.800000</td>
+      <td>5910.806335</td>
+      <td>7.420359e+06</td>
+      <td>7.200000</td>
+      <td>7.200000</td>
+      <td>0.779000</td>
+      <td>14.300000</td>
+    </tr>
+    <tr>
+      <th>max</th>
+      <td>2015.000000</td>
+      <td>89.000000</td>
+      <td>723.000000</td>
+      <td>1800.000000</td>
+      <td>17.870000</td>
+      <td>19479.911610</td>
+      <td>99.000000</td>
+      <td>212183.000000</td>
+      <td>87.300000</td>
+      <td>2500.000000</td>
+      <td>99.000000</td>
+      <td>17.60000</td>
+      <td>99.000000</td>
+      <td>50.600000</td>
+      <td>119172.741800</td>
+      <td>1.293859e+09</td>
+      <td>27.700000</td>
+      <td>28.600000</td>
+      <td>0.948000</td>
+      <td>20.700000</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+</section>
+<section id="data-exploration">
+<h2><span class="section-number">22.2. </span>Data Exploration<a class="headerlink" href="#data-exploration" title="Link to this heading">¶</a></h2>
+<p>Show all the columns. Target is ‘Life expectancy’</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span><span class="o">.</span><span class="n">columns</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Index([&#39;Country&#39;, &#39;Year&#39;, &#39;Status&#39;, &#39;Life expectancy&#39;, &#39;Adult Mortality&#39;,
+       &#39;infant deaths&#39;, &#39;Alcohol&#39;, &#39;percentage expenditure&#39;, &#39;Hepatitis B&#39;,
+       &#39;Measles&#39;, &#39;BMI&#39;, &#39;under-five deaths&#39;, &#39;Polio&#39;, &#39;Total expenditure&#39;,
+       &#39;Diphtheria&#39;, &#39;HIV/AIDS&#39;, &#39;GDP&#39;, &#39;Population&#39;, &#39;thinness 1-19 years&#39;,
+       &#39;thinness 5-9 years&#39;, &#39;Income composition of resources&#39;, &#39;Schooling&#39;],
+      dtype=&#39;object&#39;)
+</pre></div>
+</div>
+</div>
+</div>
+<p>Get the size of the dataframe. Shape returns (rows, cols)</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">target</span> <span class="o">=</span> <span class="s2">&quot;Life expectancy&quot;</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span><span class="o">.</span><span class="n">shape</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>(2938, 22)
+</pre></div>
+</div>
+</div>
+</div>
+<p>Let’s get all the data types</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span><span class="o">.</span><span class="n">dtypes</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Country                             object
+Year                                 int64
+Status                              object
+Life expectancy                    float64
+Adult Mortality                    float64
+                                    ...   
+Population                         float64
+thinness 1-19 years                float64
+thinness 5-9 years                 float64
+Income composition of resources    float64
+Schooling                          float64
+Length: 22, dtype: object
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span><span class="o">.</span><span class="n">hist</span><span class="p">(</span><span class="n">target</span><span class="p">);</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/f427cc38310dbb8b3fcbfa14c7d6771d2afbfd34b29e3afe8ca3f27d85b6881d.png" src="../_images/f427cc38310dbb8b3fcbfa14c7d6771d2afbfd34b29e3afe8ca3f27d85b6881d.png" />
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span><span class="o">.</span><span class="n">hist</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">15</span><span class="p">,</span><span class="mi">15</span><span class="p">));</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/bb7cdb1ad1584c4631f7315e5414353885a47005b1fd2020a948873779849aa6.png" src="../_images/bb7cdb1ad1584c4631f7315e5414353885a47005b1fd2020a948873779849aa6.png" />
+</div>
+</div>
+<section id="correlation-matrix-heat-map">
+<h3><span class="section-number">22.2.1. </span>Correlation matrix heat map<a class="headerlink" href="#correlation-matrix-heat-map" title="Link to this heading">¶</a></h3>
+<p>Let’s get a quick visual representation of the relationshop between features in this dataset. First drop the categorical attributes. Use a <strong>new name</strong> so we don’t pollute the original dataframe</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df_heat</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">drop</span><span class="p">([</span><span class="s2">&quot;Country&quot;</span><span class="p">,</span> <span class="s2">&quot;Status&quot;</span><span class="p">],</span> <span class="n">axis</span> <span class="o">=</span> <span class="mi">1</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">corr_matrix</span> <span class="o">=</span> <span class="n">df_heat</span><span class="o">.</span><span class="n">corr</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">16</span><span class="p">,</span> <span class="mi">6</span><span class="p">))</span>
+<span class="c1"># define the mask to set the values in the upper triangle to True</span>
+<span class="n">mask</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">triu</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">ones_like</span><span class="p">(</span><span class="n">corr_matrix</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">bool</span><span class="p">))</span>
+<span class="n">heatmap</span> <span class="o">=</span> <span class="n">sns</span><span class="o">.</span><span class="n">heatmap</span><span class="p">(</span><span class="n">corr_matrix</span><span class="p">,</span> <span class="n">mask</span><span class="o">=</span><span class="n">mask</span><span class="p">,</span> <span class="n">vmin</span><span class="o">=-</span><span class="mi">1</span><span class="p">,</span> <span class="n">vmax</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">annot</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">cmap</span><span class="o">=</span><span class="s1">&#39;BrBG&#39;</span><span class="p">)</span>
+<span class="n">heatmap</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s1">&#39;Life Expectancy Correlation Heatmap&#39;</span><span class="p">,</span> <span class="n">fontdict</span><span class="o">=</span><span class="p">{</span><span class="s1">&#39;fontsize&#39;</span><span class="p">:</span><span class="mi">14</span><span class="p">},</span> <span class="n">pad</span><span class="o">=</span><span class="mi">16</span><span class="p">);</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/490626ba737ebc01685baa2b577764fe16aadd657382c022da7abb9f52e0e0d9.png" src="../_images/490626ba737ebc01685baa2b577764fe16aadd657382c022da7abb9f52e0e0d9.png" />
+</div>
+</div>
+<p>Which features seem to be important?</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">row_filter</span> <span class="o">=</span> <span class="nb">abs</span><span class="p">(</span><span class="n">corr_matrix</span><span class="p">[</span><span class="n">target</span><span class="p">])</span><span class="o">&gt;</span><span class="mf">0.1</span>
+<span class="n">top_features</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">corr_matrix</span><span class="p">[</span><span class="n">target</span><span class="p">][</span><span class="n">row_filter</span><span class="p">])</span>
+<span class="n">top_features</span><span class="o">.</span><span class="n">sort_values</span><span class="p">(</span><span class="n">by</span><span class="o">=</span><span class="n">target</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>Life expectancy</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>Adult Mortality</th>
+      <td>-0.696359</td>
+    </tr>
+    <tr>
+      <th>HIV/AIDS</th>
+      <td>-0.556556</td>
+    </tr>
+    <tr>
+      <th>thinness 1-19 years</th>
+      <td>-0.477183</td>
+    </tr>
+    <tr>
+      <th>thinness 5-9 years</th>
+      <td>-0.471584</td>
+    </tr>
+    <tr>
+      <th>under-five deaths</th>
+      <td>-0.222529</td>
+    </tr>
+    <tr>
+      <th>infant deaths</th>
+      <td>-0.196557</td>
+    </tr>
+    <tr>
+      <th>Measles</th>
+      <td>-0.157586</td>
+    </tr>
+    <tr>
+      <th>Year</th>
+      <td>0.170033</td>
+    </tr>
+    <tr>
+      <th>Total expenditure</th>
+      <td>0.218086</td>
+    </tr>
+    <tr>
+      <th>Hepatitis B</th>
+      <td>0.256762</td>
+    </tr>
+    <tr>
+      <th>percentage expenditure</th>
+      <td>0.381864</td>
+    </tr>
+    <tr>
+      <th>Alcohol</th>
+      <td>0.404877</td>
+    </tr>
+    <tr>
+      <th>GDP</th>
+      <td>0.461455</td>
+    </tr>
+    <tr>
+      <th>Polio</th>
+      <td>0.465556</td>
+    </tr>
+    <tr>
+      <th>Diphtheria</th>
+      <td>0.479495</td>
+    </tr>
+    <tr>
+      <th>BMI</th>
+      <td>0.567694</td>
+    </tr>
+    <tr>
+      <th>Income composition of resources</th>
+      <td>0.724776</td>
+    </tr>
+    <tr>
+      <th>Schooling</th>
+      <td>0.751975</td>
+    </tr>
+    <tr>
+      <th>Life expectancy</th>
+      <td>1.000000</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+</section>
+</section>
+<section id="data-modeling">
+<h2><span class="section-number">22.3. </span>Data Modeling<a class="headerlink" href="#data-modeling" title="Link to this heading">¶</a></h2>
+<p>Here we will run a linear regression. First we need to clean up the data a bit. We will create a data pipeline so we can repeat this process as needed.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+<span class="kn">from</span> <span class="nn">sklearn.model_selection</span> <span class="kn">import</span> <span class="n">train_test_split</span>
+<span class="kn">from</span> <span class="nn">sklearn.preprocessing</span> <span class="kn">import</span> <span class="n">LabelEncoder</span>
+<span class="kn">from</span> <span class="nn">sklearn.tree</span> <span class="kn">import</span> <span class="n">DecisionTreeClassifier</span>
+<span class="kn">from</span> <span class="nn">sklearn.metrics</span> <span class="kn">import</span> <span class="n">accuracy_score</span><span class="p">,</span> <span class="n">classification_report</span>
+<span class="kn">from</span> <span class="nn">sklearn.impute</span> <span class="kn">import</span> <span class="n">SimpleImputer</span>
+<span class="kn">from</span> <span class="nn">sklearn.compose</span> <span class="kn">import</span> <span class="n">ColumnTransformer</span>
+<span class="kn">from</span> <span class="nn">sklearn.impute</span> <span class="kn">import</span> <span class="n">SimpleImputer</span>
+<span class="kn">from</span> <span class="nn">sklearn.preprocessing</span> <span class="kn">import</span> <span class="n">OneHotEncoder</span>
+<span class="kn">from</span> <span class="nn">sklearn.pipeline</span> <span class="kn">import</span> <span class="n">Pipeline</span>
+<span class="kn">from</span> <span class="nn">sklearn.preprocessing</span> <span class="kn">import</span> <span class="n">OrdinalEncoder</span>
+</pre></div>
+</div>
+</div>
+</div>
+<section id="linear-regression">
+<h3><span class="section-number">22.3.1. </span>Linear Regression<a class="headerlink" href="#linear-regression" title="Link to this heading">¶</a></h3>
+<p>Three methods will load the data, preprocess it, and create X and y datasets for training and testing.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">get_data</span><span class="p">(</span><span class="n">filename</span><span class="p">):</span>
+    <span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="n">filename</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">df</span>    
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">pre_process_data</span><span class="p">(</span><span class="n">df</span><span class="p">,</span> <span class="n">one_hot_encode</span> <span class="o">=</span> <span class="kc">False</span><span class="p">):</span>
+    <span class="n">target</span> <span class="o">=</span> <span class="s2">&quot;Life expectancy&quot;</span>    
+    <span class="n">simple_median</span> <span class="o">=</span> <span class="n">SimpleImputer</span><span class="p">(</span><span class="n">strategy</span><span class="o">=</span><span class="s1">&#39;median&#39;</span><span class="p">)</span>
+    <span class="n">simple_most_freq</span> <span class="o">=</span> <span class="n">SimpleImputer</span><span class="p">(</span><span class="n">strategy</span><span class="o">=</span><span class="s1">&#39;most_frequent&#39;</span><span class="p">)</span>
+    
+    <span class="n">num_cols</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">select_dtypes</span><span class="p">(</span><span class="n">include</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">number</span><span class="p">)</span><span class="o">.</span><span class="n">columns</span>
+    <span class="n">cat_cols</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">select_dtypes</span><span class="p">(</span><span class="n">include</span><span class="o">=</span><span class="nb">object</span><span class="p">)</span><span class="o">.</span><span class="n">columns</span>
+
+    <span class="n">df</span><span class="p">[</span><span class="n">num_cols</span><span class="p">]</span> <span class="o">=</span> <span class="n">simple_median</span><span class="o">.</span><span class="n">fit_transform</span><span class="p">(</span><span class="n">df</span><span class="p">[</span><span class="n">num_cols</span><span class="p">])</span>
+    <span class="n">df</span><span class="p">[</span><span class="n">cat_cols</span><span class="p">]</span> <span class="o">=</span> <span class="n">simple_most_freq</span><span class="o">.</span><span class="n">fit_transform</span><span class="p">(</span><span class="n">df</span><span class="p">[</span><span class="n">cat_cols</span><span class="p">])</span>
+    
+    <span class="k">if</span> <span class="n">one_hot_encode</span><span class="p">:</span>
+        <span class="n">O_encoder</span> <span class="o">=</span> <span class="n">OrdinalEncoder</span><span class="p">()</span>
+        <span class="n">df</span><span class="p">[</span><span class="n">cat_cols</span><span class="p">]</span><span class="o">=</span> <span class="n">O_encoder</span><span class="o">.</span><span class="n">fit_transform</span><span class="p">(</span><span class="n">df</span><span class="p">[</span><span class="n">cat_cols</span><span class="p">])</span>
+
+        <span class="c1"># df = pd.get_dummies(df, dtype=int)</span>
+        
+    <span class="k">return</span> <span class="n">df</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">get_test_train</span><span class="p">(</span><span class="n">df</span><span class="p">,</span> <span class="n">test_size</span> <span class="o">=</span> <span class="mf">0.2</span><span class="p">,</span> <span class="n">random_state</span> <span class="o">=</span> <span class="mi">42</span><span class="p">):</span>
+    <span class="n">target</span> <span class="o">=</span> <span class="s2">&quot;Life expectancy&quot;</span>    
+    <span class="n">X</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">drop</span><span class="p">(</span><span class="n">target</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+    <span class="n">y</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="n">target</span><span class="p">]</span>
+    <span class="n">X_train</span><span class="p">,</span> <span class="n">X_test</span><span class="p">,</span> <span class="n">y_train</span><span class="p">,</span> <span class="n">y_test</span> <span class="o">=</span> <span class="n">train_test_split</span><span class="p">(</span><span class="n">X</span><span class="p">,</span><span class="n">y</span><span class="p">,</span><span class="n">test_size</span><span class="o">=</span><span class="n">test_size</span><span class="p">,</span> <span class="n">random_state</span><span class="o">=</span><span class="n">random_state</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">X_train</span><span class="p">,</span> <span class="n">X_test</span><span class="p">,</span> <span class="n">y_train</span><span class="p">,</span> <span class="n">y_test</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span> <span class="o">=</span> <span class="n">get_data</span><span class="p">(</span><span class="n">filename</span><span class="p">)</span>
+<span class="n">df</span> <span class="o">=</span> <span class="n">pre_process_data</span><span class="p">(</span><span class="n">df</span><span class="p">,</span> <span class="n">one_hot_encode</span> <span class="o">=</span> <span class="kc">True</span><span class="p">)</span>
+<span class="n">X_train</span><span class="p">,</span> <span class="n">X_test</span><span class="p">,</span> <span class="n">y_train</span><span class="p">,</span> <span class="n">y_test</span> <span class="o">=</span> <span class="n">get_test_train</span><span class="p">(</span><span class="n">df</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">lreg</span> <span class="o">=</span> <span class="n">LinearRegression</span><span class="p">()</span>
+<span class="n">model</span> <span class="o">=</span> <span class="n">lreg</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">X_train</span><span class="p">,</span> <span class="n">y_train</span><span class="p">)</span>
+
+<span class="n">y_pred</span> <span class="o">=</span> <span class="n">lreg</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">X_test</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Train R-squared = </span><span class="si">{</span><span class="n">r2_score</span><span class="p">(</span><span class="n">lreg</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">X_train</span><span class="p">),</span><span class="w"> </span><span class="n">y_train</span><span class="p">)</span><span class="si">:</span><span class="s2">5.3</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Test R-squared  = </span><span class="si">{</span><span class="n">r2_score</span><span class="p">(</span><span class="n">y_pred</span><span class="p">,</span><span class="w"> </span><span class="n">y_test</span><span class="p">)</span><span class="si">:</span><span class="s2">5.3</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Train R-squared = 0.779
+Test R-squared  = 0.789
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">plt</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">y_test</span><span class="p">,</span> <span class="n">y_pred</span><span class="p">);</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">([</span><span class="mi">40</span><span class="p">,</span><span class="mi">90</span><span class="p">],[</span><span class="mi">40</span><span class="p">,</span><span class="mi">90</span><span class="p">],</span><span class="n">color</span><span class="o">=</span><span class="s1">&#39;red&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s2">&quot;Predicted LE vs. Real LE&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s2">&quot;True Life Expectancy&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s2">&quot;Predicted LE&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Text(0, 0.5, &#39;Predicted LE&#39;)
+</pre></div>
+</div>
+<img alt="../_images/fe4e45f7a44dbf5951c015411f19225e449ae2ce00718de5667c263023f48411.png" src="../_images/fe4e45f7a44dbf5951c015411f19225e449ae2ce00718de5667c263023f48411.png" />
+</div>
+</div>
+</section>
+</section>
+<section id="advanced-techniques">
+<h2><span class="section-number">22.4. </span>Advanced Techniques<a class="headerlink" href="#advanced-techniques" title="Link to this heading">¶</a></h2>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+<span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+
+<span class="c1"># Assuming `df` is your DataFrame with 20 numerical features and &#39;LifeExpectancy&#39; as the target variable</span>
+<span class="n">target</span> <span class="o">=</span> <span class="s1">&#39;Life expectancy&#39;</span>
+<span class="n">df</span> <span class="o">=</span> <span class="n">get_data</span><span class="p">(</span><span class="n">filename</span><span class="p">)</span>
+<span class="n">df</span> <span class="o">=</span> <span class="n">pre_process_data</span><span class="p">(</span><span class="n">df</span><span class="p">)</span>
+<span class="n">features</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">drop</span><span class="p">(</span><span class="n">target</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span><span class="o">.</span><span class="n">select_dtypes</span><span class="p">(</span><span class="n">include</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;number&#39;</span><span class="p">])</span><span class="o">.</span><span class="n">columns</span>
+
+<span class="c1"># Set up a grid of subplots</span>
+<span class="n">num_features</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">features</span><span class="p">)</span>
+<span class="n">num_cols</span> <span class="o">=</span> <span class="mi">5</span>  <span class="c1"># Adjust this to your preference</span>
+<span class="n">num_rows</span> <span class="o">=</span> <span class="p">(</span><span class="n">num_features</span> <span class="o">+</span> <span class="n">num_cols</span> <span class="o">-</span> <span class="mi">1</span><span class="p">)</span> <span class="o">//</span> <span class="n">num_cols</span>  <span class="c1"># Calculates rows needed</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">15</span><span class="p">,</span> <span class="n">num_rows</span> <span class="o">*</span> <span class="mi">3</span><span class="p">))</span>
+
+<span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="n">feature</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">features</span><span class="p">,</span> <span class="mi">1</span><span class="p">):</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">subplot</span><span class="p">(</span><span class="n">num_rows</span><span class="p">,</span> <span class="n">num_cols</span><span class="p">,</span> <span class="n">i</span><span class="p">)</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">df</span><span class="p">[</span><span class="n">feature</span><span class="p">],</span> <span class="n">df</span><span class="p">[</span><span class="n">target</span><span class="p">],</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.5</span><span class="p">)</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;</span><span class="si">{</span><span class="n">feature</span><span class="si">}</span><span class="s1"> vs. LE&#39;</span><span class="p">)</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="n">feature</span><span class="p">)</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="n">target</span><span class="p">)</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">tight_layout</span><span class="p">()</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/d92745f393242e3ee1a4a3e4c0b86b9e2e6bc2e79afcdd41c6bdad2e2d298121.png" src="../_images/d92745f393242e3ee1a4a3e4c0b86b9e2e6bc2e79afcdd41c6bdad2e2d298121.png" />
+</div>
+</div>
+</section>
+<section id="importance-analysis">
+<h2><span class="section-number">22.5. </span>Importance Analysis<a class="headerlink" href="#importance-analysis" title="Link to this heading">¶</a></h2>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">statsmodels.api</span> <span class="k">as</span> <span class="nn">sm</span>
+
+<span class="c1"># Fit the OLS model</span>
+<span class="n">model</span> <span class="o">=</span> <span class="n">sm</span><span class="o">.</span><span class="n">OLS</span><span class="p">(</span><span class="n">y_train</span><span class="p">,</span> <span class="n">X_train</span><span class="p">)</span><span class="o">.</span><span class="n">fit</span><span class="p">()</span>
+
+<span class="c1"># Get a summary of the regression</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">model</span><span class="o">.</span><span class="n">summary</span><span class="p">())</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>                                 OLS Regression Results                                
+=======================================================================================
+Dep. Variable:        Life expectancy   R-squared (uncentered):                   0.997
+Model:                            OLS   Adj. R-squared (uncentered):              0.997
+Method:                 Least Squares   F-statistic:                          3.264e+04
+Date:                Wed, 16 Oct 2024   Prob (F-statistic):                        0.00
+Time:                        08:04:51   Log-Likelihood:                         -6633.1
+No. Observations:                2350   AIC:                                  1.331e+04
+Df Residuals:                    2329   BIC:                                  1.343e+04
+Df Model:                          21                                                  
+Covariance Type:            nonrobust                                                  
+===================================================================================================
+                                      coef    std err          t      P&gt;|t|      [0.025      0.975]
+---------------------------------------------------------------------------------------------------
+Country                             0.0031      0.002      2.055      0.040       0.000       0.006
+Year                                0.0286      0.000     73.709      0.000       0.028       0.029
+Status                             -1.6459      0.304     -5.415      0.000      -2.242      -1.050
+Adult Mortality                    -0.0209      0.001    -23.404      0.000      -0.023      -0.019
+infant deaths                       0.0986      0.010     10.241      0.000       0.080       0.117
+Alcohol                             0.0687      0.029      2.332      0.020       0.011       0.126
+percentage expenditure           6.843e-05      0.000      0.678      0.498      -0.000       0.000
+Hepatitis B                        -0.0195      0.004     -4.628      0.000      -0.028      -0.011
+Measles                         -2.225e-05   8.56e-06     -2.598      0.009    -3.9e-05   -5.45e-06
+BMI                                 0.0406      0.006      7.287      0.000       0.030       0.051
+under-five deaths                  -0.0733      0.007    -10.419      0.000      -0.087      -0.060
+Polio                               0.0276      0.005      5.477      0.000       0.018       0.037
+Total expenditure                   0.0267      0.038      0.696      0.487      -0.049       0.102
+Diphtheria                          0.0411      0.005      7.936      0.000       0.031       0.051
+HIV/AIDS                           -0.4601      0.019    -24.030      0.000      -0.498      -0.423
+GDP                              3.647e-05   1.51e-05      2.410      0.016    6.79e-06    6.61e-05
+Population                      -1.231e-09   2.03e-09     -0.607      0.544   -5.21e-09    2.75e-09
+thinness 1-19 years                -0.0964      0.056     -1.723      0.085      -0.206       0.013
+thinness 5-9 years                  0.0128      0.055      0.230      0.818      -0.096       0.121
+Income composition of resources     6.0052      0.737      8.144      0.000       4.559       7.451
+Schooling                           0.6323      0.048     13.239      0.000       0.539       0.726
+==============================================================================
+Omnibus:                      119.835   Durbin-Watson:                   2.012
+Prob(Omnibus):                  0.000   Jarque-Bera (JB):              342.590
+Skew:                          -0.225   Prob(JB):                     4.05e-75
+Kurtosis:                       4.816   Cond. No.                     4.34e+08
+==============================================================================
+
+Notes:
+[1] R² is computed without centering (uncentered) since the model does not contain a constant.
+[2] Standard Errors assume that the covariance matrix of the errors is correctly specified.
+[3] The condition number is large, 4.34e+08. This might indicate that there are
+strong multicollinearity or other numerical problems.
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Extract the summary table as a DataFrame</span>
+<span class="n">summary_table</span> <span class="o">=</span> <span class="n">model</span><span class="o">.</span><span class="n">summary2</span><span class="p">()</span><span class="o">.</span><span class="n">tables</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span>  <span class="c1"># tables[1] is the coefficients table in summary2()</span>
+
+<span class="c1"># Sort by p-values (for example)</span>
+<span class="n">sorted_summary</span> <span class="o">=</span> <span class="n">summary_table</span><span class="o">.</span><span class="n">sort_values</span><span class="p">(</span><span class="n">by</span><span class="o">=</span><span class="s1">&#39;t&#39;</span><span class="p">)</span>
+
+
+<span class="c1"># Set display options to prevent truncation</span>
+<span class="n">pd</span><span class="o">.</span><span class="n">options</span><span class="o">.</span><span class="n">display</span><span class="o">.</span><span class="n">max_rows</span> <span class="o">=</span> <span class="kc">None</span>  <span class="c1"># Shows all rows</span>
+<span class="n">pd</span><span class="o">.</span><span class="n">options</span><span class="o">.</span><span class="n">display</span><span class="o">.</span><span class="n">max_columns</span> <span class="o">=</span> <span class="kc">None</span>  <span class="c1"># Shows all columns</span>
+
+<span class="n">sorted_summary</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>Coef.</th>
+      <th>Std.Err.</th>
+      <th>t</th>
+      <th>P&gt;|t|</th>
+      <th>[0.025</th>
+      <th>0.975]</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>HIV/AIDS</th>
+      <td>-4.601333e-01</td>
+      <td>1.914827e-02</td>
+      <td>-24.030023</td>
+      <td>3.570287e-114</td>
+      <td>-4.976828e-01</td>
+      <td>-4.225839e-01</td>
+    </tr>
+    <tr>
+      <th>Adult Mortality</th>
+      <td>-2.085955e-02</td>
+      <td>8.912658e-04</td>
+      <td>-23.404412</td>
+      <td>5.650989e-109</td>
+      <td>-2.260731e-02</td>
+      <td>-1.911180e-02</td>
+    </tr>
+    <tr>
+      <th>under-five deaths</th>
+      <td>-7.330643e-02</td>
+      <td>7.035782e-03</td>
+      <td>-10.419088</td>
+      <td>7.079332e-25</td>
+      <td>-8.710348e-02</td>
+      <td>-5.950938e-02</td>
+    </tr>
+    <tr>
+      <th>Status</th>
+      <td>-1.645908e+00</td>
+      <td>3.039606e-01</td>
+      <td>-5.414872</td>
+      <td>6.762624e-08</td>
+      <td>-2.241969e+00</td>
+      <td>-1.049846e+00</td>
+    </tr>
+    <tr>
+      <th>Hepatitis B</th>
+      <td>-1.953515e-02</td>
+      <td>4.220916e-03</td>
+      <td>-4.628177</td>
+      <td>3.891525e-06</td>
+      <td>-2.781229e-02</td>
+      <td>-1.125800e-02</td>
+    </tr>
+    <tr>
+      <th>Measles</th>
+      <td>-2.224875e-05</td>
+      <td>8.564944e-06</td>
+      <td>-2.597653</td>
+      <td>9.445463e-03</td>
+      <td>-3.904446e-05</td>
+      <td>-5.453040e-06</td>
+    </tr>
+    <tr>
+      <th>thinness 1-19 years</th>
+      <td>-9.635987e-02</td>
+      <td>5.591426e-02</td>
+      <td>-1.723351</td>
+      <td>8.495787e-02</td>
+      <td>-2.060068e-01</td>
+      <td>1.328705e-02</td>
+    </tr>
+    <tr>
+      <th>Population</th>
+      <td>-1.231248e-09</td>
+      <td>2.029104e-09</td>
+      <td>-0.606794</td>
+      <td>5.440469e-01</td>
+      <td>-5.210285e-09</td>
+      <td>2.747790e-09</td>
+    </tr>
+    <tr>
+      <th>thinness 5-9 years</th>
+      <td>1.276719e-02</td>
+      <td>5.542218e-02</td>
+      <td>0.230363</td>
+      <td>8.178303e-01</td>
+      <td>-9.591476e-02</td>
+      <td>1.214491e-01</td>
+    </tr>
+    <tr>
+      <th>percentage expenditure</th>
+      <td>6.842727e-05</td>
+      <td>1.008844e-04</td>
+      <td>0.678274</td>
+      <td>4.976652e-01</td>
+      <td>-1.294053e-04</td>
+      <td>2.662598e-04</td>
+    </tr>
+    <tr>
+      <th>Total expenditure</th>
+      <td>2.671371e-02</td>
+      <td>3.840723e-02</td>
+      <td>0.695539</td>
+      <td>4.867872e-01</td>
+      <td>-4.860221e-02</td>
+      <td>1.020296e-01</td>
+    </tr>
+    <tr>
+      <th>Country</th>
+      <td>3.137757e-03</td>
+      <td>1.527011e-03</td>
+      <td>2.054836</td>
+      <td>4.000614e-02</td>
+      <td>1.433149e-04</td>
+      <td>6.132199e-03</td>
+    </tr>
+    <tr>
+      <th>Alcohol</th>
+      <td>6.872029e-02</td>
+      <td>2.946305e-02</td>
+      <td>2.332423</td>
+      <td>1.976326e-02</td>
+      <td>1.094374e-02</td>
+      <td>1.264968e-01</td>
+    </tr>
+    <tr>
+      <th>GDP</th>
+      <td>3.647028e-05</td>
+      <td>1.513367e-05</td>
+      <td>2.409878</td>
+      <td>1.603496e-02</td>
+      <td>6.793421e-06</td>
+      <td>6.614715e-05</td>
+    </tr>
+    <tr>
+      <th>Polio</th>
+      <td>2.758780e-02</td>
+      <td>5.036811e-03</td>
+      <td>5.477234</td>
+      <td>4.784664e-08</td>
+      <td>1.771069e-02</td>
+      <td>3.746490e-02</td>
+    </tr>
+    <tr>
+      <th>BMI</th>
+      <td>4.056574e-02</td>
+      <td>5.567034e-03</td>
+      <td>7.286778</td>
+      <td>4.325184e-13</td>
+      <td>2.964888e-02</td>
+      <td>5.148260e-02</td>
+    </tr>
+    <tr>
+      <th>Diphtheria</th>
+      <td>4.110040e-02</td>
+      <td>5.178660e-03</td>
+      <td>7.936493</td>
+      <td>3.202276e-15</td>
+      <td>3.094513e-02</td>
+      <td>5.125566e-02</td>
+    </tr>
+    <tr>
+      <th>Income composition of resources</th>
+      <td>6.005243e+00</td>
+      <td>7.373534e-01</td>
+      <td>8.144322</td>
+      <td>6.148129e-16</td>
+      <td>4.559306e+00</td>
+      <td>7.451181e+00</td>
+    </tr>
+    <tr>
+      <th>infant deaths</th>
+      <td>9.856535e-02</td>
+      <td>9.624880e-03</td>
+      <td>10.240684</td>
+      <td>4.191065e-24</td>
+      <td>7.969113e-02</td>
+      <td>1.174396e-01</td>
+    </tr>
+    <tr>
+      <th>Schooling</th>
+      <td>6.322675e-01</td>
+      <td>4.775724e-02</td>
+      <td>13.239195</td>
+      <td>1.249525e-38</td>
+      <td>5.386163e-01</td>
+      <td>7.259186e-01</td>
+    </tr>
+    <tr>
+      <th>Year</th>
+      <td>2.858927e-02</td>
+      <td>3.878680e-04</td>
+      <td>73.708769</td>
+      <td>0.000000e+00</td>
+      <td>2.782867e-02</td>
+      <td>2.934988e-02</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+</section>
+</section>
+<section class="tex2jax_ignore mathjax_ignore" id="exercises">
+<h1><span class="section-number">23. </span>Exercises<a class="headerlink" href="#exercises" title="Link to this heading">¶</a></h1>
+<ol class="arabic simple">
+<li><p>Notice the warning about multicollinearity in the above analysis. This can happen when two or more features in your training set are linearly related. By reading through the computations we already made, find pairs of rows are have a high correlation and drop one from each pair, then rerun the regression in ‘statsmodel’. Can you get the error to go away?</p></li>
+<li><p>The categorical variable ‘country’ was ordinal encoded above, even though I said that was usually not a great thing to do. Modify our preprocessor so that the data is one-hot-encoded and re-run all the subsequent analyses. What effect does this have on the <span class="math notranslate nohighlight">\(r^2\)</span>?</p></li>
+<li><p>Small models generalize better than large models (generally). Experiment with this dataset and find a small subset of the features that predict the outcome as well as the full set (or <em>almost</em> as good, for an imprecise definition of <em>almost</em>). You’re free to pre-process or transform the data however you’d like.</p></li>
+<li><p>Do your own linear regression!</p></li>
+</ol>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            name: "python3",
+            path: "./lessons"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+            <div class="clearer"></div>
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="Main">
+        <div class="sphinxsidebarwrapper">
+            <p class="logo"><a href="../intro.html">
+              <img class="logo" src="../_static/ML-logo-1.webp" alt="Logo of Project name not set"/>
+            </a></p>
+  <div>
+    <h3><a href="../intro.html">Table of Contents</a></h3>
+    <ul>
+<li><a class="reference internal" href="#">22. Life Expectancy</a><ul>
+<li><a class="reference internal" href="#loading-the-dataset">22.1. Loading the dataset</a></li>
+<li><a class="reference internal" href="#data-exploration">22.2. Data Exploration</a><ul>
+<li><a class="reference internal" href="#correlation-matrix-heat-map">22.2.1. Correlation matrix heat map</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#data-modeling">22.3. Data Modeling</a><ul>
+<li><a class="reference internal" href="#linear-regression">22.3.1. Linear Regression</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#advanced-techniques">22.4. Advanced Techniques</a></li>
+<li><a class="reference internal" href="#importance-analysis">22.5. Importance Analysis</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#exercises">23. Exercises</a></li>
+</ul>
+
+  </div>
+  <div>
+    <h4>Previous topic</h4>
+    <p class="topless"><a href="ML_Book_Club.html"
+                          title="previous chapter"><span class="section-number">21. </span>ML Book Club</a></p>
+  </div>
+  <div>
+    <h4>Next topic</h4>
+    <p class="topless"><a href="Life_Part_2.html"
+                          title="next chapter"><span class="section-number">24. </span>Life Expectancy – Normalization, Regularization, Feature Selection</a></p>
+  </div>
+  <div role="note" aria-label="source link">
+    <h3>This Page</h3>
+    <ul class="this-page-menu">
+      <li><a href="../_sources/lessons/Life_Expectancy_Student.ipynb"
+            rel="nofollow">Show Source</a></li>
+    </ul>
+   </div>
+<search id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="../search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false"/>
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</search>
+<script>document.getElementById('searchbox').style.display = "block"</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related" role="navigation" aria-label="Related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="Life_Part_2.html" title="24. Life Expectancy – Normalization, Regularization, Feature Selection"
+             >next</a> |</li>
+        <li class="right" >
+          <a href="ML_Book_Club.html" title="21. ML Book Club"
+             >previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="../intro.html">Machine Learning for Research</a> &#187;</li>
+        <li class="nav-item nav-item-this"><a href=""><span class="section-number">22. </span>Life Expectancy</a></li> 
+      </ul>
+    </div>
+    <div class="footer" role="contentinfo">
+    &#169; Copyright 2023.
+      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 7.4.7.
+    </div>
+  </body>
+</html>

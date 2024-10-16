@@ -39,3 +39,10 @@ parts:
   - file: lessons/reading
   - file: lessons/Hobo_Student
   - file: lessons/ML_Book_Club
+- caption: Regression
+  numbered: true
+  chapters:
+  - file: lessons/Life_Expectancy_Student
+  - file: lessons/Life_Part_2
+  - file: lessons/PCA Matrices
+  - file: lessons/PCA

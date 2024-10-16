@@ -1,0 +1,3349 @@
+<!DOCTYPE html>
+
+<html lang="en" data-content_root="../">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>Life Expectancy &#8212; Machine Learning for Research</title>
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=fa44fd50" />
+    <link rel="stylesheet" type="text/css" href="../_static/classic.css?v=def86cc0" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css?v=13237357" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css?v=be8a1c11" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css?v=4fa983c6" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-design.min.css?v=95c83b7e" />
+    
+    <script src="../_static/documentation_options.js?v=9eb32ce0"></script>
+    <script src="../_static/doctools.js?v=9a2dae69"></script>
+    <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="../_static/copybutton.js?v=f281be69"></script>
+    <script src="../_static/scripts/sphinx-book-theme.js?v=887ef09a"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../_static/togglebutton.js?v=4a39c7ea"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="../_static/design-tabs.js?v=f930bc37"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script async="async" src="../_static/sphinx-thebe.js?v=c100c467"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" /> 
+  </head><body>
+    <div class="related" role="navigation" aria-label="Related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="nav-item nav-item-0"><a href="../intro.html">Machine Learning for Research</a> &#187;</li>
+        <li class="nav-item nav-item-this"><a href="">Life Expectancy</a></li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <section class="tex2jax_ignore mathjax_ignore" id="life-expectancy">
+<h1>Life Expectancy<a class="headerlink" href="#life-expectancy" title="Link to this heading">¶</a></h1>
+<p>We are going to take a quick tour of machine learning by working on an example dataset. The mushroom dataset
+categorizes mushrooms as ‘poisonous’ or ‘edible’ and collects several descriptive properties of each mushroom example.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+<span class="kn">import</span> <span class="nn">os</span>
+<span class="kn">from</span> <span class="nn">sklearn.linear_model</span> <span class="kn">import</span> <span class="n">LinearRegression</span>
+<span class="kn">from</span> <span class="nn">sklearn.metrics</span> <span class="kn">import</span> <span class="n">r2_score</span>
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+<span class="kn">import</span> <span class="nn">seaborn</span> <span class="k">as</span> <span class="nn">sns</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">pd</span><span class="o">.</span><span class="n">options</span><span class="o">.</span><span class="n">display</span><span class="o">.</span><span class="n">max_rows</span> <span class="o">=</span> <span class="mi">20</span>  <span class="c1"># Shows 20 rows</span>
+<span class="n">pd</span><span class="o">.</span><span class="n">options</span><span class="o">.</span><span class="n">display</span><span class="o">.</span><span class="n">max_columns</span> <span class="o">=</span> <span class="mi">20</span>  <span class="c1"># Shows 20 columns</span>
+</pre></div>
+</div>
+</div>
+</div>
+<section id="loading-the-dataset">
+<h2>Loading the dataset<a class="headerlink" href="#loading-the-dataset" title="Link to this heading">¶</a></h2>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># These lines would load the data locally</span>
+<span class="n">data_root</span> <span class="o">=</span> <span class="s2">&quot;./&quot;</span>
+<span class="n">filename</span> <span class="o">=</span> <span class="s2">&quot;Life_Expectancy_Data.csv&quot;</span>
+<span class="n">filepath</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">data_root</span><span class="p">,</span> <span class="n">filename</span><span class="p">)</span>
+
+<span class="c1"># We&#39;ll fetch it directly from the web</span>
+<span class="c1"># data_url = &quot;https://aet-cs.github.io/white/ML/lessons/mushroom.csv&quot;</span>
+<span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="n">filepath</span><span class="p">)</span>
+<span class="n">df</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>Country</th>
+      <th>Year</th>
+      <th>Status</th>
+      <th>Life expectancy</th>
+      <th>Adult Mortality</th>
+      <th>infant deaths</th>
+      <th>Alcohol</th>
+      <th>percentage expenditure</th>
+      <th>Hepatitis B</th>
+      <th>Measles</th>
+      <th>...</th>
+      <th>Polio</th>
+      <th>Total expenditure</th>
+      <th>Diphtheria</th>
+      <th>HIV/AIDS</th>
+      <th>GDP</th>
+      <th>Population</th>
+      <th>thinness 1-19 years</th>
+      <th>thinness 5-9 years</th>
+      <th>Income composition of resources</th>
+      <th>Schooling</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>Afghanistan</td>
+      <td>2015</td>
+      <td>Developing</td>
+      <td>65.0</td>
+      <td>263.0</td>
+      <td>62</td>
+      <td>0.01</td>
+      <td>71.279624</td>
+      <td>65.0</td>
+      <td>1154</td>
+      <td>...</td>
+      <td>6.0</td>
+      <td>8.16</td>
+      <td>65.0</td>
+      <td>0.1</td>
+      <td>584.259210</td>
+      <td>33736494.0</td>
+      <td>17.2</td>
+      <td>17.3</td>
+      <td>0.479</td>
+      <td>10.1</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>Afghanistan</td>
+      <td>2014</td>
+      <td>Developing</td>
+      <td>59.9</td>
+      <td>271.0</td>
+      <td>64</td>
+      <td>0.01</td>
+      <td>73.523582</td>
+      <td>62.0</td>
+      <td>492</td>
+      <td>...</td>
+      <td>58.0</td>
+      <td>8.18</td>
+      <td>62.0</td>
+      <td>0.1</td>
+      <td>612.696514</td>
+      <td>327582.0</td>
+      <td>17.5</td>
+      <td>17.5</td>
+      <td>0.476</td>
+      <td>10.0</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>Afghanistan</td>
+      <td>2013</td>
+      <td>Developing</td>
+      <td>59.9</td>
+      <td>268.0</td>
+      <td>66</td>
+      <td>0.01</td>
+      <td>73.219243</td>
+      <td>64.0</td>
+      <td>430</td>
+      <td>...</td>
+      <td>62.0</td>
+      <td>8.13</td>
+      <td>64.0</td>
+      <td>0.1</td>
+      <td>631.744976</td>
+      <td>31731688.0</td>
+      <td>17.7</td>
+      <td>17.7</td>
+      <td>0.470</td>
+      <td>9.9</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>Afghanistan</td>
+      <td>2012</td>
+      <td>Developing</td>
+      <td>59.5</td>
+      <td>272.0</td>
+      <td>69</td>
+      <td>0.01</td>
+      <td>78.184215</td>
+      <td>67.0</td>
+      <td>2787</td>
+      <td>...</td>
+      <td>67.0</td>
+      <td>8.52</td>
+      <td>67.0</td>
+      <td>0.1</td>
+      <td>669.959000</td>
+      <td>3696958.0</td>
+      <td>17.9</td>
+      <td>18.0</td>
+      <td>0.463</td>
+      <td>9.8</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>Afghanistan</td>
+      <td>2011</td>
+      <td>Developing</td>
+      <td>59.2</td>
+      <td>275.0</td>
+      <td>71</td>
+      <td>0.01</td>
+      <td>7.097109</td>
+      <td>68.0</td>
+      <td>3013</td>
+      <td>...</td>
+      <td>68.0</td>
+      <td>7.87</td>
+      <td>68.0</td>
+      <td>0.1</td>
+      <td>63.537231</td>
+      <td>2978599.0</td>
+      <td>18.2</td>
+      <td>18.2</td>
+      <td>0.454</td>
+      <td>9.5</td>
+    </tr>
+    <tr>
+      <th>...</th>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+    </tr>
+    <tr>
+      <th>2933</th>
+      <td>Zimbabwe</td>
+      <td>2004</td>
+      <td>Developing</td>
+      <td>44.3</td>
+      <td>723.0</td>
+      <td>27</td>
+      <td>4.36</td>
+      <td>0.000000</td>
+      <td>68.0</td>
+      <td>31</td>
+      <td>...</td>
+      <td>67.0</td>
+      <td>7.13</td>
+      <td>65.0</td>
+      <td>33.6</td>
+      <td>454.366654</td>
+      <td>12777511.0</td>
+      <td>9.4</td>
+      <td>9.4</td>
+      <td>0.407</td>
+      <td>9.2</td>
+    </tr>
+    <tr>
+      <th>2934</th>
+      <td>Zimbabwe</td>
+      <td>2003</td>
+      <td>Developing</td>
+      <td>44.5</td>
+      <td>715.0</td>
+      <td>26</td>
+      <td>4.06</td>
+      <td>0.000000</td>
+      <td>7.0</td>
+      <td>998</td>
+      <td>...</td>
+      <td>7.0</td>
+      <td>6.52</td>
+      <td>68.0</td>
+      <td>36.7</td>
+      <td>453.351155</td>
+      <td>12633897.0</td>
+      <td>9.8</td>
+      <td>9.9</td>
+      <td>0.418</td>
+      <td>9.5</td>
+    </tr>
+    <tr>
+      <th>2935</th>
+      <td>Zimbabwe</td>
+      <td>2002</td>
+      <td>Developing</td>
+      <td>44.8</td>
+      <td>73.0</td>
+      <td>25</td>
+      <td>4.43</td>
+      <td>0.000000</td>
+      <td>73.0</td>
+      <td>304</td>
+      <td>...</td>
+      <td>73.0</td>
+      <td>6.53</td>
+      <td>71.0</td>
+      <td>39.8</td>
+      <td>57.348340</td>
+      <td>125525.0</td>
+      <td>1.2</td>
+      <td>1.3</td>
+      <td>0.427</td>
+      <td>10.0</td>
+    </tr>
+    <tr>
+      <th>2936</th>
+      <td>Zimbabwe</td>
+      <td>2001</td>
+      <td>Developing</td>
+      <td>45.3</td>
+      <td>686.0</td>
+      <td>25</td>
+      <td>1.72</td>
+      <td>0.000000</td>
+      <td>76.0</td>
+      <td>529</td>
+      <td>...</td>
+      <td>76.0</td>
+      <td>6.16</td>
+      <td>75.0</td>
+      <td>42.1</td>
+      <td>548.587312</td>
+      <td>12366165.0</td>
+      <td>1.6</td>
+      <td>1.7</td>
+      <td>0.427</td>
+      <td>9.8</td>
+    </tr>
+    <tr>
+      <th>2937</th>
+      <td>Zimbabwe</td>
+      <td>2000</td>
+      <td>Developing</td>
+      <td>46.0</td>
+      <td>665.0</td>
+      <td>24</td>
+      <td>1.68</td>
+      <td>0.000000</td>
+      <td>79.0</td>
+      <td>1483</td>
+      <td>...</td>
+      <td>78.0</td>
+      <td>7.10</td>
+      <td>78.0</td>
+      <td>43.5</td>
+      <td>547.358878</td>
+      <td>12222251.0</td>
+      <td>11.0</td>
+      <td>11.2</td>
+      <td>0.434</td>
+      <td>9.8</td>
+    </tr>
+  </tbody>
+</table>
+<p>2938 rows × 22 columns</p>
+</div></div></div>
+</div>
+<p><code class="docutils literal notranslate"><span class="pre">describe</span></code> gives a quick overview of each feature</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span><span class="o">.</span><span class="n">describe</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>Year</th>
+      <th>Life expectancy</th>
+      <th>Adult Mortality</th>
+      <th>infant deaths</th>
+      <th>Alcohol</th>
+      <th>percentage expenditure</th>
+      <th>Hepatitis B</th>
+      <th>Measles</th>
+      <th>BMI</th>
+      <th>under-five deaths</th>
+      <th>Polio</th>
+      <th>Total expenditure</th>
+      <th>Diphtheria</th>
+      <th>HIV/AIDS</th>
+      <th>GDP</th>
+      <th>Population</th>
+      <th>thinness 1-19 years</th>
+      <th>thinness 5-9 years</th>
+      <th>Income composition of resources</th>
+      <th>Schooling</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>count</th>
+      <td>2938.000000</td>
+      <td>2928.000000</td>
+      <td>2928.000000</td>
+      <td>2938.000000</td>
+      <td>2744.000000</td>
+      <td>2938.000000</td>
+      <td>2385.000000</td>
+      <td>2938.000000</td>
+      <td>2904.000000</td>
+      <td>2938.000000</td>
+      <td>2919.000000</td>
+      <td>2712.00000</td>
+      <td>2919.000000</td>
+      <td>2938.000000</td>
+      <td>2490.000000</td>
+      <td>2.286000e+03</td>
+      <td>2904.000000</td>
+      <td>2904.000000</td>
+      <td>2771.000000</td>
+      <td>2775.000000</td>
+    </tr>
+    <tr>
+      <th>mean</th>
+      <td>2007.518720</td>
+      <td>69.224932</td>
+      <td>164.796448</td>
+      <td>30.303948</td>
+      <td>4.602861</td>
+      <td>738.251295</td>
+      <td>80.940461</td>
+      <td>2419.592240</td>
+      <td>38.321247</td>
+      <td>42.035739</td>
+      <td>82.550188</td>
+      <td>5.93819</td>
+      <td>82.324084</td>
+      <td>1.742103</td>
+      <td>7483.158469</td>
+      <td>1.275338e+07</td>
+      <td>4.839704</td>
+      <td>4.870317</td>
+      <td>0.627551</td>
+      <td>11.992793</td>
+    </tr>
+    <tr>
+      <th>std</th>
+      <td>4.613841</td>
+      <td>9.523867</td>
+      <td>124.292079</td>
+      <td>117.926501</td>
+      <td>4.052413</td>
+      <td>1987.914858</td>
+      <td>25.070016</td>
+      <td>11467.272489</td>
+      <td>20.044034</td>
+      <td>160.445548</td>
+      <td>23.428046</td>
+      <td>2.49832</td>
+      <td>23.716912</td>
+      <td>5.077785</td>
+      <td>14270.169342</td>
+      <td>6.101210e+07</td>
+      <td>4.420195</td>
+      <td>4.508882</td>
+      <td>0.210904</td>
+      <td>3.358920</td>
+    </tr>
+    <tr>
+      <th>min</th>
+      <td>2000.000000</td>
+      <td>36.300000</td>
+      <td>1.000000</td>
+      <td>0.000000</td>
+      <td>0.010000</td>
+      <td>0.000000</td>
+      <td>1.000000</td>
+      <td>0.000000</td>
+      <td>1.000000</td>
+      <td>0.000000</td>
+      <td>3.000000</td>
+      <td>0.37000</td>
+      <td>2.000000</td>
+      <td>0.100000</td>
+      <td>1.681350</td>
+      <td>3.400000e+01</td>
+      <td>0.100000</td>
+      <td>0.100000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+    </tr>
+    <tr>
+      <th>25%</th>
+      <td>2004.000000</td>
+      <td>63.100000</td>
+      <td>74.000000</td>
+      <td>0.000000</td>
+      <td>0.877500</td>
+      <td>4.685343</td>
+      <td>77.000000</td>
+      <td>0.000000</td>
+      <td>19.300000</td>
+      <td>0.000000</td>
+      <td>78.000000</td>
+      <td>4.26000</td>
+      <td>78.000000</td>
+      <td>0.100000</td>
+      <td>463.935626</td>
+      <td>1.957932e+05</td>
+      <td>1.600000</td>
+      <td>1.500000</td>
+      <td>0.493000</td>
+      <td>10.100000</td>
+    </tr>
+    <tr>
+      <th>50%</th>
+      <td>2008.000000</td>
+      <td>72.100000</td>
+      <td>144.000000</td>
+      <td>3.000000</td>
+      <td>3.755000</td>
+      <td>64.912906</td>
+      <td>92.000000</td>
+      <td>17.000000</td>
+      <td>43.500000</td>
+      <td>4.000000</td>
+      <td>93.000000</td>
+      <td>5.75500</td>
+      <td>93.000000</td>
+      <td>0.100000</td>
+      <td>1766.947595</td>
+      <td>1.386542e+06</td>
+      <td>3.300000</td>
+      <td>3.300000</td>
+      <td>0.677000</td>
+      <td>12.300000</td>
+    </tr>
+    <tr>
+      <th>75%</th>
+      <td>2012.000000</td>
+      <td>75.700000</td>
+      <td>228.000000</td>
+      <td>22.000000</td>
+      <td>7.702500</td>
+      <td>441.534144</td>
+      <td>97.000000</td>
+      <td>360.250000</td>
+      <td>56.200000</td>
+      <td>28.000000</td>
+      <td>97.000000</td>
+      <td>7.49250</td>
+      <td>97.000000</td>
+      <td>0.800000</td>
+      <td>5910.806335</td>
+      <td>7.420359e+06</td>
+      <td>7.200000</td>
+      <td>7.200000</td>
+      <td>0.779000</td>
+      <td>14.300000</td>
+    </tr>
+    <tr>
+      <th>max</th>
+      <td>2015.000000</td>
+      <td>89.000000</td>
+      <td>723.000000</td>
+      <td>1800.000000</td>
+      <td>17.870000</td>
+      <td>19479.911610</td>
+      <td>99.000000</td>
+      <td>212183.000000</td>
+      <td>87.300000</td>
+      <td>2500.000000</td>
+      <td>99.000000</td>
+      <td>17.60000</td>
+      <td>99.000000</td>
+      <td>50.600000</td>
+      <td>119172.741800</td>
+      <td>1.293859e+09</td>
+      <td>27.700000</td>
+      <td>28.600000</td>
+      <td>0.948000</td>
+      <td>20.700000</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+</section>
+<section id="data-exploration">
+<h2>Data Exploration<a class="headerlink" href="#data-exploration" title="Link to this heading">¶</a></h2>
+<p>Show all the columns. Target is ‘Life expectancy’</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span><span class="o">.</span><span class="n">columns</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Index([&#39;Country&#39;, &#39;Year&#39;, &#39;Status&#39;, &#39;Life expectancy&#39;, &#39;Adult Mortality&#39;,
+       &#39;infant deaths&#39;, &#39;Alcohol&#39;, &#39;percentage expenditure&#39;, &#39;Hepatitis B&#39;,
+       &#39;Measles&#39;, &#39;BMI&#39;, &#39;under-five deaths&#39;, &#39;Polio&#39;, &#39;Total expenditure&#39;,
+       &#39;Diphtheria&#39;, &#39;HIV/AIDS&#39;, &#39;GDP&#39;, &#39;Population&#39;, &#39;thinness 1-19 years&#39;,
+       &#39;thinness 5-9 years&#39;, &#39;Income composition of resources&#39;, &#39;Schooling&#39;],
+      dtype=&#39;object&#39;)
+</pre></div>
+</div>
+</div>
+</div>
+<p>Get the size of the dataframe. Shape returns (rows, cols)</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span><span class="o">.</span><span class="n">shape</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>(2938, 22)
+</pre></div>
+</div>
+</div>
+</div>
+<p>Let’s get all the data types</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span><span class="o">.</span><span class="n">dtypes</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Country                             object
+Year                                 int64
+Status                              object
+Life expectancy                    float64
+Adult Mortality                    float64
+                                    ...   
+Population                         float64
+thinness 1-19 years                float64
+thinness 5-9 years                 float64
+Income composition of resources    float64
+Schooling                          float64
+Length: 22, dtype: object
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span><span class="o">.</span><span class="n">hist</span><span class="p">(</span><span class="n">target</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
+<span class="ne">NameError</span><span class="g g-Whitespace">                                 </span>Traceback (most recent call last)
+<span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">8</span><span class="p">],</span> <span class="n">line</span> <span class="mi">1</span>
+<span class="ne">----&gt; </span><span class="mi">1</span> <span class="n">df</span><span class="o">.</span><span class="n">hist</span><span class="p">(</span><span class="n">target</span><span class="p">)</span>
+
+<span class="ne">NameError</span>: name &#39;target&#39; is not defined
+</pre></div>
+</div>
+</div>
+</div>
+<section id="correlation-matrix-heat-map">
+<h3>Correlation matrix heat map<a class="headerlink" href="#correlation-matrix-heat-map" title="Link to this heading">¶</a></h3>
+<p>Let’s get a quick visual representation of the relationshop between features in this dataset.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df_heat</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">drop</span><span class="p">([</span><span class="s2">&quot;Country&quot;</span><span class="p">,</span> <span class="s2">&quot;Status&quot;</span><span class="p">],</span> <span class="n">axis</span> <span class="o">=</span> <span class="mi">1</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">corr_matrix</span> <span class="o">=</span> <span class="n">df_heat</span><span class="o">.</span><span class="n">corr</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">16</span><span class="p">,</span> <span class="mi">6</span><span class="p">))</span>
+<span class="c1"># define the mask to set the values in the upper triangle to True</span>
+<span class="n">mask</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">triu</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">ones_like</span><span class="p">(</span><span class="n">corr_matrix</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">bool</span><span class="p">))</span>
+<span class="n">heatmap</span> <span class="o">=</span> <span class="n">sns</span><span class="o">.</span><span class="n">heatmap</span><span class="p">(</span><span class="n">corr_matrix</span><span class="p">,</span> <span class="n">mask</span><span class="o">=</span><span class="n">mask</span><span class="p">,</span> <span class="n">vmin</span><span class="o">=-</span><span class="mi">1</span><span class="p">,</span> <span class="n">vmax</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">annot</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">cmap</span><span class="o">=</span><span class="s1">&#39;BrBG&#39;</span><span class="p">)</span>
+<span class="n">heatmap</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s1">&#39;Life Expectancy Correlation Heatmap&#39;</span><span class="p">,</span> <span class="n">fontdict</span><span class="o">=</span><span class="p">{</span><span class="s1">&#39;fontsize&#39;</span><span class="p">:</span><span class="mi">14</span><span class="p">},</span> <span class="n">pad</span><span class="o">=</span><span class="mi">16</span><span class="p">);</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/490626ba737ebc01685baa2b577764fe16aadd657382c022da7abb9f52e0e0d9.png" src="../_images/490626ba737ebc01685baa2b577764fe16aadd657382c022da7abb9f52e0e0d9.png" />
+</div>
+</div>
+<p>Which features seem to be important?</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">row_filter</span> <span class="o">=</span> <span class="nb">abs</span><span class="p">(</span><span class="n">corr_matrix</span><span class="p">[</span><span class="n">target</span><span class="p">])</span><span class="o">&gt;</span><span class="mf">0.1</span>
+<span class="n">top_features</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">corr_matrix</span><span class="p">[</span><span class="n">target</span><span class="p">][</span><span class="n">row_filter</span><span class="p">])</span>
+<span class="n">top_features</span><span class="o">.</span><span class="n">sort_values</span><span class="p">(</span><span class="n">by</span><span class="o">=</span><span class="n">target</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>Life expectancy</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>Adult Mortality</th>
+      <td>-0.696359</td>
+    </tr>
+    <tr>
+      <th>HIV/AIDS</th>
+      <td>-0.556556</td>
+    </tr>
+    <tr>
+      <th>thinness 1-19 years</th>
+      <td>-0.477183</td>
+    </tr>
+    <tr>
+      <th>thinness 5-9 years</th>
+      <td>-0.471584</td>
+    </tr>
+    <tr>
+      <th>under-five deaths</th>
+      <td>-0.222529</td>
+    </tr>
+    <tr>
+      <th>infant deaths</th>
+      <td>-0.196557</td>
+    </tr>
+    <tr>
+      <th>Measles</th>
+      <td>-0.157586</td>
+    </tr>
+    <tr>
+      <th>Year</th>
+      <td>0.170033</td>
+    </tr>
+    <tr>
+      <th>Total expenditure</th>
+      <td>0.218086</td>
+    </tr>
+    <tr>
+      <th>Hepatitis B</th>
+      <td>0.256762</td>
+    </tr>
+    <tr>
+      <th>percentage expenditure</th>
+      <td>0.381864</td>
+    </tr>
+    <tr>
+      <th>Alcohol</th>
+      <td>0.404877</td>
+    </tr>
+    <tr>
+      <th>GDP</th>
+      <td>0.461455</td>
+    </tr>
+    <tr>
+      <th>Polio</th>
+      <td>0.465556</td>
+    </tr>
+    <tr>
+      <th>Diphtheria</th>
+      <td>0.479495</td>
+    </tr>
+    <tr>
+      <th>BMI</th>
+      <td>0.567694</td>
+    </tr>
+    <tr>
+      <th>Income composition of resources</th>
+      <td>0.724776</td>
+    </tr>
+    <tr>
+      <th>Schooling</th>
+      <td>0.751975</td>
+    </tr>
+    <tr>
+      <th>Life expectancy</th>
+      <td>1.000000</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+</section>
+</section>
+<section id="data-modeling">
+<h2>Data Modeling<a class="headerlink" href="#data-modeling" title="Link to this heading">¶</a></h2>
+<p>We’re finally ready to do some data modeling using scikit-learn. In this cell we import some methods we’ll use, reload the data frame (just to be safe), re-pre-process-it, and one-hot-encode all the categorical variables.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+<span class="kn">from</span> <span class="nn">sklearn.model_selection</span> <span class="kn">import</span> <span class="n">train_test_split</span>
+<span class="kn">from</span> <span class="nn">sklearn.preprocessing</span> <span class="kn">import</span> <span class="n">LabelEncoder</span>
+<span class="kn">from</span> <span class="nn">sklearn.tree</span> <span class="kn">import</span> <span class="n">DecisionTreeClassifier</span>
+<span class="kn">from</span> <span class="nn">sklearn.metrics</span> <span class="kn">import</span> <span class="n">accuracy_score</span><span class="p">,</span> <span class="n">classification_report</span>
+</pre></div>
+</div>
+</div>
+</div>
+<section id="linear-regression">
+<h3>Linear Regression<a class="headerlink" href="#linear-regression" title="Link to this heading">¶</a></h3>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">get_data</span><span class="p">(</span><span class="n">filename</span><span class="p">):</span>
+    <span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="n">filename</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">df</span>    
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">sklearn.impute</span> <span class="kn">import</span> <span class="n">SimpleImputer</span>
+<span class="kn">from</span> <span class="nn">sklearn.compose</span> <span class="kn">import</span> <span class="n">ColumnTransformer</span>
+<span class="kn">from</span> <span class="nn">sklearn.impute</span> <span class="kn">import</span> <span class="n">SimpleImputer</span>
+<span class="kn">from</span> <span class="nn">sklearn.preprocessing</span> <span class="kn">import</span> <span class="n">OneHotEncoder</span>
+<span class="kn">from</span> <span class="nn">sklearn.pipeline</span> <span class="kn">import</span> <span class="n">Pipeline</span>
+<span class="kn">from</span> <span class="nn">sklearn.preprocessing</span> <span class="kn">import</span> <span class="n">OrdinalEncoder</span>
+
+
+<span class="k">def</span> <span class="nf">pre_process_data</span><span class="p">(</span><span class="n">df</span><span class="p">,</span> <span class="n">one_hot_encode</span> <span class="o">=</span> <span class="kc">False</span><span class="p">):</span>
+    <span class="n">target</span> <span class="o">=</span> <span class="s2">&quot;Life expectancy&quot;</span>    
+    <span class="n">simple_median</span> <span class="o">=</span> <span class="n">SimpleImputer</span><span class="p">(</span><span class="n">strategy</span><span class="o">=</span><span class="s1">&#39;median&#39;</span><span class="p">)</span>
+    <span class="n">simple_most_freq</span> <span class="o">=</span> <span class="n">SimpleImputer</span><span class="p">(</span><span class="n">strategy</span><span class="o">=</span><span class="s1">&#39;most_frequent&#39;</span><span class="p">)</span>
+    
+    <span class="n">num_cols</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">select_dtypes</span><span class="p">(</span><span class="n">include</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">number</span><span class="p">)</span><span class="o">.</span><span class="n">columns</span>
+    <span class="n">cat_cols</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">select_dtypes</span><span class="p">(</span><span class="n">include</span><span class="o">=</span><span class="nb">object</span><span class="p">)</span><span class="o">.</span><span class="n">columns</span>
+
+    <span class="n">df</span><span class="p">[</span><span class="n">num_cols</span><span class="p">]</span> <span class="o">=</span> <span class="n">simple_median</span><span class="o">.</span><span class="n">fit_transform</span><span class="p">(</span><span class="n">df</span><span class="p">[</span><span class="n">num_cols</span><span class="p">])</span>
+    <span class="n">df</span><span class="p">[</span><span class="n">cat_cols</span><span class="p">]</span> <span class="o">=</span> <span class="n">simple_most_freq</span><span class="o">.</span><span class="n">fit_transform</span><span class="p">(</span><span class="n">df</span><span class="p">[</span><span class="n">cat_cols</span><span class="p">])</span>
+    
+    <span class="c1"># O_encoder = OrdinalEncoder()</span>
+    <span class="c1"># df[cat_cols]= O_encoder.fit_transform(df[cat_cols])</span>
+
+    <span class="k">if</span> <span class="n">one_hot_encode</span><span class="p">:</span>
+        <span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">get_dummies</span><span class="p">(</span><span class="n">df</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="nb">int</span><span class="p">)</span>
+        
+    <span class="k">return</span> <span class="n">df</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">get_test_train</span><span class="p">(</span><span class="n">df</span><span class="p">,</span> <span class="n">test_size</span> <span class="o">=</span> <span class="mf">0.2</span><span class="p">,</span> <span class="n">random_state</span> <span class="o">=</span> <span class="mi">42</span><span class="p">):</span>
+    <span class="n">target</span> <span class="o">=</span> <span class="s2">&quot;Life expectancy&quot;</span>    
+    <span class="n">X</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">drop</span><span class="p">(</span><span class="n">target</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+    <span class="n">y</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="n">target</span><span class="p">]</span>
+    <span class="n">X_train</span><span class="p">,</span> <span class="n">X_test</span><span class="p">,</span> <span class="n">y_train</span><span class="p">,</span> <span class="n">y_test</span> <span class="o">=</span> <span class="n">train_test_split</span><span class="p">(</span><span class="n">X</span><span class="p">,</span><span class="n">y</span><span class="p">,</span><span class="n">test_size</span><span class="o">=</span><span class="n">test_size</span><span class="p">,</span> <span class="n">random_state</span><span class="o">=</span><span class="n">random_state</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">X_train</span><span class="p">,</span> <span class="n">X_test</span><span class="p">,</span> <span class="n">y_train</span><span class="p">,</span> <span class="n">y_test</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span> <span class="o">=</span> <span class="n">get_data</span><span class="p">(</span><span class="n">filename</span><span class="p">)</span>
+<span class="n">df</span> <span class="o">=</span> <span class="n">pre_process_data</span><span class="p">(</span><span class="n">df</span><span class="p">,</span> <span class="n">one_hot_encode</span> <span class="o">=</span> <span class="kc">True</span><span class="p">)</span>
+<span class="n">X_train</span><span class="p">,</span> <span class="n">X_test</span><span class="p">,</span> <span class="n">y_train</span><span class="p">,</span> <span class="n">y_test</span> <span class="o">=</span> <span class="n">get_test_train</span><span class="p">(</span><span class="n">df</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">clf</span> <span class="o">=</span> <span class="n">LinearRegression</span><span class="p">()</span>
+<span class="n">model</span> <span class="o">=</span> <span class="n">clf</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">X_train</span><span class="p">,</span> <span class="n">y_train</span><span class="p">)</span>
+
+<span class="n">y_pred</span> <span class="o">=</span> <span class="n">clf</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">X_test</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Train R-squared = </span><span class="si">{</span><span class="n">r2_score</span><span class="p">(</span><span class="n">clf</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">X_train</span><span class="p">),</span><span class="w"> </span><span class="n">y_train</span><span class="p">)</span><span class="si">:</span><span class="s2">5.3</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Test R-squared  = </span><span class="si">{</span><span class="n">r2_score</span><span class="p">(</span><span class="n">y_pred</span><span class="p">,</span><span class="w"> </span><span class="n">y_test</span><span class="p">)</span><span class="si">:</span><span class="s2">5.3</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Train R-squared = 0.962
+Test R-squared  = 0.964
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">plt</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">y_test</span><span class="p">,</span> <span class="n">y_pred</span><span class="p">);</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">([</span><span class="mi">40</span><span class="p">,</span><span class="mi">90</span><span class="p">],[</span><span class="mi">40</span><span class="p">,</span><span class="mi">90</span><span class="p">],</span><span class="n">color</span><span class="o">=</span><span class="s1">&#39;red&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s2">&quot;Predicted LE vs. Real LE&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s2">&quot;True Life Expectancy&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s2">&quot;Predicted LE&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Text(0, 0.5, &#39;Predicted LE&#39;)
+</pre></div>
+</div>
+<img alt="../_images/4414554f27d6b606c5b9ad56a596b3d2576e7d555f60e9cbe640a5531e723563.png" src="../_images/4414554f27d6b606c5b9ad56a596b3d2576e7d555f60e9cbe640a5531e723563.png" />
+</div>
+</div>
+</section>
+</section>
+<section id="advanced-techniques">
+<h2>Advanced Techniques<a class="headerlink" href="#advanced-techniques" title="Link to this heading">¶</a></h2>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+<span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+
+<span class="c1"># Assuming `df` is your DataFrame with 20 numerical features and &#39;LifeExpectancy&#39; as the target variable</span>
+<span class="n">target</span> <span class="o">=</span> <span class="s1">&#39;Life expectancy&#39;</span>
+<span class="n">df</span> <span class="o">=</span> <span class="n">get_data</span><span class="p">(</span><span class="n">filename</span><span class="p">)</span>
+<span class="n">df</span> <span class="o">=</span> <span class="n">pre_process_data</span><span class="p">(</span><span class="n">df</span><span class="p">)</span>
+<span class="n">features</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">drop</span><span class="p">(</span><span class="n">target</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span><span class="o">.</span><span class="n">select_dtypes</span><span class="p">(</span><span class="n">include</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;number&#39;</span><span class="p">])</span><span class="o">.</span><span class="n">columns</span>
+
+<span class="c1"># Set up a grid of subplots</span>
+<span class="n">num_features</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">features</span><span class="p">)</span>
+<span class="n">num_cols</span> <span class="o">=</span> <span class="mi">5</span>  <span class="c1"># Adjust this to your preference</span>
+<span class="n">num_rows</span> <span class="o">=</span> <span class="p">(</span><span class="n">num_features</span> <span class="o">+</span> <span class="n">num_cols</span> <span class="o">-</span> <span class="mi">1</span><span class="p">)</span> <span class="o">//</span> <span class="n">num_cols</span>  <span class="c1"># Calculates rows needed</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">15</span><span class="p">,</span> <span class="n">num_rows</span> <span class="o">*</span> <span class="mi">3</span><span class="p">))</span>
+
+<span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="n">feature</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">features</span><span class="p">,</span> <span class="mi">1</span><span class="p">):</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">subplot</span><span class="p">(</span><span class="n">num_rows</span><span class="p">,</span> <span class="n">num_cols</span><span class="p">,</span> <span class="n">i</span><span class="p">)</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">df</span><span class="p">[</span><span class="n">feature</span><span class="p">],</span> <span class="n">df</span><span class="p">[</span><span class="n">target</span><span class="p">],</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.5</span><span class="p">)</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;</span><span class="si">{</span><span class="n">feature</span><span class="si">}</span><span class="s1"> vs. LE&#39;</span><span class="p">)</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="n">feature</span><span class="p">)</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="n">target</span><span class="p">)</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">tight_layout</span><span class="p">()</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/d92745f393242e3ee1a4a3e4c0b86b9e2e6bc2e79afcdd41c6bdad2e2d298121.png" src="../_images/d92745f393242e3ee1a4a3e4c0b86b9e2e6bc2e79afcdd41c6bdad2e2d298121.png" />
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span><span class="o">.</span><span class="n">hist</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">15</span><span class="p">,</span><span class="mi">15</span><span class="p">));</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/4010422510d6cb486a405872e8b841a943dfc41dd88465ec7f7398b11edf9841.png" src="../_images/4010422510d6cb486a405872e8b841a943dfc41dd88465ec7f7398b11edf9841.png" />
+</div>
+</div>
+</section>
+<section id="pre-processing">
+<h2>Pre-processing<a class="headerlink" href="#pre-processing" title="Link to this heading">¶</a></h2>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">statsmodels.api</span> <span class="k">as</span> <span class="nn">sm</span>
+
+<span class="c1"># Add a constant to the model (intercept)</span>
+
+<span class="c1"># Fit the OLS model</span>
+<span class="n">model</span> <span class="o">=</span> <span class="n">sm</span><span class="o">.</span><span class="n">OLS</span><span class="p">(</span><span class="n">y_train</span><span class="p">,</span> <span class="n">X_train</span><span class="p">)</span><span class="o">.</span><span class="n">fit</span><span class="p">()</span>
+
+<span class="c1"># Get a summary of the regression</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">model</span><span class="o">.</span><span class="n">summary</span><span class="p">())</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>                            OLS Regression Results                            
+==============================================================================
+Dep. Variable:        Life expectancy   R-squared:                       0.963
+Model:                            OLS   Adj. R-squared:                  0.960
+Method:                 Least Squares   F-statistic:                     267.9
+Date:                Wed, 09 Oct 2024   Prob (F-statistic):               0.00
+Time:                        13:15:47   Log-Likelihood:                -4758.9
+No. Observations:                2350   AIC:                             9938.
+Df Residuals:                    2140   BIC:                         1.115e+04
+Df Model:                         209                                         
+Covariance Type:            nonrobust                                         
+================================================================================================================================
+                                                                   coef    std err          t      P&gt;|t|      [0.025      0.975]
+--------------------------------------------------------------------------------------------------------------------------------
+Year                                                             0.2628      0.012     21.916      0.000       0.239       0.286
+Adult Mortality                                                 -0.0023      0.001     -4.404      0.000      -0.003      -0.001
+infant deaths                                                    0.0780      0.012      6.412      0.000       0.054       0.102
+Alcohol                                                         -0.0677      0.027     -2.542      0.011      -0.120      -0.015
+percentage expenditure                                           0.0001   5.68e-05      2.340      0.019    2.15e-05       0.000
+Hepatitis B                                                     -0.0058      0.002     -2.601      0.009      -0.010      -0.001
+Measles                                                      -9.721e-06   4.84e-06     -2.008      0.045   -1.92e-05   -2.26e-07
+BMI                                                             -0.0051      0.003     -1.513      0.130      -0.012       0.002
+under-five deaths                                               -0.0572      0.008     -6.785      0.000      -0.074      -0.041
+Polio                                                            0.0031      0.003      1.203      0.229      -0.002       0.008
+Total expenditure                                               -0.0454      0.025     -1.811      0.070      -0.095       0.004
+Diphtheria                                                       0.0078      0.003      2.866      0.004       0.002       0.013
+HIV/AIDS                                                        -0.3209      0.017    -18.573      0.000      -0.355      -0.287
+GDP                                                          -1.317e-05   8.83e-06     -1.492      0.136   -3.05e-05    4.14e-06
+Population                                                   -1.166e-09   1.02e-09     -1.138      0.255   -3.18e-09    8.43e-10
+thinness 1-19 years                                              0.0204      0.032      0.645      0.519      -0.042       0.082
+thinness 5-9 years                                               0.0319      0.032      1.012      0.312      -0.030       0.094
+Income composition of resources                                 -0.1747      0.511     -0.342      0.733      -1.177       0.828
+Schooling                                                        0.1478      0.046      3.234      0.001       0.058       0.237
+Country_Afghanistan                                            -12.5602      0.654    -19.206      0.000     -13.843     -11.278
+Country_Albania                                                  4.1251      0.546      7.562      0.000       3.055       5.195
+Country_Algeria                                                  1.9191      0.572      3.356      0.001       0.798       3.040
+Country_Angola                                                 -19.1966      0.634    -30.267      0.000     -20.440     -17.953
+Country_Antigua and Barbuda                                      4.8363      0.613      7.896      0.000       3.635       6.038
+Country_Argentina                                                3.8199      0.590      6.479      0.000       2.664       4.976
+Country_Armenia                                                  2.4163      0.601      4.018      0.000       1.237       3.596
+Country_Australia                                              -11.7984      0.828    -14.243      0.000     -13.423     -10.174
+Country_Austria                                                -11.4436      0.922    -12.409      0.000     -13.252      -9.635
+Country_Azerbaijan                                              -0.5232      0.536     -0.977      0.329      -1.574       0.527
+Country_Bahamas                                                  3.6949      0.627      5.896      0.000       2.466       4.924
+Country_Bahrain                                                  4.0994      0.599      6.841      0.000       2.924       5.275
+Country_Bangladesh                                              -2.7625      0.704     -3.922      0.000      -4.144      -1.381
+Country_Barbados                                                 3.3191      0.612      5.427      0.000       2.120       4.518
+Country_Belarus                                                 -0.4641      0.634     -0.732      0.465      -1.708       0.780
+Country_Belgium                                                -12.1375      0.887    -13.676      0.000     -13.878     -10.397
+Country_Belize                                                  -1.3670      0.576     -2.373      0.018      -2.497      -0.237
+Country_Benin                                                  -12.3161      0.594    -20.723      0.000     -13.482     -11.151
+Country_Bhutan                                                  -5.6748      0.721     -7.868      0.000      -7.089      -4.260
+Country_Bolivia (Plurinational State of)                        -3.0289      0.580     -5.225      0.000      -4.166      -1.892
+Country_Bosnia and Herzegovina                                   5.1239      0.611      8.389      0.000       3.926       6.322
+Country_Botswana                                                -9.2538      0.582    -15.888      0.000     -10.396      -8.112
+Country_Brazil                                                   1.5147      0.631      2.402      0.016       0.278       2.751
+Country_Brunei Darussalam                                        4.6145      0.537      8.597      0.000       3.562       5.667
+Country_Bulgaria                                               -19.4348      0.925    -21.002      0.000     -21.250     -17.620
+Country_Burkina Faso                                           -12.7039      0.750    -16.938      0.000     -14.175     -11.233
+Country_Burundi                                                -13.3554      0.638    -20.919      0.000     -14.607     -12.103
+Country_Cabo Verde                                               1.3837      0.581      2.381      0.017       0.244       2.523
+Country_Cambodia                                                -6.2931      0.614    -10.243      0.000      -7.498      -5.088
+Country_Cameroon                                               -13.7371      0.599    -22.928      0.000     -14.912     -12.562
+Country_Canada                                                  10.3186      0.646     15.966      0.000       9.051      11.586
+Country_Central African Republic                               -18.2718      0.665    -27.468      0.000     -19.576     -16.967
+Country_Chad                                                   -17.1495      0.699    -24.536      0.000     -18.520     -15.779
+Country_Chile                                                    8.0832      0.595     13.578      0.000       6.916       9.251
+Country_China                                                    0.6775      1.005      0.674      0.500      -1.293       2.648
+Country_Colombia                                                 2.3495      0.518      4.536      0.000       1.334       3.365
+Country_Comoros                                                 -8.9342      0.638    -13.996      0.000     -10.186      -7.682
+Country_Congo                                                  -10.2120      0.578    -17.680      0.000     -11.345      -9.079
+Country_Cook Islands                                            -0.3522      1.929     -0.183      0.855      -4.135       3.430
+Country_Costa Rica                                               7.5549      0.510     14.817      0.000       6.555       8.555
+Country_Croatia                                                -16.2245      0.946    -17.148      0.000     -18.080     -14.369
+Country_Cuba                                                     6.3740      0.523     12.186      0.000       5.348       7.400
+Country_Cyprus                                                 -12.6044      0.931    -13.539      0.000     -14.430     -10.779
+Country_Czechia                                                -15.3735      0.987    -15.578      0.000     -17.309     -13.438
+Country_Côte d&#39;Ivoire                                          -18.7114      0.621    -30.153      0.000     -19.928     -17.494
+Country_Democratic People&#39;s Republic of Korea                   -2.3606      0.531     -4.446      0.000      -3.402      -1.319
+Country_Democratic Republic of the Congo                       -14.0841      0.704    -20.001      0.000     -15.465     -12.703
+Country_Denmark                                                -13.7976      0.859    -16.069      0.000     -15.482     -12.114
+Country_Djibouti                                                -8.6067      0.672    -12.802      0.000      -9.925      -7.288
+Country_Dominica                                                -0.5753      1.920     -0.300      0.765      -4.341       3.191
+Country_Dominican Republic                                       1.6690      0.540      3.091      0.002       0.610       2.728
+Country_Ecuador                                                  3.6705      0.518      7.080      0.000       2.654       4.687
+Country_Egypt                                                   -0.0465      0.604     -0.077      0.939      -1.232       1.139
+Country_El Salvador                                              0.6517      0.536      1.216      0.224      -0.400       1.703
+Country_Equatorial Guinea                                      -12.8233      0.633    -20.267      0.000     -14.064     -11.582
+Country_Eritrea                                                 -9.2433      0.669    -13.826      0.000     -10.554      -7.932
+Country_Estonia                                                  3.7999      0.638      5.960      0.000       2.550       5.050
+Country_Ethiopia                                                -7.9965      0.686    -11.649      0.000      -9.343      -6.650
+Country_Fiji                                                    -2.9123      0.576     -5.053      0.000      -4.043      -1.782
+Country_Finland                                                  9.4469      0.584     16.165      0.000       8.301      10.593
+Country_France                                                  10.8405      0.672     16.124      0.000       9.522      12.159
+Country_Gabon                                                   -5.7206      0.571    -10.017      0.000      -6.841      -4.601
+Country_Gambia                                                 -10.2851      0.564    -18.248      0.000     -11.390      -9.180
+Country_Georgia                                                  2.5948      0.535      4.848      0.000       1.545       3.644
+Country_Germany                                                -11.6530      0.891    -13.086      0.000     -13.399      -9.907
+Country_Ghana                                                   -8.8819      0.622    -14.290      0.000     -10.101      -7.663
+Country_Greece                                                  10.6086      0.662     16.018      0.000       9.310      11.907
+Country_Grenada                                                  1.6641      0.656      2.537      0.011       0.378       2.950
+Country_Guatemala                                                1.6711      0.588      2.843      0.005       0.518       2.824
+Country_Guinea                                                 -13.2949      0.667    -19.928      0.000     -14.603     -11.987
+Country_Guinea-Bissau                                          -13.7809      0.658    -20.955      0.000     -15.071     -12.491
+Country_Guyana                                                  -4.4222      0.587     -7.534      0.000      -5.573      -3.271
+Country_Haiti                                                   -9.4562      0.618    -15.312      0.000     -10.667      -8.245
+Country_Honduras                                                 2.4061      0.542      4.436      0.000       1.342       3.470
+Country_Hungary                                                -18.5916      0.880    -21.119      0.000     -20.318     -16.865
+Country_Iceland                                                -10.9866      0.830    -13.242      0.000     -12.614      -9.359
+Country_India                                                   -8.7540      2.657     -3.295      0.001     -13.965      -3.543
+Country_Indonesia                                               -4.3764      0.720     -6.076      0.000      -5.789      -2.964
+Country_Iran (Islamic Republic of)                               2.2397      0.661      3.390      0.001       0.944       3.535
+Country_Iraq                                                    -0.6459      0.566     -1.140      0.254      -1.757       0.465
+Country_Ireland                                                -13.0366      0.854    -15.262      0.000     -14.712     -11.361
+Country_Israel                                                   9.8839      0.542     18.237      0.000       8.821      10.947
+Country_Italy                                                  -10.2338      0.897    -11.414      0.000     -11.992      -8.476
+Country_Jamaica                                                  3.7132      0.519      7.154      0.000       2.695       4.731
+Country_Japan                                                  -10.7261      0.915    -11.719      0.000     -12.521      -8.931
+Country_Jordan                                                   1.6096      0.628      2.565      0.010       0.379       2.840
+Country_Kazakhstan                                              -4.1239      0.530     -7.783      0.000      -5.163      -3.085
+Country_Kenya                                                   -9.8681      0.701    -14.078      0.000     -11.243      -8.494
+Country_Kiribati                                                -5.8018      0.560    -10.359      0.000      -6.900      -4.703
+Country_Kuwait                                                   2.3244      0.572      4.060      0.000       1.202       3.447
+Country_Kyrgyzstan                                              -1.7812      0.573     -3.108      0.002      -2.905      -0.657
+Country_Lao People&#39;s Democratic Republic                        -8.6250      0.652    -13.220      0.000      -9.904      -7.346
+Country_Latvia                                                 -19.5572      0.913    -21.427      0.000     -21.347     -17.767
+Country_Lebanon                                                  2.7358      0.551      4.968      0.000       1.656       3.816
+Country_Lesotho                                                -13.7909      0.687    -20.083      0.000     -15.138     -12.444
+Country_Liberia                                                -11.8216      0.637    -18.548      0.000     -13.071     -10.572
+Country_Libya                                                    0.8550      0.561      1.524      0.128      -0.245       1.955
+Country_Lithuania                                              -19.8510      0.910    -21.818      0.000     -21.635     -18.067
+Country_Luxembourg                                             -12.1310      0.936    -12.957      0.000     -13.967     -10.295
+Country_Madagascar                                              -7.3647      0.611    -12.063      0.000      -8.562      -6.167
+Country_Malawi                                                 -14.5938      0.624    -23.372      0.000     -15.818     -13.369
+Country_Malaysia                                                 2.0359      0.544      3.741      0.000       0.969       3.103
+Country_Maldives                                                 3.8868      0.708      5.489      0.000       2.498       5.276
+Country_Mali                                                   -13.7600      0.614    -22.421      0.000     -14.964     -12.556
+Country_Malta                                                  -12.2713      0.879    -13.955      0.000     -13.996     -10.547
+Country_Marshall Islands                                         1.6728      2.048      0.817      0.414      -2.343       5.688
+Country_Mauritania                                              -7.1774      0.592    -12.131      0.000      -8.338      -6.017
+Country_Mauritius                                                1.1115      0.537      2.071      0.038       0.059       2.164
+Country_Mexico                                                   4.5619      0.542      8.421      0.000       3.500       5.624
+Country_Micronesia (Federated States of)                        -2.1359      0.589     -3.624      0.000      -3.292      -0.980
+Country_Monaco                                                  -0.6930      1.920     -0.361      0.718      -4.459       3.073
+Country_Mongolia                                                -5.0890      0.535     -9.510      0.000      -6.138      -4.040
+Country_Montenegro                                               3.3868      0.578      5.856      0.000       2.253       4.521
+Country_Morocco                                                  0.6693      0.528      1.268      0.205      -0.366       1.705
+Country_Mozambique                                             -12.4587      0.707    -17.622      0.000     -13.845     -11.072
+Country_Myanmar                                                 -7.0211      0.641    -10.952      0.000      -8.278      -5.764
+Country_Namibia                                                 -5.9434      0.622     -9.559      0.000      -7.163      -4.724
+Country_Nauru                                                    0.1517      1.936      0.078      0.938      -3.645       3.949
+Country_Nepal                                                   -5.2503      0.650     -8.079      0.000      -6.525      -3.976
+Country_Netherlands                                            -12.2373      0.875    -13.984      0.000     -13.953     -10.521
+Country_New Zealand                                            -11.9634      0.856    -13.975      0.000     -13.642     -10.285
+Country_Nicaragua                                                3.0351      0.577      5.265      0.000       1.905       4.166
+Country_Niger                                                  -10.2640      0.734    -13.990      0.000     -11.703      -8.825
+Country_Nigeria                                                 -9.6062      1.323     -7.262      0.000     -12.200      -7.012
+Country_Niue                                                    -0.2211      1.927     -0.115      0.909      -3.999       3.557
+Country_Norway                                                 -11.7505      0.878    -13.383      0.000     -13.472     -10.029
+Country_Oman                                                     3.1708      0.541      5.857      0.000       2.109       4.233
+Country_Pakistan                                                -8.7646      1.064     -8.236      0.000     -10.851      -6.678
+Country_Palau                                                   -0.1512      1.928     -0.078      0.937      -3.932       3.629
+Country_Panama                                                   5.7315      0.527     10.877      0.000       4.698       6.765
+Country_Papua New Guinea                                        -8.1734      0.577    -14.162      0.000      -9.305      -7.042
+Country_Paraguay                                                 2.3642      0.539      4.387      0.000       1.307       3.421
+Country_Peru                                                     2.5897      0.538      4.809      0.000       1.534       3.646
+Country_Philippines                                             -3.6853      0.618     -5.965      0.000      -4.897      -2.474
+Country_Poland                                                 -17.0092      0.889    -19.132      0.000     -18.753     -15.266
+Country_Portugal                                               -12.5562      0.908    -13.834      0.000     -14.336     -10.776
+Country_Qatar                                                    5.7333      0.633      9.062      0.000       4.493       6.974
+Country_Republic of Korea                                        9.5900      0.650     14.751      0.000       8.315      10.865
+Country_Republic of Moldova                                      0.0469      0.605      0.077      0.938      -1.140       1.234
+Country_Romania                                                -18.5794      0.950    -19.564      0.000     -20.442     -16.717
+Country_Russian Federation                                      -2.7774      0.559     -4.967      0.000      -3.874      -1.681
+Country_Rwanda                                                  -9.7279      0.563    -17.272      0.000     -10.832      -8.623
+Country_Saint Kitts and Nevis                                   -0.3742      1.929     -0.194      0.846      -4.158       3.409
+Country_Saint Lucia                                              3.0517      0.573      5.328      0.000       1.928       4.175
+Country_Saint Vincent and the Grenadines                         3.0522      0.577      5.289      0.000       1.921       4.184
+Country_Samoa                                                    3.2221      0.590      5.458      0.000       2.064       4.380
+Country_San Marino                                            1.281e-15   3.25e-16      3.945      0.000    6.44e-16    1.92e-15
+Country_Sao Tome and Principe                                   -5.5226      0.570     -9.692      0.000      -6.640      -4.405
+Country_Saudi Arabia                                             1.5367      0.542      2.836      0.005       0.474       2.599
+Country_Senegal                                                 -7.5512      0.613    -12.318      0.000      -8.753      -6.349
+Country_Serbia                                                   3.0942      0.570      5.424      0.000       1.976       4.213
+Country_Seychelles                                               1.1472      0.510      2.247      0.025       0.146       2.148
+Country_Sierra Leone                                           -23.4103      0.595    -39.341      0.000     -24.577     -22.243
+Country_Singapore                                              -11.7512      0.895    -13.130      0.000     -13.506      -9.996
+Country_Slovakia                                               -17.6592      0.932    -18.956      0.000     -19.486     -15.832
+Country_Slovenia                                               -12.7290      0.912    -13.962      0.000     -14.517     -10.941
+Country_Solomon Islands                                         -2.8756      0.628     -4.575      0.000      -4.108      -1.643
+Country_Somalia                                                -16.4311      0.613    -26.798      0.000     -17.634     -15.229
+Country_South Africa                                            -7.2253      0.676    -10.695      0.000      -8.550      -5.900
+Country_South Sudan                                            -13.5777      0.736    -18.449      0.000     -15.021     -12.134
+Country_Spain                                                  -11.2193      0.861    -13.024      0.000     -12.909      -9.530
+Country_Sri Lanka                                                1.2581      0.605      2.080      0.038       0.072       2.444
+Country_Sudan                                                   -7.4963      0.620    -12.091      0.000      -8.712      -6.280
+Country_Suriname                                                -0.2626      0.601     -0.437      0.662      -1.442       0.917
+Country_Swaziland                                               -8.2209      0.820    -10.030      0.000      -9.828      -6.613
+Country_Sweden                                                 -10.4318      0.852    -12.240      0.000     -12.103      -8.760
+Country_Switzerland                                            -10.8080      0.938    -11.521      0.000     -12.648      -8.968
+Country_Syrian Arab Republic                                    -0.0209      0.563     -0.037      0.970      -1.125       1.083
+Country_Tajikistan                                              -4.5686      0.537     -8.503      0.000      -5.622      -3.515
+Country_Thailand                                                 1.7351      0.639      2.716      0.007       0.482       2.988
+Country_The former Yugoslav republic of Macedonia                2.9756      0.615      4.836      0.000       1.769       4.182
+Country_Timor-Leste                                             -7.1945      0.647    -11.123      0.000      -8.463      -5.926
+Country_Togo                                                   -12.9612      0.604    -21.457      0.000     -14.146     -11.777
+Country_Tonga                                                    1.0971      0.596      1.841      0.066      -0.072       2.266
+Country_Trinidad and Tobago                                      0.2871      0.559      0.514      0.607      -0.808       1.383
+Country_Tunisia                                                  2.5458      0.555      4.585      0.000       1.457       3.635
+Country_Turkey                                                   2.5928      0.530      4.892      0.000       1.553       3.632
+Country_Turkmenistan                                            -6.1294      0.621     -9.877      0.000      -7.346      -4.912
+Country_Tuvalu                                               -2.723e-07   3.19e-08     -8.533      0.000   -3.35e-07    -2.1e-07
+Country_Uganda                                                 -11.1372      0.692    -16.091      0.000     -12.495      -9.780
+Country_Ukraine                                                 -0.7919      0.523     -1.514      0.130      -1.818       0.234
+Country_United Arab Emirates                                     4.1369      0.562      7.365      0.000       3.035       5.238
+Country_United Kingdom of Great Britain and Northern Ireland   -11.2227      0.950    -11.813      0.000     -13.086      -9.360
+Country_United Republic of Tanzania                            -12.0977      0.589    -20.550      0.000     -13.252     -10.943
+Country_United States of America                               -14.2563      0.974    -14.634      0.000     -16.167     -12.346
+Country_Uruguay                                                  5.1690      0.553      9.350      0.000       4.085       6.253
+Country_Uzbekistan                                              -3.2687      0.553     -5.914      0.000      -4.353      -2.185
+Country_Vanuatu                                                  0.6602      0.568      1.162      0.245      -0.454       1.774
+Country_Venezuela (Bolivarian Republic of)                       2.8068      0.589      4.764      0.000       1.651       3.962
+Country_Viet Nam                                                 2.7917      0.609      4.583      0.000       1.597       3.986
+Country_Yemen                                                   -7.2082      0.655    -11.003      0.000      -8.493      -5.924
+Country_Zambia                                                 -12.2124      0.573    -21.315      0.000     -13.336     -11.089
+Country_Zimbabwe                                               -12.9092      0.694    -18.610      0.000     -14.270     -11.549
+Status_Developed                                              -436.0261     22.964    -18.987      0.000    -481.060    -390.992
+Status_Developing                                             -457.7453     23.650    -19.355      0.000    -504.125    -411.365
+==============================================================================
+Omnibus:                      570.909   Durbin-Watson:                   1.911
+Prob(Omnibus):                  0.000   Jarque-Bera (JB):            16400.405
+Skew:                           0.503   Prob(JB):                         0.00
+Kurtosis:                      15.903   Cond. No.                     8.21e+24
+==============================================================================
+
+Notes:
+[1] Standard Errors assume that the covariance matrix of the errors is correctly specified.
+[2] The smallest eigenvalue is 8.56e-32. This might indicate that there are
+strong multicollinearity problems or that the design matrix is singular.
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Extract the summary table as a DataFrame</span>
+<span class="n">summary_table</span> <span class="o">=</span> <span class="n">model</span><span class="o">.</span><span class="n">summary2</span><span class="p">()</span><span class="o">.</span><span class="n">tables</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span>  <span class="c1"># tables[1] is the coefficients table in summary2()</span>
+
+<span class="c1"># Sort by p-values (for example)</span>
+<span class="n">sorted_summary</span> <span class="o">=</span> <span class="n">summary_table</span><span class="o">.</span><span class="n">sort_values</span><span class="p">(</span><span class="n">by</span><span class="o">=</span><span class="s1">&#39;t&#39;</span><span class="p">)</span>
+
+
+<span class="c1"># Set display options to prevent truncation</span>
+<span class="n">pd</span><span class="o">.</span><span class="n">options</span><span class="o">.</span><span class="n">display</span><span class="o">.</span><span class="n">max_rows</span> <span class="o">=</span> <span class="kc">None</span>  <span class="c1"># Shows all rows</span>
+<span class="n">pd</span><span class="o">.</span><span class="n">options</span><span class="o">.</span><span class="n">display</span><span class="o">.</span><span class="n">max_columns</span> <span class="o">=</span> <span class="kc">None</span>  <span class="c1"># Shows all columns</span>
+
+<span class="n">sorted_summary</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>Coef.</th>
+      <th>Std.Err.</th>
+      <th>t</th>
+      <th>P&gt;|t|</th>
+      <th>[0.025</th>
+      <th>0.975]</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>Country_Sierra Leone</th>
+      <td>-2.384615e+01</td>
+      <td>7.024424e-01</td>
+      <td>-33.947488</td>
+      <td>1.836603e-202</td>
+      <td>-2.522370e+01</td>
+      <td>-2.246861e+01</td>
+    </tr>
+    <tr>
+      <th>Country_Lesotho</th>
+      <td>-2.098876e+01</td>
+      <td>6.818324e-01</td>
+      <td>-30.782881</td>
+      <td>1.390266e-172</td>
+      <td>-2.232589e+01</td>
+      <td>-1.965164e+01</td>
+    </tr>
+    <tr>
+      <th>Country_Swaziland</th>
+      <td>-1.954167e+01</td>
+      <td>6.639749e-01</td>
+      <td>-29.431346</td>
+      <td>3.709886e-160</td>
+      <td>-2.084378e+01</td>
+      <td>-1.823957e+01</td>
+    </tr>
+    <tr>
+      <th>Country_Malawi</th>
+      <td>-1.955037e+01</td>
+      <td>6.836621e-01</td>
+      <td>-28.596539</td>
+      <td>1.340917e-152</td>
+      <td>-2.089108e+01</td>
+      <td>-1.820966e+01</td>
+    </tr>
+    <tr>
+      <th>Country_Zimbabwe</th>
+      <td>-1.953323e+01</td>
+      <td>7.054177e-01</td>
+      <td>-27.690310</td>
+      <td>1.665289e-144</td>
+      <td>-2.091661e+01</td>
+      <td>-1.814986e+01</td>
+    </tr>
+    <tr>
+      <th>Country_Central African Republic</th>
+      <td>-2.110985e+01</td>
+      <td>7.715096e-01</td>
+      <td>-27.361745</td>
+      <td>1.336742e-141</td>
+      <td>-2.262284e+01</td>
+      <td>-1.959686e+01</td>
+    </tr>
+    <tr>
+      <th>Country_Côte d'Ivoire</th>
+      <td>-1.929140e+01</td>
+      <td>7.193652e-01</td>
+      <td>-26.817258</td>
+      <td>7.989231e-137</td>
+      <td>-2.070213e+01</td>
+      <td>-1.788067e+01</td>
+    </tr>
+    <tr>
+      <th>Country_Angola</th>
+      <td>-1.965137e+01</td>
+      <td>7.382675e-01</td>
+      <td>-26.618226</td>
+      <td>4.332100e-135</td>
+      <td>-2.109917e+01</td>
+      <td>-1.820357e+01</td>
+    </tr>
+    <tr>
+      <th>Country_Zambia</th>
+      <td>-1.577182e+01</td>
+      <td>6.545813e-01</td>
+      <td>-24.094511</td>
+      <td>1.076908e-113</td>
+      <td>-1.705550e+01</td>
+      <td>-1.448814e+01</td>
+    </tr>
+    <tr>
+      <th>Country_Lithuania</th>
+      <td>-2.320593e+01</td>
+      <td>9.969035e-01</td>
+      <td>-23.278007</td>
+      <td>4.992191e-107</td>
+      <td>-2.516093e+01</td>
+      <td>-2.125093e+01</td>
+    </tr>
+    <tr>
+      <th>Country_Latvia</th>
+      <td>-2.308448e+01</td>
+      <td>9.966439e-01</td>
+      <td>-23.162217</td>
+      <td>4.292374e-106</td>
+      <td>-2.503897e+01</td>
+      <td>-2.112999e+01</td>
+    </tr>
+    <tr>
+      <th>Country_Chad</th>
+      <td>-1.885356e+01</td>
+      <td>8.140584e-01</td>
+      <td>-23.159955</td>
+      <td>4.476320e-106</td>
+      <td>-2.044998e+01</td>
+      <td>-1.725713e+01</td>
+    </tr>
+    <tr>
+      <th>Country_Hungary</th>
+      <td>-2.195012e+01</td>
+      <td>9.568583e-01</td>
+      <td>-22.939778</td>
+      <td>2.629772e-104</td>
+      <td>-2.382659e+01</td>
+      <td>-2.007365e+01</td>
+    </tr>
+    <tr>
+      <th>Country_Somalia</th>
+      <td>-1.595300e+01</td>
+      <td>6.996920e-01</td>
+      <td>-22.800030</td>
+      <td>3.447001e-103</td>
+      <td>-1.732515e+01</td>
+      <td>-1.458085e+01</td>
+    </tr>
+    <tr>
+      <th>Country_Bulgaria</th>
+      <td>-2.292869e+01</td>
+      <td>1.009367e+00</td>
+      <td>-22.715916</td>
+      <td>1.614692e-102</td>
+      <td>-2.490813e+01</td>
+      <td>-2.094925e+01</td>
+    </tr>
+    <tr>
+      <th>Country_Botswana</th>
+      <td>-1.399261e+01</td>
+      <td>6.287431e-01</td>
+      <td>-22.254894</td>
+      <td>7.191876e-99</td>
+      <td>-1.522562e+01</td>
+      <td>-1.275960e+01</td>
+    </tr>
+    <tr>
+      <th>Country_Cameroon</th>
+      <td>-1.554462e+01</td>
+      <td>7.000790e-01</td>
+      <td>-22.204089</td>
+      <td>1.803475e-98</td>
+      <td>-1.691752e+01</td>
+      <td>-1.417171e+01</td>
+    </tr>
+    <tr>
+      <th>Status_Developing</th>
+      <td>-5.726251e+02</td>
+      <td>2.611777e+01</td>
+      <td>-21.924733</td>
+      <td>2.762853e-96</td>
+      <td>-6.238439e+02</td>
+      <td>-5.214062e+02</td>
+    </tr>
+    <tr>
+      <th>Country_Mozambique</th>
+      <td>-1.698469e+01</td>
+      <td>7.816731e-01</td>
+      <td>-21.728638</td>
+      <td>9.223281e-95</td>
+      <td>-1.851761e+01</td>
+      <td>-1.545177e+01</td>
+    </tr>
+    <tr>
+      <th>Status_Developed</th>
+      <td>-5.474589e+02</td>
+      <td>2.533915e+01</td>
+      <td>-21.605259</td>
+      <td>8.298853e-94</td>
+      <td>-5.971509e+02</td>
+      <td>-4.977670e+02</td>
+    </tr>
+    <tr>
+      <th>Country_Romania</th>
+      <td>-2.201775e+01</td>
+      <td>1.039419e+00</td>
+      <td>-21.182735</td>
+      <td>1.445750e-90</td>
+      <td>-2.405612e+01</td>
+      <td>-1.997937e+01</td>
+    </tr>
+    <tr>
+      <th>Country_Poland</th>
+      <td>-2.043647e+01</td>
+      <td>9.699842e-01</td>
+      <td>-21.068873</td>
+      <td>1.062702e-89</td>
+      <td>-2.233868e+01</td>
+      <td>-1.853426e+01</td>
+    </tr>
+    <tr>
+      <th>Country_Slovakia</th>
+      <td>-2.053319e+01</td>
+      <td>9.943115e-01</td>
+      <td>-20.650659</td>
+      <td>1.520857e-86</td>
+      <td>-2.248310e+01</td>
+      <td>-1.858327e+01</td>
+    </tr>
+    <tr>
+      <th>Country_Guinea-Bissau</th>
+      <td>-1.553999e+01</td>
+      <td>7.674100e-01</td>
+      <td>-20.249917</td>
+      <td>1.467067e-83</td>
+      <td>-1.704494e+01</td>
+      <td>-1.403504e+01</td>
+    </tr>
+    <tr>
+      <th>Country_Mali</th>
+      <td>-1.456148e+01</td>
+      <td>7.210360e-01</td>
+      <td>-20.195226</td>
+      <td>3.721311e-83</td>
+      <td>-1.597549e+01</td>
+      <td>-1.314748e+01</td>
+    </tr>
+    <tr>
+      <th>Country_Togo</th>
+      <td>-1.408157e+01</td>
+      <td>7.092691e-01</td>
+      <td>-19.853632</td>
+      <td>1.198843e-80</td>
+      <td>-1.547250e+01</td>
+      <td>-1.269064e+01</td>
+    </tr>
+    <tr>
+      <th>Country_United Republic of Tanzania</th>
+      <td>-1.350178e+01</td>
+      <td>6.803865e-01</td>
+      <td>-19.844282</td>
+      <td>1.402816e-80</td>
+      <td>-1.483607e+01</td>
+      <td>-1.216749e+01</td>
+    </tr>
+    <tr>
+      <th>Country_Croatia</th>
+      <td>-1.973008e+01</td>
+      <td>1.031898e+00</td>
+      <td>-19.120184</td>
+      <td>2.312525e-75</td>
+      <td>-2.175371e+01</td>
+      <td>-1.770645e+01</td>
+    </tr>
+    <tr>
+      <th>Country_Equatorial Guinea</th>
+      <td>-1.418284e+01</td>
+      <td>7.418940e-01</td>
+      <td>-19.117065</td>
+      <td>2.433683e-75</td>
+      <td>-1.563774e+01</td>
+      <td>-1.272793e+01</td>
+    </tr>
+    <tr>
+      <th>Country_Burundi</th>
+      <td>-1.430045e+01</td>
+      <td>7.505235e-01</td>
+      <td>-19.053966</td>
+      <td>6.829927e-75</td>
+      <td>-1.577228e+01</td>
+      <td>-1.282862e+01</td>
+    </tr>
+    <tr>
+      <th>Country_Benin</th>
+      <td>-1.286127e+01</td>
+      <td>6.992442e-01</td>
+      <td>-18.393099</td>
+      <td>2.915920e-70</td>
+      <td>-1.423254e+01</td>
+      <td>-1.149000e+01</td>
+    </tr>
+    <tr>
+      <th>Country_Denmark</th>
+      <td>-1.719045e+01</td>
+      <td>9.420532e-01</td>
+      <td>-18.247856</td>
+      <td>2.928719e-69</td>
+      <td>-1.903789e+01</td>
+      <td>-1.534302e+01</td>
+    </tr>
+    <tr>
+      <th>Country_Guinea</th>
+      <td>-1.396273e+01</td>
+      <td>7.769852e-01</td>
+      <td>-17.970394</td>
+      <td>2.315181e-67</td>
+      <td>-1.548646e+01</td>
+      <td>-1.243901e+01</td>
+    </tr>
+    <tr>
+      <th>Country_Democratic Republic of the Congo</th>
+      <td>-1.404247e+01</td>
+      <td>7.991430e-01</td>
+      <td>-17.571908</td>
+      <td>1.129680e-64</td>
+      <td>-1.560964e+01</td>
+      <td>-1.247529e+01</td>
+    </tr>
+    <tr>
+      <th>Country_Ireland</th>
+      <td>-1.641810e+01</td>
+      <td>9.391121e-01</td>
+      <td>-17.482573</td>
+      <td>4.462015e-64</td>
+      <td>-1.825976e+01</td>
+      <td>-1.457643e+01</td>
+    </tr>
+    <tr>
+      <th>Country_South Sudan</th>
+      <td>-1.473396e+01</td>
+      <td>8.460699e-01</td>
+      <td>-17.414593</td>
+      <td>1.264681e-63</td>
+      <td>-1.639317e+01</td>
+      <td>-1.307476e+01</td>
+    </tr>
+    <tr>
+      <th>Country_Czechia</th>
+      <td>-1.830798e+01</td>
+      <td>1.054105e+00</td>
+      <td>-17.368271</td>
+      <td>2.567612e-63</td>
+      <td>-2.037516e+01</td>
+      <td>-1.624081e+01</td>
+    </tr>
+    <tr>
+      <th>Country_Afghanistan</th>
+      <td>-1.244918e+01</td>
+      <td>7.229727e-01</td>
+      <td>-17.219437</td>
+      <td>2.474866e-62</td>
+      <td>-1.386699e+01</td>
+      <td>-1.103138e+01</td>
+    </tr>
+    <tr>
+      <th>Country_United States of America</th>
+      <td>-1.765947e+01</td>
+      <td>1.035835e+00</td>
+      <td>-17.048538</td>
+      <td>3.278035e-61</td>
+      <td>-1.969081e+01</td>
+      <td>-1.562812e+01</td>
+    </tr>
+    <tr>
+      <th>Country_South Africa</th>
+      <td>-1.228523e+01</td>
+      <td>7.221881e-01</td>
+      <td>-17.011122</td>
+      <td>5.756352e-61</td>
+      <td>-1.370149e+01</td>
+      <td>-1.086897e+01</td>
+    </tr>
+    <tr>
+      <th>Country_Liberia</th>
+      <td>-1.251050e+01</td>
+      <td>7.471688e-01</td>
+      <td>-16.743867</td>
+      <td>3.125821e-59</td>
+      <td>-1.397575e+01</td>
+      <td>-1.104524e+01</td>
+    </tr>
+    <tr>
+      <th>Country_Uganda</th>
+      <td>-1.321571e+01</td>
+      <td>7.893853e-01</td>
+      <td>-16.741772</td>
+      <td>3.224623e-59</td>
+      <td>-1.476375e+01</td>
+      <td>-1.166767e+01</td>
+    </tr>
+    <tr>
+      <th>Country_Malta</th>
+      <td>-1.612846e+01</td>
+      <td>9.656338e-01</td>
+      <td>-16.702460</td>
+      <td>5.779390e-59</td>
+      <td>-1.802214e+01</td>
+      <td>-1.423478e+01</td>
+    </tr>
+    <tr>
+      <th>Country_Rwanda</th>
+      <td>-1.107606e+01</td>
+      <td>6.649750e-01</td>
+      <td>-16.656350</td>
+      <td>1.144249e-58</td>
+      <td>-1.238012e+01</td>
+      <td>-9.771991e+00</td>
+    </tr>
+    <tr>
+      <th>Country_Australia</th>
+      <td>-1.512439e+01</td>
+      <td>9.093915e-01</td>
+      <td>-16.631334</td>
+      <td>1.656495e-58</td>
+      <td>-1.690778e+01</td>
+      <td>-1.334101e+01</td>
+    </tr>
+    <tr>
+      <th>Country_New Zealand</th>
+      <td>-1.549884e+01</td>
+      <td>9.374598e-01</td>
+      <td>-16.532805</td>
+      <td>7.083176e-58</td>
+      <td>-1.733727e+01</td>
+      <td>-1.366041e+01</td>
+    </tr>
+    <tr>
+      <th>Country_Netherlands</th>
+      <td>-1.579157e+01</td>
+      <td>9.629190e-01</td>
+      <td>-16.399687</td>
+      <td>4.991373e-57</td>
+      <td>-1.767993e+01</td>
+      <td>-1.390322e+01</td>
+    </tr>
+    <tr>
+      <th>Country_Portugal</th>
+      <td>-1.623373e+01</td>
+      <td>9.933403e-01</td>
+      <td>-16.342570</td>
+      <td>1.149358e-56</td>
+      <td>-1.818175e+01</td>
+      <td>-1.428572e+01</td>
+    </tr>
+    <tr>
+      <th>Country_Slovenia</th>
+      <td>-1.627526e+01</td>
+      <td>9.980914e-01</td>
+      <td>-16.306385</td>
+      <td>1.947279e-56</td>
+      <td>-1.823259e+01</td>
+      <td>-1.431793e+01</td>
+    </tr>
+    <tr>
+      <th>Country_Congo</th>
+      <td>-1.101422e+01</td>
+      <td>6.797341e-01</td>
+      <td>-16.203725</td>
+      <td>8.648265e-56</td>
+      <td>-1.234723e+01</td>
+      <td>-9.681216e+00</td>
+    </tr>
+    <tr>
+      <th>Country_Belgium</th>
+      <td>-1.571360e+01</td>
+      <td>9.743988e-01</td>
+      <td>-16.126459</td>
+      <td>2.643485e-55</td>
+      <td>-1.762447e+01</td>
+      <td>-1.380273e+01</td>
+    </tr>
+    <tr>
+      <th>Country_Cyprus</th>
+      <td>-1.636576e+01</td>
+      <td>1.018493e+00</td>
+      <td>-16.068600</td>
+      <td>6.086419e-55</td>
+      <td>-1.836310e+01</td>
+      <td>-1.436842e+01</td>
+    </tr>
+    <tr>
+      <th>Country_Singapore</th>
+      <td>-1.586329e+01</td>
+      <td>9.929674e-01</td>
+      <td>-15.975641</td>
+      <td>2.312848e-54</td>
+      <td>-1.781057e+01</td>
+      <td>-1.391601e+01</td>
+    </tr>
+    <tr>
+      <th>Country_Iceland</th>
+      <td>-1.451723e+01</td>
+      <td>9.108647e-01</td>
+      <td>-15.937861</td>
+      <td>3.972229e-54</td>
+      <td>-1.630351e+01</td>
+      <td>-1.273096e+01</td>
+    </tr>
+    <tr>
+      <th>Country_Norway</th>
+      <td>-1.527585e+01</td>
+      <td>9.614697e-01</td>
+      <td>-15.888021</td>
+      <td>8.095287e-54</td>
+      <td>-1.716136e+01</td>
+      <td>-1.339034e+01</td>
+    </tr>
+    <tr>
+      <th>Country_Spain</th>
+      <td>-1.485810e+01</td>
+      <td>9.458400e-01</td>
+      <td>-15.708889</td>
+      <td>1.031069e-52</td>
+      <td>-1.671296e+01</td>
+      <td>-1.300323e+01</td>
+    </tr>
+    <tr>
+      <th>Country_Gambia</th>
+      <td>-1.047816e+01</td>
+      <td>6.684227e-01</td>
+      <td>-15.675954</td>
+      <td>1.642058e-52</td>
+      <td>-1.178899e+01</td>
+      <td>-9.167338e+00</td>
+    </tr>
+    <tr>
+      <th>Country_Burkina Faso</th>
+      <td>-1.335458e+01</td>
+      <td>8.560108e-01</td>
+      <td>-15.600951</td>
+      <td>4.724924e-52</td>
+      <td>-1.503328e+01</td>
+      <td>-1.167588e+01</td>
+    </tr>
+    <tr>
+      <th>Country_Kenya</th>
+      <td>-1.234284e+01</td>
+      <td>7.986110e-01</td>
+      <td>-15.455380</td>
+      <td>3.633338e-51</td>
+      <td>-1.390897e+01</td>
+      <td>-1.077670e+01</td>
+    </tr>
+    <tr>
+      <th>Country_Germany</th>
+      <td>-1.508492e+01</td>
+      <td>9.778896e-01</td>
+      <td>-15.425994</td>
+      <td>5.474593e-51</td>
+      <td>-1.700263e+01</td>
+      <td>-1.316721e+01</td>
+    </tr>
+    <tr>
+      <th>Country_Luxembourg</th>
+      <td>-1.555601e+01</td>
+      <td>1.024337e+00</td>
+      <td>-15.186417</td>
+      <td>1.512976e-49</td>
+      <td>-1.756481e+01</td>
+      <td>-1.354721e+01</td>
+    </tr>
+    <tr>
+      <th>Country_Sweden</th>
+      <td>-1.407837e+01</td>
+      <td>9.374418e-01</td>
+      <td>-15.017857</td>
+      <td>1.524893e-48</td>
+      <td>-1.591676e+01</td>
+      <td>-1.223997e+01</td>
+    </tr>
+    <tr>
+      <th>Country_Austria</th>
+      <td>-1.487461e+01</td>
+      <td>1.015020e+00</td>
+      <td>-14.654506</td>
+      <td>2.068167e-46</td>
+      <td>-1.686514e+01</td>
+      <td>-1.288408e+01</td>
+    </tr>
+    <tr>
+      <th>Country_Haiti</th>
+      <td>-1.047507e+01</td>
+      <td>7.208575e-01</td>
+      <td>-14.531400</td>
+      <td>1.067751e-45</td>
+      <td>-1.188872e+01</td>
+      <td>-9.061415e+00</td>
+    </tr>
+    <tr>
+      <th>Country_Japan</th>
+      <td>-1.438887e+01</td>
+      <td>1.002513e+00</td>
+      <td>-14.352799</td>
+      <td>1.132490e-44</td>
+      <td>-1.635488e+01</td>
+      <td>-1.242287e+01</td>
+    </tr>
+    <tr>
+      <th>Country_United Kingdom of Great Britain and Northern Ireland</th>
+      <td>-1.434710e+01</td>
+      <td>1.012838e+00</td>
+      <td>-14.165244</td>
+      <td>1.317882e-43</td>
+      <td>-1.633335e+01</td>
+      <td>-1.236085e+01</td>
+    </tr>
+    <tr>
+      <th>Country_Italy</th>
+      <td>-1.390844e+01</td>
+      <td>9.876524e-01</td>
+      <td>-14.082323</td>
+      <td>3.867585e-43</td>
+      <td>-1.584530e+01</td>
+      <td>-1.197158e+01</td>
+    </tr>
+    <tr>
+      <th>Country_Switzerland</th>
+      <td>-1.411181e+01</td>
+      <td>1.008644e+00</td>
+      <td>-13.990877</td>
+      <td>1.260273e-42</td>
+      <td>-1.608984e+01</td>
+      <td>-1.213379e+01</td>
+    </tr>
+    <tr>
+      <th>Country_Ghana</th>
+      <td>-9.714084e+00</td>
+      <td>7.231396e-01</td>
+      <td>-13.433206</td>
+      <td>1.476320e-39</td>
+      <td>-1.113221e+01</td>
+      <td>-8.295954e+00</td>
+    </tr>
+    <tr>
+      <th>Country_Namibia</th>
+      <td>-9.399137e+00</td>
+      <td>7.010576e-01</td>
+      <td>-13.407083</td>
+      <td>2.043533e-39</td>
+      <td>-1.077396e+01</td>
+      <td>-8.024312e+00</td>
+    </tr>
+    <tr>
+      <th>Country_Papua New Guinea</th>
+      <td>-9.037959e+00</td>
+      <td>6.769572e-01</td>
+      <td>-13.350859</td>
+      <td>4.106926e-39</td>
+      <td>-1.036552e+01</td>
+      <td>-7.710397e+00</td>
+    </tr>
+    <tr>
+      <th>Country_Comoros</th>
+      <td>-9.220819e+00</td>
+      <td>6.917821e-01</td>
+      <td>-13.329079</td>
+      <td>5.378435e-39</td>
+      <td>-1.057745e+01</td>
+      <td>-7.864183e+00</td>
+    </tr>
+    <tr>
+      <th>Country_Djibouti</th>
+      <td>-1.000317e+01</td>
+      <td>7.846496e-01</td>
+      <td>-12.748578</td>
+      <td>6.216133e-36</td>
+      <td>-1.154192e+01</td>
+      <td>-8.464412e+00</td>
+    </tr>
+    <tr>
+      <th>Country_Niger</th>
+      <td>-1.058867e+01</td>
+      <td>8.399098e-01</td>
+      <td>-12.606909</td>
+      <td>3.338073e-35</td>
+      <td>-1.223579e+01</td>
+      <td>-8.941542e+00</td>
+    </tr>
+    <tr>
+      <th>Country_Eritrea</th>
+      <td>-9.592419e+00</td>
+      <td>7.668567e-01</td>
+      <td>-12.508751</td>
+      <td>1.059761e-34</td>
+      <td>-1.109628e+01</td>
+      <td>-8.088557e+00</td>
+    </tr>
+    <tr>
+      <th>Country_Gabon</th>
+      <td>-7.835945e+00</td>
+      <td>6.636000e-01</td>
+      <td>-11.808235</td>
+      <td>3.221754e-31</td>
+      <td>-9.137313e+00</td>
+      <td>-6.534577e+00</td>
+    </tr>
+    <tr>
+      <th>Country_Sudan</th>
+      <td>-8.065745e+00</td>
+      <td>6.838239e-01</td>
+      <td>-11.795060</td>
+      <td>3.731982e-31</td>
+      <td>-9.406774e+00</td>
+      <td>-6.724716e+00</td>
+    </tr>
+    <tr>
+      <th>Country_Lao People's Democratic Republic</th>
+      <td>-8.208108e+00</td>
+      <td>7.050813e-01</td>
+      <td>-11.641364</td>
+      <td>2.052262e-30</td>
+      <td>-9.590824e+00</td>
+      <td>-6.825392e+00</td>
+    </tr>
+    <tr>
+      <th>Country_Senegal</th>
+      <td>-7.928504e+00</td>
+      <td>7.017575e-01</td>
+      <td>-11.298068</td>
+      <td>8.615295e-29</td>
+      <td>-9.304702e+00</td>
+      <td>-6.552306e+00</td>
+    </tr>
+    <tr>
+      <th>Country_Mauritania</th>
+      <td>-7.841409e+00</td>
+      <td>6.956110e-01</td>
+      <td>-11.272693</td>
+      <td>1.131258e-28</td>
+      <td>-9.205553e+00</td>
+      <td>-6.477265e+00</td>
+    </tr>
+    <tr>
+      <th>Country_Ethiopia</th>
+      <td>-8.897927e+00</td>
+      <td>7.916450e-01</td>
+      <td>-11.239795</td>
+      <td>1.609065e-28</td>
+      <td>-1.045040e+01</td>
+      <td>-7.345454e+00</td>
+    </tr>
+    <tr>
+      <th>Country_Madagascar</th>
+      <td>-7.629826e+00</td>
+      <td>6.989008e-01</td>
+      <td>-10.916894</td>
+      <td>4.871133e-27</td>
+      <td>-9.000421e+00</td>
+      <td>-6.259230e+00</td>
+    </tr>
+    <tr>
+      <th>Country_Kiribati</th>
+      <td>-6.561295e+00</td>
+      <td>6.186039e-01</td>
+      <td>-10.606618</td>
+      <td>1.188487e-25</td>
+      <td>-7.774423e+00</td>
+      <td>-5.348168e+00</td>
+    </tr>
+    <tr>
+      <th>Country_Timor-Leste</th>
+      <td>-7.116939e+00</td>
+      <td>7.140851e-01</td>
+      <td>-9.966514</td>
+      <td>6.683709e-23</td>
+      <td>-8.517312e+00</td>
+      <td>-5.716566e+00</td>
+    </tr>
+    <tr>
+      <th>Country_Turkmenistan</th>
+      <td>-6.679133e+00</td>
+      <td>6.839479e-01</td>
+      <td>-9.765559</td>
+      <td>4.538208e-22</td>
+      <td>-8.020405e+00</td>
+      <td>-5.337861e+00</td>
+    </tr>
+    <tr>
+      <th>Country_Myanmar</th>
+      <td>-6.931763e+00</td>
+      <td>7.198311e-01</td>
+      <td>-9.629707</td>
+      <td>1.624277e-21</td>
+      <td>-8.343404e+00</td>
+      <td>-5.520121e+00</td>
+    </tr>
+    <tr>
+      <th>Country_Cambodia</th>
+      <td>-6.552976e+00</td>
+      <td>6.999577e-01</td>
+      <td>-9.361961</td>
+      <td>1.912867e-20</td>
+      <td>-7.925644e+00</td>
+      <td>-5.180308e+00</td>
+    </tr>
+    <tr>
+      <th>Country_Yemen</th>
+      <td>-6.617634e+00</td>
+      <td>7.158515e-01</td>
+      <td>-9.244424</td>
+      <td>5.536898e-20</td>
+      <td>-8.021472e+00</td>
+      <td>-5.213797e+00</td>
+    </tr>
+    <tr>
+      <th>Country_Sao Tome and Principe</th>
+      <td>-5.921592e+00</td>
+      <td>6.502695e-01</td>
+      <td>-9.106366</td>
+      <td>1.899853e-19</td>
+      <td>-7.196818e+00</td>
+      <td>-4.646366e+00</td>
+    </tr>
+    <tr>
+      <th>Country_Mongolia</th>
+      <td>-5.410840e+00</td>
+      <td>5.955876e-01</td>
+      <td>-9.084877</td>
+      <td>2.298316e-19</td>
+      <td>-6.578830e+00</td>
+      <td>-4.242849e+00</td>
+    </tr>
+    <tr>
+      <th>Country_Tajikistan</th>
+      <td>-4.906333e+00</td>
+      <td>5.979946e-01</td>
+      <td>-8.204643</td>
+      <td>3.944642e-16</td>
+      <td>-6.079044e+00</td>
+      <td>-3.733621e+00</td>
+    </tr>
+    <tr>
+      <th>Country_Pakistan</th>
+      <td>-9.270009e+00</td>
+      <td>1.153261e+00</td>
+      <td>-8.038083</td>
+      <td>1.493826e-15</td>
+      <td>-1.153164e+01</td>
+      <td>-7.008379e+00</td>
+    </tr>
+    <tr>
+      <th>under-five deaths</th>
+      <td>-6.571412e-02</td>
+      <td>9.046744e-03</td>
+      <td>-7.263842</td>
+      <td>5.244266e-13</td>
+      <td>-8.345544e-02</td>
+      <td>-4.797279e-02</td>
+    </tr>
+    <tr>
+      <th>Country_Kazakhstan</th>
+      <td>-4.162719e+00</td>
+      <td>5.900547e-01</td>
+      <td>-7.054803</td>
+      <td>2.324707e-12</td>
+      <td>-5.319860e+00</td>
+      <td>-3.005579e+00</td>
+    </tr>
+    <tr>
+      <th>Country_Nigeria</th>
+      <td>-1.012007e+01</td>
+      <td>1.442564e+00</td>
+      <td>-7.015336</td>
+      <td>3.065596e-12</td>
+      <td>-1.294905e+01</td>
+      <td>-7.291098e+00</td>
+    </tr>
+    <tr>
+      <th>Country_Nepal</th>
+      <td>-4.951988e+00</td>
+      <td>7.063913e-01</td>
+      <td>-7.010262</td>
+      <td>3.176268e-12</td>
+      <td>-6.337273e+00</td>
+      <td>-3.566703e+00</td>
+    </tr>
+    <tr>
+      <th>Country_Guyana</th>
+      <td>-4.588058e+00</td>
+      <td>6.678301e-01</td>
+      <td>-6.870097</td>
+      <td>8.381709e-12</td>
+      <td>-5.897722e+00</td>
+      <td>-3.278394e+00</td>
+    </tr>
+    <tr>
+      <th>Country_Bhutan</th>
+      <td>-5.300396e+00</td>
+      <td>7.860718e-01</td>
+      <td>-6.742890</td>
+      <td>1.990756e-11</td>
+      <td>-6.841940e+00</td>
+      <td>-3.758852e+00</td>
+    </tr>
+    <tr>
+      <th>Adult Mortality</th>
+      <td>-3.694340e-03</td>
+      <td>5.511215e-04</td>
+      <td>-6.703312</td>
+      <td>2.597701e-11</td>
+      <td>-4.775129e-03</td>
+      <td>-2.613550e-03</td>
+    </tr>
+    <tr>
+      <th>Country_San Marino</th>
+      <td>-8.029090e-10</td>
+      <td>1.233071e-10</td>
+      <td>-6.511455</td>
+      <td>9.246181e-11</td>
+      <td>-1.044723e-09</td>
+      <td>-5.610946e-10</td>
+    </tr>
+    <tr>
+      <th>Country_Indonesia</th>
+      <td>-4.874471e+00</td>
+      <td>7.762641e-01</td>
+      <td>-6.279397</td>
+      <td>4.103791e-10</td>
+      <td>-6.396782e+00</td>
+      <td>-3.352160e+00</td>
+    </tr>
+    <tr>
+      <th>Country_Uzbekistan</th>
+      <td>-3.677017e+00</td>
+      <td>5.998464e-01</td>
+      <td>-6.129931</td>
+      <td>1.043807e-09</td>
+      <td>-4.853360e+00</td>
+      <td>-2.500675e+00</td>
+    </tr>
+    <tr>
+      <th>Country_Philippines</th>
+      <td>-3.769967e+00</td>
+      <td>6.801129e-01</td>
+      <td>-5.543149</td>
+      <td>3.337141e-08</td>
+      <td>-5.103719e+00</td>
+      <td>-2.436216e+00</td>
+    </tr>
+    <tr>
+      <th>Country_Solomon Islands</th>
+      <td>-3.663782e+00</td>
+      <td>6.927873e-01</td>
+      <td>-5.288465</td>
+      <td>1.359100e-07</td>
+      <td>-5.022388e+00</td>
+      <td>-2.305175e+00</td>
+    </tr>
+    <tr>
+      <th>Country_Fiji</th>
+      <td>-3.180234e+00</td>
+      <td>6.378811e-01</td>
+      <td>-4.985623</td>
+      <td>6.672689e-07</td>
+      <td>-4.431166e+00</td>
+      <td>-1.929303e+00</td>
+    </tr>
+    <tr>
+      <th>Country_Bolivia (Plurinational State of)</th>
+      <td>-2.847983e+00</td>
+      <td>6.299739e-01</td>
+      <td>-4.520796</td>
+      <td>6.497113e-06</td>
+      <td>-4.083408e+00</td>
+      <td>-1.612558e+00</td>
+    </tr>
+    <tr>
+      <th>Country_Russian Federation</th>
+      <td>-2.629292e+00</td>
+      <td>6.056501e-01</td>
+      <td>-4.341273</td>
+      <td>1.482625e-05</td>
+      <td>-3.817017e+00</td>
+      <td>-1.441568e+00</td>
+    </tr>
+    <tr>
+      <th>Alcohol</th>
+      <td>-1.109159e-01</td>
+      <td>2.870888e-02</td>
+      <td>-3.863472</td>
+      <td>1.151116e-04</td>
+      <td>-1.672161e-01</td>
+      <td>-5.461572e-02</td>
+    </tr>
+    <tr>
+      <th>Country_Bangladesh</th>
+      <td>-2.898584e+00</td>
+      <td>7.765957e-01</td>
+      <td>-3.732423</td>
+      <td>1.945924e-04</td>
+      <td>-4.421545e+00</td>
+      <td>-1.375623e+00</td>
+    </tr>
+    <tr>
+      <th>Country_Micronesia (Federated States of)</th>
+      <td>-2.258458e+00</td>
+      <td>6.503075e-01</td>
+      <td>-3.472908</td>
+      <td>5.250809e-04</td>
+      <td>-3.533758e+00</td>
+      <td>-9.831573e-01</td>
+    </tr>
+    <tr>
+      <th>Country_Democratic People's Republic of Korea</th>
+      <td>-1.975778e+00</td>
+      <td>5.928284e-01</td>
+      <td>-3.332799</td>
+      <td>8.744110e-04</td>
+      <td>-3.138358e+00</td>
+      <td>-8.131981e-01</td>
+    </tr>
+    <tr>
+      <th>Country_India</th>
+      <td>-9.164212e+00</td>
+      <td>2.856694e+00</td>
+      <td>-3.207978</td>
+      <td>1.356466e-03</td>
+      <td>-1.476640e+01</td>
+      <td>-3.562027e+00</td>
+    </tr>
+    <tr>
+      <th>Hepatitis B</th>
+      <td>-6.809741e-03</td>
+      <td>2.408427e-03</td>
+      <td>-2.827463</td>
+      <td>4.735471e-03</td>
+      <td>-1.153284e-02</td>
+      <td>-2.086638e-03</td>
+    </tr>
+    <tr>
+      <th>Country_Kyrgyzstan</th>
+      <td>-1.676051e+00</td>
+      <td>6.283511e-01</td>
+      <td>-2.667380</td>
+      <td>7.702130e-03</td>
+      <td>-2.908294e+00</td>
+      <td>-4.438089e-01</td>
+    </tr>
+    <tr>
+      <th>Country_Belize</th>
+      <td>-1.599300e+00</td>
+      <td>6.333224e-01</td>
+      <td>-2.525254</td>
+      <td>1.163315e-02</td>
+      <td>-2.841291e+00</td>
+      <td>-3.573084e-01</td>
+    </tr>
+    <tr>
+      <th>logGDP</th>
+      <td>-9.947509e-02</td>
+      <td>4.910909e-02</td>
+      <td>-2.025594</td>
+      <td>4.293027e-02</td>
+      <td>-1.957816e-01</td>
+      <td>-3.168566e-03</td>
+    </tr>
+    <tr>
+      <th>Country_Azerbaijan</th>
+      <td>-1.036844e+00</td>
+      <td>5.955634e-01</td>
+      <td>-1.740947</td>
+      <td>8.183652e-02</td>
+      <td>-2.204788e+00</td>
+      <td>1.310989e-01</td>
+    </tr>
+    <tr>
+      <th>BMI</th>
+      <td>-6.160831e-03</td>
+      <td>3.631022e-03</td>
+      <td>-1.696721</td>
+      <td>8.989482e-02</td>
+      <td>-1.328153e-02</td>
+      <td>9.598678e-04</td>
+    </tr>
+    <tr>
+      <th>Measles</th>
+      <td>-8.519964e-06</td>
+      <td>5.207132e-06</td>
+      <td>-1.636211</td>
+      <td>1.019426e-01</td>
+      <td>-1.873153e-05</td>
+      <td>1.691602e-06</td>
+    </tr>
+    <tr>
+      <th>Country_Ukraine</th>
+      <td>-9.041591e-01</td>
+      <td>5.849994e-01</td>
+      <td>-1.545573</td>
+      <td>1.223556e-01</td>
+      <td>-2.051386e+00</td>
+      <td>2.430675e-01</td>
+    </tr>
+    <tr>
+      <th>Population</th>
+      <td>-1.685098e-09</td>
+      <td>1.102843e-09</td>
+      <td>-1.527959</td>
+      <td>1.266706e-01</td>
+      <td>-3.847853e-09</td>
+      <td>4.776570e-10</td>
+    </tr>
+    <tr>
+      <th>Country_Iraq</th>
+      <td>-9.245128e-01</td>
+      <td>6.235236e-01</td>
+      <td>-1.482723</td>
+      <td>1.382952e-01</td>
+      <td>-2.147288e+00</td>
+      <td>2.982625e-01</td>
+    </tr>
+    <tr>
+      <th>Total expenditure</th>
+      <td>-3.698317e-02</td>
+      <td>2.695711e-02</td>
+      <td>-1.371926</td>
+      <td>1.702302e-01</td>
+      <td>-8.984804e-02</td>
+      <td>1.588170e-02</td>
+    </tr>
+    <tr>
+      <th>Country_Suriname</th>
+      <td>-6.893467e-01</td>
+      <td>6.736866e-01</td>
+      <td>-1.023245</td>
+      <td>3.063075e-01</td>
+      <td>-2.010495e+00</td>
+      <td>6.318020e-01</td>
+    </tr>
+    <tr>
+      <th>Income composition of resources</th>
+      <td>-5.059445e-01</td>
+      <td>5.503265e-01</td>
+      <td>-0.919353</td>
+      <td>3.580145e-01</td>
+      <td>-1.585175e+00</td>
+      <td>5.732861e-01</td>
+    </tr>
+    <tr>
+      <th>Country_Dominica</th>
+      <td>-1.191247e+00</td>
+      <td>2.069758e+00</td>
+      <td>-0.575549</td>
+      <td>5.649806e-01</td>
+      <td>-5.250195e+00</td>
+      <td>2.867700e+00</td>
+    </tr>
+    <tr>
+      <th>Country_Palau</th>
+      <td>-1.025232e+00</td>
+      <td>2.079517e+00</td>
+      <td>-0.493014</td>
+      <td>6.220531e-01</td>
+      <td>-5.103317e+00</td>
+      <td>3.052854e+00</td>
+    </tr>
+    <tr>
+      <th>Country_Nauru</th>
+      <td>-9.229065e-01</td>
+      <td>2.091462e+00</td>
+      <td>-0.441273</td>
+      <td>6.590597e-01</td>
+      <td>-5.024417e+00</td>
+      <td>3.178604e+00</td>
+    </tr>
+    <tr>
+      <th>Country_Monaco</th>
+      <td>-8.815249e-01</td>
+      <td>2.068923e+00</td>
+      <td>-0.426079</td>
+      <td>6.700931e-01</td>
+      <td>-4.938835e+00</td>
+      <td>3.175785e+00</td>
+    </tr>
+    <tr>
+      <th>thinness 5-9 years</th>
+      <td>-1.334143e-02</td>
+      <td>3.386089e-02</td>
+      <td>-0.394007</td>
+      <td>6.936150e-01</td>
+      <td>-7.974512e-02</td>
+      <td>5.306225e-02</td>
+    </tr>
+    <tr>
+      <th>Country_China</th>
+      <td>-4.095934e-01</td>
+      <td>1.086974e+00</td>
+      <td>-0.376820</td>
+      <td>7.063449e-01</td>
+      <td>-2.541229e+00</td>
+      <td>1.722042e+00</td>
+    </tr>
+    <tr>
+      <th>Country_Cook Islands</th>
+      <td>-7.000490e-01</td>
+      <td>2.077959e+00</td>
+      <td>-0.336893</td>
+      <td>7.362309e-01</td>
+      <td>-4.775079e+00</td>
+      <td>3.374981e+00</td>
+    </tr>
+    <tr>
+      <th>Country_Niue</th>
+      <td>-6.049927e-01</td>
+      <td>2.075671e+00</td>
+      <td>-0.291468</td>
+      <td>7.707213e-01</td>
+      <td>-4.675535e+00</td>
+      <td>3.465550e+00</td>
+    </tr>
+    <tr>
+      <th>Country_Belarus</th>
+      <td>-1.801282e-01</td>
+      <td>6.971873e-01</td>
+      <td>-0.258364</td>
+      <td>7.961508e-01</td>
+      <td>-1.547364e+00</td>
+      <td>1.187107e+00</td>
+    </tr>
+    <tr>
+      <th>Country_Vanuatu</th>
+      <td>-1.509672e-01</td>
+      <td>6.306616e-01</td>
+      <td>-0.239379</td>
+      <td>8.108346e-01</td>
+      <td>-1.387741e+00</td>
+      <td>1.085806e+00</td>
+    </tr>
+    <tr>
+      <th>Country_Saint Kitts and Nevis</th>
+      <td>-1.618836e-01</td>
+      <td>2.080496e+00</td>
+      <td>-0.077810</td>
+      <td>9.379864e-01</td>
+      <td>-4.241888e+00</td>
+      <td>3.918120e+00</td>
+    </tr>
+    <tr>
+      <th>Country_Egypt</th>
+      <td>-3.241900e-02</td>
+      <td>6.679046e-01</td>
+      <td>-0.048538</td>
+      <td>9.612917e-01</td>
+      <td>-1.342229e+00</td>
+      <td>1.277391e+00</td>
+    </tr>
+    <tr>
+      <th>Country_Marshall Islands</th>
+      <td>-1.036425e-01</td>
+      <td>2.206165e+00</td>
+      <td>-0.046979</td>
+      <td>9.625347e-01</td>
+      <td>-4.430092e+00</td>
+      <td>4.222807e+00</td>
+    </tr>
+    <tr>
+      <th>Country_Syrian Arab Republic</th>
+      <td>-1.121379e-02</td>
+      <td>6.185179e-01</td>
+      <td>-0.018130</td>
+      <td>9.855368e-01</td>
+      <td>-1.224173e+00</td>
+      <td>1.201745e+00</td>
+    </tr>
+    <tr>
+      <th>thinness 1-19 years</th>
+      <td>1.168155e-03</td>
+      <td>3.406010e-02</td>
+      <td>0.034297</td>
+      <td>9.726436e-01</td>
+      <td>-6.562620e-02</td>
+      <td>6.796251e-02</td>
+    </tr>
+    <tr>
+      <th>Country_El Salvador</th>
+      <td>1.220767e-01</td>
+      <td>5.932056e-01</td>
+      <td>0.205792</td>
+      <td>8.369733e-01</td>
+      <td>-1.041243e+00</td>
+      <td>1.285396e+00</td>
+    </tr>
+    <tr>
+      <th>Country_Trinidad and Tobago</th>
+      <td>1.778183e-01</td>
+      <td>6.293880e-01</td>
+      <td>0.282526</td>
+      <td>7.775677e-01</td>
+      <td>-1.056458e+00</td>
+      <td>1.412094e+00</td>
+    </tr>
+    <tr>
+      <th>Country_Morocco</th>
+      <td>1.873879e-01</td>
+      <td>5.878484e-01</td>
+      <td>0.318769</td>
+      <td>7.499328e-01</td>
+      <td>-9.654258e-01</td>
+      <td>1.340202e+00</td>
+    </tr>
+    <tr>
+      <th>iHIV</th>
+      <td>1.403563e-02</td>
+      <td>4.142533e-02</td>
+      <td>0.338818</td>
+      <td>7.347804e-01</td>
+      <td>-6.720248e-02</td>
+      <td>9.527374e-02</td>
+    </tr>
+    <tr>
+      <th>Country_Tonga</th>
+      <td>3.967493e-01</td>
+      <td>6.619078e-01</td>
+      <td>0.599403</td>
+      <td>5.489678e-01</td>
+      <td>-9.013002e-01</td>
+      <td>1.694799e+00</td>
+    </tr>
+    <tr>
+      <th>Country_Republic of Moldova</th>
+      <td>5.120735e-01</td>
+      <td>6.709034e-01</td>
+      <td>0.763260</td>
+      <td>4.453926e-01</td>
+      <td>-8.036171e-01</td>
+      <td>1.827764e+00</td>
+    </tr>
+    <tr>
+      <th>Country_Tuvalu</th>
+      <td>2.592587e-08</td>
+      <td>2.248507e-08</td>
+      <td>1.153026</td>
+      <td>2.490285e-01</td>
+      <td>-1.816900e-08</td>
+      <td>7.002074e-08</td>
+    </tr>
+    <tr>
+      <th>Polio</th>
+      <td>3.261042e-03</td>
+      <td>2.812878e-03</td>
+      <td>1.159326</td>
+      <td>2.464527e-01</td>
+      <td>-2.255217e-03</td>
+      <td>8.777300e-03</td>
+    </tr>
+    <tr>
+      <th>Country_Libya</th>
+      <td>7.361366e-01</td>
+      <td>6.248871e-01</td>
+      <td>1.178031</td>
+      <td>2.389151e-01</td>
+      <td>-4.893126e-01</td>
+      <td>1.961586e+00</td>
+    </tr>
+    <tr>
+      <th>Country_Guatemala</th>
+      <td>8.907405e-01</td>
+      <td>6.624187e-01</td>
+      <td>1.344679</td>
+      <td>1.788714e-01</td>
+      <td>-4.083110e-01</td>
+      <td>2.189792e+00</td>
+    </tr>
+    <tr>
+      <th>Country_Jordan</th>
+      <td>1.117858e+00</td>
+      <td>6.942210e-01</td>
+      <td>1.610234</td>
+      <td>1.074942e-01</td>
+      <td>-2.435598e-01</td>
+      <td>2.479277e+00</td>
+    </tr>
+    <tr>
+      <th>Country_Brazil</th>
+      <td>1.180940e+00</td>
+      <td>6.934523e-01</td>
+      <td>1.702986</td>
+      <td>8.871587e-02</td>
+      <td>-1.789710e-01</td>
+      <td>2.540850e+00</td>
+    </tr>
+    <tr>
+      <th>Country_Dominican Republic</th>
+      <td>1.092110e+00</td>
+      <td>6.223024e-01</td>
+      <td>1.754951</td>
+      <td>7.941070e-02</td>
+      <td>-1.282700e-01</td>
+      <td>2.312491e+00</td>
+    </tr>
+    <tr>
+      <th>Country_Mauritius</th>
+      <td>1.066178e+00</td>
+      <td>5.946133e-01</td>
+      <td>1.793061</td>
+      <td>7.310438e-02</td>
+      <td>-9.990239e-02</td>
+      <td>2.232258e+00</td>
+    </tr>
+    <tr>
+      <th>Country_Cabo Verde</th>
+      <td>1.228555e+00</td>
+      <td>6.510965e-01</td>
+      <td>1.886902</td>
+      <td>5.930878e-02</td>
+      <td>-4.829266e-02</td>
+      <td>2.505403e+00</td>
+    </tr>
+    <tr>
+      <th>Country_Saudi Arabia</th>
+      <td>1.203026e+00</td>
+      <td>6.073268e-01</td>
+      <td>1.980855</td>
+      <td>4.773536e-02</td>
+      <td>1.201412e-02</td>
+      <td>2.394039e+00</td>
+    </tr>
+    <tr>
+      <th>Country_Seychelles</th>
+      <td>1.139089e+00</td>
+      <td>5.688207e-01</td>
+      <td>2.002546</td>
+      <td>4.535204e-02</td>
+      <td>2.359039e-02</td>
+      <td>2.254588e+00</td>
+    </tr>
+    <tr>
+      <th>Country_Grenada</th>
+      <td>1.570422e+00</td>
+      <td>7.178004e-01</td>
+      <td>2.187826</td>
+      <td>2.879010e-02</td>
+      <td>1.627633e-01</td>
+      <td>2.978082e+00</td>
+    </tr>
+    <tr>
+      <th>Schooling</th>
+      <td>1.092271e-01</td>
+      <td>4.929293e-02</td>
+      <td>2.215878</td>
+      <td>2.680471e-02</td>
+      <td>1.256008e-02</td>
+      <td>2.058942e-01</td>
+    </tr>
+    <tr>
+      <th>Country_Algeria</th>
+      <td>1.466607e+00</td>
+      <td>6.378335e-01</td>
+      <td>2.299358</td>
+      <td>2.158052e-02</td>
+      <td>2.157692e-01</td>
+      <td>2.717445e+00</td>
+    </tr>
+    <tr>
+      <th>Country_Sri Lanka</th>
+      <td>1.709911e+00</td>
+      <td>6.701607e-01</td>
+      <td>2.551494</td>
+      <td>1.079522e-02</td>
+      <td>3.956767e-01</td>
+      <td>3.024145e+00</td>
+    </tr>
+    <tr>
+      <th>Country_Thailand</th>
+      <td>1.779859e+00</td>
+      <td>6.928353e-01</td>
+      <td>2.568949</td>
+      <td>1.026797e-02</td>
+      <td>4.211579e-01</td>
+      <td>3.138559e+00</td>
+    </tr>
+    <tr>
+      <th>Country_Kuwait</th>
+      <td>1.610600e+00</td>
+      <td>6.152717e-01</td>
+      <td>2.617705</td>
+      <td>8.914716e-03</td>
+      <td>4.040069e-01</td>
+      <td>2.817192e+00</td>
+    </tr>
+    <tr>
+      <th>Country_Honduras</th>
+      <td>1.704227e+00</td>
+      <td>6.237124e-01</td>
+      <td>2.732392</td>
+      <td>6.339303e-03</td>
+      <td>4.810812e-01</td>
+      <td>2.927372e+00</td>
+    </tr>
+    <tr>
+      <th>Diphtheria</th>
+      <td>8.486582e-03</td>
+      <td>2.948735e-03</td>
+      <td>2.878041</td>
+      <td>4.041215e-03</td>
+      <td>2.703897e-03</td>
+      <td>1.426927e-02</td>
+    </tr>
+    <tr>
+      <th>Country_Armenia</th>
+      <td>1.918190e+00</td>
+      <td>6.644430e-01</td>
+      <td>2.886913</td>
+      <td>3.929434e-03</td>
+      <td>6.151682e-01</td>
+      <td>3.221211e+00</td>
+    </tr>
+    <tr>
+      <th>Country_Malaysia</th>
+      <td>1.923192e+00</td>
+      <td>6.061451e-01</td>
+      <td>3.172825</td>
+      <td>1.531052e-03</td>
+      <td>7.344972e-01</td>
+      <td>3.111887e+00</td>
+    </tr>
+    <tr>
+      <th>Country_Colombia</th>
+      <td>1.869283e+00</td>
+      <td>5.786304e-01</td>
+      <td>3.230530</td>
+      <td>1.254349e-03</td>
+      <td>7.345461e-01</td>
+      <td>3.004019e+00</td>
+    </tr>
+    <tr>
+      <th>Country_Paraguay</th>
+      <td>1.977906e+00</td>
+      <td>5.850927e-01</td>
+      <td>3.380499</td>
+      <td>7.365351e-04</td>
+      <td>8.304960e-01</td>
+      <td>3.125315e+00</td>
+    </tr>
+    <tr>
+      <th>Country_Iran (Islamic Republic of)</th>
+      <td>2.532728e+00</td>
+      <td>7.280429e-01</td>
+      <td>3.478818</td>
+      <td>5.137009e-04</td>
+      <td>1.104983e+00</td>
+      <td>3.960474e+00</td>
+    </tr>
+    <tr>
+      <th>Country_Peru</th>
+      <td>2.081224e+00</td>
+      <td>5.878562e-01</td>
+      <td>3.540363</td>
+      <td>4.081111e-04</td>
+      <td>9.283952e-01</td>
+      <td>3.234053e+00</td>
+    </tr>
+    <tr>
+      <th>Country_Tunisia</th>
+      <td>2.200142e+00</td>
+      <td>6.191602e-01</td>
+      <td>3.553429</td>
+      <td>3.884787e-04</td>
+      <td>9.859233e-01</td>
+      <td>3.414360e+00</td>
+    </tr>
+    <tr>
+      <th>Country_Turkey</th>
+      <td>2.225846e+00</td>
+      <td>5.908441e-01</td>
+      <td>3.767230</td>
+      <td>1.695281e-04</td>
+      <td>1.067157e+00</td>
+      <td>3.384534e+00</td>
+    </tr>
+    <tr>
+      <th>Country_Lebanon</th>
+      <td>2.314988e+00</td>
+      <td>6.099977e-01</td>
+      <td>3.795077</td>
+      <td>1.516985e-04</td>
+      <td>1.118738e+00</td>
+      <td>3.511238e+00</td>
+    </tr>
+    <tr>
+      <th>Country_Georgia</th>
+      <td>2.325753e+00</td>
+      <td>5.933143e-01</td>
+      <td>3.919934</td>
+      <td>9.135753e-05</td>
+      <td>1.162220e+00</td>
+      <td>3.489286e+00</td>
+    </tr>
+    <tr>
+      <th>Country_Samoa</th>
+      <td>2.665064e+00</td>
+      <td>6.541280e-01</td>
+      <td>4.074224</td>
+      <td>4.785119e-05</td>
+      <td>1.382271e+00</td>
+      <td>3.947857e+00</td>
+    </tr>
+    <tr>
+      <th>logExpend</th>
+      <td>1.368168e-01</td>
+      <td>3.310361e-02</td>
+      <td>4.132987</td>
+      <td>3.718740e-05</td>
+      <td>7.189819e-02</td>
+      <td>2.017354e-01</td>
+    </tr>
+    <tr>
+      <th>Country_Montenegro</th>
+      <td>2.661788e+00</td>
+      <td>6.418017e-01</td>
+      <td>4.147368</td>
+      <td>3.494506e-05</td>
+      <td>1.403168e+00</td>
+      <td>3.920408e+00</td>
+    </tr>
+    <tr>
+      <th>Country_Nicaragua</th>
+      <td>2.620535e+00</td>
+      <td>6.315138e-01</td>
+      <td>4.149608</td>
+      <td>3.460759e-05</td>
+      <td>1.382090e+00</td>
+      <td>3.858980e+00</td>
+    </tr>
+    <tr>
+      <th>Country_The former Yugoslav republic of Macedonia</th>
+      <td>3.018132e+00</td>
+      <td>6.802430e-01</td>
+      <td>4.436844</td>
+      <td>9.591920e-06</td>
+      <td>1.684126e+00</td>
+      <td>4.352138e+00</td>
+    </tr>
+    <tr>
+      <th>Country_Serbia</th>
+      <td>2.889230e+00</td>
+      <td>6.315070e-01</td>
+      <td>4.575135</td>
+      <td>5.031413e-06</td>
+      <td>1.650798e+00</td>
+      <td>4.127661e+00</td>
+    </tr>
+    <tr>
+      <th>Country_Oman</th>
+      <td>2.847179e+00</td>
+      <td>6.038693e-01</td>
+      <td>4.714892</td>
+      <td>2.574149e-06</td>
+      <td>1.662947e+00</td>
+      <td>4.031410e+00</td>
+    </tr>
+    <tr>
+      <th>Country_Venezuela (Bolivarian Republic of)</th>
+      <td>3.193301e+00</td>
+      <td>6.566846e-01</td>
+      <td>4.862763</td>
+      <td>1.241834e-06</td>
+      <td>1.905495e+00</td>
+      <td>4.481108e+00</td>
+    </tr>
+    <tr>
+      <th>Country_Barbados</th>
+      <td>3.298628e+00</td>
+      <td>6.569644e-01</td>
+      <td>5.021016</td>
+      <td>5.564854e-07</td>
+      <td>2.010273e+00</td>
+      <td>4.586984e+00</td>
+    </tr>
+    <tr>
+      <th>Country_Maldives</th>
+      <td>3.954402e+00</td>
+      <td>7.761869e-01</td>
+      <td>5.094651</td>
+      <td>3.800035e-07</td>
+      <td>2.432243e+00</td>
+      <td>5.476561e+00</td>
+    </tr>
+    <tr>
+      <th>Country_Jamaica</th>
+      <td>3.090735e+00</td>
+      <td>6.025343e-01</td>
+      <td>5.129558</td>
+      <td>3.165830e-07</td>
+      <td>1.909121e+00</td>
+      <td>4.272349e+00</td>
+    </tr>
+    <tr>
+      <th>Country_Argentina</th>
+      <td>3.522508e+00</td>
+      <td>6.554501e-01</td>
+      <td>5.374181</td>
+      <td>8.529424e-08</td>
+      <td>2.237122e+00</td>
+      <td>4.807893e+00</td>
+    </tr>
+    <tr>
+      <th>Country_Viet Nam</th>
+      <td>3.633903e+00</td>
+      <td>6.619204e-01</td>
+      <td>5.489940</td>
+      <td>4.497364e-08</td>
+      <td>2.335829e+00</td>
+      <td>4.931978e+00</td>
+    </tr>
+    <tr>
+      <th>Country_Estonia</th>
+      <td>3.866735e+00</td>
+      <td>7.027873e-01</td>
+      <td>5.501999</td>
+      <td>4.204258e-08</td>
+      <td>2.488518e+00</td>
+      <td>5.244952e+00</td>
+    </tr>
+    <tr>
+      <th>Country_Saint Vincent and the Grenadines</th>
+      <td>3.546004e+00</td>
+      <td>6.322555e-01</td>
+      <td>5.608499</td>
+      <td>2.304945e-08</td>
+      <td>2.306105e+00</td>
+      <td>4.785904e+00</td>
+    </tr>
+    <tr>
+      <th>Country_Albania</th>
+      <td>3.527683e+00</td>
+      <td>6.070984e-01</td>
+      <td>5.810726</td>
+      <td>7.151623e-09</td>
+      <td>2.337118e+00</td>
+      <td>4.718247e+00</td>
+    </tr>
+    <tr>
+      <th>Country_Saint Lucia</th>
+      <td>3.699044e+00</td>
+      <td>6.330338e-01</td>
+      <td>5.843359</td>
+      <td>5.899884e-09</td>
+      <td>2.457618e+00</td>
+      <td>4.940470e+00</td>
+    </tr>
+    <tr>
+      <th>Country_Ecuador</th>
+      <td>3.275261e+00</td>
+      <td>5.603980e-01</td>
+      <td>5.844526</td>
+      <td>5.859342e-09</td>
+      <td>2.176279e+00</td>
+      <td>4.374242e+00</td>
+    </tr>
+    <tr>
+      <th>Country_Bahrain</th>
+      <td>3.896774e+00</td>
+      <td>6.644473e-01</td>
+      <td>5.864684</td>
+      <td>5.200030e-09</td>
+      <td>2.593744e+00</td>
+      <td>5.199804e+00</td>
+    </tr>
+    <tr>
+      <th>Country_United Arab Emirates</th>
+      <td>3.702151e+00</td>
+      <td>6.243671e-01</td>
+      <td>5.929446</td>
+      <td>3.534649e-09</td>
+      <td>2.477722e+00</td>
+      <td>4.926581e+00</td>
+    </tr>
+    <tr>
+      <th>Country_Bahamas</th>
+      <td>4.168751e+00</td>
+      <td>6.880588e-01</td>
+      <td>6.058714</td>
+      <td>1.616754e-09</td>
+      <td>2.819418e+00</td>
+      <td>5.518085e+00</td>
+    </tr>
+    <tr>
+      <th>Country_Antigua and Barbuda</th>
+      <td>4.402229e+00</td>
+      <td>6.664384e-01</td>
+      <td>6.605606</td>
+      <td>4.979918e-11</td>
+      <td>3.095295e+00</td>
+      <td>5.709164e+00</td>
+    </tr>
+    <tr>
+      <th>Country_Mexico</th>
+      <td>4.116571e+00</td>
+      <td>6.010069e-01</td>
+      <td>6.849457</td>
+      <td>9.654499e-12</td>
+      <td>2.937952e+00</td>
+      <td>5.295189e+00</td>
+    </tr>
+    <tr>
+      <th>Country_Bosnia and Herzegovina</th>
+      <td>4.633266e+00</td>
+      <td>6.700182e-01</td>
+      <td>6.915134</td>
+      <td>6.148647e-12</td>
+      <td>3.319311e+00</td>
+      <td>5.947221e+00</td>
+    </tr>
+    <tr>
+      <th>infant deaths</th>
+      <td>9.060206e-02</td>
+      <td>1.306114e-02</td>
+      <td>6.936766</td>
+      <td>5.294981e-12</td>
+      <td>6.498821e-02</td>
+      <td>1.162159e-01</td>
+    </tr>
+    <tr>
+      <th>Country_Brunei Darussalam</th>
+      <td>4.179517e+00</td>
+      <td>5.983163e-01</td>
+      <td>6.985463</td>
+      <td>3.776118e-12</td>
+      <td>3.006175e+00</td>
+      <td>5.352859e+00</td>
+    </tr>
+    <tr>
+      <th>Country_Qatar</th>
+      <td>5.105357e+00</td>
+      <td>6.542522e-01</td>
+      <td>7.803348</td>
+      <td>9.351701e-15</td>
+      <td>3.822321e+00</td>
+      <td>6.388394e+00</td>
+    </tr>
+    <tr>
+      <th>Country_Uruguay</th>
+      <td>4.940473e+00</td>
+      <td>6.139174e-01</td>
+      <td>8.047456</td>
+      <td>1.386888e-15</td>
+      <td>3.736537e+00</td>
+      <td>6.144410e+00</td>
+    </tr>
+    <tr>
+      <th>Country_Panama</th>
+      <td>5.375253e+00</td>
+      <td>5.747970e-01</td>
+      <td>9.351567</td>
+      <td>2.102387e-20</td>
+      <td>4.248034e+00</td>
+      <td>6.502472e+00</td>
+    </tr>
+    <tr>
+      <th>Country_Cuba</th>
+      <td>6.024380e+00</td>
+      <td>5.841622e-01</td>
+      <td>10.312854</td>
+      <td>2.269453e-24</td>
+      <td>4.878795e+00</td>
+      <td>7.169964e+00</td>
+    </tr>
+    <tr>
+      <th>Country_Chile</th>
+      <td>7.631849e+00</td>
+      <td>6.605734e-01</td>
+      <td>11.553371</td>
+      <td>5.398430e-30</td>
+      <td>6.336417e+00</td>
+      <td>8.927282e+00</td>
+    </tr>
+    <tr>
+      <th>Country_Costa Rica</th>
+      <td>6.982737e+00</td>
+      <td>5.697886e-01</td>
+      <td>12.254960</td>
+      <td>2.027169e-33</td>
+      <td>5.865339e+00</td>
+      <td>8.100134e+00</td>
+    </tr>
+    <tr>
+      <th>Country_Republic of Korea</th>
+      <td>9.750169e+00</td>
+      <td>7.194085e-01</td>
+      <td>13.553035</td>
+      <td>3.300087e-40</td>
+      <td>8.339356e+00</td>
+      <td>1.116098e+01</td>
+    </tr>
+    <tr>
+      <th>Country_Greece</th>
+      <td>1.026885e+01</td>
+      <td>7.291159e-01</td>
+      <td>14.083974</td>
+      <td>3.785762e-43</td>
+      <td>8.839000e+00</td>
+      <td>1.169870e+01</td>
+    </tr>
+    <tr>
+      <th>Country_Canada</th>
+      <td>1.002031e+01</td>
+      <td>7.083147e-01</td>
+      <td>14.146690</td>
+      <td>1.677612e-43</td>
+      <td>8.631251e+00</td>
+      <td>1.140937e+01</td>
+    </tr>
+    <tr>
+      <th>Country_Finland</th>
+      <td>9.252164e+00</td>
+      <td>6.449588e-01</td>
+      <td>14.345356</td>
+      <td>1.248971e-44</td>
+      <td>7.987352e+00</td>
+      <td>1.051698e+01</td>
+    </tr>
+    <tr>
+      <th>Country_France</th>
+      <td>1.074428e+01</td>
+      <td>7.392236e-01</td>
+      <td>14.534550</td>
+      <td>1.023979e-45</td>
+      <td>9.294611e+00</td>
+      <td>1.219395e+01</td>
+    </tr>
+    <tr>
+      <th>Country_Israel</th>
+      <td>9.392544e+00</td>
+      <td>6.020722e-01</td>
+      <td>15.600361</td>
+      <td>4.764306e-52</td>
+      <td>8.211836e+00</td>
+      <td>1.057325e+01</td>
+    </tr>
+    <tr>
+      <th>Year</th>
+      <td>3.207764e-01</td>
+      <td>1.329531e-02</td>
+      <td>24.127039</td>
+      <td>5.805972e-114</td>
+      <td>2.947033e-01</td>
+      <td>3.468494e-01</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+</section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            name: "python3",
+            path: "./lessons"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+            <div class="clearer"></div>
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="Main">
+        <div class="sphinxsidebarwrapper">
+            <p class="logo"><a href="../intro.html">
+              <img class="logo" src="../_static/ML-logo-1.webp" alt="Logo of Project name not set"/>
+            </a></p>
+  <div>
+    <h3><a href="../intro.html">Table of Contents</a></h3>
+    <ul>
+<li><a class="reference internal" href="#">Life Expectancy</a><ul>
+<li><a class="reference internal" href="#loading-the-dataset">Loading the dataset</a></li>
+<li><a class="reference internal" href="#data-exploration">Data Exploration</a><ul>
+<li><a class="reference internal" href="#correlation-matrix-heat-map">Correlation matrix heat map</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#data-modeling">Data Modeling</a><ul>
+<li><a class="reference internal" href="#linear-regression">Linear Regression</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#advanced-techniques">Advanced Techniques</a></li>
+<li><a class="reference internal" href="#pre-processing">Pre-processing</a></li>
+</ul>
+</li>
+</ul>
+
+  </div>
+  <div role="note" aria-label="source link">
+    <h3>This Page</h3>
+    <ul class="this-page-menu">
+      <li><a href="../_sources/lessons/Life_Expectancy.ipynb"
+            rel="nofollow">Show Source</a></li>
+    </ul>
+   </div>
+<search id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="../search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false"/>
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</search>
+<script>document.getElementById('searchbox').style.display = "block"</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related" role="navigation" aria-label="Related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             >index</a></li>
+        <li class="nav-item nav-item-0"><a href="../intro.html">Machine Learning for Research</a> &#187;</li>
+        <li class="nav-item nav-item-this"><a href="">Life Expectancy</a></li> 
+      </ul>
+    </div>
+    <div class="footer" role="contentinfo">
+    &#169; Copyright 2023.
+      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 7.4.7.
+    </div>
+  </body>
+</html>

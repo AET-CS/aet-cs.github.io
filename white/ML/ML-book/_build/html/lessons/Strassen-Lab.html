@@ -1,130 +1,67 @@
 <!DOCTYPE html>
-<html class="writer-html5" lang="en" data-content_root="../">
-<head>
-  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>15. Strassen’s Algorithm (Optional Extension) &mdash; Machine Learning for Research</title>
-      <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=fa44fd50" />
-      <link rel="stylesheet" type="text/css" href="../_static/css/theme.css?v=19f00094" />
-      <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css?v=13237357" />
-      <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
-      <link rel="stylesheet" type="text/css" href="../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css?v=be8a1c11" />
-      <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css?v=4fa983c6" />
-      <link rel="stylesheet" type="text/css" href="../_static/sphinx-design.min.css?v=95c83b7e" />
+<html lang="en" data-content_root="../">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
-  
-  <!--[if lt IE 9]>
-    <script src="../_static/js/html5shiv.min.js"></script>
-  <![endif]-->
-  
-        <script src="../_static/jquery.js?v=5d32c60e"></script>
-        <script src="../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
-        <script src="../_static/documentation_options.js?v=9eb32ce0"></script>
-        <script src="../_static/doctools.js?v=9a2dae69"></script>
-        <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
-        <script src="../_static/clipboard.min.js?v=a7894cd8"></script>
-        <script src="../_static/copybutton.js?v=f281be69"></script>
-        <script src="../_static/scripts/sphinx-book-theme.js?v=887ef09a"></script>
-        <script>let toggleHintShow = 'Click to show';</script>
-        <script>let toggleHintHide = 'Click to hide';</script>
-        <script>let toggleOpenOnPrint = 'true';</script>
-        <script src="../_static/togglebutton.js?v=4a39c7ea"></script>
-        <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
-        <script src="../_static/design-tabs.js?v=f930bc37"></script>
-        <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
-        <script async="async" src="../_static/sphinx-thebe.js?v=c100c467"></script>
-        <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
-        <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
-        <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
-        <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
-    <script src="../_static/js/theme.js"></script>
+    <title>15. Strassen’s Algorithm (Optional Extension) &#8212; Machine Learning for Research</title>
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=fa44fd50" />
+    <link rel="stylesheet" type="text/css" href="../_static/classic.css?v=def86cc0" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css?v=13237357" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css?v=be8a1c11" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css?v=4fa983c6" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-design.min.css?v=95c83b7e" />
+    
+    <script src="../_static/documentation_options.js?v=9eb32ce0"></script>
+    <script src="../_static/doctools.js?v=9a2dae69"></script>
+    <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="../_static/copybutton.js?v=f281be69"></script>
+    <script src="../_static/scripts/sphinx-book-theme.js?v=887ef09a"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../_static/togglebutton.js?v=4a39c7ea"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="../_static/design-tabs.js?v=f930bc37"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script async="async" src="../_static/sphinx-thebe.js?v=c100c467"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
     <link rel="next" title="16. Gauss Presentation" href="Gauss.html" />
     <link rel="prev" title="14. Log-Log Regression" href="LogLogRegression.html" /> 
-</head>
+  </head><body>
+    <div class="related" role="navigation" aria-label="Related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="Gauss.html" title="16. Gauss Presentation"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="LogLogRegression.html" title="14. Log-Log Regression"
+             accesskey="P">previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="../intro.html">Machine Learning for Research</a> &#187;</li>
+        <li class="nav-item nav-item-this"><a href=""><span class="section-number">15. </span>Strassen’s Algorithm (Optional Extension)</a></li> 
+      </ul>
+    </div>  
 
-<body class="wy-body-for-nav"> 
-  <div class="wy-grid-for-nav">
-    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
-      <div class="wy-side-scroll">
-        <div class="wy-side-nav-search" >
-
-          
-          
-          <a href="../intro.html" class="icon icon-home">
-            Project name not set
-              <img src="../_static/logo.png" class="logo" alt="Logo"/>
-          </a>
-<div role="search">
-  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
-    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
-    <input type="hidden" name="check_keywords" value="yes" />
-    <input type="hidden" name="area" value="default" />
-  </form>
-</div>
-        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
-              <p class="caption" role="heading"><span class="caption-text">Setup</span></p>
-<ul>
-<li class="toctree-l1"><a class="reference internal" href="hw01.html">1. Homework 01</a></li>
-<li class="toctree-l1"><a class="reference internal" href="hw02.html">2. Exploring data</a></li>
-<li class="toctree-l1"><a class="reference internal" href="wsl.html">3. Fixing WSL</a></li>
-<li class="toctree-l1"><a class="reference internal" href="cw03.html">4. August 28</a></li>
-</ul>
-<p class="caption" role="heading"><span class="caption-text">Measures of Closeness</span></p>
-<ul>
-<li class="toctree-l1"><a class="reference internal" href="Bayes_Theorem_Student.html">5. Bayes’ Theorem</a></li>
-<li class="toctree-l1"><a class="reference internal" href="jupyter-python-intro.html">6. Quick Jupyter Intro and Python Loops</a></li>
-<li class="toctree-l1"><a class="reference internal" href="Linear_regression_derivation.html">7. Linear Regression</a></li>
-<li class="toctree-l1"><a class="reference internal" href="least-squares-01.html">8. Linear Least Squares</a></li>
-<li class="toctree-l1"><a class="reference internal" href="Correlation_Coefficient.html">9. Correlation Coefficient</a></li>
-</ul>
-<p class="caption" role="heading"><span class="caption-text">Linear Algebra in Python</span></p>
-<ul class="current">
-<li class="toctree-l1"><a class="reference internal" href="Matrices-student.html">10. Linear Algebra and Python Lists</a></li>
-<li class="toctree-l1"><a class="reference internal" href="Intro_to_Matrices_in_NumPy.html">11. Introduction to Matrices in NumPy</a></li>
-<li class="toctree-l1"><a class="reference internal" href="Matrices_Index_Warmup-Student.html">12. Matrix indices warmup</a></li>
-<li class="toctree-l1"><a class="reference internal" href="Gaussian_Elimination-student.html">13. Gaussian Elimination</a></li>
-<li class="toctree-l1"><a class="reference internal" href="LogLogRegression.html">14. Log-Log Regression</a></li>
-<li class="toctree-l1 current"><a class="current reference internal" href="#">15. Strassen’s Algorithm (Optional Extension)</a></li>
-<li class="toctree-l1"><a class="reference internal" href="Gauss.html">16. Gauss Presentation</a></li>
-<li class="toctree-l1"><a class="reference internal" href="inversion.html">17. Matrix Inversion</a></li>
-<li class="toctree-l1"><a class="reference internal" href="Running_Time_Analysis.html">18. Running Time Analysis</a></li>
-</ul>
-<p class="caption" role="heading"><span class="caption-text">Next Steps</span></p>
-<ul>
-<li class="toctree-l1"><a class="reference internal" href="reading.html">19. Reading for Research</a></li>
-<li class="toctree-l1"><a class="reference internal" href="Hobo_Student.html">20. Hobo Data, Student Version</a></li>
-<li class="toctree-l1"><a class="reference internal" href="ML_Book_Club.html">21. ML Book Club</a></li>
-</ul>
-
-        </div>
-      </div>
-    </nav>
-
-    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
-          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
-          <a href="../intro.html">Project name not set</a>
-      </nav>
-
-      <div class="wy-nav-content">
-        <div class="rst-content">
-          <div role="navigation" aria-label="Page navigation">
-  <ul class="wy-breadcrumbs">
-      <li><a href="../intro.html" class="icon icon-home" aria-label="Home"></a></li>
-      <li class="breadcrumb-item active"><span class="section-number">15. </span>Strassen’s Algorithm (Optional Extension)</li>
-      <li class="wy-breadcrumbs-aside">
-            <a href="../_sources/lessons/Strassen-Lab.md" rel="nofollow"> View page source</a>
-      </li>
-  </ul>
-  <hr/>
-</div>
-          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
-           <div itemprop="articleBody">
-             
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
   <section class="tex2jax_ignore mathjax_ignore" id="strassen-s-algorithm-optional-extension">
-<h1><span class="section-number">15. </span>Strassen’s Algorithm (Optional Extension)<a class="headerlink" href="#strassen-s-algorithm-optional-extension" title="Link to this heading"></a></h1>
+<h1><span class="section-number">15. </span>Strassen’s Algorithm (Optional Extension)<a class="headerlink" href="#strassen-s-algorithm-optional-extension" title="Link to this heading">¶</a></h1>
 <p>Matrix multiplication in the naive implementation requires <span class="math notranslate nohighlight">\(O(n^3)\)</span> floating point
 operations on a matrix with <span class="math notranslate nohighlight">\(n^2\)</span> entries. In fact it seems unlikely one could do better.
 Each of the <span class="math notranslate nohighlight">\(n^2\)</span> entries in the product requires a dot product of two length <span class="math notranslate nohighlight">\(n\)</span> vectors.
@@ -132,13 +69,13 @@ Yet in 1969, Volken Strassen shocked numerical analysists with his algorithm req
 <span class="math notranslate nohighlight">\(O(n^{\log_2{7}}) \approx O(n^{2.73})\)</span> floating point operations. The search for a lower bound
 on the complexity of matrix multiplication continues today, with recent results hovering around <span class="math notranslate nohighlight">\(O(n^{2.3})\)</span>.</p>
 <section id="goal">
-<h2><span class="section-number">15.1. </span>Goal<a class="headerlink" href="#goal" title="Link to this heading"></a></h2>
+<h2><span class="section-number">15.1. </span>Goal<a class="headerlink" href="#goal" title="Link to this heading">¶</a></h2>
 <p>You will implement Strassen’s algorithm using Python and numpy. You will then
 perform tests to verify the achieved asymptotic running time of Strassen is actually lower than
 the running time of your previously implemented (non-numpy) matrix multiplication.</p>
 </section>
 <section id="details">
-<h2><span class="section-number">15.2. </span>Details<a class="headerlink" href="#details" title="Link to this heading"></a></h2>
+<h2><span class="section-number">15.2. </span>Details<a class="headerlink" href="#details" title="Link to this heading">¶</a></h2>
 <p>Read up on Strassen online (wikipedia has a good article, for example) and implement his algorithm using numpy. <strong>Your algorithm can assume <span class="math notranslate nohighlight">\(n=2^k\)</span></strong>. Making Strassen work otherwise requires really messy memory management best left to C-type languages. Test correctness of your code on several random matrices by comparing your output to numpy (<span class="math notranslate nohighlight">\(A &#64; B\)</span>). To simplify things, you should work with <strong>integer</strong> matrices only (floating-point introduces rounding errors that we don’t want to deal with.)</p>
 <p>Once you know it works, do some regression analysis on your original algorithm and Strassen and compare their running times. The easiest way to do this is in Python is with <code class="docutils literal notranslate"><span class="pre">timeit.timeit</span></code>. Here’s an example</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">timeit</span>
@@ -155,7 +92,7 @@ which is what the <code class="docutils literal notranslate"><span class="pre">g
 <p><em>N.B.</em>: Strassen is recursive and has a base case. Please use the base case <span class="math notranslate nohighlight">\(n=4\)</span> and return <code class="docutils literal notranslate"><span class="pre">A&#64;B</span></code>. This will ensure we have similar results.</p>
 </section>
 <section id="results">
-<h2><span class="section-number">15.3. </span>Results<a class="headerlink" href="#results" title="Link to this heading"></a></h2>
+<h2><span class="section-number">15.3. </span>Results<a class="headerlink" href="#results" title="Link to this heading">¶</a></h2>
 <p>You should graph the averaged running times of Strassen and Naive multiplication on the same graph. Then perform an appropriate regression analysis to determine the respective orders of growth to prove Strassen is asymptotically faster. Support your conclusions with calculations and graphs. (See the Gaussian elimination lab for regression operations).</p>
 <p>Finally, just for humility’s sake, print out a nicely formatted table comparing the above two algorithms with numpy’s built in multiply operation. (Don’t feel too bad, it’s using a compiled C library).</p>
 </section>
@@ -181,34 +118,77 @@ which is what the <code class="docutils literal notranslate"><span class="pre">g
     </script>
     <script>kernelName = 'python3'</script>
 
-           </div>
+            <div class="clearer"></div>
           </div>
-          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
-        <a href="LogLogRegression.html" class="btn btn-neutral float-left" title="14. Log-Log Regression" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
-        <a href="Gauss.html" class="btn btn-neutral float-right" title="16. Gauss Presentation" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
-    </div>
-
-  <hr/>
-
-  <div role="contentinfo">
-    <p>&#169; Copyright 2023.</p>
-  </div>
-
-  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
-    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
-    provided by <a href="https://readthedocs.org">Read the Docs</a>.
-   
-
-</footer>
         </div>
       </div>
-    </section>
-  </div>
-  <script>
-      jQuery(function () {
-          SphinxRtdTheme.Navigation.enable(true);
-      });
-  </script> 
+      <div class="sphinxsidebar" role="navigation" aria-label="Main">
+        <div class="sphinxsidebarwrapper">
+            <p class="logo"><a href="../intro.html">
+              <img class="logo" src="../_static/ML-logo-1.webp" alt="Logo of Project name not set"/>
+            </a></p>
+  <div>
+    <h3><a href="../intro.html">Table of Contents</a></h3>
+    <ul>
+<li><a class="reference internal" href="#">15. Strassen’s Algorithm (Optional Extension)</a><ul>
+<li><a class="reference internal" href="#goal">15.1. Goal</a></li>
+<li><a class="reference internal" href="#details">15.2. Details</a></li>
+<li><a class="reference internal" href="#results">15.3. Results</a></li>
+</ul>
+</li>
+</ul>
 
-</body>
+  </div>
+  <div>
+    <h4>Previous topic</h4>
+    <p class="topless"><a href="LogLogRegression.html"
+                          title="previous chapter"><span class="section-number">14. </span>Log-Log Regression</a></p>
+  </div>
+  <div>
+    <h4>Next topic</h4>
+    <p class="topless"><a href="Gauss.html"
+                          title="next chapter"><span class="section-number">16. </span>Gauss Presentation</a></p>
+  </div>
+  <div role="note" aria-label="source link">
+    <h3>This Page</h3>
+    <ul class="this-page-menu">
+      <li><a href="../_sources/lessons/Strassen-Lab.md"
+            rel="nofollow">Show Source</a></li>
+    </ul>
+   </div>
+<search id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="../search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false"/>
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</search>
+<script>document.getElementById('searchbox').style.display = "block"</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related" role="navigation" aria-label="Related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="Gauss.html" title="16. Gauss Presentation"
+             >next</a> |</li>
+        <li class="right" >
+          <a href="LogLogRegression.html" title="14. Log-Log Regression"
+             >previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="../intro.html">Machine Learning for Research</a> &#187;</li>
+        <li class="nav-item nav-item-this"><a href=""><span class="section-number">15. </span>Strassen’s Algorithm (Optional Extension)</a></li> 
+      </ul>
+    </div>
+    <div class="footer" role="contentinfo">
+    &#169; Copyright 2023.
+      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 7.4.7.
+    </div>
+  </body>
 </html>

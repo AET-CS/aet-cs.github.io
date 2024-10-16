@@ -54,5 +54,5 @@
 	- Look at [this desmos graph](https://www.desmos.com/calculator/gqyuvs3iea) for a class activity
 	- Work through [Life Expectancy 2](./lessons/Life_Part_2_Student.ipynb) notebook ([html version](./lessons/Life_Part_2_Student.html))
 	- Due next week: your own notebook on linear regression. Use all or most of the techniques from class to discuss and analyze a dataset.
-- 10/16/2023 (Wed). Matrices as linear operators. The Singluar Value Decomposition. Intro to PCA (Principal Component Analysis).
+- 10/16/2023 (Wed). [Matrices as linear operators](./lessons/coordinates.pdf) The Singluar Value Decomposition. Intro to PCA (Principal Component Analysis).
 	- HW: [Image Processing](./lessons/picture.md)

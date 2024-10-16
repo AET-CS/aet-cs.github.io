@@ -1,6 +1,6 @@
 # Picture Compression
 
-You will use an SVD to compress [this picture](./lessons/gauss.jpg). Learn how to use "PIL" to import the picture and resize it to a square 1024x1024. Convert it to an array and display it in grayscale. (Easy to google this bit.)
+You will use an SVD to compress [this picture](./gauss.jpg). Learn how to use "PIL" to import the picture and resize it to a square 1024x1024. Convert it to an array and display it in grayscale. (Easy to google this bit.)
 
 Now use the technique from class to compute the SVD of the picture. Plot the values of the diagonal matrix $\Sigma$. You will see a point at which the become very small.
 

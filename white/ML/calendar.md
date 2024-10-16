@@ -43,14 +43,15 @@
 
 - 10/1/2024 (Tuesday) PSAT day followed by a short class. We will get into groups and select articles for our next informal report. [Details here](./lessons/ML_Book_Club.md).
 - 10/3/2024 (Thursday) Holiday
-- 10/7/2024 (Monday) Look at the [Mushroom Dataset](./lessons/mushroom_student.ipynb)
+- 10/7/2024 (Monday) Look at the [Mushroom Dataset](./lessons/mushroom_student.ipynb) ([html version](./lessons/mushroom_student.html)).
   - classwork: find a dataset and model it using 'mushroom' as a guide
   - homework: finish what you started in class if you're not happy with it!
   - homework: we will do book club (article club) next class. be ready to discuss in groups
   - HOBO: submit what you have on HOBO -- I have some ideas to make this into a bigger project but we'll put it on the back-burner for a bit and bring it back soon. Each of the 3 groups has made great progress!
-- 10/9/2024 (Wed) Plan to do book clubs and a proper treatment of multi-linear regression. Classwork: [Linear Regression](./lessons/Life_Expectancy_Student.ipynb). Source for 10 good datasets for [Linear Regression](https://www.telusdigital.com/insights/ai-data/article/10-open-datasets-for-linear-regression)
+- 10/9/2024 (Wed) Plan to do book clubs and a proper treatment of multi-linear regression. Classwork: [Linear Regression](./lessons/Life_Expectancy_Student.ipynb) ([html version](./lessons/Life_Expectancy_Student.html)). Source for 10 good datasets for [Linear Regression](https://www.telusdigital.com/insights/ai-data/article/10-open-datasets-for-linear-regression)
 - 10/11/2023 (Fri) More linear regression -- feature selection, regularization,  normalization. We learn about ridge regression and lasso regression which are enhancements to regular linear regression.
 	- In-class warmup over optimization
 	- Look at [this desmos graph](https://www.desmos.com/calculator/gqyuvs3iea) for a class activity
-	- Work through [Life Expectancy 2](./lessons/Life_Part_2_Student.ipynb) notebook
+	- Work through [Life Expectancy 2](./lessons/Life_Part_2_Student.ipynb) notebook ([html version](./lessons/Life_Part_2_Student.html))
 	- Due next week: your own notebook on linear regression. Use all or most of the techniques from class to discuss and analyze a dataset.
+- 10/16/2023 (Wed). Matrices as linear operators. The Singluar Value Decomposition. Intro to PCA (Principal Component Analysis).

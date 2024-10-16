@@ -18,7 +18,7 @@
 	5. Lasso and Ridge Regression (regularization techniques -- reducing variance and overfitting)
 	6. Basic Concepts covered:
 		1. Test and training data.
-		2. Under and overfitting.
+		2. Under and over-fitting.
 		3. Model evaluation
 		4. Possibly ways of dealing with missing data
 4. Logistic Regression

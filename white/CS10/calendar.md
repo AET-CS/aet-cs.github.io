@@ -54,3 +54,11 @@
 	- do 5 CodingBat String level 1
 	- take practice quiz on AP classroom "String Practice"
 	- Read [bad solution to PigLatin](../AP_shared/badpig.md) and figure out what each line does.
+- 10/17/24 (Thursday). String review and practice
+	- A quick review of [array lists](../AP_shared/ArrayListReview.md)
+	- Try [this practice on delimeters](https://runestone.academy/ns/books/published/csawesome/Unit7-ArrayList/2019delimitersQ3a.html)
+	- Next try [this on word gaps](https://runestone.academy/ns/books/published/csawesome/Unit7-ArrayList/2016freeresponseQ4A.html)
+	- Word through these [multiple choice questions](https://runestone.academy/ns/books/published/csawesome/Unit2-Using-Objects/Exercises.html)
+	- Join JuiceMind class [at this link](https://play.juicemind.com/joinTeam/AlmsaQ9ynDpIwIgwhGuM) and work on FRQ Word Match
+	- CodingBat, String-2: endOther, catDog, countCode, xyBalance, plusOut
+	- Quiz next Wednesday, focus on Strings

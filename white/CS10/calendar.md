@@ -62,3 +62,4 @@
 	- Join JuiceMind class [at this link](https://play.juicemind.com/joinTeam/AlmsaQ9ynDpIwIgwhGuM) and work on **FRQ Word Match**
 	- CodingBat, String-2: endOther, catDog, countCode, xyBalance, plusOut
 	- Quiz next Wednesday, focus on Strings
+	- AP JOIN CODES [for the test](../AP_shared/apcodes.md)

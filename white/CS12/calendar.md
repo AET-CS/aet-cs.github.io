@@ -48,3 +48,11 @@
 	- take practice quiz on AP classroom "String MC Practice"
 	- Read [bad solution to PigLatin](../AP_shared/badpig.md) and figure out what each line does.
 	- Join Juice Mind Class [with this join code](https://play.juicemind.com/joinTeam/ITiQApa9wPwnXKmabxJA)
+- 10/17/24 (Thursday). String review and practice
+	- A quick review of [array lists](../AP_shared/ArrayListReview.md)
+	- Try [this practice on delimiters](https://runestone.academy/ns/books/published/csawesome/Unit7-ArrayList/2019delimitersQ3a.html)
+	- Next try [this on word gaps](https://runestone.academy/ns/books/published/csawesome/Unit7-ArrayList/2016freeresponseQ4A.html)
+	- Word through these [multiple choice questions](https://runestone.academy/ns/books/published/csawesome/Unit2-Using-Objects/Exercises.html)
+	- CodingBat, String-2: endOther, catDog, countCode, xyBalance, plusOut
+	- Quiz next Wednesday, focus on Strings
+	- AP JOIN CODES [for the test](../AP_shared/apcodes.md)

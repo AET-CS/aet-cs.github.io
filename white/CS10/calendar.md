@@ -63,3 +63,9 @@
 	- CodingBat, String-2: endOther, catDog, countCode, xyBalance, plusOut
 	- Quiz next Wednesday, focus on Strings
 	- AP JOIN CODES [for the test](../AP_shared/apcodes.md)
+- 10/21/24 (Monday) Begin arrays and array lists unit
+  - Helpful review material for [arrays](../AP_shared/Unit_2/Array_Basics_Labs/Array_Review_Notes.docx)
+  - CodingBat Warmups -- [tripleUp](https://codingbat.com/prob/p137874), [shiftLeft](https://codingbat.com/prob/p105031), [tenRun](https://codingbat.com/prob/p199484), [zeroMax](https://codingbat.com/prob/p187050)
+  - New Lab: [Heat Map Lab](../AP_shared/Unit_2/Heat_Map/Heat_Map.docx) and [Example File](../AP_shared/Unit_2/Heat_Map/Dispersion_Example.docx). Use this [shell code](../AP_shared/Unit_2/Heat_Map/HeatMap.java)
+  - Work on all the above in class in the given order. You may also spend time reviewing strings. See previous days for MC and FRQ practice. There should be plenty!
+- 10/23/24 (Wednesday) **Strings Quiz** MC and FRQ

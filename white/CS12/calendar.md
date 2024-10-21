@@ -57,9 +57,9 @@
 	- Quiz next class, focus on Strings
 	- AP JOIN CODES [for the test](../AP_shared/apcodes.md)
 - 10/21 (Monday) **String Quiz today** in Schoology
-  - Review until 11:40
+  - Testing window **11:40-12:55**. You may review until then. Be extra sure you understand *substring, length, indexOf and equals* for string objects.
   - Get testing dividers (the 3d printed bases are in the plastic drawers by the wall. You can also borrow some from Dr. Shapiro)
   - Test is in Schoology; you have the rest of the block to work on it
   - If you are Post-AP, you do not need to test. Instead, please write for me a progress report covering this quarter. What have you been working on? What has succeeded? What has failed? What are next steps? Upload this to the Pi in class.
-  - I will post a new lab here if you finish the test and want to start working on it.
+  - New Lab (if you finish early): [Heat Map Lab](../AP_shared/Unit_2/Heat_Map/Heat_Map.docx) and [Example File](../AP_shared/Unit_2/Heat_Map/Dispersion_Example.docx). Use this [shell code](../AP_shared/Unit_2/Heat_Map/HeatMap.java)
   - Good luck!

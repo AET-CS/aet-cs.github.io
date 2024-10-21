@@ -52,7 +52,14 @@
 	- A quick review of [array lists](../AP_shared/ArrayListReview.md)
 	- Try [this practice on delimiters](https://runestone.academy/ns/books/published/csawesome/Unit7-ArrayList/2019delimitersQ3a.html)
 	- Next try [this on word gaps](https://runestone.academy/ns/books/published/csawesome/Unit7-ArrayList/2016freeresponseQ4A.html)
-	- Word through these [multiple choice questions](https://runestone.academy/ns/books/published/csawesome/Unit2-Using-Objects/Exercises.html)
+	- Work through these [multiple choice questions](https://runestone.academy/ns/books/published/csawesome/Unit2-Using-Objects/Exercises.html)
 	- CodingBat, String-2: endOther, catDog, countCode, xyBalance, plusOut
-	- Quiz next Wednesday, focus on Strings
+	- Quiz next class, focus on Strings
 	- AP JOIN CODES [for the test](../AP_shared/apcodes.md)
+- 10/21 (Monday) **String Quiz today** in Schoology
+  - Review until 11:40
+  - Get testing dividers (the 3d printed bases are in the plastic drawers by the wall. You can also borrow some from Dr. Shapiro)
+  - Test is in Schoology; you have the rest of the block to work on it
+  - If you are Post-AP, you do not need to test. Instead, please write for me a progress report covering this quarter. What have you been working on? What has succeeded? What has failed? What are next steps? Upload this to the Pi in class.
+  - I will post a new lab here if you finish the test and want to start working on it.
+  - Good luck!

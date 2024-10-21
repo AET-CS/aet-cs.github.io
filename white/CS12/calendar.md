@@ -61,5 +61,5 @@
   - Get testing dividers (the 3d printed bases are in the plastic drawers by the wall. You can also borrow some from Dr. Shapiro)
   - Test is in Schoology; you have the rest of the block to work on it
   - If you are Post-AP, you do not need to test. Instead, please write for me a progress report covering this quarter. What have you been working on? What has succeeded? What has failed? What are next steps? Upload this to the Pi in class.
-  - New Lab (if you finish early): [Heat Map Lab](../AP_shared/Unit_2/Heat_Map/Heat_Map.docx) and [Example File](../AP_shared/Unit_2/Heat_Map/Dispersion_Example.docx). Use this [shell code](../AP_shared/Unit_2/Heat_Map/HeatMap.java)
+  -  New Lab: [Heat Map Lab](../AP_shared/Unit_2/Heat_Map/Heat_Map.pdf) and [Example File](../AP_shared/Unit_2/Heat_Map/Dispersion_Example.pdf). Use this [shell code](../AP_shared/Unit_2/Heat_Map/HeatMap.java)
   - Good luck!

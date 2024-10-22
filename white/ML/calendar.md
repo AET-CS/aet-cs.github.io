@@ -54,5 +54,16 @@
 	- Look at [this desmos graph](https://www.desmos.com/calculator/gqyuvs3iea) for a class activity
 	- Work through [Life Expectancy 2](./lessons/Life_Part_2_Student.ipynb) notebook ([html version](./lessons/Life_Part_2_Student.html))
 	- Due next week: your own notebook on linear regression. Use all or most of the techniques from class to discuss and analyze a dataset.
-- 10/16/2023 (Wed). [Matrices as linear operators](./lessons/coordinates.pdf) The Singluar Value Decomposition. Intro to PCA (Principal Component Analysis).
+- 10/16/2023 (Wed). [Matrices as linear operators](./lessons/coordinates.pdf) The Singular Value Decomposition. Intro to PCA (Principal Component Analysis).
 	- HW: [Image Processing](./lessons/picture.md)
+- 10/18/2024 (Friday) Please take [these surveys] for the AP Stats class
+- 10/22/2024 (Tuesday) Introduce Logistic Regression. Continue working with linear project models
+	- upload your linear project and PCA picture to the pi
+	- ALSO make a copy of your linear project
+		- Add descriptive info at the beginning about the dataset, where to find it, what you're looking for, etc
+		- Rename this copy as YourFirstName.ipynb
+		- Upload it to the pi under /home/linear
+	- SELECT one of your classmates Linear projects that SHOULD be logistic
+		- Download it
+		- Rewrite it to use logistic regression
+		- Compare your results and claim your reward!

@@ -1,0 +1,105 @@
+<h1 id="initializing-and-comparing-arrays-notes">Initializing and
+Comparing arrays Notes</h1>
+<p>In Java, declaring a 2D array and initializing it are distinct
+operations. Declaring an array simply creates a reference to an array,
+but it doesn’t allocate memory or assign default values until the array
+is initialized.</p>
+<h3 id="key-concepts">Key Concepts:</h3>
+<ol type="1">
+<li><p><strong>Declaring a 2D Array</strong>:</p>
+<div class="sourceCode" id="cb1"><pre
+class="sourceCode java"><code class="sourceCode java"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="dt">int</span><span class="op">[][]</span> array<span class="op">;</span>  <span class="co">// Declaration: no memory is allocated yet</span></span></code></pre></div>
+<p>At this point, <code>array</code> is declared but uninitialized.
+Trying to access <code>array</code> (e.g., <code>array[0]</code>) before
+initializing it will result in a
+<strong>NullPointerException</strong>.</p></li>
+<li><p><strong>Initializing a 2D Array</strong>:</p>
+<div class="sourceCode" id="cb2"><pre
+class="sourceCode java"><code class="sourceCode java"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>array <span class="op">=</span> <span class="kw">new</span> <span class="dt">int</span><span class="op">[</span><span class="dv">3</span><span class="op">][</span><span class="dv">4</span><span class="op">];</span>  <span class="co">// Memory allocated, with default values</span></span></code></pre></div>
+<p>When you initialize a 2D array, Java automatically fills it with
+default values. For example, an <code>int[][]</code> array is filled
+with <code>0</code>s, and an array of objects (like
+<code>String[][]</code>) is filled with <code>null</code>.</p></li>
+<li><p><strong>Declaring and Initializing with Values</strong>:</p>
+<div class="sourceCode" id="cb3"><pre
+class="sourceCode java"><code class="sourceCode java"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="dt">int</span><span class="op">[][]</span> array <span class="op">=</span> <span class="op">{</span></span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>    <span class="op">{</span><span class="dv">1</span><span class="op">,</span> <span class="dv">2</span><span class="op">,</span> <span class="dv">3</span><span class="op">},</span></span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>    <span class="op">{</span><span class="dv">4</span><span class="op">,</span> <span class="dv">5</span><span class="op">,</span> <span class="dv">6</span><span class="op">},</span></span>
+<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a>    <span class="op">{</span><span class="dv">7</span><span class="op">,</span> <span class="dv">8</span><span class="op">,</span> <span class="dv">9</span><span class="op">}</span></span>
+<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a><span class="op">};</span></span></code></pre></div>
+<p>Here, the array is both declared and initialized with specific
+values, avoiding the use of default values.</p></li>
+</ol>
+<h3 id="important-points">Important Points:</h3>
+<ul>
+<li><strong>Default values</strong>: For primitive types like
+<code>int</code>, arrays are initialized with <code>0</code>. For object
+types, arrays are initialized with <code>null</code>.</li>
+<li><strong>Error from accessing uninitialized array</strong>: If you
+declare a 2D array without initializing it and try to access it (e.g.,
+<code>array[0][0]</code>), Java will throw a
+<strong>NullPointerException</strong> since the array reference points
+to <code>null</code> before initialization.</li>
+</ul>
+<p>In summary, declaring a 2D array creates a reference, but the array
+must be initialized to allocate memory and set default values.</p>
+<h2 id="comparison">Comparison</h2>
+<p>In Java, arrays are <strong>reference types</strong>, meaning that
+when you declare an array, you’re creating a reference (or pointer) to
+the array’s memory location. This has important implications when
+comparing arrays and understanding how references work.</p>
+<h3 id="key-concepts-1">Key Concepts:</h3>
+<ol type="1">
+<li><p><strong>References in Arrays</strong>: When you declare an array,
+you are creating a reference to a block of memory that will hold the
+array’s elements. For example:</p>
+<div class="sourceCode" id="cb4"><pre
+class="sourceCode java"><code class="sourceCode java"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="dt">int</span><span class="op">[][]</span> array1 <span class="op">=</span> <span class="kw">new</span> <span class="dt">int</span><span class="op">[</span><span class="dv">2</span><span class="op">][</span><span class="dv">3</span><span class="op">];</span></span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a><span class="dt">int</span><span class="op">[][]</span> array2 <span class="op">=</span> array1<span class="op">;</span>  <span class="co">// array2 refers to the same memory as array1</span></span></code></pre></div>
+<p>Here, both <code>array1</code> and <code>array2</code> refer to the
+same 2D array. Modifying <code>array2</code> will also affect
+<code>array1</code> because they point to the same memory.</p></li>
+<li><p><strong>Comparing Arrays with <code>==</code></strong>: Using
+<code>==</code> to compare arrays checks whether the two arrays refer to
+the <strong>same memory location</strong>, not whether they contain the
+same elements.</p>
+<div class="sourceCode" id="cb5"><pre
+class="sourceCode java"><code class="sourceCode java"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="dt">int</span><span class="op">[][]</span> array1 <span class="op">=</span> <span class="kw">new</span> <span class="dt">int</span><span class="op">[</span><span class="dv">2</span><span class="op">][</span><span class="dv">3</span><span class="op">];</span></span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a><span class="dt">int</span><span class="op">[][]</span> array2 <span class="op">=</span> <span class="kw">new</span> <span class="dt">int</span><span class="op">[</span><span class="dv">2</span><span class="op">][</span><span class="dv">3</span><span class="op">];</span></span>
+<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a><span class="bu">System</span><span class="op">.</span><span class="fu">out</span><span class="op">.</span><span class="fu">println</span><span class="op">(</span>array1 <span class="op">==</span> array2<span class="op">);</span>  <span class="co">// Output: false</span></span></code></pre></div>
+<p>Even though <code>array1</code> and <code>array2</code> are of the
+same size and contain default values (<code>0</code>), they are stored
+in different memory locations. Thus, <code>==</code> returns
+<code>false</code>.</p></li>
+<li><p><strong>Comparing Arrays with
+<code>Arrays.equals()</code></strong>: To compare whether two arrays
+contain the same values, you should use methods from
+<code>java.util.Arrays</code>. However, <code>Arrays.equals()</code>
+works only for <strong>1D arrays</strong>:</p>
+<div class="sourceCode" id="cb6"><pre
+class="sourceCode java"><code class="sourceCode java"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="dt">int</span><span class="op">[]</span> arr1 <span class="op">=</span> <span class="op">{</span><span class="dv">1</span><span class="op">,</span> <span class="dv">2</span><span class="op">,</span> <span class="dv">3</span><span class="op">};</span></span>
+<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a><span class="dt">int</span><span class="op">[]</span> arr2 <span class="op">=</span> <span class="op">{</span><span class="dv">1</span><span class="op">,</span> <span class="dv">2</span><span class="op">,</span> <span class="dv">3</span><span class="op">};</span></span>
+<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a><span class="bu">System</span><span class="op">.</span><span class="fu">out</span><span class="op">.</span><span class="fu">println</span><span class="op">(</span><span class="bu">Arrays</span><span class="op">.</span><span class="fu">equals</span><span class="op">(</span>arr1<span class="op">,</span> arr2<span class="op">));</span>  <span class="co">// Output: true</span></span></code></pre></div>
+<p>For <strong>2D arrays</strong>, you should use
+<code>Arrays.deepEquals()</code>:</p>
+<div class="sourceCode" id="cb7"><pre
+class="sourceCode java"><code class="sourceCode java"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="dt">int</span><span class="op">[][]</span> array1 <span class="op">=</span> <span class="op">{{</span><span class="dv">1</span><span class="op">,</span> <span class="dv">2</span><span class="op">},</span> <span class="op">{</span><span class="dv">3</span><span class="op">,</span> <span class="dv">4</span><span class="op">}};</span></span>
+<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a><span class="dt">int</span><span class="op">[][]</span> array2 <span class="op">=</span> <span class="op">{{</span><span class="dv">1</span><span class="op">,</span> <span class="dv">2</span><span class="op">},</span> <span class="op">{</span><span class="dv">3</span><span class="op">,</span> <span class="dv">4</span><span class="op">}};</span></span>
+<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-4"><a href="#cb7-4" aria-hidden="true" tabindex="-1"></a><span class="bu">System</span><span class="op">.</span><span class="fu">out</span><span class="op">.</span><span class="fu">println</span><span class="op">(</span><span class="bu">Arrays</span><span class="op">.</span><span class="fu">deepEquals</span><span class="op">(</span>array1<span class="op">,</span> array2<span class="op">));</span>  <span class="co">// Output: true</span></span></code></pre></div>
+<p><code>Arrays.deepEquals()</code> compares both the references and the
+actual contents of multi-dimensional arrays recursively.</p></li>
+</ol>
+<h3 id="summary">Summary:</h3>
+<ul>
+<li>Arrays are <strong>reference types</strong>. When you assign an
+array to another variable, both variables point to the same array in
+memory.</li>
+<li>Using <code>==</code> compares whether two array variables point to
+the <strong>same memory location</strong> (not the contents).</li>
+<li>Use <code>Arrays.equals()</code> for comparing <strong>1D
+arrays</strong> and <code>Arrays.deepEquals()</code> for comparing
+<strong>multi-dimensional arrays</strong> to check if they contain the
+same elements.</li>
+</ul>

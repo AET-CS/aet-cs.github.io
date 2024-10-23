@@ -63,3 +63,12 @@
   - If you are Post-AP, you do not need to test. Instead, please write for me a progress report covering this quarter. What have you been working on? What has succeeded? What has failed? What are next steps? Upload this to the Pi in class.
   -  New Lab: [Heat Map Lab](../AP_shared/Unit_2/Heat_Map/Heat_Map.pdf) and [Example File](../AP_shared/Unit_2/Heat_Map/Dispersion_Example.pdf). Use this [shell code](../AP_shared/Unit_2/Heat_Map/HeatMap.java)
   - Good luck!
+- 10/23 (Wednesday)	Arrays, ArrayLists, References, 2D Arrays
+	- Quizzes are graded (1 and 2) and grades posted in Schoology
+	- Whiteboard with your neighbor only: [MaxSpan](https://codingbat.com/prob/p189576). Get a good algorithm first on paper/board/etc!
+	- If you finish MaxSpan, try [SeriesUp](https://codingbat.com/prob/p104090)
+	- Try the AP Arrays PreTest in AP Classroom (5 questions, 12 minutes). Do not start until instructed please!
+	- Tracing Practice
+	- 2D arrays -- initializing and nested loops
+	- HeatMap Project
+	- HW: Work on HeatMap. It will be due after the Nov. break

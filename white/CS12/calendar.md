@@ -71,5 +71,5 @@
 	- Tracing Practice
 	- 2D arrays -- initializing and nested loops
 	- HeatMap Project
-	- HW: Work on HeatMap. Due in class 10/25/24!
+	- HW: Work on HeatMap. **Due in class 10/25/24!**
 	- Some handy [arrays notes](../AP_shared/arrays.md)

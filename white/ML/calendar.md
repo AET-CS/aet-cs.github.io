@@ -67,3 +67,9 @@
 		- Download it
 		- Rewrite it to use logistic regression
 		- Compare your results and claim your reward!
+- 10/24/2024 (Thursday) Logistic Regression.
+	- Download Alex's files from the pi if you haven't already
+	- Download [Cancer_Logistic_Student](./lessons/Cancer_Logistic_Student.ipynb) from here [html](./lessons/Cancer_Logistic_Student.html)
+	- Work through the notebook as indicated
+	- Discuss your choices and results
+	- Submit final version to pi

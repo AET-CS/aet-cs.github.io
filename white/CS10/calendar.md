@@ -69,3 +69,4 @@
   - New Lab: [Heat Map Lab](../AP_shared/Unit_2/Heat_Map/Heat_Map.pdf) and [Example File](../AP_shared/Unit_2/Heat_Map/Dispersion_Example.pdf). Use this [shell code](../AP_shared/Unit_2/Heat_Map/HeatMap.java)
   - Work on all the above in class in the given order. You may also spend time reviewing strings. See previous days for MC and FRQ practice. There should be plenty!
 - 10/23/24 (Wednesday) **Strings Quiz** MC and FRQ
+- 10/25/24 (Friday) Quiz graded and returned. Turn in any missing work! Work on HeatMap project (due after break). *Retake* in class on Tuesday for either quiz this quarter. Email me with any questions!

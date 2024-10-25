@@ -73,3 +73,6 @@
 	- HeatMap Project
 	- HW: Work on HeatMap. **Due in class 10/25/24!**
 	- Some handy [arrays notes](../AP_shared/arrays.html)
+- 10/25/24 (Friday) Quiz graded and returned. Turn in any missing work! **HeatMap Due Today**. *Retakes* in class on Tuesday for either quiz this quarter. Email me with any questions!
+	- [Heat Map Lab](../AP_shared/Unit_2/Heat_Map/Heat_Map.pdf) and [Example File](../AP_shared/Unit_2/Heat_Map/Dispersion_Example.pdf). Use this [shell code](../AP_shared/Unit_2/Heat_Map/HeatMap.java)
+	- Extensions for HeatMap are on the description page now (they can be turned in anytime)

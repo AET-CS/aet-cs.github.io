@@ -73,3 +73,5 @@
 	- Work through the notebook as indicated
 	- Discuss your choices and results
 	- Submit final version to pi
+- 10/28/2004 (Monday) Last day of quarter
+  - Please check gradebook -- anything BLANK is missing. Upload it today!

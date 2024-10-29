@@ -85,8 +85,8 @@
 	  - CreditCard should be named "CreditCard.java"
 	  - CreditCard should ask the user for a number and reply with ONE LINE only, then exit
 	  - I will test it against the 4 test cases in the assignment file
-	  - PigLatin should read "PigLatin.txt" (you may need to change this from what works on your machine)
-	  - PigLatin should read each line and output the words from each line -- do NOT write to a file. Write to stdout.
+	  - PigLatin should be named "PigLatin.java" and read "PigLatin.txt" (you may need to change this from what works on your machine)
+	  - PigLatin should read each line from the file and output the words from each line to stdout -- do NOT write only to a file. Write to stdout.
 	  - If you did PigLatin Bonus, you should still just read the same PigLatin.txt file
 	- Submit HeatMap if not done already
     - Name it "HeatMap.java"

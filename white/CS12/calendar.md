@@ -76,3 +76,17 @@
 - 10/25/24 (Friday) Quiz graded and returned. Turn in any missing work! **HeatMap Due Today**. *Retakes* in class on Tuesday for either quiz this quarter. Email me with any questions!
 	- [Heat Map Lab](../AP_shared/Unit_2/Heat_Map/Heat_Map.pdf) and [Example File](../AP_shared/Unit_2/Heat_Map/Dispersion_Example.pdf). Use this [shell code](../AP_shared/Unit_2/Heat_Map/HeatMap.java)
 	- Extensions for HeatMap are on the description page now (they can be turned in anytime)
+- 10/29/24 (Tuesday) End of Quarter
+  - Check schoology for missing work
+  - Please RESUBMIT Credit Card and Pig Latin
+		- Delete any old Pig/Credit files on the pi
+		- Upload new ones
+		- Do NOT put your code in folders or subdirectories
+	  - CreditCard should be named "CreditCard.java"
+	  - CreditCard should ask the user for a number and reply with ONE LINE only, then exit
+	  - I will test it against the 4 test cases in the assignment file
+	  - PigLatin should read "PigLatin.txt" (you may need to change this from what works on your machine)
+	  - PigLatin should read each line and output the words from each line -- do NOT write to a file. Write to stdout.
+	  - If you did PigLatin Bonus, you should still just read the same PigLatin.txt file
+	- Submit HeatMap if not done already
+    - Name it "HeatMap.java"

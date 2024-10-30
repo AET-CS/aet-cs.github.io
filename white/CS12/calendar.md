@@ -19,4 +19,74 @@
 - 9/24/24 (Tuesday) School! But Dr. White is out today. There is a quiz review on AP Classroom [also a pdf here](../AP_shared/Quiz_Review_1.pdf). It's set up as a test, but it will not be graded as a test. It's just for review. Also the FRQ questions might not work (like on the benchmark) so please feel free to do those on paper or in another app. You do not need to turn in the FRQ. Please work through review today; feel free to collaborate. I'll push the quiz again to next Monday so we can have some face time Thursday before. We'll also start our next lab Thursday.
     - Quiz topics: Booleans, conditionals, simplifying boolean expressions, basic arithmetic, order of precedence, doubles and ints, div and mod, tracing for loops, simple arrays, writing class definitions, constructors, getters and setters, class methods, toString methods. This should all be review from last year and related to our classwork.
     - HW: Review for quiz
-9/26/24 (Thursday) Answers to [quiz review posted here](../AP_shared/Review_1_key.pdf). Quiz next class.
+- 9/26/24 (Thursday) Answers to [quiz review posted here](../AP_shared/Review_1_key.pdf). Quiz next class. Will consist of MC and FRQ questions. Be sure you can write loops/conditionals/classes from scratch.
+**Please install Schoology Lockdown Browser** if you haven't already!
+- 9/30/24 (Monday) Quiz today! After quiz you may begin [Pig latin lab](../AP_shared/PigLatin.pdf). Create one java file PigLatin.java with a main method to preform the transformations. For now stop at STEP 2 (parsing a file). [this is NOT HW yet unless you want it to be] **Please check schoology** for completion grades and upload anything you haven't already (I know many of you added stuff at the end of class today that I still need to update).
+- 10/2/24 (Wednesday) PSAT -- nothing planned for today!
+- 10/4/24 (Friday) No school
+- 10/8/24 (Tuesday) Strings and Scanners: [Pig latin lab](../AP_shared/PigLatin.pdf)
+	- Read about [strings](../AP_shared/strings.md)
+	- Read about [scanners](../AP_shared/scanners.md)
+	- Turn in any missing work! (if you need to show me TruthTables, use [this test case](../AP_shared/true-check.md))
+	- Next class: Show me Credit Card
+	- Classwork: write [helper classes for PigLatin](../AP_shared/pig-helper.md)
+	- Today in class everyone will finish part 1 of PigLatin, using my helper methods. Your code will
+		- Read in a file "pig-latin-in.txt" with one word per line
+		- Convert all words to pig latin
+		- Write each word out to a new file "pig-latin-out.txt"
+		- Name your file PigLatin1.java and upload it to the raspberry pi today!
+		- Go on to parts 2/3 if you finish. 2 is required. 3 will be the optional bonus for an A+.
+- 10/10/24 (Thursday) Finish [Pig latin lab](../AP_shared/PigLatin-2024.pdf). The clarified assignment is
+	- Step 1
+	- Step 2
+	- Step 3
+	- Step 4 is optional
+	- Due at end of class
+	- [File for testing](../AP_shared/PigLatin.txt) and [Bonus File](../AP_shared/PigLatinBonus.txt)
+- 10/15/24 (Tuesday) Strings review and practice.
+	- do 5 CodingBat String level 1
+	- take practice quiz on AP classroom "String MC Practice"
+	- Read [bad solution to PigLatin](../AP_shared/badpig.md) and figure out what each line does.
+	- Join Juice Mind Class [with this join code](https://play.juicemind.com/joinTeam/ITiQApa9wPwnXKmabxJA)
+- 10/17/24 (Thursday). String review and practice
+	- A quick review of [array lists](../AP_shared/ArrayListReview.md)
+	- Try [this practice on delimiters](https://runestone.academy/ns/books/published/csawesome/Unit7-ArrayList/2019delimitersQ3a.html)
+	- Next try [this on word gaps](https://runestone.academy/ns/books/published/csawesome/Unit7-ArrayList/2016freeresponseQ4A.html)
+	- Work through these [multiple choice questions](https://runestone.academy/ns/books/published/csawesome/Unit2-Using-Objects/Exercises.html)
+	- CodingBat, String-2: endOther, catDog, countCode, xyBalance, plusOut
+	- Quiz next class, focus on Strings
+	- AP JOIN CODES [for the test](../AP_shared/apcodes.md)
+- 10/21 (Monday) **String Quiz today** in Schoology
+  - Testing window **11:40-12:55**. You may review until then. Be extra sure you understand *substring, length, indexOf and equals* for string objects.
+  - Get testing dividers (the 3d printed bases are in the plastic drawers by the wall. You can also borrow some from Dr. Shapiro)
+  - Test is in Schoology; you have the rest of the block to work on it
+  - If you are Post-AP, you do not need to test. Instead, please write for me a progress report covering this quarter. What have you been working on? What has succeeded? What has failed? What are next steps? Upload this to the Pi in class.
+  -  New Lab: [Heat Map Lab](../AP_shared/Unit_2/Heat_Map/Heat_Map.pdf) and [Example File](../AP_shared/Unit_2/Heat_Map/Dispersion_Example.pdf). Use this [shell code](../AP_shared/Unit_2/Heat_Map/HeatMap.java)
+  - Good luck!
+- 10/23 (Wednesday)	Arrays, ArrayLists, References, 2D Arrays
+	- Quizzes are graded (1 and 2) and grades posted in Schoology
+	- Whiteboard with your neighbor only: [MaxSpan](https://codingbat.com/prob/p189576). Get a good algorithm first on paper/board/etc! When your code works, add it [here](https://docs.google.com/document/d/1Dj7Zt57OYC9A5giVorg4gce8k8Fsi1h6pSQyZU1cDeU/edit?usp=sharing)
+	- If you finish MaxSpan, try [SeriesUp](https://codingbat.com/prob/p104090)
+	- Try the AP Arrays PreTest in AP Classroom (5 questions, 12 minutes). Do not start until instructed please!
+	- Tracing Practice
+	- 2D arrays -- initializing and nested loops
+	- HeatMap Project
+	- HW: Work on HeatMap. **Due in class 10/25/24!**
+	- Some handy [arrays notes](../AP_shared/arrays.html)
+- 10/25/24 (Friday) Quiz graded and returned. Turn in any missing work! **HeatMap Due Today**. *Retakes* in class on Tuesday for either quiz this quarter. Email me with any questions!
+	- [Heat Map Lab](../AP_shared/Unit_2/Heat_Map/Heat_Map.pdf) and [Example File](../AP_shared/Unit_2/Heat_Map/Dispersion_Example.pdf). Use this [shell code](../AP_shared/Unit_2/Heat_Map/HeatMap.java)
+	- Extensions for HeatMap are on the description page now (they can be turned in anytime)
+- 10/29/24 (Tuesday) End of Quarter
+  - Check schoology for missing work
+  - Please RESUBMIT Credit Card and Pig Latin
+		- Delete any old Pig/Credit files on the pi
+		- Upload new ones
+		- Do NOT put your code in folders or subdirectories
+	  - CreditCard should be named "CreditCard.java"
+	  - CreditCard should ask the user for a number and reply with ONE LINE only, then exit
+	  - I will test it against the 4 test cases in the assignment file
+	  - PigLatin should be named "PigLatin.java" and read "PigLatin.txt" (you may need to change this from what works on your machine)
+	  - PigLatin should read each line from the file and output the words from each line to stdout -- do NOT write only to a file. Write to stdout.
+	  - If you did PigLatin Bonus, you should still just read the same PigLatin.txt file
+	- Submit HeatMap if not done already
+    - Name it "HeatMap.java"

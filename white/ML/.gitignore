@@ -1,4 +1,8 @@
 env
 solutions
 scratch
+.ipynb_checkpoints
+**/.ipynb_checkpoints
+*.out
+**/*.out
 

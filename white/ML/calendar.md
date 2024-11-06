@@ -75,3 +75,9 @@
 	- Submit final version to pi
 - 10/28/2004 (Monday) Last day of quarter
   - Please check gradebook -- anything BLANK is missing. Upload it today!
+--------------------------------------------------
+- 11/6/2004 (Wednesday)
+  - k Nearest Neighbor
+  - Devise algorithm in class
+  - [Implement in Jupyter](./lessons/knn-Student.ipynb)
+  - Also complete extensions

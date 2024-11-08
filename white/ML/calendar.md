@@ -79,5 +79,8 @@
 - 11/6/2004 (Wednesday)
   - k Nearest Neighbor
   - Devise algorithm in class
-  - [Implement in Jupyter](./lessons/knn-Student.ipynb)
-  - Also complete extensions
+  - [Implement in Jupyter](./lessons/knn-Student.ipynb) [(html)](./lessons/knn-Student.html)
+  - Also complete extension(s)
+- 11/8/2004 (Friday)
+  - Continue k-NN. Finish notebook from last class
+  - Work on [Digits dataset](./lessons/digits-student.ipynb) [(html)](./lessons/digits-student.html)

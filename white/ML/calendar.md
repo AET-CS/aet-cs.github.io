@@ -84,3 +84,4 @@
 - 11/8/2004 (Friday)
   - Continue k-NN. Finish notebook from last class
   - Work on [Digits dataset](./lessons/digits-student.ipynb) [(html)](./lessons/digits-student.html)
+  - A [nice writeup](https://towardsdatascience.com/comprehensive-guide-to-approximate-nearest-neighbors-algorithms-8b94f057d6b6) of the approximate nearest neighbor problem with an eye towards ML applications like Spotify and Netflix recommendations (may be a paywall I'm not sure)

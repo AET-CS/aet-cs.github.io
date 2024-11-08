@@ -77,7 +77,7 @@
 	- [Heat Map Lab](../AP_shared/Unit_2/Heat_Map/Heat_Map.pdf) and [Example File](../AP_shared/Unit_2/Heat_Map/Dispersion_Example.pdf). Use this [shell code](../AP_shared/Unit_2/Heat_Map/HeatMap.java)
 	- Extensions for HeatMap are on the description page now (they can be turned in anytime)
 - 10/29/24 (Tuesday) End of Quarter
-  - Check schoology for missing work
+  - Check Schoology for missing work
   - Please RESUBMIT Credit Card and Pig Latin
 		- Delete any old Pig/Credit files on the pi
 		- Upload new ones
@@ -90,3 +90,6 @@
 	  - If you did PigLatin Bonus, you should still just read the same PigLatin.txt file
 	- Submit HeatMap if not done already
     - Name it "HeatMap.java"
+- 11/7/24 (Thursday) Begin Q2
+	- Implement findMax, findMin, argMax, argMin, count, findFirst, findSecondLargest (class notes/activity)
+	- create a java class with all methods and upload to pi

@@ -73,15 +73,18 @@
 	- Work through the notebook as indicated
 	- Discuss your choices and results
 	- Submit final version to pi
-- 10/28/2004 (Monday) Last day of quarter
+- 10/28/2024 (Monday) Last day of quarter
   - Please check gradebook -- anything BLANK is missing. Upload it today!
 --------------------------------------------------
-- 11/6/2004 (Wednesday)
+- 11/6/2024 (Wednesday)
   - k Nearest Neighbor
   - Devise algorithm in class
   - [Implement in Jupyter](./lessons/knn-Student.ipynb) [(html)](./lessons/knn-Student.html)
   - Also complete extension(s)
-- 11/8/2004 (Friday)
+- 11/8/2024 (Friday)
   - Continue k-NN. Finish notebook from last class
   - Work on [Digits dataset](./lessons/digits-student.ipynb) [(html)](./lessons/digits-student.html)
   - A [nice writeup](https://towardsdatascience.com/comprehensive-guide-to-approximate-nearest-neighbors-algorithms-8b94f057d6b6) of the approximate nearest neighbor problem with an eye towards ML applications like Spotify and Netflix recommendations (may be a paywall I'm not sure)
+- 11/12/2024 (Tuesday)
+  - Intro to decision trees
+  - Work on the [Decision Tree Notebook](./lessons/Restaurant.ipynb)

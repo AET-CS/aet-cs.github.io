@@ -70,3 +70,7 @@
   - Work on all the above in class in the given order. You may also spend time reviewing strings. See previous days for MC and FRQ practice. There should be plenty!
 - 10/23/24 (Wednesday) **Strings Quiz** MC and FRQ
 - 10/25/24 (Friday) Quiz graded and returned. Turn in any missing work! Work on HeatMap project (due after break). *Retake* in class on Tuesday for either quiz this quarter. Email me with any questions!
+- 11/13/24 (Wednesday)
+  - Join JuiceMind class [at this link](https://play.juicemind.com/joinTeam/AlmsaQ9ynDpIwIgwhGuM) and work on **Traverse Arrays**
+  - Notes on Array Methods
+  - Quiz next class over arrays and heatmap!

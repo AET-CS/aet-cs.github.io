@@ -74,3 +74,4 @@
   - Join JuiceMind class [at this link](https://play.juicemind.com/joinTeam/AlmsaQ9ynDpIwIgwhGuM) and work on **Traverse Arrays**
   - Notes on Array Methods
   - Quiz next class over arrays and heatmap!
+  - JuiceMind local copy is [here](../AP_shared/array-juice.md) and [here](../AP_shared/ArrayMain.java)

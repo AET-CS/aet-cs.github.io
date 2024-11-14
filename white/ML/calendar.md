@@ -93,3 +93,5 @@
   - The wikipedia on [Huffman Trees](https://en.wikipedia.org/wiki/Huffman_coding) is pretty good to if you want notes on that algorithm
 - 11/14/2024 (Thursday)
 	- A [Decision Tree learning algorithm](./lessons/Restaurant_Tree.html) based on notes from last class. See how it handles the slightly modified [restaurant dataset](./lessons/restaurant2.csv). The original notebook is [here](./lessons/Restaurant_Tree.ipynb) but running it requires installing `graphiviz`, the graphviz development package, and `pygraphviz`.
+	- Work on this [Decision Tree Lab](./lessons/Decision_Tree_Student.ipynb) using income data.
+	- Here's a [LightGBM Example](./lessons/LightGBM_Example.ipynb) for your viewing pleasure.

@@ -95,3 +95,4 @@
 	- A [Decision Tree learning algorithm](./lessons/Restaurant_Tree.html) based on notes from last class. See how it handles the slightly modified [restaurant dataset](./lessons/restaurant2.csv). The original notebook is [here](./lessons/Restaurant_Tree.ipynb) but running it requires installing `graphiviz`, the graphviz development package, and `pygraphviz`.
 	- Work on this [Decision Tree Lab](./lessons/Decision_Tree_Student.ipynb) using income data.
 	- Here's a [LightGBM Example](./lessons/LightGBM_Example.ipynb) for your viewing pleasure.
+	- This [thread](https://github.com/microsoft/WSL/issues/11022) may solve the "can't ftp to grumpy inside WSL" problem. Can't test it because both my laptops seem to work fine?

@@ -91,3 +91,5 @@
   - Note: Oops I forgot sklearn can't handle categorical features. Ugh. The fix is to one-hot or ordinal encode everything, but that makes for ugly trees.
   - Some [notes on entropy](./ai-notes-decision-trees.pdf) are contained in this chapter. I go through the ABCDEFGH example from class here, starting on p. 63.
   - The wikipedia on [Huffman Trees](https://en.wikipedia.org/wiki/Huffman_coding) is pretty good to if you want notes on that algorithm
+- 11/14/2024 (Thursday)
+	- A [Decision Tree learning algorithm](./lessons/Restaurant_Tree.html) based on notes from last class. See how it handles the slightly modified [restaurant dataset](./lessons/restaurant2.csv). The original notebook is [here](./lessons/Restaurant_Tree.ipynb) but running it requires installing `graphiviz`, the graphviz development package, and `pygraphviz`.

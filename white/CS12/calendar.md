@@ -99,3 +99,8 @@
   - Quiz next class over arrays and heatmap!
   - JuiceMind local copy is [here](../AP_shared/array-juice.txt) and [here](../AP_shared/ArrayMain.java)
   - Volunteer Opportunity [sign up list](../AP_shared/volunteer.md)
+- 11/15/24 (Friday)
+	- Try new server: 192.168.1.242. Same username and password
+  - Finish JuiceMind and upload code to server (*not* JuiceMind) ArrayTraverse.java
+  - Finish ArrayMethods in [this file](../AP_shared/BasicArrays.java) and upload to server
+  - CodingBat; Array2: bigDiff, sum28, has22, has12

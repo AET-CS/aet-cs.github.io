@@ -76,3 +76,8 @@
   - Quiz next class over arrays and heatmap!
   - JuiceMind local copy is [here](../AP_shared/array-juice.txt) and [here](../AP_shared/ArrayMain.java)
   - Volunteer Opportunity [sign up list](../AP_shared/volunteer.md)
+- 11/15/24 (Friday)
+  - Array Checkpoint Quiz (	findMax, findMin, argMax, argMin, count, findFirst, findSecondLargest, plus HeatMap)
+  - Finish JuiceMind and upload code to server (or JuiceMind)
+  - Finish ArrayMethods (findMax, findMin, argMax, argMin, count, findFirst, findSecondLargest, findClosest, findClosestPair, swap) and upload to server
+  - CodingBat; Array2: bigDiff, sum28, has22, has12

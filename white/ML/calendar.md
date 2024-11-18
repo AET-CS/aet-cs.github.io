@@ -21,3 +21,7 @@
 	- Work on this [Decision Tree Lab](./lessons/Decision_Tree_Student.ipynb) using income data.
 	- Here's a [LightGBM Example](./lessons/LightGBM_Example.ipynb) for your viewing pleasure.
 	- This [thread](https://github.com/microsoft/WSL/issues/11022) may solve the "can't ftp to grumpy inside WSL" problem. Can't test it because both my laptops seem to work fine?
+- 11/18/2024 (Monday)
+  - Topic: Support Vector Machines
+  - [Notes Notebook](lessons/Notes-SVM.ipynb)
+  - [SVM Lab](lessons/SVM_Lab-Student.ipynb)

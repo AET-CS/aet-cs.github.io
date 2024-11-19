@@ -85,4 +85,5 @@
   - Turn in JuiceMind and ArrayMethods (late today)
   - Notes on [1D array problems](../AP_shared/arrays/array-practice-problems.pdf)
   - Array Checkpoint Quiz 2 next class (study array notes on 1D arrays)
-  - Test next Monday
+  - Test next Monday (1D and 2D arrays)
+  - Array Review Progress check #6 on AP Classroom (optional review)

@@ -81,3 +81,8 @@
   - Finish JuiceMind and upload code to server (or JuiceMind)
   - Finish ArrayMethods (findMax, findMin, argMax, argMin, count, findFirst, findSecondLargest, findClosest, findClosestPair, swap) and upload to server
   - CodingBat; Array2: bigDiff, sum28, has22, has12
+- 11/19/24 (Tuesday)
+  - Turn in JuiceMind and ArrayMethods (late today)
+  - Notes on [1D array problems](../AP_shared/arrays/array-practice-problems.pdf)
+  - Array Checkpoint Quiz 2 next class (study array notes on 1D arrays)
+  - Test next Monday

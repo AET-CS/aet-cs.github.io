@@ -12,7 +12,7 @@
   - Here's a [nice writeup](https://towardsdatascience.com/comprehensive-guide-to-approximate-nearest-neighbors-algorithms-8b94f057d6b6) of the approximate nearest neighbor problem with an eye towards ML applications like Spotify and Netflix recommendations (may be a paywall I'm not sure)
 - 11/12/2024 (Tuesday)
   - Topic: Intro to decision trees
-  - Work on the [Decision Tree Notebook](./lessons/Restaurant.ipynb)
+  - Work on the [Decision Tree Notebook](./lessons/Restaurant_Student.ipynb)
   - Note: Oops I forgot sklearn can't handle categorical features. Ugh. The fix is to one-hot or ordinal encode everything, but that makes for ugly trees.
   - Some [notes on entropy](./ai-notes-decision-trees.pdf) are contained in this chapter. I go through the ABCDEFGH example from class here, starting on p. 63.
   - The wikipedia on [Huffman Trees](https://en.wikipedia.org/wiki/Huffman_coding) is pretty good to if you want notes on that algorithm

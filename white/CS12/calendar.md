@@ -108,6 +108,8 @@
 - 11/19/24 (Tuesday)
   - Turn in JuiceMind and ArrayMethods (late today)
   - Notes on [1D array problems](../AP_shared/arrays/array-practice-problems.pdf)
-  - Array Checkpoint Quiz 2 next class (study array notes on 1D arrays)
-  - Test next Monday (1D and 2D arrays)
-  - Array Review Progress check #6 on AP Classroom (optional review)
+  - Array Checkpoint **Quiz 2** next class (study array notes on 1D arrays)
+  - **Test** next Monday (1D and 2D arrays)
+  - **Array Review Progress check #6** on AP Classroom (optional review)
+  - [Answer Key](../AP_shared/BasicArrays.java) to class notes. Study this for the quiz (don't memorize, just understand because these are good array examples. Also compare to your solutions)
+  - If you want to *run* my sample code and get the assertions to work you need to pass "-ea" argument to the java executable. How to do this depends on your IDE. You can probably google it pretty easily!

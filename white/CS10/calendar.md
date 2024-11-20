@@ -25,8 +25,6 @@
 **Please install Schoology Lockdown Browser** if you haven't already!
 - 9/30/24 (Monday) Quiz today! After quiz you may begin [Pig latin lab](../AP_shared/PigLatin-2024.pdf). Create one java file PigLatin.java with a main method to preform the transformations. For now stop at STEP 2 (parsing a file).
 
-**Note: Schoology is updated with what you have submitted in class. Anything "blank" is missing. Please turn in any missing work on Wednesday. Also if Truth Table 15pts is blank you need to show it to me in person so we can discuss your answer. Thanks!**
-
 - 10/2/24 (Wednesday) PSAT day. Please check SCHOOLOGY for your room assignments and seat number. Report to 2312 first for attendance. In class, we have a few quick things
 	- Read about [strings](../AP_shared/strings.md)
 	- Read about [scanners](../AP_shared/scanners.md)
@@ -84,6 +82,8 @@
 - 11/19/24 (Tuesday)
   - Turn in JuiceMind and ArrayMethods (late today)
   - Notes on [1D array problems](../AP_shared/arrays/array-practice-problems.pdf)
-  - Array Checkpoint Quiz 2 next class (study array notes on 1D arrays)
-  - Test next Monday (1D and 2D arrays)
-  - Array Review Progress check #6 on AP Classroom (optional review)
+  - Array Checkpoint **Quiz 2** next class (study array notes on 1D arrays)
+  - **Test** next Monday (1D and 2D arrays)
+  - **Array Review Progress check #6** on AP Classroom (optional review)
+  - [Answer Key](../AP_shared/BasicArrays.java) to class notes. Study this for the quiz (don't memorize, just understand because these are good array examples. Also compare to your solutions)
+  - If you want to *run* my sample code and get the assertions to work you need to pass "-ea" argument to the java executable. How to do this depends on your IDE. You can probably google it pretty easily!

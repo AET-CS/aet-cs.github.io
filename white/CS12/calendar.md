@@ -115,4 +115,4 @@
   - If you want to *run* my sample code and get the assertions to work you need to pass "-ea" argument to the java executable. How to do this depends on your IDE. You can probably google it pretty easily!
 - 11/21/24 (Thursday)
   - Array Checkpoint Quiz 2 on Schoology
-  - Practice FRQs: [FRQ1](../AP_shared/arrays/frq1.md) [FRQ2](../AP_shared/arrays/frq2.md)
+  - Practice FRQs: [FRQ1](../AP_shared/arrays/frq1.md) [FRQ2](../AP_shared/arrays/frq2.md) [FRQ3](../AP_shared/arrays/frq3.md)

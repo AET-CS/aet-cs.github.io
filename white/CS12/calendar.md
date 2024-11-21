@@ -116,3 +116,4 @@
 - 11/21/24 (Thursday)
   - Array Checkpoint Quiz 2 on Schoology
   - Practice FRQs: [FRQ1](../AP_shared/arrays/frq1.md) [FRQ2](../AP_shared/arrays/frq2.md) [FRQ3](../AP_shared/arrays/frq3.md)
+  - FRQ keys:  [key1](../AP_shared/arrays/frq1-key.md) [key2](../AP_shared/arrays/frq2-key.md) [key3](../AP_shared/arrays/frq3-key.md)

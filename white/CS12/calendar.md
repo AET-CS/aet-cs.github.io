@@ -113,3 +113,6 @@
   - **Array Review Progress check #6** on AP Classroom (optional review)
   - [Answer Key](../AP_shared/arrays/ArrayPractice.java) to class notes. Study this for the quiz (don't memorize, just understand because these are good array examples. Also compare to your solutions)
   - If you want to *run* my sample code and get the assertions to work you need to pass "-ea" argument to the java executable. How to do this depends on your IDE. You can probably google it pretty easily!
+- 11/21/24 (Thursday)
+  - Array Checkpoint Quiz 2 on Schoology
+  - Practice FRQs: [FRQ1](../AP_shared/arrays/frq1.md) [FRQ2](../AP_shared/arrays/frq2.md)

@@ -12,16 +12,25 @@
   - Here's a [nice writeup](https://towardsdatascience.com/comprehensive-guide-to-approximate-nearest-neighbors-algorithms-8b94f057d6b6) of the approximate nearest neighbor problem with an eye towards ML applications like Spotify and Netflix recommendations (may be a paywall I'm not sure)
 - 11/12/2024 (Tuesday)
   - Topic: Intro to decision trees
-  - Work on the [Decision Tree Notebook](./lessons/Restaurant_Student.ipynb)
+  - Work on the [Decision Tree Notebook](./lessons/Restaurant_Student.ipynb) [(html)](./lessons/Restaurant_Student.html)
   - Note: Oops I forgot sklearn can't handle categorical features. Ugh. The fix is to one-hot or ordinal encode everything, but that makes for ugly trees.
   - Some [notes on entropy](./ai-notes-decision-trees.pdf) are contained in this chapter. I go through the ABCDEFGH example from class here, starting on p. 63.
   - The wikipedia on [Huffman Trees](https://en.wikipedia.org/wiki/Huffman_coding) is pretty good to if you want notes on that algorithm
 - 11/14/2024 (Thursday)
 	- A [Decision Tree learning algorithm](./lessons/Restaurant_Tree.html) based on notes from last class. See how it handles the slightly modified [restaurant dataset](./lessons/restaurant2.csv). The original notebook is [here](./lessons/Restaurant_Tree.ipynb) but running it requires installing `graphiviz`, the graphviz development package, and `pygraphviz`.
-	- Work on this [Decision Tree Lab](./lessons/Decision_Tree_Student.ipynb) using income data.
-	- Here's a [LightGBM Example](./lessons/LightGBM_Example.ipynb) for your viewing pleasure.
+	- Work on this [Decision Tree Lab](./lessons/Decision_Tree_Student.ipynb) [(html)](./lessons/Decision_Tree_Student.html) using income data.
+	- Here's a [LightGBM Example](./lessons/LightGBM_Example.ipynb) [(html)](./lessons/LightGBM_Example.html) for your viewing pleasure.
 	- This [thread](https://github.com/microsoft/WSL/issues/11022) may solve the "can't ftp to grumpy inside WSL" problem. Can't test it because both my laptops seem to work fine?
 - 11/18/2024 (Monday)
   - Topic: Support Vector Machines
-  - [Notes Notebook](lessons/Notes-SVM.ipynb)
-  - [SVM Lab](lessons/SVM_Lab-Student.ipynb)
+  - [Notes Notebook](lessons/Notes-SVM.ipynb) [(html)](lessons/Notes-SVM.html)
+  - [SVM Lab](lessons/SVM_Lab-Student.ipynb) [(html)](lessons/SVM_Lab-Student.html)
+- 11/20/2024 (Wednesday)
+	- Notes of the math behind SVMs; the 'kernel trick'
+	- Please finish SVM lab and pick a topic for research
+	- Research project due next week: topic of your choice, in depth EDA, comparison of multiple techniques, selecting best technique, post analysis
+- 11/22/2024 (Friday)
+  - Classtime for research projet
+- 11/24/204 (Tuesday)
+  - Research project
+  - Quick presentations of techniques and findings

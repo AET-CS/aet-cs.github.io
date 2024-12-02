@@ -90,3 +90,9 @@
 - 11/21/24 (Thursday)
   - Array Checkpoint Quiz 2 on Schoology
   - Practice FRQs: [FRQ1](../AP_shared/arrays/frq1.md) [FRQ2](../AP_shared/arrays/frq2.md)  [key2](../AP_shared/arrays/frq2-key.md) [key1](../AP_shared/arrays/frq1-key.md)
+- 11/25/24 (Monday)
+	- Array Test!
+- 12/2/24 (Monday)
+  - AP Classroom Array Checkpoint (complete in class)
+  - Write and test Student class [Student.java](../AP_shared/classes/Student.java) and [StudentTester.java](../AP_shared/classes/StudentTester.java).
+  - Here's a sample class for reference [Spaceship.java](../AP_shared/classes/Spaceship.java)

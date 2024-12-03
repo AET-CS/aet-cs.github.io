@@ -34,3 +34,7 @@
 - 11/24/204 (Tuesday)
   - Research project
   - Quick presentations of techniques and findings
+- 12/3/2024 (Tuesday)
+  - Cross Validation and Grid Search [notebook](./lessons/CrossValidation.ipynb) and optional [dataset](./lessons/mnist.pk.gz) to gunzip (if the notebook open_ml doesn't work)
+  - Apply CV and GS to one of your notebooks (maybe the last research project)
+  - Work on FAQ document as time allows (this will be project #4)

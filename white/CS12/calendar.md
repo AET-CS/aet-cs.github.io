@@ -120,6 +120,12 @@
 - 11/25/24 (Monday)
 	- Array Test!
 - 12/2/24 (Monday)
-  - AP Classroom Array Checkpoint (complete in class)
+  - AP Classroom Classes Checkpoint (complete in class)
   - Write and test Student class [Student.java](../AP_shared/classes/Student.java) and [StudentTester.java](../AP_shared/classes/StudentTester.java).
   - Here's a sample class for reference [Spaceship.java](../AP_shared/classes/Spaceship.java)
+- 12/4/24 (Wednesday)
+	- Advisory today
+	- Topic: classes, inheritance, polymorphism
+	- In class assignment: [Pets](../AP_shared/classes/pets/pet-assignment.md). Must be uploaded in class for credit.
+	- Coming up: [Shapes](../AP_shared/classes/shapes/shapes-assignment.md). Practice writing classes.
+	- Quiz next class over classes, objects, inheritance

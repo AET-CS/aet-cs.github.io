@@ -91,11 +91,12 @@ Nibbles is stuffing food in their cheeks!
 
 ## Submission Requirements
 Submit the following files:
-1. Create a folder called "pets" in your project folder on the server
+1. Create a directory called "pets" in your project folder on the server. (right click in the lower right pane of filezilla; name is *case-sensitive*!)
 1. In the folder put your new pet class file (e.g., `Hamster.java`)
 2. Add your completed `PetDemo.java` and all other `java` pet files
 3. A screenshot of your program output
 4. You *must* not change the class names!
+5. Folder must be named *pets* exactly.
 
 ## Due Date
 Today in class

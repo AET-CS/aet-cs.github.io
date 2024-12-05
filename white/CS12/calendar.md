@@ -127,5 +127,5 @@
 	- Advisory today
 	- Topic: classes, inheritance, polymorphism
 	- In class assignment: [Pets](../AP_shared/classes/pets/pet-assignment.md). Must be uploaded in class for credit.
-	- Coming up: [Shapes](../AP_shared/classes/shapes/shapes-assignment.md). Practice writing classes.
+	- Coming up: [Shapes](../AP_shared/classes/shape-assignment.md). Practice writing classes.
 	- Quiz next class over classes, objects, inheritance

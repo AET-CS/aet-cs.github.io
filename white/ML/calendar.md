@@ -38,3 +38,5 @@
   - Cross Validation and Grid Search [notebook](./lessons/CrossValidation.ipynb) and optional [dataset](./lessons/mnist.pk.gz) to gunzip (if the notebook open_ml doesn't work)
   - Apply CV and GS to one of your notebooks (maybe the last research project)
   - Work on FAQ document as time allows (this will be project #4)
+- 12/5/2004 (Thursday)
+  - Please refer to [these guidelines for Jupyter Reports](./jupyter-reports.pdf), check the feedback on your Report-01, update and resubmit.

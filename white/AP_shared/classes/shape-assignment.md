@@ -65,37 +65,12 @@ Area: 12.00 square units
 Total area of all shapes: 114.54 square units
 ```
 
-## Grading Criteria (100 points)
-- Base Class Implementation (15 points)
-  - Proper use of abstract class and methods
-  - Well-documented code
-
-- Derived Classes (45 points)
-  - Correct inheritance implementation (15)
-  - Proper method overriding (15)
-  - Accurate area calculations (15)
-
-- Main Program (30 points)
-  - Array creation and population (10)
-  - Correct implementation of printAllShapes (10)
-  - Correct implementation of getTotalArea (10)
-
-- Code Quality (10 points)
-  - Proper formatting and organization
-  - Meaningful variable names
-  - Adequate comments
-
-## Bonus Challenge (+10 points)
-Add a `Square` class that inherits from `Rectangle`. Ensure it:
-- Has a single constructor parameter (side length)
-- Calls the Rectangle constructor appropriately
-- Overrides getDescription() to return "Square with side [s]"
-- Uses the inherited area() method without modification
-
 ## Submission Requirements
-1. Submit all .java files in a single zip file
-2. Include a screenshot of your program output
-3. Files should be named: Shape.java, Circle.java, Rectangle.java, Triangle.java, ShapeCalculator.java
+1. Create a folder 'shapes' and put all your java code in it
+2. Add 'package shapes;' to each java file in the first line.
+3. Add a screenshot of the program output to the shapes folder
+4. Submit the entire 'shapes' folder to the server (you can drag a whole folder in)
+5. Files should be named: Shape.java, Circle.java, Rectangle.java, Triangle.java, ShapeCalculator.java, screenshot.png
 
 ## Due Date
-[Insert due date here]
+Friday 12/6/2024 in class

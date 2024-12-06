@@ -100,6 +100,11 @@
 	- Advisory today
 	- Topic: classes, inheritance, polymorphism
 	- In class assignment: [Pets](../AP_shared/classes/pets/pet-assignment.md). Must be uploaded in class for credit.
-	- Homework: [Shapes](../AP_shared/classes/shapes/shapes-assignment.md). Practice writing classes. Due next class
 	- Quiz next class over classes, objects, inheritance
 	- AP Classroom practice quizzes: TBD
+- 12/6/24 (Friday)
+  - Dr. White absent
+  - Quiz postponed to next class over classes, objects, inheritance
+  - Check your grading feedback on the last 2 assignments (can be found on the server). You can resubmit if your code didn't compile or was incomplete.
+  - Classwork: [Shapes](../AP_shared/classes/shape-assignment.md). Practice writing classes. Due end  of next class (may not be able to do all of this yet but you can do most)
+  - If you are caught up on old work you can do work for another class if you would like.

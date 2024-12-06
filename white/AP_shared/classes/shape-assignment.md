@@ -73,4 +73,7 @@ Total area of all shapes: 114.54 square units
 5. Files should be named: Shape.java, Circle.java, Rectangle.java, Triangle.java, ShapeCalculator.java, screenshot.png
 
 ## Due Date
-Friday 12/6/2024 in class
+Tuesday 12/10/2024 in class
+
+## Special Notes
+We have not covered all the polymorphism topics needed to finish this lab -- but you can do most of it now. We will cover the rest next class.

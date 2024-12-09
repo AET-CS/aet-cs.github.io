@@ -43,7 +43,7 @@
 - 12/9/2024 (Monday)
   - Ensemble methods
   - Warm up question!
-  - See [notes here](./lessons/Ensemble_Methods_Student.ipynb) and complete all "to do" sections.
+  - See [notes here](./lessons/Ensemble_Methods.ipynb) and complete all "to do" sections.
   - Upload your final notebook to grumpy. Please name it "Ensemble_Methods.ipynb"
   - Report #2 due end of next week. Find your dataset if you haven't already. Plan to do CV, GridSearch and Ensemble methods on this report.
   - Friday and Tuesday will probably be report workdays.

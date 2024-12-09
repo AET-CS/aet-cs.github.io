@@ -38,5 +38,12 @@
   - Cross Validation and Grid Search [notebook](./lessons/CrossValidation.ipynb) and optional [dataset](./lessons/mnist.pk.gz) to gunzip (if the notebook open_ml doesn't work)
   - Apply CV and GS to one of your notebooks (maybe the last research project)
   - Work on FAQ document as time allows (this will be project #4)
-- 12/5/2004 (Thursday)
+- 12/5/2024 (Thursday)
   - Please refer to [these guidelines for Jupyter Reports](./jupyter-reports.pdf), check the feedback on your Report-01, update and resubmit.
+- 12/9/2024 (Monday)
+  - Ensemble methods
+  - Warm up question!
+  - See [notes here](./lessons/Ensemble_Methods_Student.ipynb) and complete all "to do" sections.
+  - Upload your final notebook to grumpy. Please name it "Ensemble_Methods.ipynb"
+  - Report #2 due end of next week. Find your dataset if you haven't already. Plan to do CV, GridSearch and Ensemble methods on this report.
+  - Friday and Tuesday will probably be report workdays.

@@ -108,3 +108,9 @@
   - Check your grading feedback on the last 2 assignments (can be found on the server). You can resubmit if your code didn't compile or was incomplete.
   - Classwork: [Shapes](../AP_shared/classes/shape-assignment.md). Practice writing classes. Due end  of next class (may not be able to do all of this yet but you can do most)
   - If you are caught up on old work you can do work for another class if you would like.
+- 12/10/24 (Tuesday)
+  - Notes on array lists: [notes](../AP_shared/ArrayLists/arraylist-intro.md)
+  - Practice worksheet: [array list practice](../AP_shared/ArrayLists/arraylist-practice.md)
+  - About primitive types: [array list with primitive types](../AP_shared/ArrayLists/arraylist-primitives.md)
+  - Lab [array list lab](../AP_shared/ArrayLists/arraylist-lab.md)
+  - Inheritance Example: [Satellites class](../AP_shared/classes/Satellite.java)

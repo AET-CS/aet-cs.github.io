@@ -111,7 +111,7 @@
 - 12/10/24 (Tuesday)
   - Challenge Day [signup](https://forms.gle/41PQSwBA4aKGom2w6)
   - Notes on array lists: [notes](../AP_shared/ArrayLists/arraylist-intro.md)
-  - Practice worksheet: [array list practice](../AP_shared/ArrayLists/arraylist-practice.md)
+  - Practice worksheet: [array list practice](../AP_shared/ArrayLists/arraylist-practice.md) ... [key](../AP_shared/ArrayLists/array-list-practice-key.md)
   - About primitive types: [array list with primitive types](../AP_shared/ArrayLists/arraylist-primitives.md)
   - Lab [array list lab](../AP_shared/ArrayLists/arraylist-lab.md)
   - Inheritance Example: [Satellites class](../AP_shared/classes/Satellite.java)

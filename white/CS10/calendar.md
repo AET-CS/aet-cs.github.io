@@ -109,6 +109,7 @@
   - Classwork: [Shapes](../AP_shared/classes/shape-assignment.md). Practice writing classes. Due end  of next class (may not be able to do all of this yet but you can do most)
   - If you are caught up on old work you can do work for another class if you would like.
 - 12/10/24 (Tuesday)
+  - Challenge Day [signup](https://forms.gle/41PQSwBA4aKGom2w6)
   - Notes on array lists: [notes](../AP_shared/ArrayLists/arraylist-intro.md)
   - Practice worksheet: [array list practice](../AP_shared/ArrayLists/arraylist-practice.md)
   - About primitive types: [array list with primitive types](../AP_shared/ArrayLists/arraylist-primitives.md)

@@ -44,6 +44,18 @@
   - Ensemble methods
   - Warm up question!
   - See [notes here](./lessons/Ensemble_Methods.ipynb) and complete all "to do" sections.
-  - Upload your final notebook to grumpy. Please name it "Ensemble_Methods.ipynb"
+  - Upload your final notebook to grumpy. Please name it **Ensemble_Methods.ipynb**
   - Report #2 due end of next week. Find your dataset if you haven't already. Plan to do CV, GridSearch and Ensemble methods on this report.
   - Friday and Tuesday will probably be report workdays.
+- 12/11/2024 (Wednesday)
+  - ROC-AUC curves, tuning decision thresholds
+  - Read through the notes [here](https://developers.google.com/machine-learning/crash-course/classification/accuracy-precision-recall) and [here](https://developers.google.com/machine-learning/crash-course/classification/roc-and-auc). The first link is all review for you, but has great visuals and interactive demos. The second one does a great job demonstrating ROC curves.
+  - Revisit the [Mushroom project](./lessons/mushroom.ipynb).
+		-  (You may want to omit neural network from this because it's slow)
+		-  Make ROC curves and compute AUC scores for each of the classifiers we sampled.
+		-  Make one plot with ROC curves for all the models on the same graph
+		-  For at least one model:
+			-  Plot an ROC curve with cross validation [documentation here](https://scikit-learn.org/stable/auto_examples/model_selection/plot_roc_crossval.html)
+			-  Tune the classifier threshold using sklearn's tuning ability [documentation here](https://scikit-learn.org/stable/modules/classification_threshold.html)
+	-  Upload your results to `grumpy`, named "Mushroom-tuned.ipynb"
+	-  Finalize your ideas for Report-02.ipynb, due next Friday

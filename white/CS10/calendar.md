@@ -113,5 +113,10 @@
   - Notes on array lists: [notes](../AP_shared/ArrayLists/arraylist-intro.md)
   - Practice worksheet: [array list practice](../AP_shared/ArrayLists/arraylist-practice.md) ... [key](../AP_shared/ArrayLists/array-list-practice-key.md)
   - About primitive types: [array list with primitive types](../AP_shared/ArrayLists/arraylist-primitives.md)
-  - Lab [array list lab](../AP_shared/ArrayLists/arraylist-lab.md)
+  - Lab [array list lab](../AP_shared/ArrayLists/arraylist-lab.md) **this is not an assignment, just an example**
   - Inheritance Example: [Satellites class](../AP_shared/classes/Satellite.java) .. [key](../AP_shared/classes/satellites/output.txt)
+  - See ArrayList practice quiz on AP Classroom
+- 12/12/24 (Thursday)
+  - ArrayList Quiz today
+  - Notes on inheritance and polymorphism
+-

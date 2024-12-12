@@ -145,7 +145,7 @@
   - See ArrayList practice quiz on AP Classroom
 - 12/12/24 (Thursday)
   - ArrayList Quiz today
-  - Notes on inheritance and polymorphism
-	- Last day to submit labs
-	- Test next block over arraylists and classes, inheritance, polymorphism
+  - Notes on inheritance and polymorphism [worksheet](../AP_shared/classes/TrickyPolymorphism.pdf) and [key](../AP_shared/classes/TrickyPolymorphismAnswers.pdf)
+  - Last day to submit labs
+  - Test next block over arraylists and classes, inheritance, polymorphism
   - See AP classroom for practice

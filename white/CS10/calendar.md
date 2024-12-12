@@ -119,4 +119,6 @@
 - 12/12/24 (Thursday)
   - ArrayList Quiz today
   - Notes on inheritance and polymorphism
--
+	- Last day to submit labs
+	- Test next block over arraylists and classes, inheritance, polymorphism
+  - See AP classroom for practice

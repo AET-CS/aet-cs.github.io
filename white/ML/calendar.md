@@ -57,5 +57,13 @@
 		-  For at least one model:
 			-  Plot an ROC curve with cross validation [documentation here](https://scikit-learn.org/stable/auto_examples/model_selection/plot_roc_crossval.html)
 			-  Tune the classifier threshold using sklearn's tuning ability [documentation here](https://scikit-learn.org/stable/modules/classification_threshold.html)
-	-  Upload your results to `grumpy`, named "Mushroom-tuned.ipynb"
+	-  Upload your results to `grumpy`, named **Mushroom-tuned.ipynb**
 	-  Finalize your ideas for Report-02.ipynb, due next Friday
+-  12/13/2024 (Friday)
+  - Turn in Ensemble and Mushroom notebooks
+  - Work on Report-02.ipynb
+    - Pick a new dataset (see me for rare exceptions!)
+    - Limit yourself to binary classification (you can do multiclass as an extension if you want but start with binarized data)
+    - Focus on new skills: CV, GridSearch, Ensembles and reporting AUC and drawing ROC curves
+    - Even if your first model accuracy is 98.5, you still need to improve it using new techniques!
+    - Due next Thursday

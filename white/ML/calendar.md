@@ -71,3 +71,4 @@
 - 12/17/2024 (Tuesday)
 	- Work on Report due this week
 	- Be sure to consult specification from last class and [rubric](./jupyter-reports.pdf)
+	- PANDOC update. Looks like "sudo apt-get install texlive texlive-xetex pandoc" will get it working

@@ -60,14 +60,14 @@
 	-  Upload your results to `grumpy`, named **Mushroom-tuned.ipynb**
 	-  Finalize your ideas for Report-02.ipynb, due next Friday
 -  12/13/2024 (Friday)
-  - Turn in Ensemble and Mushroom notebooks
-  - Work on Report-02.ipynb
-    - Pick a new dataset (see me for rare exceptions!)
-    - Limit yourself to binary classification (you can do multiclass as an extension if you want but start with binarized data)
-    - Focus on new skills: CV, GridSearch, Ensembles and reporting AUC and drawing ROC curves
-    - Even if your first model accuracy is 98.5, you still need to improve it using new techniques!
-    - Due next Thursday
-    - Quick notes on precision/recall curves, randomSearchCV, Naive Bayes and Bayes error rate.
+	- Turn in Ensemble and Mushroom notebooks
+	- Work on Report-02.ipynb
+		- Pick a new dataset (see me for rare exceptions!)
+		- Limit yourself to binary classification (you can do multiclass as an extension if you want but start with binarized data)
+		- Focus on new skills: CV, GridSearch, Ensembles and reporting AUC and drawing ROC curves
+		- Even if your first model accuracy is 98.5, you still need to improve it using new techniques!
+		- Due next Thursday
+		- Quick notes on precision/recall curves, randomSearchCV, Naive Bayes and Bayes error rate.
 - 12/17/2024 (Tuesday)
 	- Work on Report due this week
 	- Be sure to consult specification from last class and [rubric](./jupyter-reports.pdf)

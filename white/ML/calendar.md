@@ -67,3 +67,7 @@
     - Focus on new skills: CV, GridSearch, Ensembles and reporting AUC and drawing ROC curves
     - Even if your first model accuracy is 98.5, you still need to improve it using new techniques!
     - Due next Thursday
+    - Quick notes on precision/recall curves, randomSearchCV, Naive Bayes and Bayes error rate.
+- 12/17/2024 (Tuesday)
+	- Work on Report due this week
+	- Be sure to consult specification from last class and [rubric](./jupyter-reports.pdf)

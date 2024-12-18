@@ -122,3 +122,8 @@
   - Last day to submit labs
   - Test next block over arraylists and classes, inheritance, polymorphism
   - See AP classroom for practice
+- 12/16/24 (Monday)
+	- Test over ArrayList and classes, inheritance, polymorphism
+- 12/18/24 (Wednesday)
+	- Catch up day for labs, tests, etc
+	- See your [challenge day assignment](https://docs.google.com/spreadsheets/d/1Su-Ao_siBHSwqjesgUcGwGYI00FuA8T2jKwVc-L5iIo/edit?usp=sharing)

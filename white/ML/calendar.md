@@ -72,3 +72,9 @@
 	- Work on Report due this week
 	- Be sure to consult specification from last class and [rubric](./jupyter-reports.pdf)
 	- PANDOC update. Looks like "sudo apt-get install texlive texlive-xetex pandoc" will get it working
+- 1/16/2025 (Thursday)
+	- Anomaly Detection
+	- [Gaussian Model Analysis](./lessons/Gaussian-credit.ipynb)
+	- [SMOTE Model Analysis](./lessons/SMOTE-credit.ipynb)
+	- [Gaussian Mixture model Analysis](./lessons/GMM-credit.ipynb)
+	- [dataset](./data/creditcard.csv)

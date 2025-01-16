@@ -79,3 +79,4 @@
 	- [Gaussian Mixture model Analysis](./lessons/GMM-credit.ipynb)
 	- [dataset](./data/creditcard.csv)
 	- [CFG tester](https://web.stanford.edu/class/archive/cs/cs103/cs103.1156/tools/cfg/)
+	- HOMEWORK: Work through all notebooks, think of an "anomaly detection" dataset project to turn in next week.

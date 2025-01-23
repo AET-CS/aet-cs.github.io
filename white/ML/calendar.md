@@ -77,7 +77,7 @@
 	- [Gaussian Model Analysis](./lessons/Gaussian-credit.ipynb)
 	- [SMOTE Model Analysis](./lessons/SMOTE-credit.ipynb)
 	- [Gaussian Mixture model Analysis](./lessons/GMM-credit.ipynb)
-	- [dataset](./data/creditcard.csv)
+	- [dataset](./data/creditcard.csv.gz)
 	- [CFG tester](https://web.stanford.edu/class/archive/cs/cs103/cs103.1156/tools/cfg/)
 	- HOMEWORK: Work throuSgh all notebooks, think of an "anomaly detection" dataset project to turn in next week.
 - 1/23/2025 (Thursday)

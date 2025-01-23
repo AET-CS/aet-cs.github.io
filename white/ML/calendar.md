@@ -79,4 +79,8 @@
 	- [Gaussian Mixture model Analysis](./lessons/GMM-credit.ipynb)
 	- [dataset](./data/creditcard.csv)
 	- [CFG tester](https://web.stanford.edu/class/archive/cs/cs103/cs103.1156/tools/cfg/)
-	- HOMEWORK: Work through all notebooks, think of an "anomaly detection" dataset project to turn in next week.
+	- HOMEWORK: Work throuSgh all notebooks, think of an "anomaly detection" dataset project to turn in next week.
+- 1/23/2025 (Thursday)
+    - Make sure report 2 is turned in
+	- Turn in anomaly if you have it, or turn it in later. I won't put that on this quarter due to snow days.
+	- Today, let's install tensorflow. See [instructions](./install-tensorflow.md).  

@@ -83,4 +83,6 @@
 - 1/23/2025 (Thursday)
     - Make sure report 2 is turned in
 	- Turn in anomaly if you have it, or turn it in later. I won't put that on this quarter due to snow days.
-	- Today, let's install tensorflow. See [instructions](./install-tensorflow.md).  
+	- Today, let's install tensorflow. See [instructions](./install-tensorflow.md).
+- 1/30/2025 (Thursday)
+	- Research brainstory [this file](https://docs.google.com/document/d/1ME4WEPHl4WExeAzCSBX33trG_vVQVpxoO0uZJl7lxv4/edit?usp=sharing)

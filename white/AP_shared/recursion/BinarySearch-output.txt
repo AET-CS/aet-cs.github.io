@@ -1,0 +1,21 @@
+// Sample Output for Binary search
+
+Enter a number to search, 0 to end: 3
+Found at index 1
+Enter a number to search, 0 to end: 2
+Found at index 0
+Enter a number to search, 0 to end: 5
+Found at index 2
+Enter a number to search, 0 to end: 8
+Not found
+Enter a number to search, 0 to end: 11
+Found at index 4
+Enter a number to search, 0 to end: 13
+Found at index 5
+Enter a number to search, 0 to end: 100
+Not found
+Enter a number to search, 0 to end: -10
+Not found
+Enter a number to search, 0 to end: -20
+Not found
+Enter a number to search, 0 to end:

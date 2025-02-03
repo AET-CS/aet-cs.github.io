@@ -1,88 +1,17 @@
 # Teaching Calendar 2024-2025
-[Quarter 1 Archive](./calendar-q1.md)
-## Quarter 2
-- 11/6/2024 (Wednesday)
-  - Topic: k Nearest Neighbor
-  - Devise algorithm in class
-  - [Implement in Jupyter](./lessons/knn-Student.ipynb) [(html)](./lessons/knn-Student.html)
-  - Also complete extension(s)
-- 11/8/2024 (Friday)
-  - Continue k-NN. Finish notebook from last class
-  - Work on [Digits dataset](./lessons/digits-student.ipynb) [(html)](./lessons/digits-student.html)
-  - Here's a [nice writeup](https://towardsdatascience.com/comprehensive-guide-to-approximate-nearest-neighbors-algorithms-8b94f057d6b6) of the approximate nearest neighbor problem with an eye towards ML applications like Spotify and Netflix recommendations (may be a paywall I'm not sure)
-- 11/12/2024 (Tuesday)
-  - Topic: Intro to decision trees
-  - Work on the [Decision Tree Notebook](./lessons/Restaurant_Student.ipynb) [(html)](./lessons/Restaurant_Student.html)
-  - Note: Oops I forgot sklearn can't handle categorical features. Ugh. The fix is to one-hot or ordinal encode everything, but that makes for ugly trees.
-  - Some [notes on entropy](./ai-notes-decision-trees.pdf) are contained in this chapter. I go through the ABCDEFGH example from class here, starting on p. 63.
-  - The wikipedia on [Huffman Trees](https://en.wikipedia.org/wiki/Huffman_coding) is pretty good to if you want notes on that algorithm
-- 11/14/2024 (Thursday)
-	- A [Decision Tree learning algorithm](./lessons/Restaurant_Tree.html) based on notes from last class. See how it handles the slightly modified [restaurant dataset](./lessons/restaurant2.csv). The original notebook is [here](./lessons/Restaurant_Tree.ipynb) but running it requires installing `graphiviz`, the graphviz development package, and `pygraphviz`.
-	- Work on this [Decision Tree Lab](./lessons/Decision_Tree_Student.ipynb) [(html)](./lessons/Decision_Tree_Student.html) using income data.
-	- Here's a [LightGBM Example](./lessons/LightGBM_Example.ipynb) [(html)](./lessons/LightGBM_Example.html) for your viewing pleasure.
-	- This [thread](https://github.com/microsoft/WSL/issues/11022) may solve the "can't ftp to grumpy inside WSL" problem. Can't test it because both my laptops seem to work fine?
-- 11/18/2024 (Monday)
-  - Topic: Support Vector Machines
-  - [Notes Notebook](lessons/Notes-SVM.ipynb) [(html)](lessons/Notes-SVM.html)
-  - [SVM Lab](lessons/SVM_Lab-Student.ipynb) [(html)](lessons/SVM_Lab-Student.html)
-- 11/20/2024 (Wednesday)
-	- Notes of the math behind SVMs; the 'kernel trick'
-	- Please finish SVM lab and pick a topic for research
-	- Research project due next week: topic of your choice, in depth EDA, comparison of multiple techniques, selecting best technique, post analysis
-- 11/22/2024 (Friday)
-  - Classtime for research projet
-- 11/24/204 (Tuesday)
-  - Research project
-  - Quick presentations of techniques and findings
-- 12/3/2024 (Tuesday)
-  - Cross Validation and Grid Search [notebook](./lessons/CrossValidation.ipynb) and optional [dataset](./lessons/mnist.pk.gz) to gunzip (if the notebook open_ml doesn't work)
-  - Apply CV and GS to one of your notebooks (maybe the last research project)
-  - Work on FAQ document as time allows (this will be project #4)
-- 12/5/2024 (Thursday)
-  - Please refer to [these guidelines for Jupyter Reports](./jupyter-reports.pdf), check the feedback on your Report-01, update and resubmit.
-- 12/9/2024 (Monday)
-  - Ensemble methods
-  - Warm up question!
-  - See [notes here](./lessons/Ensemble_Methods.ipynb) and complete all "to do" sections.
-  - Upload your final notebook to grumpy. Please name it **Ensemble_Methods.ipynb**
-  - Report #2 due end of next week. Find your dataset if you haven't already. Plan to do CV, GridSearch and Ensemble methods on this report.
-  - Friday and Tuesday will probably be report workdays.
-- 12/11/2024 (Wednesday)
-  - ROC-AUC curves, tuning decision thresholds
-  - Read through the notes [here](https://developers.google.com/machine-learning/crash-course/classification/accuracy-precision-recall) and [here](https://developers.google.com/machine-learning/crash-course/classification/roc-and-auc). The first link is all review for you, but has great visuals and interactive demos. The second one does a great job demonstrating ROC curves.
-  - Revisit the [Mushroom project](./lessons/mushroom.ipynb).
-		-  (You may want to omit neural network from this because it's slow)
-		-  Make ROC curves and compute AUC scores for each of the classifiers we sampled.
-		-  Make one plot with ROC curves for all the models on the same graph
-		-  For at least one model:
-			-  Plot an ROC curve with cross validation [documentation here](https://scikit-learn.org/stable/auto_examples/model_selection/plot_roc_crossval.html)
-			-  Tune the classifier threshold using sklearn's tuning ability [documentation here](https://scikit-learn.org/stable/modules/classification_threshold.html)
-	-  Upload your results to `grumpy`, named **Mushroom-tuned.ipynb**
-	-  Finalize your ideas for Report-02.ipynb, due next Friday
--  12/13/2024 (Friday)
-	- Turn in Ensemble and Mushroom notebooks
-	- Work on Report-02.ipynb
-		- Pick a new dataset (see me for rare exceptions!)
-		- Limit yourself to binary classification (you can do multiclass as an extension if you want but start with binarized data)
-		- Focus on new skills: CV, GridSearch, Ensembles and reporting AUC and drawing ROC curves
-		- Even if your first model accuracy is 98.5, you still need to improve it using new techniques!
-		- Due next Thursday
-		- Quick notes on precision/recall curves, randomSearchCV, Naive Bayes and Bayes error rate.
-- 12/17/2024 (Tuesday)
-	- Work on Report due this week
-	- Be sure to consult specification from last class and [rubric](./jupyter-reports.pdf)
-	- PANDOC update. Looks like "sudo apt-get install texlive texlive-xetex pandoc" will get it working
-- 1/16/2025 (Thursday)
-	- Anomaly Detection
-	- [Gaussian Model Analysis](./lessons/Gaussian-credit.ipynb)
-	- [SMOTE Model Analysis](./lessons/SMOTE-credit.ipynb)
-	- [Gaussian Mixture model Analysis](./lessons/GMM-credit.ipynb)
-	- [dataset](./data/creditcard.csv.gz)
-	- [CFG tester](https://web.stanford.edu/class/archive/cs/cs103/cs103.1156/tools/cfg/)
-	- HOMEWORK: Work throuSgh all notebooks, think of an "anomaly detection" dataset project to turn in next week.
-- 1/23/2025 (Thursday)
-    - Make sure report 2 is turned in
-	- Turn in anomaly if you have it, or turn it in later. I won't put that on this quarter due to snow days.
-	- Today, let's install tensorflow. See [instructions](./install-tensorflow.md).
+- [Quarter 1 Archive](./calendar-q1.md)
+- [Quarter 2 Archive](./calendar-q2.md)
+
+## Daily Review
+
 - 1/30/2025 (Thursday)
-	- Research brainstory [this file](https://docs.google.com/document/d/1ME4WEPHl4WExeAzCSBX33trG_vVQVpxoO0uZJl7lxv4/edit?usp=sharing)
+	- Research brainstorm [this file](https://docs.google.com/document/d/1ME4WEPHl4WExeAzCSBX33trG_vVQVpxoO0uZJl7lxv4/edit?usp=sharing)
+- 2/3/2025 (Monday)
+  - Continue Research Brainstorm. Add to [this file](https://docs.google.com/document/d/1ME4WEPHl4WExeAzCSBX33trG_vVQVpxoO0uZJl7lxv4/edit?usp=sharing).
+  - Wow OK I just checked that file and it looks great. Please review and see if you get even more ideas
+  - Today's goal, at the end of class, add YOUR NAME to the **same** file and three specific project ideas:
+    - They should be specific enough that I can understand them, but don't over specify too early
+    - They should have some clear path forward -- things that look like they can be done
+    - It's OK if they have parts that you can't see how to do yet.
+    - They should each be a research idea, or an invention, or a product (hardware, software, etc).
+	- Finally if you had to pick a Sr research direction (including but not limited to: AI/ML, App Dev, game dev, software dev, compilers, OS, computer vision, networking, cybersecurity, really ANYTHING). what would what area be? This is not a commitment, just a survey. Add that below your name.

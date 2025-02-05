@@ -8,3 +8,8 @@
 	- Complete Unit 10 Review in AP Classroom
 	- Write Binary Search code [using this file](../AP_shared/recursion/BinarySearch.java). See this [sample output](../AP_shared/recursion/BinarySearch-output.txt)
 	- Run your code with the sample output from above, take a full screenshot of the result and upload to server as BinarySearch.png.
+- 2/4 (Tuesday)
+  - Selection sort and Insertion sort
+  - Practice tracing recursive code
+  - Quiz next block. See AP review and [these questions](https://www.varsitytutors.com/ap_computer_science_a-help/recursion) for practice. Mostly MC for the quiz
+  -

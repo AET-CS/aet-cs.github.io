@@ -22,6 +22,7 @@ public class BinarySearch {
 						if (result ==-1) System.out.println("Not found");
             if (result > -1) System.out.println("Found at index " + result);
             end = (number == 0);
+
         }
     }
 }

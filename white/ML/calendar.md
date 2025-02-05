@@ -23,3 +23,4 @@
 	and see what you think: Google Colab (free but slow) AWS Sagemaker Studio Lab, Lightning.ai, Paperspace, lambda labs, something else? IDK if these
 	are blocked by the firewall or what exactly you have to do to sign up but they all have some kind of free tier. Try them out and see what you think.
 	- I'm hoping to get us some cloud computing accounts somewhere but for now no clue if that will happen.
+	-  Bonus activity for AP Stats: If you have a few minutes please complete [this form:](https://forms.gle/x7oVwdDntgPyeZJt8)

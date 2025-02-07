@@ -24,3 +24,6 @@
 	are blocked by the firewall or what exactly you have to do to sign up but they all have some kind of free tier. Try them out and see what you think.
 	- I'm hoping to get us some cloud computing accounts somewhere but for now no clue if that will happen.
 	-  Bonus activity for AP Stats: If you have a few minutes please complete [this form:](https://forms.gle/x7oVwdDntgPyeZJt8)
+- 2/7/2025 (Friday)
+  - Perceptron Learning
+  - Work on [this notebook](./lessons/Perceptron_Learn_Student)

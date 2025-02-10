@@ -15,9 +15,7 @@
 - 2/6 (Thursday)
 	- Recursion quiz in class
 - 2/10 (Monday)
-	- Anti *Eclipse* Diatribe!!!
 	- Quicksort, MergeSort
-	- Radix sort, bucket sort
 	- Write merge sort in class!
 	- Coding assignment: Graph runtime of various sorts using XChart. Specifics will be posted later today!
 	- FRQ practice [2018 FRQs](../AP_shared/FRQs/ap18-frq-computer-science-a.pdf)

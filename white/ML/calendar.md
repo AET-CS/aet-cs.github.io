@@ -27,3 +27,11 @@
 - 2/7/2025 (Friday)
   - Perceptron Learning
   - Work on [this notebook](./lessons/Perceptron_Learn_Student)
+- 2/11/2025 (Tuesday)
+  - Linearly separable functions
+  - multi-perceptron learning
+  - introduction to backpropagation
+- 2/13/2025 (Thursday)
+  - More backpropagation
+  - Deep dive into TF with MNIST
+  - Work on [this notebook](./lessons/MNIST-Model-Student.ipynb)

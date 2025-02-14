@@ -1,13 +1,11 @@
 # Sorting Assignment
 
-Please download a project for your coding environment: VSCode, IntelliJ or Command Line. Compile and run the sample code.
-
 *Goal* You will analyze the running time of various sorting algorithms on lists on increasing size. You will chart the results.
 
 # Steps:
 
 1. Download and run [sample code](./SortChart.zip).
-2. Create a new class SortChart with a main method.
+2. Inside the SortChart folder, create a new class SortChart with a `main` method.
 3. Implement a method to generate a random array of integers of a given size, with each integer in a given range [min, max].
 4. Implement insertionSort, selectionSort, mergeSort. These methods will take an input array and sort that array  in increasing order.
 5. Graph each sort algorithm this way:
@@ -21,4 +19,16 @@ Please download a project for your coding environment: VSCode, IntelliJ or Comma
 8. Make a new chart with the averaged results.
 9. Before submitting, make sure the main method of SortChart creates your graph
 10. There should be no package statement in your java files for this project.
-11. Submit your project folder and your chart.
+11. Submit your project folder and your chart (graphics file)
+
+You can find information about the sorting library at [the XChart website](https://knowm.org/open-source/xchart/)
+
+Here's an example of timing Insertion Sort
+```{java}
+double tic = System.nanoTime();
+insertionSort(a);
+double toc = System.nanoTime()
+insertionTimes.add((toc - tic)/1000000);
+```
+
+To get a more accurate result, repeat the above **each time with a new array** and average the resulting times.

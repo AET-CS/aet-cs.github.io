@@ -20,3 +20,8 @@
 	- Coding assignment: Graph runtime of various sorts using XChart. Specifics will be posted later today!
 	- FRQ practice [2018 FRQs](../AP_shared/FRQs/ap18-frq-computer-science-a.pdf)
 	- [Solution](../AP_shared/FRQs/ap18-sg-comp-sci-a.pdf)
+- 2/14 (Friday)
+  - Engineering Day [sign up](https://forms.gle/2WSue83rFaWV3ew29)
+  - FRQ practice [2018 FRQs](../AP_shared/FRQs/ap18-frq-computer-science-a.pdf)
+  - [Solution](../AP_shared/FRQs/ap18-sg-comp-sci-a.pdf)
+  - Assignment: [SortChart project](../AP_shared/Sorting.md). Due 2/21

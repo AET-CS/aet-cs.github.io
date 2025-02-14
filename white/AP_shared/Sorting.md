@@ -1,0 +1,24 @@
+# Sorting Assignment
+
+Please download a project for your coding environment: VSCode, IntelliJ or Command Line. Compile and run the sample code.
+
+*Goal* You will analyze the running time of various sorting algorithms on lists on increasing size. You will chart the results.
+
+# Steps:
+
+1. Download and run [sample code](./SortChart.zip).
+2. Create a new class SortChart with a main method.
+3. Implement a method to generate a random array of integers of a given size, with each integer in a given range [min, max].
+4. Implement insertionSort, selectionSort, mergeSort. These methods will take an input array and sort that array  in increasing order.
+5. Graph each sort algorithm this way:
+	1. For several arrays sizes (say 5000 to 100,000), make a random array of that size,
+	2. sort it,
+	3. and add the the time required to sort to a new arrayList.
+	4. Plot that array list.
+	5.  Do the same thing with each sorting algorithm. Plot all results on one chart
+6. Make sure your chart has a title and labels on the axes
+7. Now, for increased accuracy, do not plot the results of ONE sorting call, but average ten sorts for each list. You will need to make a new list each time (sorting a sorted list may be easier than a random list)
+8. Make a new chart with the averaged results.
+9. Before submitting, make sure the main method of SortChart creates your graph
+10. There should be no package statement in your java files for this project.
+11. Submit your project folder and your chart.

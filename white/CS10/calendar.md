@@ -23,4 +23,5 @@
   - Coding assignment: Graph runtime of various sorts using XChart. Specifics will be posted later today!
 - 2/12 (Wednesday) Snow day
 - 2/14 (Friday)
-	- FRQ practice [2018 FRQs](../AP_shared/FRQs/ap18-frq-computer-science-a.pdf)
+  - Engineering Day [sign up](https://forms.gle/2WSue83rFaWV3ew29)
+  - FRQ practice [2018 FRQs](../AP_shared/FRQs/ap18-frq-computer-science-a.pdf)

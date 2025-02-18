@@ -35,3 +35,6 @@
   - More backpropagation
   - Deep dive into TF with MNIST
   - Work on [this notebook](./lessons/MNIST-Model-Student.ipynb)
+- 2/18/2025 (Tuesday)
+  - Fashion MNIST [notebook](./lessons/Fashion-Model.ipynb)
+  - Submit to server when finished

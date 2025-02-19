@@ -28,3 +28,8 @@
   - [Solution](../AP_shared/FRQs/ap18-sg-comp-sci-a.pdf)
   - Junior year [survey](https://forms.gle/SSDSe2A4SQa7UcGUA)
   - Assignment: [SortChart project](../AP_shared/Sorting.md). Due 2/21
+- 2/19 (Wednesday)
+	- Engineering Day (Short class)
+	- classwork due today -- submit SortChart sample with modified graph
+	- project due next class
+	- Sorting Quiz next class over selection, insertion, merge sort.

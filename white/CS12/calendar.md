@@ -25,3 +25,6 @@
   - FRQ practice [2018 FRQs](../AP_shared/FRQs/ap18-frq-computer-science-a.pdf)
   - [Solution](../AP_shared/FRQs/ap18-sg-comp-sci-a.pdf)
   - Assignment: [SortChart project](../AP_shared/Sorting.md). Due 2/14
+- 2/19 (Wednesday)
+	- Engineering Day (Short class)
+	- Sorting Quiz next class over selection, insertion, merge sort.

@@ -6,3 +6,6 @@ scratch
 **/.ipynb_checkpoints
 *.out
 **/*.out
+*.json
+*.h5
+

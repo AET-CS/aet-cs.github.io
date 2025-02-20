@@ -38,3 +38,6 @@
 - 2/18/2025 (Tuesday)
   - Fashion MNIST [notebook](./lessons/Fashion-Model.ipynb)
   - Submit to server when finished
+- 2/20/2025 (Thursday)
+  - Parameters for DNNs
+  - hyperparameter search for [Fashion](./lessons/Fashion-Tune.ipynb)

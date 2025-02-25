@@ -28,3 +28,13 @@
 - 2/19 (Wednesday)
 	- Engineering Day (Short class)
 	- Sorting Quiz next class over selection, insertion, merge sort.
+- 2/21 (Friday)
+  - Sorting Quiz today
+- 2/25 (Tuesday)
+	- Go to AP Classroom and complete Unit 2 FRQ Progress Check and Unit 10 FRQ Progress Check
+	- Download [Recursion Practice](../AP_shared/Monster%20Recursion%20Packet.pdf) and complete #1-35
+	- Submit your answers on [this google form](https://forms.gle/DP6NJgkxMeswcP2u5)
+	- Both must be completed in class today
+	- Test **next Monday** over recursion, sorting, searching
+	- Please review your sorting quiz results on AP Classroom
+	- Finish Recursion practice packet for HW

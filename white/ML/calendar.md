@@ -41,3 +41,15 @@
 - 2/20/2025 (Thursday)
   - Parameters for DNNs
   - hyperparameter search for [Fashion](./lessons/Fashion-Tune.ipynb)
+- 2/24/2025 (Monday)
+	- IMDB Challenge!
+	- `from keras.datasets import imdb`
+	- create an MLP that classifies the reviews in this dataset as positive or negative.
+- 2/26/2025 (Wednesday)
+  - Intro to CNNs
+  - Image convolutions [exploratory notebook](./lessons/ImageConvolutions.ipynb)
+  - Visualization of [MNIST](https://adamharley.com/nn_vis/cnn/3d.html)
+  - Implement a LeNet and an AlexNet in Tensorflow
+    - Consult [Dive into Deep Learning](https://d2l.ai), chapters 7.6 and 8.1
+    - Do *not* use the `dl` package -- modify the code provided
+    - `model.fit` will look like previous ones you've made

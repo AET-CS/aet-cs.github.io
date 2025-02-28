@@ -59,3 +59,4 @@
   - [Image Processing Notebook](https://colab.research.google.com/gist/paderevski/d15f41fb5cdd67a85bcff077b52f7409/images.ipynb). Run this notebook up to the "tf.data" section.
   - [Data Augmentation Notebook](https://colab.research.google.com/gist/paderevski/4d027105a4f2608c8989ebe75b17869b/data_augmentation.ipynb).
   - Task: Following [the example code here](https://keras.io/api/applications/), implement transfer learning on an InceptionV3 notework to recognize images from the flower dataset (or any other TF dataset or batch of labeled imaged). Use Colab GPU for this (or a similar service) if you don't have a personal GPU.
+  - Unmoderated! My [alexnet](./alexnet.ipynb) and [googLenet](./googLenet.ipynb) notebooks (for reference but have not been cleaned up).

@@ -38,3 +38,8 @@
 	- Test **next Monday** over recursion, sorting, searching
 	- Please review your sorting quiz results on AP Classroom
 	- Finish Recursion practice packet for HW
+- 2/27 (Thursday)
+  - AP Practice problems in class
+  - Review for test Monday: Recursion, Sorting, Searching, FRQ
+	- Monster Recursion [solutions](../AP_shared/monster-recursion-solutions.pdf)
+	- Review previous quizzes and FRQs (on AP Classroom)

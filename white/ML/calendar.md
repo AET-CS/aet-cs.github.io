@@ -61,3 +61,9 @@
   - Task: Following [the example code here](https://keras.io/api/applications/), implement transfer learning on an InceptionV3 notework to recognize images from the flower dataset (or any other TF dataset or batch of labeled imaged). Use Colab GPU for this (or a similar service) if you don't have a personal GPU.
   - Unmoderated! My [alexnet](./alexnet.ipynb) and [googLenet](./googLenet.ipynb) notebooks (for reference but have not been cleaned up).
   - Tensorflow Datasets is a good place to [get data](https://www.tensorflow.org/datasets)
+- 3/4/2025 (Tuesday)
+  - Time series Data
+  - Audio processing: FFTs and MFCCs
+  - CNN approaches to Audio classification
+  - Work through [Bird Call Notebook](https://colab.research.google.com/drive/1lBWmGmouU7feyEasJBCNUB7pB_e5uPxN?usp=sharing) in Colab. (Does this link make your own copy?). Note there is some data to download first.
+  - Find your own audio data to classify. One possibility is the [music genre database](https://huggingface.co/datasets/marsyas/gtzan)

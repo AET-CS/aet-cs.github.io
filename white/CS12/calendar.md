@@ -49,3 +49,5 @@
 - 3/5 (Wednesday)
   - Do FRQ Practice 01 in AP Classroom
   - Submit answers to [this google form](https://forms.gle/vjZbEGsvBcHMqc6g8)
+  - Download [file1](../AP_shared/MyArrayList/MyArrayList.java) and [file2](../AP_shared/MyArrayList/MyArrayListDriver.java)
+  - Implement MyArrayList by filling in the methods in the above file "MyArrayList.java". Test with the included driver

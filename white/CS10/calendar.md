@@ -50,3 +50,8 @@
 	- Monster Recursion [solutions](../AP_shared/monster-recursion-solutions.pdf)
 	- Review previous quizzes and FRQs (on AP Classroom)
 	- Practice [FRQs](https://codehs.com/library/apcsa_frq_center) - look at "Methods"
+- 3/3 (Monday)
+  - Test!
+- 3/5 (Wednesday)
+  - Do FRQ Practice 01 in AP Classroom
+  - Submit answers to [this google form](https://forms.gle/KfWMwFA1s53eruG69)

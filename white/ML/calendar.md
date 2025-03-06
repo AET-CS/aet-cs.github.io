@@ -67,3 +67,5 @@
   - CNN approaches to Audio classification
   - Work through [Bird Call Notebook](https://colab.research.google.com/drive/1lBWmGmouU7feyEasJBCNUB7pB_e5uPxN?usp=sharing) in Colab. (Does this link make your own copy?). Note there is some data to download first.
   - Find your own audio data to classify. One possibility is the [music genre database](https://huggingface.co/datasets/marsyas/gtzan)
+- 3/6/2025 (Thursday)
+  - Predict [AAPL stock prices](./data/AAPL.csv)

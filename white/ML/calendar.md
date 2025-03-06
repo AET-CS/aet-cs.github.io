@@ -69,4 +69,4 @@
   - Find your own audio data to classify. One possibility is the [music genre database](https://huggingface.co/datasets/marsyas/gtzan)
 - 3/6/2025 (Thursday)
   - Predict [AAPL stock prices](./data/AAPL.csv)
-  - Here's my [Apple prediction](./data/apple-prediction.png) using a history of 50 and a 1 node NN
+  - Here's my [Apple prediction](./data/apple-prediction.png) using a history of 64 and a 1 node NN

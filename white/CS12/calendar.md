@@ -51,3 +51,11 @@
   - Submit answers to [this google form](https://forms.gle/vjZbEGsvBcHMqc6g8)
   - Download [file1](../AP_shared/MyArrayList/MyArrayList.java) and [file2](../AP_shared/MyArrayList/MyArrayListDriver.java)
   - Implement MyArrayList by filling in the methods in the above file "MyArrayList.java". Test with the included driver
+- 3/7 (Friday)
+  - Assignment: Implement MyArrayList class discussed in class. Submit code (even if not finished) to the server before the end of class.
+  - Create a folder "MyArrayList" and copy [file1](../AP_shared/MyArrayList/MyArrayList.java) and [file2](../AP_shared/MyArrayList/MyArrayListDriver.java) into it
+  - Modify the MyArrayList class and use the driver file to check that it works
+  - Note: the most important method is `ensureCapacity`. You call this in several other methods when you insert into the array, to make sure there is enough space
+  - You will submit the entire folder to the server. You do not need a package name.
+  - Also note: `size` is the number of elements in the array -- NOT the max size
+  - There is a female student ACL [field trip](../AP_shared/field-trip.md) form to fill out if you are interested. See it in class today!

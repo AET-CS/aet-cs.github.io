@@ -76,3 +76,4 @@
   - Learn about the details of [softmax and temperature](./lessons/Softmax.ipynb)
   - Code your own RNN to [write like Shakespeare](./lessons/Shakespeare_Student.ipynb)
   - Homework: train a deep RNN model for as long as possible, try to maximize validation accuracy. Be sure to use checkpoint saving callbacks. Use Shakespeare or any other dataset you'd like to imitate.
+  - Here's a [sample of my network](https://colab.research.google.com/gist/paderevski/41b323cc232e306a4573689d83c62ebb/shakespeare.ipynb) running on Colab. It's a deep RNN network with dropout and an encoding layer. Sample output is at the end. This was trained on an A100.

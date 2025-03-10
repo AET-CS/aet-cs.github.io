@@ -70,3 +70,9 @@
 - 3/6/2025 (Thursday)
   - Predict [AAPL stock prices](./data/AAPL.csv)
   - Here's my [Apple prediction](./data/apple-prediction.png) using a history of 64 and a 1 node NN
+- 3/10/2025 (Monday)
+  - Train an RNN to write Shakespeare
+  - First read this famous [blog post about RNNs](https://karpathy.github.io/2015/05/21/rnn-effectiveness/)
+  - Learn about the details of [softmax and temperature](./lessons/Softmax.ipynb)
+  - Code your own RNN to [write like Shakespeare](./lessons/Shakespeare_Student.ipynb)
+  - Homework: train a deep RNN model for as long as possible, try to maximize validation accuracy. Be sure to use checkpoint saving callbacks. Use Shakespeare or any other dataset you'd like to imitate.

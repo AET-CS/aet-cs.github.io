@@ -59,3 +59,8 @@
   - You will submit the entire folder to the server. You do not need a package name.
   - Also note: `size` is the number of elements in the array -- NOT the max size
   - There is a female student ACL [field trip](../AP_shared/field-trip.md) form to fill out if you are interested. See it in class today!
+- 3/11 (Tuesday)
+	- See these [FRQ Practice Problems](../AP_shared/FRQs/ap-computer-science-a-frq-2017.pdf) and complete #3 and #4. You can type them in any editor you want.
+	- Discuss ArrayLists -- Note ArrayList quiz next class over ArrayList code
+	- Introduce Linked Lists
+	- LinkedList assignment files: [Class](../AP_shared/LinkedLists/LinkedList.java) and [Driver](../AP_shared/LinkedLists/LinkedListTester.java). Copy to a folder LinkedList and implement the class file.

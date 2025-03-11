@@ -63,3 +63,7 @@
   - You will submit the entire folder to the server. You do not need a package name.
   - Also note: `size` is the number of elements in the array -- NOT the max size
   - There is a female student ACL [field trip](../AP_shared/field-trip.md) form to fill out if you are interested. See it in class today!
+- 3/11 (Tuesday)
+	- See these [FRQ Practice Problems](../AP_shared/FRQs/ap17-sg-comp-sci-a.pdf)
+	- Discuss ArrayLists -- Note ArrayList quiz next class over ArrayList code
+	- Introduce Linked Lists

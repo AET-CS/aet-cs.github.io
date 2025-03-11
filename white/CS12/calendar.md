@@ -64,3 +64,6 @@
 	- Discuss ArrayLists -- Note ArrayList quiz next class over ArrayList code
 	- Introduce Linked Lists
 	- LinkedList assignment files: [Class](../AP_shared/LinkedLists/LinkedList.java) and [Driver](../AP_shared/LinkedLists/LinkedListTester.java). Copy to a folder LinkedList and implement the class file.
+- 3/13 (Thursday)
+  - Quiz today over ArrayLists
+  - Finish LinkedList code in class

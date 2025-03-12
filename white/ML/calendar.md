@@ -77,3 +77,9 @@
   - Code your own RNN to [write like Shakespeare](./lessons/Shakespeare_Student.ipynb)
   - Homework: train a deep RNN model for as long as possible, try to maximize validation accuracy. Be sure to use checkpoint saving callbacks. Use Shakespeare or any other dataset you'd like to imitate.
   - Here's a [sample of my network](https://colab.research.google.com/gist/paderevski/41b323cc232e306a4573689d83c62ebb/shakespeare.ipynb) running on Colab. It's a deep RNN network with dropout and an encoding layer. Sample output is at the end. This was trained on an A100.
+- 3/12/2025 (Wednesday)
+  - Finish Shakespeare from last class, share some results
+  - Google Drive mapping
+  - Write a Bach chorale! Get files [here](https://homl.info/bach). Train your model and then have it output a csv file in the same format as the input
+  - Use this [csv to midi converter](./lessons/convert-back.py) to generate midi files
+  - Try this [gist](https://gist.github.com/korakot/a0c6b0120bb75d48588aec27030b3325) to play your files in Colab (or download and play them locally)

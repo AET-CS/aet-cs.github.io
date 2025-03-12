@@ -56,7 +56,6 @@ def csv_to_midi(csv_file, midi_file, tempo=120):
 		now = 0
 		last_event = 0
 		for step, notes in enumerate(chorale):
-				step_time = ticks_per_step
 				# Process each voice
 				for voice, note in enumerate(notes):
 						note_id = (voice, note)
@@ -64,21 +63,18 @@ def csv_to_midi(csv_file, midi_file, tempo=120):
 						# Convert to integer MIDI note number
 						midi_note = int(note)
 						if midi_note == prev_notes[voice]:
-								track.append(Message('note_on', note=prev_notes[voice], velocity=0,
-																time=step_time, channel=voice % 16))
+								pass
 						else:
-								track.append(Message('note_on', note=prev_notes[voice], velocity=0,
-																time=step_time, channel=voice % 16))
-						step_time = 0
-						if note==0:
-								track.append(Message('note_on', note=midi_note, velocity=0,
-																		time=0, channel=voice % 16))
-						else:
+								track.append(Message('note_off', note=prev_notes[voice], velocity=0,
+																time=now-last_event, channel=voice % 16))
 								track.append(Message('note_on', note=midi_note, velocity=velocity,
-																		time=0, channel=voice % 16))
+																time=0, channel=voice % 16))
+								last_event = now
 						prev_notes[voice] = midi_note
+				now = now + ticks_per_step
 
 		# Save the MIDI file
+		print(track)
 		mid.save(midi_file)
 		print(f"Saved MIDI file to {midi_file}")
 

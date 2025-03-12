@@ -74,7 +74,6 @@ def csv_to_midi(csv_file, midi_file, tempo=120):
 				now = now + ticks_per_step
 
 		# Save the MIDI file
-		print(track)
 		mid.save(midi_file)
 		print(f"Saved MIDI file to {midi_file}")
 
@@ -111,6 +110,7 @@ def main():
 												help='URL to download the dataset from')
 		parser.add_argument('--output', type=str, default='midi_output',
 												help='Directory to save MIDI files')
+		parser.add_argument('--dataset', type=str, default='bach')
 		args = parser.parse_args()
 
 		# Create a temporary directory to extract the dataset
@@ -119,7 +119,8 @@ def main():
 				# dataset_dir = download_and_extract_dataset(args.url, temp_dir)
 
 				# Process the dataset
-		dataset_dir="../data/bach/valid"
+		dataset_dir=args.dataset
+
 		process_dataset(dataset_dir, args.output)
 		print(dataset_dir)
 		print(f"All files have been converted and saved to {args.output}")

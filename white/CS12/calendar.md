@@ -65,5 +65,11 @@
 	- Introduce Linked Lists
 	- LinkedList assignment files: [Class](../AP_shared/LinkedLists/LinkedList.java) and [Driver](../AP_shared/LinkedLists/LinkedListTester.java). Copy to a folder LinkedList and implement the class file.
 - 3/13 (Thursday)
-  - Quiz today over ArrayLists
-  - Finish LinkedList code in class
+  - Quiz today over ArrayLists on Schoology
+  - Finish LinkedList code in class and submit to the server
+		- folder LinkedList
+			- LinkedList.java
+			- LinkedListTester.java
+			- screenshot of program output
+	- Next class: Practice AP Multiple Choice test. 90 minutes. Will be a minor, curved quiz grade.
+	- FRQ practice TBD

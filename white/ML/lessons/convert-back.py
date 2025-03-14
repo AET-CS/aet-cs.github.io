@@ -103,6 +103,53 @@ def process_dataset(dataset_dir, output_dir):
 				print(f"Converting {rel_path}...")
 				csv_to_midi(csv_file, midi_file)
 
+def array_to_midi(notes, midi_file, tempo=120):
+		"""Convert a single note array to MIDI."""
+		# Create a new MIDI file with a single track
+		mid = MidiFile()
+		track = MidiTrack()
+		mid.tracks.append(track)
+
+		# Set tempo (500000 microseconds per beat = 120 BPM)
+		tempo_value = 500000  # in microseconds per beat
+		track.append(Message('program_change', program=0, time=0))  # Piano
+
+		# Each row in the CSV represents a time step (e.g., a 16th note)
+		# Each column represents a voice (soprano, alto, tenor, bass)
+		# The values represent MIDI note numbers
+
+		ticks_per_beat = mid.ticks_per_beat
+		# Let's use 16th notes (1/4 of a beat)
+		ticks_per_step = ticks_per_beat // 4
+
+		# Process each time step
+		active_notes = {}  # To keep track of currently playing notes
+
+		velocity = 100
+		prev_note = 0
+		now = 0
+		last_event = 0
+		voice = 0
+		for note in notes[0]:
+			note_id = (voice, note)
+
+			# Convert to integer MIDI note number
+			midi_note = int(note)
+			if midi_note == prev_note:
+				pass
+			else:
+				track.append(Message('note_off', note=prev_note, velocity=0,
+												time=now-last_event, channel=voice % 16))
+				track.append(Message('note_on', note=midi_note, velocity=velocity,
+												time=0, channel=voice % 16))
+				last_event = now
+			prev_note = midi_note
+			now = now + ticks_per_step
+
+		# Save the MIDI file
+		mid.save(midi_file)
+		print(f"Saved MIDI file to {midi_file}")
+
 def main():
 		parser = argparse.ArgumentParser(description='Convert JSB Chorales CSV files to MIDI')
 		parser.add_argument('--url', type=str,

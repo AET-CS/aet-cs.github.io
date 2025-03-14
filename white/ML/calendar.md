@@ -83,3 +83,13 @@
   - Write a Bach chorale! Get files [here](https://homl.info/bach). Train your model and then have it output a csv file in the same format as the input
   - Use this [csv to midi converter](./lessons/convert-back.py) to generate midi files
   - Try this [gist](https://gist.github.com/korakot/a0c6b0120bb75d48588aec27030b3325) to play your files in Colab (or download and play them locally)
+- 3/14/2025 (Friday)
+  - Finish Shakespeare from last class if you haven't already
+  - Work on Bach
+    - Start with one voice only (e.g. soprano, voice 0) and drop the others
+    - Use an Embedding layer at the start of your RNN
+    - Midi note ranges are approx 40-70 in this dataset. You might want to shift that down before you train (and back up when you test)
+		- Categorical is probably the best way to classify this data, but you could try a regression based loss if you want.
+		- Use the converter above to create midi/wav files from your output
+		- Be careful with array and tensor dimensions. It's annoying. Sequence input should look like [[10,12,10,15]] not [10,12,10,15]
+		- When you're ready for four voices, I recommend weaving the data into a 1D stream: like this: SATBSATBSATB where each group of 4 notes is played simultaneously. You can try keeping it as a 4-vector in a 3D tensor but that get complicated.

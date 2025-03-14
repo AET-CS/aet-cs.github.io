@@ -78,4 +78,4 @@
 			- LinkedListTester.java
 			- screenshot of program output
 	- Next class: Practice AP Multiple Choice test. 90 minutes. Will be a minor, curved quiz grade.
-	- FRQ practice TBD
+	- AP Test Review: Practice MC test on CodeHS. You can join [at this URL](https://codehs.com/go/36063) and there should be an optional test assigned.

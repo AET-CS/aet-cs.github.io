@@ -93,3 +93,11 @@
 		- Use the converter above to create midi/wav files from your output
 		- Be careful with array and tensor dimensions. It's annoying. Sequence input should look like [[10,12,10,15]] not [10,12,10,15]
 		- When you're ready for four voices, I recommend weaving the data into a 1D stream: like this: SATBSATBSATB where each group of 4 notes is played simultaneously. You can try keeping it as a 4-vector in a 3D tensor but that get complicated.
+		- Here's  [sample output](./data/bach-201.wav) from a 3-layer deep GRU I trained. The training data is the first 4 measures or so and then the model takes over.
+- 3/18/2025 (Tuesday)
+	- Continue to refine your Bach RNN model. Here is a [very nicely constructed example](https://gist.github.com/paderevski/ae7fd776fab0da3a560642279460273c) of my Bach model training.
+	- New topic: Sentiment Analysis. This is a text-to-categorical model. Work through [the notebook here](https://gist.github.com/paderevski/e8f4983afc7e7ae1ca6627941ee9ab6f).
+	- Assignment: Classify another similar dataset of text data. I recommend the Amazon Review dataset, but you can find your own if you prefer.
+	- For next class: Pick your best Shakespeare and Bach examples to share!
+	- Errata: The original Shakespeare_Student notebook had a critical error in the generation cell. (The later example notebook did not). Please see the fix [here](./bad-shake.md)
+	- Fun: Here are some of my [generated Bach chorales](https://drive.google.com/drive/folders/1--pfsv9gRr_lawLdik5C95uz8ZvCw_T0?usp=sharing). Each one starts with 64 samples (about 4 measures or 7 seconds) of seed from an unseen Bach chorale.

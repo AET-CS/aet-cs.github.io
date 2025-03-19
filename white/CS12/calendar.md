@@ -73,3 +73,9 @@
 			- screenshot of program output
 	- Next class: Practice AP Multiple Choice test. 90 minutes. Will be a minor, curved quiz grade.
 	- FRQ practice TBD
+- 3/17 (Monday)
+  - Practice AP Test on AP Classroom
+  - Linked List quiz next class
+- 3/19 (Wednesday)
+  - Linked List quiz in schoology
+  - Doubly Linked List due at end of class (modify your existing linked list class)

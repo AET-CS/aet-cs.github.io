@@ -78,4 +78,4 @@
   - Linked List quiz next class
 - 3/19 (Wednesday)
   - Linked List quiz in schoology
-  - Doubly Linked List due at end of class (modify your existing linked list class)
+  - Doubly Linked List due at end of class (modify your existing linked list class. Turn in folder DoublyLinkedList containing class, tester and screenshot of driver.)

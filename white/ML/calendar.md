@@ -101,3 +101,6 @@
 	- For next class: Pick your best Shakespeare and Bach examples to share!
 	- Errata: The original Shakespeare_Student notebook had a critical error in the generation cell. (The later example notebook did not). Please see the fix [here](./bad-shake.md)
 	- Fun: Here are some of my [generated Bach chorales](https://drive.google.com/drive/folders/1--pfsv9gRr_lawLdik5C95uz8ZvCw_T0?usp=sharing). Each one starts with 64 samples (about 4 measures or 7 seconds) of seed from an unseen Bach chorale.
+- 3/20/2025 (Thursday)
+	- Submit your best Bach [here to dropbox](https://www.dropbox.com/request/B8aU2W4sVxJTOWHDgi2m)
+	- Train your own sentiment analysis model on data of your choice

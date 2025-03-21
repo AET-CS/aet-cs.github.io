@@ -1,5 +1,7 @@
 # Music Playlist Manager Assignment
 
+![Screenshot of Finished App](MediaPlayerScreenshot.png)
+
 ### Overview
 In this assignment, you will implement key components of a Music Playlist Manager application using Java and Swing. This project focuses on applying data structures concepts, particularly linked lists, to create a functional music playlist management system with a graphical user interface.
 
@@ -62,10 +64,12 @@ Here are some ideas
 - Add a button to add 5 random songs to the playlist
 - Add a button to remove duplicates from the playlist
 - Add mp3 files and enable the transport buttons to actually play them
+- Replace the .csv with a folder of .mp3 files and read their ID3 tags
 - Remove songs from the database list when they're added to the playlist and move them back when they're removed.
 - Add a button to randomize the order of the songs in the playlist
 - Enable Sort by any column (right clicking on the Sort button brings up a menu)
-- Save and reload playlists
+- Save and reload playlists that persist across sessions
+- Link to an API like SoundCloud or Spotify to load real playlists and play music
 - Some similar functionality of your choice that involves working with the data and the UI
 
 ### Implementation Notes

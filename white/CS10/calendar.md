@@ -87,6 +87,6 @@
   - Doubly Linked List due at end of class (modify your existing linked list class)
 - 3/21 (Friday)
   - Makeup AP CS test in class (from Monday)
-  - Work on MediaPlayer programming project [zip file](../AP_shared/Playlist.zip) and [description](../AP_shared/Playlist/assignment-instructions.pdf) also here is [the uncompressed folder](../AP_shared/Playlist/)
+  - Work on MediaPlayer programming project [zip file](../AP_shared/Playlist.zip) and [description](../AP_shared/Playlist/assignment-instructions.pdf) also here is [the uncompressed folder](../AP_shared/Playlist/) and a [video demo](../AP_shared/Playlist/MediaPlayerDemo.webm) of the finished app.
   - MediaPlayer is Due 3/27
   - LinkedList and DoubleLinkedList must be in today if not already.

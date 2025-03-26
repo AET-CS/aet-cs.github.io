@@ -104,3 +104,13 @@
 - 3/20/2025 (Thursday)
 	- Submit your best Bach [here to dropbox](https://www.dropbox.com/request/B8aU2W4sVxJTOWHDgi2m)
 	- Train your own sentiment analysis model on data of your choice
+- 3/24/2025 (Monday)
+  - Try logging into the 4090 @ 192.168.1.243
+  - Submit Bach to Dropbox if you haven't already
+  - Finish Sentiment Analysis on your own dataset and upload notebook to the server (don't upload data files unless they're very small)
+- 3/26/2025 (Wednesday)
+  - Neural Machine Translation
+  - Complete [this notebook](https://colab.research.google.com/gist/paderevski/cee31b4cc313729864c06cc824de509b/neural-machine-translation-student.ipynb)
+  - Here is a diagram of [the seq2seq model](./spanish-english-A.png) you will be buildling
+  - A nice [schematic](image.png) of a translation model
+  - To Do: Get the model working then add your own customizations to improve performance.

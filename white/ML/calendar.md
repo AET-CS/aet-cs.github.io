@@ -114,3 +114,4 @@
   - Here is a diagram of [the seq2seq model](./spanish-english-A.png) you will be buildling
   - A nice [schematic](image.png) of a translation model
   - To Do: Get the model working then add your own customizations to improve performance.
+  - A detailed overview of [Google's NMT system from 2016](https://arxiv.org/pdf/1609.08144)

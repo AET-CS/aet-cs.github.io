@@ -93,3 +93,8 @@
 	- Check out [video demo](../AP_shared/Playlist/MediaPlayerDemo.webm) of the finished app.
 	- MediaPlayer is Due 3/27
   - LinkedList and DoubleLinkedList must be in today if not already.
+- 3/27 (Thursday)
+  - MediaPlayer due
+  - Warm up MC Quiz 2 on Schoolofy
+  - FRQ: 2D Array on AP Classroom also [google form](https://forms.gle/KEznYnRJsLhfWyWQ9) for backup
+  - Topic: Stacks and Queues

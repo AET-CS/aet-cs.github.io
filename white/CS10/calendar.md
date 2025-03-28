@@ -93,9 +93,13 @@
 	- Check out [video demo](../AP_shared/Playlist/MediaPlayerDemo.webm) of the finished app.
 	- MediaPlayer is Due 3/27
   - LinkedList and DoubleLinkedList must be in today if not already.
+- 3/25
+  - Warm up MC Quiz 1 on Schoology
+  - Notes on Comparable interface, compareTo, sorting
+  - Work on MediaPlayer programming project
 - 3/27 (Thursday)
-  - MediaPlayer due
-  - Warm up MC Quiz 2 on Schoolofy
+  - MediaPlayer due!
+  - Warm up MC Quiz 2 on Schoology
   - FRQ: 2D Array on AP Classroom also [google form](https://forms.gle/KEznYnRJsLhfWyWQ9) for backup
   - FRQ [solution](../AP_shared/FRQs/2DArray-key.pdf)
   - Topic: Stacks and Queues

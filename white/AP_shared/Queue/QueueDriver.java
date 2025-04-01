@@ -358,7 +358,7 @@ public class QueueDriver {
 
         int kiwiPosition = stringQueue.search("kiwi");
         System.out.println("Position of 'kiwi': " + kiwiPosition);
-        if (kiwiPosition > 0) {
+        if (kiwiPosition >= 0) {
             System.out.println("PASS: Found existing element in string queue");
             passCount++;
         } else {
@@ -383,7 +383,7 @@ public class QueueDriver {
         System.out.println("TOTAL TESTS FAILED: " + failCount);
         System.out.println("=================================\n");
 
-        System.out.println("QUEUE EFFICIENCY TEST STARTING");
+        System.out.println("QUEUE PUSH EFFICIENCY TEST STARTING");
         System.out.println("========================");
         // Create a new Queue of Integers
         Queue<Integer> efficiencyQueue = new Queue<>();
@@ -395,6 +395,10 @@ public class QueueDriver {
         long endTime = System.currentTimeMillis();
         System.out.println("Time taken to add 1 million elements: " + (endTime - startTime) + " ms");
 
+        System.out.println("QUEUE PUSH EFFICIENCY TEST FINISHED");
+
+        System.out.println("QUEUE POP EFFICIENCY TEST STARTING");
+        System.out.println("========================");
 				// POP 1 million elements to the queue
 				startTime = System.currentTimeMillis();
 				for (int i = 0; i < 1_000_000; i++) {
@@ -402,5 +406,7 @@ public class QueueDriver {
 				}
 				endTime = System.currentTimeMillis();
 				System.out.println("Time taken to pop 1 million elements: " + (endTime - startTime) + " ms");
+				System.out.println("QUEUE POP EFFICIENCY TEST FINISHED");
+
     }
 }

@@ -97,4 +97,8 @@
   - FRQ: 2D Array on AP Classroom also [google form](https://forms.gle/KEznYnRJsLhfWyWQ9) for backup
   - FRQ [solution](../AP_shared/FRQs/2DArray-key.pdf)
   - Topic: Stacks and Queues
-  - Project: [Stacks](../AP_shared/Stack.zip). Complete the Stack.java class using your LinkedList class and get the driver to run. Screenshot the terminal, add to folder, and submit folder to server. Due today.
+  - Project: [Stacks](../AP_shared/Stack.zip). Complete the Stack.java class using your LinkedList class and get the driver to run. Screenshot the terminal, add to folder, and submit folder to server.
+- 4/1 (Tuesday)
+	- MC3 Practice on Schoology
+  - FRQ "April 1" practice on AP Classroom
+  - Submit Queue class today. Use this [driver file](../AP_shared/Queue/QueueDriver.java) to test it.

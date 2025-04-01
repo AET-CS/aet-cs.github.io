@@ -104,3 +104,7 @@
   - FRQ [solution](../AP_shared/FRQs/2DArray-key.pdf)
   - Topic: Stacks and Queues
   - Project: [Stacks](../AP_shared/Stack.zip). Complete the Stack.java class using your LinkedList class and get the driver to run. Screenshot the terminal, add to folder, and submit folder to server. Due Tuesday.
+- 4/1 (Tuesday)
+	- MC3 Practice on Schoology
+  - FRQ "April 1" practice on AP Classroom
+  - Work on Queue class today. Use this [driver file](../AP_shared/Queue/QueueDriver.java) to test it. Due next class. (There is no Queue.java file -- just make your own from Stack.java)

@@ -121,4 +121,4 @@
 	- Finish Spanish/English seq2seq model
 	- Notes on Attention Layers and Beam Search
 	- Implement both using these [helper functions](./lessons/seq2seq-Resources.ipynb), explore the model parameters
-	- See some [examples](./lessons/Translation-Examples.ipynb) of my translation
+	- See some [examples](./lessons/Translation-Examples.html) of my translation

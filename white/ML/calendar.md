@@ -115,3 +115,9 @@
   - A nice [schematic](image.png) of a translation model
   - To Do: Get the model working then add your own customizations to improve performance.
   - A detailed overview of [Google's NMT system from 2016](https://arxiv.org/pdf/1609.08144)
+- 3/28/2025 (Friday)
+	- Continue working on seq2seq model
+- 4/2/2025 (Wednesday)
+	- Finish Spanish/English seq2seq model
+	- Notes on Attention Layers and Beam Search
+	- Implement both using these [helper functions](./lessons/seq2seq-Resources.ipynb), explore the model parameters

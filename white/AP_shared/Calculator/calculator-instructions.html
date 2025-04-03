@@ -1,5 +1,13 @@
 <h1 id="calculator-assignment-instructions">Calculator Assignment
 Instructions</h1>
+<p>You are implementing a 4-function calculator. Think of a simple casio
+or the calculator. The display shows the current number you are typing,
+or an intermediate calculation result. It does not display any operands
+or other info, except the occasional “error” when appropriate. The
+skeleton of the program is given to you; you will update the controller
+and model to add functionality. First you will implement simple
+left-to-right evaluation using two stacks. Second you will implement
+operator precedence. Finally you will add extensions of your choice.</p>
 <h2 id="overview-of-architecture">Overview of Architecture</h2>
 <p>This calculator application follows the Model-View-Controller (MVC)
 design pattern:</p>
@@ -47,10 +55,11 @@ character from the display.</li>
 point to the current display value if not already present.</li>
 <li><strong><code>backspace()</code></strong>: Remove the last character
 from the display value.</li>
-<li><strong><code>calculate()</code></strong>: Perform a calculation
+<li><strong><code>calculate()</code></strong>: Perform one calculation
 using operands and operators from the stacks.</li>
-<li><strong><code>reduce(String operator)</code></strong>: Perform one
-calculation using the top elements of the stacks.</li>
+<li><strong><code>reduce(String operator)</code></strong>: Calls
+<code>calculate</code> one or more times based on the current stack
+contents</li>
 <li><strong><code>precedence(String operator)</code></strong>: Return
 the precedence level of an operator (for Phase 2).</li>
 </ol>
@@ -104,3 +113,88 @@ operator precedence)</li>
 <li>For constants like π and e, you’ll need to handle these specially in
 the controller</li>
 </ul>
+<h2
+id="example-calculating-a-left-to-right-expression-using-two-stacks">Example:
+Calculating a Left-to-Right Expression Using Two Stacks</h2>
+<p>Here’s a simple example of how to calculate the expression
+<code>3 + 425 × 2</code> using the two-stack approach with left-to-right
+evaluation (Phase 1 approach without operator precedence):</p>
+<h3 id="initial-state">Initial State:</h3>
+<ul>
+<li>Operand Stack: [ ]</li>
+<li>Operator Stack: [ ]</li>
+<li>Display: “0”</li>
+</ul>
+<h3 id="user-enters-3">User enters “3”:</h3>
+<ul>
+<li>Display: “3”</li>
+<li>No stack changes yet (value is only in display)</li>
+</ul>
+<h3 id="user-enters">User enters “+”:</h3>
+<ul>
+<li>Read current display value (3) and push to Operand Stack</li>
+<li>Push + to Operator Stack</li>
+<li>Operand Stack: [3]</li>
+<li>Operator Stack: [+]</li>
+<li>Display: “3”</li>
+</ul>
+<h3 id="user-enters-4">User enters “4”:</h3>
+<ul>
+<li>Display: “4”</li>
+<li>No stack changes yet</li>
+</ul>
+<h3 id="user-enters-2">User enters “2”:</h3>
+<ul>
+<li>Display: “42” (digits accumulate in the display)</li>
+<li>No stack changes yet</li>
+</ul>
+<h3 id="user-enters-5">User enters “5”:</h3>
+<ul>
+<li>Display: “425” (digits accumulate in the display)</li>
+<li>No stack changes yet</li>
+</ul>
+<h3 id="user-enters-1">User enters “×”:</h3>
+<ul>
+<li><p>Read current display value (425) and push to Operand
+Stack</p></li>
+<li><p>Operand Stack: [3, 425]</p></li>
+<li><p>Operator Stack: [+]</p></li>
+<li><p>Since we have 2 operands and 1 operator, perform calculation:</p>
+<ul>
+<li>Pop 425 and 3 from Operand Stack</li>
+<li>Pop + from Operator Stack</li>
+<li>Calculate: 3 + 425 = 428</li>
+<li>Push 428 to Operand Stack</li>
+</ul></li>
+<li><p>After reduction, push × to Operator Stack</p></li>
+<li><p>Operand Stack: [428]</p></li>
+<li><p>Operator Stack: [×]</p></li>
+<li><p>Display: “428”</p></li>
+</ul>
+<h3 id="user-enters-2-1">User enters “2”:</h3>
+<ul>
+<li>Display: “2”</li>
+<li>No stack changes yet (value is only in display)</li>
+</ul>
+<h3 id="user-enters-6">User enters “=”:</h3>
+<ul>
+<li><p>Read current display value (2) and push to Operand Stack</p></li>
+<li><p>Operand Stack: [428, 2]</p></li>
+<li><p>Operator Stack: [×]</p></li>
+<li><p>Since we have 2 operands and 1 operator, perform calculation:</p>
+<ul>
+<li>Pop 2 and 428 from Operand Stack</li>
+<li>Pop × from Operator Stack</li>
+<li>Calculate: 428 × 2 = 856</li>
+<li>Push 856 to Operand Stack</li>
+</ul></li>
+<li><p>Since “=” was pressed, we don’t push it to the Operator
+Stack</p></li>
+<li><p>Operand Stack: [856]</p></li>
+<li><p>Operator Stack: [ ]</p></li>
+<li><p>Display: “856”</p></li>
+</ul>
+<p>Note: In Phase 1, operations are performed strictly left-to-right as
+shown above (3 + 4 × 2 = 14). In Phase 2 with operator precedence,
+multiplication would be performed before addition, resulting in 3 + (4 ×
+2) = 11.</p>

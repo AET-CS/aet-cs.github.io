@@ -102,3 +102,7 @@
 	- MC3 Practice on Schoology
   - FRQ "April 1" practice on AP Classroom
   - Submit Queue class today. Use this [driver file](../AP_shared/Queue/QueueDriver.java) to test it.
+- 4/3 (Thursday)
+	- MC4 Practice on Schoology
+	- Turn in Queue today using  this [driver file](../AP_shared/Queue/QueueDriver.java) posted on 4/1. Turn in the whole folder. Be sure push AND pop are fast!
+	- New project [Calculator](../AP_shared/Calculator/calculator-instructions.html) and [files](../AP_shared/Calculator.zip). Due Friday 4/11 (Phase 1, 2, extension)

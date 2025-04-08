@@ -85,9 +85,8 @@ public class CalculatorModel {
 		public void reduce(String operator) {
 			// called by operator() when there are enough operands and operators
 			// to perform a calculation
-			// gets the top two operands and the top operator
-			// performs the calculation
-
+			// calls calculate() to perform the calculation
+			// (this method becomes more complex when you implement order of operations)
 			// YOUR CODE
 		}
 

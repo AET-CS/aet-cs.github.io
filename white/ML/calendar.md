@@ -122,3 +122,10 @@
 	- Notes on Attention Layers and Beam Search
 	- Implement both using these [helper functions](./lessons/seq2seq-Resources.ipynb), explore the model parameters
 	- See some [examples](./lessons/Translation-Examples.html) of my translation
+- 4/4 2025 (Friday)
+	- No school
+- 4/8/2025 (Tuesday)
+	- Auto-Encoders!
+	- Side quest: Check out my app [here](https://javadrop-io-019d03a56736.herokuapp.com/) for turning in Java code. Log in with your credentials for class and submit to the Binary Tree assignment. If you need a file to
+	submit, [here's one that should work](./lessons/BinaryTree.java)
+	- Assignment: Create an auto-encoder for the Fashion MNIST dataset. If you get that working, add noise or dropout to the input images and see how well it reconstructs.

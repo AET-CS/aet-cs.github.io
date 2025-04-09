@@ -106,3 +106,8 @@
 	- MC4 Practice on Schoology
 	- Turn in Queue today using  this [driver file](../AP_shared/Queue/QueueDriver.java) posted on 4/1. Turn in the whole folder. Be sure push AND pop are fast!
 	- New project [Calculator](../AP_shared/Calculator/calculator-instructions.html) and [files](../AP_shared/Calculator.zip). Due Friday 4/11 (Phase 1, 2, extension)
+- 4/9 (Wednesday)
+	- MC5 Practice on Schoology
+	- FRQ "April 9" on AP Classroom. Score yourself. Completion grade for thorough work.
+	- Check out [this site I made](https://javadrop-io-019d03a56736.herokuapp.com/) and submit your Stack assignment to it (for practice, not a grade). Login is same as class server: first 7 of last name + first initial (jefferst) and student id is password.
+	- Calculator is due next class. Only LEFT-to-RIGHT precedence, plus all basic functions (decimal point, backspace, clear, equals)

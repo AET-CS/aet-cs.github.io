@@ -117,3 +117,8 @@
 	- FRQ "April 9" on AP Classroom. Score yourself. Completion grade for thorough work.
 	- Check out [this site I made](https://javadrop-io-019d03a56736.herokuapp.com/) and submit your Stack assignment to it (for practice, not a grade). Login is same as class server: first 7 of last name + first initial (jefferst) and student id is password.
 	- Calculator is due next class. Only LEFT-to-RIGHT precedence, plus all basic functions (decimal point, backspace, clear, equals, no reflection yet)
+- 4/11 (Friday!)
+	- MC6 Practice on Schoology
+	- FRQ Practice "Candy" on [JavaDrop](https://javadrop-io-019d03a56736.herokuapp.com/). Click on FRQ practice and submit your solution in the code widget.
+	- Calculator due today on [JavaDrop](https://javadrop-io-019d03a56736.herokuapp.com/) by end of class.
+	- MC review in class (solution posted soon)

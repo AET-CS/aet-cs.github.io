@@ -142,3 +142,8 @@
 		- If it works you should get feedback in 10-15 seconds
 		- Feel free to explore/test/poke other parts of the site
 	- Research topics
+		- Make a copy of this [research notebook template](https://docs.google.com/document/d/1UD34tMp1_cLMyS2Az31QycqwaJ3ZLyUson_-5buWuxw/edit?usp=sharing) in your own google drive
+		- Discuss current research ideas and begin to fill out research plan
+		- Do some background research. Find 10 relevant papers and add them to Zotero
+		- (I think you downloaded Zotero a while ago?)
+		- Begin work on annotated bibliography

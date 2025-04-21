@@ -129,3 +129,16 @@
 	- Side quest: Check out my app [here](https://javadrop-io-019d03a56736.herokuapp.com/) for turning in Java code. Log in with your credentials for class and submit to the Binary Tree assignment. If you need a file to
 	submit, [here's one that should work](./lessons/BinaryTree.java)
 	- Assignment: Create an auto-encoder for the Fashion MNIST dataset. If you get that working, add noise or dropout to the input images and see how well it reconstructs.
+- 4/10/2025 (Thursday)
+	- Notes on genetic algorithms and symbolic regression
+	- Social Hour
+- Spring Break
+- 4/21/2025 (monday)
+	- Help me test javadrop.io by going to [javadrop.io](https://javadrop.io) or the [same thing here](https://javadrop-io-019d03a56736.herokuapp.com/)
+		- You should be asked for a new password. Don't forget it!
+		- Navigate to AP FRQ Practice and Select the "Candy" FRQ
+		- Test out the interface and submit a solution. Here's one that [seems to work](./data/candy.java). Feel free to change it or submit your own.
+		- I'm testing the viability of this server to handle concurrent API requests to OpenAI, so everybody should submit their responses within the same minute or so (not all at the exact same time)
+		- If it works you should get feedback in 10-15 seconds
+		- Feel free to explore/test/poke other parts of the site
+	- Research topics

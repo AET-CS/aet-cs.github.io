@@ -126,7 +126,7 @@
 	- 4/22 (Tuesday)
 		- MC7 Practice on Schoology
 		- (From December, for review) Notes on inheritance and polymorphism [worksheet](../AP_shared/classes/TrickyPolymorphism.pdf) and [key](../AP_shared/classes/TrickyPolymorphismAnswers.pdf)
-		- Reset your password on [JavaDrop](https://javadrop-io-019d03a56736.herokuapp.com/)
+		- Reset your password on [JavaDrop](https://javadrop-io-019d03a56736.herokuapp.com/) (aka [javadrop.io](https://javadrop.io))
 		- Look at FRQ: 2024 #1 (BirdFeeder) and #2 (ScoreBoard)
 		- MC TEST MONDAY 4/28. Review all MC* warmups and the old MC test in AP Classroom!
 		- FRQ TEST FRIDAY 5/2. Lots of problems coming online on JavaDrop.

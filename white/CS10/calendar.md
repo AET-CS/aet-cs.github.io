@@ -122,3 +122,12 @@
 	- FRQ Practice "Candy" on [JavaDrop](https://javadrop-io-019d03a56736.herokuapp.com/). Click on FRQ practice and submit your solution in the code widget.
 	- Calculator due today on [JavaDrop](https://javadrop-io-019d03a56736.herokuapp.com/) by end of class.
 	- MC review in class (solution posted soon)
+- SPRING BREAK
+	- 4/22 (Tuesday)
+		- MC7 Practice on Schoology
+		- (From December, for review) Notes on inheritance and polymorphism [worksheet](../AP_shared/classes/TrickyPolymorphism.pdf) and [key](../AP_shared/classes/TrickyPolymorphismAnswers.pdf)
+		- Reset your password on [JavaDrop](https://javadrop-io-019d03a56736.herokuapp.com/)
+		- Look at FRQ: 2024 #1 (BirdFeeder) and #2 (ScoreBoard)
+		- MC TEST MONDAY 4/28. Review all MC* warmups and the old MC test in AP Classroom!
+		- FRQ TEST FRIDAY 5/2. Lots of problems coming online on JavaDrop.
+		- AP TEST Wed 5/7

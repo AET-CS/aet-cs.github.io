@@ -147,3 +147,6 @@
 		- Do some background research. Find 10 relevant papers and add them to Zotero
 		- (I think you downloaded Zotero a while ago?)
 		- Begin work on annotated bibliography
+	- 4/23/2025 (wednesday)
+		- See this [brief proposal outine](./proposal.md)
+		- Prepare a 5 minute presentation!

@@ -125,3 +125,9 @@
 	- MC TEST MONDAY 4/28. Review all MC* warmups and the old MC test in AP Classroom!
 	- FRQ TEST FRIDAY 5/2. Lots of problems coming online on JavaDrop.
 	- AP TEST Wed 5/7
+- 4/24 (Thursday)
+	- MC8 Practice on Schoology
+	- [Recursion practice questions](../AP_shared/monster2.pdf)
+	- FRQ practice on javadrop.io -- focus on ArrayLists and Arrays
+	- MC Test next class.
+	- Review all the MC warmups [here](../AP_shared/quiz.html)

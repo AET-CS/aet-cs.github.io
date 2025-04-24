@@ -136,3 +136,4 @@
 		- [Recursion practice questions](../AP_shared/monster2.pdf)
 		- FRQ practice on javadrop.io -- focus on ArrayLists and Arrays
 		- MC Test next class.
+		- Review all the MC warmups [here](../AP_shared/quiz.html)

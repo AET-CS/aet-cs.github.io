@@ -1,3 +1,12 @@
+IS_COLAB = "google.colab" in sys.modules
+if IS_COLAB:
+    import os
+    os.environ["TF_USE_LEGACY_KERAS"] = "1"
+    import tf_keras
+
+if you do the above, you don't need the below
+
+
 class VariationalAutoencoder(tf.keras.Model):
     def __init__(self, variational_encoder, variational_decoder, **kwargs):
         super().__init__(**kwargs)

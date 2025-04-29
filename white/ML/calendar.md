@@ -149,4 +149,12 @@
 		- Begin work on annotated bibliography
 	- 4/23/2025 (wednesday)
 		- See this [brief proposal outine](./proposal.md)
-		- Prepare a 5 minute presentation!
+		- Prepare a 5 minute presentation
+	- 4/25/2025 (friday)
+		- Relativistic dynamics of space near a black hole
+		- Hawking radiation
+		- Homework: Can information be destroyed by a gravitational singularity?
+	- 4/29 (Tuesday)
+		- Variational Autoencoders
+		- See notes and code [here](./lessons/vaes.pdf)
+		- Implement solutions in colab or jupyter, etc.

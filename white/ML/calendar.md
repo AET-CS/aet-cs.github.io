@@ -158,3 +158,4 @@
 		- Variational Autoencoders
 		- See notes and code [here](./lessons/vaes.pdf)
 		- Implement solutions in colab or jupyter, etc.
+		- here's a [fix](vae-fix.txt)

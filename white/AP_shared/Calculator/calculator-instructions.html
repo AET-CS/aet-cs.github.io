@@ -1,13 +1,14 @@
 <h1 id="calculator-assignment-instructions">Calculator Assignment
 Instructions</h1>
 <p>You are implementing a 4-function calculator. Think of a simple casio
-or the calculator. The display shows the current number you are typing,
-or an intermediate calculation result. It does not display any operands
-or other info, except the occasional “error” when appropriate. The
-skeleton of the program is given to you; you will update the controller
-and model to add functionality. First you will implement simple
-left-to-right evaluation using two stacks. Second you will implement
-operator precedence. Finally you will add extensions of your choice.</p>
+or basic calculator app. The display shows the current number you are
+typing, or an intermediate calculation result. It does not display any
+operands or other info, except the occasional “error” when appropriate.
+The skeleton of the program is given to you; you will update the
+controller and model to add functionality. First you will implement
+simple left-to-right evaluation using two stacks. Second you will
+implement operator precedence. Finally you will add extensions of your
+choice.</p>
 <h2 id="overview-of-architecture">Overview of Architecture</h2>
 <p>This calculator application follows the Model-View-Controller (MVC)
 design pattern:</p>
@@ -59,7 +60,8 @@ from the display value.</li>
 using operands and operators from the stacks.</li>
 <li><strong><code>reduce(String operator)</code></strong>: Calls
 <code>calculate</code> one or more times based on the current stack
-contents</li>
+contents (in phase 1 this is basically a pass-through function, you
+always call calculate exactly once)</li>
 <li><strong><code>precedence(String operator)</code></strong>: Return
 the precedence level of an operator (for Phase 2).</li>
 </ol>
@@ -78,8 +80,9 @@ class="sourceCode java"><code class="sourceCode java"><span id="cb1-1"><a href="
 <ul>
 <li>Implement all the required methods</li>
 <li>Support basic operations (+, -, ×, ÷)</li>
-<li>Add support for constants π and e (hint: handle in the controller
-similar to digits)</li>
+<li>Add support for constants <span
+class="math inline"><em>π</em></span> and e (hint: handle in the
+controller similar to digits)</li>
 <li>Process calculations left-to-right without operator precedence</li>
 <li>Implement DebugStack for debugging</li>
 </ul>
@@ -110,8 +113,8 @@ one or more)</h3>
 visualizing how the stacks change during operations</li>
 <li>Remember that in Phase 1, operations are performed left-to-right (no
 operator precedence)</li>
-<li>For constants like π and e, you’ll need to handle these specially in
-the controller</li>
+<li>For constants like <span class="math inline"><em>π</em></span> and
+e, you’ll need to handle these specially in the controller</li>
 </ul>
 <h2
 id="example-calculating-a-left-to-right-expression-using-two-stacks">Example:

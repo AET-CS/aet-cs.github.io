@@ -1,3 +1,10 @@
+---
+title: "Calculator Project"
+header-includes:
+   - \usepackage{fullpage}
+---
+
+
 # Calculator Assignment Instructions
 
 You are implementing a 4-function calculator. Think of a simple casio or basic calculator app. The display shows the current number you are typing, or an intermediate calculation result. It does not display any operands or other info, except the occasional "error" when appropriate. The skeleton of the program is given to you; you will update the controller and model to add functionality. First you will implement simple left-to-right evaluation using two stacks. Second you will implement operator precedence. Finally you will add extensions of your choice.
@@ -37,7 +44,7 @@ These stacks allow for sequential processing of operations. When operations are 
 1. **`appendDecimalPoint()`**: Add a decimal point to the current display value if not already present.
 2. **`backspace()`**: Remove the last character from the display value.
 3. **`calculate()`**: Perform one calculation using operands and operators from the stacks.
-4. **`reduce(String operator)`**: Calls `calculate` one or more times based on the current stack contents
+4. **`reduce(String operator)`**: Calls `calculate` one or more times based on the current stack contents (in phase 1 this is basically a pass-through function, you always call calculate exactly once)
 5. **`precedence(String operator)`**: Return the precedence level of an operator (for Phase 2).
 
 ### In `DebugStack.java`:
@@ -57,7 +64,7 @@ public E push(E item) {
 ### Phase 1: Basic Functionality
 - Implement all the required methods
 - Support basic operations (+, -, ×, ÷)
-- Add support for constants π and e (hint: handle in the controller similar to digits)
+- Add support for constants $\pi$ and e (hint: handle in the controller similar to digits)
 - Process calculations left-to-right without operator precedence
 - Implement DebugStack for debugging
 
@@ -80,7 +87,7 @@ public E push(E item) {
 
 - The `DebugStack` implementation should be helpful for visualizing how the stacks change during operations
 - Remember that in Phase 1, operations are performed left-to-right (no operator precedence)
-- For constants like π and e, you'll need to handle these specially in the controller
+- For constants like $\pi$ and e, you'll need to handle these specially in the controller
 
 
 ## Example: Calculating a Left-to-Right Expression Using Two Stacks

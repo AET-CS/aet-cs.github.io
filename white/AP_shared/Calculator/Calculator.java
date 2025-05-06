@@ -22,7 +22,7 @@ public class Calculator {
             CalculatorModel model = new CalculatorModel();
             CalculatorUI view = new CalculatorUI(2.0); // adjust the scale to 1.0 or 2.0 etc. as needed
             @SuppressWarnings("unused")
-						CalculatorController controller = new CalculatorController(model, view);
+            CalculatorController controller = new CalculatorController(model, view);
         });
     }
 }

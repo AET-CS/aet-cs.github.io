@@ -1,0 +1,161 @@
+<h1 id="binary-tree-assignment-day-1">Binary Tree Assignment (Day
+1)</h1>
+<h2 id="introduction">Introduction</h2>
+<p>In this assignment, you will explore the Binary Tree data structure.
+A binary tree is a hierarchical data structure where each node has at
+most two children, referred to as the left child and the right child.
+Binary trees are fundamental in computer science and are used in various
+applications including searching, sorting, and representing hierarchical
+data.</p>
+<p>This assignment focuses on understanding a basic implementation of a
+Binary Search Tree (BST), which is a special type of binary tree where
+for each node: - All elements in the left subtree are less than the
+node’s value - All elements in the right subtree are greater than or
+equal to the node’s value</p>
+<p>The key learning objective is to understand how recursion is used to
+solve tree-related problems.</p>
+<h2 id="binary-tree-class-overview">Binary Tree Class Overview</h2>
+<p>You are designing h a <code>BinaryTree</code> class that contains the
+following components:</p>
+<ol type="1">
+<li>An inner <code>Node</code> class that represents each node in the
+tree</li>
+<li>Methods for creating and manipulating the tree</li>
+<li>Methods for traversing and analyzing the tree structure</li>
+</ol>
+<h3 id="class-structure">Class Structure</h3>
+<div class="sourceCode" id="cb1"><pre
+class="sourceCode java"><code class="sourceCode java"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="kw">public</span> <span class="kw">class</span> BinaryTree <span class="op">{</span></span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>    <span class="kw">protected</span> <span class="kw">class</span> <span class="bu">Node</span> <span class="op">{</span></span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>        <span class="dt">int</span> data<span class="op">;</span></span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a>        <span class="bu">Node</span> left<span class="op">;</span></span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a>        <span class="bu">Node</span> right<span class="op">;</span></span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a>        <span class="kw">public</span> <span class="bu">Node</span><span class="op">(</span><span class="dt">int</span> data<span class="op">)</span> <span class="op">{</span></span>
+<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a>            <span class="kw">this</span><span class="op">.</span><span class="fu">data</span> <span class="op">=</span> data<span class="op">;</span></span>
+<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a>        <span class="op">}</span></span>
+<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a>    <span class="op">}</span></span>
+<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex="-1"></a>    <span class="kw">protected</span> <span class="bu">Node</span> root<span class="op">;</span></span>
+<span id="cb1-13"><a href="#cb1-13" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-14"><a href="#cb1-14" aria-hidden="true" tabindex="-1"></a>    <span class="co">// Constructors and methods...</span></span>
+<span id="cb1-15"><a href="#cb1-15" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span></code></pre></div>
+<h3 id="method-descriptions">Method Descriptions</h3>
+<h4 id="constructors">Constructors</h4>
+<div class="sourceCode" id="cb2"><pre
+class="sourceCode java"><code class="sourceCode java"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="kw">public</span> <span class="fu">BinaryTree</span><span class="op">()</span></span></code></pre></div>
+<ul>
+<li>Creates an empty binary tree with a null root.</li>
+</ul>
+<div class="sourceCode" id="cb3"><pre
+class="sourceCode java"><code class="sourceCode java"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="kw">public</span> <span class="fu">BinaryTree</span><span class="op">(</span><span class="dt">int</span> data<span class="op">)</span></span></code></pre></div>
+<ul>
+<li>Creates a binary tree with a root node containing the specified
+data.</li>
+</ul>
+<h4 id="insertion">Insertion</h4>
+<div class="sourceCode" id="cb4"><pre
+class="sourceCode java"><code class="sourceCode java"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="kw">public</span> <span class="dt">void</span> <span class="fu">insert</span><span class="op">(</span><span class="dt">int</span> data<span class="op">)</span></span></code></pre></div>
+<ul>
+<li>Inserts a new node with the given data into the binary search
+tree.</li>
+<li>This method maintains the binary search tree property, where nodes
+with smaller values go to the left and larger values go to the
+right.</li>
+</ul>
+<div class="sourceCode" id="cb5"><pre
+class="sourceCode java"><code class="sourceCode java"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="kw">private</span> <span class="bu">Node</span> <span class="fu">insert_recursive</span><span class="op">(</span><span class="bu">Node</span> root<span class="op">,</span> <span class="dt">int</span> data<span class="op">)</span></span></code></pre></div>
+<ul>
+<li>A helper method that recursively determines where to insert the new
+node.</li>
+<li>This is a great example of using recursion to navigate a tree
+structure.</li>
+</ul>
+<h4 id="traversal">Traversal</h4>
+<div class="sourceCode" id="cb6"><pre
+class="sourceCode java"><code class="sourceCode java"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="kw">public</span> <span class="bu">String</span> <span class="fu">in_order_traversal</span><span class="op">()</span></span></code></pre></div>
+<ul>
+<li>Performs an in-order traversal of the tree (left, root, right).</li>
+<li>Returns a string representation of the traversal.</li>
+<li>Also prints the traversal to the console.</li>
+</ul>
+<div class="sourceCode" id="cb7"><pre
+class="sourceCode java"><code class="sourceCode java"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="kw">private</span> <span class="bu">String</span> <span class="fu">in_order_traversal</span><span class="op">(</span><span class="bu">Node</span> root<span class="op">,</span> <span class="bu">String</span> s<span class="op">)</span></span></code></pre></div>
+<ul>
+<li>A recursive helper method for in-order traversal.</li>
+<li>Demonstrates how recursion can be used to traverse a tree.</li>
+</ul>
+<h4 id="analysis">Analysis</h4>
+<div class="sourceCode" id="cb8"><pre
+class="sourceCode java"><code class="sourceCode java"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="kw">public</span> <span class="dt">int</span> <span class="fu">count_nodes</span><span class="op">()</span></span></code></pre></div>
+<ul>
+<li>Counts the total number of nodes in the tree.</li>
+<li>Uses recursion to traverse all nodes.</li>
+</ul>
+<div class="sourceCode" id="cb9"><pre
+class="sourceCode java"><code class="sourceCode java"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="kw">private</span> <span class="dt">int</span> <span class="fu">count_nodes_recursive</span><span class="op">(</span><span class="bu">Node</span> root<span class="op">)</span></span></code></pre></div>
+<ul>
+<li>A recursive helper method that counts nodes in a subtree.</li>
+</ul>
+<div class="sourceCode" id="cb10"><pre
+class="sourceCode java"><code class="sourceCode java"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="kw">public</span> <span class="dt">int</span> <span class="fu">depth</span><span class="op">()</span></span></code></pre></div>
+<ul>
+<li>Calculates the depth (or height) of the tree.</li>
+<li>The depth is the length of the longest path from the root to any
+leaf.</li>
+</ul>
+<div class="sourceCode" id="cb11"><pre
+class="sourceCode java"><code class="sourceCode java"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="kw">private</span> <span class="dt">int</span> <span class="fu">depth_recursive</span><span class="op">(</span><span class="bu">Node</span> root<span class="op">)</span></span></code></pre></div>
+<ul>
+<li>A recursive helper method that calculates the depth of a
+subtree.</li>
+<li>Demonstrates how recursion can be used to find the maximum
+depth.</li>
+</ul>
+<h2 id="assignment-tasks">Assignment Tasks</h2>
+<ol type="1">
+<li>Implement the <code>BinaryTree</code> class.</li>
+<li>Test its execution on the provided driver class.</li>
+<li>Submit to javadrop.io by the end of class.</li>
+</ol>
+<h2 id="sample-output">Sample Output</h2>
+<p>Here’s an example of creating a binary tree and using its
+methods:</p>
+<div class="sourceCode" id="cb12"><pre
+class="sourceCode java"><code class="sourceCode java"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="kw">public</span> <span class="kw">class</span> BinaryTreeDemo <span class="op">{</span></span>
+<span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a>    <span class="kw">public</span> <span class="dt">static</span> <span class="dt">void</span> <span class="fu">main</span><span class="op">(</span><span class="bu">String</span><span class="op">[]</span> args<span class="op">)</span> <span class="op">{</span></span>
+<span id="cb12-3"><a href="#cb12-3" aria-hidden="true" tabindex="-1"></a>        BinaryTree tree <span class="op">=</span> <span class="kw">new</span> <span class="fu">BinaryTree</span><span class="op">();</span></span>
+<span id="cb12-4"><a href="#cb12-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-5"><a href="#cb12-5" aria-hidden="true" tabindex="-1"></a>        <span class="co">// Insert values</span></span>
+<span id="cb12-6"><a href="#cb12-6" aria-hidden="true" tabindex="-1"></a>        tree<span class="op">.</span><span class="fu">insert</span><span class="op">(</span><span class="dv">50</span><span class="op">);</span></span>
+<span id="cb12-7"><a href="#cb12-7" aria-hidden="true" tabindex="-1"></a>        tree<span class="op">.</span><span class="fu">insert</span><span class="op">(</span><span class="dv">30</span><span class="op">);</span></span>
+<span id="cb12-8"><a href="#cb12-8" aria-hidden="true" tabindex="-1"></a>        tree<span class="op">.</span><span class="fu">insert</span><span class="op">(</span><span class="dv">70</span><span class="op">);</span></span>
+<span id="cb12-9"><a href="#cb12-9" aria-hidden="true" tabindex="-1"></a>        tree<span class="op">.</span><span class="fu">insert</span><span class="op">(</span><span class="dv">20</span><span class="op">);</span></span>
+<span id="cb12-10"><a href="#cb12-10" aria-hidden="true" tabindex="-1"></a>        tree<span class="op">.</span><span class="fu">insert</span><span class="op">(</span><span class="dv">40</span><span class="op">);</span></span>
+<span id="cb12-11"><a href="#cb12-11" aria-hidden="true" tabindex="-1"></a>        tree<span class="op">.</span><span class="fu">insert</span><span class="op">(</span><span class="dv">60</span><span class="op">);</span></span>
+<span id="cb12-12"><a href="#cb12-12" aria-hidden="true" tabindex="-1"></a>        tree<span class="op">.</span><span class="fu">insert</span><span class="op">(</span><span class="dv">80</span><span class="op">);</span></span>
+<span id="cb12-13"><a href="#cb12-13" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-14"><a href="#cb12-14" aria-hidden="true" tabindex="-1"></a>        <span class="co">// Display in-order traversal</span></span>
+<span id="cb12-15"><a href="#cb12-15" aria-hidden="true" tabindex="-1"></a>        <span class="bu">System</span><span class="op">.</span><span class="fu">out</span><span class="op">.</span><span class="fu">println</span><span class="op">(</span><span class="st">&quot;In-order traversal:&quot;</span><span class="op">);</span></span>
+<span id="cb12-16"><a href="#cb12-16" aria-hidden="true" tabindex="-1"></a>        tree<span class="op">.</span><span class="fu">in_order_traversal</span><span class="op">();</span></span>
+<span id="cb12-17"><a href="#cb12-17" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-18"><a href="#cb12-18" aria-hidden="true" tabindex="-1"></a>        <span class="co">// Count nodes</span></span>
+<span id="cb12-19"><a href="#cb12-19" aria-hidden="true" tabindex="-1"></a>        <span class="bu">System</span><span class="op">.</span><span class="fu">out</span><span class="op">.</span><span class="fu">println</span><span class="op">(</span><span class="st">&quot;</span><span class="sc">\n</span><span class="st">Number of nodes: &quot;</span> <span class="op">+</span> tree<span class="op">.</span><span class="fu">count_nodes</span><span class="op">());</span></span>
+<span id="cb12-20"><a href="#cb12-20" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-21"><a href="#cb12-21" aria-hidden="true" tabindex="-1"></a>        <span class="co">// Calculate depth</span></span>
+<span id="cb12-22"><a href="#cb12-22" aria-hidden="true" tabindex="-1"></a>        <span class="bu">System</span><span class="op">.</span><span class="fu">out</span><span class="op">.</span><span class="fu">println</span><span class="op">(</span><span class="st">&quot;Tree depth: &quot;</span> <span class="op">+</span> tree<span class="op">.</span><span class="fu">depth</span><span class="op">());</span></span>
+<span id="cb12-23"><a href="#cb12-23" aria-hidden="true" tabindex="-1"></a>    <span class="op">}</span></span>
+<span id="cb12-24"><a href="#cb12-24" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span></code></pre></div>
+<p>Expected output:</p>
+<pre><code>In-order traversal:
+20 30 40 50 60 70 80
+Number of nodes: 7
+Tree depth: 3</code></pre>
+<h2 id="thinking-about-recursion">Thinking About Recursion</h2>
+<p>For each recursive method in the <code>BinaryTree</code> class,
+consider: 1. What is the base case? (When does the recursion stop?) 2.
+How does the method break down the problem into smaller subproblems? 3.
+How does the method combine the results of the subproblems to solve the
+original problem?</p>
+<p>Understanding these aspects of recursion is crucial for working with
+tree structures.</p>

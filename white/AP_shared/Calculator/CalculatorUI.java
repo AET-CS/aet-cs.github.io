@@ -12,21 +12,22 @@ public class CalculatorUI extends JFrame {
 
     private JTextField display;
     private Map<String, JButton> buttons;
-		private double scale = 1;
+    private double scale = 1;
+
     /**
      * Constructor initializes the calculator UI.
      */
     public CalculatorUI(double scale) {
         // Set up the frame
-				this.scale = scale;
+        this.scale = scale;
         setTitle("Scientific Calculator");
-        setSize((int)(600 * scale), (int)(800 * scale));
+        setSize((int) (600 * scale), (int) (800 * scale));
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         setLayout(new BorderLayout());
 
         // Create the display
         display = new JTextField("0");
-        display.setFont(new Font("Arial", Font.PLAIN, (int)(42*scale)));
+        display.setFont(new Font("Arial", Font.PLAIN, (int) (42 * scale)));
         display.setHorizontalAlignment(JTextField.RIGHT);
         display.setEditable(false);
         add(display, BorderLayout.NORTH);
@@ -93,7 +94,7 @@ public class CalculatorUI extends JFrame {
      */
     private JButton createButton(String text) {
         JButton button = new JButton(text);
-        button.setFont(new Font("Arial", Font.BOLD, (int)(scale*28)));
+        button.setFont(new Font("Arial", Font.BOLD, (int) (scale * 28)));
         buttons.put(text, button);
         return button;
     }
@@ -126,4 +127,4 @@ public class CalculatorUI extends JFrame {
     public String getDisplayText() {
         return display.getText();
     }
-	}
+}

@@ -131,3 +131,15 @@
 	- FRQ practice on javadrop.io -- focus on ArrayLists and Arrays
 	- MC Test next class.
 	- Review all the MC warmups [here](../AP_shared/quiz.html)
+- 4/28 (Monday)
+    - MC Practice Test
+- 4/30 (Wednesday)
+    - AP Review
+    - Go over MC questions (results on AP classroom)
+    - FRQ test next class, practice problems on [JavaDrop](https://javadrop-io-019d03a56736.herokuapp.com/) (aka [javadrop.io](https://javadrop.io))
+- 5/2 (Friday)
+    - FRQ Test in class
+- 5/6 (Tuesday)
+    - Verify you can log in to BlueBook
+    - Memorize your password!
+    - AP TEST TOMORROW. Review on [JavaDrop](https://javadrop-io-019d03a56736.herokuapp.com/). GOOD LUCK

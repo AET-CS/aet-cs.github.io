@@ -1,6 +1,7 @@
 # Teaching Calendar 2024-2025
 - [Quarter 1 Archive](./calendar-q1.md)
 - [Quarter 2 Archive](./calendar-q2.md)
+- [Quarter 3 Archive](./calendar-q3.md)
 
 ## Daily Review
 
@@ -47,3 +48,4 @@
     - Continue GANs
     - Fix code from last class
     - Implement a Deep Convolutional GAN solution to "FaceGAN"
+    - Find your own face data. There are HUGE databases but I'm using 10,000 images of size 256x256 on the 4090 and that's pretty much a reasonable size. So don't get too much. Here's some [helper code](./lessons/faces_process.md) to wrangle your data into folders

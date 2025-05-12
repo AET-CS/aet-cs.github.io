@@ -156,5 +156,5 @@
 - 5/12 (Monday)
     - Binary trees: FindMin, Delete, Find
     - Add these methods to your code: FindMin returns an int, Delete returns void, Find returns boolean
-    - Make your own tester and then test with supplied BinaryTreeTester.java
+    - Make your own tester and then test with supplied [BinaryTreeTester.java](../AP_shared/BinaryTree/BinaryTreeTester.java)
     - Submit on JavaDrop (Binary Day 2)

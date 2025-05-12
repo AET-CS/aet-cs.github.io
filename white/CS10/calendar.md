@@ -151,3 +151,9 @@
     - Notes on Binary Trees (here's some examples [online](https://courses.grainger.illinois.edu/cs225/sp2019/notes/bst/))
     - [Binary Tree Assignment](../AP_shared/BinaryTree/binary-tree-1.pdf) due in class (submit to JavaDrop)
     - AP TEST TOMORROW. Review on [JavaDrop](https://javadrop-io-019d03a56736.herokuapp.com/). GOOD LUCK
+- 5/8 (Thursday)
+    - Post test rest day
+- 5/12 (Monday)
+    - Binary trees: FindMin, Delete, Find
+    - Add these methods to your code: FindMin returns an int, Delete returns a new tree, Find returns boolean
+    - Make your own tester and then test with supplied BinaryTreeTester.java

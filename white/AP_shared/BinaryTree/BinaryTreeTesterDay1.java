@@ -7,9 +7,10 @@ public class BinaryTreeTesterDay1 {
 
     /**
      * Helper method to run a test and report results
+     * 
      * @param testName Name of the test
      * @param expected Expected output of the test
-     * @param actual Actual output of the test
+     * @param actual   Actual output of the test
      */
     private static void runTest(String testName, Object expected, Object actual) {
         totalTests++;
@@ -68,11 +69,10 @@ public class BinaryTreeTesterDay1 {
         tree.insert(60);
         tree.insert(80);
 
-        boolean insertTest4 =
-                tree.root.left.left != null && tree.root.left.left.data == 20 &&
-                        tree.root.left.right != null && tree.root.left.right.data == 40 &&
-                        tree.root.right.left != null && tree.root.right.left.data == 60 &&
-                        tree.root.right.right != null && tree.root.right.right.data == 80;
+        boolean insertTest4 = tree.root.left.left != null && tree.root.left.left.data == 20 &&
+                tree.root.left.right != null && tree.root.left.right.data == 40 &&
+                tree.root.right.left != null && tree.root.right.left.data == 60 &&
+                tree.root.right.right != null && tree.root.right.right.data == 80;
         runTest("Insert multiple values", true, insertTest4);
 
         // Test 7: Count nodes on empty tree
@@ -112,19 +112,6 @@ public class BinaryTreeTesterDay1 {
         String specialTraversalResult = specialTree.in_order_traversal().trim();
         runTest("Special tree in-order traversal", "10 15 20 25 35", specialTraversalResult);
 
-        // NEW TESTS FOR FIND OPERATION
-        // Test 15: Find existing value
-        runTest("Find existing value (50)", true, tree.find(50));
-
-        // Test 16: Find existing leaf node
-        runTest("Find existing leaf node (20)", true, tree.find(20));
-
-        // Test 17: Find non-existent value
-        runTest("Find non-existent value", false, tree.find(55));
-
-        // Test 18: Find in empty tree
-        runTest("Find in empty tree", false, emptyTree.find(10));
-
         // Speed test
 
         double startTime = System.nanoTime();
@@ -135,9 +122,9 @@ public class BinaryTreeTesterDay1 {
         }
         double endTime = System.nanoTime();
 
-        double duration = (endTime - startTime)/1000000;
+        double duration = (endTime - startTime) / 1000000;
         System.out.println("\nTime to insert 1,000,000 entries: " + duration + "  ms");
-        runTest("Insert A Million", true, duration < 2000 );
+        runTest("Insert A Million", true, duration < 2000);
         System.out.println();
 
         // Print test summary

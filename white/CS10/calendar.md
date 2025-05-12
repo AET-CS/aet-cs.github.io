@@ -157,3 +157,4 @@
     - Binary trees: FindMin, Delete, Find
     - Add these methods to your code: FindMin returns an int, Delete returns a new tree, Find returns boolean
     - Make your own tester and then test with supplied BinaryTreeTester.java
+    - Submit on JavaDrop (Binary Day 2)

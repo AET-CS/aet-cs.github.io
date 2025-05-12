@@ -146,3 +146,4 @@
 - 5/12 (Monday)
     -Notes on Binary Trees (here's some examples [online](https://courses.grainger.illinois.edu/cs225/sp2019/notes/bst/))
     - [Binary Tree Assignment](../AP_shared/BinaryTree/binary-tree-1.pdf) due in class (submit to JavaDrop)
+    - [BinaryTree Tester Day 1](../AP_shared/BinaryTree/BinaryTreeTesterDay1.java)

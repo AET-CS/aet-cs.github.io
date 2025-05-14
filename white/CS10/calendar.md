@@ -164,3 +164,4 @@
     - Watch [this video](https://www.youtube.com/watch?v=JPI-DPizQYk)
     - Do [this worksheet](../AP_shared/BinaryTree/AVL_insert_worksheet.pdf)
     - Modify your *insert* method to implement AVL tree rotation. You can test by inserting 1,000,000 ints in order. If your balancing works, it should be fast. If not, it will be very slow! This is due today *or* Monday.
+    - Demo where you can [check your work](https://www.cs.usfca.edu/~galles/visualization/AVLtree.html). You'll need to enter the trees in top-down-left-to-right order!

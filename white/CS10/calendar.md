@@ -158,3 +158,8 @@
     - Add these methods to your code: FindMin returns an int, Delete returns void, Find returns boolean
     - Make your own tester and then test with supplied [BinaryTreeTester.java](../AP_shared/BinaryTree/BinaryTreeTester.java)
     - Submit on JavaDrop (Binary Day 2)
+- 5/14 (Wednesday)
+    - Binary Trees Day 3: Insertion with rotations
+    - Read [notes on insertion](../AP_shared/BinaryTree/AVL_Notes.pdf)
+    - Watch [this video](https://www.youtube.com/watch?v=JPI-DPizQYk)
+    - Modify your *insert* method to implement AVL tree rotation. You can test by inserting 1,000,000 ints in order. If your balancing works, it should be fast. If not, it will be very slow! This is due today *or* Monday.

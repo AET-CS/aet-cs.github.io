@@ -4,6 +4,7 @@
 ## Semester 2
 
 1/31/2025 (Friday)
+	- Test [this](../AP_shared/BinaryTree/test.md)
 	- Notes on Binary Search
 	- Complete Unit 10 Review in AP Classroom
 	- Write Binary Search code [using this file](../AP_shared/recursion/BinarySearch.java). See this [sample output](../AP_shared/recursion/BinarySearch-output.txt)

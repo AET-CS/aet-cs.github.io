@@ -22,7 +22,7 @@ f'(x) &= \frac{d}{dx}(x^2 + 3x + 5) \\
 &= 2x + 3
 \end{align*}$$
 {% endcapture %}
-{% include answer.html content=answer1 %}
+{% include answer-box.html content=answer1 %}
 
 ## Question 2
 
@@ -37,4 +37,4 @@ $$\begin{align*}
 &= e^x[\sin(x) + \cos(x)]
 \end{align*}$$
 {% endcapture %}
-{% include answer.html content=answer2 %}
+{% include answer-box.html content=answer2 %}

@@ -1,7 +1,9 @@
 ---
 title: "AETCS Page"
+layout: single
+classes:
+  - wide
 ---
-
 # AET Computer Science Department
 
 ## Dr. White's Classes

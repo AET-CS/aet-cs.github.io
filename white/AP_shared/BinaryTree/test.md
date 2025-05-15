@@ -1,5 +1,8 @@
 ---
 title: "Calculus Notes"
+layout: single
+classes:
+  - wide
 ---
 
 # Introduction to Derivatives

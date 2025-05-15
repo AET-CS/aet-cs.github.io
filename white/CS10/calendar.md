@@ -1,3 +1,9 @@
+---
+title: "CS10 Calendar"
+layout: single
+classes:
+  - wide
+---
 # Calendar for CS 10
 
 (Old calendar [here](./sem01.md))

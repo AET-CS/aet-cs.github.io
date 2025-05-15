@@ -144,6 +144,8 @@
     - Memorize your password!
     - AP TEST TOMORROW. Review on [JavaDrop](https://javadrop-io-019d03a56736.herokuapp.com/). GOOD LUCK
 - 5/12 (Monday)
-    -Notes on Binary Trees (here's some examples [online](https://courses.grainger.illinois.edu/cs225/sp2019/notes/bst/))
+    - Notes on Binary Trees (here's some examples [online](https://courses.grainger.illinois.edu/cs225/sp2019/notes/bst/))
     - [Binary Tree Assignment](../AP_shared/BinaryTree/binary-tree-1.pdf) due in class (submit to JavaDrop)
     - [BinaryTree Tester Day 1](../AP_shared/BinaryTree/BinaryTreeTesterDay1.java)
+- 5/14 (Wednesday)
+    - AP something or other test

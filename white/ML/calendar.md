@@ -49,3 +49,12 @@
     - Fix code from last class
     - Implement a Deep Convolutional GAN solution to "FaceGAN"
     - Find your own face data. There are HUGE databases but I'm using 10,000 images of size 256x256 on the 4090 and that's pretty much a reasonable size. So don't get too much. Here's some [helper code](./lessons/faces_process.md) to wrangle your data into folders
+- 5/9 (Friday)
+    - AP something. APUSH?
+- 5/11 (Tuesday)
+    - Finish your FaceGan project
+    - Submit jupyter notebook to [javadrop.io](https://javadrop.io) or the [same thing here](https://javadrop-io-019d03a56736.herokuapp.com/) by Friday
+- 5/13 (Thursday)
+    - Sidequest: Macbook Pros
+    - Class time to work on GAN
+    - Also work on [formal research project proposal](../ML/proposal-written.md)

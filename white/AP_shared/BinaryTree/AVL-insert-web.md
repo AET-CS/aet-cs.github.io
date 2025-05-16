@@ -1,4 +1,9 @@
-# AVL Trees
+---
+title: "AVL Trees"
+layout: single
+# Optional title customizations
+excerpt: "Understanding AVL tree rotations and balancing"
+---
 
 Now that you've had an introduction to AVL trees, let's take a step back and look at where this operation called rotation even comes from, and hopefully end up with a better understanding of how to balance trees, both by hand and encode.
 
@@ -114,11 +119,12 @@ Node rightRotate(Node one)
 
 {% capture solution-right %}
 ```java
-Node rightRotate(Node three)
+Node rightRotate(Node three) {
     Node two = three.left;
     three.left = two.right;
     two.right = three;
     return two;
+}
 ```
 {% endcapture %}
 {% include code-solution-box.html skeleton=skeleton-right solution=solution-right %}
@@ -137,9 +143,10 @@ Node leftRightRotate(Node three)
 
 {% capture solution-leftRight %}
 ```java
-Node leftRightRotate(Node three)
+Node leftRightRotate(Node three){
     three.left = rightRotate(three.left);
     return leftRotate(three);
+}
 ```
 {% endcapture %}
 {% include code-solution-box.html skeleton=skeleton-leftRight solution=solution-leftRight %}
@@ -156,32 +163,52 @@ Node rightLeftRotate(Node one)
 
 {% capture solution-rightLeft %}
 ```java
-Node rightLeftRotate(Node one)
+Node rightLeftRotate(Node one) {
     one.right = rightRotate(one.right);
     return leftRotate(one);
+}
 ```
 {% endcapture %}
 {% include code-solution-box.html skeleton=skeleton-rightLeft solution=solution-rightLeft %}
 
 The next thing we need to figure out is when each of these rotations is appropriate. If you look at our four imbalanced trees, they each have very different shapes. In the case of an insertion, a sub tree can become imbalanced when you insert a new node. That new node has to be a leaf. Look at the leaves of each of the four imbalanced trees we started with. You can tell, which of the four rotations is necessary by determining, first, if the balance factor is positive or negative (indicating a right or left imbalance), and secondly, if the new leaf node is greater than or less than its parent node. In the space below bright four different conditions which exhaustively cover the four cases of an imbalanced tree, and then say which balancing method you should call for each case. Let's assume that "node" is the root of a sub tree with balance factor greater than one or less than negative one. Also assume “data” is the integer value that has just been added to the AVL tree.
 
+{% capture skeleton-1}
 ```java
 /* left rotate case */
 if
 
 
+```
+{% endcapture %}
+{% capture solution-1}
+```java
+if (bf > 1 && data > node.right.data) {
+    return leftRotate(node);
+}
+```
+{% endcapture %}
+{% include code-solution-box.html skeleton=skeleton-1 solution=solution-1 %}
 
+{% capture skeleton-2}
+```java
 /* right rotate case */
 if
 
-
-
+```
+{% endcapture %}
+{% capture solution-2}
+```java
 /* left-right rotate */
 if
 
 
+```
+{% endcapture %}
+{% include code-solution-box.html skeleton=skeleton-2 solution=solution-2 %}
 
-
+{% capture skeleton-3 %}
+```java
 /* right-left rotate */
 if
 
@@ -189,41 +216,34 @@ if
 
 
 ```
-{% capture answer-ifleft %}
+{% endcapture %}
+{% capture solution-3 %}
 ```java
+
+```
+{% endcapture %}
+{% include code-solution-box.html skeleton=skeleton-3 solution=solution-3 %}
+
+
+
+{% capture skeleton-4 %}
+```java
+/* left-right rotate */
 if
+
+
 
 
 ```
 {% endcapture %}
-{% include answer-box.html content=answer-ifleft %}
-
-{% capture answer-ifright %}
+{% capture solution-4 %}
 ```java
-if
-
 
 ```
 {% endcapture %}
-{% include answer-box.html content=answer-ifright %}
-
-{% capture answer-ifleftRight %}
-```java
-if
+{% include code-solution-box.html skeleton=skeleton-4 solution=solution-4 %}
 
 
-```
-{% endcapture %}
-{% include answer-box.html content=answer-ifleftRight %}
-
-{% capture answer-ifrightLeft %}
-```java
-if
-
-
-```
-{% endcapture %}
-{% include answer-box.html content=answer-ifrightLeft %}
 
 Finally, we have a bit of housekeeping to make this work with our existing BinaryTree insert method. You’ll want to add a `height` field that stores the height of each node (leaves have height 1 and each subtree height is 1 more than its tallest subtree.) Finally, define a `height(Node n)` method that returns the `height` of the node, or 0 if the node is `null` (this helps keep the code cleaner). We didn't show above, but you'll need to recalculate the height after each insert and rotation.
 

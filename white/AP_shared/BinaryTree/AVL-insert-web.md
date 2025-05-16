@@ -1,8 +1,3 @@
----
-header-includes: |
-    \usepackage{fullpage}
----
-
 # AVL Trees
 
 Now that you've had an introduction to AVL trees, let's take a step back and look at where this operation called rotation even comes from, and hopefully end up with a better understanding of how to balance trees, both by hand and encode.
@@ -93,6 +88,7 @@ Node leftRotate(Node one)
 
 ```
 {% capture answer-leftRotate %}
+{% raw %}
 ```java
 Node leftRotate(Node one)
 
@@ -100,6 +96,7 @@ Node leftRotate(Node one)
 
 
 ```
+{% endraw %}
 {% endcapture %}
 {% include answer-box.html content=answer-leftRotate %}
 

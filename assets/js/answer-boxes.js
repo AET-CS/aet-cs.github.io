@@ -12,3 +12,24 @@ function toggleAnswer(button) {
     button.textContent = "Hide Answer";
   }
 }
+
+function toggleSolution(button) {
+  // Find the parent container
+  const container = button.parentElement;
+
+  // Find the skeleton and solution elements
+  const skeleton = container.querySelector(".code-skeleton");
+  const solution = container.querySelector(".code-solution");
+
+  if (solution.style.display === "none" || solution.style.display === "") {
+    // Hide skeleton, show solution
+    skeleton.style.display = "none";
+    solution.style.display = "block";
+    button.textContent = "Show Skeleton";
+  } else {
+    // Show skeleton, hide solution
+    skeleton.style.display = "block";
+    solution.style.display = "none";
+    button.textContent = "Show Solution";
+  }
+}

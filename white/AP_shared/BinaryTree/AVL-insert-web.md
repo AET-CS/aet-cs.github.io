@@ -80,6 +80,7 @@ Answer
 
 Now let’s write some pseudocode to perform the rotations. This is where it proves advantageous to realize that these four balancing operations are each built from one or two smaller balancing operations. If you didn't realize that, you could write four separate balancing routines and they would work just fine, but let's stick with the traditional implementation and implement left balance and right balance first as two different methods. To keep things consistent use the variable names.”one” “two” and “three” and “A” “B” “C” “D” as appropriate to identify the nodes in the subtrees that you're changing in each method. You may be surprised at how few changes are actually necessary. Be sure in each method to return the root of the newly balanced sub tree.
 
+{% capture skeleton %}
 ```java
 Node leftRotate(Node one)
 
@@ -87,18 +88,18 @@ Node leftRotate(Node one)
 
 
 ```
-{% capture answer-leftRotate %}
-{% raw %}
-```java
-Node leftRotate(Node one)
-
-
-
-
-```
-{% endraw %}
 {% endcapture %}
-{% include answer-box.html content=answer-leftRotate %}
+
+{% capture solution %}
+```java
+Node leftRotate(Node one)
+
+
+
+
+```
+{% endcapture %}
+{% include code-solution-box.html skeleton=skeleton solution=solution %}
 
 ```java
 Node rightRotate(Node three)

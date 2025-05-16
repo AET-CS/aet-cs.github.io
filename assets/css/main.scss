@@ -36,3 +36,53 @@
 .show-answer:hover {
   background-color: #2980b9;
 }
+
+/* Add to your main.scss or a separate CSS file */
+.code-question {
+    background-color: #f5f5f5;
+    padding: 15px;
+    margin: 15px 0;
+    border-radius: 4px;
+    position: relative;
+    border-left: 4px solid #3498db;
+}
+
+.code-skeleton {
+    display: block;
+    background-color: #f8f8f8;
+    margin-bottom: 10px;
+}
+
+.code-solution {
+    background-color: #e8f8f5;
+    margin-bottom: 10px;
+    border-radius: 4px;
+    padding: 10px 0;
+    border-left: 4px solid #2ecc71;
+}
+
+.show-solution {
+    background-color: #3498db;
+    color: white;
+    border: none;
+    padding: 5px 10px;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 14px;
+}
+
+.show-solution:hover {
+    background-color: #2980b9;
+}
+
+/* Style code blocks specifically */
+.code-question pre {
+    margin-bottom: 0;
+}
+
+/* Add a subtle "fill in" hint to code skeleton */
+.code-skeleton .fill-blank {
+    background-color: #ffecb3;
+    padding: 2px 4px;
+    border-radius: 2px;
+}

@@ -12,7 +12,7 @@ Now that you've had an introduction to AVL trees, let's take a step back and loo
 Let's start by taking the numbers 1,2,3 and creating every possible valid binary search tree from these three numbers. Draw your search trees in the space below.
 
 {% capture answer1 %}
-Coming Soon...
+<img src="./canonical-trees.png" alt="Five Trees" style="width: 100%;" />
 {% endcapture %}
 {% include answer-box.html content=answer1 %}
 
@@ -31,51 +31,66 @@ $$(A) \ldots 1 \ldots (B) \ldots 2 \ldots (C) \ldots 3 \ldots (D)$$
 Where A,B,C,D are intervals of numbers. Each of these intervals corresponds to a sub tree in our AVL tree. Take each of the five trees you created above and add subtrees for A,B,C and D. Make sure that your trees are each in the appropriate location compared to the numbers 1, 2 and 3.
 
 {% capture answer2 %}
-Coming Soon...
+<img src="./canonical-trees-abcd.jpg" alt="Five Trees" style="width: 100%;" />
 {% endcapture %}
 {% include answer-box.html content=answer2 %}
 
 If you compare each of the four imbalanced trees to the balanced 213 tree, now with the subtrees added, you should see that each of the four imbalanced trees correlates to one of the four rotations you read about last class. The 123 tree is balanced with a left rotation, the 321 tree is balanced with a right rotation, the 132 tree is balanced with a right-left rotation, and finally the 312 tree is balanced with a left-right rotation. Whatever name you give these rotations they're all turning imbalanced tree into exactly the same, balanced, 213 tree.
 
-## Example
+## Examples of Rotation
 
+### Medium Example
 Let's work through a moderate size example. Look at the AVL tree below it's currently balanced, but it won't be for long. Insert the number one. Once you've added one to the tree, find the lowest node in the tree that has now become unbalanced.
 
-![Medium tree example](tree-small-01.png){: style="width: 200px;"}
+<div style="display: flex; justify-content: center;">
+<img src="./tree-small-01.png" alt="Five Trees" style="width: 23%;" />
+</div>
 
 The unbalanced tree is the sub tree rooted at 6. Now follow the path from 6 to the node that was just inserted. Draw a box around the first three numbers on that path. These numbers are arranged like a “321” tree, and can be balanced with a right rotation. Identify each of the 4 subtrees A,B,C,D (use empty set to represent any missing trees) and draw a new tree with this subtree now balanced.
 
 {% capture answer3 %}
-Coming Soon...
+<div style="display: flex; justify-content: center;">
+<img src="./eight-tree-1.png" alt="Insert 1" style="width: 90%;" />
+</div>
 {% endcapture %}
 {% include answer-box.html content=answer3 %}
 
 Now try inserting the number 5 and go through the same balancing process.
 
 {% capture answer4 %}
-Coming Soon...
-{% endcapture %}
+<div style="display: flex; justify-content: center;">
+<img src="./eight-tree-5.png" alt="Insert 1" style="width: 90%;" />
+</div>{% endcapture %}
 {% include answer-box.html content=answer4 %}
 
+### Large Example
 Try a larger example. In the following tree, perform each of the following insertions (each time starting over from the same beginning tree): 5, 140, 70, 115
 
-![Big tree example](big-tree-01.png){: style="width: 400px;"}
+<div style="display: flex; justify-content: center;">
+<img src="./big-tree-01.png" alt="Five Trees" style="width: 90%;" />
+</div>
 
+#### Insert 5
 {% capture answer-big1 %}
-Coming Soon...
-{% endcapture %}
+<div style="display: flex; justify-content: center;">
+<img src="./big-tree-add-5.png" alt="Insert 1" style="width: 90%;" />
+</div>{% endcapture %}{% endcapture %}
 {% include answer-box.html content=answer-big1 %}
 
+#### Insert 140
 {% capture answer-big2 %}
 Coming Soon...
 {% endcapture %}
 {% include answer-box.html content=answer-big2 %}
 
+#### Insert 70
 {% capture answer-big3 %}
-Coming Soon...
-{% endcapture %}
+<div style="display: flex; justify-content: center;">
+<img src="./big-tree-add-70.png" alt="Insert 1" style="width: 90%;" />
+</div>{% endcapture %}{% endcapture %}
 {% include answer-box.html content=answer-big3 %}
 
+#### Insert 115
 {% capture answer-big4 %}
 Coming Soon...
 {% endcapture %}
@@ -245,7 +260,9 @@ if (bf < -1 && data < node.right.data) {
 {% endcapture %}
 {% include code-solution-box.html skeleton=skeleton_case4 solution=solution_case4 %}
 
-Finally, we have a bit of housekeeping to make this work with our existing BinaryTree insert method. You’ll want to add a `height` field that stores the height of each node (leaves have height 1 and each subtree height is 1 more than its tallest subtree.) Finally, define a `height(Node n)` method that returns the `height` of the node, or 0 if the node is `null` (this helps keep the code cleaner). We didn't show above, but you'll need to recalculate the height after each insert and rotation.
+Finally, we have a bit of housekeeping to make this work with our existing BinaryTree insert method. You’ll want to add a `height` field that stores the height of each node (leaves have height 1 and each subtree height is 1 more than its tallest subtree.) Finally, define a `height(Node n)` method that returns the `height` of the node, or 0 if the node is `null` (this helps keep the code cleaner). We didn't show above, but you'll need to **recalculate** the height **after each insertion and rotation.**
 
 
 To finish this lesson, implement AVL tree rotation in your BinaryTree class by modifying your existing `insert` method (and other parts of the class as needed) You can test the accuracy first by inserting the numbers 1 - 32 and making sure the resulting tree is correct. Next, insert the integers 1-1,000,000 and it should take less than one second, or so.
+
+Here's a basic outline of the new *insert* method:

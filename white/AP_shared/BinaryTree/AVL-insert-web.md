@@ -243,8 +243,6 @@ if
 {% endcapture %}
 {% include code-solution-box.html skeleton=skeleton-4 solution=solution-4 %}
 
-
-
 Finally, we have a bit of housekeeping to make this work with our existing BinaryTree insert method. You’ll want to add a `height` field that stores the height of each node (leaves have height 1 and each subtree height is 1 more than its tallest subtree.) Finally, define a `height(Node n)` method that returns the `height` of the node, or 0 if the node is `null` (this helps keep the code cleaner). We didn't show above, but you'll need to recalculate the height after each insert and rotation.
 
 

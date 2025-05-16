@@ -126,11 +126,12 @@ Node leftRotate(Node one) {
 
 {% capture skeleton_right %}
 ```java
-Node rightRotate(Node one)
+Node rightRotate(Node three) {
 
 
 
 
+}
 ```
 {% endcapture %}
 
@@ -150,11 +151,10 @@ Now you've written left and right rotate, you can write left-right and right-lef
 
 {% capture skeleton_leftRight %}
 ```java
-Node leftRightRotate(Node three)
+Node leftRightRotate(Node three) {
 
 
-
-
+}
 ```
 {% endcapture %}
 
@@ -170,11 +170,10 @@ Node leftRightRotate(Node three){
 
 {% capture skeleton_rightLeft %}
 ```java
-Node rightLeftRotate(Node one)
+Node rightLeftRotate(Node one){
 
 
-
-
+}
 ```
 {% endcapture %}
 
@@ -201,7 +200,7 @@ if
 {% capture solution_case1 %}
 ```java
 /* left rotate case */
-if (bf < -1 && data > node.right.data) {
+if (bf > 1 && data > node.right.data) {
     return leftRotate(node);
 }
 ```
@@ -219,7 +218,7 @@ if
 {% capture solution_case2 %}
 ```java
 /* right rotate case */
-if (bf > 1 && data < node.left.data) {
+if (bf < -1 && data < node.left.data) {
     return rightRotate(node);
 }
 ```
@@ -237,7 +236,7 @@ if
 {% capture solution_case3 %}
 ```java
 /* left-right rotate case */
-if (bf > 1 && data > node.left.data) {
+if (bf < -1 && data > node.left.data) {
     return leftRightRotate(node);
 }
 ```
@@ -255,7 +254,7 @@ if
 {% capture solution_case4 %}
 ```java
 /* right-left rotate case */
-if (bf < -1 && data < node.right.data) {
+if (bf > 1 && data < node.right.data) {
     return rightLeftRotate(node);
 }
 ```

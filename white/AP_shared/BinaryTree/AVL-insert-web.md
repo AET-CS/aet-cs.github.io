@@ -12,7 +12,7 @@ Now that you've had an introduction to AVL trees, let's take a step back and loo
 Let's start by taking the numbers 1,2,3 and creating every possible valid binary search tree from these three numbers. Draw your search trees in the space below.
 
 {% capture answer1 %}
-Answer
+Coming Soon...
 {% endcapture %}
 {% include answer-box.html content=answer1 %}
 
@@ -31,7 +31,7 @@ $$(A) \ldots 1 \ldots (B) \ldots 2 \ldots (C) \ldots 3 \ldots (D)$$
 Where A,B,C,D are intervals of numbers. Each of these intervals corresponds to a sub tree in our AVL tree. Take each of the five trees you created above and add subtrees for A,B,C and D. Make sure that your trees are each in the appropriate location compared to the numbers 1, 2 and 3.
 
 {% capture answer2 %}
-Answer
+Coming Soon...
 {% endcapture %}
 {% include answer-box.html content=answer2 %}
 
@@ -46,14 +46,14 @@ Let's work through a moderate size example. Look at the AVL tree below it's curr
 The unbalanced tree is the sub tree rooted at 6. Now follow the path from 6 to the node that was just inserted. Draw a box around the first three numbers on that path. These numbers are arranged like a “321” tree, and can be balanced with a right rotation. Identify each of the 4 subtrees A,B,C,D (use empty set to represent any missing trees) and draw a new tree with this subtree now balanced.
 
 {% capture answer3 %}
-Answer
+Coming Soon...
 {% endcapture %}
 {% include answer-box.html content=answer3 %}
 
 Now try inserting the number 5 and go through the same balancing process.
 
 {% capture answer4 %}
-Answer
+Coming Soon...
 {% endcapture %}
 {% include answer-box.html content=answer4 %}
 
@@ -62,22 +62,22 @@ Try a larger example. In the following tree, perform each of the following inser
 ![Big tree example](big-tree-01.png){: style="width: 400px;"}
 
 {% capture answer-big1 %}
-Answer
+Coming Soon...
 {% endcapture %}
 {% include answer-box.html content=answer-big1 %}
 
 {% capture answer-big2 %}
-Answer
+Coming Soon...
 {% endcapture %}
 {% include answer-box.html content=answer-big2 %}
 
 {% capture answer-big3 %}
-Answer
+Coming Soon...
 {% endcapture %}
 {% include answer-box.html content=answer-big3 %}
 
 {% capture answer-big4 %}
-Answer
+Coming Soon...
 {% endcapture %}
 {% include answer-box.html content=answer-big4 %}
 

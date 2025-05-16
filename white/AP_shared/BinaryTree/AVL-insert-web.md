@@ -41,7 +41,7 @@ If you compare each of the four imbalanced trees to the balanced 213 tree, now w
 
 Let's work through a moderate size example. Look at the AVL tree below it's currently balanced, but it won't be for long. Insert the number one. Once you've added one to the tree, find the lowest node in the tree that has now become unbalanced.
 
-![Medium tree example](tree-small-01.png){width=200px}
+![Medium tree example](tree-small-01.png){: style="width: 200px;"}
 
 The unbalanced tree is the sub tree rooted at 6. Now follow the path from 6 to the node that was just inserted. Draw a box around the first three numbers on that path. These numbers are arranged like a “321” tree, and can be balanced with a right rotation. Identify each of the 4 subtrees A,B,C,D (use empty set to represent any missing trees) and draw a new tree with this subtree now balanced.
 
@@ -59,7 +59,7 @@ Answer
 
 Try a larger example. In the following tree, perform each of the following insertions (each time starting over from the same beginning tree): 5, 140, 70, 115
 
-![Big tree example](big-tree-01.png){width=400px}
+![Big tree example](big-tree-01.png){: style="width: 400px;"}
 
 {% capture answer-big1 %}
 Answer
@@ -183,6 +183,7 @@ if
 {% endcapture %}
 {% capture solution_case1 %}
 ```java
+/* left rotate case */
 if (bf < -1 && data > node.right.data) {
     return leftRotate(node);
 }
@@ -200,6 +201,7 @@ if
 {% endcapture %}
 {% capture solution_case2 %}
 ```java
+/* right rotate case */
 if (bf > 1 && data < node.left.data) {
     return rightRotate(node);
 }
@@ -217,6 +219,7 @@ if
 {% endcapture %}
 {% capture solution_case3 %}
 ```java
+/* left-right rotate case */
 if (bf > 1 && data > node.left.data) {
     return leftRightRotate(node);
 }
@@ -234,6 +237,7 @@ if
 {% endcapture %}
 {% capture solution_case4 %}
 ```java
+/* right-left rotate case */
 if (bf < -1 && data < node.right.data) {
     return rightLeftRotate(node);
 }

@@ -155,3 +155,8 @@ classes:
     - [BinaryTree Tester Day 1](../AP_shared/BinaryTree/BinaryTreeTesterDay1.java)
 - 5/14 (Wednesday)
     - AP something or other test
+- 5/16 (Friday!)
+    - Binary trees Day 2: FindMin, Delete, Find
+    - Add these methods to your code: FindMin returns an int, Delete returns void, Find returns boolean
+    - Make your own tester and then test with supplied [BinaryTreeTester.java](../AP_shared/BinaryTree/BinaryTreeTester.java)
+    - Submit on JavaDrop (Binary Day 2)

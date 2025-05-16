@@ -12,7 +12,7 @@ Now that you've had an introduction to AVL trees, let's take a step back and loo
 Let's start by taking the numbers 1,2,3 and creating every possible valid binary search tree from these three numbers. Draw your search trees in the space below.
 
 {% capture answer1 %}
-<img src="https://aet-cs.github.io/white/AP_shared/BinaryTree/ming Soon...canonical-trees.png" alt="Five Trees" style="width: 100%;" />
+<img src="https://aet-cs.github.io/white/AP_shared/BinaryTree/canonical-trees.png" alt="Five Trees" style="width: 100%;" />
 {% endcapture %}
 {% include answer-box.html content=answer1 %}
 
@@ -31,7 +31,7 @@ $$(A) \ldots 1 \ldots (B) \ldots 2 \ldots (C) \ldots 3 \ldots (D)$$
 Where A,B,C,D are intervals of numbers. Each of these intervals corresponds to a sub tree in our AVL tree. Take each of the five trees you created above and add subtrees for A,B,C and D. Make sure that your trees are each in the appropriate location compared to the numbers 1, 2 and 3.
 
 {% capture answer2 %}
-<img src="https://aet-cs.github.io/white/AP_shared/BinaryTree/ming Soon...canonical-trees-abcd.jpg" alt="Five Trees" style="width: 100%;" />
+<img src="https://aet-cs.github.io/white/AP_shared/BinaryTree/canonical-trees-abcd.jpg" alt="Five Trees" style="width: 100%;" />
 {% endcapture %}
 {% include answer-box.html content=answer2 %}
 
@@ -43,14 +43,14 @@ If you compare each of the four imbalanced trees to the balanced 213 tree, now w
 Let's work through a moderate size example. Look at the AVL tree below it's currently balanced, but it won't be for long. Insert the number one. Once you've added one to the tree, find the lowest node in the tree that has now become unbalanced.
 
 <div style="display: flex; justify-content: center;">
-<img src="https://aet-cs.github.io/white/AP_shared/BinaryTree/ming Soon...tree-small-01.png" alt="Five Trees" style="width: 23%;" />
+<img src="https://aet-cs.github.io/white/AP_shared/BinaryTree/tree-small-01.png" alt="Five Trees" style="width: 23%;" />
 </div>
 
 The unbalanced tree is the sub tree rooted at 6. Now follow the path from 6 to the node that was just inserted. Draw a box around the first three numbers on that path. These numbers are arranged like a “321” tree, and can be balanced with a right rotation. Identify each of the 4 subtrees A,B,C,D (use empty set to represent any missing trees) and draw a new tree with this subtree now balanced.
 
 {% capture answer3 %}
 <div style="display: flex; justify-content: center;">
-<img src="https://aet-cs.github.io/white/AP_shared/BinaryTree/ming Soon...eight-tree-1.png" alt="Insert 1" style="width: 90%;" />
+<img src="https://aet-cs.github.io/white/AP_shared/BinaryTree/eight-tree-1.png" alt="Insert 1" style="width: 90%;" />
 </div>
 {% endcapture %}
 {% include answer-box.html content=answer3 %}
@@ -59,7 +59,7 @@ Now try inserting the number 5 and go through the same balancing process.
 
 {% capture answer4 %}
 <div style="display: flex; justify-content: center;">
-<img src="https://aet-cs.github.io/white/AP_shared/BinaryTree/ming Soon...eight-tree-5.png" alt="Insert 1" style="width: 90%;" />
+<img src="https://aet-cs.github.io/white/AP_shared/BinaryTree/eight-tree-5.png" alt="Insert 1" style="width: 90%;" />
 </div>
 {% endcapture %}
 {% include answer-box.html content=answer4 %}
@@ -68,13 +68,13 @@ Now try inserting the number 5 and go through the same balancing process.
 Try a larger example. In the following tree, perform each of the following insertions (each time starting over from the same beginning tree): 5, 140, 70, 115
 
 <div style="display: flex; justify-content: center;">
-<img src="https://aet-cs.github.io/white/AP_shared/BinaryTree/ming Soon...big-tree-01.png" alt="Five Trees" style="width: 90%;" />
+<img src="https://aet-cs.github.io/white/AP_shared/BinaryTree/big-tree-01.png" alt="Five Trees" style="width: 90%;" />
 </div>
 
 #### Insert 5
 {% capture answer-big1 %}
 <div style="display: flex; justify-content: center;">
-<img src="https://aet-cs.github.io/white/AP_shared/BinaryTree/ming Soon...big-tree-add-5.png" alt="Insert 1" style="width: 90%;" />
+<img src="https://aet-cs.github.io/white/AP_shared/BinaryTree/big-tree-add-5.png" alt="Insert 1" style="width: 90%;" />
 </div>
 {% endcapture %}
 {% include answer-box.html content=answer-big1 %}
@@ -88,7 +88,7 @@ No rotation needed.
 #### Insert 70
 {% capture answer-big3 %}
 <div style="display: flex; justify-content: center;">
-<img src="https://aet-cs.github.io/white/AP_shared/BinaryTree/ming Soon...big-tree-add-70.png" alt="Insert 1" style="width: 90%;" />
+<img src="https://aet-cs.github.io/white/AP_shared/BinaryTree/big-tree-add-70.png" alt="Insert 1" style="width: 90%;" />
 </div>{% endcapture %}
 {% include answer-box.html content=answer-big3 %}
 

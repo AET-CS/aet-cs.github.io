@@ -267,4 +267,29 @@ Finally, we have a bit of housekeeping to make this work with our existing Binar
 
 To finish this lesson, implement AVL tree rotation in your BinaryTree class by modifying your existing `insert` method (and other parts of the class as needed) You can test the accuracy first by inserting the numbers 1 - 32 and making sure the resulting tree is correct. Next, insert the integers 1-1,000,000 and it should take less than one second, or so.
 
-Here's a basic outline of the new *insert* method:
+
+### AI-generated summary :-)
+
+(How AI summarizes my code...) When we insert elements into a binary search tree, we risk creating an unbalanced structure that performs poorly. This is where AVL trees come in - they're self-balancing binary search trees that maintain efficiency by performing rotations when needed.
+
+In our implementation, we're doing something really clever during insertion:
+
+1. **First, we insert normally** - We place new values where they belong in a binary search tree (smaller values go left, larger values go right).
+
+2. **Then, we update height information** - After inserting, we recalculate the "depth/height" of each node to keep track of the tree's shape.
+
+3. **Next, we check balance** - We calculate a "balance factor" for each node, which tells us if the tree is leaning too heavily to one side. A perfectly balanced node has a balance factor near zero. If it's too high or too low, the tree needs rebalancing.
+
+4. **Finally, we rotate if needed** - This is the magic part! Depending on how the tree is unbalanced, we perform one of four rotation types:
+   - **Left Rotation**: When the right side is too heavy
+   - **Right Rotation**: When the left side is too heavy
+   - **Right-Left Rotation**: For a specific zigzag pattern on the right
+   - **Left-Right Rotation**: For a specific zigzag pattern on the left
+
+These rotations are like carefully rearranging the tree's structure while still maintaining the binary search property (keeping smaller values left, larger values right).
+
+The beauty of AVL trees is that they automatically maintain \(O(\log n)\) performance for search, insert, and delete operations by keeping the tree balanced, even as you add and remove data. Without these rotations, the tree could degrade into essentially a linked list, with O(n) performance.
+
+Think of rotations as the tree doing yoga - stretching and bending to maintain its perfect balance!
+
+*Not AI generated:* make sure every routine that could modify the tree returns the root of the resulting tree! This is key to making the recursion work.

@@ -190,14 +190,14 @@ if (bf > 1 && data > node.right.data) {
 {% endcapture %}
 {% include code-solution-box.html skeleton=skeleton-1 solution=solution-1 %}
 
-{% capture skeleton-2}
+{% capture skeleton-2 %}
 ```java
 /* right rotate case */
 if
 
 ```
 {% endcapture %}
-{% capture solution-2}
+{% capture solution-2 %}
 ```java
 /* left-right rotate */
 if

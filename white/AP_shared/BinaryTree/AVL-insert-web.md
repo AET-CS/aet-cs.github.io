@@ -60,7 +60,8 @@ Now try inserting the number 5 and go through the same balancing process.
 {% capture answer4 %}
 <div style="display: flex; justify-content: center;">
 <img src="./eight-tree-5.png" alt="Insert 1" style="width: 90%;" />
-</div>{% endcapture %}
+</div>
+{% endcapture %}
 {% include answer-box.html content=answer4 %}
 
 ### Large Example
@@ -74,12 +75,13 @@ Try a larger example. In the following tree, perform each of the following inser
 {% capture answer-big1 %}
 <div style="display: flex; justify-content: center;">
 <img src="./big-tree-add-5.png" alt="Insert 1" style="width: 90%;" />
-</div>{% endcapture %}{% endcapture %}
+</div>
+{% endcapture %}
 {% include answer-box.html content=answer-big1 %}
 
 #### Insert 140
 {% capture answer-big2 %}
-Coming Soon...
+No rotation needed.
 {% endcapture %}
 {% include answer-box.html content=answer-big2 %}
 
@@ -92,7 +94,7 @@ Coming Soon...
 
 #### Insert 115
 {% capture answer-big4 %}
-Coming Soon...
+No rotation needed.
 {% endcapture %}
 {% include answer-box.html content=answer-big4 %}
 

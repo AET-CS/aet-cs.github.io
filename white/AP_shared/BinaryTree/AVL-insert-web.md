@@ -181,7 +181,7 @@ if
 
 ```
 {% endcapture %}
-{% capture solution-1}
+{% capture solution-1 %}
 ```java
 if (bf > 1 && data > node.right.data) {
     return leftRotate(node);

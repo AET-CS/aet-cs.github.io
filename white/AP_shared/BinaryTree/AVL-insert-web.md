@@ -80,9 +80,9 @@ Answer
 
 Now let’s write some pseudocode to perform the rotations. This is where it proves advantageous to realize that these four balancing operations are each built from one or two smaller balancing operations. If you didn't realize that, you could write four separate balancing routines and they would work just fine, but let's stick with the traditional implementation and implement left balance and right balance first as two different methods. To keep things consistent use the variable names.”one” “two” and “three” and “A” “B” “C” “D” as appropriate to identify the nodes in the subtrees that you're changing in each method. You may be surprised at how few changes are actually necessary. Be sure in each method to return the root of the newly balanced sub tree.
 
-{% capture skeleton %}
+{% capture skeleton-left %}
 ```java
-Node a-leftRotate(Node one)
+Node leftRotate(Node three)
 
 
 
@@ -90,25 +90,19 @@ Node a-leftRotate(Node one)
 ```
 {% endcapture %}
 
-{% capture solution %}
+{% capture solution-left %}
 ```java
-Node leftRotate(Node one)
-
-
-
-
+Node leftRotate(Node one) {
+    Node two = one.right;
+    one.right = two.left;
+    two.left = one;
+    return two;
+}
 ```
 {% endcapture %}
-{% include code-solution-box.html skeleton=skeleton solution=solution %}
+{% include code-solution-box.html skeleton=skeleton-left solution=solution-left %}
 
-```java
-Node rightRotate(Node three)
-
-
-
-
-```
-{% capture answer-rightRotate %}
+{% capture skeleton-right %}
 ```java
 Node rightRotate(Node one)
 
@@ -117,11 +111,21 @@ Node rightRotate(Node one)
 
 ```
 {% endcapture %}
-{% include answer-box.html content=answer-rightRotate %}
+
+{% capture solution-right %}
+```java
+Node rightRotate(Node three)
+    Node two = three.left;
+    three.left = two.right;
+    two.right = three;
+    return two;
+```
+{% endcapture %}
+{% include code-solution-box.html skeleton=skeleton-right solution=solution-right %}
 
 Now you've written left and right rotate, you can write left-right and right-left rotations by calling left and right rotations on appropriate nodes and subtrees.
 
-
+{% capture skeleton-leftRight %}
 ```java
 Node leftRightRotate(Node three)
 
@@ -129,26 +133,18 @@ Node leftRightRotate(Node three)
 
 
 ```
+{% endcapture %}
 
-{% capture answer-leftRightRotate %}
+{% capture solution-leftRight %}
 ```java
-Node leftRightRotate(Node one)
-
-
-
-
+Node leftRightRotate(Node three)
+    three.left = rightRotate(three.left);
+    return leftRotate(three);
 ```
 {% endcapture %}
-{% include answer-box.html content=answer-leftRightRotate %}
+{% include code-solution-box.html skeleton=skeleton-leftRight solution=solution-leftRight %}
 
-```java
-Node rightLeftRotate(Node one)
-
-
-
-
-```
-{% capture answer-rightLeftRotate %}
+{% capture skeleton-rightLeft %}
 ```java
 Node rightLeftRotate(Node one)
 
@@ -157,7 +153,15 @@ Node rightLeftRotate(Node one)
 
 ```
 {% endcapture %}
-{% include answer-box.html content=answer-rightLeftRotate %}
+
+{% capture solution-rightLeft %}
+```java
+Node rightLeftRotate(Node one)
+    one.right = rightRotate(one.right);
+    return leftRotate(one);
+```
+{% endcapture %}
+{% include code-solution-box.html skeleton=skeleton-rightLeft solution=solution-rightLeft %}
 
 The next thing we need to figure out is when each of these rotations is appropriate. If you look at our four imbalanced trees, they each have very different shapes. In the case of an insertion, a sub tree can become imbalanced when you insert a new node. That new node has to be a leaf. Look at the leaves of each of the four imbalanced trees we started with. You can tell, which of the four rotations is necessary by determining, first, if the balance factor is positive or negative (indicating a right or left imbalance), and secondly, if the new leaf node is greater than or less than its parent node. In the space below bright four different conditions which exhaustively cover the four cases of an imbalanced tree, and then say which balancing method you should call for each case. Let's assume that "node" is the root of a sub tree with balance factor greater than one or less than negative one. Also assume “data” is the integer value that has just been added to the AVL tree.
 

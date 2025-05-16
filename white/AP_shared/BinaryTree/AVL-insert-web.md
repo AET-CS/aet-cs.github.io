@@ -89,7 +89,7 @@ No rotation needed.
 {% capture answer-big3 %}
 <div style="display: flex; justify-content: center;">
 <img src="./big-tree-add-70.png" alt="Insert 1" style="width: 90%;" />
-</div>{% endcapture %}{% endcapture %}
+</div>{% endcapture %}
 {% include answer-box.html content=answer-big3 %}
 
 #### Insert 115

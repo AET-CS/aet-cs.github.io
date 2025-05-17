@@ -8,11 +8,11 @@ function toggleAnswer(button) {
   if (answerBox.style.display === "block") {
     answerBox.style.display = "none";
     button.textContent = "Show Answer";
-    questionBox.style.backgroundColor = "#2cc1ff38";
+    questionBox.style.backgroundColor = "#eaf2f8";
   } else {
     answerBox.style.display = "block";
     button.textContent = "Hide Answer";
-    questionBox.style.backgroundColor = "#eaf2f8";
+    questionBox.style.backgroundColor = "#2cc1ff38";
   }
 }
 

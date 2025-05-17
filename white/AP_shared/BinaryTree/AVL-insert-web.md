@@ -31,7 +31,7 @@ $$(A) \ldots 1 \ldots (B) \ldots 2 \ldots (C) \ldots 3 \ldots (D)$$
 Where A,B,C,D are intervals of numbers. Each of these intervals corresponds to a sub tree in our AVL tree. Take each of the five trees you created above and add subtrees for A,B,C and D. Make sure that your trees are each in the appropriate location compared to the numbers 1, 2 and 3.
 
 {% capture answer2 %}
-<img src="https://aet-cs.github.io/white/AP_shared/BinaryTree/canonical-trees-abcd.jpg" alt="Five Trees" style="width: 100%;" />
+<img src="https://aet-cs.github.io/white/AP_shared/BinaryTree/canonical-trees-abcd.png" alt="Five Trees" style="width: 100%;" />
 {% endcapture %}
 {% include answer-box.html content=answer2 %}
 

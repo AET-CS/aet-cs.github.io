@@ -104,11 +104,12 @@ Now let's write some pseudocode to perform the rotations. This is where it prove
 
 {% capture skeleton_left %}
 ```java
-Node leftRotate(Node three)
+Node leftRotate(Node one) {
 
 
 
 
+}
 ```
 {% endcapture %}
 

@@ -12,28 +12,28 @@
 
 @media (min-width: 64em) {
     html {
-        font-size: 12px;
+        font-size: 14px;
         }
 }
 
 @media (min-width: 80em) {
     html {
-        font-size: 16px;
+        font-size: 18px;
     }
 }
 
 @media (min-width: 64em) {
     .page {
         float: inline-end;
-        width: calc(100% - 50px);
-        padding-inline-end: 50px
+        width: calc(100% - 75px);
+        padding-inline-end: 75px
     }
 }
 
 @media (min-width: 80em) {
     .page {
-        width: calc(100% - 100px);
-        padding-inline-end: 100px;
+        width: calc(100% - 150px);
+        padding-inline-end: 150px;
     }
 }
 

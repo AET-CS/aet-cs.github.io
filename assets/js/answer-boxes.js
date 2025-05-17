@@ -9,12 +9,12 @@ function toggleAnswer(button) {
     answerBox.style.display = "none";
     button.textContent = "Show Answer";
     questionBox.style.backgroundColor = "#eaf2f8";
-    border: 0px;
+    border = "none";
   } else {
     answerBox.style.display = "block";
     button.textContent = "Hide Answer";
     questionBox.style.backgroundColor = "#fafcfd";
-    border: 1px solid;
+    border = "1px solid #d0e3f8";
   }
 }
 

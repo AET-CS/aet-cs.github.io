@@ -1,0 +1,21 @@
+total 320
+drwxrwxr-x 15 pewhite pewhite   4096 May  6 09:06 AP_shared
+drwxrwxr-x  3 pewhite pewhite   4096 Oct  2  2024 code
+drwxrwxr-x  2 pewhite pewhite   4096 May 15 21:44 CS10
+drwxrwxr-x  2 pewhite pewhite   4096 May 15 21:44 CS12
+-rw-rw-r--  1 pewhite pewhite   7149 May  7 10:21 frqs_attempts.csv
+-rw-rw-r--  1 pewhite pewhite     77 May 17 15:24 includes.html
+-rw-rw-r--  1 pewhite pewhite  64829 May  8 10:36 JavaDrop.ipynb
+-rw-rw-r--  1 pewhite pewhite    423 May  7 08:35 javadrop.txt
+-rw-rw-r--  1 pewhite pewhite      0 May 17 16:04 list.txt
+drwxrwxr-x  9 pewhite pewhite   4096 May 15 13:50 ML
+-rwxrwxr-x  1 pewhite pewhite    765 May 17 15:20 preview.sh
+drwxrwxr-x  2 pewhite pewhite   4096 Sep 30  2024 private
+-rw-rw-r--  1 pewhite pewhite   4062 May 17 14:54 question-answer.lua
+-rw-rw-r--  1 pewhite pewhite   1064 May 17 15:19 scripts.js
+-rw-rw-r--  1 pewhite pewhite   1404 Mar 21 10:09 songs.csv
+-rw-rw-r--  1 pewhite pewhite   1247 May 17 15:24 styles.css
+-rw-rw-r--  1 pewhite pewhite   2835 May 17 16:04 trial.html
+-rw-rw-r--  1 pewhite pewhite   1228 May 17 16:04 trial.md
+-rw-rw-r--  1 pewhite pewhite 187275 May 17 15:56 trial.pdf
+-rw-rw-r--  1 pewhite pewhite   2701 May 12 07:52 Untitled.ipynb

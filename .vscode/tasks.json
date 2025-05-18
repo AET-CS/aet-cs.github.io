@@ -1,0 +1,17 @@
+{
+  "version": "2.0.0",
+  "tasks": [
+    {
+      "label": "Preview with Pandoc",
+      "type": "shell",
+      "command": "pandoc \"${file}\" --lua-filter=\"${fileDirname}/question-answer.lua\" -o \"${fileDirname}/${fileBasenameNoExtension}.html\" && open \"${fileDirname}/${fileBasenameNoExtension}.html\"",
+      "group": {
+        "kind": "build",
+        "isDefault": true
+      },
+      "presentation": {
+        "reveal": "never"
+      }
+    }
+  ]
+}

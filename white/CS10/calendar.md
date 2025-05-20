@@ -73,3 +73,6 @@ classes:
     - Complete *all* examples in the notes and modify your Binary Tree to support insert and rotate (assignment in the notes)
     - Submit to JavaDrop by Mon Night 9PM. Here's the [tester I use](../AP_shared/BinaryTree/BinaryTreeTesterAVL.java). Make sure you follow the coding convention from the notes, please.
     - Non-coding quiz Tuesday over rotations
+- 5/20 (Tuesday)
+    - AVL rotation quiz
+    - [Shuffler](../AP_shared/Shuffler.md) challenge, due in class.

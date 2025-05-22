@@ -76,3 +76,8 @@ classes:
 - 5/20 (Tuesday)
     - AVL rotation quiz
     - [Shuffler](../AP_shared/Shuffler.md) challenge, due in class.
+- 5/22 (Thursday)
+    - Bonus quiz!
+    - BFS notes [online notes](../AP_shared/TreeSearch/bfs.md)
+    - Turn in BFS search assignment (see notes) to javadrop by 9pm Tuesday.
+    - Next class: MAKEUP deadline for any missed quizzes

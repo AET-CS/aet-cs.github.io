@@ -1,0 +1,112 @@
+<svg viewBox="0 0 800 600" xmlns="http://www.w3.org/2000/svg">
+  <!-- Define arrowhead marker -->
+  <defs>
+    <marker id="arrowhead" markerWidth="10" markerHeight="7" 
+            refX="9" refY="3.5" orient="auto">
+      <polygon points="0 0, 10 3.5, 0 7" fill="#333" />
+    </marker>
+  </defs>
+  
+  <!-- Root node -->
+  <circle cx="400" cy="75" r="25" fill="#e0e0e0" stroke="#333" stroke-width="2"/>
+  <text x="400" y="80" text-anchor="middle" font-family="Arial" font-size="14">Root</text>
+  
+  <!-- Level 1 nodes (3 nodes) -->
+  <!-- A -->
+  <circle cx="200" cy="225" r="25" fill="#e0e0e0" stroke="#333" stroke-width="2"/>
+  <text x="200" y="230" text-anchor="middle" font-family="Arial" font-size="14">A</text>
+  
+  <!-- B -->
+  <circle cx="400" cy="225" r="25" fill="#e0e0e0" stroke="#333" stroke-width="2"/>
+  <text x="400" y="230" text-anchor="middle" font-family="Arial" font-size="14">B</text>
+  
+  <!-- C -->
+  <circle cx="600" cy="225" r="25" fill="#e0e0e0" stroke="#333" stroke-width="2"/>
+  <text x="600" y="230" text-anchor="middle" font-family="Arial" font-size="14">C</text>
+  
+  <!-- Level 2 nodes (6 nodes) -->
+  <!-- AB -->
+  <circle cx="100" cy="375" r="25" fill="#e0e0e0" stroke="#333" stroke-width="2"/>
+  <text x="100" y="380" text-anchor="middle" font-family="Arial" font-size="14">AB</text>
+  
+  <!-- AC -->
+  <circle cx="220" cy="375" r="25" fill="#e0e0e0" stroke="#333" stroke-width="2"/>
+  <text x="220" y="380" text-anchor="middle" font-family="Arial" font-size="14">AC</text>
+  
+  <!-- BA -->
+  <circle cx="340" cy="375" r="25" fill="#e0e0e0" stroke="#333" stroke-width="2"/>
+  <text x="340" y="380" text-anchor="middle" font-family="Arial" font-size="14">BA</text>
+  
+  <!-- BC -->
+  <circle cx="460" cy="375" r="25" fill="#e0e0e0" stroke="#333" stroke-width="2"/>
+  <text x="460" y="380" text-anchor="middle" font-family="Arial" font-size="14">BC</text>
+  
+  <!-- CA -->
+  <circle cx="580" cy="375" r="25" fill="#e0e0e0" stroke="#333" stroke-width="2"/>
+  <text x="580" y="380" text-anchor="middle" font-family="Arial" font-size="14">CA</text>
+  
+  <!-- CB -->
+  <circle cx="700" cy="375" r="25" fill="#e0e0e0" stroke="#333" stroke-width="2"/>
+  <text x="700" y="380" text-anchor="middle" font-family="Arial" font-size="14">CB</text>
+  
+  <!-- Level 3 nodes (6 nodes) -->
+  <!-- ABC -->
+  <circle cx="100" cy="525" r="25" fill="#e0e0e0" stroke="#333" stroke-width="2"/>
+  <text x="100" y="530" text-anchor="middle" font-family="Arial" font-size="12">ABC</text>
+  
+  <!-- ACB -->
+  <circle cx="220" cy="525" r="25" fill="#e0e0e0" stroke="#333" stroke-width="2"/>
+  <text x="220" y="530" text-anchor="middle" font-family="Arial" font-size="12">ACB</text>
+  
+  <!-- BAC -->
+  <circle cx="340" cy="525" r="25" fill="#e0e0e0" stroke="#333" stroke-width="2"/>
+  <text x="340" y="530" text-anchor="middle" font-family="Arial" font-size="12">BAC</text>
+  
+  <!-- BCA -->
+  <circle cx="460" cy="525" r="25" fill="#e0e0e0" stroke="#333" stroke-width="2"/>
+  <text x="460" y="530" text-anchor="middle" font-family="Arial" font-size="12">BCA</text>
+  
+  <!-- CAB -->
+  <circle cx="580" cy="525" r="25" fill="#e0e0e0" stroke="#333" stroke-width="2"/>
+  <text x="580" y="530" text-anchor="middle" font-family="Arial" font-size="12">CAB</text>
+  
+  <!-- CBA -->
+  <circle cx="700" cy="525" r="25" fill="#e0e0e0" stroke="#333" stroke-width="2"/>
+  <text x="700" y="530" text-anchor="middle" font-family="Arial" font-size="12">CBA</text>
+  
+  <!-- Edges (arrows) -->
+  <!-- Root to Level 1 -->
+  <line x1="380" y1="95" x2="220" y2="205" stroke="#333" stroke-width="2" marker-end="url(#arrowhead)"/>
+  <line x1="400" y1="100" x2="400" y2="200" stroke="#333" stroke-width="2" marker-end="url(#arrowhead)"/>
+  <line x1="420" y1="95" x2="580" y2="205" stroke="#333" stroke-width="2" marker-end="url(#arrowhead)"/>
+  
+  <!-- A to its children -->
+  <line x1="180" y1="245" x2="120" y2="355" stroke="#333" stroke-width="2" marker-end="url(#arrowhead)"/>
+  <line x1="200" y1="250" x2="220" y2="350" stroke="#333" stroke-width="2" marker-end="url(#arrowhead)"/>
+  
+  <!-- B to its children -->
+  <line x1="380" y1="245" x2="360" y2="355" stroke="#333" stroke-width="2" marker-end="url(#arrowhead)"/>
+  <line x1="420" y1="245" x2="440" y2="355" stroke="#333" stroke-width="2" marker-end="url(#arrowhead)"/>
+  
+  <!-- C to its children -->
+  <line x1="580" y1="245" x2="580" y2="350" stroke="#333" stroke-width="2" marker-end="url(#arrowhead)"/>
+  <line x1="620" y1="245" x2="680" y2="355" stroke="#333" stroke-width="2" marker-end="url(#arrowhead)"/>
+  
+  <!-- AB to ABC -->
+  <line x1="100" y1="400" x2="100" y2="500" stroke="#333" stroke-width="2" marker-end="url(#arrowhead)"/>
+  
+  <!-- AC to ACB -->
+  <line x1="220" y1="400" x2="220" y2="500" stroke="#333" stroke-width="2" marker-end="url(#arrowhead)"/>
+  
+  <!-- BA to BAC -->
+  <line x1="340" y1="400" x2="340" y2="500" stroke="#333" stroke-width="2" marker-end="url(#arrowhead)"/>
+  
+  <!-- BC to BCA -->
+  <line x1="460" y1="400" x2="460" y2="500" stroke="#333" stroke-width="2" marker-end="url(#arrowhead)"/>
+  
+  <!-- CA to CAB -->
+  <line x1="580" y1="400" x2="580" y2="500" stroke="#333" stroke-width="2" marker-end="url(#arrowhead)"/>
+  
+  <!-- CB to CBA -->
+  <line x1="700" y1="400" x2="700" y2="500" stroke="#333" stroke-width="2" marker-end="url(#arrowhead)"/>
+</svg>

@@ -1,4 +1,7 @@
-# ArrayList Practice Worksheet
+---
+title: "ArrayList Practice Worksheet"
+---
+
 -------------------
 ## Solutions
 

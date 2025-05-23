@@ -1,4 +1,7 @@
-# Canonical Array Algorithms
+---
+title: "Canonical Array Algorithms"
+---
+
 
 Given a 1D array of unbounded real numbers (they can be any size allowed by the machine) you
 should be able to code the following

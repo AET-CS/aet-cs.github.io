@@ -1,4 +1,7 @@
-# Jupyter Report Rubric
+---
+title: "Jupyter Report Rubric"
+---
+
 
 Some guidelines for formatting an ML report as a Jupyter notebook. This is a draft of a living document so expect updates.
 

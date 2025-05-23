@@ -1,4 +1,7 @@
-# AP Stats Surveys
+---
+title: "AP Stats Surveys"
+---
+
 
 Ths AP stats class is collecting data and would appreciate our participation in becoming datapoints. Please complete the following. Thanks!
 

@@ -1,4 +1,7 @@
-# Background Reading
+---
+title: "Background Reading"
+---
+
 
 These publications provide accessible information about modern computer science applications and
 research.

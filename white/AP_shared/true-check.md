@@ -1,4 +1,7 @@
-# Truth Tables
+---
+title: "Truth Tables"
+---
+
 
 If you do not have a (good) grade in Phoenix for Truth Tables, then you still need to show me your solution. Hard code your solution to make a truth table for
 

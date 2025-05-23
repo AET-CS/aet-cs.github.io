@@ -1,4 +1,7 @@
-# Bayes' Theorem
+---
+title: "Bayes' Theorem"
+---
+
 
 Bayes' Theorem gives us a way to *invert* conditional probabilities. The formula comes from the definition of conditional probability
 

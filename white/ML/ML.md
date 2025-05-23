@@ -1,4 +1,7 @@
-# Teaching Calendar
+---
+title: "Teaching Calendar"
+---
+
 
 -   8/22/2024. Introduction to class. See [more
     details](lessons/hw01.md)

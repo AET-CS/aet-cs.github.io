@@ -1,4 +1,7 @@
-# Truth Tables
+---
+title: "Truth Tables"
+---
+
 
 Your ultimate goal is to reproduce the output of the website [trutabgen.com](http://www.trutabgen.com). The input to your program is a string representing a boolean expression and the output is a full truth table.
 

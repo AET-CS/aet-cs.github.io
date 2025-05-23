@@ -1,4 +1,7 @@
-# ArrayList Practice Worksheet - Insert and Remove Operations
+---
+title: "ArrayList Practice Worksheet - Insert and Remove Operations"
+---
+
 
 For each question, show what the ArrayList contains after performing all the given operations in order. Write out each step to get full credit.
 

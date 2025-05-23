@@ -1,4 +1,7 @@
-# Pet Management System Assignment
+---
+title: "Pet Management System Assignment"
+---
+
 AP Computer Science A - Working with Inheritance
 
 ## Overview

@@ -1,4 +1,7 @@
-# ML Book Club
+---
+title: "ML Book Club"
+---
+
 
 You are a member of research book club (OK so it's an 'article club' but that sounds ridiculous). Working together please pick 3 articles from the resources on [this page](https://aet-cs.github.io/white/ML/background/) that are interesting to the whole group. The articles do not have to have any common topic or thread, unless this is what the group chooses. Each group member will read one article and take notes. Note: the article should be "lengthy." Some of the things you'll find here are just overviews or summaries. A journal article, or something of similar heft written for a technical audience, is the target.
 

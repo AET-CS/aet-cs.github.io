@@ -1,4 +1,7 @@
-# Cyber Cup Challenge
+---
+title: "Cyber Cup Challenge"
+---
+
 
 Commonwealth Cyber Cup challenges for the practice round are available January 6th until February 10th. Read the instructions below and then click the link at the bottom to get started.
 

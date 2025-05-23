@@ -1,4 +1,7 @@
-# ArrayLists with Primitive Types in Java
+---
+title: "ArrayLists with Primitive Types in Java"
+---
+
 
 Java ArrayLists can only store objects, not primitive types. To store primitives, we use special wrapper classes that convert primitives to objects. Here's what you need to know:
 

@@ -1,4 +1,7 @@
-# Shakespeare Errata
+---
+title: "Shakespeare Errata"
+---
+
 
 The following is a correct implementation of next_char using temperature. In the published version, I renamed `probs` to `logits` but did so inconsistently. The output of the softmax layer is first logarithm-ed (to undo the softmax exponentiation), divided by temp (to rescale) and then fed into tf.random.categorical (which expects logits, i.e. PRE-softmax data) to generate a random sample.
 

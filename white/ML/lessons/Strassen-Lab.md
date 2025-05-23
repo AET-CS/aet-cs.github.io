@@ -1,4 +1,7 @@
-# Strassen's Algorithm (Optional Extension)
+---
+title: "Strassen's Algorithm (Optional Extension)"
+---
+
 
 Matrix multiplication in the naive implementation requires $O(n^3)$ floating point
 operations on a matrix with $n^2$ entries. In fact it seems unlikely one could do better.

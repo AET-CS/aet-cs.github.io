@@ -1,4 +1,7 @@
-# Java No
+---
+title: "Java No"
+---
+
 
 Please don't code like this
 

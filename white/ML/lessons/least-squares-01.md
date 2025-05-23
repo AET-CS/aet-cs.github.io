@@ -1,4 +1,7 @@
-# Linear Least Squares
+---
+title: "Linear Least Squares"
+---
+
 
 In class we derived the formula for linear least squares of one variable. In this notebook you will learn a bit of the numerical library numpy, use numpy to compute linear regression, and then compute it yourself using formulas from class
 

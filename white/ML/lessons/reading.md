@@ -1,4 +1,7 @@
-# Reading for Research
+---
+title: "Reading for Research"
+---
+
 
 I believe there are three pillars of research: specific content expertise, broad knowledge of the field, and an ability to identify relevant problems that need to be solved. (I'm still thinking
 for a catchy three-word phrase for this.)

@@ -1,4 +1,7 @@
-# Magic Square Lab
+---
+title: "Magic Square Lab"
+---
+
 
 ## Overview
 A magic square is a square array of numbers where the sum of each row, column, and diagonal is the same. Your task is to write a program that determines if a given 2D array is a magic square.

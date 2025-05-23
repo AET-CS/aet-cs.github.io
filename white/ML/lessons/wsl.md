@@ -1,4 +1,7 @@
-# Fixing WSL
+---
+title: "Fixing WSL"
+---
+
 
 If you tried my first instructions and ran into some kind of python packaging error (looks like mysql is a culprit), here's a patch
 

@@ -1,4 +1,7 @@
-# Boolean Circuits and Truth Tables
+---
+title: "Boolean Circuits and Truth Tables"
+---
+
 
 The following exercises are recommended to be completed with assistance from
 [trutabgen.com](https://trutabgen.com/) and

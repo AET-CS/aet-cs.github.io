@@ -1,4 +1,7 @@
-# Pig Latin Helper methods
+---
+title: "Pig Latin Helper methods"
+---
+
 
 Fill out the following methods and devise a pig latin method to solve Part 1 of the pig latin lab.
 

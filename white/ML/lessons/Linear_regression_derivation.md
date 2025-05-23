@@ -1,4 +1,7 @@
-# Linear Regression
+---
+title: "Linear Regression"
+---
+
 
 Given $n$ points $\left(x_{1}, y_{1}\right) \ldots\left(x_{n}, y_{n}\right)$
 and an assumed relation $y=f(x)+\epsilon, \epsilon \sim N(\mu, \sigma)$

@@ -1,4 +1,7 @@
-# Machine Learning Topic Outline
+---
+title: "Machine Learning Topic Outline"
+---
+
 ## Semester 1: Classical Machine Learning
 
 ### 1. **Introduction to Machine Learning**

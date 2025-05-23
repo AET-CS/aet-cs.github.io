@@ -1,4 +1,7 @@
-# Music Playlist Manager Assignment
+---
+title: "Music Playlist Manager Assignment"
+---
+
 
 ![Screenshot of Finished App](MediaPlayerScreenshot.png)
 

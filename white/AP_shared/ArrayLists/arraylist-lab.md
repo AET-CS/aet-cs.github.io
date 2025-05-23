@@ -1,4 +1,7 @@
-# ArrayList Operations Lab
+---
+title: "ArrayList Operations Lab"
+---
+
 
 In this lab, you'll explore the fundamental operations of ArrayLists through a series of coding exercises. Complete each task and observe how ArrayLists behave differently from regular arrays.
 

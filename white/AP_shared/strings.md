@@ -1,4 +1,7 @@
-# Strings in Java
+---
+title: "Strings in Java"
+---
+
 
 Here's a quick overview of some of the most important and commonly used `String` methods in Java (mostly written by ChatGpt 4-O)
 

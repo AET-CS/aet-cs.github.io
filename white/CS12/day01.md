@@ -1,4 +1,7 @@
-# Day 1 Coding Challenges
+---
+title: "Day 1 Coding Challenges"
+---
+
 
 Please read through the following coding challenges and select *one* to work on in a group. Your group should brainstorm and make a plan to solve the problem. Write down the plan in English and show it to me in class.
 

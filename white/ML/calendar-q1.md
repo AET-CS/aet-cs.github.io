@@ -1,4 +1,7 @@
-# ML Calendar Archive
+---
+title: "ML Calendar Archive"
+---
+
 ## Quarter 1, 2024
 
 - 8/22/2024. Introduction to class. See [more details](lessons/hw01.md)

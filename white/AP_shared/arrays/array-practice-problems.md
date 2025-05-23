@@ -1,4 +1,7 @@
-# More 1D-Array Practice Problems
+---
+title: "More 1D-Array Practice Problems"
+---
+
 
 Complete each of the following practice problems. You should consider edge cases and check for invalid input in each case. Write your answers on separate paper.
 

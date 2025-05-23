@@ -1,4 +1,7 @@
-# Assignments to be Turned in Q1
+---
+title: "Assignments to be Turned in Q1"
+---
+
 
 By Sept 30:
 

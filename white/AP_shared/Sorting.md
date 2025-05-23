@@ -1,4 +1,7 @@
-# Sorting Assignment
+---
+title: "Sorting Assignment"
+---
+
 
 *Goal* You will analyze the running time of various sorting algorithms on lists on increasing size. You will chart the results.
 

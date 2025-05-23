@@ -1,4 +1,7 @@
-# ACL Field Trip
+---
+title: "ACL Field Trip"
+---
+
 
 This trip is organized by Ms. Robucci. Fill out the form today if interested.
 

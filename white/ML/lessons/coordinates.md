@@ -1,4 +1,7 @@
-# Coordinate Transformations
+---
+title: "Coordinate Transformations"
+---
+
 
 In physics it is common to solve a problem by first transforming the underlying coordinate system. The motion of the moon in the Solar System is somewhat complex in a coordinate system with the sun at the origian; it is much simpler with the Earth at the origin. And simpler still with the Moon at the origin!
 

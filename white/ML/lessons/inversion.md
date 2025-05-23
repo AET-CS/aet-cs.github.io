@@ -1,4 +1,7 @@
-# Matrix Inversion
+---
+title: "Matrix Inversion"
+---
+
 
 You can invert a matrix $A$ by creating the $n \times 2n$ matrix $[A \quad I]$. This means you stack $A$ right next to the $n \times n$ identity matrix. Then perform Gaussian Elimination on $A$ just like you were solving a system of equations. You will end up with the matrix $[I \quad A^{-1}]$. Sounds easy. But matrix inversion is highly unstable numerically. You will investigate in this lab.
 

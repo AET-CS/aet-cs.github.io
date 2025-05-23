@@ -1,4 +1,7 @@
-# AP Computer Science A Free Response Question
+---
+title: "AP Computer Science A Free Response Question"
+---
+
 
 ## Question: Array Maximum (9 points)
 

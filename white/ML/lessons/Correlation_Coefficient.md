@@ -1,4 +1,7 @@
-# Correlation Coefficient
+---
+title: "Correlation Coefficient"
+---
+
 
 We assume, as usual, a ground truth model $y = f(x) + \epsilon$ where $f$ is usually unknown, a (possibly random) sample of points $(x_1, y_1), \cdots, (x_n, y_n)$ and a linear model $\tilde{y} = ax + b$. In this setting we usually need to know *how good* the linear model is -- how well does if capture the ground truth $f(x)$?
 

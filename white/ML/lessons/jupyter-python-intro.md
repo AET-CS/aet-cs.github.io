@@ -1,4 +1,7 @@
-# Quick Jupyter Intro and Python Loops
+---
+title: "Quick Jupyter Intro and Python Loops"
+---
+
 
 Jupyter notebook is arranged into cells. Cells can contain Input (computations/code), Output and Markdown (text). A cell can be *selected* or *active*. To *select* a cell, click to the left of it and it should highlight with a colored border. To activate a cell, click inside of it so the cursor is visible. To run a code cell, or render a text cell, type `shift-return`.
 

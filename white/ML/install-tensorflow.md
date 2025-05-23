@@ -1,4 +1,7 @@
-# Install Tensorflow-GPU in WSL2
+---
+title: "Install Tensorflow-GPU in WSL2"
+---
+
 
 These instructions install Tensorflow on an AET laptop, assuming you already have WSL2 up and running. It also installs the required NVIDIA drivers.
 

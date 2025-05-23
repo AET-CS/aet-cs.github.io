@@ -1,4 +1,7 @@
-# Introduction to ArrayLists in Java
+---
+title: "Introduction to ArrayLists in Java"
+---
+
 
 ArrayLists are one of the most commonly used data structures in Java. Unlike regular arrays, ArrayLists can grow and shrink dynamically, making them more flexible for many programming tasks.
 

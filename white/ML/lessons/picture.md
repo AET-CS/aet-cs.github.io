@@ -1,4 +1,7 @@
-# Picture Compression
+---
+title: "Picture Compression"
+---
+
 
 Create a notebook "Gauss_Image.ipynb"
 

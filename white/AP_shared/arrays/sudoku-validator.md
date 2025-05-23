@@ -1,4 +1,7 @@
-# Sudoku Validator Assignment
+---
+title: "Sudoku Validator Assignment"
+---
+
 
 ## Overview
 A valid Sudoku puzzle consists of a 9x9 grid where each row, column, and 3x3 sub-square contains the digits 1-9 exactly once. Your task is to write a program that determines if a completed 9x9 grid is a valid Sudoku solution.

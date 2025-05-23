@@ -1,4 +1,7 @@
-# AP Computer Science Multiple Choice Quiz - Answers and Explanations
+---
+title: "AP Computer Science Multiple Choice Quiz - Answers and Explanations"
+---
+
 
 #### Question 1
 **Answer: D (II Only)**

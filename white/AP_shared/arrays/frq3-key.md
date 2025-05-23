@@ -1,4 +1,7 @@
-# FRQ3 Key
+---
+title: "FRQ3 Key"
+---
+
 
 ```java
 public void selectionSort(int[] arr) {

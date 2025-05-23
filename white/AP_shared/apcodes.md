@@ -1,4 +1,7 @@
-# AP Join Codes
+---
+title: "AP Join Codes"
+---
+
 
 In AP Classroom, register for the AP CS test with your HOME SCHOOL.
 

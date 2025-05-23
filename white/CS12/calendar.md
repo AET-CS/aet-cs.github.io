@@ -4,8 +4,6 @@ layout: single
 classes:
   - wide
 ---
-# Calendar for CS 12
-
 (Old calendar [here](./sem01.md))
 
 - 4/3 (Thursday)

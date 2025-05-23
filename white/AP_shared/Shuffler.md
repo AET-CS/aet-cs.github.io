@@ -1,4 +1,7 @@
-# Shuffler
+---
+title: "Shuffler"
+---
+
 
 Write a program to shuffle a deck of cards. Given parameter *even* $n$, create an array (or arraylist or stack or queue or whatever works best) of cards $1...n$. Submit your code with "main" showing all parts to javadrop. You do not have to finish all of it in class today, unless I change my mind.
 

@@ -1,4 +1,7 @@
-# Overview of ArrayList
+---
+title: "Overview of ArrayList"
+---
+
 
 1. **Declare an ArrayList**
    Declare an `ArrayList` with a specified type.

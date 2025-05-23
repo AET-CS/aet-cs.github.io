@@ -1,4 +1,7 @@
-# Scanner Examples
+---
+title: "Scanner Examples"
+---
+
 
 Here's a simple scanner that reads and writes words
 

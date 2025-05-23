@@ -11,10 +11,14 @@ Now that you've had an introduction to AVL trees, let's take a step back and loo
 
 Let's start by taking the numbers 1,2,3 and creating every possible valid binary search tree from these three numbers. Draw your search trees in the space below.
 
+{% capture question1 %}
+Draw every possible BST tree for the numbers 1,2,3
+{% endcapture %}
+
 {% capture answer1 %}
 <img src="https://aet-cs.github.io/white/AP_shared/BinaryTree/canonical-trees.png" alt="Five Trees" style="width: 100%;" />
 {% endcapture %}
-{% include answer-box.html content=answer1 %}
+{% include answer-box.html question=question1 content=answer1 %}
 
 You should come up with five search trees. You’ll notice only one of them is balanced and the other four have balance factor of plus or minus 2. It turns out that every AVL tree, as soon as it becomes unbalanced, can be written as one of these five search trees. So if we can balance any of these five trees, we'll see how AVL tree balancing actually works.
 
@@ -28,12 +32,16 @@ Let’s imagine we have a bunch of real numbers, including 1, 2 and 3 and we wan
 
 $$(A) \ldots 1 \ldots (B) \ldots 2 \ldots (C) \ldots 3 \ldots (D)$$
 
-Where A,B,C,D are intervals of numbers. Each of these intervals corresponds to a sub tree in our AVL tree. Take each of the five trees you created above and add subtrees for A,B,C and D. Make sure that your trees are each in the appropriate location compared to the numbers 1, 2 and 3.
+Where A,B,C,D are intervals of numbers. Each of these intervals corresponds to a sub tree in our AVL tree.
+
+{% capture question2 %}
+Take each of the five trees you created above and add subtrees for A,B,C and D. Make sure that your trees are each in the appropriate location compared to the numbers 1, 2 and 3.
+{% endcapture %}
 
 {% capture answer2 %}
 <img src="https://aet-cs.github.io/white/AP_shared/BinaryTree/canonical-trees-abcd.png" alt="Five Trees" style="width: 100%;" />
 {% endcapture %}
-{% include answer-box.html content=answer2 %}
+{% include answer-box.html question = question2 content=answer2 %}
 
 If you compare each of the four imbalanced trees to the balanced 213 tree, now with the subtrees added, you should see that each of the four imbalanced trees correlates to one of the four rotations you read about last class. The 123 tree is balanced with a left rotation, the 321 tree is balanced with a right rotation, the 132 tree is balanced with a right-left rotation, and finally the 312 tree is balanced with a left-right rotation. Whatever name you give these rotations they're all turning imbalanced tree into exactly the same, balanced, 213 tree.
 
@@ -46,23 +54,28 @@ Let's work through a moderate size example. Look at the AVL tree below it's curr
 <img src="https://aet-cs.github.io/white/AP_shared/BinaryTree/tree-small-01.png" alt="Five Trees" style="width: 23%;" />
 </div>
 
-The unbalanced tree is the sub tree rooted at 6. Now follow the path from 6 to the node that was just inserted. Draw a box around the first three numbers on that path. These numbers are arranged like a “321” tree, and can be balanced with a right rotation. Identify each of the 4 subtrees A,B,C,D (use empty set to represent any missing trees) and draw a new tree with this subtree now balanced.
+The unbalanced tree is the sub tree rooted at 6.
 
+{% capture question3 %}
+Now follow the path from 6 to the node that was just inserted. Draw a box around the first three numbers on that path. These numbers are arranged like a “321” tree, and can be balanced with a right rotation. Identify each of the 4 subtrees A,B,C,D (use empty set to represent any missing trees) and draw a new tree with this subtree now balanced.
+{% endcapture %}
 {% capture answer3 %}
 <div style="display: flex; justify-content: center;">
 <img src="https://aet-cs.github.io/white/AP_shared/BinaryTree/eight-tree-1.png" alt="Insert 1" style="width: 90%;" />
 </div>
 {% endcapture %}
-{% include answer-box.html content=answer3 %}
+{% include answer-box.html question = question3 content=answer3 %}
 
+{% capture question4 %}
 Now try inserting the number 5 and go through the same balancing process.
+{% endcapture %}
 
 {% capture answer4 %}
 <div style="display: flex; justify-content: center;">
 <img src="https://aet-cs.github.io/white/AP_shared/BinaryTree/eight-tree-5.png" alt="Insert 1" style="width: 90%;" />
 </div>
 {% endcapture %}
-{% include answer-box.html content=answer4 %}
+{% include answer-box.html question = question4 content=answer4 %}
 
 ### Large Example
 Try a larger example. In the following tree, perform each of the following insertions (each time starting over from the same beginning tree): 5, 140, 70, 115
@@ -71,32 +84,44 @@ Try a larger example. In the following tree, perform each of the following inser
 <img src="https://aet-cs.github.io/white/AP_shared/BinaryTree/big-tree-01.png" alt="Five Trees" style="width: 90%;" />
 </div>
 
-#### Insert 5
+{% capture question5 %}
+Insert the number 5
+{% endcapture %}
+
 {% capture answer-big1 %}
 <div style="display: flex; justify-content: center;">
 <img src="https://aet-cs.github.io/white/AP_shared/BinaryTree/big-tree-add-5.png" alt="Insert 1" style="width: 90%;" />
 </div>
 {% endcapture %}
-{% include answer-box.html content=answer-big1 %}
+{% include answer-box.html question=question5 content=answer-big1 %}
 
-#### Insert 140
+{% capture question6 %}
+Insert the number 140
+{% endcapture %}
+
 {% capture answer-big2 %}
 No rotation needed.
 {% endcapture %}
-{% include answer-box.html content=answer-big2 %}
+{% include answer-box.html question=question6 content=answer-big2 %}
 
-#### Insert 70
+{% capture question7 %}
+Insert the number 70
+{% endcapture %}
+
 {% capture answer-big3 %}
 <div style="display: flex; justify-content: center;">
 <img src="https://aet-cs.github.io/white/AP_shared/BinaryTree/big-tree-add-70.png" alt="Insert 1" style="width: 90%;" />
 </div>{% endcapture %}
-{% include answer-box.html content=answer-big3 %}
+{% include answer-box.html question=question7 content=answer-big3 %}
 
-#### Insert 115
+{% capture question8 %}
+Insert the number 115
+{% endcapture %}
+
 {% capture answer-big4 %}
 No rotation needed.
 {% endcapture %}
-{% include answer-box.html content=answer-big4 %}
+{% include answer-box.html question=question8 content=answer-big4 %}
 
 ## Algorithmic thinking:
 

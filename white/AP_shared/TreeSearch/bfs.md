@@ -21,12 +21,14 @@ function BFS(root):
 
 ## Example
 
+{% capture question1 %}
 Make a depth 3 permutation tree for {A,B,C}. The root of a permutation tree is an empty string. Each node is a string containing a subset of {A,B,C,D} in some order. The children of a node $s$ containing a string of length $n$ are all strings on $n+1$ created by appending a character *not* already in $s$ onto the end of $s$.
+{% endcapture %}
 
 {% capture answer1 %}
 <img src="https://aet-cs.github.io/white/AP_shared/TreeSearch/BFS-0.svg" alt="Five Trees" style="width: 100%;" />
 {% endcapture %}
-{% include answer-box.html content=answer1 %}
+{% include answer-box.html question = question1 content=answer1 %}
 Now trace BFS starting at the root of the tree you just made. Show the contents of the stack after each push and pop.
 
 {% capture answer2 %}

@@ -1,6 +1,6 @@
 ---
 title: "CS10 Calendar"
-layout: single
+layout: default
 classes:
   - wide
 ---

@@ -1,4 +1,11 @@
-# Teaching Calendar 2024-2025
+---
+title: "ML Calendar"
+layout: single
+classes:
+  - wide
+---
+
+
 - [Quarter 1 Archive](./calendar-q1.md)
 - [Quarter 2 Archive](./calendar-q2.md)
 - [Quarter 3 Archive](./calendar-q3.md)

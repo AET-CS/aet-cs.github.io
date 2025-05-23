@@ -1,4 +1,10 @@
-# Teaching Calendar 2024-2025
+---
+title: "ML Calendar Archive"
+layout: single
+classes:
+  - wide
+---
+
 [Quarter 1 Archive](./calendar-q1.md)
 ## Quarter 2
 - 11/6/2024 (Wednesday)

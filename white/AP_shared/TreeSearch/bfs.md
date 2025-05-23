@@ -29,12 +29,15 @@ Make a depth 3 permutation tree for {A,B,C}. The root of a permutation tree is a
 <img src="https://aet-cs.github.io/white/AP_shared/TreeSearch/BFS-0.svg" alt="Five Trees" style="width: 100%;" />
 {% endcapture %}
 {% include answer-box.html question = question1 content=answer1 %}
+
+{% capture question2 %}
 Now trace BFS starting at the root of the tree you just made. Show the contents of the stack after each push and pop.
+{% endcapture %}
 
 {% capture answer2 %}
 <img src="https://aet-cs.github.io/white/AP_shared/TreeSearch/BFS-1.svg" alt="Five Trees" style="width: 100%;" />
 {% endcapture %}
-{% include answer-box.html content=answer2 %}
+{% include answer-box.html question=question2 content=answer2 %}
 
 ## Coding Assignment
 

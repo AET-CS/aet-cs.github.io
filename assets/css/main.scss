@@ -136,6 +136,8 @@
     counter-increment: question-counter;
 }
 
-.question b::before {
-    content: "Question " counter(question-counter) ": ";
+.question b::after {
+    content: " " counter(question-counter);
+    font-weight: bold;
+    /* Keep the number bold */
 }

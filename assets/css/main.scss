@@ -123,3 +123,19 @@
     padding: 2px 4px;
     border-radius: 2px;
 }
+
+// Add question counter
+/* Define a counter for questions */
+/* Reset counter at the start of each page */
+.page__content {
+    counter-reset: question-counter;
+}
+
+/* Increment and display counter for each question */
+.question {
+    counter-increment: question-counter;
+}
+
+.question b::before {
+    content: "Question " counter(question-counter) ": ";
+}

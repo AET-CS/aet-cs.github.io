@@ -1,5 +1,6 @@
-# CS Research Project Proposal Specifications
-
+---
+title: CS Research Project Proposal Specifications
+---
 ## 1. Project Overview
 - **Title**: Clear, concise title reflecting the research focus
 - **Abstract**: 200-250 word summary of the problem, approach, and expected contributions

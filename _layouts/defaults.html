@@ -1,29 +1,28 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>{{ page.title }}</title>
-    <link rel="stylesheet" href="{{ '/assets/css/style.css' | relative_url }}">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>{{ page.title }}</title>
+        <link rel="stylesheet" href="{{ '/assets/css/style.css' | relative_url }}">
 
-    <!-- MathJax or KaTeX script for rendering LaTeX -->
-    <script type="text/javascript" async
-        src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/3.2.0/es5/tex-mml-chtml.js">
-    </script>
-</head>
-<body>
-    <header>
-        <h1>{{ site.title }}</h1>
-    </header>
+        <!-- MathJax or KaTeX script for rendering LaTeX -->
+        <script type="text/javascript" async src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/3.2.0/es5/tex-mml-chtml.js">
+        </script>
+    </head>
+    <body>
+        <header>
+            <h1>Title: {{ site.title }}</h1>
+        </header>
 
-    <main>
-        {{ content }}
-    </main>
+        <main>
+            {{ content }}
+        </main>
 
-    <footer>
-        <p>&copy; {{ site.time | date: "%Y" }} {{ site.title }}</p>
-    </footer>
+        <footer>
+            <p>&copy; {{ site.time | date: "%Y" }} {{ site.title }}</p>
+        </footer>
 
-		<script src="{{ '/assets/js/answer-boxes.js' | relative_url }}"></script>
-</body>
+        <script src="{{ '/assets/js/answer-boxes.js' | relative_url }}"></script>
+    </body>
 </html>

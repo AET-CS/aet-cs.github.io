@@ -4,7 +4,6 @@ layout: single
 classes:
   - wide
 ---
-# Calendar for CS 10
 
 - Semester 1 [here](./sem01.md)
 - Quarter 3 [here](./q3.md)

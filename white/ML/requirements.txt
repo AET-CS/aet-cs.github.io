@@ -97,7 +97,7 @@ latexcodec==3.0.0
 lazy_loader==0.4
 liac-arff==2.5.0
 libarchive-c==5.1
-lightgbm==4.5.0
+lightgbm==4.6.0
 lime==0.2.0.1
 linkify-it-py==2.0.3
 llvmlite==0.43.0

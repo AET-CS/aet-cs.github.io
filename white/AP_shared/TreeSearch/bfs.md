@@ -41,7 +41,7 @@ Now trace BFS starting at the root of the tree you just made. Show the contents 
 
 ## Coding Assignment
 
-Code up this BFS algorithm in Java. Specifically, generate all string permutations of {A,B,C,D} such as "ACDE" etc, by performing a BFS on the tree of substrings.  Let the start state (root) be empty string "". Write a `getChildren(String state)` method that returns a list/array of the children of `state`, made by appending one new letter to `state`.
+Code up this BFS algorithm in Java. Specifically, generate all string permutations of {A,B,C,D} such as "ACDB" etc, by performing a BFS on the tree of substrings.  Let the start state (root) be empty string "". Write a `getChildren(String state)` method that returns a list/array of the children of `state`, made by appending one new letter to `state`.
 
 The output of your code should be all the *leaves* in the search tree. (There will be 24). You should print a leaf as soon as you pop it off the tree and recognize it's a left.
 

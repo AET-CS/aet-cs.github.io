@@ -86,7 +86,7 @@ classes:
 	- Finish BFS assignment. Submit in class. Finish tonight.
 - 5/29 (Thursday)
 	- BFS/DFS Quiz
-	- Talk about Eight Puzzle
+	- Talk about Eight Puzzle [assignment file](../AP_shared/EightPuzzle/puzzle-assignment.md)
 	- Get files here [eightpuzzle](../AP_shared/EightPuzzle/eightpuzzle.zip)
 	- Unzip into a new folder and compile your project. It will run already, without 'solve'
 	- Work on Eight Puzzle assignment. Due in 1 week to javadrop. (Submit all java files and a brief reflection)

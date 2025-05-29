@@ -79,4 +79,14 @@ classes:
     - Bonus quiz!
     - BFS notes [online notes](../AP_shared/TreeSearch/bfs.md)
     - Turn in BFS search assignment (see notes) to javadrop by 9pm Tuesday.
-    - Next class: MAKEUP deadline for any missed quizzes
+    - Next class: MAKEUP deadline for any missed quizzes (edit: this is no longer the deadline)
+- 5/27 (Tuesday)
+	- No quiz!
+	- Notes on BFS and DFS
+	- Finish BFS assignment. Submit in class. Finish tonight.
+- 5/29 (Thursday)
+	- BFS/DFS Quiz
+	- Talk about Eight Puzzle
+	- Get files here [eightpuzzle](../AP_shared/EightPuzzle/eightpuzzle.zip)
+	- Unzip into a new folder and compile your project. It will run already, without 'solve'
+	- Work on Eight Puzzle assignment. Due in 1 week to javadrop. (Submit all java files and a brief reflection)

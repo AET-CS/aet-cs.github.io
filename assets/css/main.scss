@@ -1,0 +1,143 @@
+---
+---
+
+@import "minimal-mistakes/skins/{{ site.minimal_mistakes_skin | default: 'default' }}"; // skin
+@import "minimal-mistakes"; // main partials
+
+@media (min-width: 48em) {
+    html {
+        font-size: 12px;
+    }
+}
+
+@media (min-width: 64em) {
+    html {
+        font-size: 14px;
+        }
+}
+
+@media (min-width: 80em) {
+    html {
+        font-size: 18px;
+    }
+}
+
+@media (min-width: 64em) {
+    .page {
+        float: inline-end;
+        width: calc(100% - 75px);
+        padding-inline-end: 75px
+    }
+}
+
+@media (min-width: 80em) {
+    .page {
+        width: calc(100% - 150px);
+        padding-inline-end: 150px;
+    }
+}
+
+.page__content p,
+.page__content li,
+.page__content dl {
+    font-size: 1.0em;
+}
+
+/* Answer Box Styles */
+.question {
+  background-color: #eaf2f8;
+  padding: 15px;
+  margin: 15px 0;
+  border-radius: 20px;
+  position: relative;
+}
+
+.answer-box {
+    /* background-color: #e8f8f5; */
+    /* border-left: 4px solid #2ecc71; */
+    padding: 10px 15px;
+    margin-top: 10px;
+    /* border-radius: 0 10px 10px 0; */
+    display: none;
+    border-top: 2px solid #999999;
+}
+
+.show-answer {
+  background-color: #3498db;
+  color: white;
+  border: none;
+  padding: 5px 10px;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 14px;
+}
+
+.show-answer:hover {
+  background-color: #2980b9;
+}
+
+.code-question {
+    background-color: #eaf2f8;
+    padding: 15px;
+    margin: 15px 0;
+    border-radius: 4px;
+    position: relative;
+    border-left: 4px solid #3498db;
+}
+
+.code-skeleton {
+    display: block;
+    background-color: #f8f8f8;
+    margin-bottom: 10px;
+}
+
+.code-solution {
+    background-color: #e8f8f5;
+    margin-bottom: 10px;
+    border-radius: 4px;
+    border-left: 4px solid #2ecc71;
+}
+
+.show-solution {
+    background-color: #3498db;
+    color: white;
+    border: none;
+    padding: 5px 10px;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 14px;
+}
+
+.show-solution:hover {
+    background-color: #2980b9;
+}
+
+/* Style code blocks specifically */
+.code-question pre {
+    margin-bottom: 0;
+}
+
+/* Add a subtle "fill in" hint to code skeleton */
+.code-skeleton .fill-blank {
+    background-color: #ffecb3;
+    padding: 2px 4px;
+    border-radius: 2px;
+}
+
+// Add question counter
+/* Define a counter for questions */
+/* Reset counter at the start of each page */
+.page__content {
+    counter-reset: question-counter;
+}
+
+/* Increment and display counter for each question */
+.question {
+    counter-increment: question-counter;
+}
+
+.question b::after {
+    content: " " counter(question-counter);
+    font-weight: bold;
+    /* Keep the number bold */
+}

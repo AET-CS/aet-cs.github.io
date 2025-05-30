@@ -1,0 +1,1233 @@
+<html>
+	<head>
+		<style>
+			body {
+				font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+				line-height: 1.6;
+				max-width: 800px;
+				margin: 0 auto;
+				padding: 20px;
+				color: #333;
+				background-color: #f9f9f9;
+			}
+
+			h1 {
+				color: #2c3e50;
+				border-bottom: 2px solid #3498db;
+				padding-bottom: 10px;
+				margin-bottom: 30px;
+			}
+
+			ol {
+				counter-reset: question;
+				padding-left: 0;
+			}
+
+			ol > li {
+				list-style: none;
+				background-color: white;
+				margin-bottom: 25px;
+				padding: 20px;
+				border-radius: 8px;
+				box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+				counter-increment: question;
+			}
+
+			ol > li::before {
+				content: "Question " counter(question);
+				font-weight: bold;
+				color: #3498db;
+				display: block;
+				margin-bottom: 10px;
+				font-size: 1.1em;
+			}
+
+			p {
+				margin-bottom: 15px;
+			}
+
+			pre {
+				background-color: #f5f5f5;
+				padding: 12px;
+				border-radius: 5px;
+				overflow-x: auto;
+				border-left: 3px solid #3498db;
+				font-family: Consolas, Monaco, 'Andale Mono', monospace;
+				font-size: 14px;
+			}
+
+			ul.answer-choices {
+				padding-left: 0;
+				list-style-type: none;
+				counter-reset: answer;
+			}
+
+			ul.answer-choices li {
+				position: relative;
+				padding: 8px 10px 8px 35px;
+				margin-bottom: 5px;
+				border-radius: 4px;
+				transition: background-color 0.2s;
+				counter-increment: answer;
+				cursor: pointer;
+			}
+
+			ul.answer-choices li::before {
+				content: counter(answer, upper-alpha) ". ";
+				position: absolute;
+				left: 10px;
+				font-weight: bold;
+			}
+
+			ul.answer-choices li:hover {
+				background-color: #f0f0f0;
+			}
+
+			.selected {
+				font-weight: bold;
+			}
+
+			.correct {
+				background-color: #d4edda !important;
+				color: #155724;
+				border-color: #c3e6cb;
+			}
+
+			.incorrect {
+				background-color: #f8d7da !important;
+				color: #721c24;
+				border-color: #f5c6cb;
+			}
+
+			.correct-answer {
+				display: none;
+				padding: 10px;
+				margin-top: 15px;
+				background-color: #d4edda;
+				border-radius: 5px;
+				color: #155724;
+			}
+
+			.correct-answer.visible {
+				display: block;
+			}
+
+			.disabled {
+				pointer-events: none;
+			}
+
+			/* Override the strong tag styling completely */
+			strong {
+				font-weight: normal; /* Reset the font weight */
+			}
+			</style>
+
+			<script>
+			document.addEventListener('DOMContentLoaded', function() {
+				// Add class to all answer choice lists
+				document.querySelectorAll('ol > li > ul').forEach(function(ul) {
+					ul.classList.add('answer-choices');
+				});
+
+				// Find all correct answers and mark them
+				document.querySelectorAll('ul.answer-choices li strong').forEach(function(strong) {
+					let li = strong.closest('li');
+					li.dataset.correct = 'true';
+					// Remove the (CORRECT) indicator initially
+					strong.textContent = strong.textContent.replace(' (CORRECT)', '');
+				});
+
+				// Add feedback div after each question
+				document.querySelectorAll('ol > li').forEach(function(questionLi) {
+					let feedbackDiv = document.createElement('div');
+					feedbackDiv.className = 'correct-answer';
+
+					let correctLi = questionLi.querySelector('li[data-correct="true"]');
+					if (correctLi) {
+						let correctLetter = correctLi.textContent.trim().charAt(0);
+						feedbackDiv.textContent = 'The correct answer is ' + correctLi.textContent.trim();
+					}
+
+					questionLi.appendChild(feedbackDiv);
+				});
+
+				// Add click handlers to answer choices
+				document.querySelectorAll('ul.answer-choices li').forEach(function(li) {
+					li.addEventListener('click', function() {
+						// Get parent question element
+						let questionLi = this.closest('ol > li');
+
+						// Check if this question has already been answered
+						if (questionLi.classList.contains('answered')) {
+							return;
+						}
+
+						// Mark question as answered
+						questionLi.classList.add('answered');
+
+						// Mark the selected answer
+						this.classList.add('selected');
+
+						// Add correct/incorrect classes
+						if (this.dataset.correct === 'true') {
+							this.classList.add('correct');
+						} else {
+							this.classList.add('incorrect');
+							// Find and highlight the correct answer
+							questionLi.querySelector('li[data-correct="true"]').classList.add('correct');
+						}
+
+						// Show feedback
+						questionLi.querySelector('.correct-answer').classList.add('visible');
+
+						// Disable further clicks on this question
+						questionLi.querySelector('ul.answer-choices').classList.add('disabled');
+					});
+				});
+			});
+			</script>
+	</head>
+<body>
+	<h1>AP Computer Science Multiple Choice Quiz</h1>
+
+	<ol>
+		<li>
+			<p>Consider searching for a given value in an array. Which of the following must be true in order to successfully use the binary search?</p>
+			<p>I. The values in the array must be numbers.<br>
+			II. The values in the array must be in sorted order.<br>
+			III. The array must not contain any duplicate values.</p>
+			<ul>
+				<li>I and II Only</li>
+				<li>II and III only</li>
+				<li>I Only</li>
+				<li><strong>II Only</strong> </li>
+				<li>I, II, and III</li>
+			</ul>
+		</li>
+
+		<li>
+			<p>Consider searching for a given value in a sorted array. Under which of the following circumstances will the sequential search be faster than the binary search?</p>
+			<ul>
+				<li>The given value is the middle element of the array.</li>
+				<li>The sequential search will never be faster than the binary search</li>
+				<li><strong>The given value is the first element of the array.</strong> </li>
+				<li>The given value is the last element of the array</li>
+				<li>The given value is not found in the array.</li>
+			</ul>
+		</li>
+
+		<li>
+			<p>Assume the following declarations and assignments have been made.</p>
+			<pre>
+int[] arr1 = {1, 2, 3, 4, 5, 6, 7, 8};
+int[] arr2 = {4, 5, 6, 7, 8};</pre>
+			<p>If the following segment of code is executed, what will arr1 and arr2 contain?</p>
+			<pre>
+arr2 = arr1;
+arr2[3] = 0;</pre>
+			<ul>
+				<li><strong>arr1: {1, 2, 3, 0, 5, 6, 7, 8} arr2: {1, 2, 3, 0, 5, 6, 7, 8}</strong> </li>
+				<li>arr1: {1, 2, 3, 4, 5, 6, 7, 8} arr2: {4, 5, 6, 0, 8}</li>
+				<li>arr1: {1, 2, 3, 0, 5, 6, 7, 8} arr2: {4, 5, 6, 7, 8}</li>
+				<li>arr1: {1, 2, 3, 4, 5, 6, 7, 8} arr2: {4, 5, 6, 7, 8}</li>
+			</ul>
+		</li>
+
+		<li>
+			<p>Assume that variable myList is an ArrayList that contains at least two objects. Which of the following code segments moves the first object in the list to the end of the list?</p>
+			<ul>
+				<li>myList.add(0, myList.remove(0));</li>
+				<li>myList.add(myList.size(), myList.get(0));</li>
+				<li>myList.add(myList.get(0));</li>
+				<li><strong>myList.add(myList.remove(0));</strong> </li>
+				<li>myList.add(myList.remove(myList.size() – 1));</li>
+			</ul>
+		</li>
+
+		<li>
+			<p>Which of the following will compile without error?</p>
+			<p>I. ArrayList&lt;String&gt; words = new ArrayList&lt;String&gt;();<br>
+			II. ArrayList&lt;String&gt; words = new List&lt;String&gt;();<br>
+			III. List&lt;String&gt; words = new ArrayList&lt;String&gt;();</p>
+			<ul>
+				<li>III only</li>
+				<li>I and II</li>
+				<li>I only</li>
+				<li>II only</li>
+				<li><strong>I and III</strong> </li>
+			</ul>
+		</li>
+
+		<li>
+			<p>Assume that words is an ArrayList&lt;String&gt; and that val is a non-null String. Consider the following code segment:</p>
+			<pre>
+	boolean tmp = false;
+	for(String word: words)
+	{
+		if(val.equals(word))
+			tmp = true;
+	}</pre>
+			<p>Which of the following best characterizes the conditions under which tmp is assigned true?</p>
+			<ul>
+				<li>Whenever the last item in words is equal to val</li>
+				<li>Whenever more than one item in words is equal to val</li>
+				<li><strong>Whenever words contains val</strong> </li>
+				<li>Whenever the first item in words is equal to val</li>
+				<li>Whenever exactly one item in words is equal to val</li>
+			</ul>
+		</li>
+
+		<li>
+			<p>Consider the following code segment.</p>
+			<pre>
+	ArrayList&lt;String&gt; letters = new ArrayList&lt;String&gt;();
+	letters.add("I");
+	letters.add("J");
+	letters.add("G");
+	letters.add("M");
+	letters.add("H");
+	letters.set(3,letters.get(4));
+	letters.set(4,letters.get(3));
+	System.out.println(letters);</pre>
+			<p>What is printed as a result of executing the code segment?</p>
+			<ul>
+				<li><strong>[I, J, G, H, H]</strong> </li>
+				<li>[I, J, G, G, M]</li>
+				<li>[I, J, G, M, H]</li>
+				<li>[I, J, G, H, M]</li>
+				<li>An IndexOutOfBoundsException error message</li>
+			</ul>
+		</li>
+
+		<li>
+			<p>Assume that the variable numbers is an ArrayList&lt;Integer&gt;. Consider the following code segment.</p>
+			<pre>
+	boolean flag = true;
+	for (Integer val : numbers)
+	{
+		flag = flag && (val.intValue() > 0);
+	}</pre>
+			<p>What does this code segment do?</p>
+			<ul>
+				<li><strong>Sets flag to true if every value in numbers is positive.</strong> </li>
+				<li>Sets flag to true if any value in numbers is positive.</li>
+				<li>Always sets flag to true.</li>
+				<li>Always sets flag to false.</li>
+				<li>Sets flag to true if the last value is positive.</li>
+			</ul>
+		</li>
+
+		<li>
+			<p>Consider the following code segment:</p>
+			<pre>
+	x = !y;
+	y = x || y;</pre>
+			<p>Assume that x and y are boolean variables that have been initialized before this code segment executed. What is true about the values of x and y after the code executes?</p>
+			<ul>
+				<li>x has the same value as it did before the code segment executed.</li>
+				<li>y has the same value as it did before the code segment executed.</li>
+				<li>x is true.</li>
+				<li><strong>y is true.</strong> </li>
+				<li>y has the same value as x had before the code executed.</li>
+			</ul>
+		</li>
+
+		<li>
+			<p>What is the output of the following code segment?</p>
+			<pre>
+	List&lt;String&gt; list = new ArrayList&lt;String&gt;();
+	list.add("A");
+	list.add("B");
+	list.add("C");
+	list.add("D");
+	list.add("E");
+	for (int k = 1; k <= 3; k++)
+		list.remove(1);
+	for (int k = 1; k <= 3; k++)
+		list.add(1, "*");
+	System.out.println(list);</pre>
+			<ul>
+				<li><strong>[A, *, *, *, E]</strong> </li>
+				<li>[*, *, *, D, E]</li>
+				<li>[A, *, *, *, C, D, E]</li>
+				<li>[*, *, *, B, C, D, E]</li>
+				<li>IndexOutOfBoundsException</li>
+			</ul>
+		</li>
+
+		<li>
+			<p>The following method is supposed to calculate and return the sum of the numbers from 1 to n, where n > 0.</p>
+
+	public static int sumToN(int n)
+	{
+		int sum = 0;
+		int count = 0;
+		while(count < n)
+		{
+			sum += count;
+		}
+		return sum;
+	}</pre>
+			<p>Which statement best describes what method sumToN returns?</p>
+			<ul>
+				<li>The value returned will be 0.</li>
+				<li>The value returned will be n.</li>
+				<li>The value returned will be the sum of the numbers from 1 to n.</li>
+				<li>The value returned will be the sum of the numbers from 0 to n - 1.</li>
+				<li><strong>No value will be returned because the while loop is an infinite loop.</strong> </li>
+			</ul>
+		</li>
+
+		<li>
+			<p>Consider the following code segment.</p>
+			<pre>
+	List&lt;String&gt; list = new ArrayList&lt;String&gt;();
+	list.add("P");
+	list.add("Q");
+	list.add("R");
+	list.set(2, "s");
+	list.add(2, "T");
+	list.add("u");
+	System.out.println(list);</pre>
+			<p>What is printed as a result of executing the code segment?</p>
+			<ul>
+				<li><strong>[P, Q, T, s, u]</strong> </li>
+				<li>[P, T, Q, s, u]</li>
+				<li>[P, Q, R, s, T]</li>
+				<li>[P, Q, s, T, u]</li>
+				<li>[P, T, s, R, u]</li>
+			</ul>
+		</li>
+
+		<li>
+			<p>Assume that a, b, and c are variables of type int. Consider the three expressions shown below.</p>
+			<p>I. (a == b) && (a == c) && (b == c)<br>
+			II. (a == b) || (a == c) || (b == c)<br>
+			III. ((a – b) * (a – c) * (b – c)) == 0</p>
+			<p>Assume that subtraction and multiplication never overflow. Which of the expressions will always be true if at least two of a, b, and c are equal?</p>
+			<ul>
+				<li>III Only</li>
+				<li>I and II</li>
+				<li>I only</li>
+				<li>II Only</li>
+				<li><strong>II and III</strong> </li>
+			</ul>
+		</li>
+
+		<li>
+			<p>Which of the following is a reason to use an ArrayList instead of an array?</p>
+			<ul>
+				<li>An ArrayList can only store objects and an array can only store primitives.</li>
+				<li><strong>An ArrayList resizes itself as necessary when items are added, but an array does not.</strong> </li>
+				<li>An ArrayList allows faster access to its kth item than an array does.</li>
+				<li>An ArrayList uses less memory than an array does.</li>
+				<li>An ArrayList provides access to the number of items it stores, but an array does not.</li>
+			</ul>
+		</li>
+
+		<li>
+			<p>The last element of the returned array (result[result.length − 1]) may not have the correct value. One or more of nums[0] … nums[nums.length / 2 − 1] may have been copied to the wrong position(s) in the returned array. Executing shuffle may cause an ArrayIndexOutOfBoundsException. The first element of the returned array (result[0]) may not have the correct value. One or more of nums[nums.length / 2] … nums[nums.length] may have been copied to the wrong position(s) in the returned array.</p>
+			<ul>
+				<li>The last element of the returned array (result[result.length − 1]) may not have the correct value.</li>
+				<li>One or more of nums[0] … nums[nums.length / 2 − 1] may have been copied to the wrong position(s) in the returned array.</li>
+				<li><strong>Executing shuffle may cause an ArrayIndexOutOfBoundsException.</strong> </li>
+				<li>The first element of the returned array (result[0]) may not have the correct value.</li>
+				<li>One or more of nums[nums.length / 2] … nums[nums.length] may have been copied to the wrong position(s) in the returned array.</li>
+			</ul>
+		</li>
+
+		<li>
+			<p>Consider the following methods:</p>
+			<pre>
+	public static int add(int x, int y)
+	{
+		return x + y;
+	}
+	public static int multiply(int x, int y)
+	{
+		return x * y;
+	}</pre>
+			<p>What is the value of the expression multiply(3, add(4, 5)) ?</p>
+			<ul>
+				<li>23</li>
+				<li><strong>27</strong> </li>
+				<li>12</li>
+				<li>17</li>
+				<li>60</li>
+			</ul>
+		</li>
+
+		<li>
+			<p>Consider the following methods:</p>
+			<pre>
+public static int add(int x, int y)
+	{
+		return x + y;
+	}
+	public static int multiply(int x, int y)
+	{
+		return x * y;
+	}</pre>
+			<p>Which of the following corresponds to this expression: multiply(2, add(multiply(a, b), add(multiply(a, c), multiply(b, c))))</p>
+			<ul>
+				<li><strong>2 * (a * b + (a * c + b * c))</strong> </li>
+				<li>a * b + (a * c + b * c)</li>
+				<li>2 * a * b + a * c + b * c</li>
+				<li>a * b + a * c * b * c + 2</li>
+				<li>a * b + (a * c + b * c)* 2</li>
+			</ul>
+		</li>
+
+		<li>
+			<p>Consider the following method:</p>
+			<pre>
+	public boolean somethingDifferent(boolean p, boolean q)
+	{
+		return (p || q) && !(p && q);
+	}</pre>
+			<p>Which statement is true about this method?</p>
+			<ul>
+				<li>somethingDifferent always returns true when p is false</li>
+				<li>somethingDifferent always returns true when q is false</li>
+				<li>somethingDifferent always returns false</li>
+				<li>somethingDifferent always returns true</li>
+				<li><strong>somethingDifferent always returns true when p is not equal to q</strong> </li>
+			</ul>
+		</li>
+
+		<li>
+			<p>Consider the following method. What does it print out?</p>
+			<pre>
+	String s = "How do you do?";
+	int index = s.indexOf("o");
+	while(index >= 0)
+	{
+		System.out.println(index + " ");
+		s = s.substring(index + 1);
+		index = s.indexOf("o");
+	}</pre>
+			<ul>
+				<li><strong>1 5 8 12</strong> </li>
+				<li>2 6 9 13</li>
+				<li>1 3 2 3</li>
+				<li>2 4 3 4</li>
+				<li>An IndexOutOfBoundsException is thrown.</li>
+			</ul>
+		</li>
+
+		<li>
+			<p>Consider two algorithms for shuffling a deck of cards. Which is a true statement concerning Algorithm 1 and Algorithm 2?</p>
+			<ul>
+				<li>If Algorithm 1 is repeated several times, it will always return the deck to its original configuration.</li>
+				<li>Algorithm 2 will always generate more deck permutations than Algorithm 1.</li>
+				<li>Algorithm 1 will always generate more deck permutations than Algorithm 2.</li>
+				<li><strong>In terms of runtime, Algorithm 1 is more efficient than Algorithm 2.</strong> </li>
+				<li>Determining the last element of shuffled, in Algorithm 1, requires an average of cards.length calls to the random number generator.</li>
+			</ul>
+		</li>
+
+		<li>
+			<p>Consider the shuffle method that uses Algorithm 2. Which of the following changes should be made to code the shuffle method as specified?</p>
+			<ul>
+				<li>Replace line 3 with for (int k = 1; k < cards.length; k++)</li>
+				<li><strong>Replace line 5 with int pos = (int)(Math.random() * (k + 1));</strong> </li>
+				<li>Replace line 3 with for (int k = cards.length; k >= 0; k--)</li>
+				<li>Replace line 3 with for (int k = cards.length - 1; k >= 0; k--)</li>
+				<li>Replace lines 6 – 8 with Card temp = cards[pos]; cards[pos] = cards[k]; cards[k] = temp;</li>
+			</ul>
+		</li>
+
+		<li>
+			<p>Consider the Performer and Singer classes. Assume these declarations:</p>
+			<pre>
+	Performer p = new Performer();
+	Performer s = new Singer();</pre>
+			<p>What is the result of the call p.act() ?</p>
+			<ul>
+				<li>rise bow act encore</li>
+				<li>rise bow aria act encore</li>
+				<li>bow</li>
+				<li><strong>bow act</strong> </li>
+				<li>rise bow act aria encore</li>
+			</ul>
+		</li>
+
+		<li>
+			<p>Consider the Performer and Singer classes. Assume these declarations:</p>
+			<pre>
+	Performer p = new Performer();
+	Performer s = new Singer();</pre>
+			<p>What is the result of the call s.act() ?</p>
+			<ul>
+				<li>rise bow act encore</li>
+				<li><strong>rise bow aria act encore</strong> </li>
+				<li>bow</li>
+				<li>bow act</li>
+				<li>rise bow act aria encore</li>
+			</ul>
+		</li>
+
+		<li>
+			<p>Consider the abstract class Vehicle and class Car that extends Vehicle. Which statement is true about Vehicle?</p>
+			<ul>
+				<li><strong>At least one method of the Vehicle class must be abstract.</strong> </li>
+				<li>Vehicle v = new Car(); will compile but cause a run-time error.</li>
+				<li>The declaration Vehicle v; will cause a compiler error.</li>
+				<li>The Vehicle class must have a constructor with two parameters to initialize the private instance variables.</li>
+				<li>Vehicle v = new Car(); will compile and execute with no error.</li>
+			</ul>
+		</li>
+
+		<li>
+			<p>Consider the Dog and UnderDog classes. Assume these declarations:</p>
+			<pre>
+	Dog spot = new Dog();
+	Dog fido = new UnderDog();</pre>
+			<p>What is the result of the call spot.act() ?</p>
+			<ul>
+				<li>run eat sleep</li>
+				<li>run eat sleep bark</li>
+				<li>run</li>
+				<li><strong>run eat</strong> </li>
+				<li>run eat bark sleep</li>
+			</ul>
+		</li>
+
+		<li>
+			<p>Consider the Dog and UnderDog classes. Assume these declarations:</p>
+			<pre>
+	Dog spot = new Dog();
+	Dog fido = new UnderDog();</pre>
+			<p>What is the result of the call fido.act() ?</p>
+			<ul>
+				<li>run eat sleep</li>
+				<li><strong>run eat bark sleep</strong> </li>
+				<li>run</li>
+				<li>run eat</li>
+				<li>run eat bark sleep</li>
+			</ul>
+		</li>
+
+		<li>
+			<p>Consider the Vehicle and Car classes where Car extends Vehicle. Assume that the following code segment appears in client code:</p>
+			<pre>
+	Vehicle v = new Car();
+	v.setPrice(1000.0);</pre>
+			<p>Which of the following is true?</p>
+			<ul>
+				<li>The code segment will cause a compile-time error because of a type mismatch.</li>
+				<li><strong>The code v.setPrice(1000.0); will cause the setPrice method of the Car class to be called.</strong> </li>
+				<li>The code segment will cause a compile-time error because a subclass cannot have a method with the same name and the same signature as its superclass.</li>
+				<li>The code segment will cause a run-time error because a subclass cannot have a method with the same name and the same signature as its superclass.</li>
+				<li>The code v.setPrice(1000.0); will cause the setPrice method of the Vehicle class to be called.</li>
+			</ul>
+		</li>
+
+		<li>
+			<p>Consider the following classes:</p>
+			<pre>
+	public class Base
+	{
+		private int a1;
+		public void methodA()
+		{
+			methodB(); // Statement I
+		}
+	}
+	public class Derived extends Base
+	{
+		public void methodB()
+		{
+			methodA(); // Statement II
+			a1 = 0; // Statement III
+		}
+	}</pre>
+			<p>Which of the labeled statements in the methods shown above will cause a compile-time error?</p>
+			<ul>
+				<li>I and II</li>
+				<li>I and III</li>
+				<li><strong>I Only</strong> </li>
+				<li>III Only</li>
+				<li>II and III</li>
+			</ul>
+		</li>
+
+		<li>
+			<p>The following method is intended to return the index of the "smallest" word, namely the word that would appear first in an alphabetized list:</p>
+			<pre>
+	public static int findMin(String[] words)
+	{
+		int minPos = 0;
+		for (int index = 1; index < words.length; index++)
+		{
+			if ( /* condition */ )
+			{
+				minPos = index;
+			}
+		}
+		return minPos;
+	}</pre>
+			<p>Which of the following should be used to replace /* condition */ so that findMin works as intended?</p>
+			<ul>
+				<li>words[index].compareTo(words[minPos])</li>
+				<li>words[index].compareTo(words[minPos]) > 0</li>
+				<li>words[index] > words[minPos]</li>
+				<li>words[index] < words[minPos]</li>
+				<li><strong>words[index].compareTo(words[minPos]) < 0</strong> </li>
+			</ul>
+		</li>
+
+		<li>
+			<p>Consider the following class:</p>
+			<pre>
+	public class IntCell
+	{
+		private int value;
+		public int getValue()
+		{
+			return value;
+		}
+		public String toString()
+		{
+			return "" + value;
+		}
+	}</pre>
+			<p>Assume that the following code segment appears in client code:</p>
+			<pre>
+	IntCell m = new IntCell();</pre>
+			<p>Which of these statements can be used in the client class?</p>
+			<p>I. System.out.println(m.getValue());<br>
+			II. System.out.println(m.value);<br>
+			III. System.out.println(m);</p>
+			<ul>
+				<li>III only</li>
+				<li>I an II</li>
+				<li>I only</li>
+				<li>II only</li>
+				<li><strong>I and III</strong> </li>
+			</ul>
+		</li>
+
+		<li>
+			<p>Consider the following classes:</p>
+			<pre>
+	public class Base
+	{
+		private int x;
+		public void setX(int n)
+		{
+			x = n;
+		}
+		// other methods not shown
+	}
+	public class Derived extends Base
+	{
+		private int y;
+		public void setY(int n)
+		{
+			y = n;
+		}
+		// other methods not shown
+	}</pre>
+			<p>Assume that the following statement appears in a client program:</p>
+			<pre>
+	Base item = new Derived();</pre>
+			<p>Which of the following statements will compile?</p>
+			<p>I. item.y = 16;<br>
+			II. item.setY(16);<br>
+			III. item.setX(25);</p>
+			<ul>
+				<li><strong>III</strong> </li>
+				<li>I and III</li>
+				<li>I only</li>
+				<li>II only</li>
+				<li>II and III</li>
+			</ul>
+		</li>
+
+		<li>
+			<p>Assume that obj1 and obj2 are object references. Which of the following best describes when the expression obj1 == obj2 is true?</p>
+			<ul>
+				<li>When obj1 and obj2 refer to objects that contain the same data.</li>
+				<li><strong>When obj1 and obj2 refer to the same object.</strong> </li>
+				<li>When obj1 and obj2 are defined within the same method.</li>
+				<li>When obj1 and obj2 are instances of the same class.</li>
+				<li>When obj1 and obj2 are private class variables defined in the same class.</li>
+			</ul>
+		</li>
+
+		<li>
+			<p>A bear is an animal and a zoo contains many animals, including bears. Three classes, Animal, Bear, and Zoo are declared to represent animal, bear, and zoo objects. Which of the following is the most appropriate set of class declarations to represent these relationships?</p>
+			<ul>
+				<li>public abstract class Animal {. . .}<br>
+					public class Zoo extends Animal {<br>
+							private Animal myBear; . . .<br>
+					}</li>
+				<li>public abstract class Animal {. . .}<br>
+					public class Bear extends Animal {. . .}<br>
+					public class Zoo {<br>
+							 private Bear[] animals; . . .<br>
+					}</li>
+				<li>public abstract class Bear {. . .}<br>
+					public class Animal extends Bear {. . .}<br>
+					public class Zoo {<br>
+						private Animal[] animals; . . .<br>
+					}</li>
+				<li>public abstract class Animal {. . .}<br>
+					public class Bear implements Animal {. . .}<br>
+					public class Zoo {<br>
+							 private Animal[] animals; . . .<br>
+					}</li>
+				<li><strong>public abstract class Animal {. . .}<br>
+					public class Bear extends Animal {. . .}<br>
+					public class Zoo {<br>
+						private Animal[] animals; . . . }</strong> </li>
+			</ul>
+		</li>
+
+		<li>
+			<p>Consider the following abstract class:</p>
+			<pre>
+	public abstract class Ticket
+	{
+		private String eventName;
+		public Ticket(String event)
+		{
+			eventName = event;
+		}
+		public abstract double getPrice();
+		//other methods not shown
+	}</pre>
+			<p>Which of the following class headers would create an AdvanceTicket class that inherits from the Ticket class?</p>
+			<ul>
+				<li>public class AdvanceTicket implements Ticket</li>
+				<li>public class Ticket extends AdvanceTicket</li>
+				<li>public class AdvanceTicket</li>
+				<li><strong>public class AdvanceTicket extends Ticket</strong> </li>
+				<li>public class Ticket implements AdvanceTicket</li>
+			</ul>
+		</li>
+
+		<li>
+			<p>Assume that the AdvanceTicket class inherits from the Ticket class, and the following constructor has been created and properly implemented:</p>
+			<pre>
+	public AdvanceTicket(String event, int daysInAdvance)</pre>
+			<p>Which of the following will compile without error?</p>
+			<p>I. Ticket t1 = new Ticket("Frozen on Ice");<br>
+			II. AdvanceTicket t1 = new AdvanceTicket("Frozen on Ice", 15);<br>
+			III. Ticket t1 = new AdvanceTicket("Frozen on Ice", 15);</p>
+			<ul>
+				<li>III only</li>
+				<li>I and II</li>
+				<li>I only</li>
+				<li>II Only</li>
+				<li><strong>II and III</strong> </li>
+			</ul>
+		</li>
+
+		<li>
+			<p>If the AdvanceTicket class inherits from the Ticket class, which of the following statements are true?</p>
+			<p>I. AdvanceTicket must implement the getPrice method or be declared abstract.<br>
+			II. AdvanceTicket must create a constructor that calls the Ticket constructor using the super constructor call.<br>
+			III. AdvanceTicket can override any of the inherited Ticket methods.</p>
+			<ul>
+				<li>III only</li>
+				<li>I and II only</li>
+				<li>I only</li>
+				<li>II only</li>
+				<li><strong>I, II, and III</strong> </li>
+			</ul>
+		</li>
+
+		<li>
+			<p>Consider the following declarations:</p>
+			<pre>
+	public class Something
+	{
+		public String name()
+		{ /* code not shown */ }
+		public int value()
+		{ /* code not shown */ }
+	}
+	Something[] list = new Something[10];</pre>
+			<p>Assume that the elements of the array list have been initialized. Which of the following gives a reference to the name of the second item in list?</p>
+			<ul>
+				<li><strong>list[1].name()</strong> </li>
+				<li>name.list[1]</li>
+				<li>list.name(1)</li>
+				<li>list.name()[1]</li>
+				<li>name(list[1])</li>
+			</ul>
+		</li>
+
+		<li>
+			<p>Consider the following partial class declarations:</p>
+			<pre>
+	public abstract class RentalProperty
+	{
+		public double monthlyPayment()
+		{ /* implementation not shown */ }
+	}
+	public class HouseRental extends RentalProperty
+	{
+		public double monthlyPayment()
+		{ /* implementation*/ }
+	}</pre>
+			<p>The following code appears in a method in another class:</p>
+			<pre>
+	RentalProperty property = new HouseRental();
+	System.out.println(property.monthlyPayment());</pre>
+			<p>Which of the following is true?</p>
+			<ul>
+				<li><strong>The call to property.monthlyPayment() will execute the monthlyPayment method in HouseRental.</strong> </li>
+				<li>The abstract class RentalProperty will not compile.</li>
+				<li>The call to property.monthlyPayment() will first execute the monthlyPayment method in RentalProperty followed by the monthlyPayment method in HouseRental.</li>
+				<li>The call to property.monthlyPayment() will first execute the monthlyPayment method in HouseRental followed by the monthlyPayment method in RentalProperty.</li>
+				<li>The call to property.monthlyPayment() will cause a run-time error because the run-time will not know which monthlyPayment method to execute.</li>
+			</ul>
+		</li>
+
+		<li>
+			<p>Consider the following partial class declaration:</p>
+			<pre>
+	public class Student
+	{
+		private String myName;
+		private double myGPA;
+		public String getName()
+		{ return myName; }
+		public double getGPA()
+		{ return myGPA; }
+		// returns the name and GPA in string format
+		public String toString()
+		{
+			return StringExpression;
+		}
+		// constructors and other methods not shown
+	}</pre>
+			<p>Consider the following replacements for StringExpression:</p>
+			<p>I. myName + " " + myGPA;<br>
+			II. Student.name() + " " + Student.GPA();<br>
+			III. getName() + " " + getGPA();</p>
+			<p>Which of these replacements will make the method toString work as intended?</p>
+			<ul>
+				<li><strong>I and III only</strong> </li>
+				<li>II and III only</li>
+				<li>I only</li>
+				<li>I and II only</li>
+				<li>I, II, and III</li>
+			</ul>
+		</li>
+
+		<li>
+			<p>Consider the following classes:</p>
+			<pre>
+	public interface Item
+	{
+		double purchasePrice();
+	}
+	public abstract class TaxableItem implements Item
+	{
+		private double rate;
+		public TaxableItem(double r)
+		{
+			rate = r;
+		}
+		public double purchasePrice()
+		{ return (1 + rate) * getListPrice(); }
+		public abstract double getListPrice();
+		// Other methods not shown
+	}</pre>
+			<p>Which of the following class headers would create a Vehicle class that inherits from the TaxableItem class?</p>
+			<ul>
+				<li>public class Vehicle implements Item</li>
+				<li><strong>public class Vehicle extends TaxableItem</strong> </li>
+				<li>public class Vehicle</li>
+				<li>public class Vehicle extends Item</li>
+				<li>public class Vehicle implements TaxableItem</li>
+			</ul>
+		</li>
+
+		<li>
+			<p>Assume that the Vehicle class inherits from the TaxableItem class, and the following constructor has been created and properly implemented:</p>
+			<pre>public Vehicle(double dealerCost, double markup, double rate)</pre>
+			<p>Which of the following will compile without error?</p>
+			<p>I. Item car = new Vehicle(20000.0, 2500.0, .05);<br>
+			II. Vehicle car = new Vehicle(20000.0, 2500.0, .05);<br>
+			III. TaxableItem car = new Vehicle(20000.0, 2500.0, .05);</p>
+			<ul>
+				<li>III only</li>
+				<li>II and III only</li>
+				<li>I only</li>
+				<li>II only</li>
+				<li><strong>I, II and III</strong> </li>
+			</ul>
+		</li>
+
+		<li>
+			<p>If the Vehicle class inherits from the TaxableItem class, which of the following statements are true?</p>
+			<p>I. Vehicle must implement the getListPrice method or be declared abstract.<br>
+			II. Vehicle must have a constructor that calls the TaxableItem constructor using the super constructor call.<br>
+			III. Vehicle can override any of the inherited TaxableItem methods.</p>
+			<ul>
+				<li>III only</li>
+				<li>I and II only</li>
+				<li>I only</li>
+				<li>II only</li>
+				<li><strong>I, II, and III</strong> </li>
+			</ul>
+		</li>
+
+		<li>
+			<p>Consider the following classes:</p>
+			<pre>public interface Lockable {
+		boolean isLocked();
+		void setKey(int key);
+		void lock(int key);
+		void unlock(int key);
+	}
+	public class Account implements Lockable {
+		private double balance;
+		private int key;
+		private boolean locked;
+		public Account(double initAmount, int initKey)
+			{ /* implementation not shown */}
+		public void deposit(double money)
+			{ /* implementation not shown */}
+		// Other methods not shown
+	}</pre>
+			<p>Consider the following code:</p>
+			<pre>Lockable acct = new Account(1000.0, 1234);</pre>
+			<p>Which of the following statements will compile?</p>
+			<p>I. acct.setKey(12);<br>
+			II. acct.lock(12);<br>
+			III. acct.deposit(125.25);</p>
+			<ul>
+				<li>III only</li>
+				<li><strong>I and II only</strong> </li>
+				<li>I only</li>
+				<li>II only</li>
+				<li>I, II and III</li>
+			</ul>
+		</li>
+
+		<li>
+			<p>Assume that the variable numbers is an ArrayList&lt;Integer&gt;. Consider the following code segment:</p>
+			<pre>
+	boolean flag = false;
+	for (Integer val : numbers)
+	{
+		flag = flag || (val.intValue() > 0);
+	}</pre>
+			<p>Which of the following best describes what this code segment does?</p>
+			<ul>
+				<li>It sets flag to true if every value in numbers is positive.</li>
+				<li><strong>It sets flag to true if any value in numbers is positive.</strong> </li>
+				<li>It always sets flag to true.</li>
+				<li>It always sets flag to false.</li>
+				<li>It sets flag to true if the last value is positive.</li>
+			</ul>
+		</li>
+
+		<li>
+			<p>Consider the following two data structures for storing several million words:</p>
+			<p>I. An array of words, not in any particular order<br>
+			II. An array of words, sorted in alphabetical order – any operation on this structure must maintain alphabetical order</p>
+			<p>Which of the following statements most accurately describes the time needed for operations on these data structures?</p>
+			<ul>
+				<li><strong>Finding a given word is faster in II than in I.</strong> </li>
+				<li>Finding the longest word is faster in II than in I.</li>
+				<li>Inserting a word is faster in II than in I.</li>
+				<li>Finding a given word is faster in I than in II.</li>
+				<li>Finding the first word in alphabetical order is faster in I than in II.</li>
+			</ul>
+		</li>
+
+		<li>
+			<p>Consider the following method:</p>
+			<pre>public static int mystery(int a, int b)
+	{
+		if (a < b)
+			return a;
+		else
+			return b + mystery(a - 1, b + 1);
+	}</pre>
+			<p>What value does mystery(4, 2) return?</p>
+			<ul>
+				<li>4</li>
+				<li>3</li>
+				<li><strong>8</strong> </li>
+				<li>7</li>
+				<li>2</li>
+			</ul>
+		</li>
+
+		<li>
+			<p>Consider the following method:</p>
+			<pre>
+	public static int mystery(int a, int b)
+	{
+		if (a % b == 0)
+			return b;
+		else
+			return mystery(b, a % b);
+	}</pre>
+			<p>What value does mystery(111, 74) return?</p>
+			<ul>
+				<li>74</li>
+				<li>111</li>
+				<li>1</li>
+				<li><strong>37</strong> </li>
+				<li>222</li>
+			</ul>
+		</li>
+
+		<li>
+			<p>What does the following recursive method compute, if only positive parameters are passed to the method?</p>
+			<pre>
+	public int guess(int a, int b)
+	{
+		if (a == 0)
+			return 1;
+		else
+			return b * guess(a - 1, b);
+	}</pre>
+			<ul>
+				<li>a^b</li>
+				<li><strong>b^a</strong> </li>
+				<li>a + b</li>
+				<li>a*b</li>
+				<li>b!</li>
+			</ul>
+		</li>
+
+		<li>
+			<p>Consider the following method:</p>
+			<pre>
+	public static boolean guess(List<Integer> numbers, int index)
+	{
+		 if(index < 0)
+				return false;
+		 return numbers.get(index).intValue() > 0 || guess(numbers, index – 1) ;
+	}</pre>
+			<p>If nums is a List&lt;Integer&gt; and contains at least one integer value, which of the following best describes what the call to guess(nums, nums.size() – 1) will return?</p>
+			<ul>
+				<li>Method guess returns true if every value in numbers is positive.</li>
+				<li><strong>Method guess returns true if any value in numbers is positive.</strong> </li>
+				<li>Method guess always returns true.</li>
+				<li>Method guess always returns false.</li>
+				<li>Method guess returns false if any value in numbers is positive.</li>
+			</ul>
+		</li>
+
+		<li>
+			<p>Consider the following method:</p>
+			<pre>
+	public static int mystery(int num)
+	{
+		 if (num > 0)
+		 {
+				if (num / 10 % 2 == 0)
+					 return num;
+				return mystery(num / 10);
+		 }
+		 return num;
+	}</pre>
+			<p>What value is returned as a result of the call to mystery(1034)?</p>
+			<ul>
+				<li>34</li>
+				<li>103</li>
+				<li>4</li>
+				<li><strong>10</strong> </li>
+				<li>1034</li>
+			</ul>
+		</li>
+
+		<li>
+			<p>Consider the following recursive method:</p>
+			<pre>public static void mystery(String str) {
+		int len = str.length();
+		if (len > 1)
+		{
+			String temp = str.substring(0, len – 1);
+			mystery(temp);
+			System.out.println(temp);
+		}}</pre>
+			<p>What does mystery("WATCH") output?</p>
+			<ul>
+				<li>W<br>WA<br>WAT<br>WATC</li>
+				<li>W<br>WA<br>WAT<br>WATC<br>WATCH</li>
+				<li><strong>WATC<br>WAT<br>WA<br>W</strong> </li>
+				<li>WATCH<br>WATC<br>WAT<br>WA</li>
+				<li>WA<br>WAT<br>WATC<br>WATCH</li>
+			</ul>
+		</li>
+
+		<li>
+			<p>Consider the following recursive method (Extra Credit):</p>
+			<pre>
+	public static int huh(int n)
+	{
+		if (n <= 10)
+			return n * 2;
+		return huh(huh(n / 3));
+	}</pre>
+			<p>What does huh(27) return?</p>
+			<ul>
+				<li><strong>12</strong> </li>
+				<li>16</li>
+				<li>8</li>
+				<li>9</li>
+				<li>18</li>
+			</ul>
+		</li>
+
+		<li>
+			<p>Consider the following method:</p>
+			<pre>
+	public static int mystery(int[] arr, int low, int high, int target)
+	{
+		int mid = (low + high) / 2;
+		if (low > high)
+			return low;
+		if (target > arr[mid])
+			return mystery(arr, mid + 1, high, target);
+		if (target < arr[mid])
+			return mystery(arr, low, mid - 1, target);
+		return mid;
+	}</pre>
+			<p>How many calls to mystery (including the initial call) are made as a result of the call mystery(arr, 0, arr.length - 1, 14) if arr is the following array: [11, 13, 25, 26, 29, 30, 31, 32]?</p>
+			<ul>
+				<li><strong>4</strong> </li>
+				<li>7</li>
+				<li>1</li>
+				<li>2</li>
+				<li>8</li>
+			</ul>
+		</li>
+
+		<li>
+			<p>Consider the following method:</p>
+			<pre>
+	public static int mystery(int num)
+	{
+		 if (num > 0)
+		 {
+				if (num / 10 % 2 == 0)
+					 return num;
+				return mystery(num / 10);
+		 }
+		 return num;
+	}</pre>
+			<p>What value is returned as a result of the call to mystery(1034)?</p>
+			<ul>
+				<li>34</li>
+				<li>103</li>
+				<li>4</li>
+				<li><strong>10</strong> </li>
+				<li>1034</li>
+			</ul>
+		</li>
+	</ol>
+</body>
+</html>

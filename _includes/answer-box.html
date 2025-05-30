@@ -1,0 +1,7 @@
+<div class="question">
+    <div>
+        <b>Question</b>{{ include.question | markdownify }}
+    </div>
+    <button class="show-answer" onclick="toggleAnswer(this)">Show Answer</button>
+    <div class="answer-box">{{ include.content | markdownify }}</div>
+</div>

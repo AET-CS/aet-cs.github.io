@@ -1,0 +1,8 @@
+<!-- _includes/code-solution-box.html -->
+<div class="code-question">
+    <div class="code-skeleton">{{ include.skeleton | markdownify }}</div>
+
+    <div class="code-solution" style="display: none;">{{ include.solution | markdownify }}</div>
+
+    <button class="show-solution" onclick="toggleSolution(this)">Show Solution</button>
+</div>

@@ -1,0 +1,4 @@
+.DS_Store
+white/ML/data/cifar10_dataset/test/data-00000-of-00001.arrow
+white/ML/data/cifar10_dataset/train/data-00000-of-00001.arrow
+white/ML/data/cifar.tar.gz

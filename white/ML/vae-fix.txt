@@ -1,0 +1,31 @@
+IS_COLAB = "google.colab" in sys.modules
+if IS_COLAB:
+    import os
+    os.environ["TF_USE_LEGACY_KERAS"] = "1"
+    import tf_keras
+
+if you do the above, you don't need the below
+
+
+class VariationalAutoencoder(tf.keras.Model):
+    def __init__(self, variational_encoder, variational_decoder, **kwargs):
+        super().__init__(**kwargs)
+        self.variational_encoder = variational_encoder
+        self.variational_decoder = variational_decoder
+        self.encoder_input = tf.keras.layers.Input(shape=[28, 28])  # Define input layer
+
+    def call(self, inputs):
+        codings_mean, codings_log_var, codings = self.variational_encoder(inputs)
+        reconstructions = self.variational_decoder(codings)
+
+        # Calculate latent loss within the call method
+        latent_loss = -0.5 * tf.reduce_sum(
+            1 + codings_log_var - tf.square(codings_mean) - tf.exp(codings_log_var),
+            axis=-1
+        )
+        self.add_loss(tf.reduce_mean(latent_loss) / 784.)  # Add loss to the model
+
+        return reconstructions
+
+# Create and compile the VariationalAutoencoder model
+variational_ae = VariationalAutoencoder(variational_encoder, variational_decoder)

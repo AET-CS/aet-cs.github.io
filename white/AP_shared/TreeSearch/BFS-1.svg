@@ -1,0 +1,130 @@
+<svg width="500" height="680"
+    xmlns="http://www.w3.org/2000/svg">
+    <style>
+    .itemCircle {
+      stroke: black;
+      stroke-width: 1.5px;
+      fill: white;
+    }
+    .newCircle {
+      stroke: red;
+      stroke-width: 1.5px;
+      fill: white;
+    }
+    .popCircle {
+      stroke: blue;
+      stroke-width: 1.5px;
+      fill: white;
+    }
+    .itemText {
+      font-family: Arial, Helvetica, sans-serif;
+      text-anchor: middle;
+      dominant-baseline: middle; /* For better vertical centering */
+      fill: black;
+    }
+    .specialText { /* For etc. */
+      font-family: Arial, Helvetica, sans-serif;
+      font-size: 14px;
+      font-weight: bold;
+      text-anchor: middle;
+      dominant-baseline: middle;
+      fill: #333; /* Slightly different color for etc */
+    }
+    </style>
+
+
+    <circle cx="220.5" cy="45" r="22" class="newCircle"/>
+    <text x="220.5" y="45" class="itemText" style="font-size: 14px;">A</text>
+    <circle cx="279.5" cy="45" r="22" class="newCircle"/>
+    <text x="279.5" y="45" class="itemText" style="font-size: 14px;">B</text>
+    <circle cx="338.5" cy="45" r="22" class="newCircle"/>
+    <text x="338.5" y="45" class="itemText" style="font-size: 14px;">C</text>
+
+    <circle cx="191.0" cy="114" r="22" class="popCircle"/>
+    <text x="191.0" y="114" class="itemText" style="font-size: 12px;">B</text>
+    <circle cx="250.0" cy="114" r="22" class="itemCircle"/>
+    <text x="250.0" y="114" class="itemText" style="font-size: 12px;">C</text>
+    <circle cx="309.0" cy="114" r="22" class="newCircle"/>
+    <text x="309.0" y="114" class="itemText" style="font-size: 12px;">AB</text>
+    <circle cx="360.0" cy="114" r="22" class="newCircle"/>
+    <text x="360.0" y="114" class="itemText" style="font-size: 12px;">AC</text>
+
+    <circle cx="132.0" cy="183" r="22" class="popCircle"/>
+    <text x="132.0" y="183" class="itemText" style="font-size: 14px;">C</text>
+    <circle cx="191.0" cy="183" r="22" class="itemCircle"/>
+    <text x="191.0" y="183" class="itemText" style="font-size: 12px;">AB</text>
+    <circle cx="250.0" cy="183" r="22" class="itemCircle"/>
+    <text x="250.0" y="183" class="itemText" style="font-size: 12px;">AC</text>
+    <circle cx="309.0" cy="183" r="22" class="newCircle"/>
+    <text x="309.0" y="183" class="itemText" style="font-size: 12px;">BA</text>
+    <circle cx="368.0" cy="183" r="22" class="newCircle"/>
+    <text x="368.0" y="183" class="itemText" style="font-size: 12px;">BC</text>
+
+    <circle cx="102.5" cy="252" r="22" class="popCircle"/>
+    <text x="102.5" y="252" class="itemText" style="font-size: 12px;">AB</text>
+    <circle cx="161.5" cy="252" r="22" class="itemCircle"/>
+    <text x="161.5" y="252" class="itemText" style="font-size: 12px;">AC</text>
+    <circle cx="220.5" cy="252" r="22" class="itemCircle"/>
+    <text x="220.5" y="252" class="itemText" style="font-size: 12px;">BA</text>
+    <circle cx="279.5" cy="252" r="22" class="itemCircle"/>
+    <text x="279.5" y="252" class="itemText" style="font-size: 12px;">BC</text>
+    <circle cx="338.5" cy="252" r="22" class="newCircle"/>
+    <text x="338.5" y="252" class="itemText" style="font-size: 12px;">CA</text>
+    <circle cx="397.5" cy="252" r="22" class="newCircle"/>
+    <text x="397.5" y="252" class="itemText" style="font-size: 12px;">CB</text>
+
+    <circle cx="102.5" cy="321" r="22" class="popCircle"/>
+    <text x="102.5" y="321" class="itemText" style="font-size: 12px;">AC</text>
+    <circle cx="161.5" cy="321" r="22" class="itemCircle"/>
+    <text x="161.5" y="321" class="itemText" style="font-size: 12px;">BA</text>
+    <circle cx="220.5" cy="321" r="22" class="itemCircle"/>
+    <text x="220.5" y="321" class="itemText" style="font-size: 12px;">BC</text>
+    <circle cx="279.5" cy="321" r="22" class="itemCircle"/>
+    <text x="279.5" y="321" class="itemText" style="font-size: 12px;">CA</text>
+    <circle cx="338.5" cy="321" r="22" class="itemCircle"/>
+    <text x="338.5" y="321" class="itemText" style="font-size: 12px;">CB</text>
+    <circle cx="397.5" cy="321" r="22" class="newCircle"/>
+    <text x="397.5" y="321" class="itemText" style="font-size: 11px;">ABC</text>
+
+    <circle cx="102.5" cy="390" r="22" class="popCircle"/>
+    <text x="102.5" y="390" class="itemText" style="font-size: 12px;">BA</text>
+    <circle cx="161.5" cy="390" r="22" class="itemCircle"/>
+    <text x="161.5" y="390" class="itemText" style="font-size: 12px;">BC</text>
+    <circle cx="220.5" cy="390" r="22" class="itemCircle"/>
+    <text x="220.5" y="390" class="itemText" style="font-size: 12px;">CA</text>
+    <circle cx="279.5" cy="390" r="22" class="itemCircle"/>
+    <text x="279.5" y="390" class="itemText" style="font-size: 12px;">CB</text>
+    <circle cx="338.5" cy="390" r="22" class="itemCircle"/>
+    <text x="338.5" y="390" class="itemText" style="font-size: 11px;">ABC</text>
+    <circle cx="397.5" cy="390" r="22" class="newCircle"/>
+    <text x="397.5" y="390" class="itemText" style="font-size: 11px;">ACB</text>
+
+    <circle cx="102.5" cy="459" r="22" class="popCircle"/>
+    <text x="102.5" y="459" class="itemText" style="font-size: 12px;">BC</text>
+    <circle cx="161.5" cy="459" r="22" class="itemCircle"/>
+    <text x="161.5" y="459" class="itemText" style="font-size: 12px;">CA</text>
+    <circle cx="220.5" cy="459" r="22" class="itemCircle"/>
+    <text x="220.5" y="459" class="itemText" style="font-size: 12px;">CB</text>
+    <circle cx="279.5" cy="459" r="22" class="itemCircle"/>
+    <text x="279.5" y="459" class="itemText" style="font-size: 11px;">ABC</text>
+    <circle cx="338.5" cy="459" r="22" class="itemCircle"/>
+    <text x="338.5" y="459" class="itemText" style="font-size: 11px;">ACB</text>
+    <circle cx="397.5" cy="459" r="22" class="newCircle"/>
+    <text x="397.5" y="459" class="itemText" style="font-size: 11px;">BAC</text>
+
+    <text x="250" y="528" class="specialText">etc.</text>
+
+    <circle cx="102.5" cy="597" r="22" class="popCircle"/>
+    <text x="102.5" y="597" class="itemText" style="font-size: 11px;">ABC</text>
+    <circle cx="161.5" cy="597" r="22" class="itemCircle"/>
+    <text x="161.5" y="597" class="itemText" style="font-size: 11px;">ACB</text>
+    <circle cx="220.5" cy="597" r="22" class="itemCircle"/>
+    <text x="220.5" y="597" class="itemText" style="font-size: 11px;">BAC</text>
+    <circle cx="279.5" cy="597" r="22" class="itemCircle"/>
+    <text x="279.5" y="597" class="itemText" style="font-size: 11px;">BCA</text>
+    <circle cx="338.5" cy="597" r="22" class="itemCircle"/>
+    <text x="338.5" y="597" class="itemText" style="font-size: 11px;">CAB</text>
+    <circle cx="397.5" cy="597" r="22" class="newCircle"/>
+    <text x="397.5" y="597" class="itemText" style="font-size: 11px;">CBA</text>
+
+</svg>

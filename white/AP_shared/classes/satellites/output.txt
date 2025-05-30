@@ -1,0 +1,22 @@
+Solar System Objects:
+Earth (Planet) - Period: 365.3 days
+Orbital velocity: 89.35 km/s
+
+Mars (Planet) - Period: 687.0 days
+Orbital velocity: 63.34 km/s
+
+Luna (Moon of Earth) - Period: 27.3 days
+Orbital velocity: 119.55 km/s
+
+Phobos (Moon of Mars) - Period: 0.3 days
+Orbital velocity: 13599.02 km/s
+
+Ceres (Asteroid (rocky)) - Period: 1683.0 days
+Orbital velocity: 17.45 km/s
+
+Vesta (Asteroid (metallic)) - Period: 1325.0 days
+Orbital velocity: 22.17 km/s
+
+Moons only:
+Luna
+Phobos

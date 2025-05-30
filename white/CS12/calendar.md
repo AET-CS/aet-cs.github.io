@@ -1,0 +1,60 @@
+---
+title: "CS 12 Calendar"
+layout: single
+classes:
+  - wide
+---
+(Old calendar [here](./sem01.md))
+
+- 4/3 (Thursday)
+	- MC4 Practice on Schoology
+	- Turn in Queue today using  this [driver file](../AP_shared/Queue/QueueDriver.java) posted on 4/1. Turn in the whole folder. Be sure push AND pop are fast!
+	- New project [Calculator](../AP_shared/Calculator/calculator-instructions.html) and [files](../AP_shared/Calculator.zip). Due Friday 4/11 (Phase 1, 2, extension)
+- 4/9 (Wednesday)
+	- MC5 Practice on Schoology
+	- FRQ "April 9" on AP Classroom. Score yourself. Completion grade for thorough work.
+	- Check out [this site I made](https://javadrop-io-019d03a56736.herokuapp.com/) and submit your Stack assignment to it (for practice, not a grade).
+	- Calculator is due next class. Only LEFT-to-RIGHT precedence, plus all basic functions (decimal point, backspace, clear, equals)
+- 4/11 (Friday!)
+	- MC6 Practice on Schoology
+	- FRQ Practice "Candy" on [JavaDrop](https://javadrop-io-019d03a56736.herokuapp.com/). Click on FRQ practice and submit your solution in the code widget.
+	- Calculator due today on [JavaDrop](https://javadrop-io-019d03a56736.herokuapp.com/) by end of class.
+	- MC review in class (solution posted soon)
+- SPRING BREAK
+- 4/22 (Tuesday)
+	- MC7 Practice on Schoology
+	- (From December, for review) Notes on inheritance and polymorphism [worksheet](../AP_shared/classes/TrickyPolymorphism.pdf) and [key](../AP_shared/classes/TrickyPolymorphismAnswers.pdf)
+	- Reset your password on [JavaDrop](https://javadrop-io-019d03a56736.herokuapp.com/) (aka [javadrop.io](https://javadrop.io))
+	- Look at FRQ: 2024 #1 (BirdFeeder) and #2 (ScoreBoard)
+	- MC TEST MONDAY 4/28. Review all MC* warmups and the old MC test in AP Classroom!
+	- FRQ TEST FRIDAY 5/2. Lots of problems coming online on JavaDrop.
+	- AP TEST Wed 5/7
+- 4/24 (Thursday)
+	- MC8 Practice on Schoology
+	- [Recursion practice questions](../AP_shared/monster2.pdf)
+	- FRQ practice on javadrop.io -- focus on ArrayLists and Arrays
+	- MC Test next class.
+	- Review all the MC warmups [here](../AP_shared/quiz.html)
+- 4/28 (Monday)
+    - MC Practice Test
+- 4/30 (Wednesday)
+    - AP Review
+    - Go over MC questions (results on AP classroom)
+    - FRQ test next class, practice problems on [JavaDrop](https://javadrop-io-019d03a56736.herokuapp.com/) (aka [javadrop.io](https://javadrop.io))
+- 5/2 (Friday)
+    - FRQ Test in class
+- 5/6 (Tuesday)
+    - Verify you can log in to BlueBook
+    - Memorize your password!
+    - AP TEST TOMORROW. Review on [JavaDrop](https://javadrop-io-019d03a56736.herokuapp.com/). GOOD LUCK
+- 5/12 (Monday)
+    - Notes on Binary Trees (here's some examples [online](https://courses.grainger.illinois.edu/cs225/sp2019/notes/bst/))
+    - [Binary Tree Assignment](../AP_shared/BinaryTree/binary-tree-1.pdf) due in class (submit to JavaDrop)
+    - [BinaryTree Tester Day 1](../AP_shared/BinaryTree/BinaryTreeTesterDay1.java)
+- 5/14 (Wednesday)
+    - AP something or other test
+- 5/16 (Friday!)
+    - Binary trees Day 2: FindMin, Delete, Find
+    - Add these methods to your code: FindMin returns an int, Delete returns void, Find returns boolean
+    - Make your own tester and then test with supplied [BinaryTreeTester.java](../AP_shared/BinaryTree/BinaryTreeTester.java)
+    - Submit on JavaDrop (Binary Day 2)

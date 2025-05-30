@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>{{ page.title }}</title>
+        <link rel="stylesheet" href="{{ '/assets/css/style.css' | relative_url }}">
+
+        <!-- MathJax or KaTeX script for rendering LaTeX -->
+        <script type="text/javascript" async src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/3.2.0/es5/tex-mml-chtml.js">
+        </script>
+    </head>
+    <body>
+        <header>
+            <h1>Title: {{ site.title }}</h1>
+        </header>
+
+        <main>
+            {{ content }}
+        </main>
+
+        <footer>
+            <p>&copy; {{ site.time | date: "%Y" }} {{ site.title }}</p>
+        </footer>
+
+        <script src="{{ '/assets/js/answer-boxes.js' | relative_url }}"></script>
+    </body>
+</html>
+
+
+<!---
+Note: this layout becomes active iff you include the line
+layout: defaults between the --- ---
+lines at the front of your .md file
+
+This file is bare bones and should probably
+never be used
+
+But it is proof that, at least with this
+github pages/jekyll/minimalmistakes
+templating setup,
+you can create your own layouts -->

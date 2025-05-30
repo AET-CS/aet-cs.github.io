@@ -1,0 +1,133 @@
+---
+title: "CS10 Calendar, Semester 1"
+layout: single
+classes:
+  - wide
+---
+
+- 8/23/24: Intro to class. We reviewed the class webpage, yearly curriculum, grading and homework policies. Everybody ran "Hello World" to make sure their laptop is OK and we did some `codingbat` problem. Finally we worked on some coding challenges in groups. [Day 1 Coding Challenges](day01.md)
+
+- 8/27/24: Check your coding challenge solutions with these files [Longest Prefix](../code/LongestPrefix.java) -- [String to Integer](../code/AtoIProblem.java)-- [Roman Numeral](../code/RomanToInt.java) -- [Reverse Integer](../code/ReverseInt.java). Run the file in your local IDE and provide the solution where it's asked for.
+  **Homework:** Finish all four problems and bring your solutions to class. If you can't solve one, come with code and precise questions so you can get help.
+
+- 8/29/24: ~~Go over coding challenge problems in class~~. Begin lesson on boolean algebra and truth tables. Work through the problems on the [Boolean Algebra Worksheet](./boolean.pdf). **HW** Finish boolean worksheet (doesn't need to be typed). Do the circuit simulation online if you can figure out the website! If not, we'll look at it next class.
+
+- 9/4/24 (Wednesday): Go over 4 coding challenge problems in class. Review Boolean Algebra homework. DeMorgan's Laws. New coding project: [Truth Tables](../AP_shared/truth-tables.md) You will need [this parser](../code/BooleanExpressionParser.java) to complete part 4.
+
+- 9/6/24 (Friday): Continue working on Truth Tables in class.
+
+- 9/10/24 (Tuesday): Finish and turn in Truth Tables. Work on [Credit Card](../AP_shared/Credit_Card_Validation.pdf) In class work on [Coding Bat Arrays 2](https://codingbat.com/java/Array-2) or [Coding Bat Arrays 3](https://codingbat.com/java/Array-2)
+  - test case `(!D || !A) && (!B || C || !C)`
+- 9/12/24(Thursday) Benchmark practice AP test in class
+- 9/16/24(Monday) Array practice. Review classes. In class do CodingBat array level 2 problems. Class design for a dog, cat, animal set of classes. Turn in Truth Table or Credit Card today if finished. *Show me* truth table if you didn't already and it's done. Quiz Friday!!
+- 9/18/24 (Wednesday) No school!
+- 9/20/24 (Friday) No school!
+- 9/24/24 (Tuesday) School! But Dr. White is out today. There is a quiz review on AP Classroom [there's also a pdf here](../AP_shared/Quiz_Review_1.pdf). It's set up as a test, but it will not be graded as a test. It's just for review. Also the FRQ questions might not work (like on the benchmark) so please feel free to do those on paper or in another app. You do not need to turn in the FRQ. Please work through review today; feel free to collaborate. I'll push the quiz again to next Monday so we can have some face time Thursday before. We'll also start our next lab Thursday.
+    - Quiz topics: Booleans, conditionals, simplifying boolean expressions, basic arithmetic, order of precedence, doubles and ints, div and mod, tracing for loops, simple arrays, writing class definitions, constructors, getters and setters, class methods, toString methods. This should all be review from last year and related to our classwork.
+    - HW: Review for quiz
+- 9/26/24 (Thursday) Answers to [quiz review posted here](../AP_shared/Review_1_key.pdf). Quiz next class. Will consist of MC and FRQ questions. Be sure you can write loops/conditionals/classes from scratch.
+**Please install Schoology Lockdown Browser** if you haven't already!
+- 9/30/24 (Monday) Quiz today! After quiz you may begin [Pig latin lab](../AP_shared/PigLatin-2024.pdf). Create one java file PigLatin.java with a main method to preform the transformations. For now stop at STEP 2 (parsing a file).
+
+- 10/2/24 (Wednesday) PSAT day. Please check SCHOOLOGY for your room assignments and seat number. Report to 2312 first for attendance. In class, we have a few quick things
+	- Read about [strings](../AP_shared/strings.md)
+	- Read about [scanners](../AP_shared/scanners.md)
+	- Turn in any missing work! (if you need to show me TruthTables, use [this test case](../AP_shared/true-check.md))
+	- Next class: Show me Credit Card
+	- Classwork: write [helper classes for PigLatin](../AP_shared/pig-helper.md)
+	- Current Project: Pig Latin parts 1 and 2 (there is no shell code file provided)
+- 10/8/24 (Tuesday) Strings and Scanners: PigLatin
+	- Read about strings and scanners (see last class)
+	- Be prepared to show me credit card running on your laptop. Pick any test case you want.
+	- Today in class everyone will finish part 1 of PigLatin, using my helper methods. Your code will
+		- Read in a file "PigLatin.txt" with one word per line
+		- Convert all words to pig latin
+		- Write each word out to a new file "PigLatinOut.txt"
+		- Name your file "PigLatin.java" and upload it to the raspberry pi today!
+		- Go on to parts 2/3 if you finish. 2 is required. 3 will be the optional bonus for an A+.
+- 10/10/24 (Thursday) Finish [Pig latin lab](../AP_shared/PigLatin-2024.pdf). The clarified assignment is
+	- Part 1 Step 1
+	- Part 1 Step 2
+	- Part 1 Step 3 is OPTIONAL/BONUS
+	- Part 2 is required (read file)
+	- Due at end of class
+	- [File for testing](../AP_shared/PigLatin.txt) and [Bonus File](../AP_shared/PigLatinBonus.txt)
+- 10/15/24 (Tuesday) Strings review and practice.
+	- do 5 CodingBat String level 1
+	- take practice quiz on AP classroom "String Practice"
+	- Read [bad solution to PigLatin](../AP_shared/badpig.md) and figure out what each line does.
+- 10/17/24 (Thursday). String review and practice
+	- A quick review of [array lists](../AP_shared/ArrayListReview.md)
+	- Try [this practice on delimiters](https://runestone.academy/ns/books/published/csawesome/Unit7-ArrayList/2019delimitersQ3a.html)
+	- Next try [this on word gaps](https://runestone.academy/ns/books/published/csawesome/Unit7-ArrayList/2016freeresponseQ4A.html)
+	- Word through these [multiple choice questions](https://runestone.academy/ns/books/published/csawesome/Unit2-Using-Objects/Exercises.html)
+	- Join JuiceMind class [at this link](https://play.juicemind.com/joinTeam/AlmsaQ9ynDpIwIgwhGuM) and work on **FRQ Word Match**
+	- CodingBat, String-2: endOther, catDog, countCode, xyBalance, plusOut
+	- Quiz next Wednesday, focus on Strings
+	- AP JOIN CODES [for the test](../AP_shared/apcodes.md)
+- 10/21/24 (Monday) Begin arrays and array lists unit
+  - Helpful review material for [arrays](../AP_shared/Unit_2/Array_Basics_Labs/Array_Review_Notes.docx)
+  - CodingBat Warmups -- [tripleUp](https://codingbat.com/prob/p137874), [shiftLeft](https://codingbat.com/prob/p105031), [tenRun](https://codingbat.com/prob/p199484), [zeroMax](https://codingbat.com/prob/p187050)
+  - New Lab: [Heat Map Lab](../AP_shared/Unit_2/Heat_Map/Heat_Map.pdf) and [Example File](../AP_shared/Unit_2/Heat_Map/Dispersion_Example.pdf). Use this [shell code](../AP_shared/Unit_2/Heat_Map/HeatMap.java)
+  - Work on all the above in class in the given order. You may also spend time reviewing strings. See previous days for MC and FRQ practice. There should be plenty!
+- 10/23/24 (Wednesday) **Strings Quiz** MC and FRQ
+- 10/25/24 (Friday) Quiz graded and returned. Turn in any missing work! Work on HeatMap project (due after break). *Retake* in class on Tuesday for either quiz this quarter. Email me with any questions!
+- 11/13/24 (Wednesday)
+  - Join JuiceMind class [at this link](https://play.juicemind.com/joinTeam/AlmsaQ9ynDpIwIgwhGuM) and work on **Traverse Arrays**
+  - Notes on Array Methods
+  - Quiz next class over arrays and heatmap!
+  - JuiceMind local copy is [here](../AP_shared/array-juice.txt) and [here](../AP_shared/ArrayMain.java)
+  - Volunteer Opportunity [sign up list](../AP_shared/volunteer.md)
+- 11/15/24 (Friday)
+  - Array Checkpoint Quiz (	findMax, findMin, argMax, argMin, count, findFirst, findSecondLargest, plus HeatMap)
+  - Finish JuiceMind and upload code to server (or JuiceMind)
+  - Finish ArrayMethods (findMax, findMin, argMax, argMin, count, findFirst, findSecondLargest, findClosest, findClosestPair, swap) and upload to server
+  - CodingBat; Array2: bigDiff, sum28, has22, has12
+- 11/19/24 (Tuesday)
+  - Turn in JuiceMind and ArrayMethods (late today)
+  - Notes on [1D array problems](../AP_shared/arrays/array-practice-problems.pdf)
+  - Array Checkpoint **Quiz 2** next class (study array notes on 1D arrays)
+  - **Test** next Monday (1D and 2D arrays)
+  - **Array Review Progress check #6** on AP Classroom (optional review)
+  - [Answer Key](../AP_shared/arrays/ArrayPractice.java) to class notes. Study this for the quiz (don't memorize, just understand because these are good array examples. Also compare to your solutions)
+  - If you want to *run* my sample code and get the assertions to work you need to pass "-ea" argument to the java executable. How to do this depends on your IDE. You can probably google it pretty easily!
+- 11/21/24 (Thursday)
+  - Array Checkpoint Quiz 2 on Schoology
+  - Practice FRQs: [FRQ1](../AP_shared/arrays/frq1.md) [FRQ2](../AP_shared/arrays/frq2.md)  [key2](../AP_shared/arrays/frq2-key.md) [key1](../AP_shared/arrays/frq1-key.md)
+- 11/25/24 (Monday)
+	- Array Test!
+- 12/2/24 (Monday)
+  - AP Classroom Array Checkpoint (complete in class)
+  - Write and test Student class [Student.java](../AP_shared/classes/Student.java) and [StudentTester.java](../AP_shared/classes/StudentTester.java).
+  - Here's a sample class for reference [Spaceship.java](../AP_shared/classes/Spaceship.java)
+- 12/4/24 (Wednesday)
+	- Advisory today
+	- Topic: classes, inheritance, polymorphism
+	- In class assignment: [Pets](../AP_shared/classes/pets/pet-assignment.md). Must be uploaded in class for credit.
+	- Quiz next class over classes, objects, inheritance
+	- AP Classroom practice quizzes: TBD
+- 12/6/24 (Friday)
+  - Dr. White absent
+  - Quiz postponed to next class over classes, objects, inheritance
+  - Check your grading feedback on the last 2 assignments (can be found on the server). You can resubmit if your code didn't compile or was incomplete.
+  - Classwork: [Shapes](../AP_shared/classes/shape-assignment.md). Practice writing classes. Due end  of next class (may not be able to do all of this yet but you can do most)
+  - If you are caught up on old work you can do work for another class if you would like.
+- 12/10/24 (Tuesday)
+  - Challenge Day [signup](https://forms.gle/41PQSwBA4aKGom2w6)
+  - Notes on array lists: [notes](../AP_shared/ArrayLists/arraylist-intro.md)
+  - Practice worksheet: [array list practice](../AP_shared/ArrayLists/arraylist-practice.md) ... [key](../AP_shared/ArrayLists/array-list-practice-key.md)
+  - About primitive types: [array list with primitive types](../AP_shared/ArrayLists/arraylist-primitives.md)
+  - Lab [array list lab](../AP_shared/ArrayLists/arraylist-lab.md) **this is not an assignment, just an example**
+  - Inheritance Example: [Satellites class](../AP_shared/classes/Satellite.java) .. [key](../AP_shared/classes/satellites/output.txt)
+  - See ArrayList practice quiz on AP Classroom
+- 12/12/24 (Thursday)
+  - ArrayList Quiz today
+  - Notes on inheritance and polymorphism [worksheet](../AP_shared/classes/TrickyPolymorphism.pdf) and [key](../AP_shared/classes/TrickyPolymorphismAnswers.pdf)
+  - Last day to submit labs
+  - Test next block over arraylists and classes, inheritance, polymorphism
+  - See AP classroom for practice
+- 12/16/24 (Monday)
+	- Test over ArrayList and classes, inheritance, polymorphism
+- 12/18/24 (Wednesday)
+	- Catch up day for labs, tests, etc
+	- See your [challenge day assignment](https://docs.google.com/spreadsheets/d/1Su-Ao_siBHSwqjesgUcGwGYI00FuA8T2jKwVc-L5iIo/edit?usp=sharing)

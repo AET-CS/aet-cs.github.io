@@ -92,3 +92,8 @@ classes:
 	- Get files here [eightpuzzle](../AP_shared/EightPuzzle/eightpuzzle.zip)
 	- Unzip into a new folder and compile your project. It will run already, without 'solve'
 	- Work on Eight Puzzle assignment. Due in 1 week to javadrop. (Submit all java files and a brief reflection)
+- 6/2 (Monday)
+    - More notes on 8 puzzle including Nodes, and visited sets
+    - Read up on the Set API in Java
+    - Here's some [testing code](../AP_shared/EightPuzzle/PuzzleSolverTest.java) for your solver class (all but BFS)
+    - get Solver helper methods working by Wednesday if possible, then finish BFS in the next couple days

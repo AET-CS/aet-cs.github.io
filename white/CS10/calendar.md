@@ -97,3 +97,10 @@ classes:
     - Read up on the Set API in Java
     - Here's some [testing code](../AP_shared/EightPuzzle/PuzzleSolverTest.java) for your solver class (all but BFS)
     - get Solver helper methods working by Wednesday if possible, then finish BFS in the next couple days
+- 6/4 (Wed)
+    - Continue work on 8 puzzle
+- 6/6 (Fri)
+    - Submit the helper methods on java drop. Use this [testing code](../AP_shared/EightPuzzle/PuzzleSolverTest.java) from Monday to test.
+    - Here's a [BFS Tester](../AP_shared/EightPuzzle/PuzzleSolverBFSTest.java) to see if your BFS is getting optimal answers.
+    - Whole program due next Tuesday
+    - QUIZ next Tuesday over all recent tree quizzes

@@ -8,6 +8,5 @@ classes:
 
 ## Dr. White's Classes
 
-  * [Junior Research: Machine Learning](white/ML/index.md)
-  * [AET Computer Science 2, 5th Block](white/CS10/index.md)
-  * [AET Computer Science 2, 6th Block](white/CS12/index.md)
+  * [Junior Research: Machine Learning](2025/white/ML/index.md)
+  * [Senior Research](2025/white/research/index.md)

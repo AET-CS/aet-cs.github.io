@@ -2,24 +2,28 @@
 
 - Week 1
     - Install software (jupyter, intellij, colab, etc)
-
 - Week 2
     - Intro to pandas using weather datasets (Leesburg and London)
     - Baye's Theorem
     - Goodness of Fit for categorical data
+    - Core understanding: How to assess a categorical model (and the shortcomings of 'accuracy')
 - Week 3
     - Into to numpy
     - Linear Regression (computing coefficients from scratch)
     - Goodness of Fit for numerical data
+    - Core understanding: How to assess a numerical model (and the ambiguity of 'correlation')
 - Week 4
     - Matrix Operations
     - Coding matrix arithmetic in python and numpy
+    - Core understanding: numpy operations, review of matrix operations
 - Week 5
     - Running Time analysis of Matrix multiply
     - Types of regression (linear, log-linear, log-log)
+    - Core understanding: How to select and analyze a regression model
 - Week 6
     - Research topics
     - Book club
+    - Core understanding: coming up with research ideas, learning about your area
 - Week 7
     - PSAT?
     - Movable / free week
@@ -27,11 +31,13 @@
     - Begin sci-kit learn
     - Mushroom dataset
     - Overview of several ML algorithms
+    - Core understanding: Various types of ML algorithms, basics of EDA and modeling, goodness of fit, hyper-parameters
 - Week 9
     - Deep dive into Linear Regression
     - Life Expectancy dataset
     - Correlated variables, multi-linear regression, normalization and regularization
     - Interpreting linear coefficients
+    - Core understanding: Finding a best linear regression, removing correlated variables, interpreting results, strength of correlations between observations and effects
 - Week 10
     - Finish Linear Reg
     - Introduce Principal Component Analysis

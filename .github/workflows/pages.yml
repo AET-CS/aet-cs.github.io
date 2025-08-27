@@ -34,9 +34,14 @@ jobs:
         id: pages
         uses: actions/configure-pages@v4
 
-      - name: Convert notebook links to nbviewer
+      - name: Install dependencies
         run: |
-          # Create a Python script to convert links
+          gem install bundler
+          bundle install
+
+      - name: Convert notebook links and fix asset paths
+        run: |
+          # Create a Python script to convert links and fix paths
           cat > convert_links.py << 'EOF'
           import os
           import re
@@ -75,6 +80,18 @@ jobs:
 
               return content
 
+          def fix_asset_paths(content):
+              # Fix broken relative paths to assets that might have been broken by the move
+              # Convert relative paths like ../../../assets to /assets
+              content = re.sub(r'\.\./\.\./\.\./assets/', '/assets/', content)
+              content = re.sub(r'\.\./\.\./assets/', '/assets/', content)
+              content = re.sub(r'\.\./assets/', '/assets/', content)
+
+              # Fix paths that might be looking for old white/X structure
+              content = re.sub(r'/white/([^/]+)/((?!2024)[^"\s)]+)', r'/white/2024/\1/\2', content)
+
+              return content
+
           # Process all markdown files
           for md_file in glob.glob("**/*.md", recursive=True):
               if "_site" in md_file or "vendor" in md_file:
@@ -86,6 +103,7 @@ jobs:
 
               original_content = content
               content = convert_notebook_links(content)
+              content = fix_asset_paths(content)
 
               if content != original_content:
                   print(f"  Updated links in {md_file}")
@@ -103,13 +121,14 @@ jobs:
 
               original_content = content
               content = convert_notebook_links(content)
+              content = fix_asset_paths(content)
 
               if content != original_content:
                   print(f"  Updated links in {html_file}")
                   with open(html_file, 'w', encoding='utf-8') as f:
                       f.write(content)
 
-          print("Link conversion complete!")
+          print("Link conversion and path fixing complete!")
           EOF
 
           python convert_links.py

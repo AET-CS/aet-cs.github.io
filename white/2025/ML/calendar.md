@@ -8,7 +8,9 @@ classes:
 ## Daily Review
 
 - August 27, 2025 (Wednesday)
-    - More weather
+    - More weather. Try some of [these exercises](./weather_exercises.md)
+    - Download and analyze the [London weather dataset]
+    - Homework: Analyze something!
 - August 25, 2025 (Monday)
     - Go over intro notebook
     - Loading and processing data with `pandas`

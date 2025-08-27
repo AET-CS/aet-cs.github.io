@@ -38,6 +38,8 @@ jobs:
         run: |
           gem install bundler
           bundle install
+          # Ensure remote theme is properly cached
+          bundle exec jekyll clean
 
       - name: Convert notebook links and fix asset paths
         run: |

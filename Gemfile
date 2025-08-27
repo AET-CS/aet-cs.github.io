@@ -3,6 +3,9 @@ source "https://rubygems.org"
 # This will help ensure the proper Jekyll version is running.
 gem "jekyll", "~> 3.10.0"
 
+# For remote themes
+gem "jekyll-remote-theme"
+
 # Windows and JRuby does not include zoneinfo files, so bundle the tzinfo-data gem
 # and associated library.
 platforms :mingw, :x64_mingw, :mswin, :jruby do
@@ -24,8 +27,8 @@ group :jekyll_plugins do
   gem "jekyll-gist", "~> 1.5"
   gem "jekyll-feed", "~> 0.17"
   gem "jekyll-include-cache", "~> 0.2"
+  gem "jekyll-remote-theme"
   gem "jemoji", "~> 0.13"
-  gem 'webrick' # Required for Ruby >= 3.0
 end
 
 # GitHub Pages compatible gems

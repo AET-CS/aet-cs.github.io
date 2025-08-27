@@ -255,7 +255,6 @@ plugins:
   - jekyll-gist
   - jekyll-feed
   - jekyll-include-cache
-  - jekyll-jupyter-notebook
 
 # mimic GitHub Pages with --safe
 whitelist:
@@ -264,7 +263,6 @@ whitelist:
   - jekyll-gist
   - jekyll-feed
   - jekyll-include-cache
-  - jekyll-jupyter-notebook
 
 # Archives
 #  Type

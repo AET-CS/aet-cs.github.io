@@ -100,6 +100,63 @@ jobs:
 
               return content
 
+          def convert_md_links(content, file_path=""):
+              # Get the directory of the current file for relative path resolution
+              file_dir = os.path.dirname(file_path) if file_path else ""
+
+              # Pattern 1: Full GitHub Pages URLs with .md
+              pattern1 = r'https://aet-cs\.github\.io(/[^"\s)]*/)([^/\s)"]*)\.md'
+              replacement1 = r'https://aet-cs.github.io\1\2/'
+              content = re.sub(pattern1, replacement1, content)
+
+              # Pattern 2: Absolute .md links in href attributes (starting with /)
+              pattern2 = r'href="(/[^"\s]*)([^/\s"]*?)\.md"'
+              replacement2 = r'href="\1\2/"'
+              content = re.sub(pattern2, replacement2, content)
+
+              # Pattern 3: Relative .md links in href (resolve path first)
+              def replace_relative_md_href(match):
+                  relative_path = match.group(1)
+                  if relative_path.endswith('.md'):
+                      relative_path = relative_path[:-3]  # Remove .md
+                      if file_dir:
+                          full_path = os.path.join(file_dir, relative_path).replace('\\', '/')
+                      else:
+                          full_path = relative_path
+                      return f'href="/{full_path}/"'
+                  return match.group(0)  # Return unchanged if not .md
+
+              pattern3 = r'href="(?!http|/)([^"\s]*?)\.md"'
+              content = re.sub(pattern3, replace_relative_md_href, content)
+
+              # Pattern 4: Markdown .md links with full URLs
+              pattern4 = r'\[([^\]]*)\]\(https://aet-cs\.github\.io(/[^)]*/)([^/)]*?)\.md\)'
+              replacement4 = r'[\1](https://aet-cs.github.io\2\3/)'
+              content = re.sub(pattern4, replacement4, content)
+
+              # Pattern 5: Markdown .md links with absolute paths (starting with /)
+              pattern5 = r'\[([^\]]*)\]\((/[^)]*)([^/)]*)\.md\)'
+              replacement5 = r'[\1](\2\3/)'
+              content = re.sub(pattern5, replacement5, content)
+
+              # Pattern 6: Markdown .md links with relative paths (resolve path first)
+              def replace_relative_md_markdown(match):
+                  link_text = match.group(1)
+                  relative_path = match.group(2)
+                  if relative_path.endswith('.md'):
+                      relative_path = relative_path[:-3]  # Remove .md
+                      if file_dir:
+                          full_path = os.path.join(file_dir, relative_path).replace('\\', '/')
+                      else:
+                          full_path = relative_path
+                      return f'[{link_text}](/{full_path}/)'
+                  return match.group(0)  # Return unchanged if not .md
+
+              pattern6 = r'\[([^\]]*)\]\((?!http|/)([^)]*)\.md\)'
+              content = re.sub(pattern6, replace_relative_md_markdown, content)
+
+              return content
+
           # Process all markdown and HTML files
           for file_path in glob.glob("**/*.md", recursive=True) + glob.glob("**/*.html", recursive=True):
               if "_site" in file_path or "vendor" in file_path:
@@ -111,13 +168,17 @@ jobs:
 
               original_content = content
               content = convert_notebook_links(content, file_path)
+              content = convert_md_links(content, file_path)
 
               if content != original_content:
-                  print(f"  ✓ Converted notebook links in {file_path}")
+                  print(f"  ✓ Converted links in {file_path}")
                   with open(file_path, 'w', encoding='utf-8') as f:
                       f.write(content)
 
-          print("Notebook link conversion complete! Jekyll will handle everything else.")
+          print("Link conversion complete!")
+          print("- Notebook links (.ipynb) → nbviewer URLs")
+          print("- Markdown links (.md) → Jekyll URLs")
+          print("Jekyll will handle everything else.")
           EOF
 
           python convert_links.py

@@ -41,96 +41,83 @@ jobs:
           # Ensure remote theme is properly cached
           bundle exec jekyll clean
 
-      - name: Convert notebook links and fix asset paths
+      - name: Convert notebook links to nbviewer
         run: |
-          # Create a Python script to convert links and fix paths
+          # Create a Python script to convert only notebook links
           cat > convert_links.py << 'EOF'
           import os
           import re
           import glob
 
-          def convert_notebook_links(content, repo_name="AET-CS/aet-cs.github.io", branch="main"):
+          def convert_notebook_links(content, file_path="", repo_name="AET-CS/aet-cs.github.io", branch="main"):
+              # Get the directory of the current file for relative path resolution
+              file_dir = os.path.dirname(file_path) if file_path else ""
+
               # Pattern 1: Full GitHub Pages URLs
               pattern1 = r'https://aet-cs\.github\.io(/[^"\s)]*\.ipynb)'
               replacement1 = rf'https://nbviewer.jupyter.org/github/{repo_name}/blob/{branch}\1'
               content = re.sub(pattern1, replacement1, content)
 
-              # Pattern 2: Relative links starting with /
+              # Pattern 2: Relative links starting with / (absolute paths)
               pattern2 = r'href="(/[^"\s]*\.ipynb)"'
               replacement2 = rf'href="https://nbviewer.jupyter.org/github/{repo_name}/blob/{branch}\1"'
               content = re.sub(pattern2, replacement2, content)
 
-              # Pattern 3: Relative links without leading /
+              # Pattern 3: Relative links without leading / in href (need path resolution)
+              def replace_relative_href(match):
+                  relative_path = match.group(1)
+                  if file_dir:
+                      full_path = os.path.join(file_dir, relative_path).replace('\\', '/')
+                  else:
+                      full_path = relative_path
+                  return f'href="https://nbviewer.jupyter.org/github/{repo_name}/blob/{branch}/{full_path}"'
+
               pattern3 = r'href="(?!http|/)([^"\s]*\.ipynb)"'
-              replacement3 = rf'href="https://nbviewer.jupyter.org/github/{repo_name}/blob/{branch}/\1"'
-              content = re.sub(pattern3, replacement3, content)
+              content = re.sub(pattern3, replace_relative_href, content)
 
               # Pattern 4: Markdown links with full URLs
               pattern4 = r'\[([^\]]*)\]\(https://aet-cs\.github\.io(/[^)]*\.ipynb)\)'
               replacement4 = rf'[\1](https://nbviewer.jupyter.org/github/{repo_name}/blob/{branch}\2)'
               content = re.sub(pattern4, replacement4, content)
 
-              # Pattern 5: Markdown links with relative paths starting with /
+              # Pattern 5: Markdown links with absolute paths (starting with /)
               pattern5 = r'\[([^\]]*)\]\((/[^)]*\.ipynb)\)'
               replacement5 = rf'[\1](https://nbviewer.jupyter.org/github/{repo_name}/blob/{branch}\2)'
               content = re.sub(pattern5, replacement5, content)
 
-              # Pattern 6: Markdown links with relative paths (no leading /)
+              # Pattern 6: Markdown links with relative paths (need path resolution)
+              def replace_relative_markdown(match):
+                  link_text = match.group(1)
+                  relative_path = match.group(2)
+                  if file_dir:
+                      full_path = os.path.join(file_dir, relative_path).replace('\\', '/')
+                  else:
+                      full_path = relative_path
+                  return f'[{link_text}](https://nbviewer.jupyter.org/github/{repo_name}/blob/{branch}/{full_path})'
+
               pattern6 = r'\[([^\]]*)\]\((?!http|/)([^)]*\.ipynb)\)'
-              replacement6 = rf'[\1](https://nbviewer.jupyter.org/github/{repo_name}/blob/{branch}/\2)'
-              content = re.sub(pattern6, replacement6, content)
+              content = re.sub(pattern6, replace_relative_markdown, content)
 
               return content
 
-          def fix_asset_paths(content):
-              # Fix broken relative paths to assets that might have been broken by the move
-              # Convert relative paths like ../../../assets to /assets
-              content = re.sub(r'\.\./\.\./\.\./assets/', '/assets/', content)
-              content = re.sub(r'\.\./\.\./assets/', '/assets/', content)
-              content = re.sub(r'\.\./assets/', '/assets/', content)
-
-              # Fix paths that might be looking for old white/X structure
-              content = re.sub(r'/white/([^/]+)/((?!2024)[^"\s)]+)', r'/white/2024/\1/\2', content)
-
-              return content
-
-          # Process all markdown files
-          for md_file in glob.glob("**/*.md", recursive=True):
-              if "_site" in md_file or "vendor" in md_file:
+          # Process all markdown and HTML files
+          for file_path in glob.glob("**/*.md", recursive=True) + glob.glob("**/*.html", recursive=True):
+              if "_site" in file_path or "vendor" in file_path:
                   continue
 
-              print(f"Processing: {md_file}")
-              with open(md_file, 'r', encoding='utf-8') as f:
+              print(f"Processing: {file_path}")
+              with open(file_path, 'r', encoding='utf-8') as f:
                   content = f.read()
 
               original_content = content
-              content = convert_notebook_links(content)
-              content = fix_asset_paths(content)
+              content = convert_notebook_links(content, file_path)
 
               if content != original_content:
-                  print(f"  Updated links in {md_file}")
-                  with open(md_file, 'w', encoding='utf-8') as f:
+                  print(f"  ✓ Converted notebook links in {file_path}")
+                  with open(file_path, 'w', encoding='utf-8') as f:
                       f.write(content)
 
-          # Process all HTML files
-          for html_file in glob.glob("**/*.html", recursive=True):
-              if "_site" in html_file or "vendor" in html_file:
-                  continue
-
-              print(f"Processing: {html_file}")
-              with open(html_file, 'r', encoding='utf-8') as f:
-                  content = f.read()
-
-              original_content = content
-              content = convert_notebook_links(content)
-              content = fix_asset_paths(content)
-
-              if content != original_content:
-                  print(f"  Updated links in {html_file}")
-                  with open(html_file, 'w', encoding='utf-8') as f:
-                      f.write(content)
-
-          print("Link conversion and path fixing complete!")
+          print("Notebook link conversion complete! Jekyll will handle everything else.")
           EOF
 
           python convert_links.py
@@ -142,6 +129,8 @@ jobs:
 
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
+        with:
+          path: ./_site
 
   deploy:
     environment:

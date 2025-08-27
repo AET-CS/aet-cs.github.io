@@ -1,6 +1,11 @@
-# Leesburg Weather Data Analysis, Exercises
+---
+title: "Leesburg Weather, Exercises"
+layout: single
+classes:
+  - wide
+---
 
-## Beginner Level (Building Basic Skills)
+# Beginner Level (Building Basic Skills)
 
 ### Exercise 1: Basic Visualization Practice
 - Create a line plot showing temperature (`tmpf`) over time

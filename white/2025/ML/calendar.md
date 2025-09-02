@@ -10,6 +10,7 @@ classes:
 - September 2, 2025 (Tuesday)
     - Go over weather exercises
     - Download and analyze the [London weather dataset](./data/london_weather.csv)
+    - Bayes Theorem [Notes](./bayes-notes.pdf)
     - Complete [Bayes Theorem Notebook](./notebooks/Bayes_Theorem_Student.ipynb)
     - Quick intro to [python and loops](./python.md)
 - August 27, 2025 (Wednesday)

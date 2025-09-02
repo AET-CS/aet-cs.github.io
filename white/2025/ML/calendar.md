@@ -7,10 +7,12 @@ classes:
 
 ## Daily Review
 
+- September 2, 2025 (Tuesday)
+    - Go over weather exercises
+    - Download and analyze the [London weather dataset](./data/london_weather.csv)
+    - Complete [Bayes Theorem Notebook](./notebooks/Bayes_Theorem_Student.ipynb)
 - August 27, 2025 (Wednesday)
     - More weather. Try some of [these exercises](./weather_exercises.md)
-    - Download and analyze the [London weather dataset]
-    - Homework: Analyze something!
 - August 25, 2025 (Monday)
     - Go over intro notebook
     - Loading and processing data with `pandas`

@@ -11,6 +11,7 @@ classes:
     - Go over weather exercises
     - Download and analyze the [London weather dataset](./data/london_weather.csv)
     - Complete [Bayes Theorem Notebook](./notebooks/Bayes_Theorem_Student.ipynb)
+    - Quick intro to [python and loops](./python.md)
 - August 27, 2025 (Wednesday)
     - More weather. Try some of [these exercises](./weather_exercises.md)
 - August 25, 2025 (Monday)

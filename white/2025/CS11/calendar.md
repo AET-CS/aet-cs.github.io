@@ -9,7 +9,10 @@ classes:
 - September 3, 2025 (Wednesday)
     - four fours puzzle
     - Go over sqrt2 Google sheet [solution key](https://docs.google.com/spreadsheets/d/1RsKIcdqbSvRl5LXcfM2sJ_XfYE1svEggTNu5w00zUK0/edit?usp=sharing). Make your own copy please
-    - RPN quiz next class (here's some [practice and notes](https://adacomputerscience.org/concepts/trans_rpn)). I'll add more.
+    - RPN quiz next class
+        - Here's some [practice and notes](https://adacomputerscience.org/concepts/trans_rpn)
+        - Practice from class [last week](./rpn_worksheet.pdf) and the [answers](./rpn_worksheet_answers.pdf)
+        - Worked out [rpn problems](./RPN%20Stack%20Evaluation%20Problems.pdf) that show every step with a stack
     - Check the Google sheet above for the *answer key* to the polynomial root problem.
 - August 28, 2025 (Thursday)
     - RPN puzzle

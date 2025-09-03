@@ -7,6 +7,13 @@ classes:
 
 ## Daily Calendar
 
+- September 3, 2025 (Wednesday)
+    - Stack data type
+    - Complete the [RPN Evaluator](./RPNEvaluator.java) java project in class today
+    - Quiz next class over RPN expressions
+        - Here's some [practice and notes](https://adacomputerscience.org/concepts/trans_rpn)
+        - Practice from class [last week](./rpn_worksheet.pdf) and the [answers](./rpn_worksheet_answers.pdf)
+        - Worked out [rpn problems](./RPN%20Stack%20Evaluation%20Problems.pdf) that show every step with a stack
 - August 28, 2025 (Thursday)
     - RPN puzzle
     - Square roots

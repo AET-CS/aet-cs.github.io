@@ -18,7 +18,7 @@ public class RPNEvaluator {
      * Evaluates a valid RPN expression string containing integers and basic
      * operators.
      * Separated by white space
-     * 
+     *
      * @param rpnExpression Space-separated RPN expression (e.g., "3 5 + 2 *")
      * @return The evaluated result
      * @throws IllegalArgumentException if expression is invalid
@@ -29,7 +29,7 @@ public class RPNEvaluator {
         }
 
         Stack<Integer> stack = new Stack<>();
-        // create an array of String objects names "tokens", by calling "trim" and
+        // create an array of String objects named "tokens", by calling "trim" and
         // "split" on the input string
         // you want to split the array into Strings separated by whitespace
         // ADD CODE HERE

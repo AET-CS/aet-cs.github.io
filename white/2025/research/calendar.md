@@ -7,6 +7,10 @@ classes:
 
 ## Daily Calendar
 
+- September 4, 2025 (Thursday)
+    - Turn in proposals (3)
+    - Install pandoc
+    - Install a markdown editor [see list](./pandoc.md)
 - September 2, 2025 (Tuesday)
     - Finish debate team A (congrats Pro side!)
     - Brainstorm >= 3 new research ideas

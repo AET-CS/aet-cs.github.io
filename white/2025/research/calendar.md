@@ -9,8 +9,9 @@ classes:
 
 - September 4, 2025 (Thursday)
     - Turn in proposals (3)
-    - Install pandoc
-    - Install a markdown editor [see list](./pandoc.md)
+    - Install latex and pandoc
+    - Install a markdown editor [see list](./pandoc.md) or VS Code extension
+    - Individual consultations -- you each have an action item for next class!
 - September 2, 2025 (Tuesday)
     - Finish debate team A (congrats Pro side!)
     - Brainstorm >= 3 new research ideas

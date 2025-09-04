@@ -7,6 +7,12 @@ classes:
 
 ## Daily Review
 
+- September 4, 2025 (Thursday)
+    - Turn in Leesburg Weather [here](https://forms.gle/fNsyttQVEsFQUTcn7c)
+    - Turn in Bayes Theorem [same link](https://forms.gle/fNsyttQVEsFQUTcn7)
+    - Go over Bayes Theorem and Weather notebooks
+    - Work on London Weather project. Due at end of class!
+        - Consider the [London Weather dataset](./data/london_weather.csv). Investigate the question “Has the weather in London gotten worse in the last 50 years?” Analyse the data and make a claim that you can support. [Source](https://www.kaggle.com/datasets/emmanuelfwerr/london-weather-data) for dataset, which retrieved the data from [here](https://www.ecad.eu/dailydata/index.php)
 - September 2, 2025 (Tuesday)
     - Bayes Theorem [Notes](./bayes-notes.pdf)
     - Complete [Bayes Theorem Notebook](./notebooks/Bayes_Theorem_Student.ipynb)

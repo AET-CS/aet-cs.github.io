@@ -7,6 +7,13 @@ classes:
 
 ## Daily Calendar
 
+- September 5, 2025 (Friday)
+    - RPN Quiz
+    - Implementing stacks using ArrayList
+    - Modify RPN Expression Evaluator
+        - remove 'test cases' and replace with a loop that takes user input
+        - enhance calculator to support unary operators (will need to use Doubles and not Ints)
+    - Quiz next class over RPN Expression Evaluator code and assigned enhancements
 - September 3, 2025 (Wednesday)
     - Stack data type
     - Complete the [RPN Evaluator](./RPNEvaluator.java) java project in class today

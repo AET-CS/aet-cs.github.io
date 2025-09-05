@@ -6,6 +6,10 @@ classes:
 ---
 
 ## Daily Calendar
+- September 5, 2025 (Friday)
+    - RPN Quiz
+    - Writing numbers as sums of: Fibonacci, powers of two, odds, powers of three
+    - HW: Write a procedure (or code) to explain how to convert a number into a list of powers of 2 that add to that number. E.g. on input "23" you should output 16,4,2,1. Write code if you know how, otherwise plain English is fine. Explain how you pick the numbers to output in a logical way. Please bring a typed printed copy of your answer to class. (If you can code well enough to output a binary string given an integer input, that's cool too.)
 - September 3, 2025 (Wednesday)
     - four fours puzzle
     - Go over sqrt2 Google sheet [solution key](https://docs.google.com/spreadsheets/d/1RsKIcdqbSvRl5LXcfM2sJ_XfYE1svEggTNu5w00zUK0/edit?usp=sharing). Make your own copy please

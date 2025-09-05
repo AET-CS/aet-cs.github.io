@@ -9,7 +9,7 @@ classes:
 
 - September 3, 2025 (Wednesday)
     - Stack data type
-    - Complete the [RPN Evaluator](../CS11/RPNEvaluator.java) java project in class today
+    - Complete the [RPN Evaluator](./RPNEvaluator.java) java project in class today
     - Quiz next class over RPN expressions
         - Here's some [practice and notes](https://adacomputerscience.org/concepts/trans_rpn)
         - Practice from class [last week](../CS11/rpn_worksheet.pdf) and the [answers](../CS11/rpn_worksheet_answers.pdf)

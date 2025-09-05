@@ -2,6 +2,13 @@
   "version": "0.2.0",
   "configurations": [
     {
+      "type": "java",
+      "name": "RPNEvaluator",
+      "request": "launch",
+      "mainClass": "RPNEvaluator",
+      "projectName": "aet-cs.github.io_959e27c2"
+    },
+    {
       "name": "C/C++ Runner: Debug Session",
       "type": "cppdbg",
       "request": "launch",

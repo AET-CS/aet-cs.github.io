@@ -189,7 +189,7 @@ exclude:
   - tmp
   - /docs # ignore Minimal Mistakes /docs
   - /test # ignore Minimal Mistakes /test
-  - "**/hidden/"
+  - white/2025/CS11/hidden/
 keep_files:
   - .git
   - .svn

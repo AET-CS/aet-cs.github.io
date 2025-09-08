@@ -8,6 +8,7 @@ classes:
 ## Daily Calendar
 
 - September 8, 2025 (Monday)
+    - Announcement: [US AI Olympiad](../common/AI-olympiad.md)
     - Finish individual task from last class, turn in hard copy, meet with me
     - Download Zotero
     - Find at least 12 relevant papers for background research, read, add to Zotero

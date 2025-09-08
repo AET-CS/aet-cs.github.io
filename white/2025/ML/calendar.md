@@ -8,6 +8,7 @@ classes:
 ## Daily Review
 
 - September 8, 2025 (Monday)
+    - Announcement: [US AI Olympiad](../common/AI-olympiad.md)
     - Linear Regression
     - [Notes](./notes/Linear_regression_derivation.pdf) on derivation of linear regression formula
     - Work on [Linear Regression Notebook](./notebooks/Least-Squares.ipynb) due at end of class [here](https://forms.gle/RHYWxdPu4VhCq2js6)

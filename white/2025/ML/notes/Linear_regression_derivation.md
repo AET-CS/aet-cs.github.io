@@ -2,7 +2,6 @@
 title: "Linear Regression"
 ---
 
-
 Given $n$ points $\left(x_{1}, y_{1}\right) \ldots\left(x_{n}, y_{n}\right)$
 and an assumed relation $y=f(x)+\epsilon, \epsilon \sim N(\mu, \sigma)$
 we want to find a model $\tilde{y_i}=a x_i+b$
@@ -34,7 +33,7 @@ Since
 $$\frac{\partial}{\partial a} \tilde{y}_{i}=\frac{\partial}{\partial a}\left(a x_{i}+b\right)=x_{i}$$
 
 $$
-\frac{\partial}{\partial b} \tilde{y}_{c}=\frac{\partial}{\partial b}\left(a x_{c}+b\right)=1
+\frac{\partial}{\partial b} \tilde{y}_{i}=\frac{\partial}{\partial b}\left(a x_{i}+b\right)=1
 $$
 
 And solve

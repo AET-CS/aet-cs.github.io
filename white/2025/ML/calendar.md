@@ -12,6 +12,7 @@ classes:
     - Linear Regression
     - [Notes](./notes/Linear_regression_derivation.pdf) on derivation of linear regression formula
     - Work on [Linear Regression Notebook](./notebooks/Least-Squares.ipynb) due at end of class [here](https://forms.gle/RHYWxdPu4VhCq2js6)
+    - Optional [Numpy Intro](./notebooks/Numpy-Intro.ipynb)
 - September 4, 2025 (Thursday)
     - Turn in Leesburg Weather [here](https://forms.gle/RHYWxdPu4VhCq2js6)
     - Turn in Bayes Theorem [same link](https://forms.gle/RHYWxdPu4VhCq2js6)

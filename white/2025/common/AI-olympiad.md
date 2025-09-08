@@ -1,5 +1,6 @@
-# USA AI Olympiad
-
+---
+title: "USA AI Olympiad"
+---
 
 Attention computer science students. The USA AI Olympiad will be having its round 1 competition to select members of the high school team to represent the USA in international competitions.
 

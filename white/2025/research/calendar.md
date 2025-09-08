@@ -7,6 +7,11 @@ classes:
 
 ## Daily Calendar
 
+- September 8, 2025 (Monday)
+    - Finish individual task from last class, turn in hard copy, meet with me
+    - Download Zotero
+    - Find at least 12 relevant papers for background research, read, add to Zotero
+    - Prepare for proposal presentations, possibly next week
 - September 4, 2025 (Thursday)
     - Turn in proposals (3)
     - Install latex and pandoc

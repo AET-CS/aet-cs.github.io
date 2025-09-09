@@ -15,8 +15,8 @@ classes:
             - It will probably want to Download Oracle Java 24
             - You should allow it to create 'sample code'
             - Run the .java by clicking on the green triangle at top.
-    - Finish [all RPN extensions](./rpn-sample-output.md) and [submit code](https://forms.gle/9aYEH6EQAQUDc96j9)
-    - Implement a Stack data structure by extending an Array List. Here's [shell code](./Stack/Stack.java) and a [driver file](./Stack/StackDriver.java). Make sure all tests pass
+    - Finish [all RPN extensions](./rpn-sample-output.md) and [submit code](https://forms.gle/9aYEH6EQAQUDc96j9) **This is HW Due ASAP**
+    - **This will be finished in class next time** Implement a Stack data structure by extending an Array List. Here's [shell code](./Stack/Stack.java) and a [driver file](./Stack/StackDriver.java). Make sure all tests pass
 - September 5, 2025 (Friday)
     - RPN Quiz
     - Implementing stacks using ArrayList

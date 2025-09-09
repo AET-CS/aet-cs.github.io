@@ -7,8 +7,10 @@ classes:
 
 ## Daily Calendar
 - September 9, 2025 (Tuesday)
-    - Run this [powers of two](./PowerOfTwoFinder.java) code
-    - Write your own bisection search program
+    - Download IntelliJ Community Edition and run a sample program. Explore debugger.
+    - Work in assigned groups: compare your powers of two code and get one solution working for everybody
+    - You can use this [powers of two](./PowerOfTwoFinder.java) solution if you need to
+    - HW: Modify your group's solution to work for powers of 4, e.g. 100 = 64+16+16+4. Trace through code with debugger if you don't understand how it works
 - September 5, 2025 (Friday)
     - RPN Quiz
     - Writing numbers as sums of: Fibonacci, powers of two, odds, powers of three

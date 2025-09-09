@@ -6,6 +6,9 @@ classes:
 ---
 
 ## Daily Calendar
+- September 9, 2025 (Tuesday)
+    - Run this [powers of two](./PowerOfTwoFinder.java) code
+    - Write your own bisection search program
 - September 5, 2025 (Friday)
     - RPN Quiz
     - Writing numbers as sums of: Fibonacci, powers of two, odds, powers of three

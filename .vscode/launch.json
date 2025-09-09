@@ -3,6 +3,27 @@
   "configurations": [
     {
       "type": "java",
+      "name": "StackDriver",
+      "request": "launch",
+      "mainClass": "Stack.StackDriver",
+      "projectName": "aet-cs.github.io_959e27c2"
+    },
+    {
+      "type": "java",
+      "name": "RPNConverter",
+      "request": "launch",
+      "mainClass": "RPNConverter",
+      "projectName": "aet-cs.github.io_959e27c2"
+    },
+    {
+      "type": "java",
+      "name": "RPNDoubles",
+      "request": "launch",
+      "mainClass": "RPNDoubles",
+      "projectName": "aet-cs.github.io_959e27c2"
+    },
+    {
+      "type": "java",
       "name": "RPNEvaluator",
       "request": "launch",
       "mainClass": "RPNEvaluator",

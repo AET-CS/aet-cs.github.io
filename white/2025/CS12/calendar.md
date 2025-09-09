@@ -7,6 +7,16 @@ classes:
 
 ## Daily Calendar
 
+- September 9, 2025
+    - RPN Evaluator quiz
+    - Install [IntelliJ Community Edition](https://www.jetbrains.com/idea/download/?section=windows) for your laptop (make sure you scroll down on this page).
+        - Once downloaded, run the installer. When it asks, you should associate .java files with IntelliJ.
+        - Once installed, run IntelliJ and create a new project named "HelloWorld"
+            - It will probably want to Download Oracle Java 24
+            - You should allow it to create 'sample code'
+            - Run the .java by clicking on the green triangle at top.
+    - Finish [all RPN extensions] and [submit code]()
+    - Implement a Stack data structure by extending an Array List. Here's [shell code](./Stack/Stack.java) and a [driver file](./Stack/StackDriver.java). Make sure all tests pass
 - September 5, 2025 (Friday)
     - RPN Quiz
     - Implementing stacks using ArrayList

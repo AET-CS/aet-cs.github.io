@@ -7,6 +7,11 @@ classes:
 
 ## Daily Review
 
+- September 10, 2025 (Wednesday)
+    - Finish [Linear Regression Notebook](./notebooks/Least-Squares.ipynb) due [here](https://forms.gle/RHYWxdPu4VhCq2js6)
+    - Notes on Correlation Coefficient and goodness of fit for numerical models.
+    - Work on [Correlation Notebook](./notebooks/Correlation.ipynb)
+    - Find a dataset on the internet somewhere and perform a single-variable linear regression. Make appropriate plots and discuss the quality of your fit.
 - September 8, 2025 (Monday)
     - Announcement: [US AI Olympiad](../common/AI-olympiad.md)
     - Linear Regression

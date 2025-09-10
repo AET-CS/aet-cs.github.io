@@ -6,7 +6,10 @@ classes:
 ---
 
 ## Daily Calendar
-
+- September 10, 2025 (Wednesday)
+    - Announcement: [US AI Olympiad](../common/AI-olympiad.md)
+    - Work in class on finding and reading background papers
+    - Discuss your ideas with me ASAP if not already approved!
 - September 8, 2025 (Monday)
     - Announcement: [US AI Olympiad](../common/AI-olympiad.md)
     - Finish individual task from last class, turn in hard copy, meet with me

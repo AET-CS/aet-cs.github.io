@@ -1,7 +1,7 @@
-# AP Computer Science A - Code Tracing Questions
-## ANSWER KEY
-
 ---
+title: "AP Computer Science A - Code Tracing Questions ANSWER KEY"
+---
+
 
 **Question 1:** `6 32`
 - The loop doubles y while 2*y <= 40
@@ -9,7 +9,7 @@
 - 2*32 = 64 > 40, so loop stops
 - x counts iterations: 6
 
----
+
 
 **Question 2:** `[3, 7, 4, 1, 8, 9]`
 - The code swaps adjacent elements when left > right
@@ -20,7 +20,7 @@
 - i=3: 8 > 1, swap --> [3, 7, 4, 1, 8, 9]
 - i=4: 8 < 9, no swap
 
----
+
 
 **Question 3:** `15`
 - Sum of diagonal elements (where r == c)
@@ -29,7 +29,7 @@
 - grid[2][2] = 9
 - Sum = 2 + 4 + 9 = 15
 
----
+
 
 **Question 4:** `1`
 - Trace of recursive calls:
@@ -44,7 +44,7 @@
     - mystery4(4) = 0 + 1 = 1
     - mystery4(5) = 1 + 0 = 1
 
----
+
 
 **Question 5:** `"EUMCOPTR"`
 - Even indices (0,2,4,6) go to front, odd indices (1,3,5,7) go to back
@@ -58,7 +58,7 @@
   - i=6 (E): even --> front: "EUMCOPT"
   - i=7 (R): odd --> back: "EUMCOPTR"
 
----
+
 
 **Question 6:** `[5, 4, 8, 3, 6, 12, 7]`
 - Processing backwards from index 4 to 0:

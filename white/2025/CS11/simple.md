@@ -1,6 +1,7 @@
 # AP Computer Science - Easy Starter Questions
 
 **Name: ________________    Date: ________________**
+
 ### Question 1: Simple Variable Trace
 ```java
 public static void trace1() {
@@ -12,6 +13,7 @@ public static void trace1() {
 }
 ```
 **What is printed when trace1() is called?** ________________
+
 ### Question 2: Basic Loop
 ```java
 public static void trace2() {
@@ -23,6 +25,7 @@ public static void trace2() {
 }
 ```
 **What is printed when trace2() is called?** ________________
+
 ### Question 3: Simple Conditional
 ```java
 public static void trace3(int n) {
@@ -35,6 +38,7 @@ public static void trace3(int n) {
 }
 ```
 **What is printed when trace3(7) is called?** ________________
+
 ### Question 4: Loop with Counter
 ```java
 public static void trace4() {
@@ -48,6 +52,7 @@ public static void trace4() {
 }
 ```
 **What is printed when trace4() is called?** ________________
+
 ### Question 5: Loop with Conditional
 ```java
 public static void trace5(int n) {
@@ -61,6 +66,7 @@ public static void trace5(int n) {
 }
 ```
 **What is printed when trace5(6) is called?** ________________
+
 ### Question 6: While Loop with Update
 ```java
 public static void trace6(int n) {
@@ -74,6 +80,7 @@ public static void trace6(int n) {
 }
 ```
 **What is printed when trace6(20) is called?** ________________
+
 ### Question 7: Nested Conditionals
 ```java
 public static void trace7(int x, int y) {
@@ -91,6 +98,7 @@ public static void trace7(int x, int y) {
 }
 ```
 **What is printed when trace7(8, 15) is called?** ________________
+
 ### Question 8: Loop with Multiple Updates
 ```java
 public static void trace8() {
@@ -104,6 +112,7 @@ public static void trace8() {
 }
 ```
 **What is printed when trace8() is called?** ________________
+
 ### Question 9: Accumulator Pattern
 ```java
 public static void trace9(int n) {
@@ -117,6 +126,7 @@ public static void trace9(int n) {
 }
 ```
 **What is printed when trace9(50) is called?** ________________
+
 ### Question 10: Complex Loop Logic
 ```java
 public static void trace10(int n) {

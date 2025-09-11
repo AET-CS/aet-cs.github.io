@@ -53,11 +53,13 @@ public static int mystery3(int[][] mat) {
 }
 ```
 **Given the 2D array:**
+{% raw %}
 ```java
 int[][] grid = {{2, 5, 1},
                 {3, 4, 6},
                 {7, 8, 9}};
 ```
+{% endraw %}
 **What value is returned by mystery3(grid)?** ________________
 
 ---

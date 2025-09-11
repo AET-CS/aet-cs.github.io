@@ -6,6 +6,8 @@ classes:
 ---
 
 ## Daily Calendar
+- September 11, 2025 (Thursday)
+    - Submit powers of two writeup [here](https://forms.gle/APqbyXL2qbhvvU418). You can turn in code in any language or prose or pseudocode -- anything logical.
 - September 9, 2025 (Tuesday)
     - Download IntelliJ Community Edition and run a sample program. Explore debugger.
     - Work in assigned groups: compare your powers of two code and get one solution working for everybody

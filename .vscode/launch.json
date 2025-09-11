@@ -3,6 +3,13 @@
   "configurations": [
     {
       "type": "java",
+      "name": "QueueDriver",
+      "request": "launch",
+      "mainClass": "QueueDriver",
+      "projectName": "aet-cs.github.io_959e27c2"
+    },
+    {
+      "type": "java",
       "name": "StackDriver",
       "request": "launch",
       "mainClass": "Stack.StackDriver",

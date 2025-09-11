@@ -9,6 +9,7 @@ classes:
 
 - September 11, 2025
     - Review these [tracing questions](./tracing-AP.MD) also as a [pdf](./tracing-AP.pdf)
+    - Here's a poorly formatted [key](./tracing-AP-key.md)
     - Stack and Queue Data structures
     - Finish and submit Stack.java [here](https://forms.gle/9aYEH6EQAQUDc96j9)
     - Download [Queue Driver](./Queue/QueueDriver.java) and implement a Queue class in "Queue.java", by modifying your Stack class. Submit finished code [here](https://forms.gle/9aYEH6EQAQUDc96j9)

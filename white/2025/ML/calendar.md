@@ -8,7 +8,7 @@ classes:
 ## Daily Review
 
 - September 12, 2025 (Friday)
-    - Quick notes on measures of spread and central tendency
+    - Quick notes on measures of spread and central tendency [AI generated notes (use at own risk)](./statistics.html)
     - **Due today:** Linear Regression Notebook from last class
     - **Due today:** Custom Regression Find a dataset on the internet somewhere and perform a single-variable linear regression. Make appropriate plots and discuss the quality of your fit.
     - **Due today:** London weather -- add two trendlines (at least) to two features in this dataset. Also, most of you need to revisit what you turned in. Please

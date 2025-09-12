@@ -1,0 +1,509 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Introduction to Statistics</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, sans-serif;
+            line-height: 1.6;
+            color: #2c3e50;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            padding: 20px;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            background: white;
+            border-radius: 20px;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.3);
+            padding: 40px;
+            animation: slideIn 0.5s ease-out;
+        }
+
+        @keyframes slideIn {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        h1 {
+            color: #667eea;
+            font-size: 2.5rem;
+            margin-bottom: 10px;
+            text-align: center;
+            animation: fadeIn 0.8s ease-out;
+        }
+
+        .subtitle {
+            text-align: center;
+            color: #7f8c8d;
+            margin-bottom: 40px;
+            font-size: 1.1rem;
+        }
+
+        h2 {
+            color: #764ba2;
+            margin-top: 40px;
+            margin-bottom: 20px;
+            font-size: 1.8rem;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .icon {
+            width: 30px;
+            height: 30px;
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            border-radius: 8px;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-weight: bold;
+        }
+
+        .concept-box {
+            background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+            border-radius: 15px;
+            padding: 25px;
+            margin: 20px 0;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            transition: transform 0.3s ease;
+        }
+
+        .concept-box:hover {
+            transform: translateY(-5px);
+        }
+
+        .formula {
+            background: white;
+            padding: 15px;
+            border-radius: 10px;
+            margin: 15px 0;
+            border-left: 4px solid #667eea;
+            font-family: 'Courier New', monospace;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+        }
+
+        .example {
+            background: #fff9e6;
+            border-radius: 10px;
+            padding: 20px;
+            margin: 20px 0;
+            border: 2px solid #f1c40f;
+        }
+
+        .example-title {
+            color: #f39c12;
+            font-weight: bold;
+            margin-bottom: 10px;
+            font-size: 1.1rem;
+        }
+
+        .visualization {
+            margin: 30px 0;
+            padding: 20px;
+            background: white;
+            border-radius: 15px;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+        }
+
+        svg {
+            width: 100%;
+            height: auto;
+            display: block;
+            margin: 20px auto;
+        }
+
+        .data-point {
+            fill: #3498db;
+            stroke: white;
+            stroke-width: 2;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .data-point:hover {
+            fill: #e74c3c;
+            transform: scale(1.3);
+        }
+
+        .mean-line {
+            stroke: #e74c3c;
+            stroke-width: 3;
+            stroke-dasharray: 10, 5;
+        }
+
+        .median-line {
+            stroke: #27ae60;
+            stroke-width: 3;
+        }
+
+        .legend {
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+            margin-top: 20px;
+            flex-wrap: wrap;
+        }
+
+        .legend-item {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .legend-color {
+            width: 30px;
+            height: 3px;
+            border-radius: 2px;
+        }
+
+        .interactive-demo {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 30px;
+            border-radius: 15px;
+            margin: 30px 0;
+            text-align: center;
+        }
+
+        .number-display {
+            font-size: 2rem;
+            font-weight: bold;
+            margin: 20px 0;
+            animation: pulse 2s infinite;
+        }
+
+        @keyframes pulse {
+            0%, 100% {
+                transform: scale(1);
+            }
+            50% {
+                transform: scale(1.05);
+            }
+        }
+
+        .highlight {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            background-clip: text;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            font-weight: bold;
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+            }
+            to {
+                opacity: 1;
+            }
+        }
+
+        .comparison-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            border-radius: 10px;
+            overflow: hidden;
+        }
+
+        .comparison-table th {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 15px;
+            text-align: left;
+        }
+
+        .comparison-table td {
+            padding: 15px;
+            background: white;
+            border-bottom: 1px solid #ecf0f1;
+        }
+
+        .comparison-table tr:hover td {
+            background: #f8f9fa;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>📊 Introduction to Statistics</h1>
+        <p class="subtitle">Understanding Mean, Median, Variance, and IQR</p>
+
+        <div class="concept-box">
+            <p>Statistics help us make sense of data by summarizing large amounts of information into meaningful numbers. Today, we'll explore four fundamental statistical measures that help us understand the <span class="highlight">center</span> and <span class="highlight">spread</span> of our data.</p>
+        </div>
+
+        <h2><span class="icon">1</span> The Mean (Average)</h2>
+
+        <p>The <strong>mean</strong> is what most people call the "average." It's calculated by adding up all the values and dividing by how many values you have.</p>
+
+        <div class="formula">
+            Mean = (Sum of all values) ÷ (Number of values)
+        </div>
+
+        <div class="example">
+            <div class="example-title">🎯 Example: Test Scores</div>
+            <p>Five students scored: 78, 85, 92, 88, and 82 on their exam.</p>
+            <p><strong>Mean = (78 + 85 + 92 + 88 + 82) ÷ 5 = 425 ÷ 5 = 85</strong></p>
+            <p>The average test score is 85.</p>
+        </div>
+
+        <div class="visualization">
+            <svg viewBox="0 0 600 250">
+                <!-- Axis -->
+                <line x1="50" y1="200" x2="550" y2="200" stroke="#2c3e50" stroke-width="2"/>
+                <line x1="50" y1="200" x2="50" y2="50" stroke="#2c3e50" stroke-width="2"/>
+
+                <!-- Data points -->
+                <circle cx="150" cy="140" r="8" class="data-point"/>
+                <circle cx="250" cy="110" r="8" class="data-point"/>
+                <circle cx="350" cy="80" r="8" class="data-point"/>
+                <circle cx="450" cy="100" r="8" class="data-point"/>
+                <circle cx="550" cy="130" r="8" class="data-point"/>
+
+                <!-- Mean line -->
+                <line x1="60" y1="110" x2="540" y2="110" class="mean-line"/>
+
+                <!-- Labels -->
+                <text x="150" y="165" text-anchor="middle" font-size="14" fill="#2c3e50">78</text>
+                <text x="250" y="165" text-anchor="middle" font-size="14" fill="#2c3e50">85</text>
+                <text x="350" y="165" text-anchor="middle" font-size="14" fill="#2c3e50">92</text>
+                <text x="450" y="165" text-anchor="middle" font-size="14" fill="#2c3e50">88</text>
+                <text x="550" y="165" text-anchor="middle" font-size="14" fill="#2c3e50">82</text>
+
+                <text x="560" y="115" font-size="14" fill="#e74c3c" font-weight="bold">Mean = 85</text>
+
+                <text x="300" y="230" text-anchor="middle" font-size="14" fill="#2c3e50">Test Scores</text>
+                <text x="30" y="120" text-anchor="middle" font-size="14" fill="#2c3e50" transform="rotate(-90 30 120)">Frequency</text>
+            </svg>
+        </div>
+
+        <h2><span class="icon">2</span> The Median (Middle Value)</h2>
+
+        <p>The <strong>median</strong> is the middle value when all data points are arranged in order. If there's an even number of values, it's the average of the two middle values.</p>
+
+        <div class="formula">
+            Median = Middle value when data is sorted
+        </div>
+
+        <div class="example">
+            <div class="example-title">🏠 Example: House Prices</div>
+            <p>Seven houses on a street cost: $150k, $180k, $200k, $210k, $220k, $250k, and $800k</p>
+            <p>Sorted order: already sorted!</p>
+            <p><strong>Median = $210k</strong> (the 4th value out of 7)</p>
+            <p>Notice: The mean would be $287k, but the median better represents the "typical" house price because it's not affected by the one very expensive house!</p>
+        </div>
+
+        <div class="visualization">
+            <svg viewBox="0 0 600 250">
+                <!-- Axis -->
+                <line x1="50" y1="200" x2="550" y2="200" stroke="#2c3e50" stroke-width="2"/>
+
+                <!-- Data points as bars -->
+                <rect x="70" y="170" width="40" height="30" fill="#3498db" opacity="0.7"/>
+                <rect x="130" y="160" width="40" height="40" fill="#3498db" opacity="0.7"/>
+                <rect x="190" y="150" width="40" height="50" fill="#3498db" opacity="0.7"/>
+                <rect x="250" y="140" width="40" height="60" fill="#27ae60" opacity="0.9"/> <!-- Median -->
+                <rect x="310" y="130" width="40" height="70" fill="#3498db" opacity="0.7"/>
+                <rect x="370" y="120" width="40" height="80" fill="#3498db" opacity="0.7"/>
+                <rect x="490" y="50" width="40" height="150" fill="#3498db" opacity="0.7"/>
+
+                <!-- Median line -->
+                <line x1="270" y1="50" x2="270" y2="200" class="median-line" stroke-dasharray="5,5"/>
+
+                <!-- Labels -->
+                <text x="90" y="220" text-anchor="middle" font-size="12" fill="#2c3e50">$150k</text>
+                <text x="150" y="220" text-anchor="middle" font-size="12" fill="#2c3e50">$180k</text>
+                <text x="210" y="220" text-anchor="middle" font-size="12" fill="#2c3e50">$200k</text>
+                <text x="270" y="220" text-anchor="middle" font-size="12" fill="#27ae60" font-weight="bold">$210k</text>
+                <text x="330" y="220" text-anchor="middle" font-size="12" fill="#2c3e50">$220k</text>
+                <text x="390" y="220" text-anchor="middle" font-size="12" fill="#2c3e50">$250k</text>
+                <text x="510" y="220" text-anchor="middle" font-size="12" fill="#2c3e50">$800k</text>
+
+                <text x="280" y="40" font-size="14" fill="#27ae60" font-weight="bold">Median</text>
+            </svg>
+        </div>
+
+        <h2><span class="icon">3</span> Variance (Spread of Data)</h2>
+
+        <p>The <strong>variance</strong> measures how spread out the data is from the mean. A small variance means values are close to the mean; a large variance means they're spread out.</p>
+
+        <div class="formula">
+            Variance = Average of squared differences from the mean
+        </div>
+
+        <div class="example">
+            <div class="example-title">📏 Example: Comparing Two Classes</div>
+            <p><strong>Class A scores:</strong> 84, 85, 86, 85, 84 (Mean = 85, Variance ≈ 0.8)</p>
+            <p><strong>Class B scores:</strong> 70, 95, 80, 90, 85 (Mean = 84, Variance ≈ 90)</p>
+            <p>Class A has much more consistent scores (low variance), while Class B has more variation!</p>
+        </div>
+
+        <div class="visualization">
+            <svg viewBox="0 0 600 300">
+                <!-- Class A (Low Variance) -->
+                <text x="150" y="30" text-anchor="middle" font-size="16" fill="#2c3e50" font-weight="bold">Class A (Low Variance)</text>
+                <line x1="50" y1="100" x2="250" y2="100" stroke="#2c3e50" stroke-width="2"/>
+                <circle cx="120" cy="100" r="6" fill="#3498db"/>
+                <circle cx="140" cy="100" r="6" fill="#3498db"/>
+                <circle cx="150" cy="100" r="6" fill="#e74c3c"/> <!-- mean -->
+                <circle cx="160" cy="100" r="6" fill="#3498db"/>
+                <circle cx="180" cy="100" r="6" fill="#3498db"/>
+
+                <!-- Class B (High Variance) -->
+                <text x="450" y="30" text-anchor="middle" font-size="16" fill="#2c3e50" font-weight="bold">Class B (High Variance)</text>
+                <line x1="350" y1="100" x2="550" y2="100" stroke="#2c3e50" stroke-width="2"/>
+                <circle cx="370" cy="100" r="6" fill="#3498db"/>
+                <circle cx="420" cy="100" r="6" fill="#3498db"/>
+                <circle cx="450" cy="100" r="6" fill="#e74c3c"/> <!-- mean -->
+                <circle cx="490" cy="100" r="6" fill="#3498db"/>
+                <circle cx="540" cy="100" r="6" fill="#3498db"/>
+
+                <!-- Spread visualization -->
+                <path d="M 120 120 Q 150 140 180 120" stroke="#667eea" stroke-width="2" fill="none"/>
+                <text x="150" y="155" text-anchor="middle" font-size="12" fill="#667eea">Small spread</text>
+
+                <path d="M 370 120 Q 450 180 540 120" stroke="#764ba2" stroke-width="2" fill="none"/>
+                <text x="450" y="195" text-anchor="middle" font-size="12" fill="#764ba2">Large spread</text>
+            </svg>
+        </div>
+
+        <h2><span class="icon">4</span> IQR (Interquartile Range)</h2>
+
+        <p>The <strong>IQR</strong> measures the spread of the middle 50% of your data. It's the difference between the 75th percentile (Q3) and the 25th percentile (Q1).</p>
+
+        <div class="formula">
+            IQR = Q3 - Q1<br>
+            Where Q1 = 25th percentile, Q3 = 75th percentile
+        </div>
+
+        <div class="example">
+            <div class="example-title">📦 Example: Package Weights</div>
+            <p>Twenty packages sorted by weight (in pounds):</p>
+            <p>2, 3, 4, 5, 5, 6, 7, 8, 8, 9, 10, 11, 12, 13, 14, 15, 16, 18, 20, 25</p>
+            <p><strong>Q1 (25th percentile) = 5.5 pounds</strong></p>
+            <p><strong>Q3 (75th percentile) = 14.5 pounds</strong></p>
+            <p><strong>IQR = 14.5 - 5.5 = 9 pounds</strong></p>
+            <p>The middle 50% of packages weigh between 5.5 and 14.5 pounds!</p>
+        </div>
+
+        <div class="visualization">
+            <svg viewBox="0 0 600 200">
+                <!-- Box plot -->
+                <line x1="100" y1="100" x2="500" y2="100" stroke="#2c3e50" stroke-width="2"/>
+
+                <!-- Min line -->
+                <line x1="100" y1="80" x2="100" y2="120" stroke="#2c3e50" stroke-width="2"/>
+
+                <!-- Q1 -->
+                <rect x="200" y="60" width="100" height="80" fill="#3498db" opacity="0.3" stroke="#3498db" stroke-width="2"/>
+
+                <!-- Median line -->
+                <line x1="250" y1="60" x2="250" y2="140" stroke="#27ae60" stroke-width="3"/>
+
+                <!-- Q3 -->
+                <rect x="300" y="60" width="100" height="80" fill="#3498db" opacity="0.3" stroke="#3498db" stroke-width="2"/>
+
+                <!-- Max line -->
+                <line x1="500" y1="80" x2="500" y2="120" stroke="#2c3e50" stroke-width="2"/>
+
+                <!-- Whiskers -->
+                <line x1="100" y1="100" x2="200" y2="100" stroke="#2c3e50" stroke-width="2" stroke-dasharray="5,5"/>
+                <line x1="400" y1="100" x2="500" y2="100" stroke="#2c3e50" stroke-width="2" stroke-dasharray="5,5"/>
+
+                <!-- Labels -->
+                <text x="100" y="150" text-anchor="middle" font-size="12" fill="#2c3e50">Min (2)</text>
+                <text x="200" y="150" text-anchor="middle" font-size="12" fill="#3498db">Q1 (5.5)</text>
+                <text x="250" y="150" text-anchor="middle" font-size="12" fill="#27ae60">Median</text>
+                <text x="400" y="150" text-anchor="middle" font-size="12" fill="#3498db">Q3 (14.5)</text>
+                <text x="500" y="150" text-anchor="middle" font-size="12" fill="#2c3e50">Max (25)</text>
+
+                <!-- IQR bracket -->
+                <path d="M 200 40 L 200 30 L 400 30 L 400 40" stroke="#e74c3c" stroke-width="2" fill="none"/>
+                <text x="300" y="20" text-anchor="middle" font-size="14" fill="#e74c3c" font-weight="bold">IQR = 9</text>
+
+                <text x="300" y="180" text-anchor="middle" font-size="14" fill="#2c3e50" font-weight="bold">Box Plot (showing quartiles)</text>
+            </svg>
+        </div>
+
+        <h2><span class="icon">📊</span> Putting It All Together</h2>
+
+        <div class="concept-box">
+            <p>Each measure tells us something different about our data:</p>
+        </div>
+
+        <table class="comparison-table">
+            <tr>
+                <th>Measure</th>
+                <th>What it tells us</th>
+                <th>When to use it</th>
+                <th>Sensitive to outliers?</th>
+            </tr>
+            <tr>
+                <td><strong>Mean</strong></td>
+                <td>The "balance point" of the data</td>
+                <td>When data is symmetric without extreme values</td>
+                <td>Yes - very sensitive</td>
+            </tr>
+            <tr>
+                <td><strong>Median</strong></td>
+                <td>The middle value</td>
+                <td>When data has outliers or is skewed</td>
+                <td>No - robust to outliers</td>
+            </tr>
+            <tr>
+                <td><strong>Variance</strong></td>
+                <td>How spread out the data is</td>
+                <td>To measure consistency or risk</td>
+                <td>Yes - squared differences amplify outliers</td>
+            </tr>
+            <tr>
+                <td><strong>IQR</strong></td>
+                <td>Spread of the middle 50%</td>
+                <td>To understand typical variation</td>
+                <td>No - ignores extreme values</td>
+            </tr>
+        </table>
+
+        <div class="interactive-demo">
+            <h3>🎯 Real-World Application</h3>
+            <p>Imagine you're analyzing employee salaries at a company:</p>
+            <div class="number-display">
+                Mean: $75,000 | Median: $65,000
+            </div>
+            <p>The higher mean suggests a few high earners pull the average up. The median better represents what a "typical" employee earns!</p>
+        </div>
+
+        <div class="concept-box" style="background: linear-gradient(135deg, #ffeaa7 0%, #fdcb6e 100%); margin-top: 40px;">
+            <h3 style="color: #e17055;">💡 Key Takeaways</h3>
+            <ul style="margin-left: 20px; margin-top: 15px;">
+                <li><strong>Mean and Median</strong> help us find the center of our data</li>
+                <li><strong>Variance and IQR</strong> help us understand the spread</li>
+                <li>Use <strong>median and IQR</strong> when you have outliers</li>
+                <li>Use <strong>mean and variance</strong> for symmetric data</li>
+                <li>Always visualize your data to choose the right measure!</li>
+            </ul>
+        </div>
+    </div>
+</body>
+</html>

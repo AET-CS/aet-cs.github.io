@@ -56,6 +56,6 @@ public static void main(String[] args) {
 }
 ```
 
-You should only add **one** trace method at a time and run it. In Java, all the puncuation matters, and the semi-colons at the end of the lines. Spaces do NOT matter, nor does indentation (they are spaced the way they are to facilitate legibility only). The line starting with `//` is a comment and it can say anything. The computer ignores it.
+You should only add **one** trace method at a time and run it. In Java, all the punctuation matters, and the semi-colons at the end of the lines. Spaces do NOT matter, nor does indentation (they are spaced the way they are to facilitate legibility only). The line starting with `//` is a comment and it can say anything. The computer ignores it.
 
 **About classes** We will study 'classes' eventually but for now see you have a file called "Main.java" and it contains the line `public class main`. In Java, one file contains one *class* and they must have the same name. If you rename `Main` to, for example, `Practice`, then you need to rename the file. (IntelliJ will do it for you if you hover over the redline error you see when you change the classname!)

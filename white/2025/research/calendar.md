@@ -6,6 +6,10 @@ classes:
 ---
 
 ## Daily Calendar
+- September 12, 2025 (Friday)
+    - Presentations Sept 22-28, please update (or make!) your slides and send me a draft next week
+    - Continue background research
+    - Start learning something you don't know, but which you need to know, in order to do, the thing, you say you're going to do.
 - September 10, 2025 (Wednesday)
     - Announcement: [US AI Olympiad](../common/AI-olympiad.md)
     - Work in class on finding and reading background papers

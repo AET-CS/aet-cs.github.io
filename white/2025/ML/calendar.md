@@ -7,11 +7,21 @@ classes:
 
 ## Daily Review
 
+- September 12, 2025 (Friday)
+    - Quick notes on measures of spread and central tendency
+    - **Due today:** Linear Regression Notebook from last class
+    - **Due today:** Custom Regression Find a dataset on the internet somewhere and perform a single-variable linear regression. Make appropriate plots and discuss the quality of your fit.
+    - **Due today:** London weather -- add two trendlines (at least) to two features in this dataset. Also, most of you need to revisit what you turned in. Please
+        - Do several graphical analysis (different feature, different graph types)
+        - include at least one using "groupby" (for example to plot the average rain fall per year, or the coldest day per each month.)
+        - *ADD a regression line* using your new linear regression powers
+        - And end with a markdown cell, discussing your conclusion. Make sure any graphs that support your conclusion are clear and labeled.
+        - Add a title cell (markdown # Title) and subsection cells ( ## subtitle) where appropriate
 - September 10, 2025 (Wednesday)
     - Finish [Linear Regression Notebook](./notebooks/Least-Squares.ipynb) due [here](https://forms.gle/RHYWxdPu4VhCq2js6)
     - [Notes on Coefficient of Determination](./notes/Correlation_Coefficient.md) and goodness of fit for numerical models.
     - Work on [Correlation Notebook](./notebooks/Correlation.ipynb)
-    - Find a dataset on the internet somewhere and perform a single-variable linear regression. Make appropriate plots and discuss the quality of your fit.
+
 - September 8, 2025 (Monday)
     - Announcement: [US AI Olympiad](../common/AI-olympiad.md)
     - Linear Regression

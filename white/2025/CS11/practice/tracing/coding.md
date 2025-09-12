@@ -47,6 +47,8 @@ public class Main {
     // trace3 stuff
     }
 
+    // more methods here
+
 public static void main(String[] args) {
         trace1();
         trace2();

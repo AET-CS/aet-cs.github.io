@@ -8,7 +8,7 @@ classes:
 ## Daily Calendar
 - September 11, 2025 (Thursday)
     - We did some code tracing practice today. [boolean](./practice/tracing/boolean.md), [loops](./practice/tracing/simple.md) and [tricky](./practice/tracing/ap-level.md)
-    - **HW**: Please code up the problems on your selected worksheet and verify if your answers are correct. [More info]
+    - **HW**: Please code up the problems on your selected worksheet and verify if your answers are correct. [More info](./practice/tracing/coding.md)
     - I was going to ask you to do this: Submit powers of two writeup [here](https://forms.gle/APqbyXL2qbhvvU418). You can turn in code in any language or prose or pseudocode -- anything logical. If you get a chance please do. Thanks!
 - September 9, 2025 (Tuesday)
     - Download IntelliJ Community Edition and run a sample program. Explore debugger.

@@ -1,8 +1,9 @@
-# AP Computer Science - Boolean Operators Questions
+---
+title: CS 11 - Tracing Boolean Operators
+---
 
 **Name: ________________    Date: ________________**
 
----
 
 ## Question 1: Simple AND
 ```java
@@ -18,7 +19,6 @@ public static void bool1(int x, int y) {
 
 **What is printed when bool1(3, 8) is called?** ________________
 
----
 
 ## Question 2: Simple OR
 ```java
@@ -34,9 +34,12 @@ public static void bool2(int n) {
 
 **What is printed when bool2(-5) is called?** ________________
 
----
 
 ## Question 3: NOT Operator
+Note: In this question `flag` is a `boolean` variable which is Java's way of saying
+it can only have 2 values: `true` or `false`. For example if `flag = true` then
+`!flag` would be `false` and `flag || false` would be `true`.
+
 ```java
 public static void bool3(boolean flag, int x) {
     if (!flag && x > 10) {
@@ -50,7 +53,6 @@ public static void bool3(boolean flag, int x) {
 
 **What is printed when bool3(true, 15) is called?** ________________
 
----
 
 ## Question 4: Complex AND/OR
 ```java
@@ -66,7 +68,6 @@ public static void bool4(int a, int b, int c) {
 
 **What is printed when bool4(2, 8, 6) is called?** ________________
 
----
 
 ## Question 5: Multiple Conditions
 ```java
@@ -88,9 +89,11 @@ public static void bool5(int x, int y) {
 
 **What is printed when bool5(-2, 5) is called?** ________________
 
----
 
 ## Question 6: Short-Circuit Evaluation
+Note: Short-circuit evaluation means if Java can determine the boolean value of an expression by just looking at the first value, it
+does not evaluate the second one. Example: `5>3 && 3/0=10000` evaluates to `true` because the first bit is true; the second bit doesn't matter.
+
 ```java
 public static void bool6(int x, int y) {
     if (x != 0 && y / x > 2) {
@@ -104,7 +107,6 @@ public static void bool6(int x, int y) {
 
 **What is printed when bool6(0, 10) is called?** ________________
 
----
 
 ## Question 7: Complex Nested Logic
 ```java
@@ -124,7 +126,6 @@ public static void bool7(int a, int b, int c) {
 
 **What is printed when bool7(5, 8, 3) is called?** ________________
 
----
 
 ## Question 8: Multiple Boolean Expressions
 ```java
@@ -144,7 +145,6 @@ public static void bool8(int n) {
 
 **What is printed when bool8(35) is called?** ________________
 
----
 
 ## Question 9: Complex Boolean with Counter
 ```java
@@ -166,7 +166,6 @@ public static void bool9(int x, int y, int z) {
 
 **What is printed when bool9(3, 4, 8) is called?** ________________
 
----
 
 ## Question 10: Extreme Boolean Logic
 ```java

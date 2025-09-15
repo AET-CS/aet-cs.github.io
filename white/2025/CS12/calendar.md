@@ -8,7 +8,7 @@ classes:
 ## Daily Calendar
 
 - September 15, 2025
-    - **Please join AP Classroom Now with code NVYVWX**
+    - **Please join AP Classroom Now with code NVYVWX (non-testing)**
     - Warm-up. How many orderings are possible if you push `1 2 3` onto the stack in that order, but pop them off at any point? (Hint: not all 6 ordering are possible!) What about `1 2 3 4`? Do you see a pattern?
     - Queue and Stack are past-due so please turn in if you haven't already
     - New assignment: [Timing Queues and Stacks](./notes/stack-queue-timing.md)

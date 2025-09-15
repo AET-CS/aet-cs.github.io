@@ -7,7 +7,9 @@ classes:
 
 ## Daily Calendar
 - Sept 15, 2025 (Monday)
-    - Finish [Truth Tables](./practice/booleans/truth-tables.md) or [pdf](./practice/booleans/truth-tables.pdf)
+    - Finish [Truth Tables](./practice/booleans/truth-tables.md) or [pdf](./practice/booleans/truth-tables.pdf). Note which problems yield equivalent truth tables and write down (also remember!) the rules implied by these equivalencies.
+    - Turn in *powers of two* and *tracing* to [this form](https://forms.gle/APqbyXL2qbhvvU418). Your *tracing* solution should be a java file, *powers of two* could be any format depending on how you answered the question.
+    - **HW**: Make sure your truth tables are correct and you have the correct equivalencies in your notes. Here's [a key](./practice/booleans/truth-tables-key.pdf)
 - September 11, 2025 (Thursday)
     - We did some code tracing practice today. [boolean](./practice/tracing/boolean.md), [loops](./practice/tracing/simple.md) and [tricky](./practice/tracing/ap-level.md)
     - **HW**: Please code up the problems on your selected worksheet and verify if your answers are correct. [More info](./practice/tracing/coding.md)

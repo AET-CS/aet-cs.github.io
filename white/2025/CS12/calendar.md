@@ -7,6 +7,10 @@ classes:
 
 ## Daily Calendar
 
+- September 15, 2025
+    - Queue and Stack are past-due so please turn in if you haven't already
+    - New assignment: [Timing Queues and Stacks](./notes/stack-queue-timing.md)
+    - Quiz Friday (not a test, a quiz) over recent stuff: stacks, queues, some tracing
 - September 11, 2025
     - Review these [tracing questions](./tracing-AP.MD) also as a [pdf](./tracing-AP.pdf)
     - Here's a [key](./tracing-AP-key.md)

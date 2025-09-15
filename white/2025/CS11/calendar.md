@@ -6,6 +6,8 @@ classes:
 ---
 
 ## Daily Calendar
+- Sept 15, 2025 (Monday)
+    - Finish [Truth Tables](./practice/booleans/truth-tables.md) or [pdf](./practice/booleans/truth-tables.pdf)
 - September 11, 2025 (Thursday)
     - We did some code tracing practice today. [boolean](./practice/tracing/boolean.md), [loops](./practice/tracing/simple.md) and [tricky](./practice/tracing/ap-level.md)
     - **HW**: Please code up the problems on your selected worksheet and verify if your answers are correct. [More info](./practice/tracing/coding.md)

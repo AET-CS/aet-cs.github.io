@@ -4,7 +4,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="d4522269-d6a8-4623-82e3-915a4b70f8d6" name="Changes" comment="" />
+    <list default="true" id="d4522269-d6a8-4623-82e3-915a4b70f8d6" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/../../../../../.git-crypt/.gitattributes" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../../.git-crypt/keys/default/0/4B0E3E75A48CC90A44814DCDEE42185E2B4E57E1.gpg" beforeDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />

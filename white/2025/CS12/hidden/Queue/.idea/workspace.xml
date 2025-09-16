@@ -4,7 +4,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="067befbb-b5e9-4ca6-af74-ddb1793b8229" name="Changes" comment="" />
+    <list default="true" id="067befbb-b5e9-4ca6-af74-ddb1793b8229" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/../../../../../.git-crypt/.gitattributes" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../../.git-crypt/keys/default/0/4B0E3E75A48CC90A44814DCDEE42185E2B4E57E1.gpg" beforeDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -54,7 +57,7 @@
       <updated>1757953691191</updated>
       <workItem from="1757953692408" duration="1712000" />
       <workItem from="1757955567805" duration="1272000" />
-      <workItem from="1758036172400" duration="1245000" />
+      <workItem from="1758036172400" duration="2146000" />
     </task>
     <servers />
   </component>

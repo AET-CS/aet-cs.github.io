@@ -6,6 +6,9 @@ classes:
 ---
 
 ## Daily Calendar
+- September 16, 2025 (Tuesday)
+    - Draft presentation due by next class (submission link TBD)
+    - Here are some [guidelines](./presentation-guidelines.md) for a proposal talk. Keep it to 6 minutes.
 - September 12, 2025 (Friday)
     - Presentations Sept 22-28, please update (or make!) your slides and send me a draft next week
     - Continue background research

@@ -7,6 +7,14 @@ classes:
 
 ## Daily Review
 
+
+- September 14, 2025 (Tuesday)
+    - **Linear Algebra Week**
+    - Quick review of matrix and linear algebra
+    - Read carefully and work through [Linear Algebra and Python](./notebooks/Linear_Algebra_and_Python.ipynb) (this contains all the notes you need).
+    - Next try [Matrices Index Warmup](./notebooks/Matrices_Index_Warmup-Student.ipynb)
+    - Finally look at [Intro to Matrices in Numpy](./notebooks/Intro_to_Matrices_in_NumPy.ipynb)
+    - All of the above are due this week.
 - September 12, 2025 (Friday)
     - Quick notes on measures of spread and central tendency [AI generated notes (use at own risk)](./statistics.html)
     - **Due today:** Linear Regression Notebook from last class

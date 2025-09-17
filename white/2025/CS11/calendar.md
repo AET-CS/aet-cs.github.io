@@ -7,7 +7,7 @@ classes:
 
 ## Daily Calendar
 - Sept 17, 2025 (Wednesday)
-    - Try out [tracing modifictions](./practice/tracing/simple.md). If needed you can use this [tracing code](./practice/tracing/tracing.java)
+    - Try out [tracing modifictions](./practice/tracing/simple-mod.md). If needed you can use this [tracing code](./practice/tracing/tracing.java)
     - Complete [Boolean Algebra Practice](./practice/booleans/boolean_algebra_worksheet.md)
     - Short quiz next class: review Boolean Algebra and Tracing worksheet
 - Sept 15, 2025 (Monday)

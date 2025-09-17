@@ -7,7 +7,12 @@ classes:
 
 ## Daily Calendar
 
-- September 15, 2025
+- September 17, 2025 (Wednesday)
+    - Discuss results of Stack/Queue timing
+    - [Further analysis](./notes/stack-log-log.md) of timing results using log-log plots
+    - Re-implement Stack/Queue using `LinkedList` and the methods `addFirst`, `addLast`, `removeFirst` and `removeLast`
+    - Finally, time your new Stack/Queue and compare the new timings to the old timings. Create new graphs to *clearly* illustrate what is different and/or interesting. Add these to your same write-up as below (so you should have 3 sections -- original results, log-log plots and new results which should contain regular and log-log plots).
+- September 15, 2025 (Monday)
     - **Please join AP Classroom Now with code NVYVWX (non-testing)**
     - Warm-up. How many orderings are possible if you push `1 2 3` onto the stack in that order, but pop them off at any point? (Hint: not all 6 ordering are possible!) What about `1 2 3 4`? Do you see a pattern?
     - Queue and Stack are past-due so please turn in if you haven't already

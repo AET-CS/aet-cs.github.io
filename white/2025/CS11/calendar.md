@@ -6,6 +6,10 @@ classes:
 ---
 
 ## Daily Calendar
+- Sept 17, 2025 (Wednesday)
+    - Try out [tracing modifictions](./practice/tracing/simple.md). If needed you can use this [tracing code](./practice/tracing/tracing.java)
+    - Complete [Boolean Algebra Practice](./practice/booleans/boolean_algebra_worksheet.md)
+    - Short quiz next class: review Boolean Algebra and Tracing worksheet
 - Sept 15, 2025 (Monday)
     - Finish [Truth Tables](./practice/booleans/truth-tables.md) or [pdf](./practice/booleans/truth-tables.pdf). Note which problems yield equivalent truth tables and write down (also remember!) the rules implied by these equivalencies.
     - Turn in *powers of two* and *tracing* to [this form](https://forms.gle/APqbyXL2qbhvvU418). Your *tracing* solution should be a java file, *powers of two* could be any format depending on how you answered the question.

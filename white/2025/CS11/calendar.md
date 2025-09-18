@@ -10,7 +10,7 @@ classes:
     - Try out [tracing modifictions](./practice/tracing/simple-mod.md). If needed you can use this [tracing code](./practice/tracing/tracing.java)
     - Complete [Boolean Algebra Practice](./practice/booleans/boolean_algebra_worksheet.md)
     - Short quiz next class: review Boolean Algebra and Tracing worksheet. Practice
-        - more [tracing](./practice/tracing/simple-2.md) with [code](./practice/tracing/tracing2.java) and [key](./practice/tracing/simple-2-key.md)
+        - more [tracing](./practice/tracing/simple-2.md) with [code](./practice/tracing/tracing2.java) and [detailed tracing tables](./practice/tracing/simple-2-detail.md) and [key](./practice/tracing/simple-2-key.md)
         - coming soon. extra [boolean practice]
 - Sept 15, 2025 (Monday)
     - Finish [Truth Tables](./practice/booleans/truth-tables.md) or [pdf](./practice/booleans/truth-tables.pdf). Note which problems yield equivalent truth tables and write down (also remember!) the rules implied by these equivalencies.

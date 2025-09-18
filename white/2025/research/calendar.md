@@ -8,6 +8,7 @@ classes:
 ## Daily Calendar
 - September 18, 2025 (Thursday)
     - Upload link to presentation [here](https://docs.google.com/spreadsheets/d/1NokWEGFKVZMkcHqQ0HqSZua3053UXUHKe55MViAPp-Y/edit?usp=sharing)
+    - Presentations next Monday and Friday (optionally and hopefully not Wednesday also). 
 - September 16, 2025 (Tuesday)
     - Draft presentation due by next class (submission link TBD)
     - Here are some [guidelines](./presentation-guidelines.md) for a proposal talk. Keep it to 6 minutes.

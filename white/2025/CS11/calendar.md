@@ -9,6 +9,7 @@ classes:
 - Sept 19, 2025
     - Tracing and Boolean Quiz!
     - Buildling Digital Circuits [info](./practice/booleans/circuits.md)
+    - *Turn In* labeled screenshots in one doc to [this form](https://forms.gle/APqbyXL2qbhvvU418).
 - Sept 17, 2025 (Wednesday)
     - Try out [tracing modifictions](./practice/tracing/simple-mod.md). If needed you can use this [tracing code](./practice/tracing/tracing.java)
     - Complete [Boolean Algebra Practice](./practice/booleans/boolean_algebra_worksheet.md)

@@ -6,6 +6,9 @@ classes:
 ---
 
 ## Daily Calendar
+- Sept 19, 2025
+    - Tracing and Boolean Quiz!
+    - Buildling Digital Circuits [info](./practice/booleans/circuits.md)
 - Sept 17, 2025 (Wednesday)
     - Try out [tracing modifictions](./practice/tracing/simple-mod.md). If needed you can use this [tracing code](./practice/tracing/tracing.java)
     - Complete [Boolean Algebra Practice](./practice/booleans/boolean_algebra_worksheet.md)

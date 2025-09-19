@@ -7,6 +7,10 @@ classes:
 
 ## Daily Calendar
 
+- September 19, 2025 (Friday)
+    - Final Analysis of Stacks/Queues due now [here](https://forms.gle/9aYEH6EQAQUDc96j9)
+    - Quiz over stack, queue, AP review tracing
+    - New assignment: Implement Linked Lists by completing [this file](./LinkedLists/LinkedList.java) and test with [this driver](./LinkedLists/LinkedListTester.java)
 - September 17, 2025 (Wednesday)
     - Discuss results of Stack/Queue timing
     - [Further analysis](./notes/stack-log-log.md) of timing results using log-log plots

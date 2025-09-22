@@ -7,7 +7,11 @@ classes:
 
 ## Daily Review
 
-
+- September 20, 2025 (Monday)
+    - Go through [mushroom exploration](./notebooks/Mushroom_Student.ipynb)
+    - Do a similar analysis on your own and turn in next class (Wed)
+- September 16, 2025 (Thurday)
+    - Work on Linear Algebra notebooks and turn in!
 - September 14, 2025 (Tuesday)
     - **Linear Algebra Week**
     - Quick review of matrix and linear algebra

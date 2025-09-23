@@ -5,6 +5,7 @@
  *
  * AP CS students: Implement all methods in this file
  */
+
 public class LinkedList<E> {
 
     /**

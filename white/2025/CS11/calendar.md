@@ -6,9 +6,12 @@ classes:
 ---
 
 ## Daily Calendar
+- Sept 23, 2025 (Tuesday)
+    - Finish and discuss digital circuits
+    - Work on [pattern puzzle](./practice/patterns/patterns.md), [pattern challenge](./practice/patterns/pattern-challenges.md) and/or [josephus](./practice/patterns/josephus.md)
 - Sept 19, 2025
     - Tracing and Boolean Quiz!
-    - Buildling Digital Circuits [info](./practice/booleans/circuits.md)
+    - Building Digital Circuits [info](./practice/booleans/circuits.md)
     - *Turn In* labeled screenshots in one doc to [this form](https://forms.gle/APqbyXL2qbhvvU418)
         - We'll have a bit of time next class to work on this if you don't finish all over the weekend. (But only a bit!)
 - Sept 17, 2025 (Wednesday)

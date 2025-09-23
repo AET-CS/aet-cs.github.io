@@ -5,12 +5,14 @@
 
 ## Getting Started: The Rectangle
 
+(These lessons were created with the assistance of Claude AI, who tends to be VERY EXCITABLE!!!!!!)
+
 Let's begin with something simple - a solid rectangle made of stars. Here's the code and what it produces:
 
 **Code:**
 ```java
 public class PatternPractice {
-    public static void main(String[] args) {
+    public static void rectangle1() {
         // Make a 4x6 rectangle
         for (int row = 0; row < 4; row++) {
             for (int col = 0; col < 6; col++) {
@@ -18,6 +20,10 @@ public class PatternPractice {
             }
             System.out.println(); // Move to next line
         }
+    }
+
+    public static void main(String[] args) {
+        rectangle1();
     }
 }
 ```
@@ -45,7 +51,9 @@ public class PatternPractice {
 3. Make sure you get the exact output shown
 
 ### Problem 2: Change the Size
-Modify your code to make a **3x8 rectangle** (3 rows, 8 columns).
+Make a new method `rectangle2`. Copy the `rectangle1` code and then modify it.
+Modify your code to make a **3x8 rectangle** (3 rows, 8 columns). Make sure to
+call `rectangle2` from `main`. (If you call both methods you should add some blank lines between the two outputs.)
 
 **Expected output:**
 ```
@@ -59,6 +67,8 @@ Modify your code to make a **3x8 rectangle** (3 rows, 8 columns).
 ---
 
 ## Problem 3: Your First Triangle
+
+For each of these problems add a new method to your class and call it from main. Do not delete any previous problems!
 
 Now let's make a **left-aligned triangle** that grows by one star each row:
 
@@ -168,8 +178,6 @@ Ready for the big one? Create this hourglass pattern:
    - Number of spaces?
 3. How would you explain nested loops to a friend?
 4. What other patterns could you create with these techniques?
-
-**Next up:** Once you've mastered these patterns, we'll explore making them "wavy" using mathematical functions! 🌊
 
 ---
 

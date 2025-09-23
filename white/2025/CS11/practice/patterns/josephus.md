@@ -79,6 +79,13 @@ Remaining people: 4
 Survivor: Person 4
 ```
 
+#### Test output
+
+* n=5, k=2, last person = 3
+* n=12, k=2, last person = 9
+* n=100, k=1, last person = 100
+* n=100, k=99, last person = 88
+* n=98765, k=12345, last person = 11992
 ---
 
 - Research: There's actually a mathematical formula for this! Can you find it?

@@ -85,13 +85,14 @@ Survivor: Person 4
 * n=12, k=2, last person = 9
 * n=100, k=1, last person = 100
 * n=100, k=99, last person = 88
-* n=98765, k=12345, last person = 11992
----
+* n=98765, k=12345, last person = 11992 (don't print each step!)
 
-- Research: There's actually a mathematical formula for this! Can you find it?
 
----
+#### Research
 
-## Historical Note
+There's actually a mathematical formula for this! Can you find it?
+
+
+#### Historical Note
 
 This problem is named after Flavius Josephus, a Jewish historian who reportedly used this method to determine the order of elimination among soldiers. It's a classic problem in computer science and mathematics!

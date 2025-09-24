@@ -7,12 +7,15 @@ classes:
 
 ## Daily Review
 
-- September 20, 2025 (Monday)
+- September 24, 2025 (Wednesday)
+    - Finish self-selected data analysis: Pick a dataset from any online source, restrict it to *categorical* features only, and perform a similar analysis to the one I modeled with "Mushroom Exploration". Load the data, clean it (fill in any NaN or missing data), make some graphs, look for correlations between features and outcomes, then perform several ML algorithms. *Add an analysis* paragraph at the end where you discuss the dataset and the goodness of fit of the models. (Note: make sure your paragraph is a "Markdown" cell and not a "code" cell)
+    - Upload by end of class [here](https://forms.gle/RHYWxdPu4VhCq2js6)
+- September 22, 2025 (Monday)
     - Go through [mushroom exploration](./notebooks/Mushroom_Student.ipynb)
     - Do a similar analysis on your own and turn in next class (Wed)
-- September 16, 2025 (Thurday)
+- September 18, 2025 (Thursday)
     - Work on Linear Algebra notebooks and turn in!
-- September 14, 2025 (Tuesday)
+- September 16, 2025 (Tuesday)
     - **Linear Algebra Week**
     - Quick review of matrix and linear algebra
     - Read carefully and work through [Linear Algebra and Python](./notebooks/Linear_Algebra_and_Python.ipynb) (this contains all the notes you need).

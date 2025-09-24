@@ -7,6 +7,8 @@ classes:
 
 ## Daily Calendar
 
+- September 25, 2025 (Thursday)
+    - LinkedList Submission due [here](https://forms.gle/9aYEH6EQAQUDc96j9)
 - September 23, 2025 (Tuesday)
     - New assignment: Implement Linked Lists by completing [this file](./LinkedLists/LinkedList.java) and test with [this driver](./LinkedLists/LinkedListTester.java)
 - September 19, 2025 (Friday)
@@ -24,7 +26,7 @@ classes:
     - Warm-up. How many orderings are possible if you push `1 2 3` onto the stack in that order, but pop them off at any point? (Hint: not all 6 ordering are possible!) What about `1 2 3 4`? Do you see a pattern?
     - Queue and Stack are past-due so please turn in if you haven't already
     - New assignment: [Timing Queues and Stacks](./notes/stack-queue-timing.md)
-    - TURN IN assignment *as a pdf* [here](https://forms.gle/9aYEH6EQAQUDc96j9)
+    - TURN IN assignment *as a pdf* C
     - Quiz Friday (not a test, a quiz) over recent stuff: stacks, queues, some tracing
 - September 11, 2025
     - Review these [tracing questions](./tracing-AP.MD) also as a [pdf](./tracing-AP.pdf)

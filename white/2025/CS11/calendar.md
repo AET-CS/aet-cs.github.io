@@ -10,7 +10,7 @@ classes:
     - Finish and discuss digital circuits
     - Work on [pattern puzzle](./practice/patterns/patterns.md), [pattern challenge](./practice/patterns/pattern-challenges.md) and/or [josephus](./practice/patterns/josephus.md)
     - Circuits [key](./practice/booleans/circuits-key.md) is available
-    - HW is to finish *pattern puzzle* worksheet and/or additional hard problems (do problems according to your skill and challenge level!). Submit to the form [link tbd]
+    - HW is to finish *pattern puzzle* worksheet and/or additional hard problems (do problems according to your skill and challenge level!). Submit to [this form](https://forms.gle/APqbyXL2qbhvvU418). You will have some time next class (Thursday) to finish if needed, and ask questions.
 - Sept 19, 2025
     - Tracing and Boolean Quiz!
     - Building Digital Circuits [info](./practice/booleans/circuits.md)

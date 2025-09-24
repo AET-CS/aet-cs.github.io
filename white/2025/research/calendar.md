@@ -8,7 +8,7 @@ classes:
 ## Daily Calendar
 - September 24, 2025 (Wednesday)
     - Prepare for Friday presentations
-    - Work on research!
+    - Work on research
     - Fill out [this form](https://docs.google.com/forms/d/e/1FAIpQLSci1GGbp_kS4UtTdldO9may_cB0L3kayQLijs5IG6PHbO_6ng/viewform)
 - September 22, 2025 (Monday)
     - Proposal Presentations 1-9

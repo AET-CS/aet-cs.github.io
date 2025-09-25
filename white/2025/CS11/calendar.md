@@ -6,6 +6,11 @@ classes:
 ---
 
 ## Daily Calendar
+- Sept 25, 2025 (Thursday)
+    - Circuits puzzle(s)
+    - Go over Circuits [key](./practice/booleans/circuits-key.md) is available
+    - Look at my [solutions](./practice/patterns/PatternPractice.java) to "Make that Pattern!". Even if you got all of them, compare your solutions to mine. If you didn't get any, study these solutions. I think they're (maybe) the easiest-to-understand way to solve them. (But there are many different solutions).
+    - Try harder puzzles now, after you've seen my key. See if my solutions help you get some harder ones!
 - Sept 23, 2025 (Tuesday)
     - Finish and discuss digital circuits
     - Work on [pattern puzzle](./practice/patterns/patterns.md), [pattern challenge](./practice/patterns/pattern-challenges.md) and/or [josephus](./practice/patterns/josephus.md)

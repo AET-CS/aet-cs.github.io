@@ -85,7 +85,7 @@ Survivor: Person 4
 * n=12, k=2, last person = 9
 * n=100, k=1, last person = 100
 * n=100, k=99, last person = 88
-* n=98765, k=12345, last person = 11992 (don't print each step!)
+* n=98765, k=12345, last person = 31709 (don't print each step!)
 
 
 #### Research

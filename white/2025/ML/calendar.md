@@ -7,6 +7,8 @@ classes:
 
 ## Daily Review
 
+- September 26, 2026 (Friday)
+    - Look at [Baye's Notebook](./notebooks/Bayes-Error-Student.ipynb) and complete
 - September 24, 2025 (Wednesday)
     - Finish self-selected data analysis: Pick a dataset from any online source, restrict it to *categorical* features only, and perform a similar analysis to the one I modeled with "Mushroom Exploration". Load the data, clean it (fill in any NaN or missing data), make some graphs, look for correlations between features and outcomes, then perform several ML algorithms. *Add an analysis* paragraph at the end where you discuss the dataset and the goodness of fit of the models. (Note: make sure your paragraph is a "Markdown" cell and not a "code" cell)
     - Upload by end of class [here](https://forms.gle/RHYWxdPu4VhCq2js6)

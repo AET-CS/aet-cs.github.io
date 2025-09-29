@@ -6,6 +6,8 @@ classes:
 ---
 
 ## Daily Calendar
+- Octover 1, 2025 (Wednesday)
+    - [Pumpkin Carving](./practice/pumpkin.md)
 - Sept 29, 2025 (Monday)
     - I went over Circuits Key in class, including "3-Majority with an XOR gate"
     - Pattern Matching

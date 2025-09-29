@@ -19,6 +19,10 @@ Here's the image
 And here's a version with a 25 pixel grid.
 ![grid](GridPumpkin.png)
 
+
+And here's a version with a 10 pixel grid.
+![grid](GridPumpkin10.png)
+
 ## Extensions
 
 1. Take user input for things like eye radius, distance between eyes, mouth size, etc. and vary the picture based on input.

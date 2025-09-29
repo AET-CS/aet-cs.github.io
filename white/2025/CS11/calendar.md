@@ -6,6 +6,13 @@ classes:
 ---
 
 ## Daily Calendar
+- Sept 29, 2025 (Monday)
+    - Download [DrawingDemo](./practice/drawing/DrawingDemo.java) and [stdlib](./practice/drawing/stdlib.jar)
+    - Make a New IntelliJ project called DrawingDemo
+    - Copy in the java file above and add the stdlib.jar to your src/ folder
+    - Right click on stdlib.jar and choose "add library"
+    - Run the code
+    - Make your own picture!
 - Sept 25, 2025 (Thursday)
     - Circuits puzzle(s)
     - Go over Circuits [key](./practice/booleans/circuits-key.md) is available

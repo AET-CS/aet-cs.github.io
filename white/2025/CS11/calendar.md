@@ -7,17 +7,19 @@ classes:
 
 ## Daily Calendar
 - Sept 29, 2025 (Monday)
+    - I went over Circuits Key in class, including "3-Majority with an XOR gate"
     - Download [DrawingDemo](./practice/drawing/DrawingDemo.java) and [stdlib](./practice/drawing/stdlib.jar)
-    - Make a New IntelliJ project called DrawingDemo
-    - Copy in the java file above and add the stdlib.jar to your src/ folder
-    - Right click on stdlib.jar and choose "add library"
-    - Run the code
-    - Make your own picture!
+        - Make a New IntelliJ project called DrawingDemo
+        - Copy in the java file above and add the stdlib.jar to your src/ folder
+        - Right click on stdlib.jar and choose "add library"
+        - Run the code
+    - HW: Make your own picture!
 - Sept 25, 2025 (Thursday)
     - Circuits puzzle(s)
-    - Go over Circuits [key](./practice/booleans/circuits-key.md) is available
+    - Circuits [key](./practice/booleans/circuits-key.md) is available
     - Look at my [solutions](./practice/patterns/PatternPractice.java) to "Make that Pattern!". Even if you got all of them, compare your solutions to mine. If you didn't get any, study these solutions. I think they're (maybe) the easiest-to-understand way to solve them. (But there are many different solutions).
     - Try harder puzzles now, after you've seen my key. See if my solutions help you get some harder ones!
+    - Challenge: Build a 3-Majority circuit using at least one XOR gate.
 - Sept 23, 2025 (Tuesday)
     - Finish and discuss digital circuits
     - Work on [pattern puzzle](./practice/patterns/patterns.md), [pattern challenge](./practice/patterns/pattern-challenges.md) and/or [josephus](./practice/patterns/josephus.md)

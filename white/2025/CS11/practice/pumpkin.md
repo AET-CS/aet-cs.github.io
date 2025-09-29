@@ -16,7 +16,7 @@ Here's the image
 ![pumpkin](Pumpkin.png)
 
 And here's a version with a 25 pixel grid.
-[!grid](GridPumpkin.png)
+![grid](GridPumpkin.png)
 
 ## Extensions
 

@@ -7,6 +7,13 @@ classes:
 
 ## Daily Calendar
 
+- September 29, 2025 (Monday)
+    - New project: Calculator
+        - Read the [description](./Calculator/calculator-instructions.md)
+        - Download the [files](./Calculator/Calculator.zip)
+        - Unzip the folder and create an IntelliJ project
+        - Complete the assignment as defined in "Part 1"
+    - Test moved to Wed Oct 8
 - September 25, 2025 (Thursday)
     - LinkedList Submission due [here](https://forms.gle/9aYEH6EQAQUDc96j9)
     - Implement DoubleLinkedList and check with [tester](./LinkedLists/DoubleLinkedListTester.java)

@@ -10,6 +10,7 @@ Your task is to create a pumpkin that matches the picture below. While creativit
 4. The mouth is a polygon.
 5. Make the stars with a `for` loop and random numbers (for example use `(int)(Math.random()*100)` to make a random number from 0-99). Randomize the location and the radius, but don't put stars on the ground.
 6. You should define some variables for the center point between the two eyes, and reuse that variable for all the eye shapes
+
 ## Images
 
 Here's the image

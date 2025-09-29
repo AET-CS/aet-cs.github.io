@@ -8,6 +8,10 @@ classes:
 ## Daily Calendar
 - Sept 29, 2025 (Monday)
     - I went over Circuits Key in class, including "3-Majority with an XOR gate"
+    - Pattern Matching
+        - Match the methods in [this code](./practice/patterns/PatternMatching.java) to
+        [this output](./practice/patterns/PatternMatching.pdf). Not all methods will be used!
+        - Run the code to see the answer (set 'decrypt' to true)
     - Download [DrawingDemo](./practice/drawing/DrawingDemo.java) and [stdlib](./practice/drawing/stdlib.jar)
         - Make a New IntelliJ project called DrawingDemo
         - Copy in the java file above and add the stdlib.jar to your src/ folder
@@ -15,6 +19,7 @@ classes:
         - Right click on stdlib.jar and choose "add library"
         - Run the code
     - HW: Make your own picture!
+    - Test rescheduled for Friday October 10! Test will cover content up through today (stopping with patterns).
 - Sept 25, 2025 (Thursday)
     - Circuits puzzle(s)
     - Circuits [key](./practice/booleans/circuits-key.md) is available

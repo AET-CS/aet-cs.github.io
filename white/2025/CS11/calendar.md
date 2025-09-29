@@ -11,6 +11,7 @@ classes:
     - Download [DrawingDemo](./practice/drawing/DrawingDemo.java) and [stdlib](./practice/drawing/stdlib.jar)
         - Make a New IntelliJ project called DrawingDemo
         - Copy in the java file above and add the stdlib.jar to your src/ folder
+        - Make sure your file name DrawingDemo.java matches the class name DrawingDemo (so rename Main.java if you have one)
         - Right click on stdlib.jar and choose "add library"
         - Run the code
     - HW: Make your own picture!

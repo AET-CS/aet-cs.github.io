@@ -11,7 +11,7 @@ classes:
     - Pattern Matching
         - Match the methods in [this code](./practice/patterns/PatternMatching.java) to
         [this output](./practice/patterns/PatternMatching.pdf). Not all methods will be used!
-        - Run the code to see the answer (set 'decrypt' to true)
+        - Run the code to see the answer
     - Download [DrawingDemo](./practice/drawing/DrawingDemo.java) and [stdlib](./practice/drawing/stdlib.jar)
         - Make a New IntelliJ project called DrawingDemo
         - Copy in the java file above and add the stdlib.jar to your src/ folder

@@ -138,21 +138,32 @@ public class PatternMatching {
         }
     }
 
-    public static void printAnswer(boolean decrypt) {
-        String answer = "¢gR¢eR¢dR¢cbR¢ccR¢iR¢k";
-        String decodeString = "";
-        if (!decrypt) {
-            return;
-        }
-        for (char c : answer.toCharArray()) {
-            c = (char) (((int) c - 50) % 255);
-            decodeString += c;
-        }
-        System.out.println(decodeString);
-    }
-
     public static void main(String[] args) {
-        printAnswer(false);
+        System.out.println("p1");
+        p1();
+        System.out.println("p2");
+        p2();
+        System.out.println("p3");
+        p3();
+        System.out.println("p4");
+        p4();
+        System.out.println("p5");
+        p5();
+        System.out.println("p6");
+        p6();
+        System.out.println("p7");
+        p7();
+        System.out.println("p8");
+        p8();
+        System.out.println("p9");
+        p9();
+        System.out.println("p10");
+        p10();
+        System.out.println("p11");
+        p11();
+        System.out.println("p12");
+        p12();
+        System.out.println();
     }
 
 }

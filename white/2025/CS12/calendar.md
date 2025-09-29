@@ -11,7 +11,7 @@ classes:
     - New project: Calculator
         - Read the [description](./Calculator/calculator-instructions.md)
         - Download the [files](./Calculator/Calculator.zip)
-        - Unzip the folder and create an IntelliJ project
+        - Unzip the folder and create an IntelliJ project from existing sources (select the folder)
         - Complete the assignment as defined in "Part 1"
     - Test moved to Wed Oct 8
 - September 25, 2025 (Thursday)

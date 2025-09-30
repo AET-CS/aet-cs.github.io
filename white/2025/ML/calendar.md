@@ -7,6 +7,11 @@ classes:
 
 ## Daily Review
 
+- September 30, 2025 (Tuesday)
+    - Start Linear Regression Unit
+    - Look at [Test Score Data Set](./notebooks/Test_Scores.ipynb)
+    - Next look at [Life Expectancy Data Set](./notebooks/Life_Expectancy_Student.ipynb)
+    - HW: Complete exercises in Life Expectancy Data Set
 - September 26, 2026 (Friday)
     - Look at [Baye's Notebook](./notebooks/Bayes-Error-Student.ipynb) and complete
 - September 24, 2025 (Wednesday)

@@ -6,6 +6,12 @@ classes:
 ---
 
 ## Daily Calendar
+- September 30, 2025 (Tuesday)
+    - Formulate mid-October and end-October goals
+    - Download [journal template](./weekly-journal.md) and compile using pandoc to a pdf
+    - Add your October goals to the journal and at the end of class, take 5 minutes to add your daily log.
+    - Journals will be due on the first class day of each week, printed out please, at the beginning of class
+    - Submit your journal today with 2 goals on [this form](https://forms.gle/2eTgkuz6yssZWnUP6)
 - September 24, 2025 (Wednesday)
     - Prepare for Friday presentations
     - Work on research

@@ -12,6 +12,7 @@ classes:
     - Look at [Test Score Data Set](./notebooks/Test_Scores.ipynb)
     - Next look at [Life Expectancy Data Set](./notebooks/Life_Expectancy_Student.ipynb)
     - HW: Complete exercises in Life Expectancy Data Set
+    - [Source for the Life Expectancy dataset](https://www.kaggle.com/datasets/kumarajarshi/life-expectancy-who/data)
 - September 26, 2026 (Friday)
     - Look at [Baye's Notebook](./notebooks/Bayes-Error-Student.ipynb) and complete
 - September 24, 2025 (Wednesday)

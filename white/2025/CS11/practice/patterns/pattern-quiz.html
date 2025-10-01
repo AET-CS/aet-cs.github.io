@@ -132,17 +132,17 @@
                 question: "Which pattern is printed when `pattern4()` is called?<pre><code>public static void pattern4() {\n    int size = 6;\n    for (int row = 1; row <= size; row++) {\n        for (int col = 1; col <= size; col++) {\n            if (row == 1 || row == size || col == 1 || col == size) {\n                System.out.print(\"*\");\n            } else {\n                System.out.print(\" \");\n            }\n        }\n        System.out.println();\n    }\n}</code></pre>",
                 hint: "The `if` statement inside the inner loop checks if the current position is on one of the four borders.",
                 answerOptions: [
-                    { text: "<pre><code>******\n* *\n* *\n* *\n* *\n******</code></pre>", isCorrect: true, rationale: "The condition is true only for the first/last row and the first/last column, printing stars on the border and spaces inside." },
+                    { text: "<pre><code>******\n*    *\n*.   *\n*.   *\n*.   *\n******</code></pre>", isCorrect: true, rationale: "The condition is true only for the first/last row and the first/last column, printing stars on the border and spaces inside." },
                     { text: "<pre><code>******\n******\n******\n******\n******\n******</code></pre>", isCorrect: false, rationale: "This filled square would be printed if the `if-else` logic were removed and it always printed a star." },
-                    { text: "<pre><code>* *\n* *\n* *\n* *\n* *\n* *</code></pre>", isCorrect: false, rationale: "This pattern is missing the top and bottom borders, which would happen if the condition only checked `col == 1 || col == size`." },
-                    { text: "<pre><code>*\n**\n* *\n* *\n* *\n******</code></pre>", isCorrect: false, rationale: "This is a right triangle, which involves a different conditional logic, typically `col == 1 || row == size || row == col`." }
+                    { text: "<pre><code>*    *\n*    *\n*    *\n*    *\n*    *\n*    *</code></pre>", isCorrect: false, rationale: "This pattern is missing the top and bottom borders, which would happen if the condition only checked `col == 1 || col == size`." },
+                    { text: "<pre><code>*\n**\n*    *\n*    *\n*    *\n******</code></pre>", isCorrect: false, rationale: "This is a right triangle, which involves a different conditional logic, typically `col == 1 || row == size || row == col`." }
                 ]
             },
             {
                 question: "Which pattern is printed when `pattern5()` is called?<pre><code>public static void pattern5() {\n    for (int stars = 2; stars <= 8; stars += 2) {\n        int spaces = (8 - stars) / 2;\n        for (int i = 1; i <= spaces; i++) {\n            System.out.print(\" \");\n        }\n        for (int i = 1; i <= stars; i++) {\n            System.out.print(\"*\");\n        }\n        System.out.println();\n    }\n}</code></pre>",
                 hint: "The number of stars in the loop increases by 2 each time (2, 4, 6, 8). Spaces are printed on the left side to center the pattern.",
                 answerOptions: [
-                    { text: "<pre><code>  **\n ****\n******\n********</code></pre>", isCorrect: true, rationale: "The rows have 2, 4, 6, and 8 stars, and leading spaces are calculated to center them within a width of 8." },
+                    { text: "<pre><code>   **\n  ****\n ******\n********</code></pre>", isCorrect: true, rationale: "The rows have 2, 4, 6, and 8 stars, and leading spaces are calculated to center them within a width of 8." },
                     { text: "<pre><code>**\n****\n******\n********</code></pre>", isCorrect: false, rationale: "This pattern is left-aligned, which would happen if the first inner loop that prints spaces was removed." },
                     { text: "<pre><code>   *\n  ***\n *****\n*******</code></pre>", isCorrect: false, rationale: "This is a pyramid with an odd number of stars in each row, but the loop increments by 2 starting from 2." },
                     { text: "<pre><code>  ** \n **** \n******\n********</code></pre>", isCorrect: false, rationale: "This pattern has trailing spaces, which would require a third inner loop to print spaces after the stars." }
@@ -193,7 +193,11 @@
 
             hintEl.textContent = currentQuestion.hint;
 
-            currentQuestion.answerOptions.forEach(option => {
+            // Create a shuffled copy of the answer options
+            const shuffledOptions = [...currentQuestion.answerOptions];
+            shuffleArray(shuffledOptions);
+
+            shuffledOptions.forEach(option => {
                 const button = document.createElement('button');
                 button.innerHTML = option.text;
                 button.classList.add('option-btn', 'w-full', 'border-2', 'border-slate-300', 'rounded-lg', 'p-3', 'hover:bg-slate-100', 'hover:border-blue-500', 'focus:outline-none', 'focus:ring-2', 'focus:ring-blue-400');
@@ -290,6 +294,14 @@
         });
 
         restartBtn.addEventListener('click', startQuiz);
+
+        // Helper function to shuffle an array
+        function shuffleArray(array) {
+            for (let i = array.length - 1; i > 0; i--) {
+                const j = Math.floor(Math.random() * (i + 1));
+                [array[i], array[j]] = [array[j], array[i]];
+            }
+        }
 
         startQuiz();
     </script>

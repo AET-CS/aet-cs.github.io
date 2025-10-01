@@ -232,7 +232,11 @@
 
             hintEl.textContent = currentQuestion.hint;
 
-            currentQuestion.answerOptions.forEach(option => {
+            // Create a shuffled copy of the answer options
+            const shuffledOptions = [...currentQuestion.answerOptions];
+            shuffleArray(shuffledOptions);
+
+            shuffledOptions.answerOptions.forEach(option => {
                 const button = document.createElement('button');
                 button.textContent = option.text;
                 button.classList.add('option-btn', 'w-full', 'border-2', 'border-slate-300', 'rounded-lg', 'p-3', 'text-left', 'hover:bg-slate-100', 'hover:border-blue-500', 'focus:outline-none', 'focus:ring-2', 'focus:ring-blue-400');

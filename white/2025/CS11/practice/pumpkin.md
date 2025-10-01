@@ -29,4 +29,6 @@ And here's a version with a 10 pixel grid.
 2. Define a 'center' variable and make the entire pumpkin a function of the center.
 3. Make a glow effect by drawing the eyes as a series of concentric circles that get smaller and slightly brighter.
 4. As in 2, define a 'scale' variable so changing the scale resizes the whole pumpkin.
-5. Animation!
+5. Animation! (for example, flashing mouth, jiggling eyes, dancing pumpkin, shooting stars, flying pumpkin, exploding pumpkin)
+    1. Here's a sample animation [file](./drawing/Jiggler.java). You can add it to your pumpkin project src file and choose "run current file" to see how it works.
+    2. The main idea behind animation is : turn on double buffering, clear the screen, draw an image, and put it all in a loop. The image should change on each frame.

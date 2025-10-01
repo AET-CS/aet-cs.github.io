@@ -1,0 +1,321 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Binary Numbers and Addition Quiz</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
+        body {
+            font-family: 'Inter', sans-serif;
+        }
+        .option-btn {
+            transition: all 0.2s ease-in-out;
+        }
+        .option-btn.correct {
+            background-color: #22c55e !important; /* green-500 */
+            color: white !important;
+            border-color: #16a34a !important; /* green-600 */
+        }
+        .option-btn.incorrect {
+            background-color: #ef4444 !important; /* red-500 */
+            color: white !important;
+            border-color: #dc2626 !important; /* red-600 */
+        }
+        .option-btn:not([disabled]):hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+        }
+    </style>
+</head>
+<body class="bg-slate-100 flex items-center justify-center min-h-screen p-4">
+
+    <div id="quiz-container" class="w-full max-w-2xl bg-white rounded-2xl shadow-xl p-6 md:p-8">
+
+        <div id="quiz-header" class="mb-6">
+            <h1 class="text-2xl md:text-3xl font-bold text-slate-800">Binary Quiz</h1>
+            <div class="mt-2 flex justify-between items-center text-sm font-medium text-slate-500">
+                <p id="question-counter"></p>
+                <p>Score: <span id="score" class="font-bold text-slate-700">0</span></p>
+            </div>
+            <div class="w-full bg-slate-200 rounded-full h-2.5 mt-4">
+                <div id="progress-bar" class="bg-blue-600 h-2.5 rounded-full" style="width: 0%"></div>
+            </div>
+        </div>
+
+        <div id="quiz-body">
+            <h2 id="question" class="text-lg md:text-xl font-semibold text-slate-700 mb-5 min-h-[60px]"></h2>
+            <div id="options" class="grid grid-cols-1 md:grid-cols-2 gap-3"></div>
+        </div>
+
+        <div id="feedback-section" class="mt-5 min-h-[80px]">
+            <div id="hint-container" class="flex justify-end">
+                 <button id="hint-button" class="text-sm text-blue-600 hover:underline font-medium">Show Hint</button>
+            </div>
+            <p id="hint" class="hidden text-sm text-slate-600 bg-slate-100 p-3 rounded-lg mt-2"></p>
+            <p id="rationale" class="text-sm text-slate-600 font-medium mt-2 p-3 rounded-lg"></p>
+        </div>
+
+        <div id="quiz-footer" class="mt-6 text-right">
+            <button id="next-btn" class="bg-blue-600 text-white font-bold py-2 px-6 rounded-lg hover:bg-blue-700 transition-colors duration-200 disabled:bg-slate-400" disabled>Next</button>
+        </div>
+
+        <div id="results-container" class="hidden text-center">
+            <h2 class="text-2xl font-bold text-slate-800">Quiz Complete!</h2>
+            <p class="mt-3 text-lg text-slate-600">Your final score is:</p>
+            <p id="final-score" class="text-5xl font-extrabold text-blue-600 my-4"></p>
+            <p id="score-message" class="font-medium text-slate-700 mb-6"></p>
+            <button id="restart-btn" class="bg-blue-600 text-white font-bold py-3 px-8 rounded-lg hover:bg-blue-700 transition-colors duration-200">Restart Quiz</button>
+        </div>
+
+    </div>
+
+    <script>
+        const quizData = [
+            {
+                question: "What is the base of the binary number system?",
+                hint: "Think about the prefix 'bi-' and how many unique digits are used in this system.",
+                answerOptions: [
+                    { text: "2", isCorrect: true, rationale: "The binary system uses two digits, 0 and 1, hence it is a base-2 system." },
+                    { text: "10", isCorrect: false, rationale: "Base-10 is the decimal system, which uses ten digits from 0 to 9." },
+                    { text: "8", isCorrect: false, rationale: "Base-8 is known as the octal system, and it uses eight digits (0-7)." },
+                    { text: "16", isCorrect: false, rationale: "Base-16 is the hexadecimal system, which uses sixteen symbols (0-9 and A-F)." }
+                ]
+            },
+            {
+                question: "What is the decimal equivalent of the binary number `1101`?",
+                hint: "Remember to calculate the value of each position starting from the right (1s, 2s, 4s, 8s...).",
+                answerOptions: [
+                    { text: "13", isCorrect: true, rationale: "The calculation is (1 * 8) + (1 * 4) + (0 * 2) + (1 * 1), which equals 13." },
+                    { text: "11", isCorrect: false, rationale: "This might result from miscalculating the place values, perhaps summing 8 + 2 + 1." },
+                    { text: "14", isCorrect: false, rationale: "This could be a simple addition error after correctly identifying the place values." },
+                    { text: "7", isCorrect: false, rationale: "This might be the result of adding the digits (1+1+0+1) without considering their place value." }
+                ]
+            },
+            {
+                question: "How do you write the decimal number 19 in binary?",
+                hint: "Find the largest power of 2 that is less than or equal to 19, and then work with the remainder.",
+                answerOptions: [
+                    { text: "10011", isCorrect: true, rationale: "The number 19 can be broken down into powers of two: 16 + 2 + 1." },
+                    { text: "11001", isCorrect: false, rationale: "This binary number represents the decimal 25 (16 + 8 + 1)." },
+                    { text: "1011", isCorrect: false, rationale: "This binary number represents the decimal 11 (8 + 2 + 1)." },
+                    { text: "10010", isCorrect: false, rationale: "This binary number represents the decimal 18 (16 + 2), which is very close." }
+                ]
+            },
+            {
+                question: "What is the result of the binary addition `101 + 11`?",
+                hint: "Work from right to left, and remember that `1 + 1` results in a `0` with a carry-over.",
+                answerOptions: [
+                    { text: "1000", isCorrect: true, rationale: "In decimal, this addition is 5 + 3 = 8. Following binary rules for carrying results in `1000`." },
+                    { text: "110", isCorrect: false, rationale: "This would be the result if the carry-over from adding the rightmost column was forgotten." },
+                    { text: "1001", isCorrect: false, rationale: "This might occur if there was an error in the second carry-over operation." },
+                    { text: "120", isCorrect: false, rationale: "Binary numbers can only contain the digits 0 and 1." }
+                ]
+            },
+            {
+                question: "In the decimal-to-binary conversion method of repeated division by 2, how are the final remainders read to form the binary number?",
+                hint: "The first division gives you the least significant bit (the rightmost digit).",
+                answerOptions: [
+                    { text: "From bottom to top", isCorrect: true, rationale: "The last remainder calculated becomes the most significant bit (the leftmost digit) of the binary number." },
+                    { text: "From top to bottom", isCorrect: false, rationale: "Reading the remainders in the order they were calculated would reverse the binary number." },
+                    { text: "From left to right", isCorrect: false, rationale: "The remainders are typically listed in a single column, so 'left to right' is not a standard description." },
+                    { text: "The order does not matter", isCorrect: false, rationale: "The order of the bits is critical, as each position represents a different power of two." }
+                ]
+            },
+            {
+                question: "What is the decimal equivalent of the binary number `10101`?",
+                hint: "The place values for this number, from right to left, are 1, 2, 4, 8, and 16.",
+                answerOptions: [
+                    { text: "21", isCorrect: true, rationale: "This is calculated as (1 * 16) + (0 * 8) + (1 * 4) + (0 * 2) + (1 * 1)." },
+                    { text: "13", isCorrect: false, rationale: "This would be the value of `1101`, which has a different pattern of ones and zeros." },
+                    { text: "10", isCorrect: false, rationale: "This could result from misinterpreting the place values, perhaps incorrectly summing them as 8+2." },
+                    { text: "20", isCorrect: false, rationale: "This is a close but incorrect calculation, possibly from forgetting the value of the 1s place." }
+                ]
+            },
+            {
+                question: "How do you write the decimal number 30 in binary?",
+                hint: "Using the subtraction method, 30 minus the largest power of 2 (16) leaves 14. Continue from there.",
+                answerOptions: [
+                    { text: "11110", isCorrect: true, rationale: "The number 30 is the sum of the place values 16 + 8 + 4 + 2." },
+                    { text: "10111", isCorrect: false, rationale: "This binary number represents 23 (16 + 4 + 2 + 1)." },
+                    { text: "1110", isCorrect: false, rationale: "This binary number represents 14 (8 + 4 + 2)." },
+                    { text: "11111", isCorrect: false, rationale: "This binary number represents 31 (16 + 8 + 4 + 2 + 1)." }
+                ]
+            },
+            {
+                question: "What is the rule for `1 + 1 + 1` in binary addition?",
+                hint: "This situation occurs when you are adding a column that already has a carry-over from the previous column.",
+                answerOptions: [
+                    { text: "The result is 1, with a carry of 1", isCorrect: true, rationale: "This is equivalent to the decimal number 3, which is written as `11` in binary." },
+                    { text: "The result is 1, with no carry", isCorrect: false, rationale: "This would be the case for a simpler addition like `0 + 1` or `1 + 0`." },
+                    { text: "The result is 0, with a carry of 1", isCorrect: false, rationale: "This is the rule for adding `1 + 1`, not `1 + 1 + 1`." },
+                    { text: "The result is 3", isCorrect: false, rationale: "The digit '3' does not exist in the binary number system." }
+                ]
+            },
+            {
+                question: "What is the result of the binary addition `1101 + 111`?",
+                hint: "This problem involves multiple carry-overs, including one where you'll need to add `1 + 1 + 1`.",
+                answerOptions: [
+                    { text: "10100", isCorrect: true, rationale: "In decimal, this is 13 + 7 = 20. Following the rules for carrying over in each column leads to this result." },
+                    { text: "10010", isCorrect: false, rationale: "This is the answer to 13 + 5, not 13 + 7. It indicates a possible error in one of the carry operations." },
+                    { text: "11111", isCorrect: false, rationale: "This might result from addition errors and forgetting to carry over the '1's properly." },
+                    { text: "10000", isCorrect: false, rationale: "This represents the decimal number 16. It's a plausible result but indicates an error in summing the lower-value bits." }
+                ]
+            },
+            {
+                question: "If a computer uses 4 bits to store a positive integer, what is the largest decimal number it can represent?",
+                hint: "The largest number is represented when all available bits are set to '1'.",
+                answerOptions: [
+                    { text: "15", isCorrect: true, rationale: "With 4 bits, the largest binary number is `1111`, which is 8 + 4 + 2 + 1 = 15." },
+                    { text: "16", isCorrect: false, rationale: "The number 16 would require a fifth bit (`10000`). 4 bits can represent 16 different values, from 0 to 15." },
+                    { text: "8", isCorrect: false, rationale: "The number 8 is represented as `1000`, which uses 4 bits, but it is not the largest possible value." },
+                    { text: "4", isCorrect: false, rationale: "4 is the number of bits available, not the maximum value they can represent." }
+                ]
+            }
+        ];
+
+        let currentQuestionIndex = 0;
+        let score = 0;
+
+        const questionEl = document.getElementById('question');
+        const optionsEl = document.getElementById('options');
+        const rationaleEl = document.getElementById('rationale');
+        const nextBtn = document.getElementById('next-btn');
+        const scoreEl = document.getElementById('score');
+        const questionCounterEl = document.getElementById('question-counter');
+        const progressBarEl = document.getElementById('progress-bar');
+        const resultsContainer = document.getElementById('results-container');
+        const quizContainer = document.getElementById('quiz-container');
+        const restartBtn = document.getElementById('restart-btn');
+        const finalScoreEl = document.getElementById('final-score');
+        const scoreMessageEl = document.getElementById('score-message');
+        const hintEl = document.getElementById('hint');
+        const hintButton = document.getElementById('hint-button');
+        const hintContainer = document.getElementById('hint-container');
+
+        function startQuiz() {
+            currentQuestionIndex = 0;
+            score = 0;
+            scoreEl.textContent = '0';
+            resultsContainer.classList.add('hidden');
+            quizContainer.querySelector('#quiz-header').classList.remove('hidden');
+            quizContainer.querySelector('#quiz-body').classList.remove('hidden');
+            quizContainer.querySelector('#feedback-section').classList.remove('hidden');
+            quizContainer.querySelector('#quiz-footer').classList.remove('hidden');
+            nextBtn.disabled = true;
+            showQuestion();
+        }
+
+        function showQuestion() {
+            resetState();
+            let currentQuestion = quizData[currentQuestionIndex];
+            let questionNo = currentQuestionIndex + 1;
+
+            questionEl.innerHTML = currentQuestion.question; // Use innerHTML to render backticks as code
+            questionCounterEl.textContent = `Question ${questionNo} of ${quizData.length}`;
+            progressBarEl.style.width = `${(questionNo / quizData.length) * 100}%`;
+
+            hintEl.textContent = currentQuestion.hint;
+
+            currentQuestion.answerOptions.forEach(option => {
+                const button = document.createElement('button');
+                button.textContent = option.text;
+                button.classList.add('option-btn', 'w-full', 'border-2', 'border-slate-300', 'rounded-lg', 'p-3', 'text-left', 'hover:bg-slate-100', 'hover:border-blue-500', 'focus:outline-none', 'focus:ring-2', 'focus:ring-blue-400');
+                if (option.isCorrect) {
+                    button.dataset.correct = "true";
+                }
+                button.dataset.rationale = option.rationale;
+                button.addEventListener('click', selectAnswer);
+                optionsEl.appendChild(button);
+            });
+        }
+
+        function resetState() {
+            nextBtn.disabled = true;
+            rationaleEl.textContent = '';
+            rationaleEl.classList.remove('bg-green-100', 'text-green-800', 'bg-red-100', 'text-red-800');
+            hintEl.classList.add('hidden');
+            hintButton.classList.remove('hidden');
+            hintContainer.classList.remove('hidden');
+            while (optionsEl.firstChild) {
+                optionsEl.removeChild(optionsEl.firstChild);
+            }
+        }
+
+        function selectAnswer(e) {
+            const selectedBtn = e.target;
+            const isCorrect = selectedBtn.dataset.correct === "true";
+
+            rationaleEl.textContent = selectedBtn.dataset.rationale;
+
+            if (isCorrect) {
+                selectedBtn.classList.add('correct');
+                score++;
+                scoreEl.textContent = score;
+                rationaleEl.classList.add('bg-green-100', 'text-green-800');
+            } else {
+                selectedBtn.classList.add('incorrect');
+                rationaleEl.classList.add('bg-red-100', 'text-red-800');
+            }
+
+            Array.from(optionsEl.children).forEach(button => {
+                if (button.dataset.correct === "true") {
+                    if (!isCorrect) button.classList.add('correct');
+                }
+                button.disabled = true; // Disable all buttons
+            });
+
+            hintContainer.classList.add('hidden');
+            nextBtn.disabled = false;
+        }
+
+        function showResults() {
+            quizContainer.querySelector('#quiz-header').classList.add('hidden');
+            quizContainer.querySelector('#quiz-body').classList.add('hidden');
+            quizContainer.querySelector('#feedback-section').classList.add('hidden');
+            quizContainer.querySelector('#quiz-footer').classList.add('hidden');
+            resultsContainer.classList.remove('hidden');
+
+            const percentage = Math.round((score / quizData.length) * 100);
+            finalScoreEl.textContent = `${percentage}%`;
+
+            let message = "";
+            if (percentage === 100) {
+                message = "Perfect score! You're a binary master!";
+            } else if (percentage >= 75) {
+                message = "Great job! You really know your bits and bytes.";
+            } else if (percentage >= 50) {
+                message = "Good effort! A little more practice and you'll be an expert.";
+            } else {
+                message = "Keep practicing! Review the worksheet and try again.";
+            }
+            scoreMessageEl.textContent = message;
+        }
+
+        function handleNextButton() {
+            currentQuestionIndex++;
+            if (currentQuestionIndex < quizData.length) {
+                showQuestion();
+            } else {
+                showResults();
+            }
+        }
+
+        nextBtn.addEventListener('click', () => {
+            if (currentQuestionIndex < quizData.length) {
+                handleNextButton();
+            }
+        });
+
+        hintButton.addEventListener('click', () => {
+            hintEl.classList.remove('hidden');
+            hintButton.classList.add('hidden');
+        });
+
+        restartBtn.addEventListener('click', startQuiz);
+
+        startQuiz();
+    </script>
+</body>
+</html>

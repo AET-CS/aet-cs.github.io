@@ -10,10 +10,10 @@ classes:
 
 - October 1, 2025 (Wednesday)
     - Unrelated [surveys for AP Stats](./stats.md)
-    - Finish Part 1 of Calculator
+    -  Finish Part 1 of Calculator
     - As time allows, implement extensions (any order you choose)
     - Here are notes on [adding precedence](./Calculator/precedence.md) and [parenthesis](./Calculator/parenthesis.md)
-    - Submit in class, a screen video of your calculator demonstrating implemented features.
+    - Submit in class, a screen video of your calculator demonstrating implemented features. [here](https://forms.gle/9aYEH6EQAQUDc96j9)
 - September 29, 2025 (Monday)
     - New project: Calculator
         - Read the [description](./Calculator/calculator-instructions.md)

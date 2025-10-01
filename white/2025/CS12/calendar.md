@@ -9,6 +9,7 @@ classes:
 
 
 - October 1, 2025 (Wednesday)
+    - Unrelated [surveys for AP Stats](./stats.md)
     - Finish Part 1 of Calculator
     - As time allows, implement extensions (any order you choose)
     - Here are notes on [adding precedence](./Calculator/precedence.md) and [parenthesis](./Calculator/parenthesis.md)

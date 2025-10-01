@@ -8,9 +8,9 @@ classes:
 ## Daily Review
 
 - September 30, 2025 (Tuesday)
-    - Start Linear Regression Unit
+    - Start Linear Regression Unit. See the [lecture notes](./notes/Multilinear_regression.html)
     - Look at [Test Score Data Set](./notebooks/Test_Scores.ipynb)
-    - Next look at [Life Expectancy Data Set](./notebooks/Life_Expectancy_Student.ipynb)
+    - Next look at [Life Expectancy Data Set](./notebooks/Life_Expectancy_Student.ipynb) and discuss in class
     - HW: Complete exercises in Life Expectancy Data Set
     - [Source for the Life Expectancy dataset](https://www.kaggle.com/datasets/kumarajarshi/life-expectancy-who/data)
 - September 26, 2026 (Friday)

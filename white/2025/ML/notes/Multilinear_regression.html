@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Multilinear Regression Lecture Notes</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css" xintegrity="sha384-n8MVd4RsNIU0KOVEMmg9ikOAiqRT5t+sJccBY/u8qIqsm29IshaUbkdE3EuqoWRY" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.js" xintegrity="sha384-XjKyOOlGwcjNTAIQHIpgOno0Hl1YQqzUOEleOLALmuqehneUG+vnGctmUb0ZY0l8" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/contrib/auto-render.min.js" xintegrity="sha384-+VBxd3r6XgURycqtZ117nYw44OOcIax56Z4dCRWbxyPt0Koah1uHoK0o4+/RRE05" crossorigin="anonymous"></script>
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+        }
+        .katex {
+            font-size: 1.1em;
+        }
+    </style>
+</head>
+<body class="bg-gray-100 text-gray-800 p-4 sm:p-8">
+    <div class="max-w-4xl mx-auto bg-white p-8 rounded-lg shadow-md">
+        <h1 class="text-3xl font-bold mb-6 text-gray-900 border-b pb-4">Lecture Notes: Introduction to Multiple Linear Regression</h1>
+        <p class="mb-6">These notes are designed to accompany the <code>Test_Scores.ipynb</code> Jupyter notebook. We will explore how to build and interpret a multiple linear regression model to predict student exam scores.</p>
+
+        <section class="mb-8">
+            <h2 class="text-2xl font-semibold mb-4 text-gray-900">1. What is a Multiple Linear Regression Model?</h2>
+            <p class="mb-4">Simple linear regression models the relationship between a single independent variable (X) and a dependent variable (Y). However, in most real-world scenarios, an outcome is influenced by more than one factor.</p>
+            <p class="mb-4"><strong>Multiple Linear Regression</strong> is an extension of this concept. It allows us to model the linear relationship between a dependent variable and <strong>two or more</strong> independent variables.</p>
+            <p class="mb-4">The goal is to find an equation that best predicts the dependent variable (our <em>target</em>) as a linear combination of the independent variables (our <em>features</em>).</p>
+            <p class="mb-4">The general form of the equation is:</p>
+            <div class="text-center my-4">
+                $$ Y = \beta_0 + \beta_1X_1 + \beta_2X_2 + ... + \beta_pX_p + \epsilon $$
+            </div>
+            <ul class="list-disc list-inside space-y-2 mb-4">
+                <li><strong>Y</strong> is the dependent variable (e.g., <code>final_exam_score</code>).</li>
+                <li>$X_1, X_2, ..., X_p$ are the independent variables (e.g., <code>minutes_studying</code>, <code>current_grade</code>, etc.).</li>
+                <li>$\beta_0$ is the intercept (the value of Y when all X's are 0). In our notebook's <code>statsmodel</code> output, we run a model without an intercept for simplicity in interpretation.</li>
+                <li>$\beta_1, \beta_2, ..., \beta_p$ are the <strong>coefficients</strong> for each independent variable.</li>
+                <li>$\epsilon$ is the error term, representing the variability in Y that cannot be explained by the model.</li>
+            </ul>
+        </section>
+
+        <section class="mb-8">
+            <h2 class="text-2xl font-semibold mb-4 text-gray-900">2. Identifying Relationships: The Correlation Heatmap</h2>
+            <p class="mb-4">Before building a model, it's crucial to understand the relationships between our variables. The correlation matrix heatmap in the notebook is a powerful tool for this.</p>
+
+            <h3 class="text-lg font-semibold mt-6 mb-2">How to Read the Heatmap:</h3>
+            <ul class="list-disc list-inside space-y-2 mb-4">
+                <li><strong>Scale</strong>: The color bar ranges from -1 to 1.</li>
+                <li><strong>Positive Correlation (approaching 1)</strong>: As one variable increases, the other tends to increase. In the notebook, <code>minutes_studying</code> has a strong positive correlation (0.8) with <code>final_exam_score</code>. This is indicated by a light color.</li>
+                <li><strong>Negative Correlation (approaching -1)</strong>: As one variable increases, the other tends to decrease. <code>screen_time_minutes</code> has a negative correlation (-0.23) with <code>final_exam_score</code>. This is indicated by a dark color.</li>
+                <li><strong>No Correlation (approaching 0)</strong>: There is no linear relationship between the variables. <code>num_pets</code> has a very weak correlation (0.13) with the final exam score.</li>
+            </ul>
+            <h3 class="text-lg font-semibold mt-6 mb-2">Co-linearity (or Multicollinearity):</h3>
+            <p>The heatmap also helps us spot potential issues. <strong>Co-linearity</strong> occurs when two or more independent variables are highly correlated with each other (e.g., <code>minutes_studying</code> and <code>current_grade</code>). This can sometimes make it difficult for the model to determine the individual effect of each variable.</p>
+        </section>
+
+        <section class="mb-8">
+            <h2 class="text-2xl font-semibold mb-4 text-gray-900">3. Interpreting the <code>statsmodel</code> OLS Regression Results</h2>
+            <p class="mb-4">The <code>statsmodel</code> library provides a detailed summary of our regression model. Let's break down the key components from the notebook's output.</p>
+            <pre class="bg-gray-800 text-white p-4 rounded-md overflow-x-auto text-sm"><code>
+                         OLS Regression Results
+================================================================================
+Dep. Variable:     final_exam_score   R-squared (uncentered):           0.997
+Model:                          OLS   Adj. R-squared (uncentered):      0.997
+...
+=======================================================================================
+                          coef    std err          t      P>|t|      [0.025      0.975]
+---------------------------------------------------------------------------------------
+student_id             -0.0129      0.018     -0.720      0.474      -0.049       0.023
+minutes_studying        0.4746      0.029     16.317      0.000       0.417       0.533
+current_grade           0.6617      0.044     14.945      0.000       0.574       0.750
+num_pets                0.2385      0.323      0.738      0.463      -0.405       0.882
+screen_time_minutes    -0.0057      0.003     -1.746      0.085      -0.012       0.001
+==============================================================================
+Omnibus:                        0.974   Durbin-Watson:                   2.299
+...
+Kurtosis:                       3.305   Cond. No.                         555.
+==============================================================================
+            </code></pre>
+            <ul class="space-y-6 mt-6">
+                <li>
+                    <p><strong><code>coef</code> (Coefficients)</strong>: This is one of the most important parts. Each coefficient tells you how much the <code>final_exam_score</code> is expected to change if that independent variable increases by one unit, <em>while all other variables are held constant</em>.</p>
+                    <ul class="list-disc list-inside space-y-2 mt-2 pl-4">
+                        <li><strong><code>minutes_studying</code> (0.4746)</strong>: For every additional minute a student studies, their final exam score is predicted to increase by about 0.47 points, assuming their current grade, number of pets, etc., stay the same.</li>
+                        <li><strong><code>current_grade</code> (0.6617)</strong>: For each point higher in their current grade, a student's final exam score is predicted to increase by 0.66 points, all else being equal.</li>
+                        <li><strong><code>screen_time_minutes</code> (-0.0057)</strong>: For every additional minute of screen time, the score is predicted to <em>decrease</em> by 0.0057 points.</li>
+                    </ul>
+                </li>
+                <li>
+                    <p><strong><code>P>|t|</code> (p-value)</strong>: This value helps determine the statistical significance of each variable. It tests the null hypothesis that the coefficient is 0 (i.e., the variable has no effect on the target).</p>
+                    <ul class="list-disc list-inside space-y-2 mt-2 pl-4">
+                        <li>A <strong>low p-value (typically < 0.05)</strong> suggests that you can reject the null hypothesis. The variable is statistically significant and likely has a real effect on the <code>final_exam_score</code>.</li>
+                        <li>In our results, <code>minutes_studying</code> and <code>current_grade</code> have p-values of <code>0.000</code>, making them highly significant.</li>
+                        <li><code>num_pets</code> has a p-value of <code>0.463</code>, which is high. This indicates that the number of pets is not a statistically significant predictor of the exam score in this model.</li>
+                    </ul>
+                </li>
+                <li>
+                    <p><strong><code>Cond. No.</code> (Condition Number)</strong>: This number helps diagnose multicollinearity. A high condition number (often cited as <strong>greater than 30</strong>) suggests that there may be strong correlations between your independent variables, which can make the coefficient estimates less reliable. Our value of <code>555.</code> is very high, indicating that multicollinearity is likely present in our model (as we suspected from the heatmap).</p>
+                </li>
+            </ul>
+        </section>
+
+        <section>
+            <h2 class="text-2xl font-semibold mb-4 text-gray-900">Key Takeaways</h2>
+            <ul class="list-disc list-inside space-y-2">
+                <li>Multiple linear regression helps us understand the combined effect of several features on a target variable.</li>
+                <li>Coefficients quantify the impact of each feature independently.</li>
+                <li>P-values tell us which features are statistically significant predictors.</li>
+                <li>Heatmaps and the Condition Number are essential tools for identifying multicollinearity, which can affect model stability.</li>
+            </ul>
+        </section>
+    </div>
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            renderMathInElement(document.body, {
+                delimiters: [
+                    {left: '$$', right: '$$', display: true},
+                    {left: '$', right: '$', display: false}
+                ]
+            });
+        });
+    </script>
+</body>
+</html>

@@ -46,7 +46,7 @@
         }
         code {
             font-family: 'Courier New', Courier, monospace;
-            font-size: 0.9em;
+            font-size: 0.7em;
             color: #1f2937; /* gray-800 */
         }
         .option-btn.correct code, .option-btn.incorrect code {
@@ -56,7 +56,7 @@
 </head>
 <body class="bg-slate-100 flex items-center justify-center min-h-screen p-4">
 
-    <div id="quiz-container" class="w-full max-w-2xl bg-white rounded-2xl shadow-xl p-6 md:p-8">
+    <div id="quiz-container" class="w-full max-w-4xl bg-white rounded-2xl shadow-xl p-6 md:p-8">
 
         <div id="quiz-header" class="mb-6">
             <h1 class="text-2xl md:text-3xl font-bold text-slate-800">Java Pattern Printing Quiz</h1>
@@ -132,10 +132,10 @@
                 question: "Which pattern is printed when `pattern4()` is called?<pre><code>public static void pattern4() {\n    int size = 6;\n    for (int row = 1; row <= size; row++) {\n        for (int col = 1; col <= size; col++) {\n            if (row == 1 || row == size || col == 1 || col == size) {\n                System.out.print(\"*\");\n            } else {\n                System.out.print(\" \");\n            }\n        }\n        System.out.println();\n    }\n}</code></pre>",
                 hint: "The `if` statement inside the inner loop checks if the current position is on one of the four borders.",
                 answerOptions: [
-                    { text: "<pre><code>******\n*    *\n*.   *\n*.   *\n*.   *\n******</code></pre>", isCorrect: true, rationale: "The condition is true only for the first/last row and the first/last column, printing stars on the border and spaces inside." },
+                    { text: "<pre><code>******\n*    *\n*    *\n*    *\n*    *\n******</code></pre>", isCorrect: true, rationale: "The condition is true only for the first/last row and the first/last column, printing stars on the border and spaces inside." },
                     { text: "<pre><code>******\n******\n******\n******\n******\n******</code></pre>", isCorrect: false, rationale: "This filled square would be printed if the `if-else` logic were removed and it always printed a star." },
                     { text: "<pre><code>*    *\n*    *\n*    *\n*    *\n*    *\n*    *</code></pre>", isCorrect: false, rationale: "This pattern is missing the top and bottom borders, which would happen if the condition only checked `col == 1 || col == size`." },
-                    { text: "<pre><code>*\n**\n*    *\n*    *\n*    *\n******</code></pre>", isCorrect: false, rationale: "This is a right triangle, which involves a different conditional logic, typically `col == 1 || row == size || row == col`." }
+                    { text: "<pre><code>*\n**\n* *\n*  *\n*   *\n******</code></pre>", isCorrect: false, rationale: "This is a right triangle, which involves a different conditional logic, typically `col == 1 || row == size || row == col`." }
                 ]
             },
             {
@@ -145,7 +145,7 @@
                     { text: "<pre><code>   **\n  ****\n ******\n********</code></pre>", isCorrect: true, rationale: "The rows have 2, 4, 6, and 8 stars, and leading spaces are calculated to center them within a width of 8." },
                     { text: "<pre><code>**\n****\n******\n********</code></pre>", isCorrect: false, rationale: "This pattern is left-aligned, which would happen if the first inner loop that prints spaces was removed." },
                     { text: "<pre><code>   *\n  ***\n *****\n*******</code></pre>", isCorrect: false, rationale: "This is a pyramid with an odd number of stars in each row, but the loop increments by 2 starting from 2." },
-                    { text: "<pre><code>  ** \n **** \n******\n********</code></pre>", isCorrect: false, rationale: "This pattern has trailing spaces, which would require a third inner loop to print spaces after the stars." }
+                    { text: "<pre><code>      ** \n    **** \n  ******\n********</code></pre>", isCorrect: false, rationale: "This pattern is right-aligned, which would happen if the number of spaces was 8 - stars." }
                 ]
             }
         ];

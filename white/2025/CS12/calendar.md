@@ -7,6 +7,12 @@ classes:
 
 ## Daily Calendar
 
+
+- October 1, 2025 (Wednesday)
+    - Finish Part 1 of Calculator
+    - As time allows, implement extensions (any order you choose)
+    - Here are notes on [adding precedence](./Calculator/precedence.md) and [parenthesis](./Calculator/parenthesis.md)
+    - Submit in class, a screen video of your calculator demonstrating implemented features.
 - September 29, 2025 (Monday)
     - New project: Calculator
         - Read the [description](./Calculator/calculator-instructions.md)

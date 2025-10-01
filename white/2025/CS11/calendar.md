@@ -8,7 +8,7 @@ classes:
 ## Daily Calendar
 
 - October 1, 2025 (Wednesday)
-    - Save and submit your original picture
+    - Save and submit your original picture. Submit to [this form](https://forms.gle/APqbyXL2qbhvvU418)
     - [Pumpkin Carving](./practice/pumpkin.md)
     - Test review/practice in progress (check back soon). Topics
         - RPN

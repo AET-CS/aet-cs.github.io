@@ -1,0 +1,335 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Java Code Tracing Quiz</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
+        body {
+            font-family: 'Inter', sans-serif;
+        }
+        .option-btn {
+            transition: all 0.2s ease-in-out;
+        }
+        .option-btn.correct {
+            background-color: #22c55e !important; /* green-500 */
+            color: white !important;
+            border-color: #16a34a !important; /* green-600 */
+        }
+        .option-btn.incorrect {
+            background-color: #ef4444 !important; /* red-500 */
+            color: white !important;
+            border-color: #dc2626 !important; /* red-600 */
+        }
+        .option-btn:not([disabled]):hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+        }
+        pre {
+            background-color: #f3f4f6; /* gray-100 */
+            border: 1px solid #d1d5db; /* gray-300 */
+            border-radius: 0.5rem;
+            padding: 1rem;
+            margin-top: 1rem;
+            white-space: pre-wrap;
+            word-wrap: break-word;
+        }
+        code {
+            font-family: 'Courier New', Courier, monospace;
+            font-size: 0.9em;
+            color: #1f2937; /* gray-800 */
+        }
+    </style>
+</head>
+<body class="bg-slate-100 flex items-center justify-center min-h-screen p-4">
+
+    <div id="quiz-container" class="w-full max-w-2xl bg-white rounded-2xl shadow-xl p-6 md:p-8">
+
+        <div id="quiz-header" class="mb-6">
+            <h1 class="text-2xl md:text-3xl font-bold text-slate-800">Java Code Tracing Quiz</h1>
+            <div class="mt-2 flex justify-between items-center text-sm font-medium text-slate-500">
+                <p id="question-counter"></p>
+                <p>Score: <span id="score" class="font-bold text-slate-700">0</span></p>
+            </div>
+            <div class="w-full bg-slate-200 rounded-full h-2.5 mt-4">
+                <div id="progress-bar" class="bg-blue-600 h-2.5 rounded-full" style="width: 0%"></div>
+            </div>
+        </div>
+
+        <div id="quiz-body">
+            <div id="question" class="text-lg md:text-xl font-semibold text-slate-700 mb-5 min-h-[60px]"></div>
+            <div id="options" class="grid grid-cols-1 md:grid-cols-2 gap-3"></div>
+        </div>
+
+        <div id="feedback-section" class="mt-5 min-h-[80px]">
+            <div id="hint-container" class="flex justify-end">
+                 <button id="hint-button" class="text-sm text-blue-600 hover:underline font-medium">Show Hint</button>
+            </div>
+            <p id="hint" class="hidden text-sm text-slate-600 bg-slate-100 p-3 rounded-lg mt-2"></p>
+            <p id="rationale" class="text-sm text-slate-600 font-medium mt-2 p-3 rounded-lg"></p>
+        </div>
+
+        <div id="quiz-footer" class="mt-6 text-right">
+            <button id="next-btn" class="bg-blue-600 text-white font-bold py-2 px-6 rounded-lg hover:bg-blue-700 transition-colors duration-200 disabled:bg-slate-400" disabled>Next</button>
+        </div>
+
+        <div id="results-container" class="hidden text-center">
+            <h2 class="text-2xl font-bold text-slate-800">Quiz Complete!</h2>
+            <p class="mt-3 text-lg text-slate-600">Your final score is:</p>
+            <p id="final-score" class="text-5xl font-extrabold text-blue-600 my-4"></p>
+            <p id="score-message" class="font-medium text-slate-700 mb-6"></p>
+            <button id="restart-btn" class="bg-blue-600 text-white font-bold py-3 px-8 rounded-lg hover:bg-blue-700 transition-colors duration-200">Restart Quiz</button>
+        </div>
+
+    </div>
+
+    <script>
+        const quizData = [
+            {
+                question: "What is printed when `trace1()` is called?<pre><code>public static void trace1() {\n    int x = 5;\n    int y = 3;\n    x = x + y;\n    y = x - y;\n    System.out.println(x + \" \" + y);\n}</code></pre>",
+                hint: "Track the value of `x` and `y` step-by-step. Remember that the new value of `x` is used in the next calculation for `y`.",
+                answerOptions: [
+                    { text: "8 5", isCorrect: true, rationale: "After `x = x + y;`, x becomes 8. Then, `y = x - y;` becomes `y = 8 - 3;`, making y equal to 5. The original value of x is updated." },
+                    { text: "8 3", isCorrect: false, rationale: "This would be the result if the value of `x` wasn't updated before the second calculation for `y` was performed." },
+                    { text: "5 3", isCorrect: false, rationale: "This would be the output if the program printed the initial values of x and y before any calculations happened." },
+                    { text: "5 2", isCorrect: false, rationale: "This might result from incorrectly calculating `y = x - y` using the original value of x, as in `y = 5 - 3`." }
+                ]
+            },
+            {
+                question: "What is printed when `trace2()` is called?<pre><code>public static void trace2() {\n    int count = 0;\n    for (int i = 1; i <= 5; i++) {\n        count = count + i;\n    }\n    System.out.println(count);\n}</code></pre>",
+                hint: "The loop adds the numbers from 1 to 5 to the `count` variable. What is the sum of 1 + 2 + 3 + 4 + 5?",
+                answerOptions: [
+                    { text: "15", isCorrect: true, rationale: "The loop iterates five times, accumulating the sum of i (1, 2, 3, 4, 5), which results in a final `count` of 15." },
+                    { text: "5", isCorrect: false, rationale: "This would be the final value of `i` after the loop finishes, but the question asks for the value of `count`." },
+                    { text: "10", isCorrect: false, rationale: "This might happen if the loop condition was `i < 5` instead of `i <= 5`, stopping the accumulation one step early." },
+                    { text: "0", isCorrect: false, rationale: "This is the initial value of `count`, but the loop modifies it in each iteration." }
+                ]
+            },
+            {
+                question: "What is printed when `trace3(7)` is called?<pre><code>public static void trace3(int n) {\n    if (n > 10) {\n        n = n * 2;\n    } else {\n        n = n + 5;\n    }\n    System.out.println(n);\n}</code></pre>",
+                hint: "The input value is 7. Check if it's greater than 10 to determine which part of the if-else block will execute.",
+                answerOptions: [
+                    { text: "12", isCorrect: true, rationale: "Since 7 is not greater than 10, the `else` block is executed, calculating `n = 7 + 5`." },
+                    { text: "14", isCorrect: false, rationale: "This would be the result if the `if` block condition `(n > 10)` was true, leading to `n = 7 * 2`." },
+                    { text: "7", isCorrect: false, rationale: "This is the initial value of `n`, but the conditional statement will always modify it before printing." },
+                    { text: "17", isCorrect: false, rationale: "This might result from a miscalculation within either the `if` or `else` block." }
+                ]
+            },
+            {
+                question: "What is printed when `trace4()` is called?<pre><code>public static void trace4() {\n    int x = 10;\n    int count = 0;\n    while (x > 0) {\n        x = x - 3;\n        count++;\n    }\n    System.out.println(count + \" \" + x);\n}</code></pre>",
+                hint: "The loop continues as long as `x` is greater than 0. Count how many times you can subtract 3 from 10 before it is no longer positive.",
+                answerOptions: [
+                    { text: "4 -2", isCorrect: true, rationale: "The loop runs 4 times. x values: 7, 4, 1, -2. `count` becomes 4. The loop stops when x is -2." },
+                    { text: "3 1", isCorrect: false, rationale: "This would be the state of the variables just before the final iteration of the loop." },
+                    { text: "3 0", isCorrect: false, rationale: "This might be the result if the loop condition was `x >= 0`, which would cause it to stop at a different point." },
+                    { text: "4 1", isCorrect: false, rationale: "This incorrectly states the final value of x, which becomes negative on the last iteration." }
+                ]
+            },
+            {
+                question: "What is printed when `trace5(6)` is called?<pre><code>public static void trace5(int n) {\n    int sum = 0;\n    for (int i = 1; i <= n; i++) {\n        if (i % 2 == 0) {\n            sum = sum + i;\n        }\n    }\n    System.out.println(sum);\n}</code></pre>",
+                hint: "The code iterates from 1 to 6 and adds `i` to `sum` only if `i` is an even number.",
+                answerOptions: [
+                    { text: "12", isCorrect: true, rationale: "The code sums the even numbers between 1 and 6, which are 2, 4, and 6. The sum is `2 + 4 + 6 = 12`." },
+                    { text: "21", isCorrect: false, rationale: "This would be the sum of all numbers from 1 to 6, but the code specifically filters for even numbers." },
+                    { text: "9", isCorrect: false, rationale: "This is the sum of the odd numbers (1, 3, 5), which are ignored by the `if` condition." },
+                    { text: "6", isCorrect: false, rationale: "This is the final value of `i`, not the final value of `sum`." }
+                ]
+            },
+            {
+                question: "What is printed when `trace6(20)` is called?<pre><code>public static void trace6(int n) {\n    int a = 1;\n    int b = 0;\n    while (a < n) {\n        a = a * 2;\n        b++;\n    }\n    System.out.println(a + \" \" + b);\n}</code></pre>",
+                hint: "The loop doubles `a` and increments `b` until `a` is no longer less than 20. Track the values of both variables in each step.",
+                answerOptions: [
+                    { text: "32 5", isCorrect: true, rationale: "The loop runs 5 times. `a` becomes 2, 4, 8, 16, then 32. `b` increments to 5. The loop stops when `a` (32) is not less than `n` (20)." },
+                    { text: "16 4", isCorrect: false, rationale: "This represents the state of the variables just before the final iteration of the loop." },
+                    { text: "20 5", isCorrect: false, rationale: "This incorrectly assumes the final value of `a` will be equal to `n`." },
+                    { text: "32 4", isCorrect: false, rationale: "This correctly identifies the final value of `a` but miscounts the number of loop iterations for `b`." }
+                ]
+            },
+            {
+                question: "What is printed when `trace7(8, 15)` is called?<pre><code>public static void trace7(int x, int y) {\n    int result = 0;\n    if (x > 5) {\n        if (y < 10) {\n            result = x + y;\n        } else {\n            result = x - y;\n        }\n    } else {\n        result = x * y;\n    }\n    System.out.println(result);\n}</code></pre>",
+                hint: "First, check if `x` (8) is greater than 5. Then, based on that, check if `y` (15) is less than 10 to determine the final calculation.",
+                answerOptions: [
+                    { text: "-7", isCorrect: true, rationale: "Since `x > 5` is true and `y < 10` is false, the inner `else` block executes, calculating `result = 8 - 15`." },
+                    { text: "23", isCorrect: false, rationale: "This would be the result if the inner `if` condition (`y < 10`) were true." },
+                    { text: "120", isCorrect: false, rationale: "This would be the result if the outer `if` condition (`x > 5`) were false." },
+                    { text: "0", isCorrect: false, rationale: "This is the initial value of `result`, but one of the conditional blocks will always update it." }
+                ]
+            },
+            {
+                question: "What is printed when `trace8()` is called?<pre><code>public static void trace8() {\n    int x = 1;\n    int y = 10;\n    while (x < y) {\n        x = x + 2;\n        y = y - 1;\n    }\n    System.out.println(x + \" \" + y);\n}</code></pre>",
+                hint: "In each loop, `x` increases and `y` decreases. The loop stops when `x` is no longer less than `y`. Track both values.",
+                answerOptions: [
+                    { text: "7 7", isCorrect: true, rationale: "The loop runs 3 times. x values: 3, 5, 7. y values: 9, 8, 7. The loop condition `x < y` (7 < 7) becomes false, so it terminates." },
+                    { text: "5 8", isCorrect: false, rationale: "This reflects the state of the variables before the final iteration of the loop." },
+                    { text: "9 6", isCorrect: false, rationale: "This would be the result if the loop continued one more time, but the condition `7 < 7` prevents this." },
+                    { text: "7 6", isCorrect: false, rationale: "This shows a correct value for x, but an incorrect final value for y." }
+                ]
+            },
+            {
+                question: "What is printed when `trace9(50)` is called?<pre><code>public static void trace9(int n) {\n    int result = 1;\n    int count = 0;\n    while (result <= n) {\n        result = result * 3;\n        count++;\n    }\n    System.out.println(count + \" \" + result);\n}</code></pre>",
+                hint: "Count how many times you can multiply `result` by 3 before it exceeds 50.",
+                answerOptions: [
+                    { text: "4 81", isCorrect: true, rationale: "The loop runs 4 times. `result` becomes 3, 9, 27, then 81. `count` becomes 4. The loop stops when `result` (81) is not `<= n` (50)." },
+                    { text: "3 27", isCorrect: false, rationale: "This represents the state of the variables just before the final iteration of the loop." },
+                    { text: "4 27", isCorrect: false, rationale: "This has the correct number of iterations for `count` but shows the value of `result` from the previous step." },
+                    { text: "3 81", isCorrect: false, rationale: "This has the correct final value for `result` but incorrectly counts the number of iterations." }
+                ]
+            },
+            {
+                question: "What is printed when `trace10(5)` is called?<pre><code>public static void trace10(int n) {\n    int a = 0;\n    int b = 1;\n    for (int i = 0; i < n; i++) {\n        int temp = a + b;\n        a = b;\n        b = temp;\n    }\n    System.out.println(a);\n}</code></pre>",
+                hint: "This code generates a number from the Fibonacci sequence. Trace the values of `a` and `b` through 5 iterations.",
+                answerOptions: [
+                    { text: "5", isCorrect: true, rationale: "This generates the 6th Fibonacci number (starting from 0). After 5 loops, the final value of `a` is 5." },
+                    { text: "8", isCorrect: false, rationale: "This would be the final value of `b` after the loop finishes, but the program prints the value of `a`." },
+                    { text: "3", isCorrect: false, rationale: "This is the value of `a` after the 4th iteration, but the loop runs a total of 5 times." },
+                    { text: "1", isCorrect: false, rationale: "This is the value of `a` after the first two iterations, but the loop continues beyond that." }
+                ]
+            }
+        ];
+
+        let currentQuestionIndex = 0;
+        let score = 0;
+
+        const questionEl = document.getElementById('question');
+        const optionsEl = document.getElementById('options');
+        const rationaleEl = document.getElementById('rationale');
+        const nextBtn = document.getElementById('next-btn');
+        const scoreEl = document.getElementById('score');
+        const questionCounterEl = document.getElementById('question-counter');
+        const progressBarEl = document.getElementById('progress-bar');
+        const resultsContainer = document.getElementById('results-container');
+        const quizContainer = document.getElementById('quiz-container');
+        const restartBtn = document.getElementById('restart-btn');
+        const finalScoreEl = document.getElementById('final-score');
+        const scoreMessageEl = document.getElementById('score-message');
+        const hintEl = document.getElementById('hint');
+        const hintButton = document.getElementById('hint-button');
+        const hintContainer = document.getElementById('hint-container');
+
+        function startQuiz() {
+            currentQuestionIndex = 0;
+            score = 0;
+            scoreEl.textContent = '0';
+            resultsContainer.classList.add('hidden');
+            quizContainer.querySelector('#quiz-header').classList.remove('hidden');
+            quizContainer.querySelector('#quiz-body').classList.remove('hidden');
+            quizContainer.querySelector('#feedback-section').classList.remove('hidden');
+            quizContainer.querySelector('#quiz-footer').classList.remove('hidden');
+            nextBtn.disabled = true;
+            showQuestion();
+        }
+
+        function showQuestion() {
+            resetState();
+            let currentQuestion = quizData[currentQuestionIndex];
+            let questionNo = currentQuestionIndex + 1;
+
+            questionEl.innerHTML = currentQuestion.question;
+            questionCounterEl.textContent = `Question ${questionNo} of ${quizData.length}`;
+            progressBarEl.style.width = `${(questionNo / quizData.length) * 100}%`;
+
+            hintEl.textContent = currentQuestion.hint;
+
+            currentQuestion.answerOptions.forEach(option => {
+                const button = document.createElement('button');
+                button.textContent = option.text;
+                button.classList.add('option-btn', 'w-full', 'border-2', 'border-slate-300', 'rounded-lg', 'p-3', 'text-left', 'hover:bg-slate-100', 'hover:border-blue-500', 'focus:outline-none', 'focus:ring-2', 'focus:ring-blue-400');
+                if (option.isCorrect) {
+                    button.dataset.correct = "true";
+                }
+                button.dataset.rationale = option.rationale;
+                button.addEventListener('click', selectAnswer);
+                optionsEl.appendChild(button);
+            });
+        }
+
+        function resetState() {
+            nextBtn.disabled = true;
+            rationaleEl.textContent = '';
+            rationaleEl.classList.remove('bg-green-100', 'text-green-800', 'bg-red-100', 'text-red-800');
+            hintEl.classList.add('hidden');
+            hintButton.classList.remove('hidden');
+            hintContainer.classList.remove('hidden');
+            while (optionsEl.firstChild) {
+                optionsEl.removeChild(optionsEl.firstChild);
+            }
+        }
+
+        function selectAnswer(e) {
+            const selectedBtn = e.target;
+            const isCorrect = selectedBtn.dataset.correct === "true";
+
+            rationaleEl.textContent = selectedBtn.dataset.rationale;
+
+            if (isCorrect) {
+                selectedBtn.classList.add('correct');
+                score++;
+                scoreEl.textContent = score;
+                rationaleEl.classList.add('bg-green-100', 'text-green-800');
+            } else {
+                selectedBtn.classList.add('incorrect');
+                rationaleEl.classList.add('bg-red-100', 'text-red-800');
+            }
+
+            Array.from(optionsEl.children).forEach(button => {
+                if (button.dataset.correct === "true") {
+                    if (!isCorrect) button.classList.add('correct');
+                }
+                button.disabled = true;
+            });
+
+            hintContainer.classList.add('hidden');
+            nextBtn.disabled = false;
+        }
+
+        function showResults() {
+            quizContainer.querySelector('#quiz-header').classList.add('hidden');
+            quizContainer.querySelector('#quiz-body').classList.add('hidden');
+            quizContainer.querySelector('#feedback-section').classList.add('hidden');
+            quizContainer.querySelector('#quiz-footer').classList.add('hidden');
+            resultsContainer.classList.remove('hidden');
+
+            const percentage = Math.round((score / quizData.length) * 100);
+            finalScoreEl.textContent = `${percentage}%`;
+
+            let message = "";
+            if (percentage === 100) {
+                message = "Perfect score! You're a code tracing expert!";
+            } else if (percentage >= 75) {
+                message = "Great job! You have a sharp eye for detail.";
+            } else if (percentage >= 50) {
+                message = "Good effort! A little more practice and you'll master it.";
+            } else {
+                message = "Keep practicing! Tracing code is a skill that builds over time.";
+            }
+            scoreMessageEl.textContent = message;
+        }
+
+        function handleNextButton() {
+            currentQuestionIndex++;
+            if (currentQuestionIndex < quizData.length) {
+                showQuestion();
+            } else {
+                showResults();
+            }
+        }
+
+        nextBtn.addEventListener('click', () => {
+            if (currentQuestionIndex < quizData.length) {
+                handleNextButton();
+            }
+        });
+
+        hintButton.addEventListener('click', () => {
+            hintEl.classList.remove('hidden');
+            hintButton.classList.add('hidden');
+        });
+
+        restartBtn.addEventListener('click', startQuiz);
+
+        startQuiz();
+    </script>
+</body>
+</html>

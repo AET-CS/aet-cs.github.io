@@ -9,7 +9,10 @@ classes:
 
 - October 1, 2025 (Wednesday)
     - [Pumpkin Carving](./practice/pumpkin.md)
-    - [Binary Quiz Practice](./practice/booleans/binary-quiz.html)
+    - Test Review
+        - [Binary Quiz Practice](./practice/booleans/binary-quiz.html)
+        - [Tracing Quiz Practice](./practice/tracing/tracing-quiz.html)
+        - [Pattern Quiz Practice](./practice/patterns/pattern-quiz.html)
 - Sept 29, 2025 (Monday)
     - I went over Circuits Key in class, including "3-Majority with an XOR gate"
     - Pattern Matching

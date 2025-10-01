@@ -1,0 +1,297 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Java Pattern Printing Quiz</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
+        body {
+            font-family: 'Inter', sans-serif;
+        }
+        .option-btn {
+            transition: all 0.2s ease-in-out;
+            text-align: left; /* Align preformatted text properly */
+        }
+        .option-btn.correct {
+            background-color: #22c55e !important; /* green-500 */
+            color: white !important;
+            border-color: #16a34a !important; /* green-600 */
+        }
+        .option-btn.incorrect {
+            background-color: #ef4444 !important; /* red-500 */
+            color: white !important;
+            border-color: #dc2626 !important; /* red-600 */
+        }
+        .option-btn:not([disabled]):hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+        }
+        pre {
+            background-color: #f3f4f6; /* gray-100 */
+            border: 1px solid #d1d5db; /* gray-300 */
+            border-radius: 0.5rem;
+            padding: 1rem;
+            margin-top: 1rem;
+            white-space: pre-wrap;
+            word-wrap: break-word;
+        }
+        .option-btn pre {
+            background-color: transparent;
+            border: none;
+            padding: 0;
+            margin: 0;
+            white-space: pre; /* Keep pattern formatting rigid */
+        }
+        code {
+            font-family: 'Courier New', Courier, monospace;
+            font-size: 0.9em;
+            color: #1f2937; /* gray-800 */
+        }
+        .option-btn.correct code, .option-btn.incorrect code {
+            color: white;
+        }
+    </style>
+</head>
+<body class="bg-slate-100 flex items-center justify-center min-h-screen p-4">
+
+    <div id="quiz-container" class="w-full max-w-2xl bg-white rounded-2xl shadow-xl p-6 md:p-8">
+
+        <div id="quiz-header" class="mb-6">
+            <h1 class="text-2xl md:text-3xl font-bold text-slate-800">Java Pattern Printing Quiz</h1>
+            <div class="mt-2 flex justify-between items-center text-sm font-medium text-slate-500">
+                <p id="question-counter"></p>
+                <p>Score: <span id="score" class="font-bold text-slate-700">0</span></p>
+            </div>
+            <div class="w-full bg-slate-200 rounded-full h-2.5 mt-4">
+                <div id="progress-bar" class="bg-blue-600 h-2.5 rounded-full" style="width: 0%"></div>
+            </div>
+        </div>
+
+        <div id="quiz-body">
+            <div id="question" class="text-lg md:text-xl font-semibold text-slate-700 mb-5 min-h-[60px]"></div>
+            <div id="options" class="grid grid-cols-1 md:grid-cols-2 gap-3"></div>
+        </div>
+
+        <div id="feedback-section" class="mt-5 min-h-[80px]">
+            <div id="hint-container" class="flex justify-end">
+                 <button id="hint-button" class="text-sm text-blue-600 hover:underline font-medium">Show Hint</button>
+            </div>
+            <p id="hint" class="hidden text-sm text-slate-600 bg-slate-100 p-3 rounded-lg mt-2"></p>
+            <p id="rationale" class="text-sm text-slate-600 font-medium mt-2 p-3 rounded-lg"></p>
+        </div>
+
+        <div id="quiz-footer" class="mt-6 text-right">
+            <button id="next-btn" class="bg-blue-600 text-white font-bold py-2 px-6 rounded-lg hover:bg-blue-700 transition-colors duration-200 disabled:bg-slate-400" disabled>Next</button>
+        </div>
+
+        <div id="results-container" class="hidden text-center">
+            <h2 class="text-2xl font-bold text-slate-800">Quiz Complete!</h2>
+            <p class="mt-3 text-lg text-slate-600">Your final score is:</p>
+            <p id="final-score" class="text-5xl font-extrabold text-blue-600 my-4"></p>
+            <p id="score-message" class="font-medium text-slate-700 mb-6"></p>
+            <button id="restart-btn" class="bg-blue-600 text-white font-bold py-3 px-8 rounded-lg hover:bg-blue-700 transition-colors duration-200">Restart Quiz</button>
+        </div>
+
+    </div>
+
+    <script>
+        const quizData = [
+            {
+                question: "Which pattern is printed when `pattern1()` is called?<pre><code>public static void pattern1() {\n    for (int row = 0; row < 5; row++) {\n        for (int col = 0; col < 5; col++) {\n            System.out.print(\"*\");\n        }\n        System.out.println();\n    }\n}</code></pre>",
+                hint: "Count the number of iterations for both the outer loop (rows) and the inner loop (columns).",
+                answerOptions: [
+                    { text: "<pre><code>*****\n*****\n*****\n*****\n*****</code></pre>", isCorrect: true, rationale: "The outer loop runs 5 times for the rows, and the inner loop runs 5 times for the columns, creating a 5x5 square." },
+                    { text: "<pre><code>****\n****\n****\n****\n****</code></pre>", isCorrect: false, rationale: "This pattern has 5 rows but only 4 columns, which would result from an inner loop condition like `col < 4`." },
+                    { text: "<pre><code>*****\n*****\n*****\n*****</code></pre>", isCorrect: false, rationale: "This pattern has 5 columns but only 4 rows, which would result from an outer loop condition like `row < 4`." },
+                    { text: "<pre><code>*\n**\n***\n****\n*****</code></pre>", isCorrect: false, rationale: "This triangular pattern is created when the inner loop's iterations depend on the outer loop's current row number." }
+                ]
+            },
+            {
+                question: "Which pattern is printed when `pattern2()` is called?<pre><code>public static void pattern2() {\n    for (int row = 5; row >= 1; row--) {\n        for (int col = 1; col <= row; col++) {\n            System.out.print(\"*\");\n        }\n        System.out.println();\n    }\n}</code></pre>",
+                hint: "The outer loop starts with `row = 5` and counts down. The inner loop's length depends on the current value of `row`.",
+                answerOptions: [
+                    { text: "<pre><code>*****\n****\n***\n**\n*</code></pre>", isCorrect: true, rationale: "The first row prints 5 stars, the next prints 4, and so on, creating an inverted left-aligned triangle." },
+                    { text: "<pre><code>*\n**\n***\n****\n*****</code></pre>", isCorrect: false, rationale: "This pattern would be created if the outer loop counted up from 1 to 5, not down." },
+                    { text: "<pre><code>    *\n   **\n  ***\n ****\n*****</code></pre>", isCorrect: false, rationale: "This right-aligned pattern requires an additional loop to print leading spaces before the stars." },
+                    { text: "<pre><code>*****\n*****\n*****\n*****\n*****</code></pre>", isCorrect: false, rationale: "This is a rectangle, which would be printed if the inner loop did not depend on the changing value of `row`." }
+                ]
+            },
+            {
+                question: "Which pattern is printed when `pattern3()` is called?<pre><code>public static void pattern3() {\n    int size = 4;\n    for (int row = 1; row <= size; row++) {\n        for (int space = 1; space <= size - row; space++) {\n            System.out.print(\" \");\n        }\n        for (int star = 1; star <= row; star++) {\n            System.out.print(\"*\");\n        }\n        System.out.println();\n    }\n}</code></pre>",
+                hint: "This code uses two inner loops. The first prints a variable number of spaces, and the second prints a variable number of stars.",
+                answerOptions: [
+                    { text: "<pre><code>   *\n  **\n ***\n****</code></pre>", isCorrect: true, rationale: "For each row, the code first prints spaces and then stars, with the number of spaces decreasing and stars increasing, creating a right-aligned triangle." },
+                    { text: "<pre><code>* \n** \n*** \n****</code></pre>", isCorrect: false, rationale: "This would happen if the stars were printed before the spaces, resulting in a left-aligned triangle with trailing spaces." },
+                    { text: "<pre><code>****\n***\n**\n*</code></pre>", isCorrect: false, rationale: "This pattern is an inverted triangle, which would require the outer loop to count down from `size` to 1." },
+                    { text: "<pre><code>****\n ****\n  ****\n   ****</code></pre>", isCorrect: false, rationale: "This pattern would be produced if the number of stars was constant in each row, but the number of leading spaces changed." }
+                ]
+            },
+            {
+                question: "Which pattern is printed when `pattern4()` is called?<pre><code>public static void pattern4() {\n    int size = 6;\n    for (int row = 1; row <= size; row++) {\n        for (int col = 1; col <= size; col++) {\n            if (row == 1 || row == size || col == 1 || col == size) {\n                System.out.print(\"*\");\n            } else {\n                System.out.print(\" \");\n            }\n        }\n        System.out.println();\n    }\n}</code></pre>",
+                hint: "The `if` statement inside the inner loop checks if the current position is on one of the four borders.",
+                answerOptions: [
+                    { text: "<pre><code>******\n* *\n* *\n* *\n* *\n******</code></pre>", isCorrect: true, rationale: "The condition is true only for the first/last row and the first/last column, printing stars on the border and spaces inside." },
+                    { text: "<pre><code>******\n******\n******\n******\n******\n******</code></pre>", isCorrect: false, rationale: "This filled square would be printed if the `if-else` logic were removed and it always printed a star." },
+                    { text: "<pre><code>* *\n* *\n* *\n* *\n* *\n* *</code></pre>", isCorrect: false, rationale: "This pattern is missing the top and bottom borders, which would happen if the condition only checked `col == 1 || col == size`." },
+                    { text: "<pre><code>*\n**\n* *\n* *\n* *\n******</code></pre>", isCorrect: false, rationale: "This is a right triangle, which involves a different conditional logic, typically `col == 1 || row == size || row == col`." }
+                ]
+            },
+            {
+                question: "Which pattern is printed when `pattern5()` is called?<pre><code>public static void pattern5() {\n    for (int stars = 2; stars <= 8; stars += 2) {\n        int spaces = (8 - stars) / 2;\n        for (int i = 1; i <= spaces; i++) {\n            System.out.print(\" \");\n        }\n        for (int i = 1; i <= stars; i++) {\n            System.out.print(\"*\");\n        }\n        System.out.println();\n    }\n}</code></pre>",
+                hint: "The number of stars in the loop increases by 2 each time (2, 4, 6, 8). Spaces are printed on the left side to center the pattern.",
+                answerOptions: [
+                    { text: "<pre><code>  **\n ****\n******\n********</code></pre>", isCorrect: true, rationale: "The rows have 2, 4, 6, and 8 stars, and leading spaces are calculated to center them within a width of 8." },
+                    { text: "<pre><code>**\n****\n******\n********</code></pre>", isCorrect: false, rationale: "This pattern is left-aligned, which would happen if the first inner loop that prints spaces was removed." },
+                    { text: "<pre><code>   *\n  ***\n *****\n*******</code></pre>", isCorrect: false, rationale: "This is a pyramid with an odd number of stars in each row, but the loop increments by 2 starting from 2." },
+                    { text: "<pre><code>  ** \n **** \n******\n********</code></pre>", isCorrect: false, rationale: "This pattern has trailing spaces, which would require a third inner loop to print spaces after the stars." }
+                ]
+            }
+        ];
+
+        let currentQuestionIndex = 0;
+        let score = 0;
+
+        const questionEl = document.getElementById('question');
+        const optionsEl = document.getElementById('options');
+        const rationaleEl = document.getElementById('rationale');
+        const nextBtn = document.getElementById('next-btn');
+        const scoreEl = document.getElementById('score');
+        const questionCounterEl = document.getElementById('question-counter');
+        const progressBarEl = document.getElementById('progress-bar');
+        const resultsContainer = document.getElementById('results-container');
+        const quizContainer = document.getElementById('quiz-container');
+        const restartBtn = document.getElementById('restart-btn');
+        const finalScoreEl = document.getElementById('final-score');
+        const scoreMessageEl = document.getElementById('score-message');
+        const hintEl = document.getElementById('hint');
+        const hintButton = document.getElementById('hint-button');
+        const hintContainer = document.getElementById('hint-container');
+
+        function startQuiz() {
+            currentQuestionIndex = 0;
+            score = 0;
+            scoreEl.textContent = '0';
+            resultsContainer.classList.add('hidden');
+            quizContainer.querySelector('#quiz-header').classList.remove('hidden');
+            quizContainer.querySelector('#quiz-body').classList.remove('hidden');
+            quizContainer.querySelector('#feedback-section').classList.remove('hidden');
+            quizContainer.querySelector('#quiz-footer').classList.remove('hidden');
+            nextBtn.disabled = true;
+            showQuestion();
+        }
+
+        function showQuestion() {
+            resetState();
+            let currentQuestion = quizData[currentQuestionIndex];
+            let questionNo = currentQuestionIndex + 1;
+
+            questionEl.innerHTML = currentQuestion.question;
+            questionCounterEl.textContent = `Question ${questionNo} of ${quizData.length}`;
+            progressBarEl.style.width = `${(questionNo / quizData.length) * 100}%`;
+
+            hintEl.textContent = currentQuestion.hint;
+
+            currentQuestion.answerOptions.forEach(option => {
+                const button = document.createElement('button');
+                button.innerHTML = option.text;
+                button.classList.add('option-btn', 'w-full', 'border-2', 'border-slate-300', 'rounded-lg', 'p-3', 'hover:bg-slate-100', 'hover:border-blue-500', 'focus:outline-none', 'focus:ring-2', 'focus:ring-blue-400');
+                if (option.isCorrect) {
+                    button.dataset.correct = "true";
+                }
+                button.dataset.rationale = option.rationale;
+                button.addEventListener('click', selectAnswer);
+                optionsEl.appendChild(button);
+            });
+        }
+
+        function resetState() {
+            nextBtn.disabled = true;
+            rationaleEl.textContent = '';
+            rationaleEl.classList.remove('bg-green-100', 'text-green-800', 'bg-red-100', 'text-red-800');
+            hintEl.classList.add('hidden');
+            hintButton.classList.remove('hidden');
+            hintContainer.classList.remove('hidden');
+            while (optionsEl.firstChild) {
+                optionsEl.removeChild(optionsEl.firstChild);
+            }
+        }
+
+        function selectAnswer(e) {
+            // Use currentTarget to ensure the button is selected, even if clicking on child element like <pre> or <code>
+            const selectedBtn = e.currentTarget;
+            const isCorrect = selectedBtn.dataset.correct === "true";
+
+            rationaleEl.textContent = selectedBtn.dataset.rationale;
+
+            if (isCorrect) {
+                selectedBtn.classList.add('correct');
+                score++;
+                scoreEl.textContent = score;
+                rationaleEl.classList.add('bg-green-100', 'text-green-800');
+            } else {
+                selectedBtn.classList.add('incorrect');
+                rationaleEl.classList.add('bg-red-100', 'text-red-800');
+            }
+
+            Array.from(optionsEl.children).forEach(button => {
+                if (button.dataset.correct === "true") {
+                    if (!isCorrect) button.classList.add('correct');
+                }
+                button.disabled = true;
+            });
+
+            hintContainer.classList.add('hidden');
+            nextBtn.disabled = false;
+        }
+
+        function showResults() {
+            quizContainer.querySelector('#quiz-header').classList.add('hidden');
+            quizContainer.querySelector('#quiz-body').classList.add('hidden');
+            quizContainer.querySelector('#feedback-section').classList.add('hidden');
+            quizContainer.querySelector('#quiz-footer').classList.add('hidden');
+            resultsContainer.classList.remove('hidden');
+
+            const percentage = Math.round((score / quizData.length) * 100);
+            finalScoreEl.textContent = `${percentage}%`;
+
+            let message = "";
+            if (percentage === 100) {
+                message = "Perfect score! You're a pattern master!";
+            } else if (percentage >= 75) {
+                message = "Great job! You have a strong understanding of nested loops.";
+            } else if (percentage >= 50) {
+                message = "Good effort! A little more practice and you'll get it.";
+            } else {
+                message = "Keep practicing! Visualizing loop output is a key skill.";
+            }
+            scoreMessageEl.textContent = message;
+        }
+
+        function handleNextButton() {
+            currentQuestionIndex++;
+            if (currentQuestionIndex < quizData.length) {
+                showQuestion();
+            } else {
+                showResults();
+            }
+        }
+
+        nextBtn.addEventListener('click', () => {
+            if (currentQuestionIndex < quizData.length) {
+                handleNextButton();
+            }
+        });
+
+        hintButton.addEventListener('click', () => {
+            hintEl.classList.remove('hidden');
+            hintButton.classList.add('hidden');
+        });
+
+        restartBtn.addEventListener('click', startQuiz);
+
+        startQuiz();
+    </script>
+</body>
+</html>

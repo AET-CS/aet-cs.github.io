@@ -13,8 +13,8 @@ classes:
     - Test review/practice in progress (check back soon). Topics
         - RPN
         - Boolean Algebra and Circuits
-        - Tracing code with and without loops
-        - Tracing/matching 2D patterns
+        - Tracing code with and without loops [practice](./practice/tracing/tracing-quiz.html)
+        - Tracing/matching 2D patterns [practice](./practice/patterns/pattern-quiz.html)
 - Sept 29, 2025 (Monday)
     - I went over Circuits Key in class, including "3-Majority with an XOR gate"
     - Pattern Matching

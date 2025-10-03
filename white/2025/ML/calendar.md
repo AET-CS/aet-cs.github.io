@@ -7,6 +7,11 @@ classes:
 
 ## Daily Review
 
+- October 3, 2025 (Friday)
+    - Linear regression: normalization and regularization
+    - Read and work through this [Life Part 2 Notebook](./notebooks/Life_Part_2_Student.ipynb)
+    - Optional AP Stats [surveys](../CS12/stats.md)
+    - Next Thursday: Library trip
 - September 30, 2025 (Tuesday)
     - Start Linear Regression Unit. See the [lecture notes](./notes/Multilinear_regression.html)
     - Look at [Test Score Data Set](./notebooks/Test_Scores.ipynb)

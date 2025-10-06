@@ -8,6 +8,14 @@ classes:
 ## Daily Calendar
 
 
+- October 6, 2025 (Monday)
+    - PSAT Day; short class
+    - Test next class. Review material coming soon. You should know
+        - RPN
+        - Tracing (all AP topics covered last year plus simple recursion, and Stack/LinkedList/Queue)
+        - Stacks and Queues
+        - LinkedList and DoubleLinkedList
+        - For the data structures, know their running time bounds, pros and cons, and how specifically we implemented them in class
 - October 1, 2025 (Wednesday)
     - Unrelated [surveys for AP Stats](./stats.md)
     -  Finish Part 1 of Calculator

@@ -221,6 +221,13 @@
             showQuestion();
         }
 
+        function shuffleArray(array) {
+            for (let i = array.length - 1; i > 0; i--) {
+                const j = Math.floor(Math.random() * (i + 1));
+                [array[i], array[j]] = [array[j], array[i]]; // Swap elements
+            }
+        }
+
         function showQuestion() {
             resetState();
             let currentQuestion = quizData[currentQuestionIndex];
@@ -236,7 +243,7 @@
             const shuffledOptions = [...currentQuestion.answerOptions];
             shuffleArray(shuffledOptions);
 
-            shuffledOptions.answerOptions.forEach(option => {
+            shuffledOptions.forEach(option => {
                 const button = document.createElement('button');
                 button.textContent = option.text;
                 button.classList.add('option-btn', 'w-full', 'border-2', 'border-slate-300', 'rounded-lg', 'p-3', 'text-left', 'hover:bg-slate-100', 'hover:border-blue-500', 'focus:outline-none', 'focus:ring-2', 'focus:ring-blue-400');

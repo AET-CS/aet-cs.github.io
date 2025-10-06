@@ -7,6 +7,11 @@ classes:
 
 ## Daily Calendar
 
+- October 6, 2025 (Monday)
+    - PSAT Day; abbreviated class
+    - Please consider responding to these [surveys] for our AP Stats Classes
+    - Finish up Pumpkin before next class. Show me what you got!
+    - Test Friday. See review below.
 - October 1, 2025 (Wednesday)
     - Save and submit your original picture. Submit to [this form](https://forms.gle/APqbyXL2qbhvvU418)
     - [Pumpkin Carving](./practice/pumpkin.md)

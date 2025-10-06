@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Connecting to JupyterHub - Quick Start</title>
+    <style>
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+            line-height: 1.6;
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 40px 20px;
+            background-color: #f5f5f5;
+        }
+        .container {
+            background: white;
+            padding: 40px;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+        h1 {
+            color: #f37726;
+            border-bottom: 3px solid #f37726;
+            padding-bottom: 10px;
+            margin-bottom: 10px;
+        }
+        .subtitle {
+            color: #666;
+            font-size: 1.1em;
+            margin-bottom: 30px;
+        }
+        h2 {
+            color: #333;
+            margin-top: 30px;
+            border-left: 4px solid #f37726;
+            padding-left: 15px;
+        }
+        code {
+            background: #f4f4f4;
+            padding: 2px 6px;
+            border-radius: 3px;
+            font-family: 'Courier New', Courier, monospace;
+            font-size: 0.9em;
+        }
+        .info-box {
+            background: #e3f2fd;
+            border-left: 4px solid #2196f3;
+            padding: 15px;
+            margin: 20px 0;
+            border-radius: 4px;
+        }
+        .info-box strong {
+            color: #1565c0;
+        }
+        .note {
+            background: #fff3cd;
+            border-left: 4px solid #ffc107;
+            padding: 15px;
+            margin: 20px 0;
+            border-radius: 4px;
+        }
+        .note strong {
+            color: #856404;
+        }
+        ul {
+            padding-left: 25px;
+        }
+        li {
+            margin: 8px 0;
+        }
+        .steps {
+            counter-reset: step-counter;
+            list-style: none;
+            padding-left: 0;
+        }
+        .steps li {
+            counter-increment: step-counter;
+            margin: 20px 0;
+            padding-left: 40px;
+            position: relative;
+        }
+        .steps li::before {
+            content: counter(step-counter);
+            position: absolute;
+            left: 0;
+            top: 0;
+            background: #f37726;
+            color: white;
+            width: 28px;
+            height: 28px;
+            border-radius: 50%;
+            text-align: center;
+            line-height: 28px;
+            font-weight: bold;
+        }
+        .url {
+            font-size: 1.1em;
+            color: #2196f3;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Connecting to JupyterHub</h1>
+        <p class="subtitle">Quick start guide for accessing the brainy server</p>
+
+        <h2>Getting Connected</h2>
+        <ol class="steps">
+            <li>
+                <strong>Connect to WiFi</strong><br>
+                Network: <code>AET-3142</code><br>
+                Password: <em>(provided separately)</em>
+            </li>
+            <li>
+                <strong>Open your web browser</strong><br>
+                Navigate to either:<br>
+                <span class="url">brainy.local</span> or <span class="url">192.168.1.50</span>
+            </li>
+            <li>
+                <strong>Login</strong><br>
+                You will need to request an account from the administrator.<br />
+                Username: <code>first_last</code> (all lowercase, e.g., <code>john_smith</code>)<br>
+                Password: <em>(provided by administrator)</em>
+            </li>
+            <li>
+                <strong>First-time login: Set your password</strong><br>
+                If this is your first login, you'll be prompted to create a new password.<br>
+                Choose something secure and memorable!
+            </li>
+        </ol>
+
+        <div class="info-box">
+            <strong>Connection URLs:</strong>
+            <ul>
+                <li><strong>brainy.local</strong> - Easier to remember (works on most devices)</li>
+                <li><strong>192.168.1.50</strong> - Direct IP address (use if brainy.local doesn't work)</li>
+            </ul>
+        </div>
+
+        <h2>Using JupyterLab</h2>
+        <p>Once logged in, JupyterLab will start automatically. You'll see:</p>
+        <ul>
+            <li><strong>Launcher tab</strong> - Create new notebooks, terminals, or text files</li>
+            <li><strong>File browser</strong> (left sidebar) - Navigate your files and folders</li>
+            <li><strong>Available kernels</strong> - Python 3 and any custom kernels you create</li>
+        </ul>
+
+        <p>To get started:</p>
+        <ul>
+            <li>Click <strong>Python 3</strong> under "Notebook" to create a new notebook</li>
+            <li>Use <strong>File → New → Terminal</strong> to open a command line</li>
+            <li>Upload files by dragging them into the file browser</li>
+        </ul>
+
+        <div class="note">
+            <strong>Need help?</strong><br>
+            If you need custom Python packages, see the "Creating Custom Jupyter Kernels" tutorial for instructions on setting up your own environment.
+        </div>
+
+        <h2>Troubleshooting</h2>
+        <ul>
+            <li><strong>Can't reach brainy.local?</strong> Try using <code>192.168.1.50</code> instead</li>
+            <li><strong>Forgot your password?</strong> Contact the administrator for a reset</li>
+            <li><strong>Login not working?</strong> Double-check your username format (firstname_lastname, all lowercase)</li>
+            <li><strong>Connection issues?</strong> Verify you're connected to the <code>AET-3142</code> WiFi network</li>
+        </ul>
+    </div>
+</body>
+</html>

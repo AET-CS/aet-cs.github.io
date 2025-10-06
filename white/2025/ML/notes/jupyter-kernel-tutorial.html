@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Creating Custom Jupyter Kernels in TLJH</title>
+    <style>
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+            line-height: 1.6;
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 40px 20px;
+            background-color: #f5f5f5;
+        }
+        .container {
+            background: white;
+            padding: 40px;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+        h1 {
+            color: #f37726;
+            border-bottom: 3px solid #f37726;
+            padding-bottom: 10px;
+        }
+        h2 {
+            color: #333;
+            margin-top: 30px;
+            border-left: 4px solid #f37726;
+            padding-left: 15px;
+        }
+        h3 {
+            color: #555;
+            margin-top: 20px;
+        }
+        code {
+            background: #f4f4f4;
+            padding: 2px 6px;
+            border-radius: 3px;
+            font-family: 'Courier New', Courier, monospace;
+            font-size: 0.9em;
+        }
+        pre {
+            background: #2d2d2d;
+            color: #f8f8f2;
+            padding: 15px;
+            border-radius: 5px;
+            overflow-x: auto;
+            border-left: 4px solid #f37726;
+        }
+        pre code {
+            background: none;
+            color: inherit;
+            padding: 0;
+        }
+        .note {
+            background: #fff3cd;
+            border-left: 4px solid #ffc107;
+            padding: 15px;
+            margin: 20px 0;
+            border-radius: 4px;
+        }
+        .note strong {
+            color: #856404;
+        }
+        ul {
+            padding-left: 25px;
+        }
+        li {
+            margin: 8px 0;
+        }
+        .steps {
+            counter-reset: step-counter;
+            list-style: none;
+            padding-left: 0;
+        }
+        .steps li {
+            counter-increment: step-counter;
+            margin: 20px 0;
+            padding-left: 40px;
+            position: relative;
+        }
+        .steps li::before {
+            content: counter(step-counter);
+            position: absolute;
+            left: 0;
+            top: 0;
+            background: #f37726;
+            color: white;
+            width: 28px;
+            height: 28px;
+            border-radius: 50%;
+            text-align: center;
+            line-height: 28px;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Creating Custom Jupyter Kernels in TLJH</h1>
+        <p>This tutorial shows non-admin users how to create their own custom Jupyter kernels with specific Python packages. No admin access required!</p>
+
+        <h2>Method 1: Create a Kernel from requirements.txt</h2>
+        <p>Use this method when you have a <code>requirements.txt</code> file with the packages you need.</p>
+
+        <ol class="steps">
+            <li>
+                <strong>Open a terminal in JupyterHub</strong><br>
+                Go to: File → New → Terminal
+            </li>
+            <li>
+                <strong>Create a virtual environment</strong>
+                <pre><code>python3 -m venv ~/my-custom-env</code></pre>
+                <p>Replace <code>my-custom-env</code> with whatever name you prefer.</p>
+            </li>
+            <li>
+                <strong>Activate the environment</strong>
+                <pre><code>source ~/my-custom-env/bin/activate</code></pre>
+            </li>
+            <li>
+                <strong>Install ipykernel (required!)</strong>
+                <pre><code>pip install ipykernel</code></pre>
+            </li>
+            <li>
+                <strong>Install your packages</strong>
+                <pre><code>pip install -r requirements.txt</code></pre>
+                <p>Or install packages individually:</p>
+                <pre><code>pip install pandas numpy matplotlib scikit-learn</code></pre>
+            </li>
+            <li>
+                <strong>Register the kernel with Jupyter</strong>
+                <pre><code>python -m ipykernel install --user --name=my-custom-env --display-name="My Custom Environment"</code></pre>
+                <p>The <code>--display-name</code> is what you'll see in Jupyter's kernel menu.</p>
+            </li>
+            <li>
+                <strong>Deactivate the environment</strong>
+                <pre><code>deactivate</code></pre>
+            </li>
+        </ol>
+
+        <h2>Method 2: Register an Existing Virtual Environment</h2>
+        <p>If you already have a virtual environment set up, you can register it as a kernel.</p>
+
+        <ol class="steps">
+            <li>
+                <strong>Activate your existing environment</strong>
+                <pre><code>source /path/to/your/venv/bin/activate</code></pre>
+            </li>
+            <li>
+                <strong>Install ipykernel if needed</strong>
+                <pre><code>pip install ipykernel</code></pre>
+            </li>
+            <li>
+                <strong>Register the kernel</strong>
+                <pre><code>python -m ipykernel install --user --name=my-project --display-name="My Project"</code></pre>
+            </li>
+            <li>
+                <strong>Deactivate</strong>
+                <pre><code>deactivate</code></pre>
+            </li>
+        </ol>
+
+        <h2>Using Your Custom Kernel</h2>
+        <ol>
+            <li>Refresh your JupyterHub browser page</li>
+            <li>Create a new notebook or open an existing one</li>
+            <li>Go to: <strong>Kernel → Change Kernel</strong></li>
+            <li>Select your custom kernel from the list</li>
+        </ol>
+
+        <h2>Managing Your Kernels</h2>
+
+        <h3>List all available kernels:</h3>
+        <pre><code>jupyter kernelspec list</code></pre>
+
+        <h3>Remove a kernel you no longer need:</h3>
+        <pre><code>jupyter kernelspec remove my-custom-env</code></pre>
+
+        <h3>View kernel location:</h3>
+        <p>Your kernels are stored in: <code>~/.local/share/jupyter/kernels/</code></p>
+
+        <div class="note">
+            <strong>Important Notes:</strong>
+            <ul>
+                <li>The <code>--user</code> flag installs the kernel only for your account (no admin needed)</li>
+                <li>Each kernel is independent - you can have multiple kernels with different package sets</li>
+                <li>To update packages in a kernel, activate its virtual environment and use <code>pip install --upgrade</code></li>
+                <li>Kernels survive JupyterHub restarts - you only need to create them once</li>
+            </ul>
+        </div>
+
+        <h2>Example: Creating a Data Science Kernel</h2>
+        <p>Here's a complete example for a data science environment:</p>
+        <pre><code># Create and activate environment
+python3 -m venv ~/ds-env
+source ~/ds-env/bin/activate
+
+# Install packages
+pip install ipykernel
+pip install pandas numpy scipy matplotlib seaborn scikit-learn jupyter
+
+# Register kernel
+python -m ipykernel install --user --name=ds-env --display-name="Data Science"
+
+# Deactivate
+deactivate</code></pre>
+
+        <h2>Troubleshooting</h2>
+        <h3>Kernel doesn't appear in the list</h3>
+        <ul>
+            <li>Try refreshing your browser</li>
+            <li>Check if the kernel was installed: <code>jupyter kernelspec list</code></li>
+            <li>Make sure you used the <code>--user</code> flag</li>
+        </ul>
+
+        <h3>Kernel fails to start</h3>
+        <ul>
+            <li>Make sure <code>ipykernel</code> was installed in the virtual environment</li>
+            <li>Check that the virtual environment still exists and hasn't been deleted</li>
+            <li>Try removing and re-registering the kernel</li>
+        </ul>
+    </div>
+</body>
+</html>

@@ -7,6 +7,9 @@ classes:
 
 ## Daily Calendar
 
+- October 8, 2025 (Wednesday)
+    - Let's make a [physics simulator](./projects/physim.md)
+    - There's tons of [extensions](./projects/physplus.md)
 - October 6, 2025 (Monday)
     - PSAT Day; abbreviated class
     - Please consider responding to these [surveys](./stats.md) for our AP Stats Classes

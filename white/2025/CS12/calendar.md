@@ -11,7 +11,7 @@ classes:
 - October 6, 2025 (Monday)
     - PSAT Day; short class
     - Test next class. Review material coming soon. You should know
-        - RPN
+        - RPN [practice](./practice/rpn.html)
         - Tracing (all AP topics covered last year plus simple recursion, and Stack/LinkedList/Queue) [practice](./practice/tracing.html)
         - Stacks and Queues [practice](./practice/stacks_and_queues.html)
         - LinkedList and DoubleLinkedList [practice](./practice/linked_lists.html)

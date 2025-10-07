@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Stacks & Queues Quiz</title>
+    <style>
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+            line-height: 1.6;
+            margin: 0 auto;
+            max-width: 800px;
+            padding: 20px;
+            background-color: #f8f9fa;
+        }
+        h1 {
+            color: #333;
+            text-align: center;
+        }
+        .question-container {
+            background: #fff;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            margin-bottom: 20px;
+            padding: 20px;
+        }
+        pre {
+            background-color: #e9ecef;
+            border-left: 4px solid #007bff;
+            padding: 15px;
+            border-radius: 4px;
+            white-space: pre-wrap;
+            word-wrap: break-word;
+            font-family: "SFMono-Regular", Consolas, "Liberation Mono", Menlo, Courier, monospace;
+            font-size: 0.9em;
+        }
+        .options label {
+            display: block;
+            margin: 10px 0;
+            padding: 10px;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.2s;
+        }
+        .options label:hover {
+            background-color: #f1f3f5;
+        }
+        input[type="radio"] {
+            margin-right: 10px;
+        }
+        .feedback {
+            margin-top: 15px;
+            padding: 10px;
+            border-radius: 5px;
+            font-weight: bold;
+        }
+        .correct {
+            background-color: #d4edda;
+            color: #155724;
+            border: 1px solid #c3e6cb;
+        }
+        .incorrect {
+            background-color: #f8d7da;
+            color: #721c24;
+            border: 1px solid #f5c6cb;
+        }
+        .hidden {
+            display: none;
+        }
+    </style>
+</head>
+<body>
+
+    <h1>Stacks & Queues Quiz 🥞</h1>
+
+    <div id="quiz-container"></div>
+
+    <script>
+        const quizData = [
+            {
+                question: "A programmer needs to implement a Queue. Which of the following standard Java classes provides the most efficient implementation for both <b>push</b> (adding to the end) and <b>pop</b> (removing from the front) operations?",
+                options: ["ArrayList", "java.util.LinkedList", "java.util.Stack", "A standard Java array"],
+                answer: "java.util.LinkedList",
+                explanation: "A `LinkedList` is most efficient because it can add to the tail (`addLast()`) and remove from the head (`removeFirst()`) in constant O(1) time. An `ArrayList` would have a linear O(n) time complexity for removing from the front."
+            },
+            {
+                question: "If a Queue is implemented using an `ArrayList`, where new elements are added to the end (`add(element)`) and removed from the front (`remove(0)`), what is the time complexity of the <b>pop</b> operation?",
+                options: ["O(1)", "O(log n)", "O(n)", "O(n^2)"],
+                answer: "O(n)",
+                explanation: "The `pop` operation, implemented as `remove(0)`, is O(n) because removing the first element of an `ArrayList` requires shifting all subsequent elements one position to the left."
+            },
+            {
+                question: "What is the time complexity of the `push` and `pop` operations when a Stack is implemented using a `java.util.LinkedList`?",
+                options: ["`push` is O(1), `pop` is O(n)", "`push` is O(n), `pop` is O(1)", "Both are O(1)", "Both are O(n)"],
+                answer: "Both are O(1)",
+                explanation: "For a Stack, both `push` and `pop` can be implemented by adding and removing from the front of the `LinkedList` (`addFirst()` and `removeFirst()`). Both of these are O(1) operations as they only involve updating the head reference."
+            },
+            {
+                question: "Consider a Stack that is initially empty. What will be the contents of the stack from top to bottom after the following sequence of operations: `push(10)`, `push(20)`, `pop()`, `push(30)`, `push(40)`, `pop()`?",
+                options: ["[40, 30, 10]", "[30, 10]", "[10, 30]", "[20, 40]"],
+                answer: "[30, 10]",
+                explanation: "Trace:\n1. `push(10)` -> [10]\n2. `push(20)` -> [20, 10]\n3. `pop()` -> [10] (20 is removed)\n4. `push(30)` -> [30, 10]\n5. `push(40)` -> [40, 30, 10]\n6. `pop()` -> [30, 10] (40 is removed)"
+            },
+            {
+                question: "Which data structure is most suitable for modeling the 'Undo' feature in a text editor, where the last action performed is the first one to be undone?",
+                options: ["Stack", "Queue", "ArrayList", "LinkedList"],
+                answer: "Stack",
+                explanation: "The 'Undo' feature requires a Last-In, First-Out (LIFO) behavior. The last command executed must be the first one reversed. This is the exact definition of how a Stack operates."
+            },
+            {
+                question: "To implement a Stack using an `ArrayList`, which `ArrayList` method should be used for the `push` operation to achieve O(1) time complexity?",
+                options: ["`add(0, element)`", "`add(element)`", "`set(0, element)`", "`get(size() - 1)`"],
+                answer: "`add(element)`",
+                explanation: "Using `add(element)` appends the new item to the end of the `ArrayList`. This is an O(1) operation. Using `add(0, element)` would be inefficient (O(n)) because it would require shifting all existing elements."
+            },
+            {
+                question: "A Queue is initialized with the elements `[5, 10, 15]` (where 5 is at the front). What does the Queue contain (front to back) after this sequence: <b>push</b>(20), <b>pop</b>(), <b>push</b>(25)?",
+                options: ["[5, 10, 15, 20, 25]", "[10, 15, 20, 25]", "[15, 20, 25]", "[25, 20, 15, 10]"],
+                answer: "[10, 15, 20, 25]",
+                explanation: "Trace:\n1. Initial: [5, 10, 15]\n2. `push(20)` -> [5, 10, 15, 20] (adds to back)\n3. `pop()` -> [10, 15, 20] (removes 5 from front)\n4. `push(25)` -> [10, 15, 20, 25] (adds to back)"
+            },
+            {
+                question: "Why is a `LinkedList` generally preferred over an `ArrayList` for implementing a Queue in Java?",
+                options: ["An `ArrayList` cannot add elements to the end.", "A `LinkedList` has O(1) time complexity for both adding to the end and removing from the front.", "An `ArrayList` takes up more memory.", "A `LinkedList` is always faster for all operations."],
+                answer: "A `LinkedList` has O(1) time complexity for both adding to the end and removing from the front.",
+                explanation: "The key advantage of `LinkedList` for a Queue is that it provides O(1) performance for both main operations (enqueue/push and dequeue/pop). An `ArrayList` queue would be O(n) for dequeuing/popping from the front, making it inefficient for large queues."
+            },
+            {
+                question: "A web server is handling incoming requests. To be fair, it must process the requests in the exact order they are received. Which data structure should be used to manage these requests?",
+                options: ["Stack", "Queue", "A sorted array", "A hash map"],
+                answer: "Queue",
+                explanation: "Processing items in the order they are received is a First-In, First-Out (FIFO) process. A Queue is the ideal data structure for managing a fair, ordered line of tasks."
+            },
+            {
+                question: "When implementing a Queue with `java.util.LinkedList`, which pair of methods best corresponds to the <b>push</b> (add to back) and <b>pop</b> (remove from front) operations, respectively?",
+                options: ["`addFirst()` and `removeFirst()`", "`addLast()` and `removeLast()`", "`addFirst()` and `removeLast()`", "`addLast()` and `removeFirst()`"],
+                answer: "`addLast()` and `removeFirst()`",
+                explanation: "`addLast()` efficiently adds an element to the tail of the list (the back of the queue), and `removeFirst()` efficiently removes an element from the head of the list (the front of the queue). Both are O(1)."
+            },
+            {
+                question: "What is the result of calling `pop()` on an empty `java.util.Stack`?",
+                options: ["It returns `null`", "It returns `0`", "It throws an `EmptyStackException`", "The program hangs"],
+                answer: "It throws an `EmptyStackException`",
+                explanation: "According to the Java API, attempting to `pop` an element from an empty `java.util.Stack` results in an `EmptyStackException` being thrown. It is the programmer's responsibility to check if the stack is empty before popping."
+            },
+            {
+                question: "If a Stack is incorrectly implemented using an `ArrayList` by adding to the front (`add(0, element)`) and removing from the front (`remove(0)`), what is the time complexity of the `push` operation?",
+                options: ["O(1)", "O(log n)", "O(n)", "O(n^2)"],
+                answer: "O(n)",
+                explanation: "The `push` operation, implemented as `add(0, element)`, has a time complexity of O(n) because adding an element to the front of an `ArrayList` requires shifting all other elements one position to the right."
+            }
+        ];
+
+        const quizContainer = document.getElementById('quiz-container');
+
+        quizData.forEach((quizItem, index) => {
+            const questionDiv = document.createElement('div');
+            questionDiv.className = 'question-container';
+
+            const questionText = document.createElement('p');
+            questionText.innerHTML = `<b>${index + 1}.</b> ${quizItem.question}`;
+            questionDiv.appendChild(questionText);
+
+            if (quizItem.code) {
+                const codeBlock = document.createElement('pre');
+                codeBlock.textContent = quizItem.code;
+                questionDiv.appendChild(codeBlock);
+            }
+
+            const optionsDiv = document.createElement('div');
+            optionsDiv.className = 'options';
+            quizItem.options.forEach(option => {
+                const label = document.createElement('label');
+                const radio = document.createElement('input');
+                radio.type = 'radio';
+                radio.name = `question${index}`;
+                radio.value = option;
+
+                radio.addEventListener('change', () => {
+                    const feedbackDiv = questionDiv.querySelector('.feedback');
+                    if (radio.value === quizItem.answer) {
+                        feedbackDiv.innerHTML = '✅ <b>Correct!</b> ' + quizItem.explanation.replace(/\n/g, '<br>');
+                        feedbackDiv.className = 'feedback correct';
+                    } else {
+                        feedbackDiv.innerHTML = '❌ <b>Incorrect.</b> The correct answer is ' + quizItem.answer + '.<br>' + quizItem.explanation.replace(/\n/g, '<br>');
+                        feedbackDiv.className = 'feedback incorrect';
+                    }
+                });
+
+                label.appendChild(radio);
+                label.appendChild(document.createTextNode(" " + option));
+                optionsDiv.appendChild(label);
+            });
+
+            questionDiv.appendChild(optionsDiv);
+
+            const feedbackDiv = document.createElement('div');
+            feedbackDiv.className = 'feedback hidden';
+            questionDiv.appendChild(feedbackDiv);
+
+            quizContainer.appendChild(questionDiv);
+        });
+    </script>
+
+</body>
+</html>

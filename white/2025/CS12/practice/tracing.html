@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Java Code Tracing Quiz</title>
+    <style>
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+            line-height: 1.6;
+            margin: 0 auto;
+            max-width: 800px;
+            padding: 20px;
+            background-color: #f8f9fa;
+        }
+        h1 {
+            color: #333;
+            text-align: center;
+        }
+        .question-container {
+            background: #fff;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            margin-bottom: 20px;
+            padding: 20px;
+        }
+        pre {
+            background-color: #e9ecef;
+            border-left: 4px solid #007bff;
+            padding: 15px;
+            border-radius: 4px;
+            white-space: pre-wrap;
+            word-wrap: break-word;
+            font-family: "SFMono-Regular", Consolas, "Liberation Mono", Menlo, Courier, monospace;
+            font-size: 0.9em;
+        }
+        .options label {
+            display: block;
+            margin: 10px 0;
+            padding: 10px;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.2s;
+        }
+        .options label:hover {
+            background-color: #f1f3f5;
+        }
+        input[type="radio"] {
+            margin-right: 10px;
+        }
+        .feedback {
+            margin-top: 15px;
+            padding: 10px;
+            border-radius: 5px;
+            font-weight: bold;
+        }
+        .correct {
+            background-color: #d4edda;
+            color: #155724;
+            border: 1px solid #c3e6cb;
+        }
+        .incorrect {
+            background-color: #f8d7da;
+            color: #721c24;
+            border: 1px solid #f5c6cb;
+        }
+        .hidden {
+            display: none;
+        }
+    </style>
+</head>
+<body>
+
+    <h1>Java Code Tracing Practice Quiz 💻</h1>
+
+    <div id="quiz-container"></div>
+
+    <script>
+        const quizData = [
+            {
+                question: "What is printed as a result of executing the following code segment?",
+                code: `int result = 0;\nint c = 1;\nwhile (result < 15 || c < 5) {\n    result += c;\n    c++;\n}\nSystem.out.println(result);`,
+                options: ["10", "15", "21", "Nothing is printed due to an infinite loop."],
+                answer: "15",
+                explanation: "The loop continues as long as `result` is less than 15 OR `c` is less than 5.\n- c=1, result=1\n- c=2, result=3\n- c=3, result=6\n- c=4, result=10 (Now `c < 5` is false, but `result < 15` is still true, so the loop continues.)\n- c=5, result=15 (Now `result < 15` is false and `c < 5` is false, so the loop terminates.)\nThe final value of `result` is 15."
+            },
+            {
+                question: "Consider the following method. What value is returned by the call `process(25)`?",
+                code: `public int process(int num) {\n    if (num <= 10) {\n        return num * 2;\n    } else {\n        return process(process(num / 4));\n    }\n}`,
+                options: ["10", "12", "16", "24"],
+                answer: "12",
+                explanation: "1. `process(25)` calls `process(process(25 / 4))`, which is `process(process(6))`. \n2. The inner call `process(6)` returns `6 * 2 = 12`. \n3. The outer call becomes `process(12)`. \n4. `process(12)` calls `process(process(12 / 4))`, which is `process(process(3))`. \n5. The inner call `process(3)` returns `3 * 2 = 6`. \n6. The final call is `process(6)`, which returns `6 * 2 = 12`."
+            },
+            {
+                question: "What is printed as a result of executing the following code segment?",
+                code: `int[] arr = {4, 1, 8, 2, 9};\nfor (int k = 0; k < arr.length - 1; k++) {\n    if (arr[k] < arr[k + 1]) {\n        System.out.print(arr[k+1] + " ");\n    }\n}`,
+                options: ["1 2", "4 8 9", "8 2 9", "8 9"],
+                answer: "8 9",
+                explanation: "The loop iterates from k=0 to 3. It prints `arr[k+1]` only if `arr[k]` is less than `arr[k+1]`. \n- k=0: `4 < 1` is false. \n- k=1: `1 < 8` is true. Prints 8. \n- k=2: `8 < 2` is false. \n- k=3: `2 < 9` is true. Prints 9."
+            },
+            {
+                question: "The following method is intended to return the sum of the elements in an array. Which statement should replace `/* missing code */` for the method to work as intended?",
+                code: `public static int sumArray(int[] data) {\n    int total = 0;\n    for (int i = 1; i <= data.length; i++) {\n        /* missing code */\n    }\n    return total;\n}`,
+                options: ["total += data[i];", "total = data[i - 1];", "total += data[i - 1];", "total += data.length;"],
+                answer: "total += data[i - 1];",
+                explanation: "The loop runs with index `i` from 1 to `data.length`. Array indices go from 0 to `data.length - 1`. To access the correct element for each value of `i`, `i - 1` must be used. Accessing `data[i]` would cause an `ArrayIndexOutOfBoundsException` on the last iteration when `i` equals `data.length`."
+            },
+            {
+                question: "What is the output of the call `mystery(\"fantastic\")`?",
+                code: `public String mystery(String text) {\n    String result = "";\n    for (int k = 0; k < text.length(); k = k + 2) {\n        result += text.substring(k, k + 1);\n    }\n    return result;\n}`,
+                options: ["f", "fnas", "fntsi", "fantastic"],
+                answer: "fntsi",
+                explanation: "The loop iterates with k values 0, 2, 4, 6, and 8. In each iteration, it extracts the single character at index k. These characters are 'f', 'n', 't', 's', and 'i', which are concatenated to form the result."
+            },
+            {
+                question: "Consider the following code. What will be the contents of `values` after the code executes?",
+                code: `int[] values = {10, 20, 30, 40, 50};\nfor (int k = 1; k < values.length - 1; k++) {\n    values[k] = values[k - 1];\n}`,
+                options: ["{10, 10, 10, 10, 50}", "{10, 10, 10, 40, 50}", "{10, 10, 20, 30, 50}", "{10, 20, 30, 40, 50}"],
+                answer: "{10, 10, 10, 10, 50}",
+                explanation: "The loop runs for k = 1, 2, and 3. The value at `values[k]` is replaced by the value at the preceding index, `values[k-1]`, in each step.\n- k=1: `values[1]` becomes `values[0]` (10). The array is now `{10, 10, 30, 40, 50}`.\n- k=2: `values[2]` becomes `values[1]` (which is now 10). The array is now `{10, 10, 10, 40, 50}`.\n- k=3: `values[3]` becomes `values[2]` (which is now 10). The final array is `{10, 10, 10, 10, 50}`."
+            },
+            {
+                question: "What is printed as a result of executing the code segment?",
+                code: `int num = 8531;\nint res = 0;\nwhile (num > 0) {\n    res = res * 10 + num % 10;\n    num /= 10;\n}\nSystem.out.println(res);`,
+                options: ["8531", "1358", "17", "8"],
+                answer: "1358",
+                explanation: "This code reverses the digits of `num`. \n- Loop 1: res = (0*10) + 1 = 1; num = 853. \n- Loop 2: res = (1*10) + 3 = 13; num = 85. \n- Loop 3: res = (13*10) + 5 = 135; num = 8. \n- Loop 4: res = (135*10) + 8 = 1358; num = 0. The loop terminates."
+            },
+            {
+                question: "What is the result of executing the following code segment?",
+                code: `int[] nums = {2, 4, 6, 8};\nfor (int k = 0; k <= nums.length; k++) {\n    nums[k] = nums[k] + 1;\n}`,
+                options: ["The array becomes {3, 5, 7, 9}", "A NullPointerException occurs", "An ArrayIndexOutOfBoundsException occurs", "The code enters an infinite loop"],
+                answer: "An ArrayIndexOutOfBoundsException occurs",
+                explanation: "The array `nums` has a length of 4, so its valid indices are 0, 1, 2, and 3. The loop condition `k <= nums.length` means the loop will attempt to run for k = 0, 1, 2, 3, and 4. When k becomes 4, the expression `nums[k]` attempts to access `nums[4]`, which is outside the valid index range, causing an `ArrayIndexOutOfBoundsException`."
+            },
+            {
+                question: "Which expression should replace `/* index */` so the method correctly combines the two arrays?",
+                code: `public int[] combine(int[] a1, int[] a2) {\n    int[] result = new int[a1.length + a2.length];\n    for (int j = 0; j < a1.length; j++) {\n        result[j] = a1[j];\n    }\n    for (int k = 0; k < a2.length; k++) {\n        result[/* index */] = a2[k];\n    }\n    return result;\n}`,
+                options: ["k", "j + k", "a1.length + k", "a2.length + k"],
+                answer: "a1.length + k",
+                explanation: "The first loop fills the `result` array from index 0 to `a1.length - 1`. The second loop must start filling the `result` array immediately after, at index `a1.length`. When `k` is 0, the target index should be `a1.length`. When `k` is 1, it should be `a1.length + 1`, and so on. Therefore, the correct index is `a1.length + k`."
+            },
+            {
+                question: "What does the method call `doSomething(new int[] {1, 2, 3, 4, 5})` do to the array?",
+                code: `public void doSomething(int[] arr) {\n    for (int i = 0; i < arr.length / 2; i++) {\n        int temp = arr[i];\n        arr[i] = arr[arr.length - 1 - i];\n        arr[arr.length - 1 - i] = temp;\n    }\n}`,
+                options: ["It sorts the array.", "It reverses the array.", "It moves all odd numbers to the front.", "It does not change the array."],
+                answer: "It reverses the array.",
+                explanation: "This method iterates through the first half of the array (`i` goes from 0 to `5 / 2 = 2`, so `i` is 0 and 1). In each iteration, it swaps the element `arr[i]` with its corresponding element from the end of the array, `arr[arr.length - 1 - i]`. This is the standard algorithm for reversing an array in place."
+            },
+            {
+                question: "What is printed by the call `printReverse(\"stop\")`?",
+                code: `public void printReverse(String s) {\n    if (s.length() > 0) {\n        System.out.print(s.substring(s.length() - 1));\n        printReverse(s.substring(0, s.length() - 1));\n    }\n}`,
+                options: ["stop", "pots", "s", "tops"],
+                answer: "pots",
+                explanation: "The method recursively prints the last character of the string *before* making the next recursive call. \n- `printReverse(\"stop\")` prints 'p', calls `printReverse(\"sto\")`. \n- `printReverse(\"sto\")` prints 'o', calls `printReverse(\"st\")`. \n- `printReverse(\"st\")` prints 't', calls `printReverse(\"s\")`. \n- `printReverse(\"s\")` prints 's', calls `printReverse(\"\")`. The base case is reached and the calls unwind."
+            },
+            {
+                question: "Which `while` loop condition will cause the code to print `2 4 6`?",
+                code: `int x = 2;\nwhile (/* missing code */) {\n    System.out.print(x + " ");\n    x = x + 2;\n}`,
+                options: ["x < 6", "x != 7", "x <= 6", "x > 0"],
+                answer: "x <= 6",
+                explanation: "We need the loop to execute when x is 2, 4, and 6. \n- When x=2, `2 <= 6` is true. Prints 2, x becomes 4. \n- When x=4, `4 <= 6` is true. Prints 4, x becomes 6. \n- When x=6, `6 <= 6` is true. Prints 6, x becomes 8. \n- When x=8, `8 <= 6` is false. The loop terminates. The other conditions either stop too early (x < 6) or continue too long."
+            },
+            {
+                question: "What is wrong with this code segment intended to print the contents of an array?",
+                code: `int[] scores = {88, 92, 100};\nfor (int val : scores) {\n    System.out.println(scores[val]);\n}`,
+                options: ["It will cause a compile error.", "It will cause an ArrayIndexOutOfBoundsException.", "It will print the indices, not the values.", "There is nothing wrong with the code."],
+                answer: "It will cause an ArrayIndexOutOfBoundsException.",
+                explanation: "This code uses an enhanced for-loop. The variable `val` takes on the *values* from the `scores` array (88, 92, 100), not the *indices* (0, 1, 2). The code then tries to access `scores[88]`, which is out of bounds for an array of size 3, causing an exception at runtime."
+            },
+            {
+                question: "What value would be in the `sum` variable after this code executes?",
+                code: `int[][] matrix = {{1, 2, 3}, {4, 5, 6}};\nint sum = 0;\nfor (int r = 0; r < matrix.length; r++) {\n    for (int c = 0; c < matrix[0].length; c++) {\n        sum += matrix[r][c];\n    }\n}`,
+                options: ["15", "20", "21", "12"],
+                answer: "21",
+                explanation: "This code uses nested loops to iterate through each element of the 2D array and adds its value to `sum`. The sum is 1 + 2 + 3 + 4 + 5 + 6 = 21."
+            },
+            {
+                question: "What is the result of executing this code segment?",
+                code: `int count = 5;\nwhile (count < 10) {\n    System.out.println(\"Looping...\");\n}`,
+                options: ["It prints \"Looping...\" 5 times.", "It prints \"Looping...\" 4 times.", "It results in an infinite loop.", "It does not print anything."],
+                answer: "It results in an infinite loop.",
+                explanation: "The `while` loop continues as long as `count` is less than 10. The initial value of `count` is 5, which satisfies the condition. However, the value of `count` is never changed inside the loop. Therefore, the condition `count < 10` will always be true, and the loop will never terminate."
+            }
+        ];
+
+        const quizContainer = document.getElementById('quiz-container');
+
+        quizData.forEach((quizItem, index) => {
+            const questionDiv = document.createElement('div');
+            questionDiv.className = 'question-container';
+
+            const questionText = document.createElement('p');
+            questionText.innerHTML = `<b>${index + 1}.</b> ${quizItem.question}`;
+            questionDiv.appendChild(questionText);
+
+            if (quizItem.code) {
+                const codeBlock = document.createElement('pre');
+                codeBlock.textContent = quizItem.code;
+                questionDiv.appendChild(codeBlock);
+            }
+
+            const optionsDiv = document.createElement('div');
+            optionsDiv.className = 'options';
+            quizItem.options.forEach(option => {
+                const label = document.createElement('label');
+                const radio = document.createElement('input');
+                radio.type = 'radio';
+                radio.name = `question${index}`;
+                radio.value = option;
+
+                radio.addEventListener('change', () => {
+                    const feedbackDiv = questionDiv.querySelector('.feedback');
+                    if (radio.value === quizItem.answer) {
+                        feedbackDiv.innerHTML = '✅ <b>Correct!</b> ' + quizItem.explanation.replace(/\n/g, '<br>');
+                        feedbackDiv.className = 'feedback correct';
+                    } else {
+                        feedbackDiv.innerHTML = '❌ <b>Incorrect.</b> The correct answer is ' + quizItem.answer + '.<br>' + quizItem.explanation.replace(/\n/g, '<br>');
+                        feedbackDiv.className = 'feedback incorrect';
+                    }
+                });
+
+                label.appendChild(radio);
+                label.appendChild(document.createTextNode(" " + option));
+                optionsDiv.appendChild(label);
+            });
+
+            questionDiv.appendChild(optionsDiv);
+
+            const feedbackDiv = document.createElement('div');
+            feedbackDiv.className = 'feedback hidden';
+            questionDiv.appendChild(feedbackDiv);
+
+            quizContainer.appendChild(questionDiv);
+        });
+    </script>
+
+</body>
+</html>

@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Linked Lists Quiz</title>
+    <style>
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+            line-height: 1.6;
+            margin: 0 auto;
+            max-width: 800px;
+            padding: 20px;
+            background-color: #f8f9fa;
+        }
+        h1 {
+            color: #333;
+            text-align: center;
+        }
+        .question-container {
+            background: #fff;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            margin-bottom: 20px;
+            padding: 20px;
+        }
+        pre {
+            background-color: #e9ecef;
+            border-left: 4px solid #007bff;
+            padding: 15px;
+            border-radius: 4px;
+            white-space: pre-wrap;
+            word-wrap: break-word;
+            font-family: "SFMono-Regular", Consolas, "Liberation Mono", Menlo, Courier, monospace;
+            font-size: 0.9em;
+        }
+        .options label {
+            display: block;
+            margin: 10px 0;
+            padding: 10px;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.2s;
+        }
+        .options label:hover {
+            background-color: #f1f3f5;
+        }
+        input[type="radio"] {
+            margin-right: 10px;
+        }
+        .feedback {
+            margin-top: 15px;
+            padding: 10px;
+            border-radius: 5px;
+            font-weight: bold;
+        }
+        .correct {
+            background-color: #d4edda;
+            color: #155724;
+            border: 1px solid #c3e6cb;
+        }
+        .incorrect {
+            background-color: #f8d7da;
+            color: #721c24;
+            border: 1px solid #f5c6cb;
+        }
+        .hidden {
+            display: none;
+        }
+    </style>
+</head>
+<body>
+
+    <h1>Linked List Implementations Quiz 🔗</h1>
+
+    <div id="quiz-container"></div>
+
+    <script>
+        const quizData = [
+            {
+                question: "In the `DoubleLinkedList.java` file, what are the initial values of the instance variables after the default constructor `public DoubleLinkedList()` is called?",
+                options: ["`head` is `null`, `tail` is `null`, `size` is 1", "`head` is `null`, `tail` is `null`, `size` is 0", "`head` points to a new Node, `tail` points to a new Node, `size` is 0", "`head` is `null`, `tail` is `head`, `size` is -1"],
+                answer: "`head` is `null`, `tail` is `null`, `size` is 0",
+                explanation: "The constructor initializes the list to an empty state, setting both `head` and `tail` references to `null` and the `size` to 0."
+            },
+            {
+                question: "In the singly `LinkedList.java` file, what is the primary purpose of the `while (curr.next != null)` loop found in methods like `addLast()` and `getLast()`?",
+                options: ["To count the number of elements in the list.", "To find the node right before the `head` node.", "To traverse the list until the very last node is reached.", "To check if the list contains a null value."],
+                answer: "To traverse the list until the very last node is reached.",
+                explanation: "In a singly linked list without a tail pointer, you must start from the `head` and loop until `curr.next` is `null`. At that point, `curr` will be a reference to the last node in the list."
+            },
+            {
+                question: "A `DoubleLinkedList` contains the elements `[A, B, C]`. If `list.removeFirst()` is called, what does the method return, and what is the new state of the list?",
+                options: ["Returns 'A', list becomes `[B, C]`", "Returns 'B', list becomes `[A, C]`", "Returns 'C', list becomes `[A, B]`", "Throws a `NoSuchElementException`"],
+                answer: "Returns 'A', list becomes `[B, C]`",
+                explanation: "`removeFirst()` returns the data from the `head` ('A'), updates the `head` pointer to the next node ('B'), sets the new head's `prev` pointer to `null`, and decrements the `size`."
+            },
+            {
+                question: "Considering the implementation in `LinkedList.java`, what is the Big O time complexity of the `addLast(E element)` method?",
+                options: ["O(1)", "O(log n)", "O(n)", "O(n^2)"],
+                answer: "O(n)",
+                explanation: "The method must traverse all `n` elements, starting from the `head`, to find the last node before it can append the new node. This is a linear time operation."
+            },
+            {
+                question: "Now consider the `addLast(E element)` method in `DoubleLinkedList.java`. What is its Big O time complexity?",
+                options: ["O(1)", "O(log n)", "O(n)", "O(n^2)"],
+                answer: "O(1)",
+                explanation: "The `tail` pointer provides a direct O(1) reference to the end of the list, so no traversal is needed. The new node is added, and the `tail` pointer is updated in constant time."
+            },
+            {
+                question: "The `add(int index, E element)` method in `DoubleLinkedList.java` specifically checks `if (index == size)` to handle adding an element to the very end of the list. Why is this special case necessary for the method to work correctly?",
+                options: ["Because the main loop (`for (int i = 0; i < index - 1; i++)`) is not designed to handle updates to the `tail` pointer.", "Because adding to the end is a much faster operation that requires a separate algorithm.", "To prevent an `IndexOutOfBoundsException` that would otherwise occur.", "To correctly decrement the `size` variable after the element is added."],
+                answer: "Because the main loop (`for (int i = 0; i < index - 1; i++)`) is not designed to handle updates to the `tail` pointer.",
+                explanation: "The general insertion logic finds the node *before* the target index to insert a new node. When adding to the end, the list's `tail` reference must be updated. The main traversal logic doesn't account for this, so handling it as a special case is crucial for maintaining the list's integrity."
+            },
+            {
+                question: "In the `removeLast()` method of the singly `LinkedList.java`, two node references, `prev` and `curr`, are used for traversal. Why is the `prev` reference necessary here but not in the `addLast()` method?",
+                options: ["To get the data from the last node before it is removed.", "To set the second-to-last node's `next` pointer to `null`, effectively unlinking the last node.", "To prevent a `NullPointerException` when the list is empty.", "The `prev` reference is not strictly necessary; the code could be written without it."],
+                answer: "To set the second-to-last node's `next` pointer to `null`, effectively unlinking the last node.",
+                explanation: "To remove the last node, you must access the *second-to-last* node (held by `prev`) to change its `next` pointer to `null`. The `addLast()` method only needs a single reference (`curr`) to find the last node and change its `next` pointer from `null` to the new node."
+            },
+            {
+                question: "A `DoubleLinkedList` contains `[A, B, C, D]`. When `list.remove(2)` is called to remove the node containing 'C', which of the following pointer reassignments happens according to the provided code?",
+                options: ["The `next` pointer of the node containing 'A' is set to point to the node containing 'C'.", "The `prev` pointer of the node containing 'D' is set to point to the node containing 'B'.", "The `next` pointer of the node containing 'B' is set to point to `null`.", "The `size` of the list is not changed."],
+                answer: "The `prev` pointer of the node containing 'D' is set to point to the node containing 'B'.",
+                explanation: "To remove 'C' (at index 2), the `next` pointer of 'B' (at index 1) must be updated to point to 'D', and the `prev` pointer of 'D' (at index 3) must be updated to point back to 'B'. This correctly unlinks 'C' from the list."
+            },
+            {
+                question: "In the `reverse()` method for the `DoubleLinkedList`, what is the exact purpose of the line `curr.prev = next;` inside the loop?",
+                options: ["It correctly sets the new `next` pointer for the current node after the reversal.", "It stores the original `next` node in a temporary variable before it's overwritten.", "It correctly sets the new `prev` pointer for the current node after the reversal.", "It moves the `curr` reference one step forward in the original list."],
+                answer: "It correctly sets the new `prev` pointer for the current node after the reversal.",
+                explanation: "In the original list, `next` holds a reference to the node that was after `curr`. In the reversed list, this node will now be *before* `curr`. Therefore, `curr.prev = next;` correctly sets the new `prev` pointer for the current node."
+            },
+            {
+                question: "Imagine the `if (size == 1) { return removeFirst(); }` check was removed from the `removeLast()` method in `DoubleLinkedList.java`. What would be the result of calling `removeLast()` on a list with exactly one element?",
+                options: ["It would work correctly without any errors.", "It would throw a `NullPointerException` because `tail.prev` would be `null`.", "It would throw an `IndexOutOfBoundsException`.", "It would correctly remove the element but `size` would become -1."],
+                answer: "It would throw a `NullPointerException` because `tail.prev` would be `null`.",
+                explanation: "If the list has one element, `head` and `tail` are the same, and `tail.prev` is `null`. The line `tail = tail.prev;` would set `tail` to `null`. The subsequent line `tail.next = null;` would then cause a `NullPointerException` because it would be trying to access a field on a null reference."
+            },
+            {
+                question: "After studying the `reverse()` method in both `LinkedList.java` and `DoubleLinkedList.java`, which statement accurately describes their logic?",
+                options: ["Both methods work by swapping the `head` and `tail` pointers first, then iterating.", "The singly `LinkedList` `reverse` method requires three local node variables, while the `DoubleLinkedList` `reverse` only needs two.", "Both methods iterate through the list, reversing the direction of pointers for each node.", "The `DoubleLinkedList` reverse method is less efficient due to managing two pointers."],
+                answer: "Both methods iterate through the list, reversing the direction of pointers for each node.",
+                explanation: "While their internal pointer assignments differ, the core algorithm for both is to iterate through the list from `head` to `tail` and, at each node, reverse its pointers to change the list's direction."
+            },
+            {
+                question: "A programmer wants to improve the singly `LinkedList` by adding a `tail` instance variable, just like the `DoubleLinkedList` has. Which existing method in `LinkedList.java` would gain the most significant Big O performance improvement from this single change?",
+                options: ["`addFirst(E element)`", "`removeFirst()`", "`addLast(E element)`", "`get(int index)`"],
+                answer: "`addLast(E element)`",
+                explanation: "`addLast(E element)` is currently O(n) because it must traverse the entire list. Adding a `tail` pointer would provide a direct reference to the end, reducing its complexity to O(1). `addFirst` and `removeFirst` are already O(1), and `get(index)` would remain O(n)."
+            }
+        ];
+
+        const quizContainer = document.getElementById('quiz-container');
+
+        quizData.forEach((quizItem, index) => {
+            const questionDiv = document.createElement('div');
+            questionDiv.className = 'question-container';
+
+            const questionText = document.createElement('p');
+            questionText.innerHTML = `<b>${index + 1}.</b> ${quizItem.question}`;
+            questionDiv.appendChild(questionText);
+
+            if (quizItem.code) {
+                const codeBlock = document.createElement('pre');
+                codeBlock.textContent = quizItem.code;
+                questionDiv.appendChild(codeBlock);
+            }
+
+            const optionsDiv = document.createElement('div');
+            optionsDiv.className = 'options';
+            quizItem.options.forEach(option => {
+                const label = document.createElement('label');
+                const radio = document.createElement('input');
+                radio.type = 'radio';
+                radio.name = `question${index}`;
+                radio.value = option;
+
+                radio.addEventListener('change', () => {
+                    const feedbackDiv = questionDiv.querySelector('.feedback');
+                    if (radio.value === quizItem.answer) {
+                        feedbackDiv.innerHTML = '✅ <b>Correct!</b> ' + quizItem.explanation.replace(/\n/g, '<br>');
+                        feedbackDiv.className = 'feedback correct';
+                    } else {
+                        feedbackDiv.innerHTML = '❌ <b>Incorrect.</b> The correct answer is ' + quizItem.answer + '.<br>' + quizItem.explanation.replace(/\n/g, '<br>');
+                        feedbackDiv.className = 'feedback incorrect';
+                    }
+                });
+
+                label.appendChild(radio);
+                label.appendChild(document.createTextNode(" " + option));
+                optionsDiv.appendChild(label);
+            });
+
+            questionDiv.appendChild(optionsDiv);
+
+            const feedbackDiv = document.createElement('div');
+            feedbackDiv.className = 'feedback hidden';
+            questionDiv.appendChild(feedbackDiv);
+
+            quizContainer.appendChild(questionDiv);
+        });
+    </script>
+
+</body>
+</html>

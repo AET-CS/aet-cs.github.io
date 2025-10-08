@@ -1,4 +1,6 @@
-# Physics Simulator Lab - Part 1 & 2: Your First Animation
+---
+title: Physics Simulator Lab - Parts 1-4
+---
 
 Welcome to the physics simulator project! Over the next few labs, you'll build a physics engine that can simulate realistic motion. But before we get to bouncing balls and gravity, we need to understand how animation works.
 

@@ -8,7 +8,9 @@ classes:
 ## Daily Calendar
 
 - October 8, 2025 (Wednesday)
-    - Let's make a [physics simulator](./projects/physim.md)
+    - New [raptor time](../common/raptors.md) signup procedure
+    - Submit pumpkin code and image please
+    - Let's make a [physics simulator](./projects/physim.md). Parts 1-3 at least today in class. Finish by next *week* (10/15), parts 1-4 plus some extensions you choose or create.
     - There's tons of [extensions](./projects/physplus.md)
 - October 6, 2025 (Monday)
     - PSAT Day; abbreviated class

@@ -130,3 +130,9 @@ Through these extensions, you're exploring:
 These are the foundations of game engines, scientific simulations, and computer graphics. You're doing real computational physics!
 
 Keep experimenting and have fun!
+
+---
+geometry: margin=0.5in, letterpaper
+header-includes:
+  - \usepackage{fullpage}
+---

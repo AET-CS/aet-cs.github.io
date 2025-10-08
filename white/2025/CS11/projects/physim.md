@@ -158,8 +158,8 @@ Before your animation loop, create a `double` variable `v_y` for the vertical ve
 Inside your animation loop, you'll use the kinematic equation: **displacement = velocity × time**
 
 Each frame, you need to:
-1. Calculate the displacement: $\delta y = v \delta t$
-2. Update the position: $y_t = y_{t-1} + \delta_y$
+1. Calculate the displacement: $\Delta y = v \Delta t$
+2. Update the position: $y_t = y_{t-1} + \Delta_y$
 3. Make sure you convert these math equations to proper code.
 
 This is the fundamental equation of motion under zero force. The ball's position changes based on only its velocity and the elapsed time.
@@ -232,10 +232,10 @@ Before your animation loop:
 
 This is the heart of physics simulation. Each frame, you need to update BOTH velocity and position using these equations:
 
-1. $\delta v = a \delta t$
-2. $v_t = v_{t-1} + \delta $
-3. $\delta y = v_t  \delta t$
-4. $y_t = y_{t-1} + \delta y$
+1. $\Delta v = a \Delta t$
+2. $v_t = v_{t-1} + \Delta$
+3. $\Delta y = v_t  \Delta t$
+4. $y_t = y_{t-1} + \Delta y$
 
 This is called **Euler integration** - we're approximating continuous motion by taking small discrete time steps. Notice that we update velocity first (using acceleration), then update position (using the new velocity).
 
@@ -265,3 +265,9 @@ This verification is crucial - it shows whether your simulation is physically ac
 ## What's Next?
 
 Congratulations! You've built a basic physics simulator with proper acceleration. In future parts, we could add bouncing, multiple objects, different forces, or even 2D motion. You now have the foundation for simulating all kinds of physical systems!
+
+---
+geometry: margin=0.5in, letterpaper
+header-includes:
+  - \usepackage{fullpage}
+---

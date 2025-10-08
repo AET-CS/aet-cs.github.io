@@ -1,4 +1,6 @@
-# Physics Simulator - Extensions
+---
+title: Physics Simulator - Extensions
+---
 
 Congratulations on building a working physics simulator! Now it's time to extend it and make it more interesting. These extensions will help you explore more advanced physics concepts and make your simulation more realistic and fun.
 
@@ -34,7 +36,7 @@ You might notice that when the ball bounces off the floor, sometimes it can get 
 
 ## Extension 5: Launch from Angle and Speed
 
-Instead of setting v_x and v_y directly, let's think like physicists! Set an initial launch angle (in degrees) and an initial speed (magnitude of velocity).
+Instead of setting v_x and v_y directly, let's think like physicists. Set an initial launch angle (in degrees) and an initial speed (magnitude of velocity).
 
 Calculate v_x and v_y from these values using trigonometry. Refer to your physics notes for the component formulas. This is how you'd actually aim a projectile in the real world!
 
@@ -73,7 +75,7 @@ Each ball should follow the same physics rules independently. This is your first
 
 ## Extension 10: Motion Trails
 
-Instead of clearing the screen completely each frame, don't clear it at all (or draw a white rectangle over most of the screen each frame). This will leave trails showing the path each ball has taken.
+Instead of clearing the screen completely each frame, don't clear it entirely, or at all. This will leave trails showing the path each ball has taken.
 
 Experiment with different approaches to see what looks best!
 
@@ -87,7 +89,7 @@ Total energy = kinetic energy + potential energy
 
 Print the total energy at each frame or every few frames. Is it constant? If you add bouncing, does it stay constant? What about with drag or friction?
 
-## Extension 12: Size Matters
+## Extension 12: Size Effects
 
 Make the ball's radius affect its physics! For a sphere moving through air, the drag force depends on cross-sectional area:
 

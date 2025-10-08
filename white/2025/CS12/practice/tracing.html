@@ -108,9 +108,9 @@
             {
                 question: "What is the output of the call `mystery(\"fantastic\")`?",
                 code: `public String mystery(String text) {\n    String result = "";\n    for (int k = 0; k < text.length(); k = k + 2) {\n        result += text.substring(k, k + 1);\n    }\n    return result;\n}`,
-                options: ["f", "fnas", "fntsi", "fantastic"],
-                answer: "fntsi",
-                explanation: "The loop iterates with k values 0, 2, 4, 6, and 8. In each iteration, it extracts the single character at index k. These characters are 'f', 'n', 't', 's', and 'i', which are concatenated to form the result."
+                options: ["f", "fnatc", "fntsi", "fantastic"],
+                answer: "fnatc",
+                explanation: "The loop iterates with k values 0, 2, 4, 6, and 8. In each iteration, it extracts the single character at index k. These characters are 'f', 'n', 'a', 't','c', which are concatenated to form the result."
             },
             {
                 question: "Consider the following code. What will be the contents of `values` after the code executes?",

@@ -15,7 +15,7 @@ classes:
         - Tracing (all AP topics covered last year plus simple recursion, and Stack/LinkedList/Queue) [practice](./practice/tracing.html)
         - Stacks and Queues [practice](./practice/stacks_and_queues.html)
         - LinkedList and DoubleLinkedList [practice](./practice/linked_lists.html)
-        - For the data structures, know their running time bounds, pros and cons, and how specifically we implemented them in class
+        - For the data structures, know their [running time bounds](./notes/running_time_comparison.pdf), pros and cons, and how specifically we implemented them in class
 - October 1, 2025 (Wednesday)
     - Unrelated [surveys for AP Stats](./stats.md)
     -  Finish Part 1 of Calculator

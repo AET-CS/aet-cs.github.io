@@ -25,13 +25,13 @@ Think of it like drawing a flipbook: you need to erase the old drawing, draw the
 
 Let's look at the important variables in the starter code:
 
-- `fps` - Frames per second. We're using 30, which means 30 images per second (like old-school video!)
-- `delta_t` - The time between frames in seconds (1/30 second)
+- `fps` - Frames per second. We're using 30, which means 30 images per second, a broadcast standard
+- `delta_t` - The time between frames in seconds (1/fps second)
 - `width` and `height` - The size of our canvas in pixels. The coordinate system goes from (0,0) in the bottom-left to (640, 480) in the top-right
 - `frame` - Counts which frame we're on (0, 1, 2, 3, ...)
 - `time` - The total elapsed time in seconds
 
-**Important note about `delta_t`:** Notice we wrote `1.0 / 30` instead of `1 / 30`. Why? Because `1 / 30` uses integer division in Java, which would give us `0` (Java throws away the remainder). By writing `1.0` with a decimal point, we're telling Java "this is a double," so it performs decimal division and gives us `0.0333...` like we want. This is one of those quirks of Java you need to watch out for!
+**Important note about `delta_t`:** Notice we wrote `1.0 / fps` instead of `1 / fps`. Why? Because `1 / fps` uses integer division in Java, which would give us `0` (Java throws away the remainder). By writing `1.0` with a decimal point, we're telling Java "this is a double," so it performs decimal division and gives us `0.0333...` like we want. This is one of those quirks of Java you need to watch out for!
 
 For now, you won't need to use `frame` or `time` - but they'll be important soon!
 
@@ -39,7 +39,7 @@ For now, you won't need to use `frame` or `time` - but they'll be important soon
 
 You're going to complete the animation loop. The starter code has everything set up except for the body of the while loop. Your job is to fill in the loop to:
 
-1. Clear the background (use white)
+1. Clear the background (use white or your favorite color)
 2. Draw a filled circle on the left side of the screen, somewhere near the middle vertically
 3. Choose any radius you like for your circle
 4. Show the frame you just drew
@@ -53,7 +53,7 @@ The circle should be stationary for now - it will appear in the same place every
 public class JustACircle {
 
     public static final int fps = 30;
-    public static final double delta_t = 1.0 / 30;
+    public static final double delta_t = 1.0 / fps;
     public static final int width = 640;
     public static final int height = 480;
 
@@ -91,13 +91,13 @@ When you run your program, you should see a window open with a stationary circle
 
 ---
 
-## Part 2: Motion!
+## Part 2: Motion
 
 Now let's make the circle actually move! Right now, you probably have the x and y coordinates of your circle hard-coded as numbers in your `filledCircle()` call. To create motion, we need to make those positions change over time.
 
 ### Step 1: Create Position Variables
 
-Before the animation loop (but after the setup code), create variables to store your circle's position. Give them meaningful names like `ballX` and `ballY`, or `circleX` and `circleY`, or whatever makes sense to you. Initialize them to wherever you want your circle to start.
+Before the animation loop (but after the setup code), create variables to store your circle's position. Give them meaningful names like `ball_x` and `ball_y`, or `circle_x` and `circle_y`, or whatever makes sense to you. Initialize them to wherever you want your circle to start.
 
 ### Step 2: Use Variables in Your Drawing
 
@@ -105,7 +105,7 @@ Update your `filledCircle()` call to use these variables instead of hard-coded n
 
 ### Step 3: Update Position Each Frame
 
-Inside your animation loop, update the x position each frame to make the ball move horizontally. You'll need to figure out how to change x based on the `frame` variable. Experiment with different approaches - you'll discover that you can control the speed of motion by how you update x!
+Inside your animation loop, update the x position each frame to make the ball move horizontally. You'll need to figure out how to change x based on the `frame` variable. Experiment with different approaches - you'll discover that you can control the speed of motion by how you update x.
 
 **A thought about boundaries:** What happens when your circle reaches the edge of the screen? Does it disappear off into the void? You might want to use an `if` statement to detect when the circle goes past `width`, or perhaps the modulo operator `%` could create some interesting wrapping behavior.
 
@@ -116,25 +116,25 @@ Now it's time to experiment! Try modifying both x and y to create different type
 - Make the circle move diagonally
 - Make it speed up or slow down over time
 - Create a parabolic arc (like a thrown ball)
-- Make it bounce back and forth (hint: use `%` to create repeating patterns)
+- Make it wrap around the screen (hint: use `%` to create repeating patterns)
 - Try using `Math.sin()` or `Math.cos()` with the frame number to create smooth curves or circular paths
-- Combine multiple functions to create complex patterns
+- Combine multiple functions with x and y to create complex patterns
 
-The key insight: by using mathematical functions of `frame`, you can create all sorts of motion patterns. Play around and see what you can discover!
+The key insight: by using mathematical functions of `frame`, you can create all sorts of motion patterns. Play around and see what you can discover.
 
-## Testing Part 2
+### Testing Part 2
 
 When you're done, you should see your circle moving around the screen in whatever pattern you programmed. Try tweaking the numbers in your motion equations to see how they affect the animation.
 
-## What's Next?
+### What's Next?
 
-In the next part, we'll start thinking about physics - using velocity and acceleration instead of directly controlling position. That's when things get really interesting!
+In the next part, we'll start thinking about physics - using velocity and acceleration instead of directly controlling position. That's when things get really interesting.
 
 ---
 
 ## Part 3: Real Physics - Velocity!
 
-Now we're going to transition from frame-based motion to **physics-based motion**. Instead of directly changing the position based on frame numbers, we'll use velocity - the rate at which position changes over time. This is how real physics works!
+Now we're going to transition from frame-based motion to **physics-based motion**. Instead of directly changing the position based on frame numbers, we'll use velocity - the rate at which position changes over time. This is how real physics works.
 
 ### Understanding Units
 
@@ -147,21 +147,22 @@ So if a ball has a velocity of 60 pixels/second, it will move 60 pixels down in 
 
 ### Step 1: Start Fresh
 
-Comment out or remove any motion code from Part 2. We're starting over with a physics approach. Set your x position to a constant value near the middle of the screen - the ball will only move vertically now.
+Comment out or remove any motion code from Part 2. We're starting over with a physics approach. Set your x position to a constant value near the middle of the screen - the ball will only move vertically now. Also position your ball at the top of the screen.
 
 ### Step 2: Create Velocity Variables
 
-Before your animation loop, create a variable `v_y` for the vertical velocity. Initialize it to a negative value (like -60 or -100) since negative y velocity means moving downward. Also position your ball at the top of the screen.
+Before your animation loop, create a `double` variable `v_y` for the vertical velocity. Initialize it to a negative value (like -60 or -100) since negative y velocity means moving downward.
 
 ### Step 3: Update Position Using Kinematics
 
 Inside your animation loop, you'll use the kinematic equation: **displacement = velocity × time**
 
 Each frame, you need to:
-1. Calculate the displacement: `delta_y = v_y * delta_t`
-2. Update the position: `y = y + delta_y`
+1. Calculate the displacement: $\delta y = v \delta t$
+2. Update the position: $y_t = y_{t-1} + \delta_y$
+3. Make sure you convert these math equations to proper code.
 
-This is the fundamental equation of motion! The ball's position changes based on its velocity and the elapsed time.
+This is the fundamental equation of motion under zero force. The ball's position changes based on only its velocity and the elapsed time.
 
 ### Step 4: Experiment with Velocity
 
@@ -170,11 +171,18 @@ Run your program and watch the ball fall! Try different values of `v_y`:
 - What about `v_y = -200`?
 - What if you make `v_y` positive?
 
-Notice how the speed is constant - the ball doesn't speed up as it falls. That's because we haven't added acceleration yet!
+Notice how the speed is constant - the ball doesn't speed up as it falls. That's because we haven't added acceleration (yet)
 
 ### Step 5: Stop at the Floor
 
-You'll notice the ball falls right off the bottom of the screen. Add an `if` statement in your loop to check if the ball has reached the floor (y <= 0 or some radius threshold). When it hits the floor, keep it there - just set `y` to the floor position and maybe set `v_y = 0` to stop the motion. No bouncing yet, just stop!
+You'll notice the ball falls right off the bottom of the screen. Add an `if` statement in your loop to check if the ball has reached the floor (y <= 0 or some radius threshold). When it hits the floor, we'll exit the `while` loop, at least for now.
+
+
+Here's how to modify your animation loop:
+- define a `boolean done = false;`
+- Change the while loop condition from `while (true)` to `while (!done)`
+- When the ball hits the floor, set `done = true` instead of trying to stop the ball's motion
+- This will make the loop end cleanly when the ball hits the ground.
 
 ### Testing Part 3
 
@@ -182,7 +190,7 @@ When you're done, you should see your ball fall from the top of the screen at co
 
 **Experimental verification:** Let's check if your simulation is actually correct! Add some print statements to verify the physics:
 - Print the `time` and `y` position at the very beginning (frame 0)
-- Print the `time` and `y` position when the ball hits the ground
+- Print the `time` and `y` position after the ball hits the ground (after the `while` loop)
 - Use these values to compute the actual speed your ball traveled (hint: speed = distance / time)
 - Print both the computed speed and the velocity you programmed (`v_y`)
 - Do they match? If not, why might they be different?
@@ -191,7 +199,7 @@ This is an important habit in scientific computing - always verify your simulati
 
 ## What's Next?
 
-In Part 4, we'll add **acceleration** - specifically gravity! That's when the ball will speed up as it falls, just like in the real world. We'll implement a full Euler integration step to update both velocity and position.
+In Part 4, we'll add **acceleration** - specifically gravity. That's when the ball will speed up as it falls, just like in the real world. We'll implement a full Euler integration step to update both velocity and position.
 
 ---
 
@@ -207,7 +215,7 @@ Acceleration is the rate at which velocity changes over time. Earth's gravity ca
 
 At the top of your program with the other constants, add:
 ```java
-public static final double g = -980.0;  // acceleration due to gravity (pixels/s²)
+public static final double g = 980.66;  // acceleration due to gravity (pixels/s²)
 ```
 
 Notice it's negative because gravity pulls downward (toward y = 0).
@@ -215,14 +223,14 @@ Notice it's negative because gravity pulls downward (toward y = 0).
 ### Step 2: Set Up Initial Conditions
 
 Before your animation loop:
-- Create a variable `a_y` and set it equal to `g`
+- Create a variable `a_y` and set it equal to `-g` (negative!)
 - Change your initial `v_y` to `0` - the ball starts at rest this time
 - Position the ball at the top of the screen (like before)
-- Create a boolean variable called `done` and initialize it to `false` - we'll use this to end the simulation when the ball hits the ground
+- Keep the boolean variable called `done` and initialize it to `false` - we'll use this to end the simulation when the ball hits the ground
 
 ### Step 3: The Euler Integration Step
 
-This is the heart of physics simulation! Each frame, you need to update BOTH velocity and position using these equations:
+This is the heart of physics simulation. Each frame, you need to update BOTH velocity and position using these equations:
 
 1. $\delta v = a \delta t$
 2. $v_t = v_{t-1} + \delta $
@@ -231,20 +239,16 @@ This is the heart of physics simulation! Each frame, you need to update BOTH vel
 
 This is called **Euler integration** - we're approximating continuous motion by taking small discrete time steps. Notice that we update velocity first (using acceleration), then update position (using the new velocity).
 
-Translate these equations into code in your animation loop!
+Translate these equations into code in your animation loop.
 
 ### Step 4: Watch It Fall!
 
 Run your program. You should see the ball start slowly and then speed up as it falls - just like a real falling object! The motion should look much more natural than the constant-velocity fall from Part 3.
 
-Now modify your animation loop:
-- Change the while loop condition from `while (true)` to `while (!done)`
-- When the ball hits the floor (y <= radius or similar), set `done = true` instead of trying to stop the ball's motion
-- This will make the loop end cleanly when the ball hits the ground
 
 ### Step 5: Experimental Verification
 
-Time to check if your simulation matches the physics! You'll verify one of the fundamental kinematic equations that you're learning in physics class.
+Time to check if your simulation matches the physics. You'll verify one of the fundamental kinematic equations that you're learning in physics class.
 
 **After your animation loop ends** (not inside it), add code to:
 - Print `time` and `y` at the very beginning (frame 0)
@@ -254,9 +258,9 @@ Time to check if your simulation matches the physics! You'll verify one of the f
 - Print both the actual distance and the theoretical distance
 - How close are they? What might cause any differences?
 
-This verification is crucial - it shows whether your simulation is physically accurate!
+This verification is crucial - it shows whether your simulation is physically accurate.
 
-**Extra experiment:** Try changing `fps` to different values (like 10, 60, or 120). Does the frame rate affect the accuracy of your simulation? Why or why not? (Hint: think about what happens to `delta_t` when you change `fps`.)
+**Extra experiment:** Try changing `fps` to different values (like 10, 60, or 120). Does the frame rate affect the accuracy of your simulation? Why or why not?
 
 ## What's Next?
 

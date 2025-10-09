@@ -6,6 +6,22 @@ classes:
 ---
 
 ## Daily Calendar
+
+- October 9, 2025 (Thursday)
+    - Journals due
+    - Independent work
+    - Further Journal specifications
+        - Each journal covers Sunday-Sunday for the week before you turn it in
+        - Must be printed before class, turned in at the bell
+        - 1 entry per school day, at least, regardless of your specific location or status (absence does not excuse research because you can research anywhere)
+    - Feedback on journals
+    - Journal due next class covering 10/5-10/12
+    - Overall, great journals turned in today
+- October 7, 2025 (Tuesday)
+    - PSAT
+    - Journals due but nobody's here :-)
+- October 2, 2025 (Thursday)
+    - Independent work
 - September 30, 2025 (Tuesday)
     - Formulate mid-October and end-October goals
     - Download [journal template](./weekly-journal.txt). Save as a markdown file and compile using pandoc to a pdf.

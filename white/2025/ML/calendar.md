@@ -7,6 +7,9 @@ classes:
 
 ## Daily Review
 
+- October 9, 2025 (Thursday)
+    - See [this](https://docs.google.com/document/d/1a1CSGW1cFs70oKzLhJgTniyYis3OFgonyfLOfb16CK4/edit?usp=sharing)
+    - Find 3 articles in groups, according to selected topic
 - October 3, 2025 (Friday)
     - Linear regression: normalization and regularization
     - Read and work through this [Life Part 2 Notebook](./notebooks/Life_Part_2_Student.ipynb)

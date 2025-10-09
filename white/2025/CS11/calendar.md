@@ -22,7 +22,7 @@ classes:
     - [Pumpkin Carving](./practice/pumpkin.md)
     - Test review/practice in progress (check back soon). Topics
         - RPN (awesome [review notes](./practice/rpn/rpn_tutorial.html) courtesy of Claude AI)
-        - Boolean Algebra and Circuits
+        - Boolean Algebra and Circuits [practice](./practice/booleans/boolean_algebra_quiz.html). Practice does not cover circuits but please review notes including XOR.
         - Tracing code with and without loops [practice](./practice/tracing/tracing-quiz.html)
         - Tracing/matching 2D patterns [practice](./practice/patterns/pattern-quiz.html)
 - Sept 29, 2025 (Monday)

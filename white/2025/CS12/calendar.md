@@ -7,7 +7,12 @@ classes:
 
 ## Daily Calendar
 
-
+- October 10, 2025 (Friday)
+    - Play [towers of hanoi](https://javalab.org/en/hanoi_tower_en/)
+    - Recursion notes and [practice](./practice/recursion-1.pdf)
+    - Next test topic: recursion, sorting, searching
+- October 8, 2025 (Wednesday)
+    - Test!
 - October 6, 2025 (Monday)
     - PSAT Day; short class
     - Test next class. Review material coming soon. You should know

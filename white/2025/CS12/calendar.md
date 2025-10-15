@@ -9,7 +9,7 @@ classes:
 
 - October 15, 2025 (Wednesday)
     - Upcoming: recursion quiz next week (Wednesday 10/22) and recursion unit test Tuesday (10/28)
-    - More recursion
+    - More recursion [quick AI-generated notes](./notes/recursion.md)
     - Try these problems on [codingbat](https://codingbat.com/java/Recursion-1)
         - factorial, bunnyEars, fibonacci, triangle, sumDigits, count7, powerN, countX, changeXY
         - pick 3 more for a total of 12

@@ -7,6 +7,10 @@ classes:
 
 ## Daily Calendar
 
+- October 15, 2025
+    - New [canonball launcher](./projects/physics_sim_day2.md) or [pdf](./projects/physics_sim_day2.pdf)
+- October 10, 2025
+    - Test!
 - October 8, 2025 (Wednesday)
     - New [raptor time](../common/raptors.md) signup procedure
     - Submit pumpkin code and image please

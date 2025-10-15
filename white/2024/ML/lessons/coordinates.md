@@ -21,7 +21,7 @@ Points on the plane can now be identified by two separate coordinates: those in 
 
 ![Cartesian Graph](graph-10x10.png){ width=75% }
 
-If you realized the computational way to solve the above problem, try to encapsulate your algorithm succinctly as a *matrix equation*.  Spend some time on this before movin on
+If you realized the computational way to solve the above problem, try to encapsulate your algorithm succinctly as a *matrix equation*.  Spend some time on this before moving on
 
 ## Part 2: Inverse Transformations
 
@@ -36,10 +36,10 @@ Describe the mathematical way to find these answers.
 
 In conclusion we have seen that matrices can be used to transform vectors between two related coordinate systems.
 
-
+\clearpage
 ## Part 3: Linear Transformations
 
-Another way to interpret the action of a matrix on a vector is to say that the matrix transforms the vector from one place in the place to another. If we consider the action of the matrix on every point in the plane, we can say that it provides a transformation of the plane into itself. By consider the action of the matrix on a few points in the place we can understand its action on the entire place. You will create a Jupyter notebook to explore this phenomenon.
+Another way to interpret the action of a matrix on a vector is to say that the matrix transforms the vector from one place in the plane to another. If we consider the action of the matrix on every point in the plane, we can say that it provides a transformation of the plane into itself. By consider the action of the matrix on a few points in the plane we can understand its action on the entire plane. You will create a Jupyter notebook to explore this phenomenon.
 
 1. Create a new notebook named "Coordinate_Transformations.ipynb"
 1. Define a transformation matrix $M \in \mathbb{R}^{2 \times 2}$. You may want to use the one from part 1.
@@ -58,3 +58,9 @@ orthonormal (determinant one and their transpose is their inverse) and $\Sigma$ 
 3. Find the SVD of $M$ using `U,S,VT = numpy.linalg.svd`
 4. Plot the columns of $VT$ as vectors on the same plot with the ellipse you made in part 2. (Use the `quiver` function in pyplot for this)
 5. Describe what you see in a markdown cell. See if you can also discern the role of $\Sigma$.
+
+---
+geometry: margin=0.5in, letterpaper
+header-includes:
+  - \usepackage{fullpage}
+---

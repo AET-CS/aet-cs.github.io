@@ -2,6 +2,7 @@
 
 ## Core Concept of Recursion
 Recursion solves problems by:
+
 1. Breaking down the problem into a smaller version of itself
 2. Having a **base case** that stops the recursion
 3. Having a **recursive case** that calls the function with a smaller input
@@ -148,6 +149,7 @@ isPalindrome("HELLO")
 
 ## Remember
 The pattern for string recursion is almost always:
+
 1. Check if base case (usually empty or length 1)
 2. Process one character (first or last)
 3. Recursively handle the rest

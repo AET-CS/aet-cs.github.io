@@ -7,6 +7,11 @@ classes:
 
 ## Daily Calendar
 
+- October 15, 2025 (Wednesday)
+    - More recursion
+    - Try these problems on [codingbat](https://codingbat.com/java/Recursion-1)
+        - factorial, bunnyEars, fibonacci, triangle, sumDigits, count7, powerN, countX, changeXY
+        - pick 3 more for a total of 12
 - October 10, 2025 (Friday)
     - Play [towers of hanoi](https://javalab.org/en/hanoi_tower_en/)
     - Recursion notes and [practice](./practice/recursion-1.pdf)

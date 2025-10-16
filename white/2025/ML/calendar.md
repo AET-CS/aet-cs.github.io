@@ -7,6 +7,14 @@ classes:
 
 ## Daily Review
 
+- October 16, 2025 (thursday)
+    - More SVD!
+    - Work through this [Visualizing Transformation Matrices](./notebooks/Visualizing_Transformation_Matrices.ipynb)
+    - Next try [Low Rank Matrix Approximations](./notebooks/Low_Rank_Matrix_Approximations.ipynb)
+    - Finally do some [Image Compression](./notebooks/Image-Compression.ipynb)
+- October 14, 2025 (Thursday)
+    - Matrix multiply as coordinate transform
+    - Notes on the SVD (here's some OK-ish [ai-generated](./notes/svd_notes_ml.md) notes)
 - October 9, 2025 (Thursday)
     - See [this](https://docs.google.com/document/d/1a1CSGW1cFs70oKzLhJgTniyYis3OFgonyfLOfb16CK4/edit?usp=sharing)
     - Find 3 articles in groups, according to selected topic

@@ -9,6 +9,7 @@ classes:
 
 - October 16, 2025 (thursday)
     - More SVD!
+    - You'll need this [picture of Gauss](./notebooks/gauss.jpg)
     - Work through this [Visualizing Transformation Matrices](./notebooks/Visualizing_Transformation_Matrices.ipynb)
     - Next try [Low Rank Matrix Approximations](./notebooks/Low_Rank_Matrix_Approximations.ipynb)
     - Finally do some [Image Compression](./notebooks/Image-Compression.ipynb)

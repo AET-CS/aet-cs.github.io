@@ -10,7 +10,10 @@ classes:
 - October 17, 2025
     - Get these [results to check](./projects/results.md)
     - Work on extension and or project
-    - How to read [key commands](./projects/keys.md)
+    - How to read [key presses](./projects/keys.md)
+    - QUICK QUIZ on launching canon balls
+    - Think about your project! Have a proposal by next class and we'll discuss
+    - Here's my [animation loop](./projects/ball-launcher.md) if you're having issues.
 - October 15, 2025
     - New [canonball launcher](./projects/physics_sim_day2.md) or [pdf](./projects/physics_sim_day2.pdf)
 - October 10, 2025

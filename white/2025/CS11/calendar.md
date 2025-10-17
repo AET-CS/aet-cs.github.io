@@ -7,6 +7,8 @@ classes:
 
 ## Daily Calendar
 
+- October 17, 2025
+    - Get these [results to check](./projects/results.md)
 - October 15, 2025
     - New [canonball launcher](./projects/physics_sim_day2.md) or [pdf](./projects/physics_sim_day2.pdf)
 - October 10, 2025

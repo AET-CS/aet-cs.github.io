@@ -10,7 +10,7 @@ Distance launched: 833.3333333333328
 Maximum height: 360.00000000000017
 ```
 
-## v = 1000, theta = 60 degrees
+## v = 1000, theta = 50 degrees
 
 ```bash
 Start: time = 0.0, x = 0.0, y = 20.0

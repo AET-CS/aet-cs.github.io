@@ -7,6 +7,12 @@ classes:
 
 ## Daily Calendar
 
+
+- October 17, 2025 (Friday)
+    - Test 1 scores posted. Scores curved by 2 questions (out of 27), with a max possible score of 101.
+    - Today: finish 12 coding bat problems from last class. Work together to understand solutions!
+    - Practice recursion quiz on AP Classroom (will take in class)
+    - Quiz (not test) next class on recursion. Probably multiple choice. Maybe a small bit of writing code (like a line or 2)
 - October 15, 2025 (Wednesday)
     - Upcoming: recursion quiz next week (Wednesday 10/22) and recursion unit test Tuesday (10/28)
     - More recursion [quick AI-generated notes](./notes/recursion.md)

@@ -13,7 +13,7 @@ Now that I'm taller and wiser, I have denied my mother and refused my name. I am
 
 I don't remember when Somerset built its first Arby's. Like the majestic Cumberland River, it had always been there. But I remember when Arby's was catapulted from fast food stop to legend -- a chapter in my story, a piece of who I am, of who I always have been and always will be. It was on a band trip in 8th grade. The bus stopped for lunch and my girlfriend Kendra and I lined up at Arby's. As a gentleman I let her go first and my heart stopped when she ordered "Beef and Cheddar, fries, and a medium Dr. Pepper."
 
-Holy Hatshepsut! That is my. Exact. Favorite. Order. Not just at Arby's, but, suddenly, my favorite meal of all time. Anywhere. Forever. And Kendra, sweet Kendra, loves it just as much as I do. This is not just a middle school romance. This is fate. This is cosmic. This is \ldots oh my God, she's dipping her fries in Arby's Sauce!
+Holy Hatshepsut! That is my. Exact. Favorite. Order. Not just at Arby's, but, suddenly, my favorite meal of all time. Anywhere. Forever. And Kendra, sweet Kendra, loves it just as much as I do. This is not just a middle school romance. This is fate. This is cosmic. This is...oh my God, she's dipping her fries in Arby's Sauce!
 
 Thanks to one band trip and one #2 special at Arby's, Kendra and I knew without a doubt we were MFEO[^1]. And that romance lasted forever. Or 9 months. Which is basically forever in 8th grade. But what has stood the test of time is my undying affection for Arby's, a romance re-lit every few weeks when a plat of coupons arrives in the mail.
 

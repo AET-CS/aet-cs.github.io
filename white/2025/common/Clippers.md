@@ -32,7 +32,7 @@ And it will be the same, it will be the same, I sing and I sing. Next month. Nex
 
 I don't know. But I believe part of surviving while everything is changing is knowing how to hold on to what stays the same. Mom's mom, during the Depression and the War, got up every day, made coffee, peeled apples, broke beans, took out the trash. She invited people over for a meal. She found comfort and drew strength from keeping sacred rituals sacred. From keeping the same things the same.
 
-My Arby's infatuation will not save the world, and it probably won't even save me. But it helps me identify the things I do, things I feel, things I hold every day with my family and my friends. These are the things that stay the same. They hold us together -- and hold us down -- when the winds of fate threaten to blow us away. Tomorrow and tomorrow, I will make coffee, I will play Chopin, I will look for the Andromeda galaxy in the night sky, I will read Auden, I will help my neighbor and I will sing along with Willie Nelson when he comes on the radio.
+My Arby's infatuation will not save the world, and it probably won't even save me. But it reminds me that the small things I do every day, with my family, my neighbors, my friends -- these small things are my life, and they have the power to save me. They are my constants that hold me down when the winds of fate threaten to blow us away. Tomorrow and tomorrow, I will make coffee, I will play Chopin, I will look for the Andromeda galaxy in the night sky, I will read Auden, I will help my neighbor mow his lawn and I will sing along with Willie Nelson when he comes on the radio.
 
 And if an Arby's coupon come in the mail, I will clip it out. And file it under "H". For hope.
 

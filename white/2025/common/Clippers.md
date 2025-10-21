@@ -1,9 +1,8 @@
-
 ---
 title: "Small Savings"
 layout: single
 classes:
-  - narrow
+  - wide
 ---
 
 There are two types of people in this world. Non-clippers and CLIPPERS. Mom was definitely of the uppercase variety. Her mom was a clipper, and her mom's mom was a clipper. It was in her blood so thoroughly, I'm sure if Marco Polo had a buy-one-get-one sale on sugar, one of my mother's ancestors clipped that scroll and tucked it away in her silk coupon purse.

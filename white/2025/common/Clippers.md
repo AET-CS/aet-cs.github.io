@@ -1,4 +1,11 @@
 
+---
+title: "Small Savings"
+layout: single
+classes:
+  - narrow
+---
+
 There are two types of people in this world. Non-clippers and CLIPPERS. Mom was definitely of the uppercase variety. Her mom was a clipper, and her mom's mom was a clipper. It was in her blood so thoroughly, I'm sure if Marco Polo had a buy-one-get-one sale on sugar, one of my mother's ancestors clipped that scroll and tucked it away in her silk coupon purse.
 
 Yes, Mom clipped coupons. And every Sunday when the single-sectioned Somerset Journal arrived in the driveway, I would sit with her after church and help her clip, and sort, and store. She had a few different coupon organizers over the years, stuffed full of alphabetized promises. I loved organizing all the coupons. Putting them exactly where they go. Bounty under "B", Palmolive under "P". Checking for expired coupons and throwing them away. When you're 10, everything has a place, and if you're ever confused just look up. Somebody taller and wiser will tell you where it goes.
@@ -12,7 +19,7 @@ Holy Hatshepsut! That is my. Exact. Favorite. Order. Not just at Arby's, but, su
 Thanks to one band trip and one #2 special at Arby's, Kendra and I knew without a doubt we were MFEO[^1]. And that romance lasted forever. Or 9 months. Which is basically forever in 8th grade. But what has stood the test of time is my undying affection for Arby's, a romance re-lit every few weeks when a plat of coupons arrives in the mail.
 
 <div style="text-align: center;">
-\#2-Combo <br />
+#2-Combo <br />
 2-Gether <br />
 -------------<br />
 4-Ever <br />
@@ -32,9 +39,3 @@ And if an Arby's coupon come in the mail, I will clip it out. And file it under 
 
 
 [^1]: "Made for Each Other." Did you even *watch* Sleepless in Seattle?
-
-
----
-title: "Small Savings"
-author: "Patrick White"
----

@@ -7,6 +7,8 @@ classes:
 
 ## Daily Calendar
 
+- October 22, 205 (Wednesday)
+    - Please fill out this [form](https://forms.gle/ZMb64wGh1BypP6Pj7) about your project before class
 - October 17, 2025
     - Get these [results to check](./projects/results.md)
     - Work on extension and or project

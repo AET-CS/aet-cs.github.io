@@ -11,12 +11,13 @@ Holy Hatshepsut! That is my. Exact. Favorite. Order. Not just at Arby's, but, su
 
 Thanks to one band trip and one #2 special at Arby's, Kendra and I knew without a doubt we were MFEO[^1]. And that romance lasted forever. Or 9 months. Which is basically forever in 8th grade. But what has stood the test of time is my undying affection for Arby's, a romance re-lit every few weeks when a plat of coupons arrives in the mail.
 
-<div style="text-align: center;">
-\#2-Combo <br />
-2-Gether <br />
--------------<br />
-4-Ever <br />
-</div>
+\begin{center}
+\#2-Combo \\*
+2-Gether \\*
+\vspace{-0.8em}
+\rule{1in}{0.5pt} \\*
+4-Ever
+\end{center}
 
 The shock my friends experience when they learn about my Homer-Simpson-with-a-donut level of admiration for Arby's scales in direct proportion with their familiarity with my dismissively snobby attitude about coffee, wine, and all foods. I am, usually, an unrepentant gourmand, an amateur chef, a sommellier-at-heart. When my wife's book club came to our house, it was my job to provide snacks. They were expecting chips and dip. I flew in Stone Crabs from Miami and A5 Wagyu steak from Japan. **A**merica's **R**oast **B**eef, **Y**es **S**ir, is not A5 Wagyu. I'm not even sure it's **B**eef.
 
@@ -35,6 +36,11 @@ And if an Arby's coupon come in the mail, I will clip it out. And file it under 
 
 
 ---
+geometry: margin=30mm
 title: "Small Savings"
 author: "Patrick White"
+classoption:
+  - twocolumn
+header-includes:
+- \pagenumbering{gobble}
 ---

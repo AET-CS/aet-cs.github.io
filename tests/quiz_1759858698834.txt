@@ -1,6 +1,0 @@
-MC	Select image file format:	JPEG	incorrect	PNG	incorrect	Bitmap	incorrect	All of the above	correct
-MA	Which of the following are aggregate function in SQL? Please Select all that apply.	SUM	correct	CASE	incorrect	COUNT	correct	EXISTS	incorrect
-ESS	Explain one of sorting algorithms that implements "divide and conquer" approach, and discuss the advantage and disadvantage.	
-MAT	Match the abbreviation and full description of computer parts.	Random Access Memorty	RAM	Solid State Harddisk	SSD	Universal Serial Bus	USB
-TF	CPU stands for Computer Processing Unit	False
-TF	RAM stands for Random-access memory.	True

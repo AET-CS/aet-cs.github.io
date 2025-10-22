@@ -9,16 +9,23 @@ classes:
 
 - October 22, 205 (Wednesday)
     - Please fill out this [form](https://forms.gle/ZMb64wGh1BypP6Pj7) about your project before class
-- October 17, 2025
+    - Check out this [demo file](./projects/CharacterDemo/SimpleImageAnimation.java) for examples of
+        - loading graphics
+        - mouse input
+        - key input (note the import at the beginning of the java file)
+        - printing text
+        - basic game play
+    - You will need these images saved in the same (src) folder as your .java file [background](./projects/CharacterDemo/background.png) [star](./projects/CharacterDemo/star.png) and [character](./projects/CharacterDemo/character.png)
+- October 17, 2025 (Friday)
     - Get these [results to check](./projects/results.md)
     - Work on extension and or project
     - How to read [key presses](./projects/keys.md)
     - QUICK QUIZ on launching canon balls
     - Think about your project! Have a proposal by next class and we'll discuss
     - Here's my [animation loop](./projects/ball-launcher.md) if you're having issues.
-- October 15, 2025
+- October 15, 2025 (Wednesday)
     - New [canonball launcher](./projects/physics_sim_day2.md) or [pdf](./projects/physics_sim_day2.pdf)
-- October 10, 2025
+- October 10, 2025 (Friday)
     - Test!
 - October 8, 2025 (Wednesday)
     - New [raptor time](../common/raptors.md) signup procedure

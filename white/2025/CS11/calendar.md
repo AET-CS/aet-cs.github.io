@@ -16,6 +16,7 @@ classes:
         - printing text
         - basic game play
     - You will need these images saved in the same (src) folder as your .java file [background](./projects/CharacterDemo/background.png) [star](./projects/CharacterDemo/star.png) and [character](./projects/CharacterDemo/character.png)
+    - OPTIONAL sign up for the AP test using [these codes](https://docs.google.com/spreadsheets/d/186wEp45BR3kCga-9jqE9P7DqEUqSN2YoGozmdRRWHcw/edit?usp=sharing)
 - October 17, 2025 (Friday)
     - Get these [results to check](./projects/results.md)
     - Work on extension and or project

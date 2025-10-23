@@ -8,6 +8,7 @@ classes:
 
 - October 23, 2025 (Thursday)
     - This is a [test](/notebook-viewer.html?notebook=/white/2025/ML/Numpy-Intro.ipynb) ; [Download .ipynb](/white/2025/ML/Numpy-Intro.ipynb) ;[html](./Numpy-Intro.html)
+    - Submit draft of your "DIY Linear Regression (DRAFT with normalization, regularization, PCA)" by Friday night please. OK if it's incomplete.
 - October 21, 2025 (Tuesday)
     - Turn in Image Compression
     - Learn about [Principal Component Analysis](./notebooks/PCA.ipynb)

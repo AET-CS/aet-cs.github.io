@@ -1,0 +1,127 @@
+---
+layout: default
+---
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>Notebook Viewer</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github.min.css">
+  <style>
+    .notebook-container { max-width: 900px; margin: 20px auto; font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Arial, sans-serif; }
+    .cell { margin: 20px 0; }
+    .cell-input { background: #f6f8fa; padding: 10px; border-radius: 6px; border-left: 3px solid #0969da; }
+    .cell-output { margin-top: 10px; }
+    .cell-output img { max-width: 100%; }
+    .markdown-cell { line-height: 1.6; }
+    .download-link { display: inline-block; margin: 20px 0; padding: 10px 20px; background: #0969da; color: white; text-decoration: none; border-radius: 6px; }
+    .download-link:hover { background: #0550ae; }
+    pre { background: #f6f8fa; padding: 10px; border-radius: 6px; overflow-x: auto; }
+    code { font-family: 'Courier New', monospace; }
+  </style>
+</head>
+<body>
+  <div class="notebook-container">
+    <div id="notebook-content"></div>
+    <a id="download-link" class="download-link" download>Download Notebook (.ipynb)</a>
+  </div>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/marked/9.1.0/marked.min.js"></script>
+
+  <script>
+    // Get notebook path from URL parameter
+    const urlParams = new URLSearchParams(window.location.search);
+    const notebookPath = urlParams.get('notebook');
+
+    if (!notebookPath) {
+      document.getElementById('notebook-content').innerHTML = '<p>No notebook specified. Add ?notebook=path/to/notebook.ipynb to the URL.</p>';
+    } else {
+      // Set download link
+      document.getElementById('download-link').href = notebookPath;
+
+      // Fetch and render notebook
+      fetch(notebookPath)
+        .then(response => response.json())
+        .then(notebook => renderNotebook(notebook))
+        .catch(error => {
+          document.getElementById('notebook-content').innerHTML = '<p>Error loading notebook: ' + error.message + '</p>';
+        });
+    }
+
+    function renderNotebook(notebook) {
+      const container = document.getElementById('notebook-content');
+      container.innerHTML = '';
+
+      notebook.cells.forEach(cell => {
+        const cellDiv = document.createElement('div');
+        cellDiv.className = 'cell';
+
+        if (cell.cell_type === 'markdown') {
+          cellDiv.className += ' markdown-cell';
+          const source = Array.isArray(cell.source) ? cell.source.join('') : cell.source;
+          cellDiv.innerHTML = marked.parse(source);
+        } else if (cell.cell_type === 'code') {
+          // Input
+          const inputDiv = document.createElement('div');
+          inputDiv.className = 'cell-input';
+          const source = Array.isArray(cell.source) ? cell.source.join('') : cell.source;
+          const code = document.createElement('pre');
+          code.innerHTML = '<code class="language-python">' + escapeHtml(source) + '</code>';
+          inputDiv.appendChild(code);
+          cellDiv.appendChild(inputDiv);
+
+          // Output
+          if (cell.outputs && cell.outputs.length > 0) {
+            const outputDiv = document.createElement('div');
+            outputDiv.className = 'cell-output';
+
+            cell.outputs.forEach(output => {
+              if (output.text) {
+                const text = Array.isArray(output.text) ? output.text.join('') : output.text;
+                const pre = document.createElement('pre');
+                pre.textContent = text;
+                outputDiv.appendChild(pre);
+              }
+
+              if (output.data) {
+                if (output.data['image/png']) {
+                  const img = document.createElement('img');
+                  img.src = 'data:image/png;base64,' + output.data['image/png'];
+                  outputDiv.appendChild(img);
+                }
+                if (output.data['text/html']) {
+                  const htmlContent = Array.isArray(output.data['text/html']) ? output.data['text/html'].join('') : output.data['text/html'];
+                  const div = document.createElement('div');
+                  div.innerHTML = htmlContent;
+                  outputDiv.appendChild(div);
+                }
+                if (output.data['text/plain'] && !output.data['image/png']) {
+                  const text = Array.isArray(output.data['text/plain']) ? output.data['text/plain'].join('') : output.data['text/plain'];
+                  const pre = document.createElement('pre');
+                  pre.textContent = text;
+                  outputDiv.appendChild(pre);
+                }
+              }
+            });
+
+            cellDiv.appendChild(outputDiv);
+          }
+        }
+
+        container.appendChild(cellDiv);
+      });
+
+      // Highlight code blocks
+      document.querySelectorAll('pre code').forEach(block => {
+        hljs.highlightElement(block);
+      });
+    }
+
+    function escapeHtml(text) {
+      const map = { '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#039;' };
+      return text.replace(/[&<>"']/g, m => map[m]);
+    }
+  </script>
+</body>
+</html>

@@ -9,7 +9,7 @@ classes:
 
 - October 21, 2025 (Tuesday)
     - Turn in Image Compression
-    - Learn about [Principal Component Analysis](./notebooks/PCA.ipynb)
+    - Learn about [Principal Component Analysis](./notebook-viewer.html?notebook=notebooks/PCA.ipynb)
     - HW project: new Linear Regression with normalization, regularization and PCA. Due end of next class.
 - October 16, 2025 (thursday)
     - More SVD!

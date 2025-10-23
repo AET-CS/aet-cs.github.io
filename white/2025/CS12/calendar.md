@@ -10,7 +10,8 @@ classes:
 - October 23, 2025 (Thursday)
     - Class picture
     - Fill out this [ordering form](https://docs.google.com/forms/d/1qf9mVgUUsjugwLPEMZ7x39qzB72JXlzBZIyF52pZLus/edit) if needed. See me with questions.
-    - If you know you need something fill out the form *ASAP* so it can get here. Try to get it from Amazon if you can. If not there's a list of approved vendors you should reference.
+    - If you know you need something fill out the form *ASAP* so it can get here. Try to get it from Amazon if you can. If not there's a [list of approved vendors](
+    https://docs.google.com/document/d/1xgii6ClnKwoE_xLkKA8eBb1J-9gatWSbon4Mb1JIWEs/edit?tab=t.0) you should reference.
 - October 21, 2025 (Tuesday)
 
     - Journals due

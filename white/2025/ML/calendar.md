@@ -7,9 +7,11 @@ classes:
 
 ## Daily Review
 
+- October 23, 2025 (Thursday)
+    - This is a [test](/notebook-viewer.html?notebook=/white/2025/ML/Numpy-Intro.ipynb) | [Download .ipynb](/white/2025/ML/Numpy-Intro.ipynb)
 - October 21, 2025 (Tuesday)
     - Turn in Image Compression
-    - Learn about [Principal Component Analysis](./notebook-viewer.html?notebook=notebooks/PCA.ipynb)
+    - Learn about [Principal Component Analysis](./notebooks/PCA.ipynb)
     - HW project: new Linear Regression with normalization, regularization and PCA. Due end of next class.
 - October 16, 2025 (thursday)
     - More SVD!

@@ -4,11 +4,10 @@ layout: single
 classes:
   - wide
 ---
-
 ## Daily Review
 
 - October 23, 2025 (Thursday)
-    - This is a [test](/notebook-viewer.html?notebook=/white/2025/ML/Numpy-Intro.ipynb) | [Download .ipynb](/white/2025/ML/Numpy-Intro.ipynb)
+    - This is a [test](/notebook-viewer.html?notebook=/white/2025/ML/Numpy-Intro.ipynb) ; [Download .ipynb](/white/2025/ML/Numpy-Intro.ipynb) ;[html](./Numpy-Intro.html)
 - October 21, 2025 (Tuesday)
     - Turn in Image Compression
     - Learn about [Principal Component Analysis](./notebooks/PCA.ipynb)

@@ -7,6 +7,9 @@ classes:
 
 ## Daily Calendar
 
+- October 24, 2025 (Friday)
+    - Work on project! Due end of next week
+    - Array quiz next class. Review coding bat problems TBD.
 - October 22, 205 (Wednesday)
     - Please fill out this [form](https://forms.gle/ZMb64wGh1BypP6Pj7) about your project before class
     - Check out this [demo file](./projects/CharacterDemo/SimpleImageAnimation.java) for examples of

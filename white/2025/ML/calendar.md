@@ -1,6 +1,6 @@
 ---
 title: "ML Calendar"
-layout: single
+layout: sidebar
 sidebar:
   - title: "Custom Sidebar"
     text: "{% include sidebar-custom-ml.html %}"

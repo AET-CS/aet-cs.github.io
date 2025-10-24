@@ -3,6 +3,9 @@ title: "ML Calendar"
 layout: single
 classes:
   - wide
+sidebar:
+  - title: "Custom Sidebar"
+    text: "{% include sidebar-custom-ml.html %}"
 ---
 ## Daily Review
 

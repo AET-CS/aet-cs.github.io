@@ -9,7 +9,7 @@ classes:
 
 - October 24, 2025 (Friday)
     - Towers of Hanoi code
-    - Mergesort code
+    - [Mergesort](./Sorting/MergeSort.java) code
     - Turn in mergesort by end of class
 - October 22, 2025 (Wednesday)
     - Quiz over recursion

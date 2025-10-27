@@ -11,6 +11,10 @@ sidebar:
 ---
 ## Daily Review
 
+- October 27, 2025 (Monday)
+    - Grade book updated; submit any missing work now!
+    - DIY Linear Regression ++ with PCA due Wednesday. [Requirements](./notes/DIY-LinReg-Plus.md) are available.
+    - New topic: Logistic Regression
 - October 23, 2025 (Thursday)
     - This is a [test](/notebook-viewer.html?notebook=/white/2025/ML/Numpy-Intro.ipynb) ; [Download .ipynb](/white/2025/ML/Numpy-Intro.ipynb) ;[html](./Numpy-Intro.html)
     - Submit draft of your "DIY Linear Regression (DRAFT with normalization, regularization, PCA)" by Friday night please. OK if it's incomplete.

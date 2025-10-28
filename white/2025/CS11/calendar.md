@@ -7,10 +7,12 @@ classes:
 
 ## Daily Calendar
 
-- October 28, 2025 (Friday)
+- October 28, 2025 (Tuesday)
 	- Work on project!
 	- Short array quiz
 	- Sample [code](./projects/CharacterDemo/multiball.md) for multiple launching balls
+	- **HW:** Please fill out this [form] when your project is done, and before next class
+	- **HW:** Bring working project to class on Thursday. Test grade! It's OK if it's different from your original proposal.
 - October 24, 2025 (Friday)
 	- Work on project! Due end of next week
 	- Array quiz next class. Review coding bat problems TBD.

@@ -7,6 +7,11 @@ classes:
 
 ## Daily Calendar
 
+- October 26, 2025 (Tuesday)
+    - Mergesort running time
+    - Binary search
+    - Handout recursion practice
+    - Test next class! Covers recursion, mergesort, binary search
 - October 24, 2025 (Friday)
     - Towers of Hanoi code
     - [Mergesort](./Sorting/MergeSort.java) code

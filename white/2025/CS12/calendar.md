@@ -21,7 +21,7 @@ classes:
     - Practice recursion quiz on AP Classroom (will take in class)
     - Quiz (not test) next class on recursion. Probably multiple choice. Maybe a small bit of writing code (like a line or 2)
 - October 15, 2025 (Wednesday)
-    - Upcoming: recursion quiz next week (Wednesday 10/22) and recursion unit test Tuesday (10/28)
+    - Upcoming: recursion quiz next week (Wednesday 10/22) and recursion unit test Thursday (10/30)
     - More recursion [quick AI-generated notes](./notes/recursion.md)
     - Try these problems on [codingbat](https://codingbat.com/java/Recursion-1)
         - factorial, bunnyEars, fibonacci, triangle, sumDigits, count7, powerN, countX, changeXY

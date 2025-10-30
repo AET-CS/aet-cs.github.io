@@ -7,6 +7,9 @@ classes:
 
 ## Daily Calendar
 
+- October 28, 2025 (Thursday)
+    - **TEST**
+    - Bonus points if everybody but Sahana shows up
 - October 26, 2025 (Tuesday)
     - Mergesort running time
     - Binary search

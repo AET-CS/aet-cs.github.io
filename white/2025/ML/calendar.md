@@ -11,6 +11,10 @@ sidebar:
 ---
 ## Daily Review
 
+- Nov 5, 2025 (Wednesday)
+    - Intro to logistic function
+    - [Cancer Data](./notebooks/Cancer_Logistic_Student.ipynb)
+    - Finish notebook for classwork/HW
 - October 27, 2025 (Monday)
     - Grade book updated; submit any missing work now!
     - DIY Linear Regression ++ with PCA due Wednesday. [Requirements](./notes/DIY-LinReg-Plus.md) are available.

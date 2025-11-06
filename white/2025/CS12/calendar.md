@@ -7,10 +7,15 @@ classes:
 
 ## Daily Calendar
 
-- October 28, 2025 (Thursday)
+- November 6, 2025 (Thursday)
+    - Recursive Structures
+    - Look at [test problems](./practice/Test_2_post/test2-post.pdf)
+    - Work on [Sierpinski Triangle](./Sierpinski/sierpinski.md)
+    - Complete code and problems/extensions by next class
+- October 30, 2025 (Thursday)
     - **TEST**
     - Bonus points if everybody but Sahana shows up
-- October 26, 2025 (Tuesday)
+- October 28, 2025 (Tuesday)
     - Mergesort running time
     - Binary search
     - [Handout](./practice/Day_2_Recursion_Practice.doc) recursion practice

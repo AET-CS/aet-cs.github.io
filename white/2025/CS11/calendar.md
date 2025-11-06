@@ -7,7 +7,9 @@ classes:
 
 ## Daily Calendar
 
-- November 5, 2025 (Thursday)
+**AP TEST SIGNUP DEADLINE 11/7** -- taking the test is *optional*. You will take it next year (and we will review for it again) if you don't take it now. Sign up codes are AP [here](https://docs.google.com/spreadsheets/d/186wEp45BR3kCga-9jqE9P7DqEUqSN2YoGozmdRRWHcw/edit?usp=sharing). Test will be given at your home school
+
+- November 6, 2025 (Thursday)
     - Notes on arrays
     - Practice these [array problems](./practice/arrays/tracing1.md)
     - Try codingbat Array Level 2 (countEvens, sum13, lucky13, sameEnds, has22, tripleUp )

@@ -7,6 +7,12 @@ classes:
 
 ## Daily Calendar
 
+- November 5, 2025 (Thursday)
+    - Notes on arrays
+    - Practice these [array problems](./practice/arrays/tracing1.md)
+    - Try codingbat Array Level 2 (countEvens, sum13, lucky13, sameEnds, has22, tripleUp )
+- October 30, 2025 (Thursday)
+    - Final project submissions today
 - October 28, 2025 (Tuesday)
 	- Work on project!
 	- Short array quiz

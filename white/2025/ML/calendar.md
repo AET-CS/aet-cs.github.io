@@ -11,6 +11,8 @@ sidebar:
 ---
 ## Daily Review
 
+- Nov 7, 2025 (Friday)
+    - Do the best LogReg you can with this [loan data](./data/loan_data.csv)
 - Nov 5, 2025 (Wednesday)
     - Intro to logistic function
     - [Cancer Data](./notebooks/Cancer_Logistic_Student.ipynb)

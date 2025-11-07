@@ -5,8 +5,16 @@ classes:
   - wide
 ---
 
-## Daily Calendar
+**Please see [Journal Dates](./journal_dates.md) and adhere to the prescriptions within**
 
+- November 7, 2025 (Friday)
+    - Work day
+- November 5, 2025 (Wednesday)
+    - Journal due with October Goal reflection
+- October 29, 2025 (Wednesday)
+    - Work day
+- October 27, 2025 (Monday)
+    - Journal due
 - October 23, 2025 (Wednesday)
     - Class picture
     - Fill out this [ordering form](https://docs.google.com/forms/d/1qf9mVgUUsjugwLPEMZ7x39qzB72JXlzBZIyF52pZLus/edit) if needed. See me with questions.

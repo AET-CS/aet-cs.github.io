@@ -1,0 +1,319 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Method Signature Quiz</title>
+    <style>
+        body {
+            font-family: 'Courier New', monospace;
+            max-width: 800px;
+            margin: 50px auto;
+            padding: 20px;
+            background-color: #f5f5f5;
+        }
+        .container {
+            background-color: white;
+            padding: 30px;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+        h1 {
+            color: #333;
+            font-family: Arial, sans-serif;
+        }
+        .progress {
+            color: #666;
+            margin-bottom: 20px;
+            font-family: Arial, sans-serif;
+        }
+        .description {
+            background-color: #f9f9f9;
+            padding: 15px;
+            border-left: 4px solid #4CAF50;
+            margin-bottom: 20px;
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+        }
+        .method-signature {
+            background-color: #f4f4f4;
+            padding: 20px;
+            border-radius: 4px;
+            font-size: 18px;
+            margin: 20px 0;
+        }
+        select {
+            padding: 5px 10px;
+            font-size: 16px;
+            font-family: 'Courier New', monospace;
+            border: 2px solid #ddd;
+            border-radius: 4px;
+            background-color: white;
+            cursor: pointer;
+        }
+        select:focus {
+            outline: none;
+            border-color: #4CAF50;
+        }
+        select.correct {
+            border-color: #4CAF50;
+            background-color: #e8f5e9;
+        }
+        select.incorrect {
+            border-color: #f44336;
+            background-color: #ffebee;
+        }
+        button {
+            padding: 12px 24px;
+            font-size: 16px;
+            margin: 10px 5px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            font-family: Arial, sans-serif;
+        }
+        .check-btn {
+            background-color: #4CAF50;
+            color: white;
+        }
+        .check-btn:hover {
+            background-color: #45a049;
+        }
+        .next-btn {
+            background-color: #2196F3;
+            color: white;
+        }
+        .next-btn:hover {
+            background-color: #0b7dda;
+        }
+        .next-btn:disabled {
+            background-color: #ccc;
+            cursor: not-allowed;
+        }
+        .feedback {
+            margin-top: 20px;
+            padding: 15px;
+            border-radius: 4px;
+            font-family: Arial, sans-serif;
+            display: none;
+        }
+        .feedback.correct {
+            background-color: #e8f5e9;
+            color: #2e7d32;
+            border: 1px solid #4CAF50;
+            display: block;
+        }
+        .feedback.incorrect {
+            background-color: #ffebee;
+            color: #c62828;
+            border: 1px solid #f44336;
+            display: block;
+        }
+        .score {
+            font-size: 18px;
+            font-weight: bold;
+            color: #4CAF50;
+            margin-top: 20px;
+            font-family: Arial, sans-serif;
+        }
+        .final-score {
+            text-align: center;
+            padding: 30px;
+        }
+        .final-score h2 {
+            color: #4CAF50;
+            font-size: 32px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Method Signature Quiz</h1>
+        <div class="progress" id="progress"></div>
+        <div id="quiz-content"></div>
+    </div>
+
+    <script>
+        const questions = [
+            {
+                description: "Method <code>sumArray</code> takes an integer array and returns the sum of all elements as an integer.",
+                signature: "public static ___RETURN___ sumArray(___PARAM1___ a)",
+                answers: { RETURN: "int", PARAM1: "int[]" }
+            },
+            {
+                description: "Method <code>printBackwards</code> takes a String and prints it in reverse order. It does not return anything.",
+                signature: "public static ___RETURN___ printBackwards(___PARAM1___ s)",
+                answers: { RETURN: "void", PARAM1: "String" }
+            },
+            {
+                description: "Method <code>average</code> takes an integer array and returns the average of its elements as a double.",
+                signature: "public static ___RETURN___ average(___PARAM1___ arr)",
+                answers: { RETURN: "double", PARAM1: "int[]" }
+            },
+            {
+                description: "Method <code>isAllPositive</code> takes an integer array and returns true if all numbers are positive, false otherwise.",
+                signature: "public static ___RETURN___ isAllPositive(___PARAM1___ a)",
+                answers: { RETURN: "boolean", PARAM1: "int[]" }
+            },
+            {
+                description: "Method <code>makeCopy</code> takes an integer array and returns a new array containing the same values.",
+                signature: "public static ___RETURN___ makeCopy(___PARAM1___ original)",
+                answers: { RETURN: "int[]", PARAM1: "int[]" }
+            },
+            {
+                description: "Method <code>findMax</code> takes two integers and returns the larger of the two.",
+                signature: "public static ___RETURN___ findMax(___PARAM1___ a, ___PARAM2___ b)",
+                answers: { RETURN: "int", PARAM1: "int", PARAM2: "int" }
+            },
+            {
+                description: "Method <code>repeat</code> takes a String and an integer n, and returns a new String with the original repeated n times.",
+                signature: "public static ___RETURN___ repeat(___PARAM1___ s, ___PARAM2___ n)",
+                answers: { RETURN: "String", PARAM1: "String", PARAM2: "int" }
+            },
+            {
+                description: "Method <code>combineArrays</code> takes two integer arrays and returns a new array containing all elements from the first array followed by all elements from the second array.",
+                signature: "public static ___RETURN___ combineArrays(___PARAM1___ a, ___PARAM2___ b)",
+                answers: { RETURN: "int[]", PARAM1: "int[]", PARAM2: "int[]" }
+            },
+            {
+                description: "Method <code>hasValue</code> takes an integer array and an integer target, and returns true if target appears in the array, false otherwise.",
+                signature: "public static ___RETURN___ hasValue(___PARAM1___ arr, ___PARAM2___ target)",
+                answers: { RETURN: "boolean", PARAM1: "int[]", PARAM2: "int" }
+            },
+            {
+                description: "Method <code>fillArray</code> takes an integer array and an integer value, and fills every position in the array with that value. It does not return anything.",
+                signature: "public static ___RETURN___ fillArray(___PARAM1___ arr, ___PARAM2___ value)",
+                answers: { RETURN: "void", PARAM1: "int[]", PARAM2: "int" }
+            },
+            {
+                description: "Method <code>getRandomNumber</code> takes no parameters and returns a random integer between 1 and 100.",
+                signature: "public static ___RETURN___ getRandomNumber()",
+                answers: { RETURN: "int" }
+            },
+            {
+                description: "Method <code>removeNegatives</code> takes an integer array and returns a new array containing only the non-negative values from the original array.",
+                signature: "public static ___RETURN___ removeNegatives(___PARAM1___ arr)",
+                answers: { RETURN: "int[]", PARAM1: "int[]" }
+            }
+        ];
+
+        const typeOptions = ["", "void", "int", "double", "boolean", "String", "int[]", "double[]", "String[]"];
+
+        let currentQuestion = 0;
+        let score = 0;
+        let answered = false;
+
+        function createDropdown(id, options) {
+            const select = document.createElement('select');
+            select.id = id;
+            options.forEach(opt => {
+                const option = document.createElement('option');
+                option.value = opt;
+                option.textContent = opt;
+                select.appendChild(option);
+            });
+            return select;
+        }
+
+        function displayQuestion() {
+            answered = false;
+            const question = questions[currentQuestion];
+            const content = document.getElementById('quiz-content');
+            const progress = document.getElementById('progress');
+
+            progress.textContent = `Question ${currentQuestion + 1} of ${questions.length}`;
+
+            let html = `
+                <div class="description">${question.description}</div>
+                <div class="method-signature" id="signature-container"></div>
+                <div>
+                    <button class="check-btn" onclick="checkAnswer()">Check Answer</button>
+                    <button class="next-btn" id="next-btn" onclick="nextQuestion()" disabled>Next Question</button>
+                </div>
+                <div class="feedback" id="feedback"></div>
+                <div class="score">Score: ${score}/${questions.length}</div>
+            `;
+
+            content.innerHTML = html;
+
+            const sigContainer = document.getElementById('signature-container');
+            const parts = question.signature.split(/(___\w+___)/);
+
+            parts.forEach(part => {
+                if (part.startsWith('___') && part.endsWith('___')) {
+                    const dropdownId = part.slice(3, -3);
+                    const dropdown = createDropdown(dropdownId, typeOptions);
+                    sigContainer.appendChild(dropdown);
+                } else {
+                    sigContainer.appendChild(document.createTextNode(part));
+                }
+            });
+        }
+
+        function checkAnswer() {
+            if (answered) return;
+            answered = true;
+
+            const question = questions[currentQuestion];
+            const feedback = document.getElementById('feedback');
+            let allCorrect = true;
+            let correctAnswer = question.signature;
+
+            Object.keys(question.answers).forEach(key => {
+                const dropdown = document.getElementById(key);
+                const userAnswer = dropdown.value;
+                const correctValue = question.answers[key];
+
+                if (userAnswer === correctValue) {
+                    dropdown.classList.add('correct');
+                } else {
+                    dropdown.classList.add('incorrect');
+                    allCorrect = false;
+                }
+
+                correctAnswer = correctAnswer.replace(`___${key}___`, correctValue);
+            });
+
+            if (allCorrect) {
+                feedback.className = 'feedback correct';
+                feedback.textContent = '✓ Correct! Great job!';
+                score++;
+            } else {
+                feedback.className = 'feedback incorrect';
+                feedback.innerHTML = `✗ Not quite. The correct answer is:<br><code>${correctAnswer}</code>`;
+            }
+
+            document.getElementById('next-btn').disabled = false;
+            document.querySelector('.score').textContent = `Score: ${score}/${questions.length}`;
+        }
+
+        function nextQuestion() {
+            currentQuestion++;
+            if (currentQuestion < questions.length) {
+                displayQuestion();
+            } else {
+                showFinalScore();
+            }
+        }
+
+        function showFinalScore() {
+            const content = document.getElementById('quiz-content');
+            const progress = document.getElementById('progress');
+            const percentage = Math.round((score / questions.length) * 100);
+
+            progress.textContent = 'Quiz Complete!';
+
+            content.innerHTML = `
+                <div class="final-score">
+                    <h2>Final Score</h2>
+                    <p style="font-size: 48px; margin: 20px 0;">${score}/${questions.length}</p>
+                    <p style="font-size: 24px; color: #666;">${percentage}%</p>
+                    <button class="check-btn" onclick="location.reload()">Restart Quiz</button>
+                </div>
+            `;
+        }
+
+        displayQuestion();
+    </script>
+</body>
+</html>

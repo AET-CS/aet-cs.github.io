@@ -14,6 +14,7 @@ classes:
     - Work on [Pascal's Triangle](./practice/arrays/pascal.md) assignment.
     - Work on [array modifications]()
     - Quick quiz next class!
+    - SUBMIT "Output of Pascal's Triangle" to [this form](https://forms.gle/RiEi3NQgTzqQY5eFA). Just run your program for some number of rows at least 2 times, copy and paste output.
 - November 6, 2025 (Thursday)
     - Notes on arrays
     - Practice these [array problems](./practice/arrays/tracing1.md)

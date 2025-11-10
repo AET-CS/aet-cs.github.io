@@ -6,7 +6,8 @@ classes:
 ---
 
 ## Daily Calendar
-
+- November 10, 2025 (Monday)
+    - Upload Sierpinski competition to [this padlet](https://padlet.com/emailpatrick74/sierpinski-haoyvq4qxg3d2nq4)
 - November 6, 2025 (Thursday)
     - Recursive Structures
     - Look at [test problems](./practice/Test_2_post/test2-post.pdf)

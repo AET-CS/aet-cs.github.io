@@ -1,0 +1,589 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Method Signature Quiz with Code Checking</title>
+    <style>
+        body {
+            font-family: 'Courier New', monospace;
+            max-width: 900px;
+            margin: 50px auto;
+            padding: 20px;
+            background-color: #f5f5f5;
+        }
+        .container {
+            background-color: white;
+            padding: 30px;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+        h1 {
+            color: #333;
+            font-family: Arial, sans-serif;
+        }
+        .progress {
+            color: #666;
+            margin-bottom: 20px;
+            font-family: Arial, sans-serif;
+        }
+        .description {
+            background-color: #f9f9f9;
+            padding: 15px;
+            border-left: 4px solid #4CAF50;
+            margin-bottom: 20px;
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+        }
+        .method-signature {
+            background-color: #f4f4f4;
+            padding: 20px;
+            border-radius: 4px;
+            font-size: 18px;
+            margin: 20px 0;
+        }
+        select {
+            padding: 5px 10px;
+            font-size: 16px;
+            font-family: 'Courier New', monospace;
+            border: 2px solid #ddd;
+            border-radius: 4px;
+            background-color: white;
+            cursor: pointer;
+        }
+        select:focus {
+            outline: none;
+            border-color: #4CAF50;
+        }
+        select.correct {
+            border-color: #4CAF50;
+            background-color: #e8f5e9;
+        }
+        select.incorrect {
+            border-color: #f44336;
+            background-color: #ffebee;
+        }
+        textarea {
+            width: 100%;
+            min-height: 200px;
+            padding: 15px;
+            font-family: 'Courier New', monospace;
+            font-size: 14px;
+            border: 2px solid #ddd;
+            border-radius: 4px;
+            margin: 20px 0;
+            resize: vertical;
+            box-sizing: border-box;
+        }
+        textarea:focus {
+            outline: none;
+            border-color: #4CAF50;
+        }
+        button {
+            padding: 12px 24px;
+            font-size: 16px;
+            margin: 10px 5px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            font-family: Arial, sans-serif;
+        }
+        .check-btn {
+            background-color: #4CAF50;
+            color: white;
+        }
+        .check-btn:hover {
+            background-color: #45a049;
+        }
+        .check-btn:disabled {
+            background-color: #ccc;
+            cursor: not-allowed;
+        }
+        .next-btn {
+            background-color: #2196F3;
+            color: white;
+        }
+        .next-btn:hover {
+            background-color: #0b7dda;
+        }
+        .next-btn:disabled {
+            background-color: #ccc;
+            cursor: not-allowed;
+        }
+        .code-check-btn {
+            background-color: #FF9800;
+            color: white;
+        }
+        .code-check-btn:hover {
+            background-color: #F57C00;
+        }
+        .feedback {
+            margin-top: 20px;
+            padding: 15px;
+            border-radius: 4px;
+            font-family: Arial, sans-serif;
+            display: none;
+        }
+        .feedback.correct {
+            background-color: #e8f5e9;
+            color: #2e7d32;
+            border: 1px solid #4CAF50;
+            display: block;
+        }
+        .feedback.incorrect {
+            background-color: #ffebee;
+            color: #c62828;
+            border: 1px solid #f44336;
+            display: block;
+        }
+        .feedback.info {
+            background-color: #e3f2fd;
+            color: #1565c0;
+            border: 1px solid #2196F3;
+            display: block;
+        }
+        .score {
+            font-size: 18px;
+            font-weight: bold;
+            color: #4CAF50;
+            margin-top: 20px;
+            font-family: Arial, sans-serif;
+        }
+        .final-score {
+            text-align: center;
+            padding: 30px;
+        }
+        .final-score h2 {
+            color: #4CAF50;
+            font-size: 32px;
+        }
+        .code-section {
+            margin-top: 30px;
+            padding-top: 30px;
+            border-top: 2px solid #ddd;
+        }
+        .code-section h3 {
+            font-family: Arial, sans-serif;
+            color: #333;
+        }
+        .api-key-section {
+            background-color: #fff3cd;
+            border: 1px solid #ffc107;
+            padding: 15px;
+            border-radius: 4px;
+            margin-bottom: 20px;
+        }
+        .api-key-section input {
+            width: 100%;
+            padding: 8px;
+            margin-top: 10px;
+            font-family: monospace;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            box-sizing: border-box;
+        }
+        .loading {
+            display: none;
+            color: #666;
+            font-style: italic;
+            margin-left: 10px;
+        }
+        .loading.show {
+            display: inline;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Method Signature Quiz with Code Checking</h1>
+
+        <div class="api-key-section" id="api-key-section">
+            <strong>Setup Required:</strong> Enter your Google AI API key to enable code checking.
+            <br><small>Get one free at <a href="https://aistudio.google.com/" target="_blank">Google AI Studio</a></small>
+            <input type="password" id="api-key-input" placeholder="Enter your API key here">
+            <button class="check-btn" onclick="saveApiKey()" style="margin-top: 10px;">Save Key</button>
+        </div>
+
+        <div class="check-api" id="check-api-section">
+                        <button class="check-btn" onclick="testApiKey()" style="margin-left: 10px;">Test API Key</button>
+        </div>
+        <div class="progress" id="progress"></div>
+        <div id="quiz-content"></div>
+    </div>
+
+    <script>
+        const questions = [
+            {
+                description: "Method <code>sumArray</code> takes an integer array and returns the sum of all elements as an integer.",
+                signature: "public static ___RETURN___ sumArray(___PARAM1___ a)",
+                answers: { RETURN: "int", PARAM1: "int[]" },
+                codeTemplate: "public static int sumArray(int[] a) {\n    // Your code here\n    \n}"
+            },
+            {
+                description: "Method <code>printBackwards</code> takes a String and prints it in reverse order. It does not return anything.",
+                signature: "public static ___RETURN___ printBackwards(___PARAM1___ s)",
+                answers: { RETURN: "void", PARAM1: "String" },
+                codeTemplate: "public static void printBackwards(String s) {\n    // Your code here\n    \n}"
+            },
+            {
+                description: "Method <code>average</code> takes an integer array and returns the average of its elements as a double.",
+                signature: "public static ___RETURN___ average(___PARAM1___ arr)",
+                answers: { RETURN: "double", PARAM1: "int[]" },
+                codeTemplate: "public static double average(int[] arr) {\n    // Your code here\n    \n}"
+            },
+            {
+                description: "Method <code>isAllPositive</code> takes an integer array and returns true if all numbers are positive, false otherwise.",
+                signature: "public static ___RETURN___ isAllPositive(___PARAM1___ a)",
+                answers: { RETURN: "boolean", PARAM1: "int[]" },
+                codeTemplate: "public static boolean isAllPositive(int[] a) {\n    // Your code here\n    \n}"
+            },
+            {
+                description: "Method <code>makeCopy</code> takes an integer array and returns a new array containing the same values.",
+                signature: "public static ___RETURN___ makeCopy(___PARAM1___ original)",
+                answers: { RETURN: "int[]", PARAM1: "int[]" },
+                codeTemplate: "public static int[] makeCopy(int[] original) {\n    // Your code here\n    \n}"
+            }
+        ];
+
+        const typeOptions = ["", "void", "int", "double", "boolean", "String", "int[]", "double[]", "String[]"];
+
+        let currentQuestion = 0;
+        let score = 0;
+        let answered = false;
+        let apiKey = localStorage.getItem('gemini_api_key') || '';
+
+        if (apiKey) {
+            document.getElementById('api-key-section').style.display = 'none';
+        }
+
+        function saveApiKey() {
+            const key = "AIzaSyA4aJjMA_kDUvjVZxYr8xxWzsJgAED-vcc";
+            if (key) {
+                apiKey = key;
+                localStorage.setItem('gemini_api_key', key);
+                document.getElementById('api-key-section').style.display = 'none';
+                alert('API key saved! You can now check your code.');
+            } else {
+                alert('Please enter a valid API key.');
+            }
+        }
+
+        function createDropdown(id, options) {
+            const select = document.createElement('select');
+            select.id = id;
+            options.forEach(function(opt) {
+                const option = document.createElement('option');
+                option.value = opt;
+                option.textContent = opt;
+                select.appendChild(option);
+            });
+            return select;
+        }
+
+        async function testApiKey() {
+            if (!apiKey) {
+                alert('Please enter your API key first!');
+                return;
+            }
+
+            console.log('Testing API key...');
+
+            try {
+                const response = await fetch('https://generativelanguage.googleapis.com/v1beta/models/gemini-2.0-flash-exp:generateContent?key=' + apiKey, {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                    },
+                    body: JSON.stringify({
+                        contents: [{
+                            parts: [{
+                                text: "Say 'Hello, API test successful!' and nothing else."
+                            }]
+                        }]
+                    })
+                });
+
+                const data = await response.json();
+                console.log('Test response:', data);
+
+                if (response.ok && data.candidates) {
+                    alert('✓ API Key is working!\n\nResponse: ' + data.candidates[0].content.parts[0].text);
+                } else {
+                    alert('✗ API Key test failed\n\nError: ' + (data.error ? data.error.message : 'Unknown error'));
+                }
+            } catch (error) {
+                alert('✗ API Key test failed\n\nError: ' + error.message);
+                console.error('Test error:', error);
+            }
+        }
+
+        function displayQuestion() {
+            answered = false;
+            const question = questions[currentQuestion];
+            const content = document.getElementById('quiz-content');
+            const progress = document.getElementById('progress');
+
+            progress.textContent = 'Question ' + (currentQuestion + 1) + ' of ' + questions.length;
+
+            let html = '<div class="description">' + question.description + '</div>' +
+                '<div class="method-signature" id="signature-container"></div>' +
+                '<div>' +
+                    '<button class="check-btn" onclick="checkAnswer()">Check Signature</button>' +
+                    '<button class="next-btn" id="next-btn" onclick="nextQuestion()" disabled>Next Question</button>' +
+                '</div>' +
+                '<div class="feedback" id="feedback"></div>' +
+                '<div class="code-section" id="code-section" style="display:none;">' +
+                    '<h3>Now write the code:</h3>' +
+                    '<textarea id="code-input">' + question.codeTemplate + '</textarea>' +
+                    '<button class="code-check-btn" onclick="checkCode()">Check My Code</button>' +
+                    '<span class="loading" id="loading">Checking your code...</span>' +
+                    '<div class="feedback" id="code-feedback"></div>' +
+                '</div>' +
+                '<div class="score">Score: ' + score + '/' + questions.length + '</div>';
+
+            content.innerHTML = html;
+
+            const sigContainer = document.getElementById('signature-container');
+            const parts = question.signature.split(/(___\w+___)/);
+
+            parts.forEach(function(part) {
+                if (part.startsWith('___') && part.endsWith('___')) {
+                    const dropdownId = part.slice(3, -3);
+                    const dropdown = createDropdown(dropdownId, typeOptions);
+                    sigContainer.appendChild(dropdown);
+                } else {
+                    sigContainer.appendChild(document.createTextNode(part));
+                }
+            });
+        }
+
+        function checkAnswer() {
+            if (answered) return;
+            answered = true;
+
+            const question = questions[currentQuestion];
+            const feedback = document.getElementById('feedback');
+            let allCorrect = true;
+            let correctAnswer = question.signature;
+
+            Object.keys(question.answers).forEach(function(key) {
+                const dropdown = document.getElementById(key);
+                const userAnswer = dropdown.value;
+                const correctValue = question.answers[key];
+
+                if (userAnswer === correctValue) {
+                    dropdown.classList.add('correct');
+                } else {
+                    dropdown.classList.add('incorrect');
+                    allCorrect = false;
+                }
+
+                correctAnswer = correctAnswer.replace('___' + key + '___', correctValue);
+            });
+
+            if (allCorrect) {
+                feedback.className = 'feedback correct';
+                feedback.textContent = 'Correct signature!';
+                score++;
+                document.getElementById('code-section').style.display = 'block';
+            } else {
+                feedback.className = 'feedback incorrect';
+                feedback.innerHTML = 'Not quite. The correct answer is:<br><code>' + correctAnswer + '</code>';
+            }
+
+            document.getElementById('next-btn').disabled = false;
+            document.querySelector('.score').textContent = 'Score: ' + score + '/' + questions.length;
+        }
+
+        async function checkCode() {
+            if (!apiKey) {
+                alert('Please enter your API key at the top of the page first!');
+                return;
+            }
+
+            const codeInput = document.getElementById('code-input').value;
+            const question = questions[currentQuestion];
+            const loading = document.getElementById('loading');
+            const codeFeedback = document.getElementById('code-feedback');
+
+            // Verify elements exist
+            if (!loading || !codeFeedback) {
+                console.error('Could not find feedback elements!');
+                alert('Error: Page elements not found. Try refreshing.');
+                return;
+            }
+
+            // Show loading state
+            loading.classList.add('show');
+            codeFeedback.style.display = 'none';
+
+            console.log('=== Starting API Call ===');
+            console.log('API Key (first 10 chars):', apiKey.substring(0, 10) + '...');
+
+            const prompt = "You are a Java programming instructor. Evaluate this student's code.\n\n" +
+                "Task: " + question.description.replace(/<\/?code>/g, '') + "\n\n" +
+                "Student's code:\n" + codeInput + "\n\n" +
+                "Evaluate if the code:\n" +
+                "1. Has the correct method signature\n" +
+                "2. Implements the logic correctly\n" +
+                "3. Would compile and run properly\n\n" +
+                "YOU MUST RESPOND WITH ONLY VALID JSON. NO MARKDOWN. NO CODE BLOCKS. NO BACKTICKS.\n\n" +
+                "Response format:\n" +
+                "{\n" +
+                '  "correct": true,\n' +
+                '  "feedback": "Your explanation here",\n' +
+                '  "suggestions": "Your suggestions or empty string"\n' +
+                "}";
+
+            const apiUrl = 'https://generativelanguage.googleapis.com/v1beta/models/gemini-2.0-flash-exp:generateContent?key=' + apiKey;
+
+            const requestBody = {
+                contents: [{
+                    parts: [{
+                        text: prompt
+                    }]
+                }],
+                generationConfig: {
+                    temperature: 0.3,
+                    maxOutputTokens: 500,
+                    topP: 0.8,
+                    topK: 40
+                }
+            };
+
+            console.log('Making API request...');
+
+            try {
+                const controller = new AbortController();
+                const timeoutId = setTimeout(function() {
+                    controller.abort();
+                }, 30000);
+
+                const response = await fetch(apiUrl, {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                    },
+                    body: JSON.stringify(requestBody),
+                    signal: controller.signal
+                });
+
+                clearTimeout(timeoutId);
+
+                console.log('Response status:', response.status);
+
+                const data = await response.json();
+                console.log('Response data:', data);
+
+                if (!response.ok) {
+                    let errorMsg = 'API request failed';
+                    if (data.error && data.error.message) {
+                        errorMsg = data.error.message;
+                    }
+                    throw new Error(errorMsg);
+                }
+
+                if (!data.candidates || !data.candidates[0] || !data.candidates[0].content) {
+                    console.error('Unexpected response structure:', data);
+                    throw new Error('Unexpected API response structure');
+                }
+
+                let resultText = data.candidates[0].content.parts[0].text;
+                console.log('Raw result text:', resultText);
+
+                // Clean up the response
+                resultText = resultText.replace(/```json\s*/g, '').replace(/```\s*/g, '').trim();
+
+                const jsonMatch = resultText.match(/\{[\s\S]*\}/);
+                if (jsonMatch) {
+                    resultText = jsonMatch[0];
+                }
+
+                console.log('Cleaned result text:', resultText);
+
+                let result;
+                try {
+                    result = JSON.parse(resultText);
+                } catch (parseError) {
+                    console.error('JSON parse error:', parseError);
+                    throw new Error('Failed to parse API response as JSON');
+                }
+
+                console.log('Parsed result:', result);
+
+                if (typeof result.correct === 'undefined' || !result.feedback) {
+                    throw new Error('API response missing required fields');
+                }
+
+                // Hide loading
+                loading.classList.remove('show');
+
+                // Show feedback with explicit display
+                codeFeedback.className = result.correct ? 'feedback correct' : 'feedback incorrect';
+                codeFeedback.style.display = 'block';  // EXPLICITLY SET DISPLAY
+                codeFeedback.innerHTML = '<strong>' + (result.correct ? '✓ Great job!' : '✗ Not quite there yet') + '</strong><br>' +
+                    result.feedback +
+                    (result.suggestions ? '<br><br><strong>Suggestions:</strong> ' + result.suggestions : '');
+
+                console.log('Feedback element after update:');
+                console.log('  className:', codeFeedback.className);
+                console.log('  display:', codeFeedback.style.display);
+                console.log('  innerHTML:', codeFeedback.innerHTML);
+                console.log('=== API Call Successful ===');
+
+            } catch (error) {
+                loading.classList.remove('show');
+
+                console.error('=== API Call Failed ===');
+                console.error('Error:', error);
+
+                let errorMessage = 'Error: ' + error.message;
+
+                if (error.name === 'AbortError') {
+                    errorMessage = 'Request timed out. Please try again.';
+                } else if (error.message.includes('API key not valid')) {
+                    errorMessage = 'Invalid API key. Please check your key.';
+                } else if (error.message.includes('429')) {
+                    errorMessage = 'Rate limit exceeded. Please wait and try again.';
+                } else if (error.message.includes('Failed to fetch')) {
+                    errorMessage = 'Network error. Check your connection.';
+                }
+
+                // Show error feedback with explicit display
+                codeFeedback.className = 'feedback incorrect';
+                codeFeedback.style.display = 'block';  // EXPLICITLY SET DISPLAY
+                codeFeedback.innerHTML = '<strong>Error</strong><br>' + errorMessage +
+                    '<br><br><small>Check the browser console (F12) for details.</small>';
+
+                console.log('Error feedback shown');
+            }
+        }
+
+        function nextQuestion() {
+            currentQuestion++;
+            if (currentQuestion < questions.length) {
+                displayQuestion();
+            } else {
+                showFinalScore();
+            }
+        }
+
+        function showFinalScore() {
+            const content = document.getElementById('quiz-content');
+            const progress = document.getElementById('progress');
+            const percentage = Math.round((score / questions.length) * 100);
+
+            progress.textContent = 'Quiz Complete!';
+
+            content.innerHTML = '<div class="final-score">' +
+                '<h2>Final Score</h2>' +
+                '<p style="font-size: 48px; margin: 20px 0;">' + score + '/' + questions.length + '</p>' +
+                '<p style="font-size: 24px; color: #666;">' + percentage + '%</p>' +
+                '<button class="check-btn" onclick="location.reload()">Restart Quiz</button>' +
+                '</div>';
+        }
+
+        displayQuestion();
+    </script>
+</body>
+</html>

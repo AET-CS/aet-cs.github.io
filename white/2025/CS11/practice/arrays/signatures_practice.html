@@ -194,6 +194,36 @@
                 description: "Method <code>removeNegatives</code> takes an integer array and returns a new array containing only the non-negative values from the original array.",
                 signature: "public static ___RETURN___ removeNegatives(___PARAM1___ arr)",
                 answers: { RETURN: "int[]", PARAM1: "int[]" }
+            },
+            {
+                description: "Method <code>swap</code> swaps the elements at positions i and j in array arr (modifies the original array).",
+                signature: "public static ___RETURN___ swap(___PARAM1___ arr, ___PARAM2___ i, ___PARAM3___ j)",
+                answers: { RETURN: "void", PARAM1: "int[]", PARAM2: "int", PARAM3: "int" }
+            },
+            {
+                description: "Method <code>findMinMax</code> returns an array containing two values: the minimum and maximum elements from the input array.",
+                signature: "public static ___RETURN___ findMinMax(___PARAM1___ arr)",
+                answers: { RETURN: "int[]", PARAM1: "int[]" }
+            },
+            {
+                description: "Method <code>getMedian</code> returns the median value from an array of doubles.",
+                signature: "public static ___RETURN___ getMedian(___PARAM1___ values)",
+                answers: { RETURN: "double", PARAM1: "double[]" }
+            },
+            {
+                description: "Method <code>reverseInPlace</code> reverses the elements of an array (modifying the original array).",
+                signature: "public static ___RETURN___ reverseInPlace(___PARAM1___ arr)",
+                answers: { RETURN: "void", PARAM1: "int[]" }
+            },
+            {
+                description: "Method <code>arraysEqual</code> checks if two arrays contain the same elements in the same order.",
+                signature: "public static ___RETURN___ arraysEqual(___PARAM1___ a, ___PARAM2___ b)",
+                answers: { RETURN: "boolean", PARAM1: "int[]", PARAM2: "int[]" }
+            },
+            {
+                description: "Method <code>rotateLeft</code> shifts all elements in an array left by n positions, wrapping around (modifies the original array).",
+                signature: "public static ___RETURN___ rotateLeft(___PARAM1___ arr, ___PARAM2___ n)",
+                answers: { RETURN: "void", PARAM1: "int[]", PARAM2: "int" }
             }
         ];
 
@@ -228,7 +258,7 @@
                 <div class="method-signature" id="signature-container"></div>
                 <div>
                     <button class="check-btn" onclick="checkAnswer()">Check Answer</button>
-                    <button class="next-btn" id="next-btn" onclick="nextQuestion()" disabled>Next Question</button>
+                    <button class="next-btn" id="next-btn" onclick="nextQuestion()" enabled>Next Question</button>
                 </div>
                 <div class="feedback" id="feedback"></div>
                 <div class="score">Score: ${score}/${questions.length}</div>

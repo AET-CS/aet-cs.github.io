@@ -257,7 +257,7 @@
         }
 
         function saveApiKey() {
-            const key = "AIzaSyA4aJjMA_kDUvjVZxYr8xxWzsJgAED-vcc";
+            const key = "x-vcc";
             if (key) {
                 apiKey = key;
                 localStorage.setItem('gemini_api_key', key);
@@ -396,29 +396,15 @@
         }
 
         async function checkCode() {
-            if (!apiKey) {
-                alert('Please enter your API key at the top of the page first!');
-                return;
-            }
-
             const codeInput = document.getElementById('code-input').value;
             const question = questions[currentQuestion];
             const loading = document.getElementById('loading');
             const codeFeedback = document.getElementById('code-feedback');
 
-            // Verify elements exist
-            if (!loading || !codeFeedback) {
-                console.error('Could not find feedback elements!');
-                alert('Error: Page elements not found. Try refreshing.');
-                return;
-            }
-
-            // Show loading state
             loading.classList.add('show');
             codeFeedback.style.display = 'none';
 
             console.log('=== Starting API Call ===');
-            console.log('API Key (first 10 chars):', apiKey.substring(0, 10) + '...');
 
             const prompt = "You are a Java programming instructor. Evaluate this student's code.\n\n" +
                 "Task: " + question.description.replace(/<\/?code>/g, '') + "\n\n" +
@@ -427,31 +413,34 @@
                 "1. Has the correct method signature\n" +
                 "2. Implements the logic correctly\n" +
                 "3. Would compile and run properly\n\n" +
-                "YOU MUST RESPOND WITH ONLY VALID JSON. NO MARKDOWN. NO CODE BLOCKS. NO BACKTICKS.\n\n" +
-                "Response format:\n" +
+                "YOU MUST RESPOND WITH ONLY VALID JSON. NO MARKDOWN. NO CODE BLOCKS.\n\n" +
                 "{\n" +
                 '  "correct": true,\n' +
-                '  "feedback": "Your explanation here",\n' +
-                '  "suggestions": "Your suggestions or empty string"\n' +
+                '  "feedback": "Brief explanation",\n' +
+                '  "suggestions": "Tips or empty string. Format as an html unordered list. One tip per item. Do not include java code."\n' +
                 "}";
 
-            const apiUrl = 'https://generativelanguage.googleapis.com/v1beta/models/gemini-2.0-flash-exp:generateContent?key=' + apiKey;
+            // YOUR CLOUDFLARE WORKER URL (replace with your actual worker URL)
+            const apiUrl = 'https://llm-router.emailpatrick74.workers.dev';
 
             const requestBody = {
-                contents: [{
-                    parts: [{
-                        text: prompt
-                    }]
-                }],
-                generationConfig: {
-                    temperature: 0.3,
-                    maxOutputTokens: 500,
-                    topP: 0.8,
-                    topK: 40
-                }
+                messages: [
+                    {
+                        role: "system",
+                        content: "You are a helpful Java programming instructor. Always respond with valid JSON only."
+                    },
+                    {
+                        role: "user",
+                        content: prompt
+                    }
+                ],
+                model: "gpt-4o-mini",
+                temperature: 0.3,
+                max_tokens: 500,
+                top_p: 0.8
             };
 
-            console.log('Making API request...');
+            console.log('Calling worker...');
 
             try {
                 const controller = new AbortController();
@@ -476,22 +465,19 @@
                 console.log('Response data:', data);
 
                 if (!response.ok) {
-                    let errorMsg = 'API request failed';
-                    if (data.error && data.error.message) {
-                        errorMsg = data.error.message;
-                    }
+                    let errorMsg = data.error?.message || 'API request failed';
                     throw new Error(errorMsg);
                 }
 
-                if (!data.candidates || !data.candidates[0] || !data.candidates[0].content) {
-                    console.error('Unexpected response structure:', data);
+                if (!data.choices || !data.choices[0] || !data.choices[0].message) {
+                    console.error('Unexpected response:', data);
                     throw new Error('Unexpected API response structure');
                 }
 
-                let resultText = data.candidates[0].content.parts[0].text;
-                console.log('Raw result text:', resultText);
+                let resultText = data.choices[0].message.content;
+                console.log('Raw result:', resultText);
 
-                // Clean up the response
+                // Clean up response
                 resultText = resultText.replace(/```json\s*/g, '').replace(/```\s*/g, '').trim();
 
                 const jsonMatch = resultText.match(/\{[\s\S]*\}/);
@@ -499,41 +485,26 @@
                     resultText = jsonMatch[0];
                 }
 
-                console.log('Cleaned result text:', resultText);
+                console.log('Cleaned result:', resultText);
 
-                let result;
-                try {
-                    result = JSON.parse(resultText);
-                } catch (parseError) {
-                    console.error('JSON parse error:', parseError);
-                    throw new Error('Failed to parse API response as JSON');
-                }
-
+                let result = JSON.parse(resultText);
                 console.log('Parsed result:', result);
 
                 if (typeof result.correct === 'undefined' || !result.feedback) {
-                    throw new Error('API response missing required fields');
+                    throw new Error('Response missing required fields');
                 }
 
-                // Hide loading
                 loading.classList.remove('show');
-
-                // Show feedback with explicit display
                 codeFeedback.className = result.correct ? 'feedback correct' : 'feedback incorrect';
-                codeFeedback.style.display = 'block';  // EXPLICITLY SET DISPLAY
+                codeFeedback.style.display = 'block';
                 codeFeedback.innerHTML = '<strong>' + (result.correct ? '✓ Great job!' : '✗ Not quite there yet') + '</strong><br>' +
-                    result.feedback +
+                    '<p>' + result.feedback + '</p>' +
                     (result.suggestions ? '<br><br><strong>Suggestions:</strong> ' + result.suggestions : '');
 
-                console.log('Feedback element after update:');
-                console.log('  className:', codeFeedback.className);
-                console.log('  display:', codeFeedback.style.display);
-                console.log('  innerHTML:', codeFeedback.innerHTML);
                 console.log('=== API Call Successful ===');
 
             } catch (error) {
                 loading.classList.remove('show');
-
                 console.error('=== API Call Failed ===');
                 console.error('Error:', error);
 
@@ -541,21 +512,14 @@
 
                 if (error.name === 'AbortError') {
                     errorMessage = 'Request timed out. Please try again.';
-                } else if (error.message.includes('API key not valid')) {
-                    errorMessage = 'Invalid API key. Please check your key.';
                 } else if (error.message.includes('429')) {
                     errorMessage = 'Rate limit exceeded. Please wait and try again.';
-                } else if (error.message.includes('Failed to fetch')) {
-                    errorMessage = 'Network error. Check your connection.';
                 }
 
-                // Show error feedback with explicit display
                 codeFeedback.className = 'feedback incorrect';
-                codeFeedback.style.display = 'block';  // EXPLICITLY SET DISPLAY
+                codeFeedback.style.display = 'block';
                 codeFeedback.innerHTML = '<strong>Error</strong><br>' + errorMessage +
-                    '<br><br><small>Check the browser console (F12) for details.</small>';
-
-                console.log('Error feedback shown');
+                    '<br><br><small>Check console (F12) for details.</small>';
             }
         }
 

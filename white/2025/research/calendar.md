@@ -7,6 +7,10 @@ classes:
 
 **Please see [Journal Dates](./journal_dates.md) and adhere to the prescriptions within**
 
+- November 11, 2025 (Tuesday)
+    - Journal 10 due with Turkey Goal
+    - Demonstrations during the week 11/17-11/21. You pick a date. Show us stuff.
+    - ORDER NOW if you need to!
 - November 7, 2025 (Friday)
     - Work day
 - November 5, 2025 (Wednesday)

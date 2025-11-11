@@ -11,6 +11,11 @@ sidebar:
 ---
 ## Daily Review
 
+- November 11, 2025 (Tuesday)
+  - Topic: k Nearest Neighbor
+  - Devise algorithm in class
+  - [Implement in Jupyter](./notebooks/knn-Student.ipynb) [(html)](./notebooks/knn-Student.html)
+  - Also complete extension(s)
 - Nov 7, 2025 (Friday)
     - Do the best LogReg you can with this [loan data](./data/loan_data.csv)
 - Nov 5, 2025 (Wednesday)

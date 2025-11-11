@@ -250,6 +250,7 @@
         let currentQuestion = 0;
         let score = 0;
         let answered = false;
+        let signature_attempts = 0;
         let apiKey = localStorage.getItem('gemini_api_key') || '';
 
         if (apiKey) {
@@ -277,6 +278,24 @@
                 option.textContent = opt;
                 select.appendChild(option);
             });
+            // when the user changes any dropdown, hide the feedback box
+            select.addEventListener('change', function() {
+                const feedback = document.getElementById('feedback');
+                if (feedback) {
+                    feedback.style.display = 'none';
+                    feedback.className = 'feedback';
+                    feedback.textContent = '';
+                }
+                // also clear any correct/incorrect highlighting on the signature selects
+                const sigContainer = document.getElementById('signature-container');
+                if (sigContainer) {
+                    const selects = sigContainer.querySelectorAll('select');
+                    selects.forEach(function(s) {
+                        s.classList.remove('correct', 'incorrect');
+                    });
+                }
+            });
+
             return select;
         }
 
@@ -319,6 +338,8 @@
 
         function displayQuestion() {
             answered = false;
+            signature_attempts = 0;
+
             const question = questions[currentQuestion];
             const content = document.getElementById('quiz-content');
             const progress = document.getElementById('progress');
@@ -359,7 +380,7 @@
 
         function checkAnswer() {
             if (answered) return;
-            answered = true;
+            signature_attempts += 1;
 
             const question = questions[currentQuestion];
             const feedback = document.getElementById('feedback');
@@ -382,17 +403,32 @@
             });
 
             if (allCorrect) {
+                // ensure feedback is visible (clear any inline hide)
+                feedback.style.display = 'block';
                 feedback.className = 'feedback correct';
                 feedback.textContent = 'Correct signature!';
                 score++;
                 document.getElementById('code-section').style.display = 'block';
-            } else {
+                document.getElementById('next-btn').disabled = false;
+                document.querySelector('.score').textContent = 'Score: ' + score + '/' + questions.length;
+            } else if (signature_attempts >= 3) {
+                feedback.style.display = 'block';
                 feedback.className = 'feedback incorrect';
                 feedback.innerHTML = 'Not quite. The correct answer is:<br><code>' + correctAnswer + '</code>';
+                document.getElementById('code-section').style.display = 'block';
+
+                document.getElementById('next-btn').disabled = false;
+                document.querySelector('.score').textContent = 'Score: ' + score + '/' + questions.length;
+            } else {
+                feedback.style.display = 'block';
+                feedback.className = 'feedback incorrect';
+                feedback.innerHTML = 'Not quite. Try again!';
+
+
+                document.getElementById('next-btn').disabled = true;
+                document.querySelector('.score').textContent = 'Score: ' + score + '/' + questions.length;
             }
 
-            document.getElementById('next-btn').disabled = false;
-            document.querySelector('.score').textContent = 'Score: ' + score + '/' + questions.length;
         }
 
         async function checkCode() {
@@ -413,6 +449,10 @@
                 "1. Has the correct method signature\n" +
                 "2. Implements the logic correctly\n" +
                 "3. Would compile and run properly\n\n" +
+                "Please do NOT make suggestions to:\n" +
+                "1. Add comments\n" +
+                "2. Check for null arguments or null pointers\n" +
+                "3. Add any functionality beyond a standard AP CS curriculum understanding of basic Java\n" +
                 "YOU MUST RESPOND WITH ONLY VALID JSON. NO MARKDOWN. NO CODE BLOCKS.\n\n" +
                 "{\n" +
                 '  "correct": true,\n' +
@@ -499,7 +539,7 @@
                 codeFeedback.style.display = 'block';
                 codeFeedback.innerHTML = '<strong>' + (result.correct ? '✓ Great job!' : '✗ Not quite there yet') + '</strong><br>' +
                     '<p>' + result.feedback + '</p>' +
-                    (result.suggestions ? '<br><br><strong>Suggestions:</strong> ' + result.suggestions : '');
+                    (result.suggestions ? '<strong>Suggestions:</strong> ' + result.suggestions : '');
 
                 console.log('=== API Call Successful ===');
 

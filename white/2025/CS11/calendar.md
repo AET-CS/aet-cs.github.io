@@ -7,8 +7,10 @@ classes:
 
 ## Daily Calendar
 
-**AP TEST SIGNUP DEADLINE 11/7** -- taking the test is *optional*. You will take it next year (and we will review for it again) if you don't take it now. Sign up codes are AP [here](https://docs.google.com/spreadsheets/d/186wEp45BR3kCga-9jqE9P7DqEUqSN2YoGozmdRRWHcw/edit?usp=sharing). Test will be given at your home school
-
+- November 12, 2025 (Wednesday)
+    - Notes on array methods -- signatures, parameters, return types
+    - Practice in class on [array methods](./practice/arrays/signatures_ai.html)
+    - Quick quiz next class over array methods
 - November 10, 2025 (Monday)
     - Quick array quiz Array 2 on Schoology
     - Work on [Pascal's Triangle](./practice/arrays/pascal.md) assignment.

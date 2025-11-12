@@ -8,7 +8,7 @@ classes:
 ## Daily Calendar
 - November 12, 2025 (Wednesday)
     - Notes on Binary Trees (here's some examples [online](https://courses.grainger.illinois.edu/cs225/sp2019/notes/bst/))
-    - [Binary Tree Assignment](./BinaryTrees/binary-tree-1.pdf) due in class (submit to JavaDrop)
+    - [Binary Tree Assignment](./BinaryTrees/binary-tree-1.pdf)
     - [BinaryTree Tester Day 1](./BinaryTrees/BinaryTreeTesterDay1.java)
     - Check out Javadrop [here](https://javadrop.io) or [here](https://javadrop-io-019d03a56736.herokuapp.com/)
 - November 10, 2025 (Monday)

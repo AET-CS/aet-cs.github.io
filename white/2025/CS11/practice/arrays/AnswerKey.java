@@ -15,7 +15,16 @@ public class AnswerKey {
         return sum;
     }
 
-    public static double average(int[] arr) {
+    public static double average_version1(int[] a) {
+        int sum = 0;
+        for (int num : a) {
+            sum += num;
+        }
+        return (double) sum / a.length;
+    }
+
+    public static double average_version2(int[] arr) {
+        // this calls the previous sumArray function
         return (double) sumArray(arr) / arr.length;
     }
 

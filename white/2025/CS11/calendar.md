@@ -9,7 +9,7 @@ classes:
 
 - November 12, 2025 (Wednesday)
     - Notes on array methods -- signatures, parameters, return types
-    - Practice in class on [array methods](./practice/arrays/signatures_ai.html)
+    - Practice in class on [array methods](./practice/arrays/signatures_ai.html) see the [key](./practice/arrays/AnswerKey.java)
     - Quick quiz next class over array methods
 - November 10, 2025 (Monday)
     - Quick array quiz Array 2 on Schoology

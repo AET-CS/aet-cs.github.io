@@ -1,7 +1,10 @@
 public class AnswerKey {
 
     public static int findMax(int a, int b) {
-        return a > b ? a : b;
+        if (a > b)
+            return a;
+        else
+            return b;
     }
 
     public static int sumArray(int[] a) {

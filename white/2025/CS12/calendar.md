@@ -6,6 +6,11 @@ classes:
 ---
 
 ## Daily Calendar
+- November 12, 2025 (Wednesday)
+    - Notes on Binary Trees (here's some examples [online](https://courses.grainger.illinois.edu/cs225/sp2019/notes/bst/))
+    - [Binary Tree Assignment](./BinaryTrees/binary-tree-1.pdf) due in class (submit to JavaDrop)
+    - [BinaryTree Tester Day 1](./BinaryTrees/BinaryTreeTesterDay1.java)
+    - Check out Javadrop [here](https://javadrop.io) or [here](https://javadrop-io-019d03a56736.herokuapp.com/)
 - November 10, 2025 (Monday)
     - Upload Sierpinski competition to [this padlet](https://padlet.com/emailpatrick74/sierpinski-haoyvq4qxg3d2nq4)
 - November 6, 2025 (Thursday)

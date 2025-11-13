@@ -11,6 +11,10 @@ sidebar:
 ---
 ## Daily Review
 
+- 11/13/2024 (Thursday)
+  - Continue k-NN. Finish notebook from last class
+  - Work on [Digits dataset](./notebooks/digits-student.ipynb) [(html)](./notebooks/digits-student.html)
+  - Here's a [nice writeup](https://towardsdatascience.com/comprehensive-guide-to-approximate-nearest-neighbors-algorithms-8b94f057d6b6) of the approximate nearest neighbor problem with an eye towards ML applications like Spotify and Netflix recommendations (may be a paywall I'm not sure)
 - November 11, 2025 (Tuesday)
   - Topic: k Nearest Neighbor
   - Devise algorithm in class

@@ -9,11 +9,15 @@ sidebar:
   - title: "Another Title"
     text: "More text here."
 ---
+
+## Pinned Items
+- [Submission Form](https://docs.google.com/forms/d/e/1FAIpQLSdCuxHj2Vq0mqO6Le_fIcecclX7KzkenywXrtKAPpGyYvfPpg/viewform?usp=dialog)
+
 ## Daily Review
 
 - 11/13/2024 (Thursday)
-  - Continue k-NN. Finish notebook from last class
-  - Work on [Digits dataset](./notebooks/digits-student.ipynb) [(html)](./notebooks/digits-student.html)
+  - Continue k-NN. Finish notebook from last class (submit as KNN-1)
+  - Work on [Digits dataset](./notebooks/digits-student.ipynb) [(html)](./notebooks/digits-student.html) (submit as KNN-2)
   - Here's a [nice writeup](https://towardsdatascience.com/comprehensive-guide-to-approximate-nearest-neighbors-algorithms-8b94f057d6b6) of the approximate nearest neighbor problem with an eye towards ML applications like Spotify and Netflix recommendations (may be a paywall I'm not sure)
 - November 11, 2025 (Tuesday)
   - Topic: k Nearest Neighbor

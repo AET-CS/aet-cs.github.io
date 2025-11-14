@@ -6,6 +6,10 @@ classes:
 ---
 
 ## Daily Calendar
+- November 14, 2024 (Friday)
+    - Delete and Find from Binary Trees
+    - Submit Day 2 code (add delete and find to Day 1) to javadrop  [here](https://javadrop.io) or [here](https://javadrop-io-019d03a56736.herokuapp.com/)
+    - Tester code [here](./BinaryTrees/BinaryTreeTesterDay2.java)
 - November 12, 2025 (Wednesday)
     - Notes on Binary Trees (here's some examples [online](https://courses.grainger.illinois.edu/cs225/sp2019/notes/bst/))
     - [Binary Tree Assignment](./BinaryTrees/binary-tree-1.pdf)

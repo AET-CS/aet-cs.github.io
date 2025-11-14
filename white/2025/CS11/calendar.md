@@ -7,6 +7,9 @@ classes:
 
 ## Daily Calendar
 
+- November 14, 2025 (Friday)
+    - Array quiz 3 in class today
+    - Practice array problems! [here](https://javadrop.io) or [here](https://javadrop-io-019d03a56736.herokuapp.com/)
 - November 12, 2025 (Wednesday)
     - Notes on array methods -- signatures, parameters, return types
     - Practice in class on [array methods](./practice/arrays/signatures_ai.html) see the [key](./practice/arrays/AnswerKey.java)

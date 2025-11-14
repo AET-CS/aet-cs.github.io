@@ -11,6 +11,8 @@ classes:
     - Array quiz 3 in class today
     - Practice array problems! [here](https://javadrop.io) or [here](https://javadrop-io-019d03a56736.herokuapp.com/)
     - Also try these at [runestone](https://runestone.academy/ns/books/published/csawesome/Unit6-Arrays/Exercises.html)
+    - Notes on Strings in class today
+    - QUIZ NEXT CLASS arrays and strings. HW problems TBD on javadrop (look for remind soon!)
 - November 12, 2025 (Wednesday)
     - Notes on array methods -- signatures, parameters, return types
     - Practice in class on [array methods](./practice/arrays/signatures_ai.html) see the [key](./practice/arrays/AnswerKey.java)

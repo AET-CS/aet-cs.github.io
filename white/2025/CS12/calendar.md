@@ -6,6 +6,9 @@ classes:
 ---
 
 ## Daily Calendar
+- November 18, 2024 (Tuesday)
+    - Check out [deletion notes](./BinaryTrees/deletion.md)
+    - Finish delete (BinaryTreeDay2) and submit to javadrop today.
 - November 14, 2024 (Friday)
     - Delete and Find from Binary Trees
     - Submit Day 2 code (add delete and find to Day 1) to javadrop  [here](https://javadrop.io) or [here](https://javadrop-io-019d03a56736.herokuapp.com/)

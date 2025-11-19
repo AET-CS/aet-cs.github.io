@@ -15,7 +15,13 @@ sidebar:
 
 ## Daily Review
 
-- 11/13/2024 (Thursday)
+- 11/19/2025 (Wednesday)
+    - Work on this [Decision Tree Lab](./notebooks/Decision_Tree_Student.ipynb) [(html)](./lessons/Decision_Tree_Student.html) using income data.
+- 11/17/2025 (Monday)
+    - Notes on Decision Trees
+    - Hand classifying the WillWait? Dataset
+    - Definition of Entropy and Information Gain
+- 11/13/2025 (Thursday)
   - Continue k-NN. Finish notebook from last class (submit as KNN-1)
   - Work on [Digits dataset](./notebooks/digits-student.ipynb) [(html)](./notebooks/digits-student.html) (submit as KNN-2)
   - Here's a [nice writeup](https://towardsdatascience.com/comprehensive-guide-to-approximate-nearest-neighbors-algorithms-8b94f057d6b6) of the approximate nearest neighbor problem with an eye towards ML applications like Spotify and Netflix recommendations (may be a paywall I'm not sure)

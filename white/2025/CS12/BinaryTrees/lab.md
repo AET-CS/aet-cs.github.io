@@ -25,11 +25,11 @@ do a best fit line with (size * log(size)) vs time. Which has the best correlati
 
 Do the same as above but reverse the list. What do you notice? Perform a data analysis
 
-## Random list
+## Three: Random list
 
 Make a list of n random numbers. To avoid repeats you'll want to choose numbers with a large maximum size (read about java nextInt). Perform the same analysis as before
 
-## Optimal list
+## Four: Optimal list
 
 This one is trickier. Can you make a list that is "optimal". We talked about the best order for a list in class. Can you write an algorithm to create a list in precisely the best order and
 analyze it. How does it compare?

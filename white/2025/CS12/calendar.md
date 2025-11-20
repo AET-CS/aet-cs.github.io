@@ -6,7 +6,9 @@ classes:
 ---
 
 ## Daily Calendar
-- November 18, 2024 (Tuesday)
+- November 20, 2025 (Thursday)
+	- Please work on [binary tree analysis lab](./BinaryTrees/lab.md) and submit report at the end of class
+- November 18, 2025 (Tuesday)
     - Check out [deletion notes](./BinaryTrees/deletion.md)
     - Finish delete (BinaryTreeDay2) and submit to javadrop today.
     - Also please create a main method that

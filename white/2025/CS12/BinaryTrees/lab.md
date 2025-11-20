@@ -10,11 +10,13 @@ Write a method that takes a list of integers sorted (1,...,n) and inserts them i
 for each list size and write the result to stdout, or a file. You can create a comma separated list like this and import the data straight into a spreadsheet as a comma separated file, or paste it and choose "convert
 text to columns" (or something like that)
 
+```
 size,time
 100,1.2
 300,2.4
 500,6.7
 1000,9.2
+```
 
 Choose a range of sizes from 100 to 1,000,000 (or whatever size you can compute on your laptop). Make sure you have at least 10 datapoints.
 

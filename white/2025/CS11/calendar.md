@@ -7,6 +7,18 @@ classes:
 
 ## Daily Calendar
 
+- November 20, 2025 (Thursday)
+    - Please work on Spy Academy Lab
+        -  Instructions [Spy Academy Lab](./projects/SpyAcademy/SpyAcademy_Handout.md)
+        - Starter [code](./projects/SpyAcademy/SpyAcademy.java) (create a new project and add this one file)
+        - Code makes a game. Play and test with a partner!
+        - If you finish early ot think this project is too easy for you, please look at the extensions. Auto-decoding is definitely a fun challenge.
+        - I used AI to help write this lab (wasn't planning on being out today) so the write up is a bit OVER THE TOP.
+    - Submit your progress by **end of class**. If not finished, you can complete for HW but still submit what you have **today** please.
+- November 18, 2025 (Tuesday)
+    - Notes on string methods: substring, indexOf, equals, compareTo
+    - Short array/string quiz 4 on Schoology
+    - HW: keep practicing on javadrop!
 - November 14, 2025 (Friday)
     - Array quiz 3 in class today
     - Practice array problems! [here](https://javadrop.io) or [here](https://javadrop-io-019d03a56736.herokuapp.com/)

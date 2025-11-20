@@ -20,8 +20,8 @@ size,time
 
 Choose a range of sizes from 100 to 1,000,000 (or whatever size you can compute on your laptop). Make sure you have at least 10 datapoints.
 
-Once you have your data, plot a best fit line. Is the growth rate linear? If not, make a new table using size squared (n^2) vs time. Is this plot linear? It could also be (n log n) so you could
-do a best fit line with (size * log(size)) vs time. Which has the best correlation?
+Once you have your data, plot a best fit line. Is the growth rate linear? If not, make a new table using **size squared** (n^2) vs time. Is this plot linear? It could also be (n log n) so you could
+do a best fit line with **(size * log(size))** vs time. Which has the best correlation?
 
 ## Two: Reverse sorted list
 
@@ -38,4 +38,4 @@ analyze it. How does it compare?
 
 ## Turn in
 
-When you are finished, create a brief report with the 4 list types. Discuss the best fit line. Is it linear, quadratic, n log n, or something else? Include graphs.
+When you are finished, create a brief report with the 4 list types. Discuss the best fit line for each of the four types. Is it linear, quadratic, n log n, or something else? Include graphs.

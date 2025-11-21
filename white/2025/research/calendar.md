@@ -7,6 +7,16 @@ classes:
 
 **Please see [Journal Dates](./journal_dates.md) and adhere to the prescriptions within**
 
+- November 21, 2025 (Friday)
+    - Presentations!
+    - Please fill out [labrat forms](https://app.labrat.live) and get [signatures](https://permission.click/y4zXW/int) by next class.
+    - Journal 12 due next class, and presentations if you were absent
+    - November goal journal 13 due after break
+    - LabRat forms due 12/1
+- November 19, 2025 (Wednesday)
+    - Work day
+- November 17, 2025 (Monday)
+    - Journal 11 due
 - November 11, 2025 (Tuesday)
     - Journal 10 due with Turkey Goal
     - Demonstrations during the week 11/17-11/21. You pick a date. Show us stuff.

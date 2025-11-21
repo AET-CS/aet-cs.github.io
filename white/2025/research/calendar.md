@@ -10,6 +10,7 @@ classes:
 - November 21, 2025 (Friday)
     - Presentations!
     - Please fill out [labrat forms](https://app.labrat.live) and get [signatures](https://permission.click/y4zXW/int) by next class.
+    - Here's some helpful(?) labrat [information](https://docs.google.com/document/d/1cz7OnfCf-a6mKP7p-uSrnQSIEZziCpgsgWJEoeltr4k/edit?usp=sharing). Apparently you have to say **YES** to the hazardous chemical question (seems to be a bug in the software.)
     - Journal 12 due next class, and presentations if you were absent
     - November goal journal 13 due after break
     - LabRat forms due 12/1

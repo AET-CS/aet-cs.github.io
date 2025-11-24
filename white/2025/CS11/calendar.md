@@ -8,7 +8,7 @@ classes:
 ## Daily Calendar
 
 -  November 24, 2025 (Monday)
-    - Please finish SpyAcademy and check results with [this grader](./hidden/SpyAcademy/SpyAcademyGrader.java). To use the grader, copy it to your `src/` folder and open it. Then click 'Run this File'. It will show the results of each test.
+    - Please finish SpyAcademy and check results with [this grader](./projects/SpyAcademy/SpyAcademyGrader.java). To use the grader, copy it to your `src/` folder and open it. Then click 'Run this File'. It will show the results of each test.
     - Submit your SpyAcademy.java file to javadrop. It should show up under 'Assignments'.
 
 - November 20, 2025 (Thursday)

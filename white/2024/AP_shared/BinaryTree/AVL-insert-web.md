@@ -16,7 +16,7 @@ Draw every possible BST tree for the numbers 1,2,3
 {% endcapture %}
 
 {% capture answer1 %}
-<img src="https://aet-cs.github.io/white/AP_shared/BinaryTree/canonical-trees.png" alt="Five Trees" style="width: 100%;" />
+<img src="https://aet-cs.github.io/white/2024/AP_shared/BinaryTree/canonical-trees.png" alt="Five Trees" style="width: 100%;" />
 {% endcapture %}
 {% include answer-box.html question=question1 content=answer1 %}
 
@@ -39,7 +39,7 @@ Take each of the five trees you created above and add subtrees for A,B,C and D. 
 {% endcapture %}
 
 {% capture answer2 %}
-<img src="https://aet-cs.github.io/white/AP_shared/BinaryTree/canonical-trees-abcd.png" alt="Five Trees" style="width: 100%;" />
+<img src="https://aet-cs.github.io/white/2024/AP_shared/BinaryTree/canonical-trees-abcd.png" alt="Five Trees" style="width: 100%;" />
 {% endcapture %}
 {% include answer-box.html question = question2 content=answer2 %}
 
@@ -51,7 +51,7 @@ If you compare each of the four imbalanced trees to the balanced 213 tree, now w
 Let's work through a moderate size example. Look at the AVL tree below it's currently balanced, but it won't be for long. Insert the number one. Once you've added one to the tree, find the lowest node in the tree that has now become unbalanced.
 
 <div style="display: flex; justify-content: center;">
-<img src="https://aet-cs.github.io/white/AP_shared/BinaryTree/tree-small-01.png" alt="Five Trees" style="width: 23%;" />
+<img src="https://aet-cs.github.io/white/2024/AP_shared/BinaryTree/tree-small-01.png" alt="Five Trees" style="width: 23%;" />
 </div>
 
 The unbalanced tree is the sub tree rooted at 6.
@@ -61,7 +61,7 @@ Now follow the path from 6 to the node that was just inserted. Draw a box around
 {% endcapture %}
 {% capture answer3 %}
 <div style="display: flex; justify-content: center;">
-<img src="https://aet-cs.github.io/white/AP_shared/BinaryTree/eight-tree-1.png" alt="Insert 1" style="width: 90%;" />
+<img src="https://aet-cs.github.io/white/2024/AP_shared/BinaryTree/eight-tree-1.png" alt="Insert 1" style="width: 90%;" />
 </div>
 {% endcapture %}
 {% include answer-box.html question = question3 content=answer3 %}
@@ -72,7 +72,7 @@ Now try inserting the number 5 and go through the same balancing process.
 
 {% capture answer4 %}
 <div style="display: flex; justify-content: center;">
-<img src="https://aet-cs.github.io/white/AP_shared/BinaryTree/eight-tree-5.png" alt="Insert 1" style="width: 90%;" />
+<img src="https://aet-cs.github.io/white/2024/AP_shared/BinaryTree/eight-tree-5.png" alt="Insert 1" style="width: 90%;" />
 </div>
 {% endcapture %}
 {% include answer-box.html question = question4 content=answer4 %}
@@ -81,7 +81,7 @@ Now try inserting the number 5 and go through the same balancing process.
 Try a larger example. In the following tree, perform each of the following insertions (each time starting over from the same beginning tree): 5, 140, 70, 115
 
 <div style="display: flex; justify-content: center;">
-<img src="https://aet-cs.github.io/white/AP_shared/BinaryTree/big-tree-01.png" alt="Five Trees" style="width: 90%;" />
+<img src="https://aet-cs.github.io/white/2024/AP_shared/BinaryTree/big-tree-01.png" alt="Five Trees" style="width: 90%;" />
 </div>
 
 {% capture question5 %}
@@ -90,7 +90,7 @@ Insert the number 5
 
 {% capture answer-big1 %}
 <div style="display: flex; justify-content: center;">
-<img src="https://aet-cs.github.io/white/AP_shared/BinaryTree/big-tree-add-5.png" alt="Insert 1" style="width: 90%;" />
+<img src="https://aet-cs.github.io/white/2024/AP_shared/BinaryTree/big-tree-add-5.png" alt="Insert 1" style="width: 90%;" />
 </div>
 {% endcapture %}
 {% include answer-box.html question=question5 content=answer-big1 %}
@@ -110,7 +110,7 @@ Insert the number 70
 
 {% capture answer-big3 %}
 <div style="display: flex; justify-content: center;">
-<img src="https://aet-cs.github.io/white/AP_shared/BinaryTree/big-tree-add-70.png" alt="Insert 1" style="width: 90%;" />
+<img src="https://aet-cs.github.io/white/2024/AP_shared/BinaryTree/big-tree-add-70.png" alt="Insert 1" style="width: 90%;" />
 </div>{% endcapture %}
 {% include answer-box.html question=question7 content=answer-big3 %}
 

@@ -7,6 +7,15 @@ classes:
 
 ## Daily Calendar
 
+- December 1, 2025 (Monday)
+    - Please fill out this [form](https://docs.google.com/forms/d/e/1FAIpQLSctipHyIQXTACddFjTocJoK8NHwhYq26BNJnDW8vaz4YLPLvA/viewform)
+    - Concept today: **Classes**
+        - Read through [Circle.java](./practice/classes/Circle.java) and [TestCircle.java](./practice/classes/TestCircle.java) and determine what is **printed** when the main method runs
+        - Vocab terms: class, object, instantiate, field, method, public/private, constructor
+        - Write a square class and a tester class (two files in one project), using Circle as a model. Run your code and submit to Javadrop by end of class.
+    - **Homework** write a String class. Details TBD
+    - TEST: Thursday Dec 11 over Arrays, Strings, Classes.
+
 -  November 24, 2025 (Monday)
     - Please finish SpyAcademy and check results with [this grader](./projects/SpyAcademy/SpyAcademyGrader.java). To use the grader, copy it to your `src/` folder and open it. Then click 'Run this File'. It will show the results of each test.
     - Submit your SpyAcademy.java file to javadrop. It should show up under 'Assignments'.

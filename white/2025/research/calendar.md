@@ -7,9 +7,6 @@ classes:
 
 **Please see [Journal Dates](./journal_dates.md) and adhere to the prescriptions within**
 
-- December 1, 2025 (Monday)
-    - Here's a [form](https://docs.google.com/forms/d/e/1FAIpQLSctipHyIQXTACddFjTocJoK8NHwhYq26BNJnDW8vaz4YLPLvA/viewform)
-    - Concept: classes
 - November 21, 2025 (Friday)
     - Presentations!
     - Please fill out [labrat forms](https://app.labrat.live) and get [signatures](https://permission.click/y4zXW/int) by next class.

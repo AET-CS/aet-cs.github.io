@@ -3,6 +3,9 @@ source "https://rubygems.org"
 # Use Jekyll directly since we're not using GitHub's build environment
 gem "jekyll", "~> 4.3.2"
 
+# Theme
+gem "minimal-mistakes-jekyll"
+
 # For remote themes
 gem "jekyll-remote-theme"
 
@@ -17,6 +20,7 @@ gem "jemoji"
 # Additional gems for functionality
 gem "webrick", "~> 1.8"
 gem "kramdown-parser-gfm"
+gem "jekyll-redirect-from"
 
 # Windows and JRuby does not include zoneinfo files
 platforms :mingw, :x64_mingw, :mswin, :jruby do

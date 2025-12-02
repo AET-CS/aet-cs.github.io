@@ -14,6 +14,7 @@ gem "jekyll-gist"
 gem "jekyll-feed"
 gem "jekyll-include-cache"
 gem "jekyll-redirect-from"
+gem "jekyll-relative-links"
 gem "jemoji"
 
 # Additional gems for functionality

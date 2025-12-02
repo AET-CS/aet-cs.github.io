@@ -10,7 +10,7 @@
 # Review documentation to determine if you should use `theme` or `remote_theme`
 # https://mmistakes.github.io/minimal-mistakes/docs/quick-start-guide/#installing-the-theme
 
-theme: "minimal-mistakes-jekyll"  # Use with GitHub Actions
+theme: "minimal-mistakes-jekyll" # Use with GitHub Actions
 # remote_theme: "mmistakes/minimal-mistakes" # Use for default GitHub Pages build
 minimal_mistakes_skin: "default" # "air", "aqua", "contrast", "dark", "dirt", "neon", "mint", "plum", "sunrise"
 
@@ -257,6 +257,7 @@ plugins:
   - jekyll-feed
   - jekyll-include-cache
   - jekyll-redirect-from
+  - jekyll-relative-links
 
 # mimic GitHub Pages with --safe
 whitelist:

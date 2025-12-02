@@ -14,7 +14,7 @@ classes:
         - Vocab terms: class, object, instantiate, field, method, public/private, constructor
         - Write a square class and a tester class (two files in one project), using Circle as a model. Run your code and submit to Javadrop by end of class.
     - **Homework** write a String class. Details [here](./practice/classes/MyString-Assignment.md). Turn in before next class 12/3.
-    - TEST: Thursday Dec 11 over Arrays, Strings, Classes.
+    - **TEST**: Thursday Dec 11 over Arrays, Strings, Classes. Multiple choice, short answer, free-response.
 
 -  November 24, 2025 (Monday)
     - Please finish SpyAcademy and check results with [this grader](./projects/SpyAcademy/SpyAcademyGrader.java). To use the grader, copy it to your `src/` folder and open it. Then click 'Run this File'. It will show the results of each test.

@@ -9,8 +9,11 @@ classes:
 
 - December 1, 2025 (Monday)
     - Practice AVL rotation on [this website](https://www.cs.usfca.edu/~galles/visualization/AVLtree.html)
-    - Notes on AVL rotation in class
-    - Add rotation to your binary tree and submit to Javadrop
+    - Notes on AVL rotation in class with practice
+    - AVL rotation quiz next class
+- Thanksgiving Break!
+- November 25, 2025 (Tuesday)
+    - Practice AP quiz in class, on AP classroom
 - November 20, 2025 (Thursday)
 	- Please work on [binary tree analysis lab](./BinaryTrees/lab.md) and submit report at the end of class to [this form](https://forms.gle/e642mN292RSu6uDj6). You may complete for homework but please submit most of the work during class today, even if not finished.
 - November 18, 2025 (Tuesday)

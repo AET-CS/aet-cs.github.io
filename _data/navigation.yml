@@ -1,0 +1,33 @@
+# Main site navigation
+main:
+  - title: "Home"
+    url: /
+
+# ML Course sidebar navigation
+ml:
+  - title: "Course Info"
+    children:
+      - title: "Calendar"
+        url: /white/2025/ML/calendar/
+      - title: "Course Home"
+        url: /white/2025/ML/
+      - title: "Submit Work"
+        url: https://docs.google.com/forms/d/e/1FAIpQLSdCuxHj2Vq0mqO6Le_fIcecclX7KzkenywXrtKAPpGyYvfPpg/viewform?usp=dialog
+
+  - title: "Getting Started"
+    children:
+      - title: "Python Basics"
+        url: /white/2025/ML/python/
+      - title: "NumPy Intro"
+        url: /white/2025/ML/Numpy-Intro/
+      - title: "Statistics"
+        url: /white/2025/ML/statistics/
+
+  - title: "Resources"
+    children:
+      - title: "Data Files"
+        url: /white/2025/ML/data/
+      - title: "Notebooks"
+        url: /white/2025/ML/notebooks/
+      - title: "Notes"
+        url: /white/2025/ML/notes/

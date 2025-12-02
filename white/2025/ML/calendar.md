@@ -1,6 +1,8 @@
 ---
 title: "ML Calendar"
-layout: single
+layout: archive
+sidebar:
+  nav: "ml"
 ---
 
 ## Pinned Items
@@ -8,6 +10,10 @@ layout: single
 
 ## Daily Review
 
+- 11/21/2025 (Friday)
+    - Motivation of Shannon entropy measure (information gain)
+    - Encoding strings
+    - Ha
 - 11/19/2025 (Wednesday)
     - Work on this [Decision Tree Lab](./notebooks/Decision_Tree_Student.ipynb) [(html)](./lessons/Decision_Tree_Student.html) using income data.
 - 11/17/2025 (Monday)

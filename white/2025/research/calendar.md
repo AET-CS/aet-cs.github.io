@@ -7,6 +7,13 @@ classes:
 
 **Please see [Journal Dates](./journal_dates.md) and adhere to the prescriptions within**
 
+- December 2, 2025 (Tuesday)
+    - 2 hour delay
+    - Make-up presentations
+    - Turkey goal due date, as part of Journal 13
+- Thanksgiving Break!
+- November 25, 2025 (Tuesday)
+    - Competitive turkey carving
 - November 21, 2025 (Friday)
     - Presentations!
     - Please fill out [labrat forms](https://app.labrat.live) and get [signatures](https://permission.click/y4zXW/int) by next class.

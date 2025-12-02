@@ -5,11 +5,15 @@ sidebar:
   nav: "ml"
 ---
 
-## Pinned Items
-- [Submission Form](https://docs.google.com/forms/d/e/1FAIpQLSdCuxHj2Vq0mqO6Le_fIcecclX7KzkenywXrtKAPpGyYvfPpg/viewform?usp=dialog)
+## Daily Summary
 
-## Daily Review
-
+- 12/2/2025 (Tuesday)
+  - Topic: Support Vector Machines
+  - [Notes Notebook](notebooks/Notes-SVM.ipynb) [(html)](notebooks/Notes-SVM.html)
+  - [SVM Lab](notebooks/SVM_Lab-Student.ipynb) [(html)](notebooks/SVM_Lab-Student.html)
+- Thanksgiving Break
+- 11/25/2025 (Tuesday)
+    - Independent Research Time
 - 11/21/2025 (Friday)
     - Motivation of Shannon entropy measure (information gain)
     - Encoding strings

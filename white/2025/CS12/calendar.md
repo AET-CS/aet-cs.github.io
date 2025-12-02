@@ -9,9 +9,9 @@ classes:
 
 - December 1, 2025 (Monday)
     - Practice AVL rotation on [this website](https://www.cs.usfca.edu/~galles/visualization/AVLtree.html)
-    - [Notes](../../2024/AP_shared/BinaryTree/AVL-insert-web.md) on AVL rotation in class with practice
+    - [Notes](../../2024/AP_shared/BinaryTree/AVL-insert-web.md) on AVL rotation in class with [practice](../../2024/AP_shared/BinaryTree/AVL_insert_worksheet.pdf)
     - See notes above for extra practice in the notes
-    - AVL rotation quiz next class
+    - AVL rotation quiz next class (paper/pencil. no coding, no algorithms, just be able to insert, rotate, balance)
 - Thanksgiving Break!
 - November 25, 2025 (Tuesday)
     - Practice AP quiz in class, on AP classroom

@@ -7,6 +7,11 @@ classes:
 
 ## Daily Calendar
 
+- December 3, 2025 (Wednesday)
+    - More classes: static, public, private
+    - [Notes](./practice/classes/Circle-2.pdf) from class. Determine what the main method prints, and explain any errors.
+    - Please complete problems 1-8 from "Classes Practice B" on Javadrop in class
+    - **HW** finish problems 1-15. MyString is late. Turn in now!
 - December 1, 2025 (Monday)
     - Please fill out this [form](https://docs.google.com/forms/d/e/1FAIpQLSctipHyIQXTACddFjTocJoK8NHwhYq26BNJnDW8vaz4YLPLvA/viewform)
     - Concept today: **Classes**

@@ -7,6 +7,9 @@ classes:
 
 ## Daily Calendar
 
+- December 3, 2025 (Wednesday)
+    - Complete AVL tree [practice problems](./BinaryTrees/AVL%20Rotation%20Practice.pdf) in class
+    - AVL rotation quiz!!
 - December 1, 2025 (Monday)
     - Practice AVL rotation on [this website](https://www.cs.usfca.edu/~galles/visualization/AVLtree.html)
     - [Notes](../../2024/AP_shared/BinaryTree/AVL-insert-web.md) on AVL rotation in class with [practice](../../2024/AP_shared/BinaryTree/AVL_insert_worksheet.pdf)

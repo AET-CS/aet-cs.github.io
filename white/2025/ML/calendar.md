@@ -7,10 +7,13 @@ sidebar:
 
 ## Daily Summary
 
-- 12/2/2025 (Tuesday)
+- 12/4/2025 (Thursday)
   - Topic: Support Vector Machines
   - [Notes Notebook](notebooks/Notes-SVM.ipynb) [(html)](notebooks/Notes-SVM.html)
   - [SVM Lab](notebooks/SVM_Lab-Student.ipynb) [(html)](notebooks/SVM_Lab-Student.html)
+- 12/2/2025 (Tuesday)
+    - 2 hr delay
+    - Arithmetic Codes
 - Thanksgiving Break
 - 11/25/2025 (Tuesday)
     - Independent Research Time

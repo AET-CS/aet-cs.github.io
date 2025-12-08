@@ -9,6 +9,7 @@ sidebar:
 
 - 12/8/2025 (Monday)
   - Cross Validation and Grid Search [notebook](./notebooks/CrossValidation.ipynb) and optional [dataset](./notebooks/mnist.pk.gz) to gunzip (if the notebook open_ml doesn't work)
+  - Lab: Use SVM and GridSearch and TfIDF to do the best you can classifying this [twitter data set](./data/twitter_training.csv)
 - 12/4/2025 (Thursday)
   - Topic: Support Vector Machines
   - [Notes Notebook](notebooks/Notes-SVM.ipynb) [(html)](notebooks/Notes-SVM.html)

@@ -7,6 +7,14 @@ classes:
 
 ## Daily Calendar
 
+- December 9, 2025 (Tuesday)
+    - Code up insert for binary trees with AVL rotation
+    - In class we finish up [these notes](../../2024/AP_shared/BinaryTree/AVL-insert-web.md)
+    - Follow [these instructions](./BinaryTrees/AVL-coding.md) for modifying your existing BinaryTree code.
+    - Use [this tester file](./BinaryTrees/BinaryTreeTesterAVL.java) to verify your solution works
+    - Upload to Javadrop when done!
+- December 5, 2025 (Friday)
+    - Snow day!
 - December 3, 2025 (Wednesday)
     - Complete AVL tree [practice problems](./BinaryTrees/AVL%20Rotation%20Practice.pdf) in class
     - AVL rotation quiz!!

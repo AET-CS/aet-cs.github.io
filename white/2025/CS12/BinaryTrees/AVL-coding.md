@@ -3,10 +3,10 @@ title: Coding AVL insert
 ---
 
 
-## Depth
-You'll need to add a private *depth* field. You should also write an accessor method `getDepth(Node n)` that returns the depth of `n` if `n` is a Node and 0 if `n` is null. (This will simplify other parts of your code)
+## height
+You'll need to add a private *height* field. You should also write an accessor method `getheight(Node n)` that returns the height of `n` if `n` is a Node and 0 if `n` is null. (This will simplify other parts of your code)
 
-Updating the depth happens every time you insert or rotate.
+Updating the height happens every time you insert or rotate.
 
 ## Rotations
 
@@ -27,7 +27,7 @@ private Node insert_recursive(Node root, int data) {
         } else {
             root.right = insert_recursive(root.right, data);
         }
-        // now add code to update the depth of the root
+        // now add code to update the height of the root
         // (and only the root -- why?? -- because recursion!)
 
 

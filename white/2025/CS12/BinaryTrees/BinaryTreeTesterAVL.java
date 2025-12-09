@@ -88,16 +88,16 @@ public class BinaryTreeTesterAVL {
         // Test 9: Count nodes on larger tree
         runTest("Count nodes on larger tree", 7, tree.count_nodes());
 
-        // Test 10: Depth of empty tree
-        BinaryTree emptyTreeForDepth = new BinaryTree();
-        runTest("Depth of empty tree", 0, emptyTreeForDepth.depth());
+        // Test 10: Height of empty tree
+        BinaryTree emptyTreeForHeight = new BinaryTree();
+        runTest("Height of empty tree", 0, emptyTreeForHeight.height());
 
-        // Test 11: Depth of tree with just root
-        BinaryTree singleNodeTreeForDepth = new BinaryTree(5);
-        runTest("Depth of tree with just root", 1, singleNodeTreeForDepth.depth());
+        // Test 11: Height of tree with just root
+        BinaryTree singleNodeTreeForHeight = new BinaryTree(5);
+        runTest("Height of tree with just root", 1, singleNodeTreeForHeight.height());
 
-        // Test 12: Depth of larger tree
-        runTest("Depth of larger tree", 3, tree.depth());
+        // Test 12: Height of larger tree
+        runTest("Height of larger tree", 3, tree.height());
 
         String traversalResult = tree.in_order_traversal().trim();
         runTest("In order traversal", "20 30 40 50 60 70 80", traversalResult);
@@ -125,7 +125,7 @@ public class BinaryTreeTesterAVL {
 
         double duration = (endTime - startTime) / 1000000;
         System.out.println("\nTime to insert " + limit + " entries: " + duration + "  ms");
-        System.out.println("\nDepth of " + limit + " entries: " + speedTree.depth());
+        System.out.println("\nHeight of " + limit + " entries: " + speedTree.height());
 
         runTest("Insert " + limit, true, duration < 10000);
         System.out.println();

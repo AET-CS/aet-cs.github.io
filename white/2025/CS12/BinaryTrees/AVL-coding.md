@@ -3,14 +3,14 @@ title: Coding AVL insert
 ---
 
 
-## height
+## Height
 You'll need to add a private *height* field. You should also write an accessor method `getheight(Node n)` that returns the height of `n` if `n` is a Node and 0 if `n` is null. (This will simplify other parts of your code)
 
 Updating the height happens every time you insert or rotate.
 
 ## Rotations
 
-You'll need to define the new methods for each of the four rotations. Follow the code from class. The parameter to each rotation is the **root** of the subtree that is rotating. You will return the root of the new subtree after rotation.
+You'll need to define the new methods for each of the four rotations. Follow the code from class. The parameter to each rotation is the **root** of the subtree that is rotating. You will return the root of the new subtree after rotation. You also need to update the height after left and right rotate!
 
 ## Insert
 

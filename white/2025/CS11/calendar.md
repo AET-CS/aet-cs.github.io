@@ -7,6 +7,11 @@ classes:
 
 ## Daily Calendar
 
+- December 9, 2025 (Tuesday)
+    - [Array Practice](https://runestone.academy/ns/books/published/csawesome/Unit6-Arrays/ArrayPractice.html?mode=browsing)
+    - Sign up for [Challenge Day](https://docs.google.com/forms/d/e/1FAIpQLSeVQusaBdh1S6mPPczfEuaQ38NFKWxfQb7rMpNoLkLFz8-olg/viewform)
+- December 5, 2025 (Friday)
+    - SNOW DAY!!
 - December 3, 2025 (Wednesday)
     - More classes: static, public, private
     - [Notes](./practice/classes/Circle-2.pdf) from class. Determine what the main method prints, and explain any errors.

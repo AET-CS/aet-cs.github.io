@@ -8,11 +8,13 @@ classes:
 ## Daily Calendar
 
 - December 9, 2025 (Tuesday)
-    - Code up insert for binary trees with AVL rotation
-    - In class we finish up [these notes](../../2024/AP_shared/BinaryTree/AVL-insert-web.md)
-    - Follow [these instructions](./BinaryTrees/AVL-coding.md) for modifying your existing BinaryTree code.
-    - Use [this tester file](./BinaryTrees/BinaryTreeTesterAVL.java) to verify your solution works
-    - Upload to Javadrop when done!
+    - Sign up for [Challenge Day](https://docs.google.com/forms/d/e/1FAIpQLSeVQusaBdh1S6mPPczfEuaQ38NFKWxfQb7rMpNoLkLFz8-olg/viewform).
+        - I'm also looking for qualified volunteers to help with the Arduino Challenge. See me if interested.
+    - Task today: Code up insert for binary trees with AVL rotation
+        - In class we finish up [these notes](../../2024/AP_shared/BinaryTree/AVL-insert-web.md)
+        - Follow [these instructions](./BinaryTrees/AVL-coding.md) for modifying your existing BinaryTree code.
+        - Use [this tester file](./BinaryTrees/BinaryTreeTesterAVL.java) to verify your solution works
+        - Upload to Javadrop when done!
 - December 5, 2025 (Friday)
     - Snow day!
 - December 3, 2025 (Wednesday)

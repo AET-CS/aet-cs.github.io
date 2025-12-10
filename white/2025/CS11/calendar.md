@@ -10,6 +10,16 @@ classes:
 - December 9, 2025 (Tuesday)
     - [Array Practice](https://runestone.academy/ns/books/published/csawesome/Unit6-Arrays/ArrayPractice.html?mode=browsing)
     - Sign up for [Challenge Day](https://docs.google.com/forms/d/e/1FAIpQLSeVQusaBdh1S6mPPczfEuaQ38NFKWxfQb7rMpNoLkLFz8-olg/viewform)
+    - Test next class
+        - Array problems
+            - [csawesome Arrays 6.8 and 6.9](https://runestone.academy/ns/books/published/csawesome/index.html?mode=browsing)
+        - Class problems
+            - [csawesome Classes](https://runestone.academy/ns/books/published/csawesome/Unit5-Writing-Classes/Exercises.html?mode=browsing)
+            - javadrop [Classes Practice B](https://www.javadrop.io/practice/)
+        - Strings problems
+            - [csawesome Strings](https://runestone.academy/ns/books/published/csawesome/Unit2-Using-Objects/Exercises.html?mode=browsing)
+        - FRQ
+            - [javasips](https://www.javadrop.io/java-sips/) levels 1 and 2
 - December 5, 2025 (Friday)
     - SNOW DAY!!
 - December 3, 2025 (Wednesday)

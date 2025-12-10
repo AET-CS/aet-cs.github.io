@@ -21,6 +21,7 @@ classes:
         - FRQ
             - [javasips](https://www.javadrop.io/java-sips/) levels 1 and 2
 				- Quiz key [Quiz4-key](./practice/arrays/quiz4-key.md)
+				- [MyString.java key](./practice/strings/MyString.java)
 - December 5, 2025 (Friday)
     - SNOW DAY!!
 - December 3, 2025 (Wednesday)

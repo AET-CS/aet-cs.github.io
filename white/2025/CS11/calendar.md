@@ -20,6 +20,7 @@ classes:
             - [csawesome Strings](https://runestone.academy/ns/books/published/csawesome/Unit2-Using-Objects/Exercises.html?mode=browsing)
         - FRQ
             - [javasips](https://www.javadrop.io/java-sips/) levels 1 and 2
+				- Quiz key [Quiz4-key](./practice/arrays/quiz4-key.md)
 - December 5, 2025 (Friday)
     - SNOW DAY!!
 - December 3, 2025 (Wednesday)

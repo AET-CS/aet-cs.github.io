@@ -7,6 +7,9 @@ sidebar:
 
 ## Daily Summary
 
+- 12/10/2025 (Wednesday)
+    - Finish fake news and twitter datasets
+    - Here's a [word embedding](./data/word2vec.md) you can try
 - 12/8/2025 (Monday)
   - Cross Validation and Grid Search [notebook](./notebooks/CrossValidation.ipynb) and optional [dataset](./notebooks/mnist.pk.gz) to gunzip (if the notebook open_ml doesn't work)
   - Lab: Use SVM and GridSearch and TfIDF to do the best you can classifying this [twitter data set](./data/twitter_training.csv)

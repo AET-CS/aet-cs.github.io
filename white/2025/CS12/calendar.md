@@ -7,6 +7,14 @@ classes:
 
 ## Daily Calendar
 
+- December 15, 2025 (Monday)
+    - 2 hour delay!
+    - Sorting algorithms
+    - Check out [this site](https://www.cs.usfca.edu/~galles/visualization/ComparisonSort.html) for visualizing algorithms
+    - Practice worksheet
+- December 11. 2025 (Thursday)
+    - Work/catch-up day
+    - Turn in all work!
 - December 9, 2025 (Tuesday)
     - Sign up for [Challenge Day](https://docs.google.com/forms/d/e/1FAIpQLSeVQusaBdh1S6mPPczfEuaQ38NFKWxfQb7rMpNoLkLFz8-olg/viewform).
         - I'm also looking for qualified volunteers to help with the Arduino Challenge. See me if interested.

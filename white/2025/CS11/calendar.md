@@ -7,6 +7,12 @@ classes:
 
 ## Daily Calendar
 
+- December 15, 2025 (Monday)
+    - New topic: array lists
+    - *HW* Javadrop: javasips 1-5 and MC practice 1-5 for ArrayLists. Due by next class
+- December 11, 2025 (Thursday)
+    - Test day!
+    - Test makeup is next Wed in class
 - December 9, 2025 (Tuesday)
     - [Array Practice](https://runestone.academy/ns/books/published/csawesome/Unit6-Arrays/ArrayPractice.html?mode=browsing)
     - Sign up for [Challenge Day](https://docs.google.com/forms/d/e/1FAIpQLSeVQusaBdh1S6mPPczfEuaQ38NFKWxfQb7rMpNoLkLFz8-olg/viewform)

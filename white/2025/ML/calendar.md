@@ -7,30 +7,35 @@ sidebar:
 
 ## Daily Summary
 
+- 12/16/2025 (Tuesday)
+    - **Ensemble Methods**
+    - Work through this [Ensemble Methods Notebook](./notebooks/Ensemble_Methods.ipynb)
+- 12/12/2025 (Friday)
+    - Finish notebooks on cross validation and grid search
 - 12/10/2025 (Wednesday)
     - Finish fake news and twitter datasets
     - Here's a [word embedding](./data/word2vec.md) you can try
 - 12/8/2025 (Monday)
-  - Cross Validation and Grid Search [notebook](./notebooks/CrossValidation.ipynb) and optional [dataset](./notebooks/mnist.pk.gz) to gunzip (if the notebook open_ml doesn't work)
+  - **Cross Validation and Grid Search** [notebook](./notebooks/CrossValidation.ipynb) and optional [dataset](./notebooks/mnist.pk.gz) to gunzip (if the notebook open_ml doesn't work)
   - Lab: Use SVM and GridSearch and TfIDF to do the best you can classifying this [twitter data set](./data/twitter_training.csv)
 - 12/4/2025 (Thursday)
-  - Topic: Support Vector Machines
+  - Topic: **Support Vector Machines**
   - [Notes Notebook](notebooks/Notes-SVM.ipynb) [(html)](notebooks/Notes-SVM.html)
   - [SVM Lab](notebooks/SVM_Lab-Student.ipynb) [(html)](notebooks/SVM_Lab-Student.html)
 - 12/2/2025 (Tuesday)
     - 2 hr delay
-    - Arithmetic Codes
+    - **Arithmetic Codes**
 - Thanksgiving Break
 - 11/25/2025 (Tuesday)
     - Independent Research Time
 - 11/21/2025 (Friday)
-    - Motivation of Shannon entropy measure (information gain)
+    - Motivation of **Shannon entropy** measure (information gain)
     - Encoding strings
     - Ha
 - 11/19/2025 (Wednesday)
     - Work on this [Decision Tree Lab](./notebooks/Decision_Tree_Student.ipynb) [(html)](./lessons/Decision_Tree_Student.html) using income data.
 - 11/17/2025 (Monday)
-    - Notes on Decision Trees
+    - Notes on **Decision Trees**
     - Hand classifying the WillWait? Dataset
     - Definition of Entropy and Information Gain
 - 11/13/2025 (Thursday)
@@ -38,14 +43,14 @@ sidebar:
   - Work on [Digits dataset](./notebooks/digits-student.ipynb) [(html)](./notebooks/digits-student.html) (submit as KNN-2)
   - Here's a [nice writeup](https://towardsdatascience.com/comprehensive-guide-to-approximate-nearest-neighbors-algorithms-8b94f057d6b6) of the approximate nearest neighbor problem with an eye towards ML applications like Spotify and Netflix recommendations (may be a paywall I'm not sure)
 - November 11, 2025 (Tuesday)
-  - Topic: k Nearest Neighbor
+  - Topic: **k Nearest Neighbor**
   - Devise algorithm in class
   - [Implement in Jupyter](./notebooks/knn-Student.ipynb) [(html)](./notebooks/knn-Student.html)
   - Also complete extension(s)
 - Nov 7, 2025 (Friday)
     - Do the best LogReg you can with this [loan data](./data/loan_data.csv)
 - Nov 5, 2025 (Wednesday)
-    - Intro to logistic function
+    - Intro to **Logistic Regression**
     - [Cancer Data](./notebooks/Cancer_Logistic_Student.ipynb)
     - Finish notebook for classwork/HW
 - October 27, 2025 (Monday)

@@ -10,6 +10,7 @@ classes:
 - January 6, 2025 (Tuesday)
     - Read about [Orb Project](./projects/Orbs/Description.html)
     - Start with this [main file](./projects/Orbs/OrbSimulation.java)
+    - Transcribed [lecture notes](./projects/Orbs/orb-notes.md)
 - December 19, 2025 (Friday)
     - AET Challenge Day
 - December 17, 2025 (Wednesday)

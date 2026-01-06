@@ -24,15 +24,6 @@ public class OrbSimulation {
             for (Orb orb : orbs) {
                 orb.update(DELTA_T);
                 orb.draw();
-                for (Orb other : orbs) {
-                    orb.checkOrbCollision(other);
-                }
-            }
-
-            for (int i = orbs.size() - 1; i >= 0; i--) {
-                if (orbs.get(i).isDead()) {
-                    orbs.remove(i);
-                }
             }
 
             // Show the frame

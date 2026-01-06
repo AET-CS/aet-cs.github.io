@@ -8,7 +8,7 @@ classes:
 ## Daily Calendar
 
 - January 6, 2025 (Tuesday)
-    - Read about [Orb Project](./projects/Orbs/Description.html)
+    - Read about [Orb Project](./projects/Orbs/Description.md)
     - Start with this [main file](./projects/Orbs/OrbSimulation.java)
     - Transcribed [lecture notes](./projects/Orbs/orb-notes.md)
 - December 19, 2025 (Friday)

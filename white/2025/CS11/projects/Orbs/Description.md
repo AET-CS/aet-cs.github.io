@@ -1,4 +1,7 @@
-# Lab Assignment: Orb Bouncer
+---
+title: "Lab Assignment: Orb Bouncer"
+layout: single
+---
 
 ## Overview
 In this lab, you will create an `Orb` class to simulate bouncing circular objects with realistic physics. You previously worked with a single bouncing ball—now you'll refactor that code using object-oriented programming principles to manage multiple orbs simultaneously.
@@ -9,19 +12,29 @@ In this lab, you will create an `Orb` class to simulate bouncing circular object
 - Use ArrayLists to manage collections of objects
 - Apply encapsulation principles (private variables, public methods)
 
+## Project Layout
+
+Create a new project with two new files "Orb.java" and "OrbSimulation.java". You will create Orb.java yourself, described below. You will download [OrbSimulation.java](./OrbSimulation.java) and modify it as needed.
+
 ## The Orb Class
+
+This describes the content of "Orb.java"
 
 ### Instance Variables (all private)
 - `x`, `y` - position (in pixels)
 - `vx`, `vy` - velocity (in pixels/second)
 - `ax`, `ay` - acceleration (in pixels/second²)
 - `radius` - size of the orb (in pixels)
-- `color` - Color object for drawing
+- `color` - Color object for drawing (of type `Color`)
+
+*Note* you should `import java.awt.*`, which defines the `Color` type. StdLib include constants like `StdDraw.BLUE`. You can find all the colors within the source code [here](https://introcs.cs.princeton.edu/java/stdlib/StdDraw.java.html)
 
 ### Class Constants (public static final)
 - `WIDTH = 640` - canvas width (you can change this)
 - `HEIGHT = 480` - canvas height (you can change this)
 - `GRAVITY = 980.0` - gravitational acceleration in cm/s
+
+(in Java, `final` means the value cannot be changed)
 
 ### Constructors
 You must implement **three constructors**:
@@ -36,13 +49,14 @@ You must implement **three constructors**:
    - Uses the provided x and y coordinates
    - Randomizes velocity (same as default)
    - Uses default values for acceleration, radius, and color
+   - remember to use `this` to distinguish fields like `x` from the parameter `x`.
 
 3. **Full constructor** `Orb(double x, double y, double vx, double vy, double ax, double ay, double radius, Color color)`
-   - Initializes all instance variables with provided parameters
+   - Initializes all instance variables with parameters passed in the method call
 
 ### StdLib
 
-We will use **StdLib** again for this. Look for your stdlib.jar file, copy it to the 'src/' folder and right click  -- 'Add as library...'
+We will use **StdLib** again for this. Look for your stdlib.jar file, copy it to the 'src/' folder and right click  -- 'Add as library...' It can also be found [here](https://introcs.cs.princeton.edu/java/stdlib/).
 
 
 ### Methods
@@ -85,11 +99,11 @@ You will be provided with most of the main simulation class (see starter code). 
 ```java
 private ArrayList<Orb> orbs;
 
-public void createOrbs(int n) {
+public static void createOrbs(int n) {
     // Create n orbs and add them to the ArrayList
 }
 
-public void run() {
+public static void run() {
     // Animation loop:
     // 1. Clear the canvas
     // 2. Update all orbs
@@ -105,11 +119,11 @@ Start with 5-10 orbs. You should see them bounce around the canvas with gravity 
 
 ## Tips
 - Make sure orbs initialize within valid bounds: `x` should be between `radius` and `WIDTH - radius`
-- Use `Math.random()` to generate random values
+- Use `Math.random()` to generate random values. For example `Math.random() * 100 + 50` will produce a number in the range `[50, 150]`.
 - Remember that `ay` should be negative (gravity pulls downward)
 - Test each constructor individually to ensure they work correctly
 
-## Next steps
+## Next steps (optional)
 
 * Make the orbs different sizes and colors when you create them
 * Add sounds or visual effects

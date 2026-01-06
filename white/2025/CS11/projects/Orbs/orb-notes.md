@@ -1,4 +1,7 @@
-# Deleting from Array Lists - Lecture Notes
+---
+title: "Deleting from Array Lists - Lecture Notes"
+layout: single
+---
 
 ## Review: Arrays vs. ArrayLists
 

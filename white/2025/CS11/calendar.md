@@ -8,7 +8,7 @@ classes:
 ## Daily Calendar
 
 - January 6, 2025 (Tuesday)
-    - Read about [Orb Project](./projects/Orbs/Description.md)
+    - Read about [Orb Project](./projects/Orbs/Description.html)
     - Start with this [main file](./projects/Orbs/OrbSimulation.java)
 - December 19, 2025 (Friday)
     - AET Challenge Day

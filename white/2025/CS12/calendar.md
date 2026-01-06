@@ -7,11 +7,15 @@ classes:
 
 ## Daily Calendar
 
+- December 19, 2025 (Friday)
+    - AET Challenge Day
+- December 17, 2025 (Wednesday)
+    - catch up day
 - December 15, 2025 (Monday)
     - 2 hour delay!
-    - Sorting algorithms
+    - Sorting algorithms. [Notes](./Sorting/Sorting-notes.md) are available
     - Check out [this site](https://www.cs.usfca.edu/~galles/visualization/ComparisonSort.html) for visualizing algorithms
-    - Practice worksheet
+    - [Practice worksheet](./Sorting/SortWorksheet.pdf) with answers
 - December 11. 2025 (Thursday)
     - Work/catch-up day
     - Turn in all work!

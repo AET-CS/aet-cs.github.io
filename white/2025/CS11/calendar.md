@@ -7,6 +7,13 @@ classes:
 
 ## Daily Calendar
 
+- January 6, 2025 (Tuesday)
+    - Read about [Orb Project](./projects/Orbs/Description.md)
+    - Start with this [main file](./projects/Orbs/OrbSimulation.java)
+- December 19, 2025 (Friday)
+    - AET Challenge Day
+- December 17, 2025 (Wednesday)
+    - Make up test day. No HW
 - December 15, 2025 (Monday)
     - New topic: array lists
     - *HW* Javadrop: javasips 1-5 and MC practice 1-5 for ArrayLists. Due by next class

@@ -98,7 +98,7 @@ for (int i = 0; i < list.size(); i++) {
 
 **Question:** What does the list equal afterwards?
 
-**Answer:** `[1, 5, 7, 14]` - Wait, 14 is even! This code has a bug!
+**Answer:** `[1, 5, 7, 9, 14]` - Wait, 14 is even! This code has a bug!
 
 ### Why This Fails
 

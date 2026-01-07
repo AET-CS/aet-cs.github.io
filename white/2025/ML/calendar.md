@@ -7,6 +7,15 @@ sidebar:
 
 ## Daily Summary
 
+- 1/7 (Thursday)
+    - Anomaly detection!
+    - Try this dataset [credit card](./notebooks/anomaly/CreditCard.ipynb)
+    - notebooks: [SMOTE](./notebooks/anomaly/SMOTE-credit.ipynb) and [GMM](./notebooks/anomaly/GMM-credit.ipynb)
+- 1/5 (Tuesday)
+    - Log in to Google Colab
+    - Apply Ensemble methods to a previously analyzed dataset
+- 12/18 (Thursday)
+    - AET Challenge Day
 - 12/16/2025 (Tuesday)
     - **Ensemble Methods**
     - Work through this [Ensemble Methods Notebook](./notebooks/Ensemble_Methods.ipynb)

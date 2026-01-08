@@ -1,5 +1,8 @@
-# Simulating Orbs
-### Classes, ArrayLists, and Collision Detection
+---
+title: Orb Collisions
+---
+
+### Classes, ArrayLists, and Collision Detection with Orbs
 
 ---
 

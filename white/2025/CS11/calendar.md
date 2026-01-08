@@ -7,6 +7,10 @@ classes:
 
 ## Daily Calendar
 
+- January 8, 2025 (Thursday)
+    - Orb collisions [notes here](./projects/Orbs/collision-notes.md)
+    - Please finish 'orb' including collisions by next class
+    - Start planning/working on project!
 - January 6, 2025 (Tuesday)
     - Read about [Orb Project](./projects/Orbs/Description.md)
     - Start with this [main file](./projects/Orbs/OrbSimulation.java)

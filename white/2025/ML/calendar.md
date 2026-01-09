@@ -7,6 +7,9 @@ sidebar:
 
 ## Daily Summary
 
+- 1/9 (Friday)
+    - Quarter project: Find a dataset [here](http://archive.ics.uci.edu/datasets/) or anywhere for classification, regression or anomaly detection and model it in a well documented Jupyter notebook
+    - Submit to Google Drive
 - 1/7 (Wednesday)
     - Anomaly detection!
     - Try this dataset [credit card](./notebooks/anomaly/CreditCard.ipynb)

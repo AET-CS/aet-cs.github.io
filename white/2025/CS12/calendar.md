@@ -7,6 +7,15 @@ classes:
 
 ## Daily Calendar
 
+- January 12, 2025 (Monday)
+    - AP Practice Test on Friday (MC only, about 32-35 questions)
+    - Do Barron's 2024 MC practice on Javadrop
+    - Return sorting quiz
+- January 8, 2025 (Thursday)
+    - Sorting quiz (insertion, selection)
+- January 6, 2025 (Tuesday)
+    - Review sorting methods
+    - Quiz next class
 - December 19, 2025 (Friday)
     - AET Challenge Day
 - December 17, 2025 (Wednesday)

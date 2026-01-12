@@ -7,6 +7,23 @@ classes:
 
 ## Daily Calendar
 
+- January 12, 2025 (Monday)
+    - ArrayLists quiz next class
+        - *HW*: Complete Java Sips Arrays Lists 1-6 on Javadrop
+        - Practice MC and JavaSips, and review notes to prepare for quiz
+        - I'll probably add more practice problems
+        - Quiz will be writing/tracing arrayList code and MC questions, short answer etc.
+    - Project
+        - *DUE* Friday
+        - Extend your Orb code
+        - Choose an optional partnet
+        - Code must
+            - Involve orbs and physics
+            - Use bouncing/colliding or something similar
+            - Use ArrayLists
+            - Add *at least one* new object/class
+            - Be an animation but does *not* have to be a game
+        - Check back for tips on reducing glitchiness in animations
 - January 8, 2025 (Thursday)
     - Orb collisions [notes here](./projects/Orbs/collision-notes.md)
     - Please finish 'orb' including collisions by next class

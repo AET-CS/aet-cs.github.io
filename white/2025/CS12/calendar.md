@@ -8,7 +8,7 @@ classes:
 ## Daily Calendar
 
 - January 12, 2025 (Monday)
-    - AP Practice Test on Friday (MC only, about 32-35 questions)
+    - **AP Practice Test on Friday** (MC only, about 32-35 questions)
     - Do Barron's 2024 MC practice on Javadrop
     - Return sorting quiz
 - January 8, 2025 (Thursday)

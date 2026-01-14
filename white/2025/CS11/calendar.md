@@ -7,6 +7,8 @@ classes:
 
 ## Daily Calendar
 
+- January 14, 2025 (Wednesday)
+    - Java [quick ref](https://static1.codehs.com/docs/ap-computer-science-a-java-quick-reference_0.pdf)
 - January 12, 2025 (Monday)
     - ArrayLists quiz next class
         - *HW*: Complete Java Sips Arrays Lists 1-6 on Javadrop

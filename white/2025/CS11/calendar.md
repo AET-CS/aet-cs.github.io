@@ -7,6 +7,10 @@ classes:
 
 ## Daily Calendar
 
+- January 16, 2025 (Friday)
+    - Work on Project day
+    - Fill out [this form](https://forms.gle/sknEF5v9ZPmL6YB28) before next class about your project (one per team)
+    - Check back here for more tips
 - January 14, 2025 (Wednesday)
     - Java [quick ref](https://static1.codehs.com/docs/ap-computer-science-a-java-quick-reference_0.pdf)
     - Here are some [Orb Project Tips](./projects/Orbs/orb-tips.md)

@@ -7,6 +7,10 @@ classes:
 
 ## Daily Calendar
 
+- January 16, 2025 (Friday)
+    - Test today!
+    - Grades should be up to date. Check on any zeros please
+    - Happy long wekeend
 - January 12, 2025 (Monday)
     - **AP Practice Test on Friday** (MC only, about 32-35 questions)
     - Do Barron's 2024 MC practice on Javadrop

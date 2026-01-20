@@ -7,6 +7,9 @@ sidebar:
 
 ## Daily Summary
 
+- 1/20 (Tuesday)
+    - Try this [CiFar](./notebooks/CIFAR10_Training.ipynb) Notebook
+    - Modify the network to improve accuracy as much as possible
 - 1/9 (Friday)
     - Quarter project: Find a dataset [here](http://archive.ics.uci.edu/datasets/) or anywhere for classification, regression or anomaly detection and model it in a well documented Jupyter notebook
     - Submit to Google Drive

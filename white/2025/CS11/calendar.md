@@ -7,6 +7,10 @@ classes:
 
 ## Daily Calendar
 
+- January 21, 2025 (Wednesday)
+    - Project presentations! Make sure form is filled out. Make sure you claim any bonus work you added to the project
+    - End of Q2 :-)
+    - **Note** I'm going to add a submission on Javadrop so you can sumbit your projects. Check back soon.
 - January 16, 2025 (Friday)
     - Work on Project day
     - Fill out [this form](https://forms.gle/sknEF5v9ZPmL6YB28) before next class about your project (one per team)

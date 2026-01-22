@@ -11,12 +11,10 @@ classes:
     - [Important info about talks](./semester-presentations.md)
     - Tuesday: Jahnavi, Anik, Brandon, Ajay, Matt
     - Thursday: Pranav, Aryan, Brian, Rhea, Anna
-    - Reminder of previous [presentation guidelines](./presentation-guidelines.md)
     - Slides are due next week UNLESS all internet and power on the East Coast are down
+    - Your next journal date is Tuesday which will probably be cancelled! So whenever we come back, please turn in a journal about what you did *this week* plus anything between now and the next time I see you.
 - January 20, 2026 (Tuesday)
     - Semester presentations next week! Even if it snows, slides are due.
-    - Presentation dates:
-        - 27th = Matthew, Anik, Ajay, Jahnavi,
 -------------
 - December 2, 2025 (Tuesday)
     - 2 hour delay

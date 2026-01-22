@@ -9,6 +9,8 @@ classes:
 
 - January 22, 2025 (Thursday)
     - [Important info about talks](./semester-presentations.md)
+    - Tuesday: Jahnavi, Anik, Brandon, Ajay, Matt
+    - Thursday: Pranav, Aryan, Brian, Rhea, Anna
     - Reminder of previous [presentation guidelines](./presentation-guidelines.md)
     - Slides are due next week UNLESS all internet and power on the East Coast are down
 - January 20, 2026 (Tuesday)

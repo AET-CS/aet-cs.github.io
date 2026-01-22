@@ -7,6 +7,15 @@ classes:
 
 **Please see [Journal Dates](./journal_dates.md) and adhere to the prescriptions within**
 
+- January 22, 2025 (Thursday)
+    - [Important info about talks](./semester-presentations.md)
+    - Reminder of previous [presentation guidelines](./presentation-guidelines.md)
+    - Slides are due next week UNLESS all internet and power on the East Coast are down
+- January 20, 2026 (Tuesday)
+    - Semester presentations next week! Even if it snows, slides are due.
+    - Presentation dates:
+        - 27th = Matthew, Anik, Ajay, Jahnavi,
+-------------
 - December 2, 2025 (Tuesday)
     - 2 hour delay
     - Make-up presentations

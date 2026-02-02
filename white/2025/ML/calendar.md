@@ -7,6 +7,11 @@ sidebar:
 
 ## Daily Summary
 
+- 2/2 (Monday)
+    - 2 hr delay
+    - Review the updated [CiFar Notebook](./notebooks/CIFAR10_Training.ipynb)
+    - Find an image classification dataset on [tensorflow datasets](https://www.tensorflow.org/datasets/catalog/) and build a neural network to classify it. You should have the same sections as the CiFar notebook
+    - Sections: (load data, show sample images, build model, traing model, show training curve, data augmentation, improvements, more training curves)
 - 1/20 (Tuesday)
     - Try this [CiFar](./notebooks/CIFAR10_Training.ipynb) Notebook
     - Modify the network to improve accuracy as much as possible

@@ -1,0 +1,4 @@
+# Read the Docs override settings
+# Update the URL after the RTD project is created.
+url: https://aet-cs.readthedocs.io
+baseurl: ""

@@ -7,6 +7,9 @@ classes:
 
 ## Daily Calendar
 
+- February 3, 2026 (Tuesday)
+    - Topic: 2D Arrays
+    - Try these problems in class [worksheet](./practice/2darrays/array-worksheet1.pdf)
 - January 21, 2025 (Wednesday)
     - Project presentations! Make sure form is filled out. Make sure you claim any bonus work you added to the project
     - End of Q2 :-)

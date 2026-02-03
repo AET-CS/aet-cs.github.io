@@ -5,8 +5,10 @@ classes:
   - wide
 ---
 
-## Daily Calendar
 
+## Daily Calendar
+- Febuary 3, 2026 (Tuesday)
+    - Tic Tac Toe [lab](./tictactoe/day1.md) due today
 - January 16, 2025 (Friday)
     - Test today!
     - Grades should be up to date. Check on any zeros please

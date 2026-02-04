@@ -7,6 +7,13 @@ classes:
 
 **Please see [Journal Dates](./journal_dates.md) and adhere to the prescriptions within**
 
+- February 4, 2026 (Wednesday)
+    - 2 hr delay
+    - Talks today: Jahnavi, Anik, Brandon, Ajay, Matt (may not get to all)
+- February 2, 2026 (Monday)
+    - 2 hr delay
+    - Journal due
+    - Talks start Wednesday
 - January 22, 2025 (Thursday)
     - [Important info about talks](./semester-presentations.md)
     - Tuesday: Jahnavi, Anik, Brandon, Ajay, Matt

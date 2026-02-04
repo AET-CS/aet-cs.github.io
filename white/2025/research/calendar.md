@@ -10,6 +10,7 @@ classes:
 - February 4, 2026 (Wednesday)
     - 2 hr delay
     - Talks today: Jahnavi, Anik, Brandon, Ajay, Matt (may not get to all)
+    - **Please Add your talk to [this form](https://docs.google.com/spreadsheets/d/1aGTsB0ENr_6kQYpuJKv-PdVgpkA-sKZ9R8NAN9mnBIc/edit?usp=sharing) now**
 - February 2, 2026 (Monday)
     - 2 hr delay
     - Journal due

@@ -8,6 +8,7 @@ classes:
 ## Daily Calendar
 
 - February 5, 2025 (Thursday)
+    - Volunteer opportunity: [Girls in STEM](./girls-in-stem.md)
     - Work on [matrixIndices.java](./practice/2darrays/matrixIndices.java)
 - February 3, 2026 (Tuesday)
     - Topic: 2D Arrays

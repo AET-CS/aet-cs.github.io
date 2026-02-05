@@ -7,6 +7,8 @@ classes:
 
 ## Daily Calendar
 
+- February 5, 2025 (Thursday)
+    - Work on [matrixIndices.java](./practice/2darrays/matrixIndices.java)
 - February 3, 2026 (Tuesday)
     - Topic: 2D Arrays
     - Try these problems in class [worksheet](./practice/2darrays/array-worksheet1.pdf)

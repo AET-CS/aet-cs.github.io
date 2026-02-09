@@ -7,6 +7,11 @@ classes:
 
 ## Daily Calendar
 
+- February 9, 2025 (Monday)
+    - Go over matrix indices assignment
+    - Notes on modifying and creating matrices
+    - Work on [Matrix Ops](./projects/2DArrayOps/MatrixOps.java)
+    - *HW* Submit Matrix Ops to Javadrop when all tests pass (before next class)
 - February 5, 2025 (Thursday)
     - Volunteer opportunity: [Girls in STEM](./girls-in-stem.md)
     - Work on [matrixIndices.java](./practice/2darrays/matrixIndices.java)

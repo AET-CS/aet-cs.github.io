@@ -1,4 +1,6 @@
-# Tic Tac Toe Player
+---
+title: Tic Tac Toe Player
+---
 
 Modify your code so that you a class **MyPlayer** with a method **getMove(String board, char player)**. When `getMove` is called, return an int 1-9 for the move your player wants to make.
 

@@ -7,6 +7,10 @@ classes:
 
 
 ## Daily Calendar
+- February 9, 2025 (Thursday)
+    - FRQ 2021 #3  on JavaDrop
+    - Work on [Tic Tac Toe Player](./tictactoe/day3.md) assignment.
+    - Upload best strategy to JavaDrop
 - Febuary 3, 2026 (Tuesday)
     - Tic Tac Toe [lab](./tictactoe/day1.md) due today
 - January 16, 2025 (Friday)

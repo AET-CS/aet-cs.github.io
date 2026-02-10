@@ -7,6 +7,13 @@ sidebar:
 
 ## Daily Summary
 
+- 2/9 (Tuesday)
+    - Research topic [brainstorm](./research-list.md)
+    - Slide show due at end of class!
+- 2/6 (Friday)
+    - Watch Presentations
+- 2/4 (Wednesdy)
+    - Watch presentations
 - 2/2 (Monday)
     - 2 hr delay
     - Review the updated [CiFar Notebook](./notebooks/CIFAR10_Training.ipynb)

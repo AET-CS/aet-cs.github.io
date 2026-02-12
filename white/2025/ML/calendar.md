@@ -7,6 +7,9 @@ sidebar:
 
 ## Daily Summary
 
+- 2/11 (Thursday)
+    - CNNs
+    - Check out this [intro to convolutions](./notebooks/ImageConvolutions.ipynb)
 - 2/9 (Tuesday)
     - Research topic [brainstorm](./research-list.md)
     - Slide show due at end of class!

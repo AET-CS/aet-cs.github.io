@@ -11,7 +11,7 @@ sidebar:
     - Implement your own CNN today
     - Check out this isualization of [MNIST](https://adamharley.com/nn_vis/cnn/3d.html)
   - Implement a LeNet Tensorflow
-    - Consult [Dive into Deep Learning](https://d2l.ai), chapters 7.6 and 8.1
+    - Consult [Dive into Deep Learning](https://d2l.ai), chapters 7.6 [Or this pdf](./notes/d2l.ai-LeNet.pdf)
     - Do *not* use the `dl` package -- modify the code provided
     - Test your model on MNIST or FashionMNIST
   - Next class: quick pitch of your top 3 research ideas from last week. Present to class. No slides. 2 minutes total. What's the problem? What's your solution? Who cares?

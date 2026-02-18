@@ -7,6 +7,14 @@ sidebar:
 
 ## Daily Summary
 
+- 2/18 (Wednesday)
+    - Implement your own CNN today
+    - Check out this isualization of [MNIST](https://adamharley.com/nn_vis/cnn/3d.html)
+  - Implement a LeNet Tensorflow
+    - Consult [Dive into Deep Learning](https://d2l.ai), chapters 7.6 and 8.1
+    - Do *not* use the `dl` package -- modify the code provided
+    - Test your model on MNIST or FashionMNIST
+  - Next class: quick pitch of your top 3 research ideas from last week. Present to class. No slides. 2 minutes total. What's the problem? What's your solution? Who cares?
 - 2/11 (Thursday)
     - CNNs
     - Check out this [intro to convolutions](./notebooks/ImageConvolutions.ipynb)

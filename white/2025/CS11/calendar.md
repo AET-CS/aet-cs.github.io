@@ -17,6 +17,7 @@ classes:
     - 2D Array Practice
     - Notes on canonical array algorithms: FindMax, FindMin, ArgMax, ArgMin, Count, FindFirst, FindSecondLargest
 - February 11, 2025 (Wednesday)
+    - Catch up / work day!
 - February 9, 2025 (Monday)
     - Go over matrix indices assignment
     - Notes on modifying and creating matrices

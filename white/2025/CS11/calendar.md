@@ -7,6 +7,16 @@ classes:
 
 ## Daily Calendar
 
+- February 19, 2025 (Thursday)
+    - Practice: 2Darrays, array algorithms
+    - **Quiz** over above topics
+    - Test next Friday 2/27
+    - Sign up for [AET Engineering Week](https://bit.ly/engweek2026)
+    - **NOTE** lots of new JavaSips on 2D arrays and array problems. Use this for test review!!
+- February 13, 2025 (Friday)
+    - 2D Array Practice
+    - Notes on canonical array algorithms: FindMax, FindMin, ArgMax, ArgMin, Count, FindFirst, FindSecondLargest
+- February 11, 2025 (Wednesday)
 - February 9, 2025 (Monday)
     - Go over matrix indices assignment
     - Notes on modifying and creating matrices

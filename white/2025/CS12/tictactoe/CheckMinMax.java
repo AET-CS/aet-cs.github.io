@@ -14,7 +14,7 @@ public class CheckMinMax {
     };
 
     public static void main(String[] args) {
-        MMPlayer mmPlayer = new MMPlayer();
+        OffenseDefensePlayer mmPlayer = new OffenseDefensePlayer();
         OffenseDefensePlayer odPlayer = new OffenseDefensePlayer();
         Method mmGetMove = getMmGetMove();
 
@@ -23,21 +23,32 @@ public class CheckMinMax {
         int draws = 0;
         int mmWinsAsFirst = 0;
         int mmWinsAsSecond = 0;
+        int odWinsAsFirst = 0;
+        int odWinsAsSecond = 0;
 
-        for (int game = 0; game < GAMES; game++) {
-            boolean mmFirst = (game % 2 == 0);
-            GameResult result = playGame(mmPlayer, odPlayer, mmGetMove, mmFirst);
-            if (result == GameResult.MM_WIN) {
-                mmWins++;
-                if (mmFirst) {
-                    mmWinsAsFirst++;
-                } else {
-                    mmWinsAsSecond++;
+        boolean[] choices = { true, false };
+        for (boolean mmFirst : choices) {
+            for (boolean mmIsX : choices) {
+                for (int game = 0; game < GAMES; game++) {
+                    GameResult result = playGame(mmPlayer, odPlayer, mmGetMove, mmFirst, mmIsX);
+                    if (result == GameResult.MM_WIN) {
+                        mmWins++;
+                        if (mmFirst) {
+                            mmWinsAsFirst++;
+                        } else {
+                            mmWinsAsSecond++;
+                        }
+                    } else if (result == GameResult.OD_WIN) {
+                        odWins++;
+                        if (mmFirst) {
+                            odWinsAsSecond++;
+                        } else {
+                            odWinsAsFirst++;
+                        }
+                    } else {
+                        draws++;
+                    }
                 }
-            } else if (result == GameResult.OD_WIN) {
-                odWins++;
-            } else {
-                draws++;
             }
         }
 
@@ -46,10 +57,10 @@ public class CheckMinMax {
         int separatorLength = 28 + (3 * 11);
 
         System.out.println("Matchup: MMPlayer vs OffenseDefensePlayer");
-        System.out.printf(headerFormat, "Type/Slot", "Player 1", "Player 2", "Total");
+        System.out.printf(headerFormat, "Type/Order", "First", "Second", "Total");
         System.out.println(separatorLine(separatorLength));
         System.out.printf(rowFormat, "MMPlayer wins", mmWinsAsFirst, mmWinsAsSecond, mmWins);
-        System.out.printf(rowFormat, "OffenseDefense wins", 0, 0, odWins);
+        System.out.printf(rowFormat, "OffenseDefense wins", odWinsAsFirst, odWinsAsSecond, odWins);
         System.out.printf("%-28s %10s %10s %10d%n", "Draws", "-", "-", draws);
     }
 
@@ -59,12 +70,14 @@ public class CheckMinMax {
         DRAW
     }
 
-    private static GameResult playGame(MMPlayer mmPlayer, OffenseDefensePlayer odPlayer, Method mmGetMove,
-            boolean mmFirst) {
+    private static GameResult playGame(Player mmPlayer, Player odPlayer, Method mmGetMove,
+            boolean mmFirst, boolean mmIsX) {
         Object[] players = new Object[2];
         players[0] = mmFirst ? mmPlayer : odPlayer;
         players[1] = mmFirst ? odPlayer : mmPlayer;
-        char[] marks = { 'x', 'o' };
+        char mmMark = mmIsX ? 'x' : 'o';
+        char odMark = otherMark(mmMark);
+        char[] marks = mmFirst ? new char[] { mmMark, odMark } : new char[] { odMark, mmMark };
 
         char[] board = new char[9];
         for (int i = 0; i < board.length; i++) {
@@ -133,6 +146,10 @@ public class CheckMinMax {
             return move - 1;
         }
         return move;
+    }
+
+    private static char otherMark(char mark) {
+        return mark == 'x' ? 'o' : 'x';
     }
 
     private static boolean isWin(char[] board, char mark) {

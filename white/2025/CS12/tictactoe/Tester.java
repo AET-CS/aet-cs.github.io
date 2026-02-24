@@ -19,7 +19,7 @@ public class Tester {
         int draws = 0;
 
         for (int game = 0; game < GAMES; game++) {
-            MyPlayer[] players = { new MyPlayer(), new MyPlayer() };
+            Player[] players = { new MMPlayer(), new OffenseDefensePlayer() };
 
             int startingPlayer = random.nextBoolean() ? 0 : 1;
             char startingMark = random.nextBoolean() ? 'x' : 'o';

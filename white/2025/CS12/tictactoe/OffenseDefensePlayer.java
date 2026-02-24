@@ -1,4 +1,4 @@
-public class OffenseDefensePlayer {
+public class OffenseDefensePlayer extends Player {
     private static final int[][] WIN_LINES = {
             { 0, 1, 2 },
             { 3, 4, 5 },
@@ -10,6 +10,7 @@ public class OffenseDefensePlayer {
             { 2, 4, 6 }
     };
 
+    @Override
     public int getMove(String board, char player) {
         if (board == null || board.length() != 9) {
             throw new IllegalArgumentException("Board must be a 9-character string.");

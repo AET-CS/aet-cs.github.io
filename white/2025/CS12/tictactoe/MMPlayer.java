@@ -2,7 +2,7 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Random;
 
-public class MMPlayer {
+public class MMPlayer extends Player {
     enum GameState {
         X,
         O,
@@ -105,55 +105,13 @@ public class MMPlayer {
     }
 
     private int minimax(String board, int depth, char player) {
-        GameState boardState = checkBoard(board);
-        if (depth == 0 || boardState != GameState.NOT_OVER) {
-            return scoreBoard(boardState);
-        }
-
-        if (player == 'x') {
-            int value = -1;
-            for (int move : getPossibleMoves(board)) {
-                String newBoard = makeMove(board, move, 'x');
-                value = Math.max(value, minimax(newBoard, depth - 1, 'o'));
-            }
-            return value;
-        }
-
-        else {
-            int value = +1;
-            for (int move : getPossibleMoves(board)) {
-                String newBoard = makeMove(board, move, 'o');
-                value = Math.min(value, minimax(newBoard, depth - 1, 'x'));
-            }
-            return value;
-        }
+        return 1;
     }
 
+    @Override
     public int getMove(String board, char player) {
         int bestMove = -1;
 
-        if (player == 'x') {
-            int bestScore = -1000;
-            for (int move : getPossibleMoves(board)) {
-                String newBoard = makeMove(board, move, 'x');
-                int score = minimax(newBoard, 10, 'o');
-                if (score > bestScore) {
-                    bestMove = move;
-                    bestScore = score;
-                }
-            }
-        }
-        if (player == 'o') {
-            int bestScore = 1000;
-            for (int move : getPossibleMoves(board)) {
-                String newBoard = makeMove(board, move, 'o');
-                int score = minimax(newBoard, 10, 'x');
-                if (score < bestScore) {
-                    bestMove = move;
-                    bestScore = score;
-                }
-            }
-        }
         return bestMove + 1;
     }
 

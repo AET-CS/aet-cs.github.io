@@ -7,6 +7,11 @@ sidebar:
 
 ## Daily Summary
 
+- 2/24 (Tuesday)
+    - Engineering Week
+    - Short class on "Why Activation Functions" [notebook](./notebooks/Activation-Functions.ipynb)
+- 2/20 (Friday)
+    - Presentations!
 - 2/18 (Wednesday)
     - Implement your own CNN today
     - Check out this isualization of [MNIST](https://adamharley.com/nn_vis/cnn/3d.html)

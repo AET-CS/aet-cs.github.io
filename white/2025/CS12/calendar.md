@@ -12,7 +12,7 @@ classes:
     - Code it up! [starter code](./tictactoe/MiniMaxPlayer.java)
     - Submit to javadrop
     - Quiz next class: minimax trees, alpha-beta pruning, code questions
-    - Practice [here](./abTreePractice/index.html)
+    - Practice [here](../abTreePractice/)
 - February 9, 2025 (Thursday)
     - FRQ 2021 #3  on JavaDrop
     - Work on [Tic Tac Toe Player](./tictactoe/day3.md) assignment.

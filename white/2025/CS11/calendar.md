@@ -7,6 +7,10 @@ classes:
 
 ## Daily Calendar
 
+- February 25, 2025 (Wednesday)
+    - Notes on array algorithms
+    - Return quiz
+    - Test next class: Array Algorithms and 2D Arrays. Practice Java Sips!
 - February 19, 2025 (Thursday)
     - Practice: 2Darrays, array algorithms
     - **Quiz** over above topics

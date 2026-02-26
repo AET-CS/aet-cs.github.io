@@ -13,6 +13,10 @@ classes:
     - Submit to javadrop
     - Quiz next class: minimax trees, alpha-beta pruning, code questions
     - Practice [here](../abTreePractice/)
+- February 20, 2025 (Monday)
+    - Snow day!
+- February 16, 2026 (Thursday)
+    - Tic Tac Toe Tournament
 - February 9, 2025 (Thursday)
     - FRQ 2021 #3  on JavaDrop
     - Work on [Tic Tac Toe Player](./tictactoe/day3.md) assignment.

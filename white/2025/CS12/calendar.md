@@ -12,7 +12,7 @@ classes:
     - Code it up! [starter code](./tictactoe/MiniMaxPlayer.java)
     - Submit to javadrop
     - Quiz next class: minimax trees, alpha-beta pruning, code questions
-    - Practice [here](../abTreePractice/)
+    - Practice [here](../abTreePractice/index.html)
 - February 20, 2025 (Monday)
     - Snow day!
 - February 16, 2026 (Thursday)

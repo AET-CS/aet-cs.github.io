@@ -9,6 +9,7 @@ sidebar:
 
 - 2/26 (Thursday)
     - Implement [AlexNet](./notebooks/alexnet.ipynb) and train on CiFAR 100
+    - resize patch [here](./patch.md)
 - 2/24 (Tuesday)
     - Engineering Week
     - Short class on "Why Activation Functions" [notebook](./notebooks/Activation-Functions.ipynb)

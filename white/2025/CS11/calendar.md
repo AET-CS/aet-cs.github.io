@@ -12,13 +12,13 @@ classes:
     - Return quiz
     - Test next class: Array Algorithms and 2D Arrays. Practice Java Sips!
 - February 19, 2025 (Thursday)
-    - Practice: 2Darrays, array algorithms
+    - [2D Array Practice 2](./practice/2darrays/2D_Arrays_Practice_2.docx), array algorithms
     - **Quiz** over above topics
     - Test next Friday 2/27
     - Sign up for [AET Engineering Week](https://bit.ly/engweek2026)
     - **NOTE** lots of new JavaSips on 2D arrays and array problems. Use this for test review!!
 - February 13, 2025 (Friday)
-    - 2D Array Practice
+    - [2D Array Practice 1](./practice/2darrays/2D_Arrays_Practice_1.docx)
     - Notes on canonical array algorithms: FindMax, FindMin, ArgMax, ArgMin, Count, FindFirst, FindSecondLargest
 - February 11, 2025 (Wednesday)
     - Catch up / work day!

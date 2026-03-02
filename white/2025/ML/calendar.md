@@ -7,6 +7,9 @@ sidebar:
 
 ## Daily Summary
 
+- 3/2 (Monday)
+    - It's snowing!
+    - Check out [Bird Calls](./notebooks/Birds.ipynb)
 - 2/26 (Thursday)
     - Implement [AlexNet](./notebooks/alexnet.ipynb) and train on CiFAR 100
     - resize patch [here](./patch.md)

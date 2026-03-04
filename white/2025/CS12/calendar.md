@@ -7,6 +7,13 @@ classes:
 
 
 ## Daily Calendar
+- March 3, 2025 (Tuesday)
+    - 2 Hr Delay!
+    - Notes on [alpha-beta pruning](./notes/MinMax-with-Alpha-Beta-Pruning.pdf)
+    - Submit new alpha-beta code with report to javadrop
+- February 27, 2025 (Friday)
+    - Review for quiz
+    - Minimax quiz (tree with alpha-beta pruning, open-ended questions)
 - February 25, 2025 (Wedneday)
     - Minimax algorithm in detail
     - Code it up! [starter code](./tictactoe/MiniMaxPlayer.java)

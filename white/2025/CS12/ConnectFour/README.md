@@ -52,5 +52,16 @@ javac -d out $(find src -name "*.java")
 java -cp out connectfour.ConnectFourApp
 ```
 
+## IntelliJ Import (from ZIP)
+- Unzip the `ConnectFour` folder.
+- In IntelliJ, use `File -> Open...` and select the unzipped `ConnectFour` folder (open the folder root, not just `src`).
+- If prompted, trust the project.
+- In the Project panel, right-click `src` and choose `Mark Directory as -> Sources Root`.
+- Open `src/connectfour/ConnectFourApp.java` and run `ConnectFourApp.main()`.
+
+If needed, set Java in `File -> Project Structure`:
+- `Project SDK`: Java 11+ (Java 17 recommended)
+- `Project language level`: SDK default
+
 ## Extend Later
 - Add autonomous N-game runner to record results

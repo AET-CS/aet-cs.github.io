@@ -14,10 +14,6 @@ AP CS-oriented Connect Four using MVC and modular player classes.
 - Configurable AI delay in source (`GameController`)
 - Game state enum values: `PLAYING`, `TIE`, `RED_WINS`, `BLUE_WINS`
 
-## Input Reliability Note
-- Board input is handled on mouse press (`mousePressed`) rather than mouse click to reduce missed human moves during fast play.
-- Human turns keep accepting clicks until a valid move is consumed for that turn.
-
 ## Player API
 The game requests moves using:
 
@@ -56,12 +52,10 @@ java -cp out connectfour.ConnectFourApp
 - Unzip the `ConnectFour` folder.
 - In IntelliJ, use `File -> Open...` and select the unzipped `ConnectFour` folder (open the folder root, not just `src`).
 - If prompted, trust the project.
-- In the Project panel, right-click `src` and choose `Mark Directory as -> Sources Root`.
 - Open `src/connectfour/ConnectFourApp.java` and run `ConnectFourApp.main()`.
+- (If it won't run) In the Project panel, right-click `src` and choose `Mark Directory as -> Sources Root`.
 
 If needed, set Java in `File -> Project Structure`:
 - `Project SDK`: Java 11+ (Java 17 recommended)
 - `Project language level`: SDK default
 
-## Extend Later
-- Add autonomous N-game runner to record results

@@ -10,7 +10,7 @@ classes:
 - March 5, 2025 (Thursday)
     - FRQ Practice: 2022 Q4
     - Turn in alpha-beta project
-    - Download [ConnectFour](./ConnectFour/ConnectFour.zip) and unzip the file. See "ReadMe" For instructions
+    - Download [ConnectFour](./ConnectFour/ConnectFour.zip) and unzip the file. See [ReadMe](./ConnectFour/README.md) For instructions
     - Assignment: transfer your minimax logic to this game. Only need to edit one file. But read the other players to see how the game works.
     - Check: Minimax-6 should be Minimax-2, for example, almost all the time.
 - March 3, 2025 (Tuesday)

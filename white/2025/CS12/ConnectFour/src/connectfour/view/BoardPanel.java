@@ -18,7 +18,7 @@ import java.util.function.IntConsumer;
 public class BoardPanel extends JPanel {
     private static final int CELL_SIZE = 90;
     private static final int PADDING = 20;
-    private static final Color BOARD_BLUE = new Color(33, 90, 188);
+    private static final Color BOARD_YELLOW = new Color(245, 196, 66);
 
     private Board board;
     private boolean interactive = false;
@@ -66,10 +66,6 @@ public class BoardPanel extends JPanel {
 
     public void setOnColumnClicked(IntConsumer onColumnClicked) {
         this.onColumnClicked = onColumnClicked;
-    }
-
-    public boolean isAnimating() {
-        return animating;
     }
 
     public void animateDrop(int col, int targetRow, Piece piece, Runnable onDone) {
@@ -185,7 +181,7 @@ public class BoardPanel extends JPanel {
         int boardW = Board.COLS * CELL_SIZE;
         int boardH = Board.ROWS * CELL_SIZE;
 
-        g2.setColor(BOARD_BLUE);
+        g2.setColor(BOARD_YELLOW);
         g2.fillRoundRect(boardX, boardY, boardW, boardH, 24, 24);
 
         for (int row = 0; row < Board.ROWS; row++) {

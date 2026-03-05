@@ -4,6 +4,7 @@ import connectfour.model.Board;
 import connectfour.model.GameState;
 import connectfour.model.Piece;
 import connectfour.player.HumanPlayer;
+import connectfour.player.MinMaxPlayer;
 import connectfour.player.Player;
 import connectfour.player.RandomPlayer;
 import connectfour.view.ConnectFourFrame;
@@ -35,10 +36,7 @@ public class GameController {
         this.board = new Board();
         this.currentTurn = Piece.RED;
         this.gameState = GameState.PLAYING;
-        this.awaitingHumanMove = false;
-        this.humanMoveWorkerStarted = false;
-        this.turnRequestId = 0;
-        this.moveCount = 0;
+        resetTurnTracking();
 
         frame.onBoardColumnClick(this::handleBoardClick);
         frame.onNewGame(this::startFromDialog);
@@ -69,10 +67,7 @@ public class GameController {
         this.bluePlayer = blue;
         this.currentTurn = Piece.RED;
         this.gameState = GameState.PLAYING;
-        this.awaitingHumanMove = false;
-        this.humanMoveWorkerStarted = false;
-        this.turnRequestId = 0;
-        this.moveCount = 0;
+        resetTurnTracking();
 
         frame.setBoard(board);
         frame.setBoardInteractive(false);
@@ -83,25 +78,34 @@ public class GameController {
     }
 
     private Player choosePlayer(String colorName) {
-        String[] options = { "Human", "Random" };
-        int choice = JOptionPane.showOptionDialog(
+        String[] options = { "Human", "Random", "MinMax-2", "MinMax-4", "MinMax-6", "MinMax-8", "MinMax-10" };
+
+        String selection = (String) JOptionPane.showInputDialog(
                 frame,
                 "Select " + colorName + " player type:",
                 "Player Selection",
-                JOptionPane.DEFAULT_OPTION,
                 JOptionPane.QUESTION_MESSAGE,
                 null,
                 options,
                 options[0]);
 
-        if (choice == JOptionPane.CLOSED_OPTION) {
+        if (selection == null) {
             return null;
         }
 
-        if (choice == 0) {
+        if ("Human".equals(selection)) {
             return new HumanPlayer(colorName + " Human");
         }
-        return new RandomPlayer(colorName + " Random");
+
+        if ("Random".equals(selection)) {
+            return new RandomPlayer(colorName + " Random");
+        }
+
+        int depth = Integer.parseInt(selection.substring(selection.indexOf('-') + 1));
+        MinMaxPlayer minMaxPlayer = new MinMaxPlayer(colorName + " MinMax-" + depth, depth);
+        minMaxPlayer.setDepthDisplayCallback(searchDepth -> SwingUtilities.invokeLater(
+                () -> frame.setStatus(colorName + " MinMax searching depth " + searchDepth + "...")));
+        return minMaxPlayer;
     }
 
     private void requestNextMove() {
@@ -226,5 +230,12 @@ public class GameController {
                 && requestId == turnRequestId
                 && turnColor == currentTurn
                 && player == getCurrentPlayer();
+    }
+
+    private void resetTurnTracking() {
+        this.awaitingHumanMove = false;
+        this.humanMoveWorkerStarted = false;
+        this.turnRequestId = 0;
+        this.moveCount = 0;
     }
 }

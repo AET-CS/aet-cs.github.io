@@ -5,7 +5,8 @@ AP CS-oriented Connect Four using MVC and modular player classes.
 ## MVP Features
 - Graphical Swing interface
 - MVC design (`model`, `view`, `controller` packages)
-- `Player` abstraction with `HumanPlayer` and `RandomPlayer`
+- `Player` abstraction with `HumanPlayer`, `RandomPlayer`, and `MinMaxPlayer`
+- Player type selection via dropdown dialog
 - Fixed 6x7 board
 - Click-on-board input (chooses nearest column)
 - Drop animation for each piece
@@ -28,6 +29,12 @@ Where:
 - `color` is `Piece.RED` or `Piece.BLUE`
 - return value is chosen column `0..6`
 
+## MinMax (Simple)
+- Blue is maximizing and terminal score `+100`.
+- Red is minimizing and terminal score `-100`.
+- Depth is selected from dropdown choices: `MinMax-2`, `MinMax-4`, `MinMax-6`, `MinMax-8`, `MinMax-10`.
+- Non-terminal boards at depth cutoff are scored as `0` (no heuristic).
+
 ## Build & Run (from project root)
 
 ```bash
@@ -37,5 +44,4 @@ java -cp out connectfour.ConnectFourApp
 ```
 
 ## Extend Later
-- Add `MinMaxPlayer extends Player`
 - Add autonomous N-game runner to record results

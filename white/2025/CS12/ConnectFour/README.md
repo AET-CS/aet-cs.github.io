@@ -7,6 +7,7 @@ AP CS-oriented Connect Four using MVC and modular player classes.
 - MVC design (`model`, `view`, `controller` packages)
 - `Player` abstraction with `HumanPlayer`, `RandomPlayer`, and `MinMaxPlayer`
 - Player type selection via dropdown dialog
+- Startup mode selection: `Single Game` or `Batch Play`
 - Fixed 6x7 board
 - Click-on-board input (chooses nearest column)
 - Drop animation for each piece
@@ -34,6 +35,14 @@ Where:
 - Red is minimizing and terminal score `-100`.
 - Depth is selected from dropdown choices: `MinMax-2`, `MinMax-4`, `MinMax-6`, `MinMax-8`, `MinMax-10`.
 - Non-terminal boards at depth cutoff are scored as `0` (no heuristic).
+
+## Batch Play
+- Choose `Batch Play` at startup.
+- Choose Red and Blue player types (AI-only in batch mode).
+- Choose number of games from dropdown: `5`, `10`, `15`, `20`, `100`.
+- Batch simulation runs without board animation.
+- Status text and a progress bar show `completed/total` while running.
+- Final results are shown in a dialog with wins/ties and percentages.
 
 ## Build & Run (from project root)
 

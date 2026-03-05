@@ -11,6 +11,7 @@ import connectfour.view.ConnectFourFrame;
 
 import javax.swing.JOptionPane;
 import javax.swing.SwingUtilities;
+import java.text.DecimalFormat;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 
@@ -48,12 +49,22 @@ public class GameController {
     }
 
     public void startFromDialog() {
-        Player chosenRed = choosePlayer("Red");
+        String mode = chooseMode();
+        if (mode == null) {
+            return;
+        }
+
+        if ("Batch Play".equals(mode)) {
+            startBatchFromDialog();
+            return;
+        }
+
+        Player chosenRed = choosePlayer("Red", true, true);
         if (chosenRed == null) {
             return;
         }
 
-        Player chosenBlue = choosePlayer("Blue");
+        Player chosenBlue = choosePlayer("Blue", true, true);
         if (chosenBlue == null) {
             return;
         }
@@ -71,14 +82,62 @@ public class GameController {
 
         frame.setBoard(board);
         frame.setBoardInteractive(false);
+        frame.setBatchProgressVisible(false);
         frame.setStatus("New game: " + redPlayer.getName() + " (Red) vs " + bluePlayer.getName() + " (Blue)");
         frame.setMoveLog("Move log: (none)");
 
         requestNextMove();
     }
 
-    private Player choosePlayer(String colorName) {
-        String[] options = { "Human", "Random", "MinMax-2", "MinMax-4", "MinMax-6", "MinMax-8", "MinMax-10" };
+    private String chooseMode() {
+        String[] options = { "Single Game", "Batch Play" };
+
+        return (String) JOptionPane.showInputDialog(
+                frame,
+                "Select mode:",
+                "Start Mode",
+                JOptionPane.QUESTION_MESSAGE,
+                null,
+                options,
+                options[0]);
+    }
+
+    private void startBatchFromDialog() {
+        Player chosenRed = choosePlayer("Red", false, false);
+        if (chosenRed == null) {
+            return;
+        }
+
+        Player chosenBlue = choosePlayer("Blue", false, false);
+        if (chosenBlue == null) {
+            return;
+        }
+
+        Integer gameCount = chooseBatchGameCount();
+        if (gameCount == null) {
+            return;
+        }
+
+        startBatchPlay(chosenRed, chosenBlue, gameCount);
+    }
+
+    private Integer chooseBatchGameCount() {
+        Integer[] options = { 5, 10, 15, 20, 100 };
+
+        return (Integer) JOptionPane.showInputDialog(
+                frame,
+                "How many games?",
+                "Batch Size",
+                JOptionPane.QUESTION_MESSAGE,
+                null,
+                options,
+                options[0]);
+    }
+
+    private Player choosePlayer(String colorName, boolean allowHuman, boolean showDepthStatus) {
+        String[] options = allowHuman
+                ? new String[] { "Human", "Random", "MinMax-2", "MinMax-4", "MinMax-6", "MinMax-8", "MinMax-10" }
+                : new String[] { "Random", "MinMax-2", "MinMax-4", "MinMax-6", "MinMax-8", "MinMax-10" };
 
         String selection = (String) JOptionPane.showInputDialog(
                 frame,
@@ -93,7 +152,7 @@ public class GameController {
             return null;
         }
 
-        if ("Human".equals(selection)) {
+        if (allowHuman && "Human".equals(selection)) {
             return new HumanPlayer(colorName + " Human");
         }
 
@@ -103,9 +162,98 @@ public class GameController {
 
         int depth = Integer.parseInt(selection.substring(selection.indexOf('-') + 1));
         MinMaxPlayer minMaxPlayer = new MinMaxPlayer(colorName + " MinMax-" + depth, depth);
-        minMaxPlayer.setDepthDisplayCallback(searchDepth -> SwingUtilities.invokeLater(
-                () -> frame.setStatus(colorName + " MinMax searching depth " + searchDepth + "...")));
+        if (showDepthStatus) {
+            minMaxPlayer.setDepthDisplayCallback(searchDepth -> SwingUtilities.invokeLater(
+                    () -> frame.setStatus(colorName + " MinMax searching depth " + searchDepth + "...")));
+        }
         return minMaxPlayer;
+    }
+
+    private void startBatchPlay(Player redBatchPlayer, Player blueBatchPlayer, int gameCount) {
+        frame.setBoardInteractive(false);
+        frame.setBatchProgressVisible(true);
+        frame.setBatchProgressMax(gameCount);
+        frame.setStatus("Batch running: 0/" + gameCount);
+        frame.setMoveLog("Batch mode: " + redBatchPlayer.getName() + " vs " + blueBatchPlayer.getName());
+
+        moveExecutor.submit(() -> {
+            int redWins = 0;
+            int blueWins = 0;
+            int ties = 0;
+
+            for (int gameIndex = 1; gameIndex <= gameCount; gameIndex++) {
+                GameState result = playOneSimulation(redBatchPlayer, blueBatchPlayer);
+                if (result == GameState.RED_WINS) {
+                    redWins++;
+                } else if (result == GameState.BLUE_WINS) {
+                    blueWins++;
+                } else {
+                    ties++;
+                }
+
+                int completed = gameIndex;
+                SwingUtilities.invokeLater(() -> {
+                    frame.setStatus("Batch running: " + completed + "/" + gameCount);
+                    frame.setBatchProgressValue(completed);
+                });
+            }
+
+            int finalRedWins = redWins;
+            int finalBlueWins = blueWins;
+            int finalTies = ties;
+            SwingUtilities.invokeLater(() -> showBatchResults(redBatchPlayer, blueBatchPlayer, gameCount, finalRedWins, finalBlueWins, finalTies));
+        });
+    }
+
+    private GameState playOneSimulation(Player redSimPlayer, Player blueSimPlayer) {
+        Board simBoard = new Board();
+        Piece simTurn = Piece.RED;
+        int moves = 0;
+
+        while (moves < Board.ROWS * Board.COLS) {
+            Player currentPlayer = simTurn == Piece.RED ? redSimPlayer : blueSimPlayer;
+            int col = currentPlayer.getMove(simBoard.copy(), simTurn);
+            if (!simBoard.isValidMove(col)) {
+                col = firstValidColumn(simBoard);
+                if (col == -1) {
+                    return GameState.TIE;
+                }
+            }
+
+            simBoard.dropPiece(col, simTurn);
+            moves++;
+
+            GameState state = simBoard.getGameState();
+            if (state != GameState.PLAYING) {
+                return state;
+            }
+
+            simTurn = simTurn.opposite();
+        }
+
+        return GameState.TIE;
+    }
+
+    private int firstValidColumn(Board board) {
+        for (int col = 0; col < Board.COLS; col++) {
+            if (board.isValidMove(col)) {
+                return col;
+            }
+        }
+        return -1;
+    }
+
+    private void showBatchResults(Player redBatchPlayer, Player blueBatchPlayer, int gameCount, int redWins, int blueWins, int ties) {
+        DecimalFormat pct = new DecimalFormat("0.0");
+        String message = "Batch complete: " + gameCount + " games\n\n"
+                + redBatchPlayer.getName() + " (Red) wins: " + redWins + " (" + pct.format(100.0 * redWins / gameCount) + "%)\n"
+                + blueBatchPlayer.getName() + " (Blue) wins: " + blueWins + " (" + pct.format(100.0 * blueWins / gameCount) + "%)\n"
+                + "Ties: " + ties + " (" + pct.format(100.0 * ties / gameCount) + "%)";
+
+        frame.setStatus("Batch complete: " + gameCount + " games.");
+        frame.setBatchProgressValue(gameCount);
+        JOptionPane.showMessageDialog(frame, message, "Batch Results", JOptionPane.INFORMATION_MESSAGE);
+        frame.setBatchProgressVisible(false);
     }
 
     private void requestNextMove() {

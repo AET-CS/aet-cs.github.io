@@ -201,7 +201,8 @@ public class GameController {
             int finalRedWins = redWins;
             int finalBlueWins = blueWins;
             int finalTies = ties;
-            SwingUtilities.invokeLater(() -> showBatchResults(redBatchPlayer, blueBatchPlayer, gameCount, finalRedWins, finalBlueWins, finalTies));
+            SwingUtilities.invokeLater(() -> showBatchResults(redBatchPlayer, blueBatchPlayer, gameCount, finalRedWins,
+                    finalBlueWins, finalTies));
         });
     }
 
@@ -243,11 +244,14 @@ public class GameController {
         return -1;
     }
 
-    private void showBatchResults(Player redBatchPlayer, Player blueBatchPlayer, int gameCount, int redWins, int blueWins, int ties) {
+    private void showBatchResults(Player redBatchPlayer, Player blueBatchPlayer, int gameCount, int redWins,
+            int blueWins, int ties) {
         DecimalFormat pct = new DecimalFormat("0.0");
         String message = "Batch complete: " + gameCount + " games\n\n"
-                + redBatchPlayer.getName() + " (Red) wins: " + redWins + " (" + pct.format(100.0 * redWins / gameCount) + "%)\n"
-                + blueBatchPlayer.getName() + " (Blue) wins: " + blueWins + " (" + pct.format(100.0 * blueWins / gameCount) + "%)\n"
+                + redBatchPlayer.getName() + " (Red) wins: " + redWins + " (" + pct.format(100.0 * redWins / gameCount)
+                + "%)\n"
+                + blueBatchPlayer.getName() + " (Blue) wins: " + blueWins + " ("
+                + pct.format(100.0 * blueWins / gameCount) + "%)\n"
                 + "Ties: " + ties + " (" + pct.format(100.0 * ties / gameCount) + "%)";
 
         frame.setStatus("Batch complete: " + gameCount + " games.");

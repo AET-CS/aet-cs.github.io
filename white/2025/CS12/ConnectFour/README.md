@@ -1,6 +1,21 @@
-# Connect Four (Java Swing MVP)
+---
+title: Connect Four (Java Swing MVP)
+---
 
-AP CS-oriented Connect Four using MVC and modular player classes.
+
+## AP CS-oriented Connect Four using MVC and modular player classes.
+
+
+## IntelliJ Import (from ZIP)
+- Unzip the `ConnectFour` folder.
+- In IntelliJ, use `File -> Open...` and select the unzipped `ConnectFour` folder (open the folder root, not just `src`).
+- If prompted, trust the project.
+- Open `src/connectfour/ConnectFourApp.java` and run `ConnectFourApp.main()`.
+- (If it won't run) In the Project panel, right-click `src` and choose `Mark Directory as -> Sources Root`.
+
+If needed, set Java in `File -> Project Structure`:
+- `Project SDK`: Java 11+ (Java 17 recommended)
+- `Project language level`: SDK default
 
 ## MVP Features
 - Graphical Swing interface
@@ -47,15 +62,3 @@ mkdir -p out
 javac -d out $(find src -name "*.java")
 java -cp out connectfour.ConnectFourApp
 ```
-
-## IntelliJ Import (from ZIP)
-- Unzip the `ConnectFour` folder.
-- In IntelliJ, use `File -> Open...` and select the unzipped `ConnectFour` folder (open the folder root, not just `src`).
-- If prompted, trust the project.
-- Open `src/connectfour/ConnectFourApp.java` and run `ConnectFourApp.main()`.
-- (If it won't run) In the Project panel, right-click `src` and choose `Mark Directory as -> Sources Root`.
-
-If needed, set Java in `File -> Project Structure`:
-- `Project SDK`: Java 11+ (Java 17 recommended)
-- `Project language level`: SDK default
-

@@ -7,44 +7,57 @@ classes:
 
 ## Daily Calendar
 
-- February 25, 2025 (Wednesday)
+- March 9, 2026 (Monday)
+    - Go over FRQ 2021 [solutions here](https://www.apcomputersciencetutoring.com/wordmatch-free-response/)
+    - Work on FRQ 2022. Do *NOT* copy answers from internet!!
+    - FRQ quiz next class one problem.
+- March 5, 2026 (Thursday)
+    - Make up test if absent
+    - Work on FRQ 2021 on javadrop otherwise. All 4 for HW
+- March 3, 2025 (Tuesday)
+    - Snow day!
+    - Mantech interviews
+    - 2D Array practice
+- February 27, 2026 (Friday)
+    - TEST over 2D arrays and array algorithms. MC and FRQ
+- February 25, 2026 (Wednesday)
     - Notes on array algorithms
     - Return quiz
     - Test next class: Array Algorithms and 2D Arrays. Practice Java Sips!
-- February 19, 2025 (Thursday)
+- February 19, 2026 (Thursday)
     - [2D Array Practice 2](./practice/2darrays/2D_Arrays_Practice_2.docx), array algorithms
     - **Quiz** over above topics
     - Test next Friday 2/27
     - Sign up for [AET Engineering Week](https://bit.ly/engweek2026)
     - **NOTE** lots of new JavaSips on 2D arrays and array problems. Use this for test review!!
-- February 13, 2025 (Friday)
+- February 13, 2026 (Friday)
     - [2D Array Practice 1](./practice/2darrays/2D_Arrays_Practice_1.docx)
     - Notes on canonical array algorithms: FindMax, FindMin, ArgMax, ArgMin, Count, FindFirst, FindSecondLargest
-- February 11, 2025 (Wednesday)
+- February 11, 2026 (Wednesday)
     - Catch up / work day!
-- February 9, 2025 (Monday)
+- February 9, 2026 (Monday)
     - Go over matrix indices assignment
     - Notes on modifying and creating matrices
     - Work on [Matrix Ops](./projects/2DArrayOps/MatrixOps.java)
     - *HW* Submit Matrix Ops to Javadrop when all tests pass (before next class)
-- February 5, 2025 (Thursday)
+- February 5, 2026 (Thursday)
     - Volunteer opportunity: [Girls in STEM](./girls-in-stem.md)
     - Work on [matrixIndices.java](./practice/2darrays/matrixIndices.java)
 - February 3, 2026 (Tuesday)
     - Topic: 2D Arrays
     - Try these problems in class [worksheet](./practice/2darrays/array-worksheet1.pdf)
-- January 21, 2025 (Wednesday)
+- January 21, 2026 (Wednesday)
     - Project presentations! Make sure form is filled out. Make sure you claim any bonus work you added to the project
     - End of Q2 :-)
     - **Note** I'm going to add a submission on Javadrop so you can sumbit your projects. Check back soon.
-- January 16, 2025 (Friday)
+- January 16, 2026 (Friday)
     - Work on Project day
     - Fill out [this form](https://forms.gle/sknEF5v9ZPmL6YB28) before next class about your project (one per team)
     - Check back here for more tips
-- January 14, 2025 (Wednesday)
+- January 14, 2026 (Wednesday)
     - Java [quick ref](https://static1.codehs.com/docs/ap-computer-science-a-java-quick-reference_0.pdf)
     - Here are some [Orb Project Tips](./projects/Orbs/orb-tips.md)
-- January 12, 2025 (Monday)
+- January 12, 2026 (Monday)
     - ArrayLists quiz next class
         - *HW*: Complete Java Sips Arrays Lists 1-6 on Javadrop
         - Practice MC and JavaSips, and review notes to prepare for quiz
@@ -61,11 +74,11 @@ classes:
             - Add *at least one* new object/class
             - Be an animation but does *not* have to be a game
         - Check back for tips on reducing glitchiness in animations
-- January 8, 2025 (Thursday)
+- January 8, 2026 (Thursday)
     - Orb collisions [notes here](./projects/Orbs/collision-notes.md)
     - Please finish 'orb' including collisions by next class
     - Start planning/working on project!
-- January 6, 2025 (Tuesday)
+- January 6, 2026 (Tuesday)
     - Read about [Orb Project](./projects/Orbs/Description.md)
     - Start with this [main file](./projects/Orbs/OrbSimulation.java)
     - Transcribed [lecture notes](./projects/Orbs/orb-notes.md)

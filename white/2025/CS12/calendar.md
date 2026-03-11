@@ -7,6 +7,12 @@ classes:
 
 
 ## Daily Calendar
+- March 11, 2025 (Wednesday)
+    - Continue working on Connect Four
+    - Some [benchmarks](./ConnectFour/benchmarks.md) to compare your code
+- March 9, 2025 (Monday)
+    - Discuss heuristics for scoring Connect Four
+    - Implement your own heuristics as "Version A" and "Version B" strategies and see how well they do
 - March 5, 2025 (Thursday)
     - FRQ Practice: 2022 Q4
     - Turn in alpha-beta project

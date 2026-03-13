@@ -7,7 +7,7 @@ classes:
 
 ## Daily Calendar
 - March 13, 2026 (Friday)
-    - Part 1. from 9:30-10:00 optionally correct your FRQ quiz from last class and resubmit
+    - Part 1. from 9:30-10:00 optionally correct your FRQ quiz from last class and resubmit (String Formatter)
     - Part 2. After 10:00, work on WeatherLab
         - Goal: Learn how to read/write files in Java. Process data. Review String and Array List Methods
         - Plan: Do the main assignment, or the extension, or both!

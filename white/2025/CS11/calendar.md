@@ -6,7 +6,17 @@ classes:
 ---
 
 ## Daily Calendar
-
+- March 13, 2026 (Friday)
+    - Part 1. from 9:30-10:00 optionally correct your FRQ quiz from last class and resubmit
+    - Part 2. After 10:00, work on WeatherLab
+        - Goal: Learn how to read/write files in Java. Process data. Review String and Array List Methods
+        - Plan: Do the main assignment, or the extension, or both!
+        - [Lab Instructions](./projects/WeatherLab/WeatherAnalyzer_Lab.pdf)
+        - [Starter Code](./projects/WeatherLab/WeatherAnalyzer.java)
+        - [Sample Data](./projects/WeatherLab/weather_data.csv)
+    - Turn in: Your modified .java file **at the end of class** on javadrop, even if not finished. If needed finish and resubmit for HW.
+- March 11, 2026 (Wednesday)
+    - FRQ quiz
 - March 9, 2026 (Monday)
     - Go over FRQ 2021 [solutions here](https://www.apcomputersciencetutoring.com/wordmatch-free-response/)
     - Work on FRQ 2022. Do *NOT* copy answers from internet!!

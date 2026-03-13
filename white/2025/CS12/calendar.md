@@ -7,6 +7,13 @@ classes:
 
 
 ## Daily Calendar
+- March 13, 2025 (Friday)
+    - Please complete FRQ 2024 Q1 on Javadrop
+    - Continue working on your alpha-beta heuristic scoring code.
+        - Check out the **benchmarks** from 3/11.
+        - I also tried a simple Weighted score and running it at depth 4 beats min-max at depth 10!
+    - Submit your progress even if incomplete by the **end of class** please.
+    - Next class: FRQ Quiz!
 - March 11, 2025 (Wednesday)
     - Continue working on Connect Four
     - Some [benchmarks](./ConnectFour/benchmarks.md) to compare your code

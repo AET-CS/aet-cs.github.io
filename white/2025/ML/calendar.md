@@ -11,6 +11,18 @@ sidebar:
   - Time series data
   - Predict [AAPL stock prices](./data/AAPL.csv)
   - Here's my [Apple prediction](./data/apple-prediction.png) using a history of 64 and a 1 node NN
+- 3/16 (Monday)
+  - Guest speaker!
+- 3/12 (Thursday)
+  - Project: Image classification
+  - Task: collect images around the school, train a classifier on public data, see how well it works
+  - Submit to Javadrop
+- 3/10 (Tuesday)
+    - Fine Tuning
+    - Download a model like ResNet or MobileNet
+    - Freeze all but the last layers
+    - Train on an image classification dataset
+    - Report accuracy
 - 3/2 (Monday)
     - It's snowing!
     - Check out [Bird Calls](./notebooks/Birds.ipynb)

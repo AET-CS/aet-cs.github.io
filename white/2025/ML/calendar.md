@@ -7,6 +7,10 @@ sidebar:
 
 ## Daily Summary
 
+- 3/18 (Wednesday)
+  - Time series data
+  - Predict [AAPL stock prices](./data/AAPL.csv)
+  - Here's my [Apple prediction](./data/apple-prediction.png) using a history of 64 and a 1 node NN
 - 3/2 (Monday)
     - It's snowing!
     - Check out [Bird Calls](./notebooks/Birds.ipynb)

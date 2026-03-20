@@ -6,6 +6,11 @@ classes:
 ---
 
 ## Daily Calendar
+- March 17, 2026 (Tuesday)
+    - [Notes](./practice/recursion/Recursion_Notes.pdf) on Recursion (new topic)
+    - Recursion [practice](./practice/recursion/Day_1_Recursion_Practice.pdf) and [solution](./practice/recursion/Day_1_Recursion_Solutions.pdf)
+    - Brief quiz next class over practice problems
+    - Extra [resources on recursion](./practice/recursion/Recursion_Resources.md)
 - March 13, 2026 (Friday)
     - Part 1. from 9:30-10:00 optionally correct your FRQ quiz from last class and resubmit (String Formatter)
     - Part 2. After 10:00, work on WeatherLab

@@ -7,6 +7,16 @@ classes:
 
 
 ## Daily Calendar
+- March 23, 2025 (Monday)
+    - Topcis: Scanners and Data Processing
+        - Goal: Learn how to read/write files in Java. Process data. Review String and Array List Methods
+        - Plan: Do the main assignment and the extension.
+        - [Lab Instructions](./WeatherLab/WeatherAnalyzer_Lab.pdf)
+        - [Starter Code](./WeatherLab/WeatherAnalyzer.java)
+        - [Sample Data](./WeatherLab/weather_data.csv)
+    - Turn in: Your modified .java file **at the end of class** on javadrop.
+- March 17, 2025 (Tuesday)
+    - FRQ quiz -- 2 questions
 - March 13, 2025 (Friday)
     - Please complete FRQ 2024 Q1 on Javadrop
     - Continue working on your alpha-beta heuristic scoring code.

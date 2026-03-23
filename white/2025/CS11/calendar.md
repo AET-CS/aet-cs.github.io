@@ -6,6 +6,13 @@ classes:
 ---
 
 ## Daily Calendar
+- March 23, 2026 (Monday)
+    - [Notes](./practice/recursion/Recursion_Notes_Day_2.pdf) on Recursion (new topic)
+    - Recursion [practice](./practice/recursion/Day_2_Recursion_Practice.pdf) and [solution](./practice/recursion/Day_2_Recursion_Solutions.pdf)
+    - Quiz over recursion day 1
+    - Quiz next class Recursion (harder than day 1)
+- March 19, 2026 (Thursday)
+    - Holiday
 - March 17, 2026 (Tuesday)
     - [Notes](./practice/recursion/Recursion_Notes.pdf) on Recursion (new topic)
     - Recursion [practice](./practice/recursion/Day_1_Recursion_Practice.pdf) and [solution](./practice/recursion/Day_1_Recursion_Solutions.pdf)

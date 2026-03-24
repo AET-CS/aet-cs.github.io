@@ -7,6 +7,10 @@ sidebar:
 
 ## Daily Summary
 
+- 3/24 (Tuesday)
+    - RNNs!
+    - Read [this](https://karpathy.github.io/2015/05/21/rnn-effectiveness/)
+    - Work on [Shakespeare](./notebooks/Shakespeare_Student.ipynb)
 - 3/18 (Wednesday)
   - Time series data
   - Predict [AAPL stock prices](./data/AAPL.csv)

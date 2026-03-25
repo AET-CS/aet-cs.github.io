@@ -6,6 +6,11 @@ classes:
 ---
 
 ## Daily Calendar
+- March 25, 2026
+    - Recursion Day 3
+    - Play [Towers of Hanoi](https://javalab.org/en/hanoi_tower_en/)
+    - Notes
+    - Recursion Quiz 2
 - March 23, 2026 (Monday)
     - [Notes](./practice/recursion/Recursion_Notes_Day_2.pdf) on Recursion (new topic)
     - Recursion [practice](./practice/recursion/Day_2_Recursion_Practice.pdf) and [solution](./practice/recursion/Day_2_Recursion_Solutions.pdf)

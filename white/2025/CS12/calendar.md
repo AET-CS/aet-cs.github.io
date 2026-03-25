@@ -7,6 +7,12 @@ classes:
 
 
 ## Daily Calendar
+- March 25, 2025 (Wednesday)
+    - Knight's Tour
+    - Play [here?](https://www.brainbashers.com/knight.asp)
+    - Docs [here](./KnightsTour/Knights_Tour_Assignment.pdf)
+    - Write down and turn in answers in class
+    - Submit code when done
 - March 23, 2025 (Monday)
     - Topcis: Scanners and Data Processing
         - Goal: Learn how to read/write files in Java. Process data. Review String and Array List Methods

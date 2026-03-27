@@ -65,4 +65,4 @@ Move A from peg 1 to peg 3
 
 ## Submission
 
-Submit your `Hanoi.java` file. You should solve "Hanoi 5 disks from 3 to 2" in your submission and print the results.
+Submit your `Hanoi.java` file. Before submitting, comment out all "Scanner" lines and just hardcode one case. You should solve "Hanoi 5 disks from 3 to 2" in your submission and print the results.

@@ -6,6 +6,9 @@ classes:
 ---
 
 ## Daily Calendar
+- March 27, 2026
+    - Recursion Quiz 2 for real
+    - Implement [Towers of Hanoi](./projects/Hanoi/hanoi_assignment.md) and submit today
 - March 25, 2026
     - Recursion Day 3
     - Play [Towers of Hanoi](https://javalab.org/en/hanoi_tower_en/)

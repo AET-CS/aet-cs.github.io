@@ -1,4 +1,6 @@
-# Tower of Hanoi
+---
+title: Towers of Hanoi
+---
 
 ## Overview
 

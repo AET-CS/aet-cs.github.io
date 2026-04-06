@@ -7,6 +7,8 @@ sidebar:
 
 ## Daily Summary
 
+- 4/6 (monday)
+    - please read [this](https://bit.ly/4bVoiGP)
 - 3/24 (Tuesday)
     - RNNs!
     - Read [this](https://karpathy.github.io/2015/05/21/rnn-effectiveness/)

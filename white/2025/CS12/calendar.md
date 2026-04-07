@@ -7,13 +7,17 @@ classes:
 
 
 ## Daily Calendar
-- March 25, 2025 (Wednesday)
+- April 7, 2026 (Tuesday)
+    - Read [documentation of substring](./notes/Substring_Docs.pdf)
+    - AP Review Unit 1
+    - Complete MC practice on AP Classroom in class parts C, B, A
+- March 25, 2026 (Wednesday)
     - Knight's Tour
     - Play [here?](https://www.brainbashers.com/knight.asp)
     - Docs [here](./KnightsTour/Knights_Tour_Assignment.pdf)
     - Write down and turn in answers in class
     - Submit code when done
-- March 23, 2025 (Monday)
+- March 23, 2026 (Monday)
     - Topcis: Scanners and Data Processing
         - Goal: Learn how to read/write files in Java. Process data. Review String and Array List Methods
         - Plan: Do the main assignment and the extension.
@@ -21,45 +25,45 @@ classes:
         - [Starter Code](./WeatherLab/WeatherAnalyzer.java)
         - [Sample Data](./WeatherLab/weather_data.csv)
     - Turn in: Your modified .java file **at the end of class** on javadrop.
-- March 17, 2025 (Tuesday)
+- March 17, 2026 (Tuesday)
     - FRQ quiz -- 2 questions
-- March 13, 2025 (Friday)
+- March 13, 2026 (Friday)
     - Please complete FRQ 2024 Q1 on Javadrop
     - Continue working on your alpha-beta heuristic scoring code.
         - Check out the **benchmarks** from 3/11.
         - I also tried a simple Weighted score and running it at depth 4 beats min-max at depth 10!
     - Submit your progress even if incomplete by the **end of class** please.
     - Next class: FRQ Quiz!
-- March 11, 2025 (Wednesday)
+- March 11, 2026 (Wednesday)
     - Continue working on Connect Four
     - Some [benchmarks](./ConnectFour/benchmarks.md) to compare your code
-- March 9, 2025 (Monday)
+- March 9, 2026 (Monday)
     - Discuss heuristics for scoring Connect Four
     - Implement your own heuristics as "Version A" and "Version B" strategies and see how well they do
-- March 5, 2025 (Thursday)
+- March 5, 2026 (Thursday)
     - FRQ Practice: 2022 Q4
     - Turn in alpha-beta project
     - Download [ConnectFour](./ConnectFour/ConnectFour.zip) and unzip the file. See [ReadMe](./ConnectFour/README.md) For instructions
     - Assignment: transfer your minimax logic to this game. Only need to edit one file. But read the other players to see how the game works.
     - Check: Minimax-6 should be Minimax-2, for example, almost all the time.
-- March 3, 2025 (Tuesday)
+- March 3, 2026 (Tuesday)
     - 2 Hr Delay!
     - Notes on [alpha-beta pruning](./notes/MinMax-with-Alpha-Beta-Pruning.pdf)
     - Submit new alpha-beta code with report to javadrop
-- February 27, 2025 (Friday)
+- February 27, 2026 (Friday)
     - Review for quiz
     - Minimax quiz (tree with alpha-beta pruning, open-ended questions)
-- February 25, 2025 (Wedneday)
+- February 25, 2026 (Wedneday)
     - Minimax algorithm in detail
     - Code it up! [starter code](./tictactoe/MiniMaxPlayer.java)
     - Submit to javadrop
     - Quiz next class: minimax trees, alpha-beta pruning, code questions
     - Practice alpha-beta pruning [here](../abTreePractice/index.html)
-- February 20, 2025 (Monday)
+- February 20, 2026 (Monday)
     - Snow day!
 - February 16, 2026 (Thursday)
     - Tic Tac Toe Tournament
-- February 9, 2025 (Thursday)
+- February 9, 2026 (Thursday)
     - FRQ 2021 #3  on JavaDrop
     - Work on [Tic Tac Toe Player](./tictactoe/day3.md) assignment.
     - Upload best strategy to JavaDrop

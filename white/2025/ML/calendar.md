@@ -7,6 +7,9 @@ sidebar:
 
 ## Daily Summary
 
+- 4/8 (Wednesday)
+    - Classification / Seniment Analysis RNN
+    - Complete [this notebook](./notebooks/sentiment_analysis-student.ipynb) in class
 - 4/6 (monday)
     - please read [this](https://bit.ly/4bVoiGP)
 - 3/24 (Tuesday)

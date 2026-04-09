@@ -6,6 +6,11 @@ classes:
 ---
 
 ## Daily Calendar
+- April 9, 2026
+    - Recursion Quiz 2 retake [key](./hidden/Recursion/Recursion_Quiz_2_Retake_(Key).pdf)
+- April 7, 2026
+    - FRQs in class
+    - Game Spinner FRQ for HW
 - March 27, 2026
     - Recursion Quiz 2 for real
     - Implement [Towers of Hanoi](./projects/Hanoi/hanoi_assignment.md) and submit today

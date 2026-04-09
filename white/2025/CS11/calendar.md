@@ -7,7 +7,7 @@ classes:
 
 ## Daily Calendar
 - April 9, 2026
-    - Recursion Quiz 2 retake [key](./hidden/Recursion/Recursion_Quiz_2_Retake_(Key).pdf)
+    - Recursion Quiz 2 retake [key](./practice/recursion/Recursion_Quiz_2_Retake_(Key).pdf)
 - April 7, 2026
     - FRQs in class
     - Game Spinner FRQ for HW

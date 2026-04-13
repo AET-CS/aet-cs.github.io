@@ -7,6 +7,9 @@ sidebar:
 
 ## Daily Summary
 
+- 4/13 (Monday)
+    - Start with [this Notebook](./notebooks/Neural-Machine-Translation-Starter.ipynb)
+    - Build an LSTM based S2s translator!
 - 4/8 (Wednesday)
     - Classification / Seniment Analysis RNN
     - Complete [this notebook](./notebooks/sentiment_analysis-student.ipynb) in class

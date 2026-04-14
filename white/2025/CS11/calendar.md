@@ -6,6 +6,9 @@ classes:
 ---
 
 ## Daily Calendar
+- April 14, 2026 (Tuesday)
+    - Sorting algorithms. [Notes](./Sorting/Sorting-notes.md) are available
+    - Check out [this site](https://www.cs.usfca.edu/~galles/visualization/ComparisonSort.html) for visualizing algorithms
 - April 9, 2026
     - Recursion Quiz 2 retake [key](./practice/recursion/Recursion_Quiz_2_Retake_Key.pdf)
 - April 7, 2026

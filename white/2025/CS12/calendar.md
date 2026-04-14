@@ -7,6 +7,13 @@ classes:
 
 
 ## Daily Calendar
+- April 14, 2026 (Tuesday)
+    - AP Review Unit 3
+    - Please complete Unit 3 parts A and B on AP Classroom
+    - Please download [this template](https://docs.google.com/document/d/1mkRBeuajvMkOFRfmKHvP-VrjlsIIBfeWB-PuHjixyVg/edit?usp=sharing) and fill out a brief recap of any questions you missed on Units 1-3. Turn in after Unit 4 for a grade!
+- April 9, 2026 (Thursday)
+    - AP Review Unit 2
+    - Please complete Unit 2 Part B on AP Classroom
 - April 7, 2026 (Tuesday)
     - Read [documentation of substring](./notes/Substring_Docs.pdf)
     - AP Review Unit 1

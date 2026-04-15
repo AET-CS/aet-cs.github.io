@@ -7,6 +7,10 @@ sidebar:
 
 ## Daily Summary
 
+- 4/15 (Wednesday)
+    - Improve your model!
+    - Next goal: round trip (eng->span->eng)
+    - Here are some [test cases](./notes/translation_examples.md)
 - 4/13 (Monday)
     - Start with [this Notebook](./notebooks/Neural-Machine-Translation-Starter.ipynb)
     - Build an LSTM based S2s translator!

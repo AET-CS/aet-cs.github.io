@@ -5,8 +5,10 @@ classes:
   - wide
 ---
 
-**Please see [Journal Dates](./journal_dates.md) and adhere to the prescriptions within**
-
+- April 15, 2026 (Wednesday)
+    - Demo day 2!
+    - Poster early draft due April 24. Templates/samples coming soon
+    - Symposium Sign up [on this form](https://forms.gle/mBU8iAT63zg7Uv1L6) for May 1. You need your abstract and to know your availability on May 28 both day and evening.
 - February 4, 2026 (Wednesday)
     - 2 hr delay
     - Talks today: Jahnavi, Anik, Brandon, Ajay, Matt (may not get to all)

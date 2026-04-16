@@ -11,6 +11,7 @@ sidebar:
     - Improve your model!
     - Next goal: round trip (eng->span->eng)
     - Here are some [test cases](./notes/translation_examples.md)
+    - Also here is a [sample working notebook](./notebooks/seq2seq_nmt_reference.ipynb) with Attention Layers and Beam Search
 - 4/13 (Monday)
     - Start with [this Notebook](./notebooks/Neural-Machine-Translation-Starter.ipynb)
     - Build an LSTM based S2s translator!

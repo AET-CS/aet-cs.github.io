@@ -6,6 +6,12 @@ classes:
 ---
 
 ## Daily Calendar
+- April 16, 2026 (Thursday)
+    - Please fill out this [AP Test Survey](https://bit.ly/omgapril)
+    - Go over FRQs in class (2D arrays, arrays)
+    - Notes on Merge Sort
+    - Practice question (theatre seats) handed out in class (FRQ) -- complete for homework
+    - **ALSO HW** due next class: Practice Barrons 2024 MC on Javadrop. You can do the problems in batches; it should save your progress
 - April 14, 2026 (Tuesday)
     - Sorting algorithms. [Notes](./Sorting/Sorting-notes.md) are available
     - Check out [this site](https://www.cs.usfca.edu/~galles/visualization/ComparisonSort.html) for visualizing algorithms

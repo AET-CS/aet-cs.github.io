@@ -7,6 +7,12 @@ sidebar:
 
 ## Daily Summary
 
+- 4/17 (Friday)
+    - Turn in Spanish-Eng-Spanish roundtrip notebook by end of class (even if incomplete)
+    - Improve your model as much as you like, and implement the round-trip
+    - Try to implement **Beam Search** and experiment with different depths and widths
+    - Try to implement an **Attention* Layer**. You can see my example below if you like. An **Attention Layer** takes all the outputs from the encoder in addition to the hidden state, and connects every encoder output to every decoder input. This lets it learn much longer patterns, more intelligently. It is also a pain to get right in tensorflow.
+    - Submit to Javadrop by 3:30 please
 - 4/15 (Wednesday)
     - Improve your model!
     - Next goal: round trip (eng->span->eng)

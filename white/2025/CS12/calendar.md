@@ -7,6 +7,12 @@ classes:
 
 
 ## Daily Calendar
+- April 16, 2026 (Thursday)
+    - AP Review Unit 4
+    - Please complete parts A and B on AP Classroom. We will do C as well, but later (2D Arrays).
+    - Optional 2D array practice handout
+    - **TEST PLANNED** next Wednesday. FULL AP MC TEST. Review Units 1-4 and complete your Recap document (see below). (Probably turn in Recap on javadrop as a pdf...)
+    - Complete any AP Review Units you missed please, before the test
 - April 14, 2026 (Tuesday)
     - AP Review Unit 3
     - Please complete Unit 3 parts A and B on AP Classroom

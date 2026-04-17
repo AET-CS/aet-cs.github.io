@@ -5,10 +5,10 @@ classes:
   - wide
 ---
 
-- April 16, 2026 (Thursday)
+- April 17, 2026 (Friday)
     - See poster and symposium info below
     - Demo 3 next Thursday
-- April 14, 2026 (Tuesday)
+- April 15, 2026 (Wednesday)
     - Demo day 2! Send video if not present in class please.
     - Poster early draft due **April 24**. Templates/samples: [Template 1](https://canva.link/z8nrq4hnd48u3v5)
     - Symposium Sign up [on this form](https://forms.gle/mBU8iAT63zg7Uv1L6) due **May 1**. You need your abstract and to know your availability on May 28 both day and evening.

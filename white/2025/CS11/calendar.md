@@ -6,6 +6,10 @@ classes:
 ---
 
 ## Daily Calendar
+- April 20, 2026 (Monday)
+    - Notes on [sorting and searching](./practice/sorting/APCSA_Sorting_Handout.pdf)
+    - Review Calendar
+    - Quiz next class on sorting and searching (practice problems to be posted)
 - April 16, 2026 (Thursday)
     - Please fill out this [AP Test Survey](https://bit.ly/omgapril)
     - Go over FRQs in class (2D arrays, arrays)

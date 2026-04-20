@@ -9,7 +9,8 @@ classes:
 - April 20, 2026 (Monday)
     - Notes on [sorting and searching](./practice/sorting/APCSA_Sorting_Handout.pdf)
     - Review Calendar
-    - Quiz next class on sorting and searching (practice problems to be posted)
+    - Quiz next class on sorting and searching
+        - Practice at [runestone academy](https://runestone.academy/ns/books/published/csawesome2/Search-Sort-Exercises.html)
 - April 16, 2026 (Thursday)
     - Please fill out this [AP Test Survey](https://bit.ly/omgapril)
     - Go over FRQs in class (2D arrays, arrays)

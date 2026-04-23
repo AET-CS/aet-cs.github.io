@@ -8,9 +8,9 @@ sidebar:
 ## Daily Summary
 
 - 4/23 (Tuesday)
-    - Watch this video!
+    - Watch [Chapter 5](https://www.3blue1brown.com/?topic=neural-networks) here, a video introduction to Transformers
     - Complete [this tutorial](https://docs.pytorch.org/tutorials/beginner/basics/intro.html)
-    - Submit tutorial code to javadrop before next class
+    - Submit tutorial code to javadrop before next class (make your own notebook based on the tutorials)
 - 4/17 (Friday)
     - Turn in Spanish-Eng-Spanish roundtrip notebook by end of class (even if incomplete)
     - Improve your model as much as you like, and implement the round-trip

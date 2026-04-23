@@ -7,6 +7,10 @@ sidebar:
 
 ## Daily Summary
 
+- 4/23 (Tuesday)
+    - Watch this video!
+    - Complete [this tutorial](https://docs.pytorch.org/tutorials/beginner/basics/intro.html)
+    - Submit tutorial code to javadrop before next class
 - 4/17 (Friday)
     - Turn in Spanish-Eng-Spanish roundtrip notebook by end of class (even if incomplete)
     - Improve your model as much as you like, and implement the round-trip

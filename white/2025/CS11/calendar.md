@@ -9,7 +9,7 @@ classes:
 - April 22, 2026 (Wednesday)
     - **QUIZ** on sorting and searching
     - After quiz, please add your questions to [this google doc](https://bit.ly/492yV8B) regarding our cumulative MC test
-    - Cumulative MC test next class! See Barron's practice online. Also more practice will probably be available soon.
+    - Cumulative MC **test next class!** See Barron's practice online. Also Scanner practice on Javadrop now, in addition to ArrayList and Classes problems.
 - April 20, 2026 (Monday)
     - Notes on [sorting and searching](./practice/sorting/APCSA_Sorting_Handout.pdf)
     - Review Calendar

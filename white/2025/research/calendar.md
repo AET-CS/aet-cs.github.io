@@ -5,6 +5,18 @@ classes:
   - wide
 ---
 
+- April 27, 2026 (Monday)
+    - Demo 4 next class, send video if absent
+    - Paper [guidelines](./paper_rubric.pdf) discussed in class
+    - Sample of a [previous research paper](./paper_sample.pdf)
+    - Paper due dates: Skeleton May 1, Draft May 11, Final May 22. No exceptions. Submission links will be posted
+    - Poster draft is LATE after 11:30 AM today (email me a link)
+    - Final poster deadline TBD but in about 2 weeks.
+- April 23, 2026 (Thursday)
+    - Demo 3 (optional this week due to short week)
+    - Reminder for Poster draft and Symposium Sign up! (Email poster link to me)
+- April 21, 2026 (Tuesday)
+    - Election day
 - April 17, 2026 (Friday)
     - See poster and symposium info below
     - Demo 3 next Thursday

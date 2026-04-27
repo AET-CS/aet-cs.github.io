@@ -7,7 +7,11 @@ sidebar:
 
 ## Daily Summary
 
-- 4/23 (Tuesday)
+- 4/27 (Monday)
+    - Watch [Chapter 6](https://www.3blue1brown.com/?topic=neural-networks) here, a video introduction to Transformers
+    - Run this [transformers notebook](./notebooks/transformer_nmt_with_spanish.ipynb)
+    - Answer [these questions]
+- 4/23 (Thursday)
     - Watch [Chapter 5](https://www.3blue1brown.com/?topic=neural-networks) here, a video introduction to Transformers
     - Complete [this tutorial](https://docs.pytorch.org/tutorials/beginner/basics/intro.html)
     - Submit tutorial code to javadrop before next class (make your own notebook based on the tutorials)

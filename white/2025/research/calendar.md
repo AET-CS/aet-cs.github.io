@@ -5,7 +5,7 @@ classes:
   - wide
 ---
 
-- April 29, 2026(Wednesday)
+- April 29, 2026 (Wednesday)
     - Demo day for everybody!
     - Paper skeleton due next class. Should be in markdown/pandoc format according to resources below.
     - Download [these resources](./paper_resources.zip) to help you typeset your final paper. (Includes markdown/pandoc template and software instructions)

@@ -10,6 +10,7 @@ classes:
     - Paper skeleton due next class. Should be in markdown/pandoc format according to resources below.
     - Download [these resources](./paper_resources.zip) to help you typeset your final paper. (Includes markdown/pandoc template and software instructions)
     - Please fill out this [final survey](https://forms.gle/i3ctL9j8ELH5Nt9G9) about Senior Research
+    - Symposium sign up required by end of class today! Link below
 - April 27, 2026 (Monday)
     - Demo 4 next class, send video if absent
     - Paper [guidelines](./paper_rubric.pdf) discussed in class

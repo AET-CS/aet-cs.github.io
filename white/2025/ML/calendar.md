@@ -7,6 +7,10 @@ sidebar:
 
 ## Daily Summary
 
+- 4/29 (Wednesday)
+    - Share and/or email your group responses from last class to me
+    - Discuss answers
+    - Try to complete [this notebook](./notebooks/charGPT_assignment.ipynb) that uses transformers for Shakespeare text
 - 4/27 (Monday)
     - Watch [Chapter 6](https://www.3blue1brown.com/?topic=neural-networks) here, a video introduction to Transformers
     - Run this [transformers notebook](./notebooks/transformer_nmt_with_spanish.ipynb)

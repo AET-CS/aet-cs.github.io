@@ -6,6 +6,15 @@ classes:
 ---
 
 ## Daily Calendar
+- April 30, 2026 (Thursday)
+    - Test: 4 FRQs
+    - Turn in test and sort/search quiz corrections when you have a chance
+- April 28, 2026 (Tuesday)
+    - MC Test Makeup
+    - Work on: FRQ practice or Test corrections or quiz corrections
+    - FRQ Test next class (4 questions)
+- April 24, 2026 (Friday)
+    - MC Test!
 - April 22, 2026 (Wednesday)
     - **QUIZ** on sorting and searching
     - After quiz, please add your questions to [this google doc](https://bit.ly/492yV8B) regarding our cumulative MC test

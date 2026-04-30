@@ -7,6 +7,11 @@ classes:
 
 
 ## Daily Calendar
+- April 29, 2026 (Thursday)
+    - FRQ Test AP Practice
+- April 20, 2026 (Monday)
+    - MC Test AP Practice
+    - FRQ test next Thursday
 - April 16, 2026 (Thursday)
     - AP Review Unit 4
     - Please complete parts A and B on AP Classroom. We will do C as well, but later (2D Arrays).

@@ -7,6 +7,17 @@ sidebar:
 
 ## Daily Summary
 
+- 5/1 (Friday)
+    - Class Discussion on Transformers questions!
+        - Choose a discussion **leader** and a scribe
+        - Sit in a circle and go over **all** questions
+        - **Submit** a final, whole class document with best answers to all questions. (Scribe can share with me)
+    - Fine tuning
+        - Your task is to fine tune GPT2 or similar model on a text corpus
+        - This is like fine tuning ResNet on images
+        - There are many tutorials on line, most of them are buggy so you'll need to debug
+        - Find a tutorial, probably using 'huggingface' libraries. Download a Gpt2-style model, unfreeze the last layers, feed it a new corpus of text and ask it to generate new text.
+        - Training may take a while (mine took 40 minutes), but see what you can come up with!
 - 4/29 (Wednesday)
     - Share and/or email your group responses from last class to me
     - Discuss answers

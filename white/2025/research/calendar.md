@@ -5,6 +5,10 @@ classes:
   - wide
 ---
 
+- May 1, 2026 (Friday)
+    - Skeleton pdf [due today](https://forms.gle/1u9LTvx57UZnfFF66) at 11:30pm
+    - Last day to sign up for Senior Symposium
+    - Survey is [required](https://forms.gle/i3ctL9j8ELH5Nt9G9) about Senior Research
 - April 29, 2026 (Wednesday)
     - Demo day for everybody!
     - Paper skeleton due next class. Should be in markdown/pandoc format according to resources below.

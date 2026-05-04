@@ -6,6 +6,9 @@ classes:
 ---
 
 ## Daily Calendar
+- May 4, 2026 (Monday)
+    - FRQ test recap
+    - Check the [scoring guidelines](./practice/FRQ1_SG.pdf)
 - April 30, 2026 (Thursday)
     - Test: 4 FRQs
     - Turn in test and sort/search quiz corrections when you have a chance

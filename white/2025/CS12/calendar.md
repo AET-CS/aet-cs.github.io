@@ -7,6 +7,8 @@ classes:
 
 
 ## Daily Calendar
+- May 4, 2026 (Monday)
+    - Submit your Hackathon ideas (here)[https://docs.google.com/forms/d/e/1FAIpQLSdmzR5QvXpUnpDMSX5PYK8PRVVuLhJhxctbvSdUaSBLaK4NgA/viewform?usp=dialog]
 - April 29, 2026 (Thursday)
     - FRQ Test AP Practice
 - April 20, 2026 (Monday)

@@ -30,6 +30,7 @@ sidebar:
 - 4/27 (Monday)
     - Watch [Chapter 6](https://www.3blue1brown.com/?topic=neural-networks) here, a video introduction to Transformers
     - Run this [transformers notebook](./notebooks/transformer_nmt_with_spanish.ipynb)
+    - Read [this paper](https://arxiv.org/pdf/1706.03762)
     - Answer [these questions](./notebooks/transformer_nmt_questions.md). You can work in groups of 1-4 people and collaborate on a google doc etc. Bring answers or questions to next class!
 - 4/23 (Thursday)
     - Watch [Chapter 5](https://www.3blue1brown.com/?topic=neural-networks) here, a video introduction to Transformers

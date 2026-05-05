@@ -1,4 +1,6 @@
-# Transformer NMT Notebook — Comprehension Questions
+---
+title: Transformer NMT Notebook — Comprehension Questions
+---
 
 These are reading-check questions to help you work through the code. They're not tricky — if you read the section, you should be able to answer them. Copy and paste into a doc/google doc/etc.
 

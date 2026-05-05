@@ -7,6 +7,10 @@ sidebar:
 
 ## Daily Summary
 
+
+- 5/5 (Tuesday)
+    - Cinco de Mayo!
+    - Download [this notebook](./notebooks/image_captioning_assignment.ipynb). Fill in the blanks, answer the Qs and run
 - 5/1 (Friday)
     - Class Discussion on Transformers questions!
         - Choose a discussion **leader** and a scribe

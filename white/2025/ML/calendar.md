@@ -7,7 +7,11 @@ sidebar:
 
 ## Daily Summary
 
-
+- 5/11 (Monday)
+    - Variational Autoencoders
+    - See [notes](./notes/vae_notes.pdf) and work through [notebook](./notebooks/VAE_celeba_student.ipynb)
+- 5/7 (Thursday)
+    - Continue work on previous notebooks and assignments
 - 5/5 (Tuesday)
     - Cinco de Mayo!
     - Download [this notebook](./notebooks/image_captioning_assignment.ipynb). Fill in the blanks, answer the Qs and run

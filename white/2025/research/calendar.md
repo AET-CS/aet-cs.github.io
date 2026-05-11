@@ -5,6 +5,13 @@ classes:
   - wide
 ---
 
+- May 11, 2026 (Monday)
+    - Paper draft [due today](https://forms.gle/1u9LTvx57UZnfFF66). See rubric for specifications
+    - Be aware of upcoming final submissions: paper, poster, app!
+- May 7, 2025 (Thursday)
+    - AP Week and work day
+- May 5, 2025 (Tuesday)
+     - AP Week and work day
 - May 1, 2026 (Friday)
     - Skeleton pdf [due today](https://forms.gle/1u9LTvx57UZnfFF66) at 11:30pm
     - Last day to sign up for Senior Symposium

@@ -6,6 +6,16 @@ classes:
 ---
 
 ## Daily Calendar
+- May 12, 2026
+    - AP Week 2
+    - Project proposal [form here](https://forms.gle/GhbWSwXXW1kxmo7g9). Please fill out one per team
+    - Turn in corrections for : MC test, FRQ test, sort/search quiz, when you can!
+- May 8, 2026
+    - AP Week
+    - Work on practice, review and/or project!
+- May 6, 2026
+    - AP Week
+    - Work on practice, review and/or project!
 - May 4, 2026 (Monday)
     - FRQ test recap
     - Check the [scoring guidelines](./practice/FRQ1_SG.pdf)

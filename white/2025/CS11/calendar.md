@@ -6,6 +6,12 @@ classes:
 ---
 
 ## Daily Calendar
+- May 14, 2026
+    - Last day of AP Week
+    - On javadrop: new Practice AP MC test, new FRQ (labeled 2026), new MC Progress checks, and new "topic practice" in MC section
+    - Here's a list of [AP CS Powerups](./practice/ap_csa_power_ups.pdf) for before the test
+    - Check the gradebook and turn in corrections when you get a chance
+    - Project due date: early June-ish. Maybe sooner?
 - May 12, 2026
     - AP Week 2
     - Project proposal [form here](https://forms.gle/GhbWSwXXW1kxmo7g9). Please fill out one per team

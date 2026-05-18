@@ -7,6 +7,12 @@ classes:
 
 
 ## Daily Calendar
+- May 6 through May 14, 2026
+    - AP Weeks
+    - In class AP review, or work on projects, or study for AP
+    - You do need to do corrections on the MC and FRQ test and submit to me (written)
+    - FRQ [scoring guidelines](./practice/FRQ1_SG.pdf)
+
 - May 4, 2026 (Monday)
     - Submit your Hackathon ideas [here](https://docs.google.com/forms/d/e/1FAIpQLSdmzR5QvXpUnpDMSX5PYK8PRVVuLhJhxctbvSdUaSBLaK4NgA/viewform?usp=dialog)
 - April 29, 2026 (Thursday)

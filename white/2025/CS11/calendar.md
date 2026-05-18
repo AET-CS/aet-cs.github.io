@@ -7,7 +7,7 @@ classes:
 
 ## Daily Calendar
 - May 18, 2026
-    - Finalize project plan. Pick a TEAM NAME.
+    - Finalize project plan.
     - Fill out this Project proposal [form here](https://forms.gle/GhbWSwXXW1kxmo7g9)
     - 1st Artifact due soon: what is the **Flow** of your program? Upload pdf [here](https://bit.ly/projectaet)
 - May 14, 2026

@@ -6,6 +6,10 @@ classes:
 ---
 
 ## Daily Calendar
+- May 18, 2026
+    - Finalize project plan. Pick a TEAM NAME.
+    - Fill out this Project proposal [form here](https://forms.gle/GhbWSwXXW1kxmo7g9)
+    - 1st Artifact due soon: what is the **Flow** of your program? Upload pdf [here](https://bit.ly/projectaet)
 - May 14, 2026
     - Last day of AP Week
     - On javadrop: new Practice AP MC test, new FRQ (labeled 2026), new MC Progress checks, and new "topic practice" in MC section

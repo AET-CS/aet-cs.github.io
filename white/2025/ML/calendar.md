@@ -7,6 +7,14 @@ sidebar:
 
 ## Daily Summary
 
+- 5/19 (Tuesday)
+    - Finish VAE, Captioning, GPT
+    - Think about specific research topics
+    - Start collecting archive of notebooks from this year
+- 5/15 (Friday)
+    - Work on VAE, Captioning, GPT notebooks
+- 5/13 (Wednesday)
+    - AP Whatever. nobody here
 - 5/11 (Monday)
     - Variational Autoencoders
     - See [notes](./notes/vae_notes.pdf) and work through [notebook](./notebooks/VAE_celeba_student.ipynb)

@@ -5,6 +5,11 @@ classes:
   - wide
 ---
 
+- May 19, 2026 (Tuesday)
+    - Deadlines!
+        - May 22, 5pm, [Final Paper](https://forms.gle/1u9LTvx57UZnfFF66) see [guidelines](./paper_rubric.pdf)
+        - June 1, 11:15 AM, Final product, live demo in person (demo anytime before then)
+        - May 21, 11:15 AM, [Final poster](https://forms.gle/1u9LTvx57UZnfFF66) (unless you already made one!)
 - May 11, 2026 (Monday)
     - Paper draft [due today](https://forms.gle/1u9LTvx57UZnfFF66). See rubric for specifications
     - Be aware of upcoming final submissions: paper, poster, app!

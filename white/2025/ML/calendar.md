@@ -7,6 +7,11 @@ sidebar:
 
 ## Daily Summary
 
+- 5/28 (Thursday)
+    - **Research Symposium**
+    - Before class, please review the list of [CS projects](./notes/Symposium_Program_2026.pdf) and [all projects](./notes/ACL_Symposium_Program_2026.pdf)
+    - Identify 8 or more projects that sound interesting to you. Write down the room and proj # and title and bring to class.
+    - We will go see posters during class time
 - 5/26 (Tuesday)
     - Notes part 2
     - Assignment; Complete [this notebook](./notebooks/Diffusion_Image_Student.ipynb)

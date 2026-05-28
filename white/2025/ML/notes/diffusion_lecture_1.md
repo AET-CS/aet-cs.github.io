@@ -29,7 +29,7 @@ $-1$. That is where we start.
 
 ---
 
-# 2. Warm-up: no noise at all
+# 2. Start out walking randomly
 
 Let $X_0$ be our data. For now it takes only two values:
 
@@ -108,7 +108,7 @@ These four values are exactly $X_2 / 3$. So now the slope is $\tfrac13$:
 
 $$\mathbb{E}[X_0 \mid X_2] = \tfrac{1}{3}\, X_2.$$
 
-## Why the slope is $1/(t+1)$ — a one-line argument
+## Asisde: Why is the slope is $1/(t+1)$?
 
 Here is the elegant reason. After $t$ steps,
 
@@ -130,18 +130,22 @@ the prior.* That is exactly the "signal is destroyed" endpoint of the forward pr
 
 ---
 
-# 5. Part 2: switching to *Gaussian* noise
+# 5. Level up: switching to *Gaussian* noise
 
 Real diffusion models use continuous Gaussian noise, not $\pm1$ steps. So let us redo the
 single-step analysis with
 
 $$Y \sim \mathcal{N}(0, \sigma^2), \qquad X_1 = X_0 + Y.$$
 
+Recall that the Gaussian pdf with mean $\mu$ and variance $\sigma^2$ is
+
+$$\mathcal{N}(x;\,\mu,\sigma^2) = \frac{1}{\sigma\sqrt{2\pi}}\,e^{-(x-\mu)^2/(2\sigma^2)}.$$
+
 Conditioned on $X_0$, the noised value $X_1$ is just $X_0$ shifted by a Gaussian, so
 
 $$X_1 \mid X_0 \sim \mathcal{N}(X_0,\; \sigma^2).$$
 
-The unconditional distribution of $X_1$ is a 50/50 blend of the two cases $X_0 = \pm 1$ —
+The unconditional distribution of $X_1$ is a 50/50 blend of the two cases $$X_0 = \pm 1$$
 a **mixture of two Gaussians**, one centered at $+1$ and one at $-1$:
 
 $$f_{X_1}(x) = \tfrac{1}{2}\,\mathcal{N}(x;\, +1, \sigma^2)
@@ -155,37 +159,59 @@ continuous analogue of the discrete picture above.
 
 # 6. Posterior probability that $X_0 = +1$
 
-Given an observed $X_1 = x$, what is the probability the data was $+1$? Apply Bayes' rule.
-The two priors are equal ($\tfrac12$ each) and cancel:
+The **posterior probability** means: after observing $X_1 = x$, how likely is each possible
+original value of $X_0$?
+
+Given an observed $X_1 = x$, what is the probability $X_0$ was $+1$? Apply Bayes' rule:
+
+$$P(A\mid B) = \frac{P(B\mid A)P(A)}{P(B)}.$$
+
+Here $A$ is the event $X_0 = +1$ and $B$ is the event $X_1 = x$, so
+
+$$P(X_0 = +1 \mid X_1 = x)
+= \frac{P(X_1 = x \mid X_0 = +1)P(X_0 = +1)}{P(X_1 = x)}.$$
+
+Now expand the denominator using the law of total probability. Since $X_0$ can only be
+$+1$ or $-1$,
+
+$$P(X_1 = x)
+= P(X_1 = x \mid X_0 = +1)P(X_0 = +1)
+ + P(X_1 = x \mid X_0 = -1)P(X_0 = -1).$$
+
+Substituting this into Bayes' rule gives
+
+$$P(X_0 = +1 \mid X_1 = x)
+= \frac{P(X_1 = x \mid X_0 = +1)P(X_0 = +1)}
+  {P(X_1 = x \mid X_0 = +1)P(X_0 = +1) + P(X_1 = x \mid X_0 = -1)P(X_0 = -1)}.$$
+
+Because $X_1\mid( X_0=+1 )$ is normal  $\sim \mathcal{N}(1,\sigma^2)$ and
+$X_1\mid (X_0=-1)$ is also normal $\sim \mathcal{N}(-1,\sigma^2)$, *and* because $P(X_0 = \pm1) = \frac12$, this becomes
 
 $$P(X_0 = +1 \mid X_1 = x)
 = \frac{\tfrac12\,\mathcal{N}(x;\,1,\sigma^2)}
-       {\tfrac12\,\mathcal{N}(x;\,1,\sigma^2) + \tfrac12\,\mathcal{N}(x;\,-1,\sigma^2)}
+  {\tfrac12\,\mathcal{N}(x;\,1,\sigma^2) + \tfrac12\,\mathcal{N}(x;\,-1,\sigma^2)}
 = \frac{\mathcal{N}(x;\,1,\sigma^2)}
        {\mathcal{N}(x;\,1,\sigma^2) + \mathcal{N}(x;\,-1,\sigma^2)}.$$
 
-Divide top and bottom by $\mathcal{N}(x;\,1,\sigma^2)$ and simplify the leftover ratio.
-The Gaussian normalizing constants cancel, and the exponents combine using
+Writing out the Gaussian densities explicitly gives
 
-$$(x-1)^2 - (x+1)^2 = -4x \quad\Longrightarrow\quad
-  \frac{\mathcal{N}(x;\,-1,\sigma^2)}{\mathcal{N}(x;\,1,\sigma^2)} = e^{-2x/\sigma^2}.$$
-
-Therefore
-
-$$\boxed{\;P(X_0 = +1 \mid X_1 = x) = \frac{1}{1 + e^{-2x/\sigma^2}}
-  = \mathrm{sigmoid}\!\left(\frac{2x}{\sigma^2}\right).\;}$$
-
-The familiar logistic sigmoid appears for free, simply from a ratio of two Gaussians.
+$$P(X_0 = +1 \mid X_1 = x)
+= \frac{e^{-(x-1)^2/(2\sigma^2)}}{e^{-(x-1)^2/(2\sigma^2)} + e^{-(x+1)^2/(2\sigma^2)}}.$$
 
 ---
 
 # 7. Posterior probability that $X_0 = -1$
 
-There are only two possibilities, so this one is immediate:
+This is a simple modification of the previous derivation.
 
 $$P(X_0 = -1 \mid X_1 = x) = 1 - P(X_0 = +1 \mid X_1 = x)
-  = \frac{1}{1 + e^{+2x/\sigma^2}}
-  = \mathrm{sigmoid}\!\left(-\frac{2x}{\sigma^2}\right).$$
+  = \frac{\mathcal{N}(x;\,-1,\sigma^2)}
+         {\mathcal{N}(x;\,1,\sigma^2) + \mathcal{N}(x;\,-1,\sigma^2)}.$$
+
+Writing out the Gaussian densities explicitly gives
+
+$$P(X_0 = -1 \mid X_1 = x)
+= \frac{e^{-(x+1)^2/(2\sigma^2)}}{e^{-(x-1)^2/(2\sigma^2)} + e^{-(x+1)^2/(2\sigma^2)}}.$$
 
 ---
 
@@ -198,8 +224,43 @@ $$\mathbb{E}[X_0 \mid X_1 = x]
 = (+1)\,P(X_0{=}{+}1\mid x) + (-1)\,P(X_0{=}{-}1\mid x)
 = P(X_0{=}{+}1\mid x) - P(X_0{=}{-}1\mid x).$$
 
-Using the identity $\mathrm{sigmoid}(u) - \mathrm{sigmoid}(-u) = \tanh(u/2)$ with
-$u = 2x/\sigma^2$:
+Substitute the formulas from sections 6 and 7:
+
+$$\mathbb{E}[X_0 \mid X_1 = x]
+= \frac{e^{-(x-1)^2/(2\sigma^2)}}{e^{-(x-1)^2/(2\sigma^2)} + e^{-(x+1)^2/(2\sigma^2)}}
+ - \frac{e^{-(x+1)^2/(2\sigma^2)}}{e^{-(x-1)^2/(2\sigma^2)} + e^{-(x+1)^2/(2\sigma^2)}}.$$
+
+Since the denominators are the same, combine the numerators:
+
+$$\mathbb{E}[X_0 \mid X_1 = x]
+= \frac{e^{-(x-1)^2/(2\sigma^2)} - e^{-(x+1)^2/(2\sigma^2)}}
+  {e^{-(x-1)^2/(2\sigma^2)} + e^{-(x+1)^2/(2\sigma^2)}}.$$
+
+Now divide the numerator and denominator by $e^{-(x-1)^2/(2\sigma^2)}$:
+
+$$\mathbb{E}[X_0 \mid X_1 = x]
+= \frac{1 - e^{\left(-(x+1)^2 + (x-1)^2\right)/(2\sigma^2)}}
+  {1 + e^{\left(-(x+1)^2 + (x-1)^2\right)/(2\sigma^2)}}.$$
+
+Expand the quadratics in the remaining exponent:
+
+$$\begin{aligned}
+-(x+1)^2 + (x-1)^2
+&= -(x^2 + 2x + 1) + (x^2 - 2x + 1) \\
+&= -4x.
+\end{aligned}$$
+
+So
+
+$$\mathbb{E}[X_0 \mid X_1 = x]
+= \frac{1 - e^{-2x/\sigma^2}}{1 + e^{-2x/\sigma^2}}.$$
+
+Now compare with the identity
+
+$$\tanh(z) = \frac{1 - e^{-2z}}{1 + e^{-2z}}.$$
+
+With $z = x/\sigma^2$, this gives
+
 
 $$\boxed{\;\mathbb{E}[X_0 \mid X_1 = x] = \tanh\!\left(\frac{x}{\sigma^2}\right).\;}$$
 
@@ -258,5 +319,4 @@ the $\tanh$. You should arrive at
 $$\mathbb{E}[X_0 \mid X_1 = x]
   = \tanh\!\left(\frac{x}{\sigma^2} - \tfrac{1}{2}\log\frac{a}{1-a}\right).$$
 
-Check that this reduces to the symmetric result when $a = \tfrac12$, and confirm the
-$\sigma \to \infty$ limit equals the prior mean $1 - 2a$.
+Check that this reduces to the symmetric result when $a = \tfrac12$, and confirm the $\sigma \to \infty$ limit equals the prior mean $1 - 2a$.

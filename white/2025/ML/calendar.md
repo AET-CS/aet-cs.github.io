@@ -17,6 +17,7 @@ sidebar:
     - Assignment; Complete [this notebook](./notebooks/Diffusion_Image_Student.ipynb)
 - 5/21 (Thursday)
     - Big notes day on Diffusion models. Proof part 1 (forward step, most likely start state)
+    - See [these notes on part 1](./notes/diffusion_lecture_1.md)
     - HW: redo proof if probability = a and 1-a instead of 1/2
 - 5/19 (Tuesday)
     - Finish VAE, Captioning, GPT

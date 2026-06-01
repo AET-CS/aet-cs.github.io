@@ -5,6 +5,9 @@ classes:
   - wide
 ---
 
+- Jun 1, 2026 (Monday)
+    - Demos!
+    - Fill out [this survey please](https://forms.gle/waGhTViVvEvynuWPA)
 - May 19, 2026 (Tuesday)
     - Deadlines!
         - May 22, 5pm, [Final Paper](https://forms.gle/1u9LTvx57UZnfFF66) see [guidelines](./paper_rubric.pdf)

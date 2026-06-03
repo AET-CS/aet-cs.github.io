@@ -9,6 +9,7 @@ sidebar:
 
 - 6/3 (Wednesday)
     - Try this [idea generator](./ml-idea-generator.html)
+    - Add ideas to [this ultimate file](https://docs.google.com/document/d/1ME4WEPHl4WExeAzCSBX33trG_vVQVpxoO0uZJl7lxv4/edit?usp=sharing)
 - 6/1 (Monday)
     - Research Symposium review, brainstorming
 - 5/28 (Thursday)

@@ -7,6 +7,10 @@ sidebar:
 
 ## Daily Summary
 
+- 6/3 (Wednesday)
+    - Try this [idea generator](./ml-idea-generator.html)
+- 6/1 (Monday)
+    - Research Symposium review, brainstorming
 - 5/28 (Thursday)
     - **Research Symposium**
     - Before class, please review the list of [CS projects](./notes/Symposium_Program_2026.pdf) and [all projects](./notes/ACL_Symposium_Program_2026.pdf)

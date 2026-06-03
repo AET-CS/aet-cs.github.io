@@ -1,0 +1,410 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>ML Research Idea Generator</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  :root {
+    --bg: #f5f2eb;
+    --surface: #fff;
+    --text: #1a1a18;
+    --muted: #6b6b5f;
+    --border: #d8d4c8;
+
+    --p-bg: #eeedfe;
+    --p-border: #afa9ec;
+    --p-text: #3c3489;
+    --p-sel-bg: #534ab7;
+    --p-sel-text: #fff;
+
+    --m-bg: #e1f5ee;
+    --m-border: #5dcaa5;
+    --m-text: #085041;
+    --m-sel-bg: #0f6e56;
+    --m-sel-text: #fff;
+
+    --a-bg: #fff3e0;
+    --a-border: #ef9f27;
+    --a-text: #633806;
+    --a-sel-bg: #ba7517;
+    --a-sel-text: #fff;
+  }
+
+  body {
+    font-family: 'DM Sans', sans-serif;
+    background: var(--bg);
+    color: var(--text);
+    min-height: 100vh;
+    padding: 2rem 1rem 4rem;
+  }
+
+  header {
+    text-align: center;
+    margin-bottom: 3rem;
+  }
+
+  header .eyebrow {
+    font-family: 'DM Mono', monospace;
+    font-size: 11px;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: var(--muted);
+    margin-bottom: 0.75rem;
+  }
+
+  header h1 {
+    font-size: clamp(1.8rem, 4vw, 2.8rem);
+    font-weight: 300;
+    letter-spacing: -0.02em;
+    line-height: 1.15;
+    color: var(--text);
+  }
+
+  header h1 strong {
+    font-weight: 500;
+  }
+
+  header p {
+    margin-top: 0.75rem;
+    font-size: 15px;
+    color: var(--muted);
+    max-width: 480px;
+    margin-left: auto;
+    margin-right: auto;
+    line-height: 1.6;
+  }
+
+  .container {
+    max-width: 960px;
+    margin: 0 auto;
+  }
+
+  .columns {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1.5rem;
+    margin-bottom: 1.75rem;
+  }
+
+  @media (max-width: 640px) {
+    .columns { grid-template-columns: 1fr; }
+  }
+
+  .col-card {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    padding: 1.25rem;
+  }
+
+  .col-label {
+    display: flex;
+    align-items: center;
+    gap: 7px;
+    font-family: 'DM Mono', monospace;
+    font-size: 10.5px;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--muted);
+    margin-bottom: 1rem;
+    padding-bottom: 0.75rem;
+    border-bottom: 1px solid var(--border);
+  }
+
+  .col-label .dot {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    flex-shrink: 0;
+  }
+
+  .dot-p { background: var(--p-sel-bg); }
+  .dot-m { background: var(--m-sel-bg); }
+  .dot-a { background: var(--a-sel-bg); }
+
+  .chips {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 5px;
+  }
+
+  .chip {
+    display: inline-block;
+    padding: 5px 11px;
+    border-radius: 20px;
+    font-size: 12.5px;
+    font-weight: 400;
+    cursor: pointer;
+    border: 1px solid;
+    transition: transform 0.1s ease, opacity 0.1s ease;
+    line-height: 1.4;
+    user-select: none;
+  }
+
+  .chip:hover { transform: scale(1.05); }
+
+  .chip-p { background: var(--p-bg); border-color: var(--p-border); color: var(--p-text); }
+  .chip-p.on { background: var(--p-sel-bg); border-color: var(--p-sel-bg); color: var(--p-sel-text); }
+
+  .chip-m { background: var(--m-bg); border-color: var(--m-border); color: var(--m-text); }
+  .chip-m.on { background: var(--m-sel-bg); border-color: var(--m-sel-bg); color: var(--m-sel-text); }
+
+  .chip-a { background: var(--a-bg); border-color: var(--a-border); color: var(--a-text); }
+  .chip-a.on { background: var(--a-sel-bg); border-color: var(--a-sel-bg); color: var(--a-sel-text); }
+
+  .result-area {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    padding: 1.25rem 1.5rem;
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    min-height: 68px;
+  }
+
+  .result-text {
+    flex: 1;
+    font-size: 15px;
+    line-height: 1.6;
+    color: var(--muted);
+    font-style: italic;
+  }
+
+  .result-text.filled {
+    color: var(--text);
+    font-style: normal;
+  }
+
+  .result-text em {
+    font-style: normal;
+    font-weight: 500;
+  }
+
+  .result-text .tag-p { color: var(--p-sel-bg); }
+  .result-text .tag-m { color: var(--m-sel-bg); }
+  .result-text .tag-a { color: var(--a-sel-bg); }
+
+  .dice-btn {
+    flex-shrink: 0;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    padding: 8px 14px;
+    background: none;
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    font-family: 'DM Sans', sans-serif;
+    font-size: 13px;
+    color: var(--muted);
+    cursor: pointer;
+    transition: background 0.15s, color 0.15s;
+  }
+
+  .dice-btn:hover { background: var(--bg); color: var(--text); }
+
+  .hint {
+    text-align: center;
+    margin-top: 1.25rem;
+    font-size: 13px;
+    color: var(--muted);
+  }
+
+  .hint strong {
+    font-weight: 500;
+    color: var(--text);
+  }
+
+  .count-strip {
+    display: flex;
+    justify-content: center;
+    gap: 2rem;
+    margin-top: 2.5rem;
+    padding-top: 2rem;
+    border-top: 1px solid var(--border);
+  }
+
+  .count-item {
+    text-align: center;
+  }
+
+  .count-item .num {
+    font-size: 1.6rem;
+    font-weight: 300;
+    letter-spacing: -0.02em;
+    color: var(--text);
+  }
+
+  .count-item .lbl {
+    font-family: 'DM Mono', monospace;
+    font-size: 10px;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--muted);
+    margin-top: 2px;
+  }
+
+  footer {
+    text-align: center;
+    margin-top: 3rem;
+    font-size: 12px;
+    color: var(--muted);
+    font-family: 'DM Mono', monospace;
+  }
+</style>
+</head>
+<body>
+
+<div class="container">
+  <header>
+    <div class="eyebrow">Year-long project brainstorm</div>
+    <h1>ML Research<br><strong>Idea Generator</strong></h1>
+    <p>Pick one from each column — or roll the dice — to generate a research direction worth exploring.</p>
+  </header>
+
+  <div class="columns">
+    <div class="col-card">
+      <div class="col-label"><span class="dot dot-p"></span>Product / Domain</div>
+      <div class="chips" id="products"></div>
+    </div>
+    <div class="col-card">
+      <div class="col-label"><span class="dot dot-m"></span>Method / Model</div>
+      <div class="chips" id="methods"></div>
+    </div>
+    <div class="col-card">
+      <div class="col-label"><span class="dot dot-a"></span>Research Angle</div>
+      <div class="chips" id="angles"></div>
+    </div>
+  </div>
+
+  <div class="result-area">
+    <div class="result-text" id="result-text">Select one from each column — or roll the dice below.</div>
+    <button class="dice-btn" onclick="rollDice()">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+        <rect x="2" y="2" width="20" height="20" rx="4"/>
+        <circle cx="8" cy="8" r="1.2" fill="currentColor" stroke="none"/>
+        <circle cx="16" cy="8" r="1.2" fill="currentColor" stroke="none"/>
+        <circle cx="8" cy="16" r="1.2" fill="currentColor" stroke="none"/>
+        <circle cx="16" cy="16" r="1.2" fill="currentColor" stroke="none"/>
+        <circle cx="12" cy="12" r="1.2" fill="currentColor" stroke="none"/>
+      </svg>
+      Random
+    </button>
+  </div>
+
+  <p class="hint" id="hint-text">
+    <span id="sel-count">0 of 3 selected</span>
+  </p>
+
+  <div class="count-strip">
+    <div class="count-item">
+      <div class="num" id="cnt-p">24</div>
+      <div class="lbl">Domains</div>
+    </div>
+    <div class="count-item">
+      <div class="num" id="cnt-m">20</div>
+      <div class="lbl">Methods</div>
+    </div>
+    <div class="count-item">
+      <div class="num" id="cnt-a">20</div>
+      <div class="lbl">Angles</div>
+    </div>
+    <div class="count-item">
+      <div class="num" id="cnt-total">9,600</div>
+      <div class="lbl">Combinations</div>
+    </div>
+  </div>
+
+  <footer>academies of loudoun &nbsp;·&nbsp; machine learning research &nbsp;·&nbsp; brainstorm tool</footer>
+</div>
+
+<script>
+const PRODUCTS = [
+  "Music streaming","Navigation / maps","Social media feed","E-commerce search",
+  "Email / spam filter","Medical imaging","Satellite imagery","Weather forecasting",
+  "Credit scoring","Job matching","Legal document review","News summarization",
+  "Fitness tracking","Educational tutoring","Accessibility tools","Traffic control",
+  "Agricultural monitoring","Energy grid","Drug discovery","Wildlife monitoring",
+  "Sign language","Wildfire prediction","Sports analytics","Mental health apps",
+];
+
+const METHODS = [
+  "LLM / GPT-style","Diffusion model","GAN","Vision Transformer",
+  "CNN","RNN / LSTM","Graph neural network","Reinforcement learning",
+  "Contrastive learning","VAE","CLIP / multimodal","Fine-tuning",
+  "Prompt engineering","RAG","Sparse autoencoder","Decision transformer",
+  "Knowledge distillation","Few-shot learning","Federated learning","Mixture of experts",
+];
+
+const ANGLES = [
+  "Bias & fairness","Efficiency / compression","Interpretability","Robustness",
+  "Accessibility","Privacy / federated","Data efficiency","OOD generalization",
+  "Multimodal fusion","Uncertainty quantification","Human-in-the-loop","Evaluation metrics",
+  "Dataset creation","Transfer learning","Real-time inference","Environmental cost",
+  "Adversarial examples","Synthetic data","Longitudinal behavior","Cross-lingual transfer",
+];
+
+const sel = { products: null, methods: null, angles: null };
+
+function buildChips(containerId, items, cls, key) {
+  const wrap = document.getElementById(containerId);
+  items.forEach((item, i) => {
+    const c = document.createElement('span');
+    c.className = `chip ${cls}`;
+    c.textContent = item;
+    c.dataset.idx = i;
+    c.addEventListener('click', () => {
+      wrap.querySelectorAll('.chip').forEach(x => x.classList.remove('on'));
+      c.classList.add('on');
+      sel[key] = item;
+      update();
+    });
+    wrap.appendChild(c);
+  });
+}
+
+buildChips('products', PRODUCTS, 'chip-p', 'products');
+buildChips('methods', METHODS, 'chip-m', 'methods');
+buildChips('angles', ANGLES, 'chip-a', 'angles');
+
+document.getElementById('cnt-p').textContent = PRODUCTS.length;
+document.getElementById('cnt-m').textContent = METHODS.length;
+document.getElementById('cnt-a').textContent = ANGLES.length;
+document.getElementById('cnt-total').textContent = (PRODUCTS.length * METHODS.length * ANGLES.length).toLocaleString();
+
+function update() {
+  const n = [sel.products, sel.methods, sel.angles].filter(Boolean).length;
+  const hint = document.getElementById('sel-count');
+  hint.textContent = n === 3 ? '✓ All three selected' : `${n} of 3 selected`;
+
+  const rt = document.getElementById('result-text');
+  if (n < 3) {
+    rt.className = 'result-text';
+    rt.innerHTML = 'Select one from each column — or roll the dice below.';
+  } else {
+    rt.className = 'result-text filled';
+    rt.innerHTML = `Apply <em class="tag-m">${sel.methods}</em> to <em class="tag-p">${sel.products}</em>, focusing on <em class="tag-a">${sel.angles}</em>.`;
+  }
+}
+
+function rollDice() {
+  const pickRandom = (arr, containerId, key) => {
+    const i = Math.floor(Math.random() * arr.length);
+    const chips = document.querySelectorAll(`#${containerId} .chip`);
+    chips.forEach(x => x.classList.remove('on'));
+    chips[i].classList.add('on');
+    sel[key] = arr[i];
+  };
+  pickRandom(PRODUCTS, 'products', 'products');
+  pickRandom(METHODS, 'methods', 'methods');
+  pickRandom(ANGLES, 'angles', 'angles');
+  update();
+}
+</script>
+</body>
+</html>

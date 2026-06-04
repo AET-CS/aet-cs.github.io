@@ -7,7 +7,7 @@ classes:
 
 ## Daily Calendar
 - June 4, 2026
-    - Copy this [reflection](https://docs.google.com/document/d/1_PVV8tG5ueudGyUs_MpPZWVNinDsZlNTNktRp28sp5w/edit?usp=sharing), answer carefully, and upload a PDF to javadrop "Reflection" today if possible
+    - Copy this [reflection](https://docs.google.com/document/d/1_PVV8tG5ueudGyUs_MpPZWVNinDsZlNTNktRp28sp5w/edit?usp=sharing), answer carefully, and upload a PDF [here](https://bit.ly/projectaet)
     - Presentations!
 - May 18, 2026
     - Finalize project plan.

@@ -7,7 +7,6 @@ classes:
 
 ## Dr. White's Classes
 
-  * [Junior Research: Machine Learning](white/2025/ML/calendar/)
-  * [Senior Research](white/2025/research/calendar/)
-  * [CS 11](white/2025/CS11/calendar/)
-  * [CS 12](white/2025/CS12/calendar/)
+  * [Junior Research: Machine Learning](white/2026/ML/calendar/)
+  * [Senior Research](white/2026/research/calendar/)
+  * [CS 10](white/2026/CS10/calendar/)

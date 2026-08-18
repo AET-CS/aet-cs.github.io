@@ -1,0 +1,174 @@
+---
+title: "Senior Research Calendar"
+layout: single
+classes:
+  - wide
+---
+
+- Jun 1, 2026 (Monday)
+    - Demos!
+    - Fill out [this survey please](https://forms.gle/waGhTViVvEvynuWPA)
+- May 19, 2026 (Tuesday)
+    - Deadlines!
+        - May 22, 5pm, [Final Paper](https://forms.gle/1u9LTvx57UZnfFF66) see [guidelines](./paper_rubric.pdf)
+        - June 1, 11:15 AM, Final product, live demo in person (demo anytime before then)
+        - May 21, 11:15 AM, [Final poster](https://forms.gle/1u9LTvx57UZnfFF66) (unless you already made one!)
+- May 11, 2026 (Monday)
+    - Paper draft [due today](https://forms.gle/1u9LTvx57UZnfFF66). See rubric for specifications
+    - Be aware of upcoming final submissions: paper, poster, app!
+- May 7, 2025 (Thursday)
+    - AP Week and work day
+- May 5, 2025 (Tuesday)
+     - AP Week and work day
+- May 1, 2026 (Friday)
+    - Skeleton pdf [due today](https://forms.gle/1u9LTvx57UZnfFF66) at 11:30pm
+    - Last day to sign up for Senior Symposium
+    - Survey is [required](https://forms.gle/i3ctL9j8ELH5Nt9G9) about Senior Research
+- April 29, 2026 (Wednesday)
+    - Demo day for everybody!
+    - Paper skeleton due next class. Should be in markdown/pandoc format according to resources below.
+    - Download [these resources](./paper_resources.zip) to help you typeset your final paper. (Includes markdown/pandoc template and software instructions)
+    - Please fill out this [final survey](https://forms.gle/i3ctL9j8ELH5Nt9G9) about Senior Research
+    - Symposium sign up required by end of class today! Link below
+- April 27, 2026 (Monday)
+    - Demo 4 next class, send video if absent
+    - Paper [guidelines](./paper_rubric.pdf) discussed in class
+    - Sample of a [previous research paper](./paper_sample.pdf)
+    - Paper due dates: Skeleton May 1, Draft May 11, Final May 22. No exceptions. Submission links will be posted
+    - Poster draft is LATE after 11:30 AM today (email me a link)
+    - Final poster deadline TBD but in about 2 weeks.
+- April 23, 2026 (Thursday)
+    - Demo 3 (optional this week due to short week)
+    - Reminder for Poster draft and Symposium Sign up! (Email poster link to me)
+- April 21, 2026 (Tuesday)
+    - Election day
+- April 17, 2026 (Friday)
+    - See poster and symposium info below
+    - Demo 3 next Thursday
+- April 15, 2026 (Wednesday)
+    - Demo day 2! Send video if not present in class please.
+    - Poster early draft due **April 24**. Templates/samples: [Template 1](https://canva.link/z8nrq4hnd48u3v5)
+    - Symposium Sign up [on this form](https://forms.gle/mBU8iAT63zg7Uv1L6) due **May 1**. You need your abstract and to know your availability on May 28 both day and evening.
+- February 4, 2026 (Wednesday)
+    - 2 hr delay
+    - Talks today: Jahnavi, Anik, Brandon, Ajay, Matt (may not get to all)
+    - **Please Add your talk to [this form](https://docs.google.com/spreadsheets/d/1aGTsB0ENr_6kQYpuJKv-PdVgpkA-sKZ9R8NAN9mnBIc/edit?usp=sharing) now**
+- February 2, 2026 (Monday)
+    - 2 hr delay
+    - Journal due
+    - Talks start Wednesday
+- January 22, 2025 (Thursday)
+    - [Important info about talks](./semester-presentations.md)
+    - Tuesday: Jahnavi, Anik, Brandon, Ajay, Matt
+    - Thursday: Pranav, Aryan, Brian, Rhea, Anna
+    - Slides are due next week UNLESS all internet and power on the East Coast are down
+    - Your next journal date is Tuesday which will probably be cancelled! So whenever we come back, please turn in a journal about what you did *this week* plus anything between now and the next time I see you.
+- January 20, 2026 (Tuesday)
+    - Semester presentations next week! Even if it snows, slides are due.
+-------------
+- December 2, 2025 (Tuesday)
+    - 2 hour delay
+    - Make-up presentations
+    - Turkey goal due date, as part of Journal 13
+- Thanksgiving Break!
+- November 25, 2025 (Tuesday)
+    - Competitive turkey carving
+- November 21, 2025 (Friday)
+    - Presentations!
+    - Please fill out [labrat forms](https://app.labrat.live) and get [signatures](https://permission.click/y4zXW/int) by next class.
+    - Here's some helpful(?) labrat [information](https://docs.google.com/document/d/1cz7OnfCf-a6mKP7p-uSrnQSIEZziCpgsgWJEoeltr4k/edit?usp=sharing). Apparently you have to say **YES** to the hazardous chemical question (seems to be a bug in the software.)
+    - Journal 12 due next class, and presentations if you were absent
+    - November goal journal 13 due after break
+    - LabRat forms due 12/1
+- November 19, 2025 (Wednesday)
+    - Work day
+- November 17, 2025 (Monday)
+    - Journal 11 due
+- November 11, 2025 (Tuesday)
+    - Journal 10 due with Turkey Goal
+    - Demonstrations during the week 11/17-11/21. You pick a date. Show us stuff.
+    - ORDER NOW if you need to!
+- November 7, 2025 (Friday)
+    - Work day
+- November 5, 2025 (Wednesday)
+    - Journal due with October Goal reflection
+- October 29, 2025 (Wednesday)
+    - Work day
+- October 27, 2025 (Monday)
+    - Journal due
+- October 23, 2025 (Wednesday)
+    - Class picture
+    - Fill out this [ordering form](https://docs.google.com/forms/d/1qf9mVgUUsjugwLPEMZ7x39qzB72JXlzBZIyF52pZLus/edit) if needed. See me with questions.
+    - If you know you need something fill out the form *ASAP* so it can get here. Try to get it from Amazon if you can. If not there's a [list of approved vendors](
+    https://docs.google.com/document/d/1xgii6ClnKwoE_xLkKA8eBb1J-9gatWSbon4Mb1JIWEs/edit?tab=t.0) you should reference.
+- October 21, 2025 (Tuesday)
+    - Journals due
+    - Mid-October Goal due
+- October 9, 2025 (Thursday)
+    - Journals due
+    - Independent work
+    - Further Journal specifications
+        - Each journal covers Sunday-Sunday for the week before you turn it in
+        - Must be printed before class, turned in at the bell
+        - 1 entry per school day, at least, regardless of your specific location or status (absence does not excuse research because you can research anywhere)
+    - Feedback on journals
+    - Journal due next class covering 10/5-10/12
+    - Overall, great journals turned in today
+- October 7, 2025 (Tuesday)
+    - PSAT
+    - Journals due but nobody's here :-)
+- October 2, 2025 (Thursday)
+    - Independent work
+- September 30, 2025 (Tuesday)
+    - Formulate mid-October and end-October goals
+    - Download [journal template](./weekly-journal.txt). Save as a markdown file and compile using pandoc to a pdf.
+    - Add your October goals to the journal and at the end of class, take 5 minutes to add your daily log.
+    - Journals will be due on the first class day of each week, printed out please, at the beginning of class
+    - Submit your journal today with 2 goals on [this form](https://forms.gle/2eTgkuz6yssZWnUP6)
+- September 24, 2025 (Wednesday)
+    - Prepare for Friday presentations
+    - Work on research
+    - Fill out [this form](https://docs.google.com/forms/d/e/1FAIpQLSci1GGbp_kS4UtTdldO9may_cB0L3kayQLijs5IG6PHbO_6ng/viewform)
+- September 22, 2025 (Monday)
+    - Proposal Presentations 1-9
+- September 18, 2025 (Thursday)
+    - Upload link to presentation [here](https://docs.google.com/spreadsheets/d/1NokWEGFKVZMkcHqQ0HqSZua3053UXUHKe55MViAPp-Y/edit?usp=sharing)
+    - Presentations next Monday and Friday (optionally and hopefully not Wednesday also).
+- September 16, 2025 (Tuesday)
+    - Draft presentation due by next class (submission link TBD)
+    - Here are some [guidelines](./presentation-guidelines.md) for a proposal talk. Keep it to 6 minutes.
+- September 12, 2025 (Friday)
+    - Presentations Sept 22-28, please update (or make!) your slides and send me a draft next week
+    - Continue background research
+    - Start learning something you don't know, but which you need to know, in order to do, the thing, you say you're going to do.
+- September 10, 2025 (Wednesday)
+    - Announcement: [US AI Olympiad](../common/AI-olympiad.md)
+    - Work in class on finding and reading background papers
+    - Discuss your ideas with me ASAP if not already approved!
+- September 8, 2025 (Monday)
+    - Announcement: [US AI Olympiad](../common/AI-olympiad.md)
+    - Finish individual task from last class, turn in hard copy, meet with me
+    - Download Zotero
+    - Find at least 12 relevant papers for background research, read, add to Zotero
+    - Prepare for proposal presentations, possibly next week
+- September 4, 2025 (Thursday)
+    - Turn in proposals (3)
+    - Install latex and pandoc
+    - Install a markdown editor [see list](./pandoc.md) or VS Code extension
+    - Individual consultations -- you each have an action item for next class!
+- September 2, 2025 (Tuesday)
+    - Finish debate team A (congrats Pro side!)
+    - Brainstorm >= 3 new research ideas
+    - Share ideas [here](https://docs.google.com/document/d/1bDUcir28uqen22Yads3-vEhjPQ6LGi4sbt-VbYo2PB4/edit?usp=sharing)
+- August 27, 2025 (Wednesday)
+    - Finish debate team B (congrats Con side!)
+    - Share 3 research ideas and discuss
+- August 25, 2025 (Monday)
+    - In-class debate
+    - Pro A, Con A, Pro B, Con B teams
+    - HW: Prepare your rebuttals. Present 2 min rebuttal and 2 min conclusion next class
+- August 21, 2025 (Thursday)
+    - Intro to class.
+    - Weekly journal format
+    - Intro to Markdown
+    - Quick survey of research ideas

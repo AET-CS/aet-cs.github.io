@@ -16,7 +16,7 @@ operator *after* its two operands:
 3 4 2 * +
 ```
 
-No precedence. No parentheses. Ever. The order you read it in *is* the order it
+No precedence or parenthesis. The order you read it in *is* the order it
 happens in, and one simple machine can evaluate anything written this way.
 
 That machine is a stack.
@@ -49,7 +49,7 @@ second-from-top is the left operand. For `+` and `*` that doesn't matter. For `-
 `/` it decides everything.
 
 **Watch how deep the stack gets.** Some expressions never hold more than two values.
-Others hold seven. That depth is a real cost — it's memory the calculator has to have.
+Others hold seven. In real life the stack depth cannot be infinite!
 
 ## Evaluate these
 
@@ -118,16 +118,6 @@ none.
 {% endcapture %}
 {% capture answer6 %}
 **6/5**, or **1.2**.
-
-Every step before the last one lands on a whole number: `4+2` is 6, `12/6` is 2,
-`2*8` is 16, `16-10` is 6, `3+2` is 5. Only the final division doesn't divide evenly.
-
-Now the interesting part. If you wrote this in Java with `int` variables, `6/5` is
-**1** — the fraction is thrown away. With `double` variables it's **1.2**.
-
-Look at the expression. **Nowhere in it does it say which one you want.** The notation
-says *divide* and stops there. The types decide the rest. Try the division dropdown in
-the machine above and watch the last step change.
 {% endcapture %}
 {% include answer-box.html question=question6 content=answer6 %}
 
@@ -236,40 +226,3 @@ Build it from the inside out:
 Seven 1s and six operators — which is exactly the check below.
 {% endcapture %}
 {% include answer-box.html question=question14 content=answer14 %}
-
-## One check that catches most mistakes
-
-Count. An RPN expression with **n** operands needs exactly **n − 1** operators.
-
-Seven numbers, six operators. Three numbers, two operators. Always.
-
-So look at this one:
-
-```
-5 6 * 2 3 +
-```
-
-Four numbers, two operators. It needs three. Run it in the machine and you'll see what
-goes wrong — it finishes reading with **30 and 5 both still on the stack** and no
-operator left to combine them. That isn't a complete expression, it's two expressions
-sitting next to each other.
-
-A finished RPN expression leaves exactly one value on the stack. Not two, not zero.
-
-There's a second half to the rule: reading left to right, you must never hit an
-operator when there are fewer than two values available. `1 2 + +` passes the count
-test in the wrong direction and still fails — the second `+` has only one value to
-work with.
-
-## Why this matters
-
-You just hand-executed a **stack machine**. Push a value, pop a value, and the top of
-the stack is the only place you can reach.
-
-This isn't a curiosity. It's how the Java Virtual Machine actually runs your code.
-When you compile `int x = 3 + 4 * 2;`, javac converts it to something very close to
-`3 4 2 * +` and the JVM evaluates it by pushing and popping on a stack, exactly the way
-you did on paper.
-
-The stack is also how Java keeps track of method calls — which is where we're headed
-next.

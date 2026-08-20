@@ -1,94 +1,21 @@
-# RPN Expressions — Answer Key
+# RPN Worksheet - Answer Key
 
+## Questions
 
-## Evaluate the following expressions
+1. **3**
+2. `5 3 + 4 * 6 -`
+3. `(a + b) - (c * d / e)`
+4. **17**
+5. `a b + c * d - e f g * + /`
+6. `(x + y * z) / (w - v * u) + t`
+7. **18**
+8. `a 2 ^ b 2 ^ + sqrt theta cos *`
 
-| Expression | Answer |
-|---|---|
-| `3 7 +` | **10** |
-| `12 4 -` | **8** |
-| `10 3 2 + +` | **15** |
-| `10 2 / 5 2 + +` | **12** |
-| `9 8 7 6 5 4 3 - - - - - -` | **6** |
-| `12 4 2 + / 8 * 10 - 3 2 + /` | **6/5** |
+## Challenges
 
-### Worked stacks
-
-**`10 2 / 5 2 + +`** → 12
-
-| read | stack |
-|---|---|
-| 10 | 10 |
-| 2 | 10, 2 |
-| / | 5 |
-| 5 | 5, 5 |
-| 2 | 5, 5, 2 |
-| + | 5, 7 |
-| + | **12** |
-
-**`9 8 7 6 5 4 3 - - - - - -`** → 6
-
-Every operand is pushed before any operator runs, so it unwinds from the inside out:
-9 − (8 − (7 − (6 − (5 − (4 − 3))))).
-
-| read | stack |
-|---|---|
-| 9 8 7 6 5 4 3 | 9, 8, 7, 6, 5, 4, 3 |
-| − | 9, 8, 7, 6, 5, 1 |
-| − | 9, 8, 7, 6, 4 |
-| − | 9, 8, 7, 2 |
-| − | 9, 8, 5 |
-| − | 9, 3 |
-| − | **6** |
-
-**`12 4 2 + / 8 * 10 - 3 2 + /`** → 6/5
-
-| read | stack |
-|---|---|
-| 12 4 2 | 12, 4, 2 |
-| + | 12, 6 |
-| / | 2 |
-| 8 | 2, 8 |
-| * | 16 |
-| 10 | 16, 10 |
-| − | 6 |
-| 3 2 | 6, 3, 2 |
-| + | 6, 5 |
-| / | **6/5** |
-
----
-
-## Write algebraic expressions with 'x' and 'y'
-
-| Expression | Answer |
-|---|---|
-| `3 x x * *` | **3x²** |
-| `4 x x * * 3 x * + 1 -` | **4x² + 3x − 1** |
-| `12 x * 3 y * + 5 x * 2 y * - /` | **(12x + 3y) / (5x − 2y)** |
-
----
-
-## Convert the following expressions to RPN
-
-(There can be several correct answers)
-
-| Expression | RPN | Value |
-|---|---|---|
-| `(3+4) * (2+3)` | `3 4 + 2 3 + *` | 35 |
-| `1 + 2 + 3 + 4` | `1 2 3 4 + + + ` | 10 |
-| `5 - 4 - 3 - 2` | `5 4 - 3 - 2 -` | −4 |
-| `1 / (1 + 2)` | `1 1 2 + /` | 1/3 |
-| `1 / (1 + (1 / (1 + 1 / (1 + 1))))` | `1 1 1 1 1 1 1 + / + / + /` | 3/5 |
-
-### Notes
-
-**The nested fraction** — seven 1s, then `+ / + / + /`. Build it inside out:
-
-| piece | RPN |
-|---|---|
-| `1 + 1` | `1 1 +` |
-| `1 / (1+1)` | `1 1 1 + /` |
-| `1 + 1/(1+1)` | `1 1 1 1 + / +` |
-| `1 / (1 + 1/(1+1))` | `1 1 1 1 1 + / + /` |
-| `1 + (…)` | `1 1 1 1 1 1 + / + / +` |
-| `1 / (…)` | `1 1 1 1 1 1 1 + / + / + /` |
+1. **A:** `5 - (4 - (3 - (2 - 1)))`<br>
+   **B:** `5 - 4 + 3 - 2 + 1`
+2. $n - 1$ operators
+3. **120** equivalent valid RPN expressions
+4. **500**
+5. Approximately **0.739085**

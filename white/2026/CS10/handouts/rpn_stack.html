@@ -1,0 +1,464 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>RPN Stack Machine</title>
+<style>
+  :root {
+    --ground: #dfe6e9;
+    --panel:  #f4f7f8;
+    --ink:    #16232b;
+    --dim:    #5d717c;
+    --rule:   #b9c7ce;
+    --live:   #3b36c7;
+    --hot:    #c46a10;
+    --bad:    #a3231b;
+    --good:   #1f6b4a;
+    --mono: ui-monospace, "SF Mono", "Cascadia Code", "Roboto Mono", Menlo, Consolas, monospace;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --ground: #131c22;
+      --panel:  #1b262d;
+      --ink:    #e3ecf0;
+      --dim:    #8ba0ac;
+      --rule:   #35464f;
+      --live:   #8f8bff;
+      --hot:    #e5a04a;
+      --bad:    #ff8177;
+      --good:   #5fc699;
+    }
+  }
+
+  * { box-sizing: border-box; }
+  body {
+    margin: 0; padding: 18px;
+    background: var(--ground); color: var(--ink);
+    font-family: var(--mono);
+    font-size: 14px; line-height: 1.5;
+  }
+  .wrap { max-width: 780px; margin: 0 auto; }
+
+  .lbl {
+    font-size: 10px; letter-spacing: .16em; text-transform: uppercase;
+    color: var(--dim); margin-bottom: 6px;
+  }
+
+  /* ---- input ---- */
+  .entry { display: flex; gap: 8px; margin-bottom: 14px; }
+  #expr {
+    flex: 1; min-width: 0;
+    font-family: var(--mono); font-size: 16px;
+    padding: 9px 11px;
+    background: var(--panel); color: var(--ink);
+    border: 1px solid var(--rule); border-radius: 3px;
+  }
+  #expr:focus { outline: 2px solid var(--live); outline-offset: 1px; }
+
+  button {
+    font-family: var(--mono); font-size: 12px;
+    letter-spacing: .06em;
+    padding: 9px 13px;
+    background: var(--panel); color: var(--ink);
+    border: 1px solid var(--rule); border-radius: 3px;
+    cursor: pointer;
+  }
+  button:hover:not(:disabled) { border-color: var(--live); color: var(--live); }
+  button:focus-visible { outline: 2px solid var(--live); outline-offset: 1px; }
+  button:disabled { opacity: .35; cursor: default; }
+  button.primary { background: var(--live); color: var(--panel); border-color: var(--live); }
+  button.primary:hover { background: var(--live); color: var(--panel); filter: brightness(1.15); }
+
+  /* ---- token strip ---- */
+  .strip {
+    display: flex; flex-wrap: wrap; gap: 5px;
+    padding: 10px; min-height: 44px;
+    background: var(--panel);
+    border: 1px solid var(--rule); border-radius: 3px;
+    margin-bottom: 12px;
+  }
+  .tok {
+    padding: 3px 9px; border-radius: 2px;
+    border: 1px solid transparent;
+    color: var(--dim);
+  }
+  .tok.done { color: var(--ink); opacity: .45; }
+  .tok.now  {
+    color: var(--panel); background: var(--live);
+    border-color: var(--live); font-weight: 700;
+  }
+
+  /* ---- narration ---- */
+  .say {
+    min-height: 42px; padding: 9px 11px; margin-bottom: 12px;
+    border-left: 3px solid var(--rule);
+    color: var(--dim);
+  }
+  .say b { color: var(--ink); font-weight: 700; }
+  .say.err { border-left-color: var(--bad); color: var(--bad); }
+  .say.err b { color: var(--bad); }
+  .say.ok  { border-left-color: var(--good); color: var(--good); }
+  .say.ok b { color: var(--good); }
+
+  /* ---- stack ---- */
+  .stack-head {
+    display: flex; justify-content: space-between; align-items: baseline;
+    margin-bottom: 6px;
+  }
+  .well {
+    display: flex; flex-direction: column-reverse; justify-content: flex-start;
+    gap: 4px;
+    min-height: 210px; padding: 10px;
+    background: var(--panel);
+    border: 1px solid var(--rule); border-radius: 3px;
+    margin-bottom: 12px;
+  }
+  .cell {
+    display: flex; align-items: center; gap: 10px;
+    padding: 7px 11px;
+    background: var(--ground);
+    border: 1px solid var(--rule); border-radius: 2px;
+    font-size: 15px;
+    transition: opacity .22s, transform .22s, border-color .22s, background .22s;
+  }
+  .cell .ix { font-size: 10px; color: var(--dim); min-width: 22px; }
+  .cell .vl { flex: 1; word-break: break-all; }
+  .cell .tp { font-size: 9px; letter-spacing: .12em; color: var(--dim); }
+  .cell.new  { border-color: var(--live); background: color-mix(in srgb, var(--live) 12%, var(--ground)); }
+  .cell.doomed { border-color: var(--hot); background: color-mix(in srgb, var(--hot) 14%, var(--ground)); }
+  .cell.enter { opacity: 0; transform: translateY(14px); }
+  .cell.leave { opacity: 0; transform: translateY(14px) scale(.94); }
+  .empty { color: var(--dim); font-size: 12px; padding: 4px 2px; }
+
+  /* ---- controls ---- */
+  .ctl { display: flex; flex-wrap: wrap; gap: 8px; align-items: center; margin-bottom: 16px; }
+  .ctl .spacer { flex: 1; }
+  .divmode { display: flex; align-items: center; gap: 6px; font-size: 11px; color: var(--dim); }
+  .divmode select {
+    font-family: var(--mono); font-size: 11px; padding: 4px 6px;
+    background: var(--panel); color: var(--ink);
+    border: 1px solid var(--rule); border-radius: 3px;
+  }
+
+  /* ---- presets ---- */
+  .presets { display: flex; flex-wrap: wrap; gap: 6px; }
+  .presets button { font-size: 11px; padding: 5px 9px; color: var(--dim); }
+
+  @media (prefers-reduced-motion: reduce) {
+    .cell { transition: none; }
+    .cell.enter, .cell.leave { opacity: 1; transform: none; }
+  }
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <div class="lbl">Expression</div>
+  <div class="entry">
+    <input id="expr" value="1 2 +" spellcheck="false" aria-label="RPN expression">
+    <button id="load">Load</button>
+  </div>
+
+  <div class="lbl">Tokens</div>
+  <div class="strip" id="strip"></div>
+
+  <div class="say" id="say"></div>
+
+  <div class="stack-head">
+    <span class="lbl" style="margin:0">Stack</span>
+    <span class="lbl" style="margin:0" id="depth"></span>
+  </div>
+  <div class="well" id="well"></div>
+
+  <div class="ctl">
+    <button id="back">&larr; Back</button>
+    <button id="step" class="primary">Next step &rarr;</button>
+    <button id="run">Run all</button>
+    <button id="reset">Reset</button>
+    <span class="spacer"></span>
+    <span class="divmode">
+      <label for="dm">Division</label>
+      <select id="dm">
+        <option value="exact">exact</option>
+        <option value="int">integer</option>
+      </select>
+    </span>
+  </div>
+
+  <div class="lbl">Try one</div>
+  <div class="presets" id="presets"></div>
+
+</div>
+
+<script>
+(function () {
+  "use strict";
+
+  // ---------- exact rationals ----------
+  function gcd(a, b) { a = Math.abs(a); b = Math.abs(b); while (b) { var t = a % b; a = b; b = t; } return a; }
+  function fr(n, d) {
+    d = (d === undefined) ? 1 : d;
+    if (d === 0) return null;
+    if (d < 0) { n = -n; d = -d; }
+    var g = gcd(n, d) || 1;
+    return { n: n / g, d: d / g };
+  }
+  function frText(f) { return f.d === 1 ? String(f.n) : f.n + "/" + f.d; }
+  function frDec(f) {
+    if (f.d === 1) return null;
+    var v = f.n / f.d;
+    return Number.isFinite(v) ? String(Math.round(v * 1e6) / 1e6) : null;
+  }
+
+  // ---------- stack values ----------
+  // numeric: {num: fraction, text, prec}   symbolic: {num: null, text, prec}
+  var PREC = { "+": 1, "-": 1, "*": 2, "/": 2 };
+
+  function numVal(f) {
+    return { num: f, text: frText(f), prec: f.d === 1 && f.n >= 0 ? 3 : 2 };
+  }
+  function symVal(text) { return { num: null, text: text, prec: 3 }; }
+
+  function wrap(v, need, isRight, op) {
+    var p = v.prec;
+    if (p < need) return "(" + v.text + ")";
+    if (isRight && p === need && (op === "-" || op === "/")) return "(" + v.text + ")";
+    return v.text;
+  }
+
+  function apply(op, a, b, intDiv) {
+    if (a.num && b.num) {
+      var f;
+      if (op === "+") f = fr(a.num.n * b.num.d + b.num.n * a.num.d, a.num.d * b.num.d);
+      else if (op === "-") f = fr(a.num.n * b.num.d - b.num.n * a.num.d, a.num.d * b.num.d);
+      else if (op === "*") f = fr(a.num.n * b.num.n, a.num.d * b.num.d);
+      else {
+        if (b.num.n === 0) return { error: "Division by zero." };
+        f = fr(a.num.n * b.num.d, a.num.d * b.num.n);
+        if (intDiv) f = fr(Math.trunc(f.n / f.d));
+      }
+      return { value: numVal(f) };
+    }
+    var need = PREC[op];
+    var text = wrap(a, need, false, op) + " " + op + " " + wrap(b, need, true, op);
+    var out = symVal(text);
+    out.prec = need;
+    return { value: out };
+  }
+
+  // ---------- build every step up front ----------
+  function build(src, intDiv) {
+    var toks = src.trim().split(/\s+/).filter(Boolean);
+    var frames = [{ stack: [], i: -1, say: toks.length
+      ? "Ready. The stack starts empty."
+      : "Type an expression above, then choose Load.", cls: "", doomed: [], fresh: null }];
+    if (!toks.length) return { toks: toks, frames: frames };
+
+    var stack = [];
+    var uid = 0;
+    var halted = false;
+
+    for (var i = 0; i < toks.length && !halted; i++) {
+      var t = toks[i], f;
+
+      if (/^-?\d+$/.test(t)) {
+        var v = numVal(fr(parseInt(t, 10)));
+        v.id = ++uid;
+        stack = stack.concat([v]);
+        frames.push({ stack: stack, i: i, doomed: [], fresh: v.id, cls: "",
+          say: "<b>" + t + "</b> is a number. Push it." });
+
+      } else if (PREC[t]) {
+        if (stack.length < 2) {
+          frames.push({ stack: stack, i: i, doomed: stack.map(function (c) { return c.id; }),
+            fresh: null, cls: "err",
+            say: "<b>" + t + "</b> needs two values, but the stack holds " +
+                 stack.length + ". The expression is incomplete." });
+          halted = true; break;
+        }
+        var b = stack[stack.length - 1], a = stack[stack.length - 2];
+
+        // beat one: mark the two operands that are about to be consumed
+        frames.push({ stack: stack, i: i, doomed: [a.id, b.id], fresh: null, cls: "",
+          say: "<b>" + t + "</b> pops <b>" + b.text + "</b> from the top, then <b>" +
+               a.text + "</b>." });
+
+        var r = apply(t, a, b, intDiv);
+        if (r.error) {
+          frames.push({ stack: stack, i: i, doomed: [a.id, b.id], fresh: null, cls: "err", say: "<b>" + r.error + "</b>" });
+          halted = true; break;
+        }
+        var res = r.value; res.id = ++uid;
+        stack = stack.slice(0, -2).concat([res]);
+        var shown = a.text + " " + t + " " + b.text;
+        var dec = res.num ? frDec(res.num) : null;
+        frames.push({ stack: stack, i: i, doomed: [], fresh: res.id, cls: "",
+          say: "Compute <b>" + shown + " = " + res.text + "</b>" +
+               (dec ? " (" + dec + ")" : "") + ", then push the result." });
+
+      } else if (/^[A-Za-z][A-Za-z0-9_]*$/.test(t)) {
+        var s = symVal(t); s.id = ++uid;
+        stack = stack.concat([s]);
+        frames.push({ stack: stack, i: i, doomed: [], fresh: s.id, cls: "",
+          say: "<b>" + t + "</b> is a variable. Push it." });
+
+      } else {
+        frames.push({ stack: stack, i: i, doomed: [], fresh: null, cls: "err",
+          say: "<b>" + t + "</b> is not a number, a variable, or one of + - * /." });
+        halted = true; break;
+      }
+    }
+
+    if (!halted) {
+      var last = stack[stack.length - 1];
+      if (stack.length === 1) {
+        var d = last.num ? frDec(last.num) : null;
+        frames.push({ stack: stack, i: toks.length, doomed: [], fresh: last.id, cls: "ok",
+          say: "Done. One value left, so the expression is complete: <b>" +
+               last.text + "</b>" + (d ? " (" + d + ")" : "") + "." });
+      } else {
+        frames.push({ stack: stack, i: toks.length,
+          doomed: stack.map(function (c) { return c.id; }), fresh: null, cls: "err",
+          say: "Done reading, but <b>" + stack.length + " values are still on the stack</b>. " +
+               "A complete expression ends with exactly one — this one is missing an operator." });
+      }
+    }
+    return { toks: toks, frames: frames };
+  }
+
+  // ---------- wiring ----------
+  var $ = function (id) { return document.getElementById(id); };
+  var elExpr = $("expr"), elStrip = $("strip"), elSay = $("say"),
+      elWell = $("well"), elDepth = $("depth"), elDm = $("dm");
+
+  var prog = null, at = 0, maxDepth = 0, timer = null;
+
+  function load() {
+    stopRun();
+    prog = build(elExpr.value, elDm.value === "int");
+    at = 0;
+    maxDepth = prog.frames.reduce(function (m, f) { return Math.max(m, f.stack.length); }, 0);
+    draw();
+  }
+
+  function draw() {
+    var f = prog.frames[at];
+
+    elStrip.innerHTML = "";
+    if (!prog.toks.length) {
+      var e = document.createElement("span");
+      e.className = "tok"; e.textContent = "\u2014";
+      elStrip.appendChild(e);
+    }
+    prog.toks.forEach(function (t, k) {
+      var s = document.createElement("span");
+      s.className = "tok" + (k === f.i ? " now" : (k < f.i ? " done" : ""));
+      s.textContent = t;
+      elStrip.appendChild(s);
+    });
+
+    elSay.className = "say " + (f.cls || "");
+    elSay.innerHTML = f.say;
+
+    elDepth.textContent = prog.toks.length
+      ? "depth " + f.stack.length + " \u00b7 deepest " + maxDepth : "";
+
+    reconcile(f);
+
+    $("back").disabled = at === 0;
+    $("step").disabled = at >= prog.frames.length - 1;
+    $("run").disabled  = at >= prog.frames.length - 1;
+  }
+
+  function reconcile(f) {
+    var want = {};
+    f.stack.forEach(function (c) { want[c.id] = true; });
+
+    Array.prototype.slice.call(elWell.children).forEach(function (node) {
+      if (node.dataset.id && !want[node.dataset.id]) {
+        node.classList.add("leave");
+        setTimeout(function () { if (node.parentNode) node.parentNode.removeChild(node); }, 220);
+      } else if (!node.dataset.id) {
+        node.remove();
+      }
+    });
+
+    f.stack.forEach(function (c, k) {
+      var node = elWell.querySelector('[data-id="' + c.id + '"]');
+      if (!node) {
+        node = document.createElement("div");
+        node.className = "cell enter";
+        node.dataset.id = c.id;
+        node.innerHTML = '<span class="ix"></span><span class="vl"></span><span class="tp"></span>';
+        elWell.appendChild(node);
+        requestAnimationFrame(function () {
+          requestAnimationFrame(function () { node.classList.remove("enter"); });
+        });
+      }
+      node.querySelector(".ix").textContent = k;
+      node.querySelector(".vl").textContent = c.text;
+      node.querySelector(".tp").textContent = (k === f.stack.length - 1) ? "TOP" : "";
+      node.classList.toggle("doomed", f.doomed.indexOf(c.id) !== -1);
+      node.classList.toggle("new", c.id === f.fresh);
+      node.classList.remove("leave");
+    });
+
+    if (!f.stack.length && !elWell.querySelector(".empty")) {
+      var e = document.createElement("div");
+      e.className = "empty";
+      e.textContent = "empty";
+      elWell.appendChild(e);
+    }
+    if (f.stack.length) {
+      var old = elWell.querySelector(".empty");
+      if (old) old.remove();
+    }
+  }
+
+  function step() { if (at < prog.frames.length - 1) { at++; draw(); } }
+  function back() { if (at > 0) { at--; draw(); } }
+  function stopRun() { if (timer) { clearInterval(timer); timer = null; $("run").textContent = "Run all"; } }
+
+  $("load").onclick = load;
+  $("step").onclick = function () { stopRun(); step(); };
+  $("back").onclick = function () { stopRun(); back(); };
+  $("reset").onclick = function () { stopRun(); at = 0; draw(); };
+  $("run").onclick = function () {
+    if (timer) { stopRun(); return; }
+    $("run").textContent = "Pause";
+    timer = setInterval(function () {
+      if (at >= prog.frames.length - 1) stopRun(); else step();
+    }, 850);
+  };
+  elDm.onchange = load;
+  elExpr.addEventListener("keydown", function (e) { if (e.key === "Enter") load(); });
+  document.addEventListener("keydown", function (e) {
+    if (e.target === elExpr) return;
+    if (e.key === "ArrowRight") { stopRun(); step(); }
+    if (e.key === "ArrowLeft")  { stopRun(); back(); }
+  });
+
+  [
+    "1 2 +",
+    "3 4 2 + +",
+    "12 8 2 / -",
+    "5 6 * 2 3 +",
+    "10 2 / 5 2 + +",
+    "9 8 7 6 5 4 3 - - - - - -",
+    "12 4 2 + / 8 * 10 - 3 2 + /",
+    "3 x x * *",
+    "12 x * 3 y * + 5 x * 2 y * - /",
+    "1 1 1 1 1 1 1 + / + / + /"
+  ].forEach(function (p) {
+    var b = document.createElement("button");
+    b.textContent = p;
+    b.onclick = function () { elExpr.value = p; load(); };
+    $("presets").appendChild(b);
+  });
+
+  load();
+})();
+</script>
+</body>
+</html>

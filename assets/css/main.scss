@@ -141,3 +141,63 @@
     font-weight: bold;
     /* Keep the number bold */
 }
+
+// ─── Read the Docs ad placement ────────────────────────────────────────────
+// Corresponds to the explicit placeholder in _includes/footer/custom.html.
+// Puts the ad on the right half of the footer, sharing space with the
+// FOLLOW links and copyright line rather than sitting in its own separate
+// section above them. .rtd-ad-placement-wrap, .page__footer-follow, and
+// .page__footer-copyright are direct siblings under <footer> in Minimal
+// Mistakes' own footer.html -- confirmed via live DOM inspection on the
+// sibling site, should hold here too since it's the same theme.
+
+.page__footer footer {
+    display: grid !important;
+    grid-template-columns: 1fr auto;
+    grid-template-areas:
+        "follow ad"
+        "copyright ad";
+    align-items: center;
+    column-gap: 2em;
+    // Overrides Minimal Mistakes' own _footer.scss default
+    // (margin-top: 2em; padding: 0 1em 2em).
+    margin-top: 0.75em !important;
+    padding: 0 1em 0.75em !important;
+}
+
+.page__footer-follow {
+    grid-area: follow;
+}
+
+.page__footer-copyright {
+    grid-area: copyright;
+}
+
+.rtd-ad-placement-wrap {
+    grid-area: ad;
+    justify-self: end;
+    align-self: center;
+    font-size: 0.85em;
+}
+
+// Minimal Mistakes also applies its own margin-top: 3em (plus a staggered
+// "intro" reveal animation) to .page__footer itself -- the outer wrapper,
+// separate from the <footer> tag above.
+.page__footer {
+    margin-top: 1em !important;
+}
+
+// Tighten EthicalAds' own internal spacing -- ships with margin: 14px and
+// padding: 14px by default around a ~36px content box, more than doubling
+// the ad's visual height. Confirmed via live DOM inspection: plain light
+// DOM (not Shadow DOM), no inline styles anywhere in the chain, so this
+// selector + !important reliably beats their external stylesheet.
+
+#ethical-ad-placement {
+    max-width: 26em;
+
+    .ea-placement.ea-type-text .ea-content {
+        margin: 0 !important;
+        padding: 4px 0 !important;
+    }
+}

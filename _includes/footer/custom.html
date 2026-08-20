@@ -1,3 +1,21 @@
 <!-- _includes/footer/custom.html -->
 <!-- Add custom JS for answer boxes -->
 <script src="{{ '/assets/js/answer-boxes.js' | relative_url }}"></script>
+
+<!-- Explicit placement for Read the Docs' automatically-injected ad.
+     Without this, RTD's Addons script falls back to a blind-insertion
+     heuristic that can wrap unrelated page content (whole main content
+     div shaded gray). Giving RTD an explicit target makes it use this
+     instead.
+
+     data-ea-type="text" requests the compact text-only ad format
+     instead of the default "image" format (logo + headline + subtext +
+     button, much larger). Reference:
+     https://ethical-ad-client.readthedocs.io/ (see "Ad placement type")
+     https://docs.readthedocs.com/platform/stable/advertising/ad-customization.html
+
+     Only relevant when actually built/served by Read the Docs -- on
+     local or GitHub Pages builds this div just renders empty and inert. -->
+<div class="rtd-ad-placement-wrap">
+  <div id="ethical-ad-placement" data-ea-type="text"></div>
+</div>

@@ -90,8 +90,6 @@ arithmetic happens. Stack depth reaches 3.
 {% capture answer4 %}
 **12**
 
-The stack goes: `10` → `10, 2` → `5` → `5, 5` → `5, 5, 2` → `5, 7` → `12`.
-
 Notice the 5 from `10 2 /` just sits at the bottom, waiting, while `5 2 +` is
 computed on top of it.
 {% endcapture %}
@@ -123,7 +121,7 @@ none.
 
 ## Read these as algebra
 
-The stack doesn't care whether it's holding numbers. Same two rules.
+The stack doesn't care whether it's holding numbers or variables. Same two rules.
 
 {% capture question7 %}
 `3 x x * *`
@@ -149,12 +147,9 @@ The stack doesn't care whether it's holding numbers. Same two rules.
 {% capture answer9 %}
 **(12x + 3y) / (5x − 2y)**
 
-Watch this one in the machine. The entire numerator is built and then parked at the
-bottom of the stack while the whole denominator gets assembled on top of it. The `/`
-doesn't fire until both halves are finished.
+Watch this one in the machine. The entire numerator is built and then parked at the bottom of the stack while the whole denominator gets assembled on top of it. The `/` doesn't fire until both halves are finished.
 
-The parentheses in the answer aren't in the RPN anywhere — they only appear when you
-translate *back* into algebra.
+The parentheses in the answer aren't in the RPN anywhere — they only appear when you translate *back* into algebra.
 {% endcapture %}
 {% include answer-box.html question=question9 content=answer9 %}
 
@@ -190,8 +185,8 @@ so both are fine. Compare that to the next problem.
 Only one right answer this time. Subtraction groups left to right, so this means
 ((5 − 4) − 3) − 2.
 
-If you wrote `5 4 - 3 2 - -` you got 0 instead, because that means (5 − 4) − (3 − 2).
-Both are valid RPN. Only one is the expression we asked for.
+If you wrote `5 4 3 2 - - -` you got 2 instead, because that means (5 − (4  − (3 − 2))).
+Both are valid RPN. Only one equals the expression we started with.
 {% endcapture %}
 {% include answer-box.html question=question12 content=answer12 %}
 
@@ -223,6 +218,5 @@ Build it from the inside out:
 | `1 + (that)` | `1 1 1 1 1 1 + / + / +` |
 | `1 / (that)` | `1 1 1 1 1 1 1 + / + / + /` |
 
-Seven 1s and six operators — which is exactly the check below.
 {% endcapture %}
 {% include answer-box.html question=question14 content=answer14 %}

@@ -10,7 +10,8 @@ classes:
     - A good review of RPN problems [is here](./handouts/rpn.md)
     - Today discuss your solution to the HW problem
     - There is a new [RPN Worksheet](./handouts/rpn_worksheet.pdf) to complete in class
-    - And a [Binary search handout](./handouts/binarySearch-1.pdf). Which algorithm is correct?
+    - Binary search removes 1/2 of the list every time so it takes at worst $\log_2(n)$ steps to play Clock Game
+    - QUIZ next class -- show me a binder or folder with space to hold worksheets, and your own blank paper!
 - August 18, 2026 (Tuesday)
     - Intro to class.
     - RPN (Reverse Polish Notation) intro [challenge](./handouts/RPN.pdf). Can you complete the worksheet in class by following the examples?

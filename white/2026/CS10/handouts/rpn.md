@@ -37,7 +37,8 @@ That's the whole algorithm. Two rules.
 Type an expression and step through it. Watch what the stack holds after each token —
 the presets at the bottom are the problems from the worksheet.
 
-<iframe src="./rpn_stack.html" width="100%" height="720"
+<iframe src="{{ '/white/2026/CS10/handouts/rpn_stack.html' | relative_url }}"
+ width="100%" height="720"
         style="border:1px solid #d0e3f8; border-radius:4px"
         title="RPN stack machine"></iframe>
 

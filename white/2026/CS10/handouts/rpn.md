@@ -35,14 +35,14 @@ That's the whole algorithm. Two rules.
 ## Try it
 
 Type an expression and step through it. Watch what the stack holds after each token —
-the presets at the bottom are the problems from the worksheet.
+the presets at the bottom are the problems from the worksheet handed out on 8/18.
 
 <iframe src="{{ '/white/2026/CS10/handouts/rpn_stack.html' | relative_url }}"
  width="100%" height="720"
         style="border:1px solid #d0e3f8; border-radius:4px"
         title="RPN stack machine"></iframe>
 
-Two things worth noticing while you play:
+Two things worth noticing while you investigate:
 
 **Operators always take the top two values**, in the order they're sitting there. The
 second-from-top is the left operand. For `+` and `*` that doesn't matter. For `-` and
@@ -186,7 +186,7 @@ Only one right answer this time. Subtraction groups left to right, so this means
 ((5 − 4) − 3) − 2.
 
 If you wrote `5 4 3 2 - - -` you got 2 instead, because that means (5 − (4  − (3 − 2))).
-Both are valid RPN. Only one equals the expression we started with.
+Both are valid RPN, but they give different answers because subtraction does not commute.
 {% endcapture %}
 {% include answer-box.html question=question12 content=answer12 %}
 

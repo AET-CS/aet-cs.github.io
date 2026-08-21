@@ -1,4 +1,17 @@
+---
+title: "Markdown Editors"
+layout: single
+classes:
+  - wide
+---
+
+(AI Generated...)
+
+
 Here are some excellent Windows markdown editors that offer both preview capabilities and pandoc integration:
+
+The **human** suggests VSCode or Obsidian.
+
 
 ## **Zettlr**
 A powerful academic writing tool with built-in pandoc integration. It offers live preview, excellent citation management, and can export to numerous formats via pandoc. Great for academic papers and long-form writing.

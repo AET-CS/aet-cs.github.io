@@ -4,10 +4,14 @@ layout: single
 classes:
   - wide
 ---
+- August 21, 2026 (Friday)
+    - Install Zotero for organizing papers
+    - Find at least 5 background papers related to your problem or solution
+    - Install a markdown editor with pandoc capability. Here's a [list](./pandoc.md) but I personally recommend VSCode or Obsidian.
+    - Write a paragraph or so, in Markdown, reviewing the background papers you found -- be brief but specific about what has been done already, and what tools may help you solve your problem.
 - August 19, 2026 (Wednesday)
-    - Review proposed ideas
-    - Install latex and pandoc
-    - Install a markdown editor [see list](./pandoc.md) or VS Code extension
+    - Continue to pitch ideas
+    - Master-class feedback
 - August 17, 2026 (Monday)
     - Welcome to class
     - Discuss research ideas. A good idea usually solves a problem, has measurable objectives, and suggests many solutions from simple to complex

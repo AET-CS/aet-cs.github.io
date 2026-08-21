@@ -30,7 +30,7 @@ Read left to right, one token at a time:
 
 When you run out of tokens, the answer is the single value left on the stack.
 
-That's the whole algorithm. Two rules.
+That's the whole algorithm; just two rules.
 
 ## Try it
 
@@ -46,7 +46,7 @@ Two things worth noticing while you investigate:
 
 **Operators always take the top two values**, in the order they're sitting there. The
 second-from-top is the left operand. For `+` and `*` that doesn't matter. For `-` and
-`/` it decides everything.
+`/` it makes a difference!
 
 **Watch how deep the stack gets.** Some expressions never hold more than two values.
 Others hold seven. In real life the stack depth cannot be infinite!

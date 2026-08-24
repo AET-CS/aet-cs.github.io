@@ -254,8 +254,10 @@ A bit of a summary of your results, but also should look forward. What's the TL;
        doi     = {10.1234/jair.2025.78.045},
      }
 
-     @misc{tensorflow2024,
+    @misc{tensorflow2024,
+  {% raw %}
        author = {{TensorFlow Team}},
+  {% endraw %}
        title  = {TensorFlow: Large-Scale Machine Learning},
        year   = {2024},
        url    = {https://www.tensorflow.org},

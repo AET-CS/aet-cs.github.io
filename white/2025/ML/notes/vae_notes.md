@@ -1,7 +1,7 @@
 ---
 header-includes:
-	- |
-		\usepackage{fullpage}
+  - |
+    \usepackage{fullpage}
 ---
 
 # Variational Autoencoders: Pre-reading Notes

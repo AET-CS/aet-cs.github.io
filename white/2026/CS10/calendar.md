@@ -6,6 +6,11 @@ classes:
 ---
 
 ## Daily Calendar
+- August 24, 2026 (Monday)
+    - [RPN Puzzle](./handouts/rpn2.md)!
+    - [Expression Tree worksheet](./expressions/warmup/Expression_Trees.pdf)
+    - Find the [binary search](./handouts/binarySearch-1.pdf) algorithm which is *correct*. For each *incorrect* algorithm, find one case which fails and prove it by tracing.
+    - Quiz FRIDAY over binary search tracing and RPN concepts
 - August 20, 2026 (Thursday)
     - A good review of RPN problems [is here](./handouts/rpn.md)
     - Today discuss your solution to the HW problem

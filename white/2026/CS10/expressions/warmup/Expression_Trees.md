@@ -19,46 +19,106 @@ The following trees are shown with their evaluations.
 Evaluate each tree. The answer below each tree is the value of the entire
 expression.
 
-![Four expression trees to evaluate]({{ '/white/2026/CS10/expressions/warmup/exercises_row.svg' | relative_url }})
-
 {% capture question1 %}
-What are the values of the four trees, from left to right?
+![Tree 1]({{ '/white/2026/CS10/expressions/warmup/exercise_tree_1.svg' | relative_url }})
+What is the evaluation of this tree?
 {% endcapture %}
 {% capture answer1 %}
-**13, 8, 14, 38**
+**13**
 {% endcapture %}
 {% include answer-box.html question=question1 content=answer1 %}
 
-## Write the Postfix Expressions
-
-Write a post-fix (RPN) expression for each of the four trees above.
-
 {% capture question2 %}
-Write the four post-fix expressions in left-to-right order.
+![Tree 2]({{ '/white/2026/CS10/expressions/warmup/exercise_tree_2.svg' | relative_url }})
+What is the evaluation of this tree?
 {% endcapture %}
 {% capture answer2 %}
-1. `7 2 * 5 3 - / 6 +`
-2. `20 4 / 3 * 8 2 - 1 + -`
-3. `60 5 / 4 - 2 / 3 + 2 *`
-4. `12 2 / 3 + 4 * 20 5 / 2 - +`
+**8**
 {% endcapture %}
 {% include answer-box.html question=question2 content=answer2 %}
 
-## Write the Infix Expressions
-
-Write an infix (normal math) expression for each of the same four trees.
-
 {% capture question3 %}
-Write the four infix expressions in left-to-right order. Include parentheses
-where they make the tree structure clear.
+![Tree 3]({{ '/white/2026/CS10/expressions/warmup/exercise_tree_3.svg' | relative_url }})
+What is the evaluation of this tree?
 {% endcapture %}
 {% capture answer3 %}
-1. `(7 * 2) / (5 - 3) + 6`
-2. `(20 / 4 * 3) - ((8 - 2) + 1)`
-3. `((60 / 5 - 4) / 2 + 3) * 2`
-4. `(12 / 2 + 3) * 4 + (20 / 5 - 2)`
+**14**
 {% endcapture %}
 {% include answer-box.html question=question3 content=answer3 %}
+
+{% capture question4 %}
+![Tree 4]({{ '/white/2026/CS10/expressions/warmup/exercise_tree_4.svg' | relative_url }})
+What is the evaluation of this tree?
+{% endcapture %}
+{% capture answer4 %}
+**38**
+{% endcapture %}
+{% include answer-box.html question=question4 content=answer4 %}
+
+## Write the Postfix Expressions
+
+Write a post-fix (RPN) expression for each tree.
+
+{% capture question5 %}
+![Tree 1]( {{ '/white/2026/CS10/expressions/warmup/exercise_tree_1.svg' | relative_url }} )
+Write the post-fix expression for this tree.
+{% endcapture %}
+{% capture answer5 %}`7 2 * 5 3 - / 6 +`{% endcapture %}
+{% include answer-box.html question=question5 content=answer5 %}
+
+{% capture question6 %}
+![Tree 2]( {{ '/white/2026/CS10/expressions/warmup/exercise_tree_2.svg' | relative_url }} )
+Write the post-fix expression for this tree.
+{% endcapture %}
+{% capture answer6 %}`20 4 / 3 * 8 2 - 1 + -`{% endcapture %}
+{% include answer-box.html question=question6 content=answer6 %}
+
+{% capture question7 %}
+![Tree 3]( {{ '/white/2026/CS10/expressions/warmup/exercise_tree_3.svg' | relative_url }} )
+Write the post-fix expression for this tree.
+{% endcapture %}
+{% capture answer7 %}`60 5 / 4 - 2 / 3 + 2 *`{% endcapture %}
+{% include answer-box.html question=question7 content=answer7 %}
+
+{% capture question8 %}
+![Tree 4]( {{ '/white/2026/CS10/expressions/warmup/exercise_tree_4.svg' | relative_url }} )
+Write the post-fix expression for this tree.
+{% endcapture %}
+{% capture answer8 %}`12 2 / 3 + 4 * 20 5 / 2 - +`{% endcapture %}
+{% include answer-box.html question=question8 content=answer8 %}
+
+## Write the Infix Expressions
+
+Write an infix (normal math) expression for each tree. Include parentheses
+where they make the tree structure clear.
+
+{% capture question9 %}
+![Tree 1]( {{ '/white/2026/CS10/expressions/warmup/exercise_tree_1.svg' | relative_url }} )
+Write the infix expression for this tree.
+{% endcapture %}
+{% capture answer9 %}`(7 * 2) / (5 - 3) + 6`{% endcapture %}
+{% include answer-box.html question=question9 content=answer9 %}
+
+{% capture question10 %}
+![Tree 2]( {{ '/white/2026/CS10/expressions/warmup/exercise_tree_2.svg' | relative_url }} )
+Write the infix expression for this tree.
+{% endcapture %}
+{% capture answer10 %}`(20 / 4 * 3) - ((8 - 2) + 1)`{% endcapture %}
+{% include answer-box.html question=question10 content=answer10 %}
+
+{% capture question11 %}
+![Tree 3]( {{ '/white/2026/CS10/expressions/warmup/exercise_tree_3.svg' | relative_url }} )
+Write the infix expression for this tree.
+{% endcapture %}
+{% capture answer11 %}`((60 / 5 - 4) / 2 + 3) * 2`{% endcapture %}
+{% include answer-box.html question=question11 content=answer11 %}
+
+{% capture question12 %}
+![Tree 4]( {{ '/white/2026/CS10/expressions/warmup/exercise_tree_4.svg' | relative_url }} )
+Write the infix expression for this tree.
+{% endcapture %}
+{% capture answer12 %}`(12 / 2 + 3) * 4 + (20 / 5 - 2)`{% endcapture %}
+{% include answer-box.html question=question12 content=answer12 %}
 
 ## Draw the Expression Trees
 
@@ -67,22 +127,20 @@ making each operator the parent of the two values immediately below it.
 
 ### 1. `1 2 3 4 + - *`
 
-{% capture question4 %}
+{% capture question13 %}
 Draw the expression tree for `1 2 3 4 + - *`.
 {% endcapture %}
-{% capture answer4 %}
-The answer is shown in the left half of the graphic below.
+{% capture answer13 %}
+![Answer tree 1]({{ '/white/2026/CS10/expressions/warmup/tree_question_1.svg' | relative_url }})
 {% endcapture %}
-{% include answer-box.html question=question4 content=answer4 %}
+{% include answer-box.html question=question13 content=answer13 %}
 
 ### 2. `1 2 + 3 4 - 5 6 * * /`
 
-{% capture question5 %}
+{% capture question14 %}
 Draw the expression tree for `1 2 + 3 4 - 5 6 * * /`.
 {% endcapture %}
-{% capture answer5 %}
-The answer is shown in the right half of the graphic below.
+{% capture answer14 %}
+![Answer tree 2]({{ '/white/2026/CS10/expressions/warmup/tree_question_2.svg' | relative_url }})
 {% endcapture %}
-{% include answer-box.html question=question5 content=answer5 %}
-
-![Answer trees for the two drawing problems]({{ '/white/2026/CS10/expressions/warmup/tree_questions_key.svg' | relative_url }})
+{% include answer-box.html question=question14 content=answer14 %}

@@ -4,6 +4,8 @@ layout: single
 classes:
   - wide
 ---
+- August 25, 2026 (Tuesday)
+    - Please give this [permission click form](https://permission.click/qpjlygmpuv56/int/) to your adult human to sign. It enables you to register your research project in the LCPS registry.
 - August 21, 2026 (Friday)
     - Install Zotero for organizing papers
     - Find at least 5 background papers related to your problem or solution

@@ -6,14 +6,17 @@ classes:
 ---
 
 ## Daily Calendar
+- August 28, 2026 (Friday)
+    - QUIZ over stuff! RPN, Binary search, Expression Trees, Math, Life, Star Trek and Piano music
+    - Here are some [RPN Practice Problems](./handouts/rpn_quiz_review_online.md) for optional review
+    - (Continued from last class) Work on the [Fixed Points](./handouts/Fixed_Points.pdf) worksheet
+        - Read the [Desmos Instructions](./handouts/desmos-iteration.md) on iterating fixed points
+        - Investigate the behavior of the logistic map: $f(x) = rx(1-x)$ for values of $r$ between 3.0 and 4.0
 - August 26, 2026 (Wednesday)
     - RPN Challenge: write down integers from last class `2 3 4 5` on the board
     - How many valid RPN expressions can be written with `2 3 4 5` and `+ - * \ ^`
     - Answers to all RPN Challenge problems
-    - Work on the [Fixed Points](./handouts/Fixed_Points.pdf) worksheet
-        - Read the [Desmos Instructions](./handouts/desmos-iteration.md) on iterating fixed points
-        - Investigate the behavior of the logistic map: $f(x) = rx(1-x)$ for values of $r$ between 3.0 and 4.0$
-    - Trace Binary Search F from [binary search](./handouts/binarySearch-1.pdf), on the array $0...16$ and look for the numbers 0, 4 and 20.
+    - Trace Binary Search F from [binary search](./handouts/binarySearch-1.pdf), using this worksheet to [organize your tracing](./handouts/Binary_Search_Trace_Worksheet.pdf)
     - Quiz next class! Binary search, tracing, RPN, expressions, fixed points, big numbers!
 - August 24, 2026 (Monday)
     - [RPN Challenge 1](./handouts/RPN_Challenge_1.pdf)

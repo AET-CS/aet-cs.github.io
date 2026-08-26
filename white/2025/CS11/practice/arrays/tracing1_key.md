@@ -150,5 +150,3 @@ What does mystery10(new int[]{10, 3, 8, 5, 6}) return?
 10. **16** (alternates add/subtract: 10-3+8-5+6)
 
 ---
-
-Would you like me to create more problems, adjust the difficulty level, or focus on specific array concepts?

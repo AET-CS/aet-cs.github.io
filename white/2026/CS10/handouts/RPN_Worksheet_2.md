@@ -4,7 +4,7 @@ header-includes:
   - \usepackage{fullpage}
 ---
 
-# RPN (Reverse Polish Notation) Worksheet
+# RPN Worksheet 2 (Reverse Polish Notation)
 
 > **Name:** ________________________________   **Date:** ________________
 

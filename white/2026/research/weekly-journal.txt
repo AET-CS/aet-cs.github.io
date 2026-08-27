@@ -1,8 +1,8 @@
-# \hfill Journal Report
+# \hfill Journal Report 15
 
 ## \hfill Ricardo Montelban
 \vspace{-0.5em}
-\hfill October 6, 2025
+\hfill October 6, 2026
 
 \vspace{1em}
 \hrule
@@ -19,9 +19,9 @@
 \hrule
 \vspace{1em}
 
-## Daily Log (9/30/25-10/5/25)
+## Daily Log (9/30/26-10/5/26)
 
-
+This daily log summarizes your research for the previous week Sunday to Sunday.
 
 ### Tuesday September 30
 

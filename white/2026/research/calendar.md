@@ -4,8 +4,13 @@ layout: single
 classes:
   - wide
 ---
+- August 27, 2026 (Thursday)
+    - By next class: install Pandoc and Latex, link them to your markdown editor. You should be able to generate latex-formatted .pdf files.
+    - Here is a [sample journal file](./weekly-journal.txt) and the [resulting pdf](./weekly-journal.pdf) from a proper Markdown installation. Use it to test
+    - In class: write up your topic, a list of 4-6 'milestones' you need to hit along the way, and also two variants -- a 'hard' and an 'easy' version of your project if it proves to be too challenging or too simple. If you can't identify a list of milestones, and some alternate outcomes, you probably need to revisit your topic.
 - August 25, 2026 (Tuesday)
     - Please give this [permission click form](https://permission.click/qpjlygmpuv56/int/) to your adult human to sign. It enables you to register your research project in the LCPS registry.
+    - In class, work on finding 5 or more background papers and write a summary of your findings in Markdown. Print and turn in hard copy in class.
 - August 21, 2026 (Friday)
     - Install Zotero for organizing papers
     - Find at least 5 background papers related to your problem or solution

@@ -4,6 +4,10 @@ layout: single
 classes:
   - wide
 ---
+- August 31, 2026 (Monday)
+    - Milestones write-up is due now. Submit pdf
+    - Finish your pandoc installation and test it with this [sample journal file](./weekly-journal.txt) and the [resulting pdf](./weekly-journal.pdf). Submit the pdf  [here](https://forms.gle/vttVWvaD5oj4FhpCA)
+    - Begin Journal 1 today, using the above template. The last 10 minutes of class you will annotate your progress and add it to the journal. Journal 1 is due the first A day of next week, beginning of class, on paper.
 - August 27, 2026 (Thursday)
     - By next class: install Pandoc and Latex, link them to your markdown editor. You should be able to generate latex-formatted .pdf files.
     - Here is a [sample journal file](./weekly-journal.txt) and the [resulting pdf](./weekly-journal.pdf) from a proper Markdown installation. Use it to test

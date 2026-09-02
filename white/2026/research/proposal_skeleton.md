@@ -1,6 +1,6 @@
 # Written Proposal Skeleton
 
-This is *not* a grading rubric, but a scaffold to help you organize your written proposal. Create a Proposal by filling in each section below. One-to-three paragapsh is probably the right amount of text for each. Export your markdown to pdf via pandoc.
+This is *not* a grading rubric, but a scaffold to help you organize your written proposal. Create a Proposal by filling in each section below. One-to-three paragaphs is probably the right amount of text for each. Export your markdown to pdf via pandoc.
 
 ## 1. Title
 
@@ -16,7 +16,7 @@ What already exists that's close to your idea? List a few (at least 3-4) papers,
 
 ## 4. Research Question / Hypothesis
 
-State a specific, testable question or claim. Not "I will study X" but "Does X improve Y?" or "I predict that X will result in Y because Z."
+State a specific, testable question or claim. Not "I will study X" but "Does X improve Y?" or "I predict that X will result in Y because Z." Some projects are more "researchy" than others so you may not exactly have a hypothesis. But there should be a clear thing you are trying to prove, or discover, or make.
 
 ## 5. Proposed Approach / Methodology /Data
 
@@ -24,7 +24,7 @@ What technical tool(s) -- algorithm, sensor, model, dataset, etc. -- will you us
 
 ## 6.  Milestones / Variations
 
-Identify 4-6 concrete checkpoints across the year. What are the big pieces that need to fit together, and in what order will you tackle them? Also give two alternatives -- an easy and a hard version of your project. Prove that there is not just *one* path to success.
+Identify 4-6 concrete checkpoints across the year. You don't need exact dates, but this should keep you busy until May. What are the big pieces that need to fit together, and in what order will you tackle them? Also give two alternatives -- an easy and a hard version of your project. Prove that there is not just *one* path to success.
 
 ## 7. Expected Outcomes / Significance
 

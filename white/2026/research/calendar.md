@@ -4,6 +4,11 @@ layout: single
 classes:
   - wide
 ---
+- September 2, 2026 (Wednesday)
+    - Continue to refine proposal ideas
+    - Meet with Dr. White
+    - Last chance to get Pandoc working in class!
+    - Your [proposal](./proposal_skeleton.md) is due on Tuesday September 8. Use the above file as a template and submit a pdf [here](https://forms.gle/vttVWvaD5oj4FhpCA) by 11:59 PM please
 - August 31, 2026 (Monday)
     - Milestones write-up is due now. Submit pdf
     - Finish your pandoc installation and test it with this [sample journal file](./weekly-journal.txt) and the [resulting pdf](./weekly-journal.pdf). Submit the pdf  [here](https://forms.gle/vttVWvaD5oj4FhpCA)

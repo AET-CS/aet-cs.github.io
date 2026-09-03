@@ -68,7 +68,7 @@ Write `findFixedPoint`. Loop while `Math.abs(f(guess) - guess) > TOLERANCE`, hal
 interval each time as described above.
 
 Test it with `f(x) = Math.cos(x)` on the interval `[0, 1]`. Your output should show the guesses
-converging, and the final answer should satisfy `f(x) = x` to nine decimal places.
+converging, and the final answer should satisfy `f(x) = x` to six decimal places.
 
 ---
 

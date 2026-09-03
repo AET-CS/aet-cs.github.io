@@ -6,10 +6,14 @@ classes:
 ---
 
 ## Daily Calendar
+- September 3, 2026 (Thursday)
+    - Work on [this assignment](./handouts/fixed-point-assignment.md) in class
+    - Finish most or all for HW. We will have some time next class to look at it also
+    - Complete the worksheet handed out at home or in class.
+    - **Have a great weekend!!**
 - September 1, 2026 (Tuesday)
     - Finding fixed points using binary search
     - Download IntelliJ (Community Edition is free)
-    - Work on [this assignment](./handouts/fixed-point-assignment.md)
 - August 28, 2026 (Friday)
     - QUIZ over stuff! RPN, Binary search, Expression Trees, Math, Life, Star Trek and Piano music
     - Here are some [RPN Practice Problems](./handouts/rpn_quiz_review_online.md) for optional review

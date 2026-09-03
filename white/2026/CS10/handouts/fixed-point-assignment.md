@@ -74,23 +74,12 @@ converging, and the final answer should satisfy `f(x) = x` to nine decimal place
 
 ## Part 2 — The attraction test
 
-Add `testAttracting`. The logic is direct:
+Add `testAttracting`.
 
 - Set `epsilon` to `0.01` and start from `nearby = x + epsilon` — a point just off the fixed
-  point.
-- Iterate: `nearby = f(nearby)`, ten times.
-- Measure `Math.abs(nearby - x)`, the final distance from the fixed point.
-- If that distance is **smaller** than `epsilon`, the point was pulled in — print that the
-  fixed point is attracting. Otherwise print that it is repelling.
-
-Run it on your `cos` fixed point. Then answer:
-
-4. Ten iterations is a guess on my part. Is it enough? Try 3, and try 40. Does the verdict ever
-   change? For which kinds of functions would you expect a small iteration count to give the
-   wrong answer?
-5. The test starts at `x + epsilon` only. Should it also check `x - epsilon`? Construct a
-   function where it would matter, or argue convincingly that it can't.
-
+- Do *something* involving a loop and determine if the value `x` is an attracting or repelling fixed point.
+- Print out values in each iteration your loop to help prove the answer you get is correct
+- Print out a sentence saying the type of fixed point you have found
 ---
 
 ## Part 3 — A catalog of fixed points
@@ -113,8 +102,8 @@ attracting or repelling.
 
 1. Roughly how many steps does binary search take to converge? What exactly determines the number of steps needed?
 2. What happens if you hand it an interval where `f(lo)` and `f(hi)` are *both*
-   positive or *both* negative? Try it on one of the functions. Explain what the code does and why. (There is an optional extension to fix it in this case.)
-3. Can you construct a function where binary search quickly finds the exact fixed point? Describe the behavior of the algorithm in this case.
+   positive or *both* negative? Try it on one of the functions. Explain what the code does and why. (For an optional extension, fix the algorithm in this case.)
+3. Can you construct a function where binary search quickly finds the exact fixed point? Describe the behavior of the algorithm in this case. Or explain why it's not possible.
 
 4. At least one of these fixed points is a number you already know by another name. Which one(s)?
 

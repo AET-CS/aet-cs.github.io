@@ -12,7 +12,7 @@ classes:
     - Complete the tasks in the assignment handout.
 - September 9, 2026 (Wednesday)
     - Turn in Fixed Point worksheet
-    - Write code for array methods in class. These will be used in the next assignment
+    - Write code for [array methods in class](./handouts/ArrayTasks-01.pdf). These will be used in the next assignment
 - September 3, 2026 (Thursday)
     - Work on [this assignment](./handouts/fixed-point-assignment.md) in class
     - Finish most or all for HW. We will have some time next class to look at it also

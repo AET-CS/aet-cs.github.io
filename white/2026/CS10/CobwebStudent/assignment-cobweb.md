@@ -86,7 +86,7 @@ Some functions can take parameters
 You should add all the functions from the class worksheet to your program. Feel free to add others you want to explore, once your code
 is working.
 
-You will also write the following functions (you will find them started in Exporer.java)
+You will also write the following functions (you will find them started in Explorer.java)
 
 **`sampleX(lo, hi, n)`** — return a double array of `n` evenly spaced x-values, `lo` first and `hi` last.
 **`applyF(xs, f, r)`** — create and return a new array `f.apply(x, r)` for every entry, leaving `xs` alone.

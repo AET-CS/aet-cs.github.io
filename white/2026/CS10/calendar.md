@@ -9,7 +9,7 @@ classes:
 - September 11, 2026 (Friday)
     - Go over Fixed Point Worksheet
     - Start on Cobweb assignment. [Download and unzip these files](./CobwebStudent.zip) and add them to the `src` folder of a new IntelliJ project
-    - Complete the tasks in the assignment handout.
+    - HW: Complete **all** tasks in the assignment handout. **Bring working code next class for interactive quiz!**
 - September 9, 2026 (Wednesday)
     - Turn in Fixed Point worksheet
     - Write code for [array methods in class](./handouts/ArrayTasks-01.pdf). These will be used in the next assignment

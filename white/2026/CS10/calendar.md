@@ -6,7 +6,7 @@ classes:
 ---
 
 ## Daily Calendar
-- October 10, 2025 (Friday)
+- September 15, 2026 (Tuesday)
     - Play [towers of hanoi](https://javalab.org/en/hanoi_tower_en/)
     - Recursion
     - [Notes](./practice/recursion/Recursion_Notes.pdf) on Recursion (new topic)

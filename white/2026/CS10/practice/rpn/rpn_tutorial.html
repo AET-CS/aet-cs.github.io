@@ -1,0 +1,572 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>RPN Tutorial - Reverse Polish Notation</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            padding: 20px;
+        }
+        
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            background: white;
+            border-radius: 12px;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.3);
+            padding: 40px;
+        }
+        
+        h1 {
+            color: #667eea;
+            margin-bottom: 10px;
+            font-size: 2.5em;
+        }
+        
+        .subtitle {
+            color: #666;
+            margin-bottom: 30px;
+            font-size: 1.1em;
+        }
+        
+        h2 {
+            color: #764ba2;
+            margin-top: 40px;
+            margin-bottom: 15px;
+            padding-bottom: 10px;
+            border-bottom: 3px solid #667eea;
+        }
+        
+        h3 {
+            color: #667eea;
+            margin-top: 25px;
+            margin-bottom: 10px;
+        }
+        
+        .info-box {
+            background: #f0f4ff;
+            border-left: 4px solid #667eea;
+            padding: 15px;
+            margin: 20px 0;
+            border-radius: 4px;
+        }
+        
+        .example-box {
+            background: #fff9e6;
+            border: 2px solid #ffd700;
+            padding: 20px;
+            margin: 20px 0;
+            border-radius: 8px;
+        }
+        
+        .stack-visualization {
+            display: flex;
+            align-items: flex-end;
+            gap: 10px;
+            min-height: 150px;
+            padding: 20px;
+            background: #f8f9fa;
+            border-radius: 8px;
+            margin: 15px 0;
+        }
+        
+        .stack-item {
+            background: #667eea;
+            color: white;
+            padding: 15px 25px;
+            border-radius: 6px;
+            font-size: 1.2em;
+            font-weight: bold;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+            animation: slideIn 0.3s ease;
+        }
+        
+        @keyframes slideIn {
+            from {
+                transform: translateY(-20px);
+                opacity: 0;
+            }
+            to {
+                transform: translateY(0);
+                opacity: 1;
+            }
+        }
+        
+        .interactive-section {
+            background: #e8f5e9;
+            border: 2px solid #4caf50;
+            padding: 25px;
+            margin: 30px 0;
+            border-radius: 8px;
+        }
+        
+        input[type="text"] {
+            width: 100%;
+            padding: 12px;
+            font-size: 1.1em;
+            border: 2px solid #ddd;
+            border-radius: 6px;
+            margin: 10px 0;
+            font-family: 'Courier New', monospace;
+        }
+        
+        input[type="text"]:focus {
+            outline: none;
+            border-color: #667eea;
+        }
+        
+        button {
+            background: #667eea;
+            color: white;
+            border: none;
+            padding: 12px 30px;
+            font-size: 1em;
+            border-radius: 6px;
+            cursor: pointer;
+            transition: background 0.3s;
+            margin: 5px;
+        }
+        
+        button:hover {
+            background: #5568d3;
+        }
+        
+        button:active {
+            transform: scale(0.98);
+        }
+        
+        .step-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+        }
+        
+        .step-table th, .step-table td {
+            border: 1px solid #ddd;
+            padding: 12px;
+            text-align: left;
+        }
+        
+        .step-table th {
+            background: #667eea;
+            color: white;
+        }
+        
+        .step-table tr:nth-child(even) {
+            background: #f8f9fa;
+        }
+        
+        .result-box {
+            background: #d4edda;
+            border: 2px solid #28a745;
+            color: #155724;
+            padding: 15px;
+            margin: 15px 0;
+            border-radius: 6px;
+            font-weight: bold;
+        }
+        
+        .error-box {
+            background: #f8d7da;
+            border: 2px solid #dc3545;
+            color: #721c24;
+            padding: 15px;
+            margin: 15px 0;
+            border-radius: 6px;
+        }
+        
+        code {
+            background: #f4f4f4;
+            padding: 2px 6px;
+            border-radius: 3px;
+            font-family: 'Courier New', monospace;
+            color: #e83e8c;
+        }
+        
+        .highlight {
+            background: #ffeb3b;
+            padding: 2px 4px;
+            font-weight: bold;
+        }
+        
+        ul, ol {
+            margin-left: 30px;
+            margin-top: 10px;
+        }
+        
+        li {
+            margin: 8px 0;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>🧮 Reverse Polish Notation (RPN) Tutorial</h1>
+        <p class="subtitle">Master the art of postfix notation with interactive examples</p>
+        
+        <h2>📚 What is RPN?</h2>
+        <p><strong>Reverse Polish Notation (RPN)</strong> is a mathematical notation where operators follow their operands. Instead of writing <code>3 + 4</code>, you write <code>3 4 +</code>.</p>
+        
+        <div class="info-box">
+            <strong>Why use RPN?</strong>
+            <ul>
+                <li>No parentheses needed - the order of operations is completely unambiguous</li>
+                <li>Easy to evaluate with a simple stack-based algorithm</li>
+                <li>Used in calculators (HP calculators), programming languages (Forth, PostScript)</li>
+                <li>Efficient for computers to process</li>
+            </ul>
+        </div>
+        
+        <h2>🎯 How RPN Works: The Stack</h2>
+        <p>RPN uses a <strong>stack</strong> data structure. Think of it like a stack of plates - you can only add to the top (push) or remove from the top (pop).</p>
+        
+        <h3>The Algorithm:</h3>
+        <ol>
+            <li><strong>Read tokens left to right</strong></li>
+            <li><strong>If it's a number:</strong> Push it onto the stack</li>
+            <li><strong>If it's an operator:</strong> Pop two numbers, apply the operator, push the result back</li>
+            <li><strong>Final answer:</strong> The last number remaining on the stack</li>
+        </ol>
+        
+        <div class="example-box">
+            <h3>Example: Evaluating <code>3 5 + 2 *</code></h3>
+            <table class="step-table">
+                <thead>
+                    <tr>
+                        <th>Step</th>
+                        <th>Token</th>
+                        <th>Operation</th>
+                        <th>Stack</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>1</td>
+                        <td>3</td>
+                        <td>Push 3</td>
+                        <td>[3]</td>
+                    </tr>
+                    <tr>
+                        <td>2</td>
+                        <td>5</td>
+                        <td>Push 5</td>
+                        <td>[3, 5]</td>
+                    </tr>
+                    <tr>
+                        <td>3</td>
+                        <td>+</td>
+                        <td>Pop 5, 3 → Push 8</td>
+                        <td>[8]</td>
+                    </tr>
+                    <tr>
+                        <td>4</td>
+                        <td>2</td>
+                        <td>Push 2</td>
+                        <td>[8, 2]</td>
+                    </tr>
+                    <tr>
+                        <td>5</td>
+                        <td>*</td>
+                        <td>Pop 2, 8 → Push 16</td>
+                        <td>[16]</td>
+                    </tr>
+                </tbody>
+            </table>
+            <div class="result-box">Final Answer: 16</div>
+        </div>
+        
+        <h2>🎮 Interactive RPN Evaluator</h2>
+        <div class="interactive-section">
+            <p><strong>Try it yourself!</strong> Enter an RPN expression (numbers and operators separated by spaces):</p>
+            <input type="text" id="rpnInput" placeholder="Example: 7 2 + 3 4 * 2 / -" value="7 2 + 3 4 * 2 / -">
+            <button onclick="evaluateRPN()">Evaluate Step-by-Step</button>
+            <button onclick="evaluateQuick()">Quick Evaluate</button>
+            <div id="evaluationResult"></div>
+        </div>
+        
+        <h2>🔄 Converting Infix to RPN</h2>
+        <p><strong>Infix notation</strong> is what we normally use: <code>(3 + 5) * 2</code></p>
+        <p>To convert to RPN, think about the order of operations:</p>
+        
+        <div class="example-box">
+            <h3>Example: Convert <code>(5 + 3) × 4 - 6</code> to RPN</h3>
+            <ol>
+                <li>Identify the operations in order: First <code>5 + 3</code>, then multiply by <code>4</code>, then subtract <code>6</code></li>
+                <li>Write each operation in RPN as you go:
+                    <ul>
+                        <li><code>5 + 3</code> becomes <code>5 3 +</code></li>
+                        <li>Multiply that result by 4: <code>5 3 + 4 *</code></li>
+                        <li>Subtract 6: <code>5 3 + 4 * 6 -</code></li>
+                    </ul>
+                </li>
+            </ol>
+            <div class="result-box">Answer: <code>5 3 + 4 * 6 -</code></div>
+        </div>
+        
+        <h3>Quick Rules for Converting:</h3>
+        <ul>
+            <li><strong>Simple operations:</strong> <code>a + b</code> → <code>a b +</code></li>
+            <li><strong>Parentheses:</strong> Process inner parentheses first</li>
+            <li><strong>Multiple operations:</strong> Follow normal order of operations (PEMDAS)</li>
+            <li><strong>Tip:</strong> Build from the inside out, converting each subexpression to RPN</li>
+        </ul>
+        
+        <h2>↩️ Converting RPN to Infix</h2>
+        <p>To convert RPN back to standard notation, use the stack but build expressions instead of numbers:</p>
+        
+        <div class="example-box">
+            <h3>Example: Convert <code>a b + c d * e / -</code> to infix</h3>
+            <table class="step-table">
+                <thead>
+                    <tr>
+                        <th>Token</th>
+                        <th>Operation</th>
+                        <th>Stack</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>a</td>
+                        <td>Push a</td>
+                        <td>[a]</td>
+                    </tr>
+                    <tr>
+                        <td>b</td>
+                        <td>Push b</td>
+                        <td>[a, b]</td>
+                    </tr>
+                    <tr>
+                        <td>+</td>
+                        <td>Pop b, a → Push (a+b)</td>
+                        <td>[(a+b)]</td>
+                    </tr>
+                    <tr>
+                        <td>c</td>
+                        <td>Push c</td>
+                        <td>[(a+b), c]</td>
+                    </tr>
+                    <tr>
+                        <td>d</td>
+                        <td>Push d</td>
+                        <td>[(a+b), c, d]</td>
+                    </tr>
+                    <tr>
+                        <td>*</td>
+                        <td>Pop d, c → Push (c*d)</td>
+                        <td>[(a+b), (c*d)]</td>
+                    </tr>
+                    <tr>
+                        <td>e</td>
+                        <td>Push e</td>
+                        <td>[(a+b), (c*d), e]</td>
+                    </tr>
+                    <tr>
+                        <td>/</td>
+                        <td>Pop e, (c*d) → Push (c*d/e)</td>
+                        <td>[(a+b), (c*d/e)]</td>
+                    </tr>
+                    <tr>
+                        <td>-</td>
+                        <td>Pop (c*d/e), (a+b) → Push ((a+b)-(c*d/e))</td>
+                        <td>[(a+b) - c*d/e]</td>
+                    </tr>
+                </tbody>
+            </table>
+            <div class="result-box">Answer: <code>(a+b) - c*d/e</code></div>
+        </div>
+        
+        <h2>⚠️ Common Mistakes to Avoid</h2>
+        <div class="info-box">
+            <ol>
+                <li><strong>Operator order for subtraction/division:</strong> In <code>a b -</code>, the result is <code>a - b</code> (not <code>b - a</code>). The second-to-top element is the left operand.</li>
+                <li><strong>Counting operands:</strong> Every binary operator needs exactly 2 operands on the stack</li>
+                <li><strong>Parentheses in RPN:</strong> RPN has NO parentheses! The order is built into the expression itself</li>
+                <li><strong>Reading left-to-right:</strong> Always process tokens strictly from left to right</li>
+            </ol>
+        </div>
+        
+        <h2>💪 Practice Problems</h2>
+        <div class="example-box">
+            <h3>Evaluate these:</h3>
+            <ol>
+                <li><code>8 2 / 3 + 5 -</code></li>
+                <li><code>4 5 * 3 2 + / 6 -</code></li>
+                <li><code>12 3 / 2 + 5 * 1 -</code></li>
+            </ol>
+            
+            <h3>Convert to RPN:</h3>
+            <ol>
+                <li><code>(8 - 3) × 2</code></li>
+                <li><code>7 + 4 × (6 - 2)</code></li>
+            </ol>
+            
+            <button onclick="showAnswers()">Show Answers</button>
+            <div id="practiceAnswers" style="display:none; margin-top:15px;">
+                <strong>Evaluation Answers:</strong>
+                <ol>
+                    <li><code>8 2 / 3 + 5 -</code> = 2</li>
+                    <li><code>4 5 * 3 2 + / 6 -</code> = -2</li>
+                    <li><code>12 3 / 2 + 5 * 1 -</code> = 29</li>
+                </ol>
+                <strong>Conversion Answers:</strong>
+                <ol>
+                    <li><code>(8 - 3) × 2</code> → <code>8 3 - 2 *</code></li>
+                    <li><code>7 + 4 × (6 - 2)</code> → <code>7 4 6 2 - * +</code></li>
+                </ol>
+            </div>
+        </div>
+        
+        <h2>🎓 You're Ready!</h2>
+        <p>Now that you understand how RPN works, you're ready to tackle more complex problems. Remember:</p>
+        <ul>
+            <li>Use the stack visualization to track your work</li>
+            <li>Process tokens left to right, always</li>
+            <li>Numbers push, operators pop-compute-push</li>
+            <li>Build infix-to-RPN conversions from the inside out</li>
+        </ul>
+        
+        <div class="info-box">
+            <strong>💡 Pro Tip:</strong> When stuck on a complex expression, draw out the stack at each step. It makes everything crystal clear!
+        </div>
+    </div>
+    
+    <script>
+        function evaluateRPN() {
+            const input = document.getElementById('rpnInput').value.trim();
+            const resultDiv = document.getElementById('evaluationResult');
+            
+            if (!input) {
+                resultDiv.innerHTML = '<div class="error-box">Please enter an RPN expression!</div>';
+                return;
+            }
+            
+            const tokens = input.split(/\s+/);
+            const stack = [];
+            let steps = '<h3>Step-by-Step Evaluation:</h3><table class="step-table"><thead><tr><th>Step</th><th>Token</th><th>Operation</th><th>Stack</th></tr></thead><tbody>';
+            let stepNum = 1;
+            
+            try {
+                for (const token of tokens) {
+                    if (['+', '-', '*', '/'].includes(token)) {
+                        if (stack.length < 2) {
+                            throw new Error('Not enough operands for operator ' + token);
+                        }
+                        const b = stack.pop();
+                        const a = stack.pop();
+                        let result;
+                        let operation = `${a} ${token} ${b}`;
+                        
+                        switch(token) {
+                            case '+': result = a + b; break;
+                            case '-': result = a - b; break;
+                            case '*': result = a * b; break;
+                            case '/': 
+                                if (b === 0) throw new Error('Division by zero');
+                                result = a / b; 
+                                break;
+                        }
+                        
+                        stack.push(result);
+                        steps += `<tr><td>${stepNum++}</td><td><strong>${token}</strong></td><td>Pop ${b}, ${a} → ${operation} = ${result}</td><td>[${stack.join(', ')}]</td></tr>`;
+                    } else {
+                        const num = parseFloat(token);
+                        if (isNaN(num)) {
+                            throw new Error('Invalid token: ' + token);
+                        }
+                        stack.push(num);
+                        steps += `<tr><td>${stepNum++}</td><td>${token}</td><td>Push ${num}</td><td>[${stack.join(', ')}]</td></tr>`;
+                    }
+                }
+                
+                if (stack.length !== 1) {
+                    throw new Error('Invalid expression: ' + stack.length + ' values remain on stack');
+                }
+                
+                steps += '</tbody></table>';
+                steps += `<div class="result-box">Final Answer: ${stack[0]}</div>`;
+                resultDiv.innerHTML = steps;
+                
+            } catch (error) {
+                resultDiv.innerHTML = `<div class="error-box">Error: ${error.message}</div>`;
+            }
+        }
+        
+        function evaluateQuick() {
+            const input = document.getElementById('rpnInput').value.trim();
+            const resultDiv = document.getElementById('evaluationResult');
+            
+            if (!input) {
+                resultDiv.innerHTML = '<div class="error-box">Please enter an RPN expression!</div>';
+                return;
+            }
+            
+            const tokens = input.split(/\s+/);
+            const stack = [];
+            
+            try {
+                for (const token of tokens) {
+                    if (['+', '-', '*', '/'].includes(token)) {
+                        if (stack.length < 2) {
+                            throw new Error('Not enough operands');
+                        }
+                        const b = stack.pop();
+                        const a = stack.pop();
+                        let result;
+                        
+                        switch(token) {
+                            case '+': result = a + b; break;
+                            case '-': result = a - b; break;
+                            case '*': result = a * b; break;
+                            case '/': 
+                                if (b === 0) throw new Error('Division by zero');
+                                result = a / b; 
+                                break;
+                        }
+                        
+                        stack.push(result);
+                    } else {
+                        const num = parseFloat(token);
+                        if (isNaN(num)) {
+                            throw new Error('Invalid token: ' + token);
+                        }
+                        stack.push(num);
+                    }
+                }
+                
+                if (stack.length !== 1) {
+                    throw new Error('Invalid expression');
+                }
+                
+                resultDiv.innerHTML = `<div class="result-box">Result: <strong>${stack[0]}</strong></div>`;
+                
+            } catch (error) {
+                resultDiv.innerHTML = `<div class="error-box">Error: ${error.message}</div>`;
+            }
+        }
+        
+        function showAnswers() {
+            const answersDiv = document.getElementById('practiceAnswers');
+            answersDiv.style.display = 'block';
+        }
+        
+        // Allow Enter key to evaluate
+        document.getElementById('rpnInput').addEventListener('keypress', function(e) {
+            if (e.key === 'Enter') {
+                evaluateRPN();
+            }
+        });
+    </script>
+</body>
+</html>

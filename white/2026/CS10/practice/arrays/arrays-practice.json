@@ -1,0 +1,339 @@
+{
+  "version": 1,
+  "savedAt": "2026-02-18T15:50:01.680Z",
+  "questions": [
+    {
+      "id": "q1",
+      "text": "Consider the following Java code fragment. What is the value of the variable `total` after the loops finish executing?\n\n```java\nint[][] matrix = {\n    {3, 5, 7},\n    {2, 4, 6},\n    {1, 8, 9}\n};\nint total = 0;\nfor (int i = 0; i < matrix.length; i++) {\n    for (int j = 0; j < matrix[i].length; j++) {\n        if (i + j == 2) {\n            total += matrix[i][j];\n        }\n    }\n}\n```",
+      "answers": [
+        {
+          "text": "`12`",
+          "is_correct": true,
+          "explanation": "Correct: the three elements where i + j == 2 are 7, 4, and 1; their sum is 12."
+        },
+        {
+          "text": "`16`",
+          "is_correct": false,
+          "explanation": "This is the sum of the main diagonal (i == j): 3 + 4 + 9 = 16. The code uses i + j == 2, not i == j."
+        },
+        {
+          "text": "`14`",
+          "is_correct": false,
+          "explanation": "Result of using i + j == 3 (off‑by‑one on the constant). The qualifying elements would be 6 and 8, which sum to 14."
+        },
+        {
+          "text": "`45`",
+          "is_correct": false,
+          "explanation": "Sum of every element in the 3×3 matrix, ignoring the conditional test."
+        },
+        {
+          "text": "`6`",
+          "is_correct": false,
+          "explanation": "Sum of the first column only (3 + 2 + 1). This stems from misreading the condition as selecting column 0."
+        }
+      ],
+      "explanation": "The outer loop iterates over the three rows (i = 0,1,2). The inner loop iterates over the three columns of each row (j = 0,1,2). The `if` condition selects only those positions where the sum of the row index and column index equals 2.\n\n- When i = 0, the condition `0 + j == 2` is true only for j = 2 → element `matrix[0][2] = 7`.\n- When i = 1, the condition `1 + j == 2` is true only for j = 1 → element `matrix[1][1] = 4`.\n- When i = 2, the condition `2 + j == 2` is true only for j = 0 → element `matrix[2][0] = 1`.\n\nAll other (i,j) pairs fail the test, so they are ignored. Adding the three selected values:\n`total = 7 + 4 + 1 = 12`.\nThus the final value of `total` is **12**.",
+      "distractors": "Common misconceptions that lead to the wrong choices:\n- **Choosing the main diagonal (i == j)** – students may confuse the anti‑diagonal condition `i + j == 2` with the main diagonal condition `i == j`. This yields the sum 3 + 4 + 9 = 16.\n- **Using the wrong sum constant (i + j == 3)** – some think the constant should be the size of the array (3) instead of size‑1 (2). The pairs that satisfy `i + j == 3` inside the 3×3 grid are (1,2) and (2,1), giving 6 + 8 = 14.\n- **Summing the entire array** – students sometimes forget the `if` clause entirely and add every element, which gives 45.\n- **Summing only the first column** – a misreading of the condition may lead to believing only column 0 is used, producing 3 + 2 + 1 = 6.\nThese errors explain why the distractor answers are plausible but incorrect.",
+      "subject": "Computer Science",
+      "topics": [
+        "T006"
+      ]
+    },
+    {
+      "id": "q2",
+      "text": "Consider the following code fragment that works with a two‑dimensional array:\n\n```java\nint[][] mat = {\n    {2, 4, 6},\n    {1, 3, 5},\n    {7, 8, 9}\n};\nint total = 0;\nfor (int j = 0; j < mat[1].length; j++) {\n    total += mat[1][j];\n}\nSystem.out.println(total);\n```\nWhat value is printed to the console?",
+      "answers": [
+        {
+          "text": "`24`",
+          "is_correct": false,
+          "explanation": "This is the sum of the third row `{7,8,9}`; it results from an off‑by‑one row index."
+        },
+        {
+          "text": "`15`",
+          "is_correct": false,
+          "explanation": "This value comes from adding the second column (4 + 3 + 8). It reflects confusing rows with columns."
+        },
+        {
+          "text": "`9`",
+          "is_correct": true,
+          "explanation": "Correct sum of the elements in the second row."
+        },
+        {
+          "text": "`10`",
+          "is_correct": false,
+          "explanation": "Adding the first column (2 + 1 + 7). Occurs when the loop uses `mat.length` instead of `mat[1].length`."
+        },
+        {
+          "text": "`0`",
+          "is_correct": false,
+          "explanation": "Result of assuming the loop body never executes."
+        }
+      ],
+      "explanation": "The loop iterates over the second row of *mat* (index 1). The row contains `{1, 3, 5}`. Adding the three elements:\n`1 + 3 + 5 = 9`. Therefore `total` becomes 9 and that is what is printed.",
+      "distractors": "Common mistakes that generate the wrong choices:\n- Selecting the third row (`mat[2]`) – gives 24.\n- Summing the second column instead of the row – gives 15.\n- Looping over `mat.length` and summing the first column – gives 10.\n- Assuming the loop never executes – gives 0.",
+      "subject": "Computer Science",
+      "topics": [
+        "T006"
+      ]
+    },
+    {
+      "id": "q3",
+      "text": "Examine the code that creates a ragged 2‑D array and then mutates one of its rows:\n\n```java\nint[] row = {10, 20, 30};\nint[][] data = new int[3][];\ndata[0] = row;\ndata[1] = new int[]{1, 2, 3};\ndata[2] = row;\nrow[1] = 99;\nSystem.out.println(data[2][1]);\n```\nWhat is printed?",
+      "answers": [
+        {
+          "text": "`20`",
+          "is_correct": false,
+          "explanation": "Value originally at `row[1]` before it was changed; reflects missing the aliasing effect."
+        },
+        {
+          "text": "`2`",
+          "is_correct": false,
+          "explanation": "Result of looking at `data[1][1]` instead of `data[2][1]`."
+        },
+        {
+          "text": "`99`",
+          "is_correct": true,
+          "explanation": "Correct – the mutation of `row` is seen through both references."
+        },
+        {
+          "text": "`0`",
+          "is_correct": false,
+          "explanation": "Assumes a new array was created for `data[2]`; not true."
+        },
+        {
+          "text": "`10`",
+          "is_correct": false,
+          "explanation": "Confuses the index and selects the first element of the shared row."
+        }
+      ],
+      "explanation": "`data[2]` refers to the same array object as `row`. Changing `row[1]` to 99 also changes `data[2][1]`. Therefore the printed value is 99.",
+      "distractors": "Typical errors:\n- Forgetting that `data[0]` and `data[2]` share the same reference, leading to answer 20.\n- Looking at the second row (`data[1]`) instead of the third, yielding 2.\n- Assuming a new copy was made, so the default value 0 would be printed.\n- Mixing up indices entirely and picking 10 (the first element).",
+      "subject": "Computer Science",
+      "topics": [
+        "T006"
+      ]
+    },
+    {
+      "id": "q4",
+      "text": "Given the following 2‑D array and nested loops, what value is printed?\n\n```java\nint[][] grid = {\n    {5, 1, 9},\n    {2, 6, 3},\n    {8, 4, 7}\n};\nfor (int i = 0; i < grid.length; i++) {\n    for (int j = 0; j < grid[i].length; j++) {\n        if (grid[i][j] % 2 == 0) {\n            grid[i][j] = grid[i][j] / 2;\n        }\n    }\n}\nSystem.out.println(grid[1][1]);\n```\nWhat is the output?",
+      "answers": [
+        {
+          "text": "`6`",
+          "is_correct": false,
+          "explanation": "Would be correct if the even‑number check were omitted."
+        },
+        {
+          "text": "`12`",
+          "is_correct": false,
+          "explanation": "Result of mistakenly multiplying even numbers by 2."
+        },
+        {
+          "text": "`3`",
+          "is_correct": true,
+          "explanation": "Even number 6 is halved to 3; this is the printed value."
+        },
+        {
+          "text": "`0`",
+          "is_correct": false,
+          "explanation": "Arises from thinking integer division of 6 by something else yields 0."
+        },
+        {
+          "text": "`5`",
+          "is_correct": false,
+          "explanation": "Confuses the position with `grid[1][0]`."
+        }
+      ],
+      "explanation": "The loops examine every element. Only even numbers are halved.\n- `grid[1][1]` starts as 6 (even) → becomes `6/2 = 3`.\nAll other positions are either odd (unchanged) or different even numbers. After the loops finish, `grid[1][1]` holds 3, which is printed.",
+      "distractors": "Misconceptions leading to the alternatives:\n- Forgetting the division, leaving the original 6.\n- Assuming the value is doubled instead of halved, giving 12.\n- Thinking the element becomes 0 because of integer division mis‑interpretation.\n- Confusing the index and picking the first element of the row (5).",
+      "subject": "Computer Science",
+      "topics": [
+        "T006"
+      ]
+    },
+    {
+      "id": "q5",
+      "text": "The code below uses enhanced for‑loops to count how many elements are greater than 5 in a ragged 2‑D array:\n\n```java\nint[][] nums = {\n    {3, 4},\n    {5, 6, 7},\n    {8}\n};\nint count = 0;\nfor (int[] inner : nums) {\n    for (int val : inner) {\n        if (val > 5) {\n            count++;\n        }\n    }\n}\nSystem.out.println(count);\n```\nWhat number is printed?",
+      "answers": [
+        {
+          "text": "`2`",
+          "is_correct": false,
+          "explanation": "Omits the last element `8` from the count."
+        },
+        {
+          "text": "`4`",
+          "is_correct": false,
+          "explanation": "Counts `5` as greater than 5, which is incorrect."
+        },
+        {
+          "text": "`3`",
+          "is_correct": true,
+          "explanation": "Correct total of elements (6,7,8) that exceed 5."
+        },
+        {
+          "text": "`0`",
+          "is_correct": false,
+          "explanation": "Result of believing no element satisfies the condition."
+        },
+        {
+          "text": "`5`",
+          "is_correct": false,
+          "explanation": "Reflects a mis‑count that adds a non‑existent extra element."
+        }
+      ],
+      "explanation": "List the values greater than 5:\n- From `{3,4}`: none.\n- From `{5,6,7}`: `6` and `7` → 2.\n- From `{8}`: `8` → 1.\nTotal = 2 + 1 = **3**. The program prints 3.",
+      "distractors": "Typical errors:\n- Forgetting the single‑element array `{8}` → 2.\n- Counting the value `5` as well → 4.\n- Assuming the array is rectangular and using a fixed column count → 0.\n- Adding an extra phantom element → 5.",
+      "subject": "Computer Science",
+      "topics": [
+        "T006"
+      ]
+    },
+    {
+      "id": "q6",
+      "text": "Consider the following code segment. What is the final value of **total** after the loops complete?\n\n```java\nint[][] grid = {\n    {3, 5, 7},\n    {2, 4, 6},\n    {1, 8, 9}\n};\nint total = 0;\nfor (int i = 0; i < grid.length; i++) {\n    for (int j = 0; j < grid[i].length; j++) {\n        if ((i + j) % 2 == 0) {\n            total += grid[i][j];\n        } else {\n            total -= grid[i][j];\n        }\n    }\n}\n```",
+      "answers": [
+        {
+          "text": "`45`",
+          "is_correct": false,
+          "explanation": "Adds every element; ignores the parity condition."
+        },
+        {
+          "text": "`-3`",
+          "is_correct": false,
+          "explanation": "Reverses the add/subtract logic."
+        },
+        {
+          "text": "`21`",
+          "is_correct": false,
+          "explanation": "Considers only the row index (i) for the parity test."
+        },
+        {
+          "text": "`4`",
+          "is_correct": false,
+          "explanation": "Initializes total to 1 instead of 0."
+        },
+        {
+          "text": "`3`",
+          "is_correct": true,
+          "explanation": "Correct result after applying the given algorithm."
+        }
+      ],
+      "explanation": "The array has 3 rows and 3 columns. Iterate through each cell, adding the value when the sum of its indices is even and subtracting when the sum is odd.\n\n- Row 0 (i=0):\n  - j=0 → (0+0) even → total = 0 + 3 = **3**\n  - j=1 → odd → total = 3 - 5 = **-2**\n  - j=2 → even → total = -2 + 7 = **5**\n- Row 1 (i=1):\n  - j=0 → odd → total = 5 - 2 = **3**\n  - j=1 → even → total = 3 + 4 = **7**\n  - j=2 → odd → total = 7 - 6 = **1**\n- Row 2 (i=2):\n  - j=0 → even → total = 1 + 1 = **2**\n  - j=1 → odd → total = 2 - 8 = **-6**\n  - j=2 → even → total = -6 + 9 = **3**\n\nThe final value of **total** is **3**.\n\n**Distractor analysis**\n- **45** – adds every element regardless of parity.\n- **-3** – reverses the add/subtract logic (adds on odd, subtracts on even).\n- **21** – bases the decision only on the row index (i) instead of i + j.\n- **4** – initializes *total* to 1 instead of 0 before performing the same operations.",
+      "distractors": "Common mistakes:\n- Forgetting the parity test and summing all values → 45.\n- Swapping the condition (add when odd, subtract when even) → -3.\n- Using only the row index for the test (i % 2) → 21.\n- Off‑by‑one initialization error (starting total at 1) → 4.\nThese errors reflect typical off‑by‑one and logic‑reversal misconceptions.",
+      "subject": "Computer Science",
+      "topics": [
+        "T006"
+      ]
+    },
+    {
+      "id": "q7",
+      "text": "Examine the following code that attempts to double every value in a 2‑D array using an enhanced **for** loop. What is the value of **sum** after the code executes?\n\n```java\nint[][] matrix = {\n    {1, 2, 3},\n    {4, 5, 6}\n};\nfor (int[] row : matrix) {\n    for (int val : row) {\n        val = val * 2;   // attempt to modify the array\n    }\n}\nint sum = 0;\nfor (int[] row : matrix) {\n    for (int v : row) {\n        sum += v;\n    }\n}\n```",
+      "answers": [
+        {
+          "text": "`42`",
+          "is_correct": false,
+          "explanation": "Incorrectly assumes the array elements are doubled."
+        },
+        {
+          "text": "`27`",
+          "is_correct": false,
+          "explanation": "Assumes only the first row was doubled."
+        },
+        {
+          "text": "`0`",
+          "is_correct": false,
+          "explanation": "Neglects the summation loop or thinks values are lost."
+        },
+        {
+          "text": "`21`",
+          "is_correct": true,
+          "explanation": "Correct: the array is unchanged, so the sum is 1+2+3+4+5+6."
+        },
+        {
+          "text": "`15`",
+          "is_correct": false,
+          "explanation": "Miscalculates by adding only the second row."
+        }
+      ],
+      "explanation": "In an enhanced **for** loop, the loop variable (`val` or `v`) holds a copy of the primitive array element. Assigning `val = val * 2` changes only the copy, not the original entry in `matrix`. Therefore the array remains `{ {1,2,3}, {4,5,6} }`.\n\nThe second nested loop simply adds all the original elements:\n1+2+3+4+5+6 = **21**.\n\nThus **sum** equals 21.\n\n**Distractor analysis**\n- **42** – assumes the assignment in the first loop actually updates the array, doubling every element.\n- **27** – mistakenly thinks only the first row is doubled (12) while the second row stays the same (15). 12+15 = 27.\n- **0** – ignores the second loop entirely or believes the enhanced for loop makes the values undefined.\n- **21** – the correct answer.",
+      "distractors": "Typical misconceptions:\n- Believing the enhanced for loop can modify primitive array elements directly → yields 42.\n- Assuming the inner loop affects only the first row before the outer loop proceeds → yields 27.\n- Forgetting that a second summation loop is required, or thinking the values become inaccessible → yields 0.\nThese reflect misunderstandings of how enhanced for loops work with primitive types.",
+      "subject": "Computer Science",
+      "topics": [
+        "T006"
+      ]
+    },
+    {
+      "id": "q8",
+      "text": "The code below transposes a 3 × 3 square matrix **in place**. After execution, what is the value stored in `m[2][0]`?\n\n```java\nint[][] m = {\n    {0, 1, 2},\n    {3, 4, 5},\n    {6, 7, 8}\n};\nfor (int i = 0; i < m.length; i++) {\n    for (int j = i + 1; j < m[i].length; j++) {\n        int temp = m[i][j];\n        m[i][j] = m[j][i];\n        m[j][i] = temp;\n    }\n}\n```",
+      "answers": [
+        {
+          "text": "`6`",
+          "is_correct": false,
+          "explanation": "Value before transposition; ignores the swapping loops."
+        },
+        {
+          "text": "`0`",
+          "is_correct": false,
+          "explanation": "Confuses the requested position with the top‑left diagonal element."
+        },
+        {
+          "text": "`8`",
+          "is_correct": false,
+          "explanation": "Mixes up (2,0) with the bottom‑right corner (2,2)."
+        },
+        {
+          "text": "`3`",
+          "is_correct": false,
+          "explanation": "Off‑by‑one error; thinks the element comes from (1,0)."
+        },
+        {
+          "text": "`2`",
+          "is_correct": true,
+          "explanation": "Correct transposed value at position (2,0)."
+        }
+      ],
+      "explanation": "The nested loops swap each element above the main diagonal with its counterpart below the diagonal, producing the transpose of the matrix.\n\nOriginal matrix:\n```\n0 1 2\n3 4 5\n6 7 8\n```\nAfter transposition the rows become columns:\n```\n0 3 6\n1 4 7\n2 5 8\n```\nThus the element at row 2, column 0 (`m[2][0]`) is **2**.\n\n**Distractor analysis**\n- **6** – the original value before any swapping; forgetting the transpose.\n- **0** – confusing the diagonal element (m[0][0]) with the requested position.\n- **8** – the bottom‑right corner, another common mix‑up.\n- **3** – off‑by‑one error (thinking the element comes from position (1,0)).",
+      "distractors": "Common errors:\n- Not performing the swap at all → original value 6.\n- Mistaking the diagonal as unchanged → 0.\n- Confusing (2,0) with (2,2) → 8.\n- Off‑by‑one index confusion → 3.\nThese reflect typical mistakes when visualizing matrix transposition.",
+      "subject": "Computer Science",
+      "topics": [
+        "T006"
+      ]
+    },
+    {
+      "id": "q9",
+      "text": "A jagged (ragged) 2‑D array is created and filled as shown. After the nested loops finish, what is the final value of **count**?\n\n```java\nint[][] ragged = new int[3][];\nragged[0] = new int[2];   // length 2\nragged[1] = new int[4];   // length 4\nragged[2] = new int[3];   // length 3\n\nint count = 0;\nfor (int i = 0; i < ragged.length; i++) {\n    for (int j = 0; j < ragged[i].length; j++) {\n        ragged[i][j] = i + j;\n        if (ragged[i][j] % 2 == 0) {\n            count++;\n        }\n    }\n}\n```",
+      "answers": [
+        {
+          "text": "`9`",
+          "is_correct": false,
+          "explanation": "Counts every cell; ignores the even‑number test."
+        },
+        {
+          "text": "`4`",
+          "is_correct": false,
+          "explanation": "Misses one even value (the 2 in the third row)."
+        },
+        {
+          "text": "`6`",
+          "is_correct": false,
+          "explanation": "Over‑counts evens, perhaps counting 0 twice."
+        },
+        {
+          "text": "`0`",
+          "is_correct": false,
+          "explanation": "Assumes the condition never holds."
+        },
+        {
+          "text": "`5`",
+          "is_correct": true,
+          "explanation": "Correct count of even entries."
+        }
+      ],
+      "explanation": "We enumerate each element `i + j` and count the even results.\n\n- Row 0 (i=0, length 2): values 0, 1 → evens: **0** → count = 1\n- Row 1 (i=1, length 4): values 1, 2, 3, 4 → evens: **2**, **4** → count = 3\n- Row 2 (i=2, length 3): values 2, 3, 4 → evens: **2**, **4** → count = 5\n\nTotal even entries = **5**, so `count` ends with the value 5.\n\n**Distractor analysis**\n- **9** – total number of elements (2 + 4 + 3) instead of the even count.\n- **4** – missed one even value (common when overlooking the last row).\n- **6** – mis‑counted by adding an extra even (perhaps treating 0 twice).\n- **0** – thought the condition never true.\nThese reflect typical off‑by‑one and mis‑counting mistakes.",
+      "distractors": "Typical misconceptions:\n- Counting all elements regardless of parity → 9.\n- Forgetting the even number in the last row → 4.\n- Counting 0 as two evens or otherwise over‑counting → 6.\n- Assuming the modulo test fails for all entries → 0.\nEach distractor stems from a specific counting or logic error.",
+      "subject": "Computer Science",
+      "topics": [
+        "T006"
+      ]
+    }
+  ]
+}

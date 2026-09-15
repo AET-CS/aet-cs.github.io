@@ -6,6 +6,12 @@ classes:
 ---
 
 ## Daily Calendar
+- October 10, 2025 (Friday)
+    - Play [towers of hanoi](https://javalab.org/en/hanoi_tower_en/)
+    - Recursion
+    - [Notes](./practice/recursion/Recursion_Notes.pdf) on Recursion (new topic)
+    - Recursion [practice](./practice/recursion/Day_1_Recursion_Practice.pdf)
+    - Extra [resources on recursion](./practice/recursion/Recursion_Resources.md)
 - September 11, 2026 (Friday)
     - Go over Fixed Point Worksheet
     - Start on Cobweb assignment. [Download and unzip these files](./CobwebStudent.zip) and add them to the `src` folder of a new IntelliJ project

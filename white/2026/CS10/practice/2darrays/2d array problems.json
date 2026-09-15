@@ -1,0 +1,228 @@
+{
+  "version": 1,
+  "savedAt": "2026-02-09T17:38:42.496Z",
+  "questions": [
+    {
+      "id": "q1",
+      "text": "Consider the following Java code fragment. What value is printed to the console?\n\n```java\nint[][] matrix = {\n    {3, 5, 7},\n    {2, 4, 6},\n    {1, 8, 9}\n};\n\nint sum = 0;\nfor (int i = 0; i < matrix.length; i++) {\n    for (int j = 0; j < matrix[i].length; j++) {\n        if (i == j) {\n            sum += matrix[i][j];\n        } else if (i + j == matrix.length - 1) {\n            sum += matrix[i][j] * 2;\n        }\n    }\n}\nSystem.out.println(sum);\n```",
+      "answers": [
+        {
+          "text": "`32`",
+          "is_correct": true,
+          "explanation": "Correct. The sum of the main diagonal plus twice the anti‑diagonal (excluding the centre) is 32."
+        },
+        {
+          "text": "`40`",
+          "is_correct": false,
+          "explanation": "Wrong. This occurs if the centre element is added twice (using two separate `if` statements), adding an extra 8."
+        },
+        {
+          "text": "`24`",
+          "is_correct": false,
+          "explanation": "Wrong. This results from treating anti‑diagonal elements like normal ones, forgetting to double them."
+        },
+        {
+          "text": "`21`",
+          "is_correct": false,
+          "explanation": "Wrong. This comes from an outer‑loop bound error that skips the last row of the matrix."
+        },
+        {
+          "text": "`9`",
+          "is_correct": false,
+          "explanation": "Wrong. This stems from an inner‑loop bound error that never visits the last column, omitting most contributors."
+        }
+      ],
+      "explanation": "The array has 3 rows and 3 columns. `matrix.length` is 3.\n\n**Step‑by‑step tracing**\n1. **i = 0**\n   - j = 0 → `i == j` true → add 3 (sum = 3)\n   - j = 1 → no condition true → nothing added\n   - j = 2 → `i + j == 2` true → add 2·7 = 14 (sum = 17)\n2. **i = 1**\n   - j = 0 → no condition true\n   - j = 1 → `i == j` true → add 4 (sum = 21)\n   - j = 2 → no condition true\n3. **i = 2**\n   - j = 0 → `i + j == 2` true → add 2·1 = 2 (sum = 23)\n   - j = 1 → no condition true\n   - j = 2 → `i == j` true → add 9 (sum = 32)\n\nAfter all iterations `sum` equals **32**, which is printed.\n\nThe key points are:\n- The main diagonal (`i == j`) contributes each element once.\n- The anti‑diagonal (`i + j == matrix.length‑1`) contributes its elements *twice*.\n- The centre element (row 1, col 1) satisfies only the first `if`; the `else if` is skipped, so it is **not** doubled.\n\nTherefore the correct answer is 32.",
+      "distractors": "Common mistakes that lead to the wrong choices:\n1. **Double‑counting the centre element** – using two independent `if` statements instead of `if … else if`. The centre (value 4) would be added once normally and again doubled, giving an extra 8. Result: 40.\n2. **Forgetting to double the anti‑diagonal values** – treating the anti‑diagonal like the main diagonal. Only the three anti‑diagonal numbers (7, 4, 1) would be added once, yielding 24.\n3. **Iterating only to `matrix.length‑1` in the outer loop** – e.g., `i < matrix.length‑1`. The last row (i = 2) is skipped, so only rows 0 and 1 are processed. The sum becomes 21.\n4. **Stopping the inner loop before the last column** – e.g., `j < matrix[i].length‑1`. Column 2 is never visited, so the anti‑diagonal element 7 is missed and the bottom‑right diagonal element 9 is missed, leaving a sum of 9.\nThese misconceptions generate the distractor values 40, 24, 21, and 9 respectively.",
+      "subject": "Computer Science",
+      "topics": [
+        "T006"
+      ]
+    },
+    {
+      "id": "q2",
+      "text": "Consider the following code fragment:\n\n```java\nint[][] matrix = {\n    {2, 4, 6},\n    {8, 10, 12},\n    {14, 16, 18}\n};\nint x = matrix[1][2];\nSystem.out.println(x);\n```\nWhat value is printed to the console?",
+      "answers": [
+        {
+          "text": "`10`",
+          "is_correct": false,
+          "explanation": "This is `matrix[1][1]` (second row, second column), not the requested element."
+        },
+        {
+          "text": "`12`",
+          "is_correct": true,
+          "explanation": "Correct: second row, third column of the matrix."
+        },
+        {
+          "text": "`18`",
+          "is_correct": false,
+          "explanation": "Off‑by‑one row: `matrix[2][2]` refers to the third row, third column."
+        },
+        {
+          "text": "`2`",
+          "is_correct": false,
+          "explanation": "Confuses 0‑based indexing; this is the first element of the array."
+        },
+        {
+          "text": "`6`",
+          "is_correct": false,
+          "explanation": "Incorrectly adds the elements of the first row instead of selecting a single element."
+        }
+      ],
+      "explanation": "`matrix` is a 3×3 int array. The first index selects the row (0‑based), the second index selects the column.\n- `matrix[1]` refers to the second row: `{8, 10, 12}`.\n- `matrix[1][2]` selects the third element of that row, which is `12`.\nTherefore the program prints `12`.\nThe correct answer is `12`.",
+      "distractors": "Common misconceptions leading to the wrong choices:\n- Selecting the wrong row (`matrix[2][2]`) gives `18` – off‑by‑one row error.\n- Selecting the wrong column (`matrix[1][1]`) gives `10` – off‑by‑one column error.\n- Assuming arrays start at 1 and using `matrix[0][0]` leads to `2` – misunderstanding of 0‑based indexing.\n- Mistaking the printed value for a sum of the row (2+4+6 = 12) can still be correct by coincidence, but most students would choose another number such as `6`.\nThese are the sources of the distractors below.",
+      "subject": "Computer Science",
+      "topics": [
+        "T006"
+      ]
+    },
+    {
+      "id": "q3",
+      "text": "Examine the code below:\n\n```java\nint[][] scores = {\n    {5, 7, 9},\n    {6, 8, 10}\n};\nint total = 0;\nfor (int r = 0; r < scores.length; r++) {\n    total += scores[r][1];\n}\nSystem.out.println(total);\n```\nWhat value is printed after the loop finishes?",
+      "answers": [
+        {
+          "text": "`11`",
+          "is_correct": false,
+          "explanation": "Adds the first column (5 + 6) instead of the second column."
+        },
+        {
+          "text": "`15`",
+          "is_correct": true,
+          "explanation": "Correct sum of the second column (7 + 8)."
+        },
+        {
+          "text": "`19`",
+          "is_correct": false,
+          "explanation": "Sum of the third column (9 + 10)."
+        },
+        {
+          "text": "`45`",
+          "is_correct": false,
+          "explanation": "Sum of **all** elements; the loop only accesses one column."
+        },
+        {
+          "text": "`0`",
+          "is_correct": false,
+          "explanation": "Result of never modifying `total` inside the loop."
+        }
+      ],
+      "explanation": "`scores` has two rows and three columns. The loop iterates over each row (`r = 0` and `r = 1`). Inside the loop we add `scores[r][1]`, the element in column 1 (the second column) of the current row.\n- For `r = 0`: `scores[0][1] = 7`\n- For `r = 1`: `scores[1][1] = 8`\nThe running total becomes `0 + 7 = 7`, then `7 + 8 = 15`. The program prints `15`.",
+      "distractors": "Typical errors producing the wrong choices:\n- Using column 0 instead of column 1 (`scores[r][0]`) yields `5 + 6 = 11` – column‑off‑by‑one.\n- Using column 2 (`scores[r][2]`) yields `9 + 10 = 19` – another column‑off‑by‑one.\n- Summing **all** elements (`5+7+9+6+8+10`) gives `45` – misunderstanding the loop body.\n- Forgetting to update `total` (e.g., initializing but never adding) would leave it at `0`.\nThese mistakes are reflected in the answer options.",
+      "subject": "Computer Science",
+      "topics": [
+        "T006"
+      ]
+    },
+    {
+      "id": "q4",
+      "text": "What is the output of the following program?\n\n```java\nint[][] grid = new int[2][3];   // 2 rows, 3 columns, all elements default to 0\ngrid[0][1] = 5;                // assign 5 to the element in row 0, column 1\nSystem.out.println(grid[1][2]);\n```\nSelect the value printed to the console.",
+      "answers": [
+        {
+          "text": "`5`",
+          "is_correct": false,
+          "explanation": "Confuses the printed element with the one that was explicitly assigned."
+        },
+        {
+          "text": "`0`",
+          "is_correct": true,
+          "explanation": "Correct: `grid[1][2]` was never changed and defaults to 0."
+        },
+        {
+          "text": "`-5`",
+          "is_correct": false,
+          "explanation": "Incorrect sign; default int values are never negative unless assigned."
+        },
+        {
+          "text": "`1`",
+          "is_correct": false,
+          "explanation": "Misconception that uninitialized ints default to 1."
+        },
+        {
+          "text": "`null`",
+          "is_correct": false,
+          "explanation": "`null` is not a valid value for primitive `int` elements."
+        }
+      ],
+      "explanation": "`new int[2][3]` creates a 2‑by‑3 array where every element is initially `0`. Only `grid[0][1]` is changed to `5`. The element `grid[1][2]` (second row, third column) is never modified, so it retains the default value `0`. Hence the program prints `0`.",
+      "distractors": "Reasons for the incorrect options:\n- Confusing the coordinates and thinking the printed element is the one that was assigned (`grid[0][1]`), which would give `5` – a row/column mix‑up.\n- Believing that the default value for an int array is `null` or some sentinel like `-1`; these lead to `-1` or a compilation error, but students may guess `-5`.\n- Assuming the default value is `1` (common when thinking of Boolean true/false), yielding `1`.\nEach distractor mirrors a specific misconception about default values or index ordering.",
+      "subject": "Computer Science",
+      "topics": [
+        "T006"
+      ]
+    },
+    {
+      "id": "q5",
+      "text": "Consider the following Java code. What is the exact 2‑dimensional array returned by the call `mystery(matrix)`?\n\n```java\npublic class Mystery {\n    public static void main(String[] args) {\n        int[][] matrix = {\n            {1, 2, 3},\n            {4, 5, 6},\n            {7, 8, 9}\n        };\n        int[][] result = mystery(matrix);\n        // result is printed for inspection\n    }\n\n    public static int[][] mystery(int[][] m) {\n        int rows = m.length;        \n        int cols = m[0].length;      \n        int[][] t = new int[cols][rows];\n        for (int i = 0; i < rows; i++) {\n            for (int j = 0; j < cols; j++) {\n                t[j][i] = m[i][j];   \n            }\n        }\n        return t;\n    }\n}\n```",
+      "answers": [
+        {
+          "text": "`{ {1, 2, 3}, {4, 5, 6}, {7, 8, 9} }`",
+          "is_correct": false,
+          "explanation": "This is the original matrix; the method is supposed to return its transpose, not a copy."
+        },
+        {
+          "text": "`{ {1, 4, 7}, {2, 5, 8}, {3, 6, 9} }`",
+          "is_correct": true,
+          "explanation": "Correct transpose: rows and columns are swapped as shown by the step‑by‑step trace."
+        },
+        {
+          "text": "`{ {3, 2, 1}, {6, 5, 4}, {9, 8, 7} }`",
+          "is_correct": false,
+          "explanation": "This result reverses each individual row instead of transposing; it stems from confusing horizontal reversal with transposition."
+        },
+        {
+          "text": "`{ {7, 8, 9}, {4, 5, 6}, {1, 2, 3} }`",
+          "is_correct": false,
+          "explanation": "Here the rows have been swapped (first ↔ last) but columns remain unchanged—a common mix‑up of row‑versus‑column operations."
+        },
+        {
+          "text": "`{ {2, 6, 10}, {6, 10, 14}, {10, 14, 18} }`",
+          "is_correct": false,
+          "explanation": "This matrix results from adding each element to its symmetric counterpart (matrix + its transpose), not from performing a pure transpose."
+        }
+      ],
+      "explanation": "The method first records the original size: `rows = 3` and `cols = 3`. It allocates a new 2‑D array `t` with dimensions `[cols][rows]`, i.e. `new int[3][3]`. The nested loops iterate over every element of `matrix`.\n\n* For `i = 0` (first row):\n  * `j = 0` → `t[0][0] = m[0][0] = 1`\n  * `j = 1` → `t[1][0] = m[0][1] = 2`\n  * `j = 2` → `t[2][0] = m[0][2] = 3`\n* For `i = 1` (second row):\n  * `j = 0` → `t[0][1] = m[1][0] = 4`\n  * `j = 1` → `t[1][1] = m[1][1] = 5`\n  * `j = 2` → `t[2][1] = m[1][2] = 6`\n* For `i = 2` (third row):\n  * `j = 0` → `t[0][2] = m[2][0] = 7`\n  * `j = 1` → `t[1][2] = m[2][1] = 8`\n  * `j = 2` → `t[2][2] = m[2][2] = 9`\n\nCollecting the values row‑by‑row, `t` becomes:\n```\n{ {1, 4, 7},\n  {2, 5, 8},\n  {3, 6, 9} }\n```\nTherefore `transpose(matrix)` returns this exact 2‑dimensional array.",
+      "distractors": "Common misconceptions that generate the wrong choices:\n1. **No transposition performed** – The student copies the original matrix to the result array, yielding the same matrix `{ {1,2,3},{4,5,6},{7,8,9} }`.\n2. **Reversing each row** – Instead of swapping rows and columns, the student reverses the order of elements inside every row, producing `{ {3,2,1},{6,5,4},{9,8,7} }`.\n3. **Swapping rows instead of columns** – The student thinks the transpose means moving the first row to the last position, giving `{ {7,8,9},{4,5,6},{1,2,3} }`.\n4. **Adding the matrix to its transpose** – A confused student adds each element to its symmetric counterpart, resulting in `{ {2,6,10},{6,10,14},{10,14,18} }`.\nEach distractor reflects a realistic error pattern often seen in introductory Java array problems.",
+      "subject": "Computer Science",
+      "topics": [
+        "T006"
+      ]
+    },
+    {
+      "id": "q6",
+      "text": "What will be the contents of the 2‑D array `M` after the following code executes?\n\n```java\nint[][] M = {\n    {5, 2, 8},\n    {1, 4, 7},\n    {9, 0, 3},\n    {6, 6, 6}\n};\n\nint temp;\nfor (int c = 0; c < M[0].length; c++) {\n    temp = M[1][c];\n    M[1][c] = M[3][c];\n    M[3][c] = temp;\n}\n```\n\nSelect the correct representation of `M` (rows shown in order, each row in brackets).",
+      "answers": [
+        {
+          "text": "`[[5,2,8],[6,6,6],[9,0,3],[1,4,7]]`",
+          "is_correct": true,
+          "explanation": "Both rows 1 and 3 are completely exchanged; the rest of the matrix is unchanged."
+        },
+        {
+          "text": "`[[8,2,5],[7,4,1],[3,0,9],[6,6,6]]`",
+          "is_correct": false,
+          "explanation": "This result comes from swapping the first and third columns of every row, not the intended rows."
+        },
+        {
+          "text": "`[[5,2,8],[6,6,7],[9,0,3],[1,4,6]]`",
+          "is_correct": false,
+          "explanation": "Only the first two columns were swapped because the loop stopped one iteration early (off‑by‑one error)."
+        },
+        {
+          "text": "`[[5,2,8],[6,6,6],[9,0,3],[6,6,6]]`",
+          "is_correct": false,
+          "explanation": "Both rows end up identical to the original row 3 because the temporary variable was omitted."
+        },
+        {
+          "text": "`[[9,0,3],[1,4,7],[5,2,8],[6,6,6]]`",
+          "is_correct": false,
+          "explanation": "Rows 0 and 2 were swapped instead of rows 1 and 3."
+        }
+      ],
+      "explanation": "The code swaps row 1 with row 3 of the matrix. The outer loop iterates over each column index `c` (0, 1, 2). For each column it:\n1. Stores the element of row 1 (`M[1][c]`) in `temp`.\n2. Copies the element of row 3 (`M[3][c]`) into row 1.\n3. Writes the saved `temp` into row 3.\nDoing this for every column exchanges the whole rows.\nOriginal rows:\n- row 0: `[5, 2, 8]`\n- row 1: `[1, 4, 7]`\n- row 2: `[9, 0, 3]`\n- row 3: `[6, 6, 6]`\nAfter swapping rows 1 and 3 we obtain:\n- row 0: `[5, 2, 8]`\n- row 1: `[6, 6, 6]`\n- row 2: `[9, 0, 3]`\n- row 3: `[1, 4, 7]`\nThus `M` becomes `[[5,2,8],[6,6,6],[9,0,3],[1,4,7]]`.",
+      "distractors": "Common mistakes that lead to the wrong choices:\n- **Swapped columns instead of rows** – Some students misinterpret the loop as operating on columns and exchange column 0 with column 2 across all rows, producing `[[8,2,5],[7,4,1],[3,0,9],[6,6,6]]`.\n- **Off‑by‑one loop bound** – Using `c < M[0].length‑1` swaps only the first two columns of the two rows, leaving the third column unchanged, giving `[[5,2,8],[6,6,7],[9,0,3],[1,4,6]]`.\n- **Forgot to use a temporary variable** – Assigning `M[1][c] = M[3][c]; M[3][c] = M[1][c];` overwrites the original row 1 value before it can be saved, so both rows end up with the original contents of row 3: `[[5,2,8],[6,6,6],[9,0,3],[6,6,6]]`.\n- **Swapped the wrong rows** – Misreading the indices and swapping row 0 with row 2 yields `[[9,0,3],[1,4,7],[5,2,8],[6,6,6]]`.",
+      "subject": "Computer Science",
+      "topics": [
+        "T006"
+      ]
+    }
+  ]
+}

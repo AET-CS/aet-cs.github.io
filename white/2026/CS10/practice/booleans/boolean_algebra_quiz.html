@@ -1,0 +1,696 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Boolean Algebra Quiz</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            padding: 20px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .container {
+            max-width: 800px;
+            width: 100%;
+            background: white;
+            border-radius: 15px;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.3);
+            padding: 40px;
+        }
+
+        h1 {
+            color: #667eea;
+            text-align: center;
+            margin-bottom: 10px;
+            font-size: 2.5em;
+        }
+
+        .subtitle {
+            text-align: center;
+            color: #666;
+            margin-bottom: 30px;
+            font-size: 1.1em;
+        }
+
+        .progress-bar {
+            width: 100%;
+            height: 8px;
+            background: #e0e0e0;
+            border-radius: 4px;
+            margin-bottom: 30px;
+            overflow: hidden;
+        }
+
+        .progress-fill {
+            height: 100%;
+            background: linear-gradient(90deg, #667eea, #764ba2);
+            transition: width 0.3s ease;
+        }
+
+        .question-container {
+            margin-bottom: 30px;
+        }
+
+        .question-number {
+            color: #667eea;
+            font-weight: bold;
+            font-size: 0.9em;
+            margin-bottom: 10px;
+        }
+
+        .question-text {
+            font-size: 1.3em;
+            font-weight: 500;
+            margin-bottom: 20px;
+            color: #333;
+            line-height: 1.5;
+        }
+
+        code {
+            background: #f4f4f4;
+            padding: 2px 6px;
+            border-radius: 3px;
+            font-family: 'Courier New', monospace;
+            font-size: 0.95em;
+        }
+
+        .options {
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+        }
+
+        .option {
+            background: #f8f9fa;
+            border: 2px solid #e0e0e0;
+            border-radius: 8px;
+            padding: 15px 20px;
+            cursor: pointer;
+            transition: all 0.2s;
+            display: flex;
+            align-items: center;
+        }
+
+        .option:hover:not(.disabled) {
+            border-color: #667eea;
+            background: #f0f4ff;
+            transform: translateX(5px);
+        }
+
+        .option.selected {
+            border-color: #667eea;
+            background: #e8eeff;
+        }
+
+        .option.correct {
+            border-color: #4caf50;
+            background: #e8f5e9;
+        }
+
+        .option.incorrect {
+            border-color: #f44336;
+            background: #ffebee;
+        }
+
+        .option.disabled {
+            cursor: not-allowed;
+            opacity: 0.6;
+        }
+
+        .option-label {
+            display: inline-block;
+            width: 30px;
+            height: 30px;
+            background: #667eea;
+            color: white;
+            border-radius: 50%;
+            text-align: center;
+            line-height: 30px;
+            margin-right: 15px;
+            font-weight: bold;
+            flex-shrink: 0;
+        }
+
+        .option.correct .option-label {
+            background: #4caf50;
+        }
+
+        .option.incorrect .option-label {
+            background: #f44336;
+        }
+
+        .feedback {
+            margin-top: 20px;
+            padding: 15px;
+            border-radius: 8px;
+            display: none;
+        }
+
+        .feedback.show {
+            display: block;
+        }
+
+        .feedback.correct {
+            background: #e8f5e9;
+            border-left: 4px solid #4caf50;
+            color: #2e7d32;
+        }
+
+        .feedback.incorrect {
+            background: #ffebee;
+            border-left: 4px solid #f44336;
+            color: #c62828;
+        }
+
+        .feedback-title {
+            font-weight: bold;
+            margin-bottom: 8px;
+            font-size: 1.1em;
+        }
+
+        .explanation {
+            line-height: 1.6;
+            margin-top: 10px;
+            padding-top: 10px;
+            border-top: 1px solid rgba(0,0,0,0.1);
+        }
+
+        .buttons {
+            display: flex;
+            gap: 15px;
+            margin-top: 30px;
+            justify-content: center;
+        }
+
+        button {
+            padding: 12px 30px;
+            border: none;
+            border-radius: 8px;
+            font-size: 1em;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.2s;
+        }
+
+        .btn-primary {
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            color: white;
+        }
+
+        .btn-primary:hover:not(:disabled) {
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(102, 126, 234, 0.4);
+        }
+
+        .btn-secondary {
+            background: #e0e0e0;
+            color: #666;
+        }
+
+        .btn-secondary:hover {
+            background: #d0d0d0;
+        }
+
+        button:disabled {
+            opacity: 0.5;
+            cursor: not-allowed;
+        }
+
+        .hint-box {
+            background: #fff9e6;
+            border: 2px solid #ffd700;
+            border-radius: 8px;
+            padding: 15px;
+            margin-top: 15px;
+            display: none;
+        }
+
+        .hint-box.show {
+            display: block;
+        }
+
+        .hint-title {
+            font-weight: bold;
+            color: #f57c00;
+            margin-bottom: 8px;
+        }
+
+        .results {
+            text-align: center;
+            display: none;
+        }
+
+        .results.show {
+            display: block;
+        }
+
+        .score-circle {
+            width: 200px;
+            height: 200px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            color: white;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            margin: 30px auto;
+            box-shadow: 0 10px 30px rgba(102, 126, 234, 0.3);
+        }
+
+        .score-number {
+            font-size: 3em;
+            font-weight: bold;
+        }
+
+        .score-label {
+            font-size: 1.2em;
+        }
+
+        .score-message {
+            font-size: 1.5em;
+            color: #333;
+            margin-bottom: 20px;
+            font-weight: 500;
+        }
+
+        .quiz-content {
+            display: block;
+        }
+
+        .quiz-content.hidden {
+            display: none;
+        }
+
+        @media (max-width: 600px) {
+            .container {
+                padding: 20px;
+            }
+
+            h1 {
+                font-size: 2em;
+            }
+
+            .question-text {
+                font-size: 1.1em;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>🧠 Boolean Algebra Quiz</h1>
+        <p class="subtitle">Test your knowledge of boolean logic!</p>
+
+        <div class="quiz-content">
+            <div class="progress-bar">
+                <div class="progress-fill" id="progressBar"></div>
+            </div>
+
+            <div class="question-container">
+                <div class="question-number" id="questionNumber"></div>
+                <div class="question-text" id="questionText"></div>
+                <div class="options" id="options"></div>
+                
+                <div class="hint-box" id="hintBox">
+                    <div class="hint-title">💡 Hint:</div>
+                    <div id="hintText"></div>
+                </div>
+
+                <div class="feedback" id="feedback">
+                    <div class="feedback-title" id="feedbackTitle"></div>
+                    <div id="feedbackText"></div>
+                    <div class="explanation" id="explanation"></div>
+                </div>
+            </div>
+
+            <div class="buttons">
+                <button class="btn-secondary" id="hintBtn" onclick="showHint()">Show Hint</button>
+                <button class="btn-primary" id="nextBtn" onclick="nextQuestion()" disabled>Next Question</button>
+            </div>
+        </div>
+
+        <div class="results" id="results">
+            <h2 class="score-message" id="scoreMessage"></h2>
+            <div class="score-circle">
+                <div class="score-number" id="scoreNumber"></div>
+                <div class="score-label">out of <span id="totalQuestions"></span></div>
+            </div>
+            <div class="buttons">
+                <button class="btn-primary" onclick="restartQuiz()">Retake Quiz</button>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        const questions = [
+            {
+                question: "Apply DeMorgan's Law to simplify: <code>!(A && B)</code>",
+                options: [
+                    { text: "<code>!A || !B</code>", correct: true, explanation: "DeMorgan's Law states that the negation of a conjunction is the disjunction of the negations." },
+                    { text: "<code>!A && !B</code>", correct: false, explanation: "This would be the result of negating an OR expression, not an AND expression." },
+                    { text: "<code>A || B</code>", correct: false, explanation: "You can't simply remove the negation; you must distribute it using DeMorgan's Law." },
+                    { text: "<code>A && B</code>", correct: false, explanation: "This is just the original expression without the negation." }
+                ],
+                hint: "DeMorgan's Law: NOT (A AND B) = (NOT A) OR (NOT B). The AND becomes OR, and both terms get negated."
+            },
+            {
+                question: "Apply DeMorgan's Law to: <code>!(A || B || C)</code>",
+                options: [
+                    { text: "<code>!A && !B && !C</code>", correct: true, explanation: "When negating an OR of multiple terms, it becomes an AND of all the negated terms." },
+                    { text: "<code>!A || !B || !C</code>", correct: false, explanation: "You need to change OR to AND when applying DeMorgan's Law to a negated disjunction." },
+                    { text: "<code>A && B && C</code>", correct: false, explanation: "You can't just remove the negation; each term must be negated." },
+                    { text: "<code>!A && !B || !C</code>", correct: false, explanation: "DeMorgan's Law applies uniformly to all terms in the expression." }
+                ],
+                hint: "NOT (A OR B OR C) = (NOT A) AND (NOT B) AND (NOT C). All ORs become ANDs, and each variable is negated."
+            },
+            {
+                question: "Simplify: <code>!((A || B) && (C || !A))</code>",
+                options: [
+                    { text: "<code>(!A && !B) || (!C && A)</code>", correct: true, explanation: "Apply DeMorgan's to the outer AND: !(A || B) OR !(C || !A). Then apply to each part: (!A && !B) || (!C && !!A) = (!A && !B) || (!C && A)." },
+                    { text: "<code>(!A || !B) && (!C || A)</code>", correct: false, explanation: "You need to change the outer AND to OR when negating, not keep it as AND." },
+                    { text: "<code>!A && !B && !C && A</code>", correct: false, explanation: "This loses the structure of the original grouped expressions." },
+                    { text: "<code>(A && B) || (C && !A)</code>", correct: false, explanation: "You can't just remove the outer negation; you must apply DeMorgan's Law." }
+                ],
+                hint: "Apply DeMorgan's Law step by step: first to the outer AND, then to each inner OR expression."
+            },
+            {
+                question: "Evaluate: <code>(!false && true) || (true && !true)</code>",
+                options: [
+                    { text: "<code>true</code>", correct: true, explanation: "Left side: (!false && true) = (true && true) = true. Right side: (true && !true) = (true && false) = false. Then: true || false = true." },
+                    { text: "<code>false</code>", correct: false, explanation: "The left side of the OR evaluates to true, which makes the entire expression true." },
+                    { text: "Cannot be determined", correct: false, explanation: "This expression can be fully evaluated with the given boolean constants." },
+                    { text: "Syntax error", correct: false, explanation: "This is valid boolean syntax in Java." }
+                ],
+                hint: "Evaluate each side of the OR separately. Remember that !true = false and !false = true."
+            },
+            {
+                question: "For the expression <code>(A && B) || (!A && C)</code>, when is it true?",
+                options: [
+                    { text: "When (A is true AND B is true) OR (A is false AND C is true)", correct: true, explanation: "The OR requires at least one side to be true. Left side needs both A and B true. Right side needs A false and C true." },
+                    { text: "When A is true OR both B and C are true", correct: false, explanation: "This oversimplifies. You need to consider the specific AND conditions on each side of the OR." },
+                    { text: "When all three variables are true", correct: false, explanation: "This is one case, but there are other cases. For example, when A=false, B=false, C=true." },
+                    { text: "Only when exactly one of A, B, or C is true", correct: false, explanation: "This is incorrect. The expression can be true in multiple scenarios." }
+                ],
+                hint: "This is a common pattern (mux selector). Think about when each side of the OR is true, then combine with OR logic."
+            },
+            {
+                question: "Which identity is TRUE?",
+                options: [
+                    { text: "<code>A && !A = false</code>", correct: true, explanation: "A value cannot be both true and false simultaneously, so this always equals false." },
+                    { text: "<code>A || false = false</code>", correct: false, explanation: "This is incorrect. A || false = A. OR-ing with false doesn't change the value." },
+                    { text: "<code>A && true = false</code>", correct: false, explanation: "This is incorrect. A && true = A. AND-ing with true doesn't change the value." },
+                    { text: "<code>A || !A = false</code>", correct: false, explanation: "This is incorrect. A || !A = true (this is a tautology - always true)." }
+                ],
+                hint: "Think about what happens when you AND a value with its own negation. Can something be both true and false?"
+            },
+            {
+                question: "Simplify: <code>A || (A && B)</code>",
+                options: [
+                    { text: "<code>A</code>", correct: true, explanation: "If A is true, the whole expression is true. If A is false, (A && B) is false, so the OR is false. Either way, result equals A." },
+                    { text: "<code>A && B</code>", correct: false, explanation: "The OR with A on the left makes the expression equal to just A, not A && B." },
+                    { text: "<code>A || B</code>", correct: false, explanation: "The AND in the second term matters. When A is true, B doesn't affect the result." },
+                    { text: "<code>B</code>", correct: false, explanation: "The result depends on A, not B. When A is true, the result is true regardless of B." }
+                ],
+                hint: "Consider two cases: when A is true and when A is false. What happens to the expression in each case?"
+            },
+            {
+                question: "What is the negation of <code>A || (B && C)</code> using DeMorgan's Law?",
+                options: [
+                    { text: "<code>!A && (!B || !C)</code>", correct: true, explanation: "Apply DeMorgan's to the outer OR: !A AND !(B && C). Then apply DeMorgan's to the inner AND: !A && (!B || !C)." },
+                    { text: "<code>!A || (!B && !C)</code>", correct: false, explanation: "The outer OR should become AND when negated, not remain OR." },
+                    { text: "<code>!A && !B && !C</code>", correct: false, explanation: "You need to maintain the structure and apply DeMorgan's correctly to nested expressions." },
+                    { text: "<code>!A || !B || !C</code>", correct: false, explanation: "This doesn't correctly apply DeMorgan's Law to the nested structure." }
+                ],
+                hint: "Apply DeMorgan's Law step by step: first to the outer OR, then to the inner AND expression."
+            },
+            {
+                question: "Which expression is equivalent to <code>(A && B) || (A && C)</code>?",
+                options: [
+                    { text: "<code>A && (B || C)</code>", correct: true, explanation: "Factor out A from both terms using the distributive law, leaving A && (B || C)." },
+                    { text: "<code>A || (B && C)</code>", correct: false, explanation: "This changes the structure incorrectly. You need to factor out the common A term." },
+                    { text: "<code>(A || B) && (A || C)</code>", correct: false, explanation: "This is OR distributed over AND, not AND distributed over OR." },
+                    { text: "<code>A && B && C</code>", correct: false, explanation: "This would only be true when all three are true, but the original can be true in other cases." }
+                ],
+                hint: "Think about factoring: What variable appears in both terms? Can you factor it out like in algebra?"
+            },
+            {
+                question: "Trace this code. What is the complete output?<pre>boolean x = true;\nboolean y = false;\nboolean z = true;\n\nif (x && y) {\n    System.out.println(\"A\");\n} else if (!x || z) {\n    System.out.println(\"B\");\n} else {\n    System.out.println(\"C\");\n}\n\nif (x || (!y && z)) {\n    System.out.println(\"D\");\n}</pre>",
+                options: [
+                    { text: "B<br>D", correct: true, explanation: "First block: x&&y = true&&false = false, so check !x||z = false||true = true → prints B. Second: x||(true&&true) = true → prints D." },
+                    { text: "A<br>D", correct: false, explanation: "The first condition x && y is false (true && false = false), so A doesn't print." },
+                    { text: "B only", correct: false, explanation: "Don't forget the second independent if statement. x is true, so it prints D." },
+                    { text: "C<br>D", correct: false, explanation: "The else-if condition !x || z evaluates to true, so B prints, not C." }
+                ],
+                hint: "First if-else: Check each condition in order. Second if: This is independent, always check it."
+            },
+            {
+                question: "Trace this code. What prints?<pre>boolean a = false;\nboolean b = true;\nboolean c = false;\n\nif (a || b && c) {\n    System.out.println(\"X\");\n} else if (!a && !c) {\n    System.out.println(\"Y\");\n} else {\n    System.out.println(\"Z\");\n}</pre>",
+                options: [
+                    { text: "Y", correct: true, explanation: "First condition: a || (b && c) = false || (true && false) = false || false = false. Second condition: !a && !c = true && true = true → prints Y." },
+                    { text: "X", correct: false, explanation: "Remember operator precedence: && before ||. So it's a || (b && c), which is false || false = false." },
+                    { text: "Z", correct: false, explanation: "The second condition (!a && !c) is true, so Y prints before reaching the else." },
+                    { text: "Nothing", correct: false, explanation: "One of the three branches will always execute." }
+                ],
+                hint: "Remember: AND has higher precedence than OR. Evaluate b && c first."
+            },
+            {
+                question: "Trace this code. What is the output?<pre>boolean p = true;\nboolean q = true;\nboolean r = false;\n\nif (!(p && !q)) {\n    System.out.println(\"1\");\n} else if (p || r) {\n    System.out.println(\"2\");\n} else {\n    System.out.println(\"3\");\n}\n\nif (!r && (p || q)) {\n    System.out.println(\"4\");\n}</pre>",
+                options: [
+                    { text: "1<br>4", correct: true, explanation: "First: !(p && !q) = !(true && false) = !false = true → prints 1. Second: !r && (p || q) = true && true = true → prints 4." },
+                    { text: "2<br>4", correct: false, explanation: "The first condition is true, so it prints 1 (not 2). The else-if never gets checked." },
+                    { text: "1 only", correct: false, explanation: "Don't forget the second independent if statement. Check !r && (p || q)." },
+                    { text: "3<br>4", correct: false, explanation: "The first condition !(p && !q) evaluates to true, so 1 prints (not 3)." }
+                ],
+                hint: "First block: Evaluate p && !q, then negate it. Second if: Independent check, evaluate both parts of the AND."
+            },
+            {
+                question: "Trace this code. If we change <code>z</code> to <code>false</code>, what is the complete output?<pre>boolean x = true;\nboolean y = false;\nboolean z = false; // changed\n\nif (x && y) {\n    System.out.println(\"A\");\n} else if (!x || z) {\n    System.out.println(\"B\");\n} else {\n    System.out.println(\"C\");\n}\n\nif (x || (!y && z)) {\n    System.out.println(\"D\");\n}\n\nif (!(x && !z)) {\n    System.out.println(\"E\");\n} else {\n    System.out.println(\"F\");\n}</pre>",
+                options: [
+                    { text: "C<br>D<br>F", correct: true, explanation: "First: x&&y=false, !x||z=false → prints C. Second: x||(true&&false) = true → prints D. Third: !(true&&true) = false, so else → prints F." },
+                    { text: "B<br>D<br>E", correct: false, explanation: "With z=false, the condition !x||z becomes false||false=false, so C prints (not B). And !(x&&!z)=false, so F prints (not E)." },
+                    { text: "C<br>E", correct: false, explanation: "You're missing D. The second if has x||(!y&&z) = true||false = true. And !(x&&!z)=false, so F prints (not E)." },
+                    { text: "A<br>D<br>F", correct: false, explanation: "x&&y = true&&false = false, so A doesn't print. First else-if is also false, so C prints." }
+                ],
+                hint: "Work through each if block carefully with z=false. Remember AND has higher precedence than OR."
+            },
+            {
+                question: "Which expression generates this truth table?<table style='margin: 10px auto; border-collapse: collapse;'><tr><th>A</th><th>B</th><th>C</th><th>Result</th></tr><tr><td>T</td><td>T</td><td>T</td><td>T</td></tr><tr><td>T</td><td>T</td><td>F</td><td>F</td></tr><tr><td>T</td><td>F</td><td>T</td><td>T</td></tr><tr><td>T</td><td>F</td><td>F</td><td>F</td></tr><tr><td>F</td><td>T</td><td>T</td><td>T</td></tr><tr><td>F</td><td>T</td><td>F</td><td>T</td></tr><tr><td>F</td><td>F</td><td>T</td><td>T</td></tr><tr><td>F</td><td>F</td><td>F</td><td>F</td></tr></table>",
+                options: [
+                    { text: "<code>!A || (B || C)</code>", correct: true, explanation: "When A is false, the result is always true (rows 5-8). When A is true, we need B || C to be true (rows 1,3). This matches the pattern." },
+                    { text: "<code>A && (B || C)</code>", correct: false, explanation: "This would be false for all rows where A is false, but the table shows true for rows 5-7." },
+                    { text: "<code>(A || B) && C</code>", correct: false, explanation: "This would be false whenever C is false, but row 6 (F,T,F) shows true." },
+                    { text: "<code>!A && (B || C)</code>", correct: false, explanation: "This would make row 8 (F,F,F) true, but the table shows false." }
+                ],
+                hint: "Look for patterns: What happens when A is false? What's needed when A is true?"
+            },
+            {
+                question: "Which expression generates this truth table?<table style='margin: 10px auto; border-collapse: collapse;'><tr><th>A</th><th>B</th><th>C</th><th>Result</th></tr><tr><td>T</td><td>T</td><td>T</td><td>T</td></tr><tr><td>T</td><td>T</td><td>F</td><td>T</td></tr><tr><td>T</td><td>F</td><td>T</td><td>T</td></tr><tr><td>T</td><td>F</td><td>F</td><td>F</td></tr><tr><td>F</td><td>T</td><td>T</td><td>T</td></tr><tr><td>F</td><td>T</td><td>F</td><td>F</td></tr><tr><td>F</td><td>F</td><td>T</td><td>T</td></tr><tr><td>F</td><td>F</td><td>F</td><td>F</td></tr></table>",
+                options: [
+                    { text: "<code>(A && B) || C</code>", correct: true, explanation: "When C is true, result is always true (rows 1,3,5,7). When C is false, need A && B (only row 2). This matches perfectly." },
+                    { text: "<code>A && (B || C)</code>", correct: false, explanation: "This would make rows 5 and 7 false (where A is false), but the table shows true." },
+                    { text: "<code>(A || B) && C</code>", correct: false, explanation: "This requires C to be true, so rows 2,4,6,8 would all be false. But row 2 shows true." },
+                    { text: "<code>A || (B && C)</code>", correct: false, explanation: "Row 4 (T,F,F) would be true with this expression, but row 6 (F,T,F) would be false. The table shows the opposite." }
+                ],
+                hint: "Notice which rows are true when C is true vs false. What pattern do you see?"
+            },
+            {
+                question: "Which of the following is a tautology (always true)?",
+                options: [
+                    { text: "<code>A || !A</code>", correct: true, explanation: "This is always true. Either A is true, or its negation is true. There's no other possibility." },
+                    { text: "<code>A && !A</code>", correct: false, explanation: "This is always false (a contradiction), not always true." },
+                    { text: "<code>(A && B) || (A && !B)</code>", correct: false, explanation: "This simplifies to A, which is not always true (it depends on A's value). This is actually equivalent to A by factoring." },
+                    { text: "<code>A || (B && !B)</code>", correct: false, explanation: "B && !B is always false, so this simplifies to A || false = A, which is not always true." }
+                ],
+                hint: "A tautology is always true regardless of variable values. Can a boolean variable and its negation both be false?"
+            },
+            {
+                question: "Evaluate: <code>(A && B) || (!A && C)</code> when A=true, B=false, C=true",
+                options: [
+                    { text: "<code>false</code>", correct: true, explanation: "Left side: (true && false) = false. Right side: (!true && true) = (false && true) = false. Then: false || false = false." },
+                    { text: "<code>true</code>", correct: false, explanation: "Both sides of the OR evaluate to false: (true && false) = false and (false && true) = false." },
+                    { text: "Cannot be determined", correct: false, explanation: "All variables have assigned values, so we can fully evaluate this expression." },
+                    { text: "Syntax error", correct: false, explanation: "This is valid boolean syntax." }
+                ],
+                hint: "Substitute the values and evaluate each side of the OR separately. Both parts involve AND operations."
+            }
+        ];
+
+        let currentQuestion = 0;
+        let score = 0;
+        let answered = false;
+        let shuffledQuestions = [];
+        let userAnswers = [];
+
+        function shuffleArray(array) {
+            const newArray = [...array];
+            for (let i = newArray.length - 1; i > 0; i--) {
+                const j = Math.floor(Math.random() * (i + 1));
+                [newArray[i], newArray[j]] = [newArray[j], newArray[i]];
+            }
+            return newArray;
+        }
+
+        function initQuiz() {
+            shuffledQuestions = shuffleArray(questions);
+            shuffledQuestions.forEach(q => {
+                q.shuffledOptions = shuffleArray(q.options);
+            });
+            currentQuestion = 0;
+            score = 0;
+            answered = false;
+            userAnswers = [];
+            displayQuestion();
+        }
+
+        function displayQuestion() {
+            const question = shuffledQuestions[currentQuestion];
+            const questionNumber = document.getElementById('questionNumber');
+            const questionText = document.getElementById('questionText');
+            const optionsContainer = document.getElementById('options');
+            const progressBar = document.getElementById('progressBar');
+            const hintBox = document.getElementById('hintBox');
+            const feedback = document.getElementById('feedback');
+            const nextBtn = document.getElementById('nextBtn');
+            const hintBtn = document.getElementById('hintBtn');
+
+            questionNumber.textContent = `Question ${currentQuestion + 1} of ${shuffledQuestions.length}`;
+            questionText.innerHTML = question.question;
+            
+            const progress = ((currentQuestion) / shuffledQuestions.length) * 100;
+            progressBar.style.width = progress + '%';
+
+            optionsContainer.innerHTML = '';
+            question.shuffledOptions.forEach((option, index) => {
+                const optionDiv = document.createElement('div');
+                optionDiv.className = 'option';
+                optionDiv.innerHTML = `
+                    <span class="option-label">${String.fromCharCode(65 + index)}</span>
+                    <span>${option.text}</span>
+                `;
+                optionDiv.onclick = () => selectOption(index);
+                optionsContainer.appendChild(optionDiv);
+            });
+
+            hintBox.classList.remove('show');
+            feedback.classList.remove('show', 'correct', 'incorrect');
+            nextBtn.disabled = true;
+            hintBtn.style.display = 'inline-block';
+            answered = false;
+        }
+
+        function selectOption(index) {
+            if (answered) return;
+
+            const question = shuffledQuestions[currentQuestion];
+            const options = document.querySelectorAll('.option');
+            const selectedOption = question.shuffledOptions[index];
+            const feedback = document.getElementById('feedback');
+            const feedbackTitle = document.getElementById('feedbackTitle');
+            const feedbackText = document.getElementById('feedbackText');
+            const explanation = document.getElementById('explanation');
+            const nextBtn = document.getElementById('nextBtn');
+
+            answered = true;
+            userAnswers[currentQuestion] = selectedOption.correct;
+
+            options.forEach((opt, i) => {
+                opt.classList.add('disabled');
+                if (question.shuffledOptions[i].correct) {
+                    opt.classList.add('correct');
+                }
+            });
+
+            options[index].classList.add('selected');
+            if (!selectedOption.correct) {
+                options[index].classList.add('incorrect');
+            }
+
+            if (selectedOption.correct) {
+                score++;
+                feedbackTitle.textContent = '✓ Correct!';
+                feedback.classList.add('correct');
+            } else {
+                feedbackTitle.textContent = '✗ Incorrect';
+                feedback.classList.add('incorrect');
+            }
+
+            feedbackText.textContent = selectedOption.explanation;
+            
+            const correctOption = question.shuffledOptions.find(opt => opt.correct);
+            explanation.innerHTML = `<strong>Correct Answer:</strong> ${correctOption.text}`;
+
+            feedback.classList.add('show');
+            nextBtn.disabled = false;
+            document.getElementById('hintBtn').style.display = 'none';
+        }
+
+        function showHint() {
+            const question = shuffledQuestions[currentQuestion];
+            const hintBox = document.getElementById('hintBox');
+            const hintText = document.getElementById('hintText');
+            
+            hintText.textContent = question.hint;
+            hintBox.classList.add('show');
+        }
+
+        function nextQuestion() {
+            currentQuestion++;
+            if (currentQuestion < shuffledQuestions.length) {
+                displayQuestion();
+            } else {
+                showResults();
+            }
+        }
+
+        function showResults() {
+            const quizContent = document.querySelector('.quiz-content');
+            const results = document.getElementById('results');
+            const scoreNumber = document.getElementById('scoreNumber');
+            const totalQuestions = document.getElementById('totalQuestions');
+            const scoreMessage = document.getElementById('scoreMessage');
+
+            quizContent.classList.add('hidden');
+            results.classList.add('show');
+
+            scoreNumber.textContent = score;
+            totalQuestions.textContent = shuffledQuestions.length;
+
+            const percentage = (score / shuffledQuestions.length) * 100;
+            if (percentage === 100) {
+                scoreMessage.textContent = '🎉 Perfect Score! You\'re a Boolean Logic Master!';
+            } else if (percentage >= 80) {
+                scoreMessage.textContent = '🌟 Excellent Work! You really know your boolean algebra!';
+            } else if (percentage >= 60) {
+                scoreMessage.textContent = '👍 Good Job! Keep practicing to master boolean logic!';
+            } else {
+                scoreMessage.textContent = '📚 Keep Learning! Review the concepts and try again!';
+            }
+        }
+
+        function restartQuiz() {
+            const quizContent = document.querySelector('.quiz-content');
+            const results = document.getElementById('results');
+            
+            quizContent.classList.remove('hidden');
+            results.classList.remove('show');
+            
+            initQuiz();
+        }
+
+        window.onload = initQuiz;
+    </script>
+</body>
+</html>

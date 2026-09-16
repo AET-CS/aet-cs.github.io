@@ -4,6 +4,7 @@ layout: single
 classes:
   - wide
 ---
+
 - September 16, 2026 (Wednesday)
     - **TOP PRIORITY** Register your project at this [registration link](https://bit.ly/registerACL) immediately
     - **TOP PRIORITY** Provide a brief 2-3 sentence overview of your [project plan](https://bit.ly/rsefatacl) by the end of class. This is not final but is your current best vision of what you want to explore.
@@ -11,6 +12,12 @@ classes:
     - Please find a piece of your survey paper to implement (or something similar/related). Begin work on it in class email me today if you have questions!
 - September 14, 2025 (Monday)
     - Survey Paper presentations
+- September 10, 2026 (Thursday)
+    - Find a survey paper covering your research area, get it approved by me and read it carefully
+    - Stand-up presentation next class 5-7 mins on the details of your paper. Focus on techniques, measurement criteria, data, and success.
+- September 8, 2026 (Tuesday)
+    - Finish Proposal draft and submit today
+    - Discuss proposal with Dr. White as needed
 - September 2, 2026 (Wednesday)
     - Continue to refine proposal ideas
     - Meet with Dr. White

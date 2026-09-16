@@ -7,7 +7,7 @@ classes:
 
 - September 16, 2026 (Wednesday)
     - **TOP PRIORITY** Register your project at this [registration link](https://bit.ly/registerACL) immediately
-    - **TOP PRIORITY** Provide a brief 2-3 sentence overview of your [project plan](https://forms.gle/Ny92sYJWHiuADppj7) by the end of class. This is not final but is your current best vision of what you want to explore.
+    - **TOP PRIORITY** Provide a brief 2-3 sentence overview of your [Research Project Description](https://forms.gle/Ny92sYJWHiuADppj7) by the end of class. This is not final but is your current best vision of what you want to explore.
     - The above 2 items will be **graded** for completion at 11:30 today. No late submissions allowed.
     - Please find a piece of your survey paper to implement (or something similar/related). Begin work on it in class email me today if you have questions!
 - September 14, 2025 (Monday)

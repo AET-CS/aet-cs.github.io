@@ -8,16 +8,19 @@ classes:
 ## Daily Calendar
 - September 17, 2026 (Thursday)
     - Play [towers of hanoi](https://javalab.org/en/hanoi_tower_en/)
+    - Complete [hanoi handout](./handouts/Towers_of_Hanoi.pdf)
     - New Topic: Recursion
-    - [Notes](./practice/recursion/Recursion_Notes.pdf) on Recursion (new topic)
-    - Recursion [practice](./practice/recursion/Day_1_Recursion_Practice.pdf)
-    - Extra [resources on recursion](./practice/recursion/Recursion_Resources.md)
+        - [Notes](./practice/recursion/Recursion_Notes.pdf) on Recursion (new topic)
+        - Recursion [practice](./practice/recursion/Day_1_Recursion_Practice.pdf)
+        - Extra [resources on recursion](./practice/recursion/Recursion_Resources.md)
+    - Bonus Game: [Jumping Frogs](https://www.primefactorisation.com/frogpuzzle/)
+    - **HW**: Finish Recursion Day 1 Packet
 - September 15, 2026 (Tuesday)
     - Interactive Cobweb quiz, bring your working code
 - September 11, 2026 (Friday)
     - Go over Fixed Point Worksheet
     - Start on Cobweb assignment. [Download and unzip these files](./CobwebStudent.zip) and add them to the `src` folder of a new IntelliJ project
-    - HW: Complete **all** tasks in the assignment handout. **Bring working code next class for interactive quiz!**
+    - **HW**: Complete **all** tasks in the assignment handout. **Bring working code next class for interactive quiz!**
 - September 9, 2026 (Wednesday)
     - Turn in Fixed Point worksheet
     - Write code for [array methods in class](./handouts/ArrayTasks-01.pdf). These will be used in the next assignment

@@ -6,12 +6,14 @@ classes:
 ---
 
 ## Daily Calendar
-- September 15, 2026 (Tuesday)
+- September 17, 2026 (Thursday)
     - Play [towers of hanoi](https://javalab.org/en/hanoi_tower_en/)
-    - Recursion
+    - New Topic: Recursion
     - [Notes](./practice/recursion/Recursion_Notes.pdf) on Recursion (new topic)
     - Recursion [practice](./practice/recursion/Day_1_Recursion_Practice.pdf)
     - Extra [resources on recursion](./practice/recursion/Recursion_Resources.md)
+- September 15, 2026 (Tuesday)
+    - Interactive Cobweb quiz, bring your working code
 - September 11, 2026 (Friday)
     - Go over Fixed Point Worksheet
     - Start on Cobweb assignment. [Download and unzip these files](./CobwebStudent.zip) and add them to the `src` folder of a new IntelliJ project

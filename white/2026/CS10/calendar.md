@@ -13,7 +13,7 @@ classes:
         - [Hanoi View Class](./Hanoi/HanoiView.java)
         - [Test Legal](./Hanoi/TestIsLegal.java)
         - [Test Move](./Hanoi/TestMove.java)
-    - Read through the assignment and write your solutions on paper first, then complete the program
+    - Read through the assignment and write your solutions on paper first, then complete the program **finish for HW**
     - Next class: recursion quiz (about 6-8 questions) on Recursion HW 1 and 2 (mostly 1)
 - September 24, 2026 (Thursday)
     - Check [Recursion Day 1 HW](./practice/recursion/Day_1_Recursion_Practice.pdf) [key](./practice/recursion/Day_1_Recursion_Solutions.pdf) in class

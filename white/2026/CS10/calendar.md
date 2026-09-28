@@ -6,6 +6,19 @@ classes:
 ---
 
 ## Daily Calendar
+- September 28, 2026 (Monday)
+    - Check Recursion Day 2 HW in class
+    - Programming Project: [Hanoi Project](./Hanoi/hanoi-assignment.pdf). Add these files to a new project
+        - [Hanoi main](./Hanoi/Hanoi.java)
+        - [Hanoi View Class](./Hanoi/HanoiView.java)
+        - [Test Legal](./Hanoi/TestIsLegal.java)
+        - [Test Move](./Hanoi/TestMove.java)
+    - Read through the assignment and write your solutions on paper first, then complete the program
+    - Next class: recursion quiz (about 6-8 questions) on Recursion HW 1 and 2 (mostly 1)
+- September 24, 2026 (Thursday)
+    - Check Recursion Day 1 HW in class
+    - Day 2 Recursion notes (find in a string and find in an array)
+    - HW: Day 2 Recursion packet
 - September 17, 2026 (Thursday)
     - Play [towers of hanoi](https://javalab.org/en/hanoi_tower_en/)
     - Complete [hanoi handout](./handouts/Towers_of_Hanoi.pdf)

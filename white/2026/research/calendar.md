@@ -5,6 +5,11 @@ classes:
   - wide
 ---
 
+- September 29, 2026 (Tuesday)
+    - Please download and compile the [journal template](./weekly-journal.md) to a pdf file [sample pdf](./weekly-journal.pdf)
+    - Update the journal entry with your topic, goals and planning calendar
+    - 11:05 today. Stop and fill out your journal entry. Journal due **FIRST DAY** of each week, covering the previous week (Sun-Sun)
+    - Ongoing goal: implement something from your survey paper, due mid-October
 - September 16, 2026 (Wednesday)
     - **TOP PRIORITY** Register your project at this [registration link](https://bit.ly/registerACL) immediately
     - **TOP PRIORITY** Provide a brief 2-3 sentence overview of your [Research Project Description](https://forms.gle/Ny92sYJWHiuADppj7) by the end of class. This is not final but is your current best vision of what you want to explore.

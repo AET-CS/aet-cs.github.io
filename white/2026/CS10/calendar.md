@@ -6,6 +6,10 @@ classes:
 ---
 
 ## Daily Calendar
+- September 30, 2026 (Wednesday)
+    - Recursion Quiz
+    - Sign up for AP Classroom and work on ArrayList Review
+    - HW: Finish Hanoi Project
 - September 28, 2026 (Monday)
     - Check [Recursion Day 2 HW](./practice/recursion/Day_2_Recursion_Practice.pdf) [key](./practice/recursion/Day_2_Recursion_Solutions.pdf) in class
     - Programming Project: [Hanoi Project](./Hanoi/hanoi-assignment.pdf). Add these files to a new project

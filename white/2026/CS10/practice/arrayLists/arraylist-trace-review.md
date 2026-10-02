@@ -79,7 +79,16 @@ The method is *intended* to leave `[2, 16]` in `numList` and return `[5, 10, 20]
 
 | i | `numList.size()` | num | divisible? | `numList` after | `returnList` after |
 |---|------------------|-----|------------|-----------------|--------------------|
-|   |                  |     |            |                 |                    |
+| . |                  |     |            |                 |                    |
+| . |                  |     |            |                 |                    |
+| . |                  |     |            |                 |                    |
+| . |                  |     |            |                 |                    |
+| . |                  |     |            |                 |                    |
+| . |                  |     |            |                 |                    |
+| . |                  |     |            |                 |                    |
+| . |                  |     |            |                 |                    |
+| . |                  |     |            |                 |                    |
+| . |                  |     |            |                 |                    |
 
 ---
 
@@ -104,7 +113,13 @@ Record `k`, `nums.size()`, `nums.get(k)`, whether the element is removed, and th
 
 | k | `nums.size()` | `nums.get(k)` | removed? | `nums` after |
 |---|---------------|---------------|----------|--------------|
-|   |               |               |          |              |
+| . |               |               |          |              |
+| . |               |               |          |              |
+| . |               |               |          |              |
+| . |               |               |          |              |
+| . |               |               |          |              |
+| . |               |               |          |              |
+| . |               |               |          |              |
 
 ---
 
@@ -137,8 +152,10 @@ The method is *intended* to leave `3 4 8 7`.
 
 | k | `myData.get(k)` | `myData.get(k - 1)` | equal? | `myData` after |
 |---|-----------------|---------------------|--------|----------------|
-|   |                 |                     |        |                |
-
+|  . |                 |                     |        |                |
+|  . |                 |                     |        |                |
+|  . |                 |                     |        |                |
+|  . |                 |                     |        |                |
 ---
 
 ## Problem 11

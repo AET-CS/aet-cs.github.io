@@ -9,7 +9,7 @@ classes:
 
 **How to use this key:** Try each problem on your own first. Then check your answer and, if it's different, find the first line where your list and the table disagree. That is almost always where the mistake is.
 
-**Three habits that make these problems easy:**
+**Secret Tips!**
 1. **Work one statement at a time** and write down the whole list after each one.
 2. **Evaluate the inside first.** When one call is inside another, like `list.set(0, list.remove(3))`, the inner call runs completely (and changes the list) before the outer call starts.
 3. **Remember what each method returns.** `set` returns the *old* value, `remove` returns the *removed* value, and `get` returns a value without changing anything. `add(index, value)` returns nothing.

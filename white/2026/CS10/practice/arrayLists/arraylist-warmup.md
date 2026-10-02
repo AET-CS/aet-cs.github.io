@@ -1,3 +1,10 @@
+---
+title: "ArrayList Warm-Up: What's in the List?"
+layout: single
+classes:
+  - wide
+---
+
 # ArrayList Warm-Up: What's in the List?
 
 ## Reminder: What the Methods Return

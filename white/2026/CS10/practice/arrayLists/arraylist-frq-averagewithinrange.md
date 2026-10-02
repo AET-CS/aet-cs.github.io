@@ -1,4 +1,8 @@
 ---
+title: "ArrayList FRQ: ItemInventory"
+layout: single
+classes:
+  - wide
 geometry: margin=0.5in, letterpaper
 header-includes:
   - \usepackage{fullpage}

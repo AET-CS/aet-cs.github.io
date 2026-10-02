@@ -1,3 +1,10 @@
+---
+title: "ArrayList Review: Trace These"
+layout: single
+classes:
+  - wide
+---
+
 # ArrayList Review: Trace These
 
 For each problem, trace the code by hand. Record the state of every variable and list after each step, and write down exactly what is printed (or the final contents of the list). If the code throws an exception or misbehaves, say where and why.

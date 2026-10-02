@@ -1,3 +1,10 @@
+---
+title: "Warm-Up Answer Key: What's in the List?"
+layout: single
+classes:
+  - wide
+---
+
 # Warm-Up Answer Key: What's in the List?
 
 **How to use this key:** Try each problem on your own first. Then check your answer and, if it's different, find the first line where your list and the table disagree. That is almost always where the mistake is.

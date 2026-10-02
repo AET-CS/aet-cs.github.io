@@ -1,3 +1,10 @@
+---
+title: "Trace Handout Answer Key: Trace These"
+layout: single
+classes:
+  - wide
+---
+
 # Trace Handout Answer Key: Trace These
 
 **How to use this key:** Fill in your own trace table first, then compare. If your final answer is wrong, look for the first row where your table and this one disagree. The narrative under each problem explains what is going on.

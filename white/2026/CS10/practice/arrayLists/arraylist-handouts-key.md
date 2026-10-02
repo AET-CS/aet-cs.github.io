@@ -1,3 +1,10 @@
+---
+title: "Answer Key: ArrayList Review Handouts"
+layout: single
+classes:
+  - wide
+---
+
 # Answer Key: ArrayList Review Handouts
 
 ## Handout 1: Warm-Up (What's in the List?)

@@ -6,6 +6,18 @@ classes:
 ---
 
 ## Daily Calendar
+- October 2, 2026 (Friday)
+    - ArrayList Review
+        - Complete [Array List Warmup](./practice/arrayLists/arraylist-warmup.md)
+        - Complete [Array List Tracing](./practice/arrayLists/arraylist-trace-review.md), based on the AP Classroom practice
+        - Complete [Array List FRQ](./practice/arrayLists/arraylist-frq-averagewithinrange.md)
+        - Enter your FRQ into AP Classroom (find the arraylist assignment)
+    - Homework
+        - put FRQ on AP Classroom
+        - take the ArrayList practice quiz on schoology
+    - Test Dates
+        - Arrays and ArrayLists: October 13
+        - Classes and Strings: October 23
 - September 30, 2026 (Wednesday)
     - Recursion Quiz
     - Sign up for AP Classroom and work on ArrayList Review

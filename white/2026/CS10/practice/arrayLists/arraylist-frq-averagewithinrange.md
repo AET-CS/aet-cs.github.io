@@ -64,6 +64,6 @@ Suppose `inventory` contains the following seven `ItemInfo` objects.
 | **Cost** | 20.0 | 7.99 | 45.0 | 2.0 | 10.0 | 59.0 | 45.0 |
 | **Is Available** | true | true | true | false | true | true | false |
 
-For the inventory shown, `averageWithinRange(10.0, 50.0)` should return `25.0`, which is equal to the average cost of the available items within the specified range (a $20 action figure, a $45 frying pan, and a $10 coffee mug). Although the watch is within the specified range, it is not available.
+For the inventory shown, `averageWithinRange(10.0, 50.0)` should return `25.0`, which is equal to the average cost of the available items within the specified range (a \$20 action figure, a \$45 frying pan, and a \$10 coffee mug). Although the watch is within the specified range, it is not available.
 
 Complete method `averageWithinRange`.

@@ -8,8 +8,8 @@ classes:
 ## Daily Calendar
 - October 2, 2026 (Friday)
     - ArrayList Review
-        - Complete [Array List Warmup](./practice/arrayLists/arraylist-warmup.md)
-        - Complete [Array List Tracing](./practice/arrayLists/arraylist-trace-review.md), based on the AP Classroom practice
+        - Complete [Array List Warmup](./practice/arrayLists/arraylist-warmup.md) -- [key](./practice/arrayLists/arraylist-warmup-key.md)
+        - Complete [Array List Tracing](./practice/arrayLists/arraylist-trace-review.md), based on the AP Classroom practice -- [key](./practice/arrayLists/arraylist-trace-key.md)
         - Complete [Array List FRQ](./practice/arrayLists/arraylist-frq-averagewithinrange.md)
         - Enter your FRQ into AP Classroom (find the arraylist assignment)
     - Homework

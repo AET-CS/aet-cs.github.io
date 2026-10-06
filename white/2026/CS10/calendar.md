@@ -6,6 +6,11 @@ classes:
 ---
 
 ## Daily Calendar
+- October 6, 2026 (Tuesday)
+    - PSAT!
+    - In class: Go over [ArrayList FRQ Answer](./practice/arrayLists/arraylist-frq-average-key.md) [pdf](./practice/arrayLists/arraylist-frq-average-key.pdf)
+    - Next class: Computer-active Hanoi quiz (run and modify code)
+    - October 13: Arrays and ArrayList test
 - October 2, 2026 (Friday)
     - ArrayList Review
         - Complete [Array List Warmup](./practice/arrayLists/arraylist-warmup.md) -- [key](./practice/arrayLists/arraylist-warmup-key.md)

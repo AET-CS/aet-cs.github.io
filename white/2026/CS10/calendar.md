@@ -6,6 +6,9 @@ classes:
 ---
 
 ## Daily Calendar
+- October 13, 2026 (Tuesday)
+    - Array and Arraylist test in class! MC on Schoology, FRQ on paper
+    - HW: Classes review on AP Classroom (and anything else on there you didn't finish)
 - October 8, 2026 (Thursday)
     - Hanoi quiz - computer active
     - Complete Array Review on AP Classroom

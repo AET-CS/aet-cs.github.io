@@ -6,6 +6,11 @@ classes:
 ---
 
 ## Daily Calendar
+- October 8, 2026 (Thursday)
+    - Hanoi quiz - computer active
+    - Complete Array Review on AP Classroom
+    - Here are [extra array problems](./handouts/Array_Tracing_Review_Worksheet.pdf) with attached key
+    - Test next class -- array, arraylists, mc/frq
 - October 6, 2026 (Tuesday)
     - PSAT!
     - In class: Go over [ArrayList FRQ Answer](./practice/arrayLists/arraylist-frq-average-key.md) [pdf](./practice/arrayLists/arraylist-frq-average-key.pdf)

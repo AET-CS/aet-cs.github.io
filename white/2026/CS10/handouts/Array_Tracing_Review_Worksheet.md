@@ -400,6 +400,7 @@ Output: \_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_
 
 **15.** (Array of arrays) What are the contents of `g` after this code runs? Write it as three rows.
 
+{% raw %}
 ```java
 int[][] g = {{1, 2, 3}, {4, 5, 6}, {7, 8, 9}};
 for (int r = 0; r < g.length; r++) {
@@ -415,6 +416,7 @@ g[2] = row;
 for (int r = 0; r < g.length; r++)
     g[r][r] = 0;
 ```
+{% endraw %}
 
 ```{=latex}
 \vspace{\baselineskip}
@@ -624,13 +626,15 @@ Every answer below was checked by compiling and running the code. Delete this se
 
 **Notes on the trickiest ones**
 
+{% raw %}
 - **12:** `arr` starts as an alias of `data`, so the `+= n` loop changes the caller's array. Then `arr = new int[]{0, 0, 0}` points the local variable elsewhere, so `arr[0] = n` touches only the new array.
 - **13:** At `i = 1`, `a[0]` becomes 4, and so on. The last element of `a` is never overwritten, so it stays 4. Students often forget that `a` itself changed.
 - **14:** After `cs[2] = x`, slots 1 and 2 and `x` all name the same object. It is incremented twice (c1:2). `cs[1] = new Counter("new")` only repoints slot 1.
 - **15:** After the transpose, `g` is {{1,4,7},{2,5,8},{3,6,9}}. Swapping `g[0]` and `g[2]` swaps whole row references, giving {{3,6,9},{2,5,8},{1,4,7}}. Zeroing the diagonal gives the final answer.
 
-* **16:** After `swap`, slot 0 holds C and slot 2 holds A. `bonus` adds 5 to every object, so C is 35, B is 25, A is 15. The new array inside `bonus` is thrown away. `top` still refers to C, so `top.add(100)` makes C 135, and it shows in slot 0 as well.
-* **17:** One call gives {1,1,2,3,4}, two give {1,1,1,2,3}. Then `a[0] = 3 + 1 = 4`.
-* **18:** The rows are {1}, {1,1}, {1,2,1}, {1,3,3,1}, so `total` is 15. Students who think every row has 4 columns get an out-of-bounds error.
-* **19:** Only positions 0 to 3 are meaningful after the loop (n = 4). Positions 4 to 6 still hold the original 3, 5, 2, which is why the array ends in {..., 3, 5, 2}.
-* **20:** After `g[0] = r; g[1] = r;` both rows are the same array. Writing 7 and then 8 changes that one array, giving {7, 8}. `r = new int[]{9, 9}` repoints only the variable `r`.
+- **16:** After `swap`, slot 0 holds C and slot 2 holds A. `bonus` adds 5 to every object, so C is 35, B is 25, A is 15. The new array inside `bonus` is thrown away. `top` still refers to C, so `top.add(100)` makes C 135, and it shows in slot 0 as well.
+- **17:** One call gives {1,1,2,3,4}, two give {1,1,1,2,3}. Then `a[0] = 3 + 1 = 4`.
+- **18:** The rows are {1}, {1,1}, {1,2,1}, {1,3,3,1}, so `total` is 15. Students who think every row has 4 columns get an out-of-bounds error.
+- **19:** Only positions 0 to 3 are meaningful after the loop (n = 4). Positions 4 to 6 still hold the original 3, 5, 2, which is why the array ends in {..., 3, 5, 2}.
+- **20:** After `g[0] = r; g[1] = r;` both rows are the same array. Writing 7 and then 8 changes that one array, giving {7, 8}. `r = new int[]{9, 9}` repoints only the variable `r`.
+{% endraw %}

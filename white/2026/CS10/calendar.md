@@ -6,6 +6,16 @@ classes:
 ---
 
 ## Daily Calendar
+- October 15, 2026 (Thursday)
+    - Return tests
+    - Review of Classes
+        - Look at [BankAccount.java](./practice/classes/BankAccount/BankAccount.md)
+        - Complete [these questions](./practice/classes/BankAccount/BankAccount_Questions.pdf)
+        - Trace the 'main' method of BankAccount.java
+    - Homework
+        - ArcadeCard: Write the class [described here](./practice/classes/ArcadeCard/ArcadeCard_FRQ.pdf)
+        - Strings practice on AP Classroom
+        - Any missing AP Classroom work must be finished now
 - October 13, 2026 (Tuesday)
     - Array and Arraylist test in class! MC on Schoology, FRQ on paper
     - HW: Classes review on AP Classroom (and anything else on there you didn't finish)

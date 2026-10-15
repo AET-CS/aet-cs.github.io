@@ -13,8 +13,8 @@ classes:
         - Complete [these questions](./practice/classes/BankAccount/BankAccount_Questions.pdf)
         - Trace the 'main' method of BankAccount.java
     - Homework
+        - Any unfinished classwork
         - ArcadeCard: Write the class [described here](./practice/classes/ArcadeCard/ArcadeCard_FRQ.pdf)
-        - Strings practice on AP Classroom
         - Any missing AP Classroom work must be finished now
 - October 13, 2026 (Tuesday)
     - Array and Arraylist test in class! MC on Schoology, FRQ on paper

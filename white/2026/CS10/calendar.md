@@ -7,6 +7,7 @@ classes:
 
 ## Daily Calendar
 - October 15, 2026 (Thursday)
+    - Next test 10/23 Friday - Classes, Strings, Arrays
     - Return tests (oops will do next week, grades are posted)
     - Review of Classes
         - Look at [BankAccount.java](./practice/classes/BankAccount/BankAccount.md)

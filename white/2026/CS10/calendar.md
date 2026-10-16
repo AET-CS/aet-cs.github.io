@@ -7,7 +7,7 @@ classes:
 
 ## Daily Calendar
 - October 15, 2026 (Thursday)
-    - Return tests
+    - Return tests (oops will do next week, grades are posted)
     - Review of Classes
         - Look at [BankAccount.java](./practice/classes/BankAccount/BankAccount.md)
         - Complete [these questions](./practice/classes/BankAccount/BankAccount_Questions.pdf)

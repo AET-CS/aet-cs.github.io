@@ -6,6 +6,19 @@ classes:
 ---
 
 ## Daily Calendar
+- October 19, 2026 (Monday)
+    - Next test 10/23 Friday - Classes, Strings, Arrays
+    - Return Test FRQ and Recursion Quiz
+    - Check:
+        - Array Class FRQ [key](./practice/classes/ArcadeCard/ArcadeCard-Key.pdf) and turn in
+        - Bank Account HW [key](./practice/classes/BankAccount/BankAccount_Questions.pdf)
+    - In class:
+        - Work on [Tracing Bank Account](./practice/classes/BankAccount/BankAccount_Tracing.pdf)
+        - Check your [Tracing work here](./practice/classes/BankAccount/BankAccount_Tracing_Key.pdf)
+    - Homework
+        - Complete [Bank Account Part 2](./practice/classes/BankAccount/BankAccount_Part2.pdf)
+        - AP Classroom: Complete Classes Checkpoint 3B-1
+        - Bring [extra array problems](./handouts/Array_Tracing_Review_Worksheet.pdf) Challenging section to class with your work
 - October 15, 2026 (Thursday)
     - Next test 10/23 Friday - Classes, Strings, Arrays
     - Return tests (oops will do next week, grades are posted)

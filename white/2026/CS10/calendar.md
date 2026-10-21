@@ -6,6 +6,12 @@ classes:
 ---
 
 ## Daily Calendar
+- October 21, 2026 (Wednesday)
+    - Work on [Dice Game Project](./handouts/DiceGame/DiceGame_Assignment.pdf)
+    - Check your [Bank Account Part 2](./practice/classes/BankAccount/BankAccount_Part2_key.pdf)
+    - Challenging array problems questions?
+    - Test next class
+    - Complete Practice on AP Classroom before test!
 - October 19, 2026 (Monday)
     - Next test 10/23 Friday - Classes, Strings, Arrays
     - Return Test FRQ and Recursion Quiz

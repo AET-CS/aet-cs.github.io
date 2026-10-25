@@ -10,3 +10,4 @@ classes:
   * [Junior Research: Machine Learning](https://ml-curriculum.readthedocs.io/en/latest/index.html)
   * [Senior Research](white/2026/research/calendar/)
   * [CS 10](white/2026/CS10/calendar/)
+  * [RSEF](white/2026/RSEF/index)

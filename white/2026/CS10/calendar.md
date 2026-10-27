@@ -6,6 +6,8 @@ classes:
 ---
 
 ## Daily Calendar
+- October 28, 2026 (Tuesday)
+    - Upload Dice Game output to [this form](https://docs.google.com/forms/d/e/1FAIpQLSd6HxVZiPn0Vy2p95jOZiw43t27sjbhIMJWrgJp7ED7h82cSw/viewform?usp=dialog) please
 - October 21, 2026 (Wednesday)
     - Work on [Dice Game Project](./handouts/DiceGame/DiceGame_Assignment.pdf)
     - Check your [Bank Account Part 2](./practice/classes/BankAccount/BankAccount_Part2_key.pdf)

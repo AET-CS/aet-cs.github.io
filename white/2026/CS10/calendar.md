@@ -11,6 +11,7 @@ classes:
     - Tic Tac Toe
         - Download [file](./TicTacToe/Tester.java) [file](./TicTacToe/TicTacToe.java) [file](./TicTacToe/TicTacToeModel.java) [file](./TicTacToe/TicTacToeView.java) and put them all in a New IntelliJ Project
         - Read the [assignment](./TicTacToe/TicTacToe-assignment.pdf)
+        - Submit [here](https://forms.gle/ExsMPTnUeT8QLRFY9) by end of class
     - 2D Quiz next class -- review handouts and program
 - October 28, 2026 (Tuesday)
     - Upload Dice Game output to [this form](https://docs.google.com/forms/d/e/1FAIpQLSd6HxVZiPn0Vy2p95jOZiw43t27sjbhIMJWrgJp7ED7h82cSw/viewform?usp=dialog) please

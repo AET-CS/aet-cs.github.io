@@ -6,6 +6,12 @@ classes:
 ---
 
 ## Daily Calendar
+- November 11, 2026 (Wednesday)
+    - 2D Array Practice 2
+    - Tic Tac Toe
+        - Download [file](./TicTacToe/Tester.java) [file](./TicTacToe/TicTacToe.java) [file](./TicTacToe/TicTacToeModel.java) [file](./TicTacToe/TicTacToeView.java) and put them all in a New IntelliJ Project
+        - Read the [assignment](./TicTacToe/TicTacToe-assignment.pdf)
+    - 2D Quiz next class -- review handouts and program
 - October 28, 2026 (Tuesday)
     - Upload Dice Game output to [this form](https://docs.google.com/forms/d/e/1FAIpQLSd6HxVZiPn0Vy2p95jOZiw43t27sjbhIMJWrgJp7ED7h82cSw/viewform?usp=dialog) please
 - October 21, 2026 (Wednesday)

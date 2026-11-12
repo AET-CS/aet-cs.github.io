@@ -7,12 +7,15 @@ classes:
 
 ## Daily Calendar
 - November 11, 2026 (Wednesday)
-    - 2D Array Practice 2
+    - [2D Array Practice 2](./practice/2darrays/2D_Arrays_Practice_2.pdf)
+    - from before: [2D Array Practice 1](./practice/2darrays/2D_Arrays_Practice_1.docx)
+    - also before [2D Array Worksheet](./practice/2darrays/array-worksheet1-key.pdf) and [key](./practice/2darrays/array-worksheet1-key.pdf)
     - Tic Tac Toe
         - Download [file](./TicTacToe/Tester.java) [file](./TicTacToe/TicTacToe.java) [file](./TicTacToe/TicTacToeModel.java) [file](./TicTacToe/TicTacToeView.java) and put them all in a New IntelliJ Project
         - Read the [assignment](./TicTacToe/TicTacToe-assignment.pdf)
         - Submit [here](https://forms.gle/ExsMPTnUeT8QLRFY9) by end of class
-    - 2D Quiz next class -- review handouts and program
+    - **2D Quiz next class -- review handouts and TicTacToe program**
+    - Text next week Thursday Nov 19!! 2D Array MC and FRQ
 - October 28, 2026 (Tuesday)
     - Upload Dice Game output to [this form](https://docs.google.com/forms/d/e/1FAIpQLSd6HxVZiPn0Vy2p95jOZiw43t27sjbhIMJWrgJp7ED7h82cSw/viewform?usp=dialog) please
 - October 21, 2026 (Wednesday)

@@ -5,6 +5,12 @@ classes:
   - wide
 ---
 
+- November 12, 2026 (Thursday)
+    - Please complete [zFairs Registration](./zFairs-Student.pdf) in class
+    - Your information can be edited for a few more weeks but fill it out the best you can now
+    - Presentation Demo Wed Nov 18-Friday Nov 20 (if needed)
+    - Second Demo: Approximately Dec 18th-ish
+    - Final RSEF Demo: late January-ish
 - September 29, 2026 (Tuesday)
     - Please download and compile the [journal template](./weekly-journal.md) to a pdf file [sample pdf](./weekly-journal.pdf)
     - Update the journal entry with your topic, goals and planning calendar

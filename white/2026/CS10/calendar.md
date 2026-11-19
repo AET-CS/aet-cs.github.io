@@ -6,6 +6,15 @@ classes:
 ---
 
 ## Daily Calendar
+- November 19, 2026 (Thursday)
+    - 2D Array Test in class: MC/FRQ
+- November 17, 2026 (Tuesday)
+    - Go over Quiz from last class
+    - Answers to Theatre FRQ
+    - Test Review problems
+- November 13, 2026 (Friday)
+    - 2D Array quiz in class: MC
+    - Theatre FRQ practice for HW
 - November 11, 2026 (Wednesday)
     - [2D Array Practice 2](./practice/2darrays/2D_Arrays_Practice_2.pdf)
     - from before: [2D Array Practice 1](./practice/2darrays/2D_Arrays_Practice_1.docx)

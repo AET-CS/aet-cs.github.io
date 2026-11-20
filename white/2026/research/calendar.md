@@ -5,6 +5,9 @@ classes:
   - wide
 ---
 
+- November 20, 2026 (Friday)
+    - Please complete [zFairs Registration](./zFairs-Student.pdf) in class
+    - Journal will be due after break -- this week plus next all in one
 - November 12, 2026 (Thursday)
     - Please complete [zFairs Registration](./zFairs-Student.pdf) in class
     - Your information can be edited for a few more weeks but fill it out the best you can now

@@ -1,16 +1,15 @@
 import java.util.Scanner;
 
 /**
- * A text-based vending machine you can play with.
- * Run this to try out your methods by hand. Run Tester to check them.
+ * A text-based vending machine you can play with. Run this to try out your
+ * methods by hand. Run Tester to check them.
  */
 public class VendingMachineApp {
     public static void main(String[] args) {
-        VendingMachine machine = new VendingMachine(new Snack[][] {
-            {null,                         new Snack("gum", 0.75),   new Snack("chips", 1.50),    new Snack("mints", 0.75)},
-            {new Snack("candy", 1.25),     null,                     new Snack("pretzels", 1.00), null},
-            {new Snack("cookies", 2.00),   new Snack("mints", 0.75), null,                        new Snack("popcorn", 1.75)}
-        });
+        VendingMachine machine = new VendingMachine(
+                new Snack[][] { { null, new Snack("gum", 0.75), new Snack("chips", 1.50), new Snack("mints", 0.75) },
+                        { new Snack("candy", 1.25), null, new Snack("pretzels", 1.00), null },
+                        { new Snack("cookies", 2.00), new Snack("mints", 0.75), null, new Snack("popcorn", 1.75) } });
 
         Scanner in = new Scanner(System.in);
         while (true) {
@@ -44,11 +43,10 @@ public class VendingMachineApp {
                 Snack bought = choice.equals("2") ? machine.buyCheapest() : machine.buyCheapestFull();
                 System.out.println(bought == null ? "Nothing came out." : "*clunk* You got " + bought);
             } else if (choice.equals("4")) {
-                machine = new VendingMachine(new Snack[][] {
-                    {new Snack("chips", 1.50), new Snack("gum", 0.75),     new Snack("mints", 0.75)},
-                    {new Snack("candy", 1.25), new Snack("jerky", 2.50),   new Snack("pretzels", 1.00)},
-                    {new Snack("cookies", 2.00), new Snack("mints", 0.75), new Snack("popcorn", 1.75)}
-                });
+                machine = new VendingMachine(
+                        new Snack[][] { { new Snack("chips", 1.50), new Snack("gum", 0.75), new Snack("mints", 0.75) },
+                                { new Snack("candy", 1.25), new Snack("jerky", 2.50), new Snack("pretzels", 1.00) },
+                                { new Snack("cookies", 2.00), new Snack("mints", 0.75), new Snack("popcorn", 1.75) } });
             } else if (choice.equals("5")) {
                 machine = new VendingMachine(3, 4);
             } else {

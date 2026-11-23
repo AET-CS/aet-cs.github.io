@@ -1,6 +1,6 @@
 /**
- * A single snack in a vending machine.
- * This class is complete. You do not need to change it.
+ * A single snack in a vending machine. This class is complete. You do not need
+ * to change it.
  */
 public class Snack {
     private String name;

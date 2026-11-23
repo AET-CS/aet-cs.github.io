@@ -4,13 +4,12 @@ import java.util.Random;
 /**
  * Tests for VendingMachine. Run it after each part.
  *
- * Grids in this file are written as strings, one per row:
- *     "chips:1.50  gum:0.75  -"
- * means chips ($1.50) in col 0, gum ($0.75) in col 1, and an empty slot in col 2.
+ * Grids in this file are written as strings, one per row: "chips:1.50 gum:0.75
+ * -" means chips ($1.50) in col 0, gum ($0.75) in col 1, and an empty slot in
+ * col 2.
  *
- * In the output, a snack is shown with the slot it started in, like
- *     mints $0.75 [0][3]
- * so you can tell two snacks with the same name apart.
+ * In the output, a snack is shown with the slot it started in, like mints $0.75
+ * [0][3] so you can tell two snacks with the same name apart.
  */
 public class Tester {
     private static int passed;
@@ -42,9 +41,7 @@ public class Tester {
         section("Part (a): restock");
 
         test("FRQ example", () -> {
-            VendingMachine m = machine(
-                    "chips:1  pretzels:1  -      -",
-                    "gum:1    mints:1     candy:1 cookies:1",
+            VendingMachine m = machine("chips:1  pretzels:1  -      -", "gum:1    mints:1     candy:1 cookies:1",
                     "-        granola:1   -      popcorn:1");
             Snack[][] expected = copy(start);
             Snack crackers = new Snack("crackers", 1.00);
@@ -89,10 +86,7 @@ public class Tester {
         });
 
         test("Full row returns false and changes nothing", () -> {
-            VendingMachine m = machine(
-                    "a:1 b:1 c:1",
-                    "d:1 -   -",
-                    "e:1 f:1 g:1");
+            VendingMachine m = machine("a:1 b:1 c:1", "d:1 -   -", "e:1 f:1 g:1");
             Snack[][] expected = copy(start);
             checkValue("restock(0, new)", false, m.restock(0, new Snack("new", 1.00)));
             checkGrid("restock(0, new)", expected, m);
@@ -101,9 +95,7 @@ public class Tester {
         });
 
         test("Only the last slot in the row is empty", () -> {
-            VendingMachine m = machine(
-                    "a:1 b:1 c:1 d:1 -",
-                    "-   -   -   -   -");
+            VendingMachine m = machine("a:1 b:1 c:1 d:1 -", "-   -   -   -   -");
             Snack[][] expected = copy(start);
             Snack s = new Snack("new", 1.00);
             checkValue("restock(0, new)", true, m.restock(0, s));
@@ -112,11 +104,9 @@ public class Tester {
         });
 
         test("Gaps in the middle of a row: leftmost gap first", () -> {
-            VendingMachine m = machine(
-                    "a:1 - b:1 - c:1 -",
-                    "d:1 e:1 f:1 g:1 h:1 i:1");
+            VendingMachine m = machine("a:1 - b:1 - c:1 -", "d:1 e:1 f:1 g:1 h:1 i:1");
             Snack[][] expected = copy(start);
-            int[] cols = {1, 3, 5};
+            int[] cols = { 1, 3, 5 };
             for (int i = 0; i < cols.length; i++) {
                 Snack s = new Snack("new" + i, 1.00);
                 checkValue("restock(0, new" + i + ")", true, m.restock(0, s));
@@ -128,10 +118,7 @@ public class Tester {
         });
 
         test("Only the requested row changes (other rows have empty slots)", () -> {
-            VendingMachine m = machine(
-                    "-   -   -",
-                    "a:1 -   b:1",
-                    "-   -   -");
+            VendingMachine m = machine("-   -   -", "a:1 -   b:1", "-   -   -");
             Snack[][] expected = copy(start);
             Snack s = new Snack("new", 1.00);
             checkValue("restock(1, new)", true, m.restock(1, s));
@@ -169,7 +156,7 @@ public class Tester {
     }
 
     // ==================================================================
-    // Part (b1): buyCheapestFull  (every slot has a snack)
+    // Part (b1): buyCheapestFull (every slot has a snack)
     // ==================================================================
 
     private static void testBuyCheapestFull() {
@@ -182,125 +169,73 @@ public class Tester {
     private static void runFullGridTests(boolean full) {
         String name = full ? "buyCheapestFull()" : "buyCheapest()";
 
-        test("1 x 1 machine", () ->
-                buyOnce(full, 0, 0, "only:1.00"));
+        test("1 x 1 machine", () -> buyOnce(full, 0, 0, "only:1.00"));
 
-        test("Single cheapest snack in the top-left corner", () ->
-                buyOnce(full, 0, 0,
-                        "a:0.50 b:1.00 c:1.00 d:1.00",
-                        "e:1.00 f:1.00 g:1.00 h:1.00",
-                        "i:1.00 j:1.00 k:1.00 l:1.00"));
+        test("Single cheapest snack in the top-left corner", () -> buyOnce(full, 0, 0, "a:0.50 b:1.00 c:1.00 d:1.00",
+                "e:1.00 f:1.00 g:1.00 h:1.00", "i:1.00 j:1.00 k:1.00 l:1.00"));
 
-        test("Single cheapest snack in the top-right corner", () ->
-                buyOnce(full, 0, 3,
-                        "a:1.00 b:1.00 c:1.00 d:0.50",
-                        "e:1.00 f:1.00 g:1.00 h:1.00",
-                        "i:1.00 j:1.00 k:1.00 l:1.00"));
+        test("Single cheapest snack in the top-right corner", () -> buyOnce(full, 0, 3, "a:1.00 b:1.00 c:1.00 d:0.50",
+                "e:1.00 f:1.00 g:1.00 h:1.00", "i:1.00 j:1.00 k:1.00 l:1.00"));
 
-        test("Single cheapest snack in the bottom-left corner", () ->
-                buyOnce(full, 2, 0,
-                        "a:1.00 b:1.00 c:1.00 d:1.00",
-                        "e:1.00 f:1.00 g:1.00 h:1.00",
-                        "i:0.50 j:1.00 k:1.00 l:1.00"));
+        test("Single cheapest snack in the bottom-left corner", () -> buyOnce(full, 2, 0, "a:1.00 b:1.00 c:1.00 d:1.00",
+                "e:1.00 f:1.00 g:1.00 h:1.00", "i:0.50 j:1.00 k:1.00 l:1.00"));
 
-        test("Single cheapest snack in the bottom-right corner", () ->
-                buyOnce(full, 2, 3,
-                        "a:1.00 b:1.00 c:1.00 d:1.00",
-                        "e:1.00 f:1.00 g:1.00 h:1.00",
-                        "i:1.00 j:1.00 k:1.00 l:0.50"));
+        test("Single cheapest snack in the bottom-right corner", () -> buyOnce(full, 2, 3,
+                "a:1.00 b:1.00 c:1.00 d:1.00", "e:1.00 f:1.00 g:1.00 h:1.00", "i:1.00 j:1.00 k:1.00 l:0.50"));
 
-        test("Single cheapest snack in the middle", () ->
-                buyOnce(full, 1, 2,
-                        "a:3.00 b:2.50 c:2.00 d:4.00",
-                        "e:1.75 f:2.25 g:0.95 h:1.10",
-                        "i:5.00 j:1.25 k:3.50 l:1.00"));
+        test("Single cheapest snack in the middle", () -> buyOnce(full, 1, 2, "a:3.00 b:2.50 c:2.00 d:4.00",
+                "e:1.75 f:2.25 g:0.95 h:1.10", "i:5.00 j:1.25 k:3.50 l:1.00"));
 
-        test("Prices only one cent apart", () ->
-                buyOnce(full, 0, 1,
-                        "a:1.01 b:1.00",
-                        "c:1.01 d:1.01"));
+        test("Prices only one cent apart", () -> buyOnce(full, 0, 1, "a:1.01 b:1.00", "c:1.01 d:1.01"));
 
-        test("Tie in the same column: bottom row wins", () ->
-                buyOnce(full, 2, 3,
-                        "a:1.00 b:1.00 c:1.00 d:0.50",
-                        "e:1.00 f:1.00 g:1.00 h:1.00",
-                        "i:1.00 j:1.00 k:1.00 l:0.50"));
+        test("Tie in the same column: bottom row wins", () -> buyOnce(full, 2, 3, "a:1.00 b:1.00 c:1.00 d:0.50",
+                "e:1.00 f:1.00 g:1.00 h:1.00", "i:1.00 j:1.00 k:1.00 l:0.50"));
 
-        test("Tie in the same column, not the last column: bottom row wins", () ->
-                buyOnce(full, 1, 1,
-                        "a:1.00 b:0.50 c:1.00 d:1.00",
-                        "e:1.00 f:0.50 g:1.00 h:1.00",
-                        "i:1.00 j:2.00 k:1.00 l:1.00"));
+        test("Tie in the same column, not the last column: bottom row wins", () -> buyOnce(full, 1, 1,
+                "a:1.00 b:0.50 c:1.00 d:1.00", "e:1.00 f:0.50 g:1.00 h:1.00", "i:1.00 j:2.00 k:1.00 l:1.00"));
 
-        test("Tie between top-left and bottom-right: bottom-right wins", () ->
-                buyOnce(full, 2, 3,
-                        "a:0.50 b:1.00 c:1.00 d:1.00",
-                        "e:1.00 f:1.00 g:1.00 h:1.00",
-                        "i:1.00 j:1.00 k:1.00 l:0.50"));
+        test("Tie between top-left and bottom-right: bottom-right wins", () -> buyOnce(full, 2, 3,
+                "a:0.50 b:1.00 c:1.00 d:1.00", "e:1.00 f:1.00 g:1.00 h:1.00", "i:1.00 j:1.00 k:1.00 l:0.50"));
 
-        test("Tie between bottom-left and top-right: top-right wins (columns come first)", () ->
-                buyOnce(full, 0, 3,
-                        "a:1.00 b:1.00 c:1.00 d:0.50",
-                        "e:1.00 f:1.00 g:1.00 h:1.00",
-                        "i:0.50 j:1.00 k:1.00 l:1.00"));
+        test("Tie between bottom-left and top-right: top-right wins (columns come first)", () -> buyOnce(full, 0, 3,
+                "a:1.00 b:1.00 c:1.00 d:0.50", "e:1.00 f:1.00 g:1.00 h:1.00", "i:0.50 j:1.00 k:1.00 l:1.00"));
 
-        test("Three-way tie across two columns", () ->
-                buyOnce(full, 1, 2,
-                        "a:1.00 b:0.75 c:0.75 d:1.00",
-                        "e:1.00 f:1.00 g:0.75 h:1.00",
-                        "i:0.75 j:1.00 k:1.00 l:1.00"));
+        test("Three-way tie across two columns", () -> buyOnce(full, 1, 2, "a:1.00 b:0.75 c:0.75 d:1.00",
+                "e:1.00 f:1.00 g:0.75 h:1.00", "i:0.75 j:1.00 k:1.00 l:1.00"));
 
-        test("Every snack the same price: bottom-right wins", () ->
-                buyOnce(full, 2, 3,
-                        "a:1.00 b:1.00 c:1.00 d:1.00",
-                        "e:1.00 f:1.00 g:1.00 h:1.00",
-                        "i:1.00 j:1.00 k:1.00 l:1.00"));
+        test("Every snack the same price: bottom-right wins", () -> buyOnce(full, 2, 3, "a:1.00 b:1.00 c:1.00 d:1.00",
+                "e:1.00 f:1.00 g:1.00 h:1.00", "i:1.00 j:1.00 k:1.00 l:1.00"));
 
-        test("One row, tie: rightmost wins", () ->
-                buyOnce(full, 0, 3, "a:0.50 b:1.00 c:0.50 d:0.50 e:2.00"));
+        test("One row, tie: rightmost wins", () -> buyOnce(full, 0, 3, "a:0.50 b:1.00 c:0.50 d:0.50 e:2.00"));
 
-        test("One column, tie: bottom wins", () ->
-                buyOnce(full, 3, 0, "a:0.50", "b:1.00", "c:0.50", "d:0.50", "e:2.00"));
+        test("One column, tie: bottom wins",
+                () -> buyOnce(full, 3, 0, "a:0.50", "b:1.00", "c:0.50", "d:0.50", "e:2.00"));
 
-        test("Tall, narrow machine (5 x 2)", () ->
-                buyOnce(full, 3, 0,
-                        "a:2.00 b:1.50",
-                        "c:1.00 d:1.25",
-                        "e:0.60 f:0.90",
-                        "g:0.60 h:0.70",
-                        "i:3.00 j:0.65"));
+        test("Tall, narrow machine (5 x 2)", () -> buyOnce(full, 3, 0, "a:2.00 b:1.50", "c:1.00 d:1.25",
+                "e:0.60 f:0.90", "g:0.60 h:0.70", "i:3.00 j:0.65"));
 
-        test("Wide machine (2 x 6), cheapest snack is in an early column", () ->
-                buyOnce(full, 1, 0,
-                        "a:0.95 b:1.00 c:1.00 d:1.00 e:1.00 f:1.00",
-                        "g:0.90 h:1.00 i:1.00 j:1.00 k:1.00 l:1.00"));
+        test("Wide machine (2 x 6), cheapest snack is in an early column", () -> buyOnce(full, 1, 0,
+                "a:0.95 b:1.00 c:1.00 d:1.00 e:1.00 f:1.00", "g:0.90 h:1.00 i:1.00 j:1.00 k:1.00 l:1.00"));
 
-        test("Cheapest snack is the very last one checked, after a tie", () ->
-                buyOnce(full, 0, 0,
-                        "a:0.25 b:0.50",
-                        "c:0.50 d:0.50"));
+        test("Cheapest snack is the very last one checked, after a tie",
+                () -> buyOnce(full, 0, 0, "a:0.25 b:0.50", "c:0.50 d:0.50"));
 
-        test("Machine of all different prices (" + name + ")", () ->
-                buyOnce(full, 2, 1,
-                        "a:1.10 b:1.20 c:1.30",
-                        "d:1.40 e:1.50 f:1.60",
-                        "g:1.70 h:0.80 i:1.90"));
+        test("Machine of all different prices (" + name + ")",
+                () -> buyOnce(full, 2, 1, "a:1.10 b:1.20 c:1.30", "d:1.40 e:1.50 f:1.60", "g:1.70 h:0.80 i:1.90"));
     }
 
     // ==================================================================
-    // Part (b2): buyCheapest  (slots may be empty)
+    // Part (b2): buyCheapest (slots may be empty)
     // ==================================================================
 
     private static void testBuyCheapest() {
         section("Part (b2): buyCheapest");
 
         test("FRQ example: three calls in a row", () -> {
-            VendingMachine m = machine(
-                    "-            gum:0.75   chips:1.50     mints:0.75",
-                    "candy:1.25   -          pretzels:1.00  -",
-                    "cookies:2.00 mints:0.75 -              popcorn:1.75");
+            VendingMachine m = machine("-            gum:0.75   chips:1.50     mints:0.75",
+                    "candy:1.25   -          pretzels:1.00  -", "cookies:2.00 mints:0.75 -              popcorn:1.75");
             Snack[][] expected = copy(start);
-            int[][] order = {{0, 3}, {2, 1}, {0, 1}};
+            int[][] order = { { 0, 3 }, { 2, 1 }, { 0, 1 } };
             for (int i = 0; i < order.length; i++) {
                 String call = "buyCheapest() call " + (i + 1);
                 int r = order[i][0];
@@ -325,64 +260,36 @@ public class Tester {
             checkGrid("buyCheapest()", start, m);
         });
 
-        test("Top-left slot [0][0] is empty", () ->
-                buyOnce(false, 1, 1,
-                        "-      b:1.00 c:1.00",
-                        "d:1.00 e:0.25 f:1.00"));
+        test("Top-left slot [0][0] is empty",
+                () -> buyOnce(false, 1, 1, "-      b:1.00 c:1.00", "d:1.00 e:0.25 f:1.00"));
 
-        test("Bottom-right slot is empty (first slot checked)", () ->
-                buyOnce(false, 0, 2,
-                        "a:1.00 b:1.00 c:0.50",
-                        "d:1.00 e:1.00 -"));
+        test("Bottom-right slot is empty (first slot checked)",
+                () -> buyOnce(false, 0, 2, "a:1.00 b:1.00 c:0.50", "d:1.00 e:1.00 -"));
 
-        test("Last column is completely empty", () ->
-                buyOnce(false, 1, 0,
-                        "a:1.00 b:2.00 -",
-                        "c:0.50 d:1.00 -",
-                        "e:3.00 f:0.75 -"));
+        test("Last column is completely empty",
+                () -> buyOnce(false, 1, 0, "a:1.00 b:2.00 -", "c:0.50 d:1.00 -", "e:3.00 f:0.75 -"));
 
-        test("Last row is completely empty", () ->
-                buyOnce(false, 0, 1,
-                        "a:1.00 b:0.10 c:1.00",
-                        "-      -      -"));
+        test("Last row is completely empty", () -> buyOnce(false, 0, 1, "a:1.00 b:0.10 c:1.00", "-      -      -"));
 
-        test("Only one snack in the machine (top-left)", () ->
-                buyOnce(false, 0, 0,
-                        "a:9.99 -  -",
-                        "-      -  -",
-                        "-      -  -"));
+        test("Only one snack in the machine (top-left)",
+                () -> buyOnce(false, 0, 0, "a:9.99 -  -", "-      -  -", "-      -  -"));
 
-        test("Only one snack in the machine (middle)", () ->
-                buyOnce(false, 1, 1,
-                        "-  -      -",
-                        "-  a:9.99 -",
-                        "-  -      -"));
+        test("Only one snack in the machine (middle)",
+                () -> buyOnce(false, 1, 1, "-  -      -", "-  a:9.99 -", "-  -      -"));
 
-        test("Only one snack in the machine (bottom-left)", () ->
-                buyOnce(false, 2, 0,
-                        "-      -  -",
-                        "-      -  -",
-                        "a:9.99 -  -"));
+        test("Only one snack in the machine (bottom-left)",
+                () -> buyOnce(false, 2, 0, "-      -  -", "-      -  -", "a:9.99 -  -"));
 
-        test("Tie in a column with an empty slot between them: bottom wins", () ->
-                buyOnce(false, 3, 2,
-                        "a:1.00 -      b:0.50",
-                        "-      c:1.00 -",
-                        "d:1.00 -      -",
-                        "-      e:1.00 f:0.50"));
+        test("Tie in a column with an empty slot between them: bottom wins", () -> buyOnce(false, 3, 2,
+                "a:1.00 -      b:0.50", "-      c:1.00 -", "d:1.00 -      -", "-      e:1.00 f:0.50"));
 
-        test("Tie in different columns with empty slots: rightmost column wins", () ->
-                buyOnce(false, 0, 2,
-                        "-      -      g:0.40 -",
-                        "a:0.40 -      -      -",
-                        "-      b:2.00 -      -"));
+        test("Tie in different columns with empty slots: rightmost column wins", () -> buyOnce(false, 0, 2,
+                "-      -      g:0.40 -", "a:0.40 -      -      -", "-      b:2.00 -      -"));
 
         test("Buy everything from the FRQ machine, then get null", () -> {
-            VendingMachine m = machine(
-                    "-            gum:0.75   chips:1.50     mints:0.75",
-                    "candy:1.25   -          pretzels:1.00  -",
-                    "cookies:2.00 mints:0.75 -              popcorn:1.75");
-            int[][] order = {{0, 3}, {2, 1}, {0, 1}, {1, 2}, {1, 0}, {0, 2}, {2, 3}, {2, 0}};
+            VendingMachine m = machine("-            gum:0.75   chips:1.50     mints:0.75",
+                    "candy:1.25   -          pretzels:1.00  -", "cookies:2.00 mints:0.75 -              popcorn:1.75");
+            int[][] order = { { 0, 3 }, { 2, 1 }, { 0, 1 }, { 1, 2 }, { 1, 0 }, { 0, 2 }, { 2, 3 }, { 2, 0 } };
             Snack[][] expected = copy(start);
             for (int i = 0; i < order.length; i++) {
                 String call = "buyCheapest() call " + (i + 1);
@@ -440,7 +347,9 @@ public class Tester {
     // Test helpers
     // ==================================================================
 
-    /** Calls the buy method once and checks the snack returned and the grid after. */
+    /**
+     * Calls the buy method once and checks the snack returned and the grid after.
+     */
     private static void buyOnce(boolean full, int expRow, int expCol, String... rows) {
         VendingMachine m = machine(rows);
         String call = full ? "buyCheapestFull()" : "buyCheapest()";
@@ -468,10 +377,8 @@ public class Tester {
                 if (g[r][c] != null) {
                     int myRank = (cols - 1 - c) * rows + (rows - 1 - r);
                     int i = 0;
-                    while (i < expectedOrder.size()
-                            && (expectedOrder.get(i).getPrice() < g[r][c].getPrice()
-                                || (expectedOrder.get(i).getPrice() == g[r][c].getPrice()
-                                    && rank.get(i) < myRank))) {
+                    while (i < expectedOrder.size() && (expectedOrder.get(i).getPrice() < g[r][c].getPrice()
+                            || (expectedOrder.get(i).getPrice() == g[r][c].getPrice() && rank.get(i) < myRank))) {
                         i++;
                     }
                     expectedOrder.add(i, g[r][c]);
@@ -500,8 +407,7 @@ public class Tester {
 
     private static void checkSnack(String call, Snack expected, Snack received) {
         if (expected != received) {
-            throw new AssertionError(call + " expected " + describe(expected)
-                    + " received " + describe(received));
+            throw new AssertionError(call + " expected " + describe(expected) + " received " + describe(received));
         }
     }
 
@@ -512,14 +418,14 @@ public class Tester {
             for (int c = 0; c < expected[r].length; c++) {
                 Snack got = m.getSnack(r, c);
                 if (got != expected[r][c]) {
-                    problems += "\n      slot [" + r + "][" + c + "] expected "
-                            + describe(expected[r][c]) + " received " + describe(got);
+                    problems += "\n      slot [" + r + "][" + c + "] expected " + describe(expected[r][c])
+                            + " received " + describe(got);
                 }
             }
         }
         if (!problems.isEmpty()) {
-            throw new AssertionError("after " + call + ", the machine is wrong:" + problems
-                    + "\n      machine now:\n" + indent(m.toString()));
+            throw new AssertionError("after " + call + ", the machine is wrong:" + problems + "\n      machine now:\n"
+                    + indent(m.toString()));
         }
     }
 
@@ -537,8 +443,7 @@ public class Tester {
             failed++;
             sectionFailed++;
             StackTraceElement where = findStudentLine(e);
-            System.out.println("FAIL: " + description + "\n    threw " + e
-                    + (where == null ? "" : " at " + where));
+            System.out.println("FAIL: " + description + "\n    threw " + e + (where == null ? "" : " at " + where));
         }
     }
 
@@ -561,8 +466,7 @@ public class Tester {
     }
 
     private static void endSection() {
-        summary.add(String.format("%-28s %3d / %3d passed", sectionName,
-                sectionPassed, sectionPassed + sectionFailed));
+        summary.add(String.format("%-28s %3d / %3d passed", sectionName, sectionPassed, sectionPassed + sectionFailed));
     }
 
     // ==================================================================
@@ -604,7 +508,9 @@ public class Tester {
         }
     }
 
-    /** "mints $0.75 [0][3]" using the slot the snack started in, or "null" / "--". */
+    /**
+     * "mints $0.75 [0][3]" using the slot the snack started in, or "null" / "--".
+     */
     private static String describe(Snack s) {
         if (s == null) {
             return "null";

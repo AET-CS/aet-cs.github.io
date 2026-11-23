@@ -1,9 +1,9 @@
 /**
- * A vending machine whose slots are arranged in a rectangular grid.
- * An empty slot is null.
+ * A vending machine whose slots are arranged in a rectangular grid. An empty
+ * slot is null.
  *
- * The constructors, getters, and toString are done for you.
- * YOUR JOB: complete restock, buyCheapestFull, and buyCheapest.
+ * The constructors, getters, and toString are done for you. YOUR JOB: complete
+ * restock, buyCheapestFull, and buyCheapest.
  */
 public class VendingMachine {
     /** slots contains at least one row and is initialized in the constructor. */
@@ -33,45 +33,27 @@ public class VendingMachine {
     }
 
     // ------------------------------------------------------------------
-    // Part (a)
+    // Part (a) See assignment
     // ------------------------------------------------------------------
 
-    /**
-     * Places s in the leftmost empty slot of the given row, if possible.
-     * Returns true if s was placed and false otherwise.
-     * Precondition: row is a valid row index in slots; s is not null.
-     */
     public boolean restock(int row, Snack s) {
         // TODO: Part (a)
         return false;
     }
 
     // ------------------------------------------------------------------
-    // Part (b1)  -- warm-up: the machine is completely full
+    // Part (b1) -- See assignment
     // ------------------------------------------------------------------
 
-    /**
-     * Removes from slots and returns the lowest-priced snack.
-     * Ties go to the first snack found when traversing slots starting
-     * with the last column, bottom row to top row, then the next-to-last
-     * column bottom to top, and so on, ending with the first column.
-     *
-     * Precondition: EVERY element of slots contains a snack (no nulls).
-     */
     public Snack buyCheapestFull() {
         // TODO: Part (b1)
         return null;
     }
 
     // ------------------------------------------------------------------
-    // Part (b2)  -- the real FRQ: slots may be empty
+    // Part (b2) -- See assignment
     // ------------------------------------------------------------------
 
-    /**
-     * Removes from slots and returns the lowest-priced snack, or returns null
-     * if slots contains no snacks. Same traversal order and tie rule as
-     * buyCheapestFull, but any element of slots may be null.
-     */
     public Snack buyCheapest() {
         // TODO: Part (b2)
         return null;

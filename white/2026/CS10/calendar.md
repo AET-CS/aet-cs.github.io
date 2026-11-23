@@ -6,6 +6,13 @@ classes:
 ---
 
 ## Daily Calendar
+- November 23, 2025 (Monday)
+    - Vending Machine [coding project](./VendingMachine/VendingMachine-assignment.pdf). Download these files
+        - [Snack.java](./VendingMachine/Snack.java)
+        - [Tester.java](./VendingMachine/Tester.java)
+        - [VendingMachine.java](./VendingMachine/VendingMachine.java)
+        - [VendingMachineApp.java](./VendingMachine/VendingMachineApp.java)
+    - Turn in by end of class
 - November 19, 2026 (Thursday)
     - 2D Array Test in class: MC/FRQ
 - November 17, 2026 (Tuesday)
